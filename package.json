@@ -1,0 +1,23 @@
+{
+  "name": "webdocs-data-get-mdn-content",
+  "version": "0.0.1",
+  "type": "module",
+  "devDependencies": {
+    "@mdn/browser-compat-data": "^5.2.47",
+    "@webref/css": "^6.4.5",
+    "glob": "^10.3.0",
+    "markdown-to-text": "^0.1.1",
+    "mdn-flavored-markdown": "^0.0.3",
+    "mdn-kumascript": "^0.0.4",
+    "node-html-parser": "^6.1.5",
+    "rimraf": "^5.0.1"
+  },
+  "scripts": {
+    "get-mdn-content": "git clone --depth 1 https://github.com/mdn/content.git",
+    "extract-mdn-data": "node ./extract-mdn-data.js",
+    "convert-to-html": "node ./convert-to-html.js",
+    "expand-macros": "node ./expand-macros.js",
+    "post-process-html": "node ./post-process-html.js",
+    "cleanup": "npx rimraf content"
+  }
+}
