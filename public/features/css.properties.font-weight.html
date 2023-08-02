@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-weight</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-weight</h1><main>
+    
+
+<p>The <strong><code>font-weight</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the weight (or boldness) of the font. The weights available depend on the <a href="./css.properties.font-family.html"><code>font-family</code></a> that is currently set.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-weight: normal;
+font-weight: bold;
+
+/* Keyword values relative to the parent */
+font-weight: lighter;
+font-weight: bolder;
+
+/* Numeric keyword values */
+font-weight: 100;
+font-weight: 200;
+font-weight: 300;
+font-weight: 400; /* normal */
+font-weight: 500;
+font-weight: 600;
+font-weight: 700; /* bold */
+font-weight: 800;
+font-weight: 900;
+
+/* Global values */
+font-weight: inherit;
+font-weight: initial;
+font-weight: revert;
+font-weight: revert-layer;
+font-weight: unset;
+</pre>
+<p>The <code>font-weight</code> property is specified using any one of the values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Normal font weight. Same as <code>400</code>.</p>
+  </dd>
+  <dt><code>bold</code></dt>
+  <dd>
+    <p>Bold font weight. Same as <code>700</code>.</p>
+  </dd>
+  <dt><code>lighter</code></dt>
+  <dd>
+    <p>One relative font weight lighter than the parent element. Note that only four font weights are considered for relative weight calculation; see the <a href="#meaning_of_relative_weights">Meaning of relative weights</a> section below.</p>
+  </dd>
+  <dt><code>bolder</code></dt>
+  <dd>
+    <p>One relative font weight heavier than the parent element. Note that only four font weights are considered for relative weight calculation; see the <a href="#meaning_of_relative_weights">Meaning of relative weights</a> section below.</p>
+  </dd>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> value between 1 and 1000, inclusive. Higher numbers represent weights that are bolder than (or as bold as) lower numbers. Certain commonly used values correspond to common weight names, as described in the <a href="#common_weight_name_mapping">Common weight name mapping</a> section below.</p>
+  </dd>
+</dl>
+<p>In earlier versions of the <code>font-weight</code> specification, the property accepts only keyword values and the numeric values 100, 200, 300, 400, 500, 600, 700, 800, and 900; non-variable fonts can only really make use of these set values, although fine-grained values (e.g. 451) will be translated to one of these values for non-variable fonts using the <a href="#fallback_weights">Fallback weights</a> system.</p>
+<p>CSS Fonts Level 4 extends the syntax to accept any number between 1 and 1000 and introduces <a href="#variable_fonts">Variable fonts</a>, which can make use of this much finer-grained range of font weights.</p>
+<h3>Fallback weights</h3>
+<p>If the exact weight given is unavailable, then the following rule is used to determine the weight actually rendered:</p>
+<ul>
+  <li>If the target weight given is between <code>400</code> and <code>500</code> inclusive:
+    <ul>
+      <li>Look for available weights between the target and <code>500</code>, in ascending order.</li>
+      <li>If no match is found, look for available weights less than the target, in descending order.</li>
+      <li>If no match is found, look for available weights greater than <code>500</code>, in ascending order.</li>
+    </ul>
+  </li>
+  <li>If a weight less than <code>400</code> is given, look for available weights less than the target, in descending order. If no match is found, look for available weights greater than the target, in ascending order.</li>
+  <li>If a weight greater than <code>500</code> is given, look for available weights greater than the target, in ascending order. If no match is found, look for available weights less than the target, in descending order.</li>
+</ul>
+<h3>Meaning of relative weights</h3>
+<p>When <code>lighter</code> or <code>bolder</code> is specified, the below chart shows how the absolute font weight of the element is determined.</p>
+<p>Note that when using relative weights, only four font weights are considered — thin (100), normal (400), bold (700), and heavy (900). If a font-family has more weights available, they are ignored for the purposes of relative weight calculation.</p>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th>Inherited value</th>
+      <th><code>bolder</code></th>
+      <th><code>lighter</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>400</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>400</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>400</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>700</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>500</th>
+      <td>700</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>600</th>
+      <td>900</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>900</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <th>800</th>
+      <td>900</td>
+      <td>700</td>
+    </tr>
+    <tr>
+      <th>900</th>
+      <td>900</td>
+      <td>700</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Common weight name mapping</h3>
+<p>The numerical values <code>100</code> to <code>900</code> roughly correspond to the following common weight names (see the <a href="https://docs.microsoft.com/typography/opentype/spec/os2#usweightclass">OpenType specification</a>):</p>
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Common weight name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Thin (Hairline)</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Extra Light (Ultra Light)</td>
+    </tr>
+    <tr>
+      <td>300</td>
+      <td>Light</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Normal (Regular)</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>600</td>
+      <td>Semi Bold (Demi Bold)</td>
+    </tr>
+    <tr>
+      <td>700</td>
+      <td>Bold</td>
+    </tr>
+    <tr>
+      <td>800</td>
+      <td>Extra Bold (Ultra Bold)</td>
+    </tr>
+    <tr>
+      <td>900</td>
+      <td>Black (Heavy)</td>
+    </tr>
+    <tr>
+      <td>950</td>
+      <td><a href="https://docs.microsoft.com/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks">Extra Black (Ultra Black)</a></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Variable fonts</h3>
+<p>Most fonts have a particular weight which corresponds to one of the numbers in <a href="#common_weight_name_mapping">Common weight name mapping</a>. However some fonts, called variable fonts, can support a range of weights with a more or less fine granularity, and this can give the designer a much closer degree of control over the chosen weight.</p>
+<p>For TrueType or OpenType variable fonts, the "wght" variation is used to implement varying widths.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> For the example below to work, you'll need a browser that supports the CSS Fonts Level 4 syntax in which <code>font-weight</code> can be any number between <code>1</code> and <code>1000</code>. The demo loads with <code>font-weight: 500;</code>. Change the value to see the weight of the text change.</p>
+</div><iframe width="100%" height="860" src="https://mdn.github.io/css-examples/variable-fonts/font-weight.html"></iframe>
+<h2>Accessibility concerns</h2>
+<p>People experiencing low vision conditions may have difficulty reading text set with a <code>font-weight</code> value of <code>100</code> (Thin/Hairline) or <code>200</code> (Extra Light), especially if the font has a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#accessibility_concerns">low contrast color ratio</a>.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html">Understanding Success Criterion 1.4.8 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>a number, see below</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;font-weight-absolute&gt; | bolder | lighter</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  Alice was beginning to get very tired of sitting by her sister on the bank,
+  and of having nothing to do: once or twice she had peeped into the book her
+  sister was reading, but it had no pictures or conversations in it, "and what
+  is the use of a book," thought Alice "without pictures or conversations?"
+&#x3C;/p>
+
+&#x3C;div>
+  I'm heavy&#x3C;br />
+  &#x3C;span>I'm lighter&#x3C;/span>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Set paragraph text to be bold. */
+p {
+  font-weight: bold;
+}
+
+/* Set div text to two steps heavier than
+   normal but less than a standard bold. */
+div {
+  font-weight: 600;
+}
+
+/* Set span text to be one step lighter
+   than its parent. */
+span {
+  font-weight: lighter;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals">Fundamental text and font styling</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-weight-prop">https://drafts.csswg.org/css-fonts/#font-weight-prop</a></p></section></aside></body>
+</html>

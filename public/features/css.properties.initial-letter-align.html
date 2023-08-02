@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>initial-letter-align</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties initial-letter-align</h1><main>
+    
+
+<p>The <strong><code>initial-letter-align</code></strong> CSS property specifies the alignment of initial letters within a paragraph.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+initial-letter-align: auto;
+initial-letter-align: alphabetic;
+initial-letter-align: hanging;
+initial-letter-align: ideographic;
+
+/* Global values */
+initial-letter-align: inherit;
+initial-letter-align: initial;
+initial-letter-align: revert;
+initial-letter-align: revert-layer;
+initial-letter-align: unset;
+</pre>
+<p>One of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The user agent selects the value which corresponds to the language of the text. Western languages would default to alphabetic, CJK languages to ideographic, and some Indic languages to hanging.</p>
+  </dd>
+  <dt><code>alphabetic</code></dt>
+  <dd>
+    <p>As described above, the cap height of the initial letter aligns with the cap height of the first line of text. The baseline of the initial letter aligns with the baseline of the Nth text baseline.</p>
+  </dd>
+  <dt><code>hanging</code></dt>
+  <dd>
+    <p>The hanging baseline of the initial letter aligns with the hanging baseline of the first line of text.</p>
+  </dd>
+  <dt><code>ideographic</code></dt>
+  <dd>
+    <p>The initial letter is centered in the N-line area.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>alphabetic</td></tr><tr><th scope="row">Applies to</th><td>certain inline-level boxes and ::first-letter and inside ::marker boxes (see prose)</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ border-box? [ alphabetic | ideographic | hanging | leading ]? ]!</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="auto ">Initial letter - auto&#x3C;/p>
+&#x3C;p class="alphabetic">Initial letter - alphabetic&#x3C;/p>
+&#x3C;p class="hanging">Initial letter - hanging&#x3C;/p>
+&#x3C;p class="ideographic">Initial letter - ideographic&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.auto::first-letter {
+  -webkit-initial-letter-align: auto;
+  initial-letter-align: auto;
+}
+
+.alphabetic::first-letter {
+  -webkit-initial-letter-align: alphabetic;
+  initial-letter-align: alphabetic;
+}
+
+.hanging::first-letter {
+  -webkit-initial-letter-align: hanging;
+  initial-letter-align: hanging;
+}
+
+.ideographic::first-letter {
+  -webkit-initial-letter-align: ideographic;
+  initial-letter-align: ideographic;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.initial-letter.html"><code>initial-letter</code></a></li>
+  <li><a href="https://www.oddbird.net/2017/01/03/initial-letter/">Drop caps in CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-inline/#aligning-initial-letter">https://drafts.csswg.org/css-inline/#aligning-initial-letter</a></p></section></aside></body>
+</html>

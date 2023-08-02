@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>base-palette</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-palette-values base-palette</h1><main>
+    
+
+<p>The <strong><code>base-palette</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_Descriptor">descriptor</a> is used to specify the name or index of a pre-defined palette to be used for creating a new palette. If the specified <code>base-palette</code> does not exist, then the palette defined at index 0 will be used.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">@font-palette-values --one {
+  base-palette: 1;
+}
+</pre>
+<p>The <code>base-palette</code> <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_Descriptor">descriptor</a> is specified using a zero-based index of the font-maker created palettes.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;index></code></dt>
+  <dd>
+    <p>Specifies the index of the pre-defined palette to use.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Changing the default palette in a font</h3>
+<p>Using the <a href="https://www.harbortype.com/fonts/rocher-color/">Rocher Color Font</a>, this example shows two instances of switching the default palette in the font to an alternate palette created by the font-maker.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>default base-palette&#x3C;/h2>
+&#x3C;h2 class="two">base-palette at index 2&#x3C;/h2>
+&#x3C;h2 class="five">base-palette at index 5&#x3C;/h2>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@font-face {
+  font-family: "Rocher";
+  src: url("[path-to-font]/RocherColorGX.woff2") format("woff2");
+}
+
+h2 {
+  font-family: "Rocher";
+}
+
+@font-palette-values --two {
+  font-family: "Rocher";
+  base-palette: 2;
+}
+
+@font-palette-values --five {
+  font-family: "Rocher";
+  base-palette: 5;
+}
+
+.two {
+  font-palette: --two;
+}
+
+.five {
+  font-palette: --five;
+}
+</pre>
+<h4>Result</h4>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values/base-palette/./rocher-color-font-alt-base-palettes.jpg" alt="Example showing 3 different base-palettes of Rocher color font">
+</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values/"><code>@font-palette-values</code></a></li>
+  <li><a href="./css.at-rules.font-palette-values.font-family.html"><code>font-family</code></a> descriptor</li>
+  <li><a href="./css.at-rules.font-palette-values.override-colors.html"><code>override-colors</code></a> descriptor</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-palette/"><code>font-palette</code></a> property</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSFontPaletteValuesRule/basePalette"><code>CSSFontPaletteValuesRule.basePalette</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 101</li><li><strong>chrome_android</strong>: 101</li><li><strong>edge</strong>: 101</li><li><strong>firefox</strong>: 107</li><li><strong>firefox_android</strong>: 107</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 22.0</li><li><strong>opera</strong>: 87</li><li><strong>opera_android</strong>: 70</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 19.0</li><li><strong>webview_android</strong>: 101</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#base-palette-desc">https://drafts.csswg.org/css-fonts/#base-palette-desc</a></p></section></aside></body>
+</html>

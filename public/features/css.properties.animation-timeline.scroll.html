@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-timeline scroll()</h1><main>
+    
+
+<p>The <strong><code>scroll()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">CSS function</a> can be used with <a href="./css.properties.animation-timeline.html"><code>animation-timeline()</code></a> to indicate a scrollable element (<em>scroller</em>) and scrollbar axis that will provide an anonymous scroll progress timeline for animating the current element. The scroll progress timeline is progressed through by scrolling the scroller between top and bottom (or left and right). The position in the scroll range is converted into a percentage of progress — 0% at the start and 100% at the end.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the indicated axis does not contain a scrollbar, then the animation timeline will be inactive (have zero progress).</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> Each use of <code>scroll()</code> corresponds to its own unique instance of <a href="https://developer.mozilla.org/en-US/docs/Web/API/ScrollTimeline"><code>ScrollTimeline</code></a> in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Function with no parameters set */
+animation-timeline: scroll();
+
+/* Values for selecting the scroller element */
+animation-timeline: scroll(nearest); /* Default */
+animation-timeline: scroll(root);
+animation-timeline: scroll(self);
+
+/* Values for selecting the axis */
+animation-timeline: scroll(block); /* Default */
+animation-timeline: scroll(inline);
+animation-timeline: scroll(y);
+animation-timeline: scroll(x);
+
+/* Examples that specify scroller and axis */
+animation-timeline: scroll(block nearest); /* Default */
+animation-timeline: scroll(inline root);
+animation-timeline: scroll(x self);
+</pre>
+<h3>Parameters</h3>
+<dl>
+  <dt>scroller</dt>
+  <dd>
+    <p>The value for indicating the scroller element that will provide the scroll progress timeline can be any one of the following:</p>
+    <dl>
+      <dt><code>nearest</code></dt>
+      <dd>
+        <p>The nearest ancestor of the current element that has scrollbars on either axis. This is the default value.</p>
+      </dd>
+      <dt><code>root</code></dt>
+      <dd>
+        <p>The root element of the document.</p>
+      </dd>
+      <dt><code>self</code></dt>
+      <dd>
+        <p>The current element itself.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt>axis</dt>
+  <dd>
+    <p>The scrollbar axis value can be any one of the following:</p>
+    <dl>
+      <dt><code>block</code></dt>
+      <dd>
+        <p>The scrollbar on the block axis of the scroll container, which is the axis in the direction perpendicular to the flow of text within a line. For horizontal writing modes, such as standard English, this is the same as <code>y</code>, while for vertical writing modes, it is the same as <code>x</code>. This is the default value.</p>
+      </dd>
+      <dt><code>inline</code></dt>
+      <dd>
+        <p>The scrollbar on the inline axis of the scroll container, which is the axis in the direction parallel to the flow of text in a line. For horizontal writing modes, this is the same as <code>x</code>, while for vertical writing modes, this is the same as <code>y</code>.</p>
+      </dd>
+      <dt><code>y</code></dt>
+      <dd>
+        <p>The scrollbar on the vertical axis of the scroll container.</p>
+      </dd>
+      <dt><code>x</code></dt>
+      <dd>
+        <p>The scrollbar on the horizontal axis of the scroll container.</p>
+      </dd>
+    </dl>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The scroller and axis values can be specified in any order.</p>
+</div>
+
+
+<h3>Setting an anonymous scroll progress timeline</h3>
+<p>
+  In this example, the <code>#square</code> element is animated using an anonymous scroll progress timeline, which is applied to the element to be animated using the <code>scroll()</code> function.
+  The timeline in this particular example is provided by the nearest parent element that has (any) scrollbar, from the scrollbar in the block direction.
+</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div id="square">&#x3C;/div>
+  &#x3C;div id="stretcher">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>
+  The CSS below defines a square that rotates in alternate directions according to the timeline provided by the <code>animation-timeline</code> property.
+  In this case, the timeline is provided by <code>scroll(block nearest)</code>, which means that it will select the scrollbar in the block direction of the nearest ancestor element that has scrollbars; in this case the vertical scrollbar of the "container" element.
+</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>block</code> and <code>nearest</code> are actually the default parameter values, so we could have used just <code>scroll()</code>.</p>
+</div>
+<pre class="brush: css">#square {
+  background-color: deeppink;
+  width: 100px;
+  height: 100px;
+  margin-top: 100px;
+  position: absolute;
+  bottom: 0;
+
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-direction: alternate;
+  animation-timeline: scroll(block nearest);
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<p>
+  The CSS for the container sets its height to 300px and we also set the container to create a vertical scrollbar if it overflows.
+  The "stretcher" CSS sets the block height to 600px, which forces the container element to overflow.
+  These two together ensure that the container has a vertical scrollbar, which allows it to be used as the source of the anonymous scroll progress timeline.
+</p>
+<pre class="brush: css">#container {
+  height: 300px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#stretcher {
+  height: 600px;
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll to see the square element being animated.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li><a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 115</li><li><strong>chrome_android</strong>: 115</li><li><strong>edge</strong>: 115</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 115</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/scroll-animations/#scroll-notation">https://drafts.csswg.org/scroll-animations/#scroll-notation</a></p></section></aside></body>
+</html>

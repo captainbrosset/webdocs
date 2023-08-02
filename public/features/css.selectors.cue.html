@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::cue"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::cue"</h1><main>
+    
+
+<p>The <strong><code>::cue</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> matches <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">WebVTT</a> cues within a selected element. This can be used to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API#styling_webvtt_cues">style captions and other cues</a> in media with VTT tracks.</p>
+<p>The properties are applied to the entire set of cues as if they were a single unit. The only exception is that <code>background</code> and its longhand properties apply to each cue individually, to avoid creating boxes and obscuring unexpectedly large areas of the media.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::cue | ::cue(&#x3C;selector>) {
+  /* ... */
+}
+</pre>
+<h2>Permitted properties</h2>
+<p>Rules whose selectors include this element may only use the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.background.html"><code>background</code></a></li>
+  <li><a href="./css.properties.background-attachment.html"><code>background-attachment</code></a></li>
+  <li><a href="./css.properties.background-clip.html"><code>background-clip</code></a></li>
+  <li><a href="./css.properties.background-color.html"><code>background-color</code></a></li>
+  <li><a href="./css.properties.background-image.html"><code>background-image</code></a></li>
+  <li><a href="./css.properties.background-origin.html"><code>background-origin</code></a></li>
+  <li><a href="./css.properties.background-position.html"><code>background-position</code></a></li>
+  <li><a href="./css.properties.background-repeat.html"><code>background-repeat</code></a></li>
+  <li><a href="./css.properties.background-size.html"><code>background-size</code></a></li>
+  <li><a href="./css.properties.color.html"><code>color</code></a></li>
+  <li><a href="./css.properties.font.html"><code>font</code></a></li>
+  <li><a href="./css.properties.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+  <li><a href="./css.properties.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.properties.line-height.html"><code>line-height</code></a></li>
+  <li><a href="./css.properties.opacity.html"><code>opacity</code></a></li>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a></li>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.outline-style.html"><code>outline-style</code></a></li>
+  <li><a href="./css.properties.outline-width.html"><code>outline-width</code></a></li>
+  <li><a href="./css.properties.ruby-position.html"><code>ruby-position</code></a></li>
+  <li><a href="./css.properties.text-combine-upright.html"><code>text-combine-upright</code></a></li>
+  <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a></li>
+  <li><a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a></li>
+  <li><a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a></li>
+  <li><a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a></li>
+  <li><a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a></li>
+  <li><a href="./css.properties.text-shadow.html"><code>text-shadow</code></a></li>
+  <li><a href="./css.properties.visibility.html"><code>visibility</code></a></li>
+  <li><a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+</ul>
+
+<h3>Styling WebVTT cues as white-on-black</h3>
+<p>The following CSS sets the cue style so that the text is white and the background is a translucent black box.</p>
+<pre class="brush: css">::cue {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Tracks Format (WebVTT)</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track"><code>&lt;track&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 26</li><li><strong>chrome_android</strong>: 26</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 55</li><li><strong>firefox_android</strong>: 55</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://w3c.github.io/webvtt/#the-cue-pseudo-element">https://w3c.github.io/webvtt/#the-cue-pseudo-element</a></p></section></aside></body>
+</html>

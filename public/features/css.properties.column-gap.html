@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-gap</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-gap</h1><main>
+    
+
+<p>The <strong><code>column-gap</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the size of the gap (<a href="/Glossary/Gutters">gutter</a>) between an element's columns.</p>
+<p>Initially a part of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout">Multi-column Layout</a>, the definition of <code>column-gap</code> has been broadened to include multiple layout methods. Now specified in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_alignment">Box Alignment</a>, it may be used in Multi-column, Flexible Box, and Grid layouts.</p>
+<p>Note that <code>grid-column-gap</code> is an alias for this property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+column-gap: normal;
+
+/* &#x3C;length> values */
+column-gap: 3px;
+column-gap: 2.5em;
+
+/* &#x3C;percentage> value */
+column-gap: 3%;
+
+/* Global values */
+column-gap: inherit;
+column-gap: initial;
+column-gap: revert;
+column-gap: revert-layer;
+column-gap: unset;
+</pre>
+<p>The <code>column-gap</code> property is specified as one of the values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The browser's default spacing is used between columns. For multi-column layout this is specified as <code>1em</code>. For all other layout types it is 0.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>The size of the gap between columns, defined as a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>. The <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> property's value must be non-negative.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>The size of the gap between columns, defined as a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>. The <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> property's value must be non-negative.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>multi-column containers, flex containers, grid containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword, else a computed &lt;length-percentage&gt; value</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | &lt;length-percentage [0,∞]&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="flexbox">
+  &#x3C;div>&#x3C;/div>
+  &#x3C;div>&#x3C;/div>
+  &#x3C;div>&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#flexbox {
+  display: flex;
+  height: 100px;
+  column-gap: 20px;
+}
+
+#flexbox > div {
+  border: 1px solid green;
+  background-color: lime;
+  flex: auto;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="grid">
+  &#x3C;div>&#x3C;/div>
+  &#x3C;div>&#x3C;/div>
+  &#x3C;div>&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#grid {
+  display: grid;
+  height: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;
+  column-gap: 20px;
+}
+
+#grid > div {
+  border: 1px solid green;
+  background-color: lime;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="content-box">
+  This is some multi-column text with a 40px column gap created with the CSS
+  `column-gap` property. Don't you think that's fun and exciting? I sure do!
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.content-box {
+  column-count: 3;
+  column-gap: 40px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.row-gap.html"><code>row-gap</code></a>, <a href="./css.properties.gap.html"><code>gap</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters">Basic concepts of grid layout - Gutters</a></em></li>
+  <li>Multi-column Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout/Styling_columns">Styling Columns</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 11.1</li><li><strong>opera_android</strong>: 11.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-align/#column-row-gap,https://drafts.csswg.org/css-grid/#gutters,https://drafts.csswg.org/css-multicol/#column-gap">https://drafts.csswg.org/css-align/#column-row-gap,https://drafts.csswg.org/css-grid/#gutters,https://drafts.csswg.org/css-multicol/#column-gap</a></p></section></aside></body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":optional"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":optional"</h1><main>
+    
+
+<p>The <strong><code>:optional</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents any <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a> element that does not have the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#required"><code>required</code></a> attribute set on it.</p>
+<p>This pseudo-class is useful for styling fields that are not required to submit a form.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <a href="./css.selectors.required.html"><code>:required</code></a> pseudo-class selects <em>required</em> form fields.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:optional {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;form>
+  &#x3C;div class="field">
+    &#x3C;label for="url_input">Enter a URL:&#x3C;/label>
+    &#x3C;input type="url" id="url_input" />
+  &#x3C;/div>
+
+  &#x3C;div class="field">
+    &#x3C;label for="email_input">Enter an email address:&#x3C;/label>
+    &#x3C;input type="email" id="email_input" required />
+  &#x3C;/div>
+&#x3C;/form>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">label {
+  display: block;
+  margin: 1px;
+  padding: 1px;
+}
+
+.field {
+  margin: 1px;
+  padding: 1px;
+}
+
+input:optional {
+  border-color: rebeccapurple;
+  border-width: 3px;
+}
+</pre>
+
+<h2>Accessibility concerns</h2>
+<p>If a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">form</a> contains optional <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a>s, required inputs should be indicated using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#required"><code>required</code></a> attribute. This will ensure that people navigating with the aid of assistive technology such as a screen reader will be able to understand which inputs need valid content to ensure a successful form submission.</p>
+<p>Required inputs should also be indicated visually, using a treatment that does not rely solely on color to convey meaning. Typically, descriptive text and/or an icon are used.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes">MDN Understanding WCAG, Guideline 3.3 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html">Understanding Success Criterion 3.3.2 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other validation-related pseudo-classes: <a href="./css.selectors.required.html"><code>:required</code></a>, <a href="./css.selectors.invalid.html"><code>:invalid</code></a>, <a href="./css.selectors.valid.html"><code>:valid</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">Form data validation</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 10</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional,https://drafts.csswg.org/selectors/#opt-pseudos">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional,https://drafts.csswg.org/selectors/#opt-pseudos</a></p></section></aside></body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>minmax()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-template-columns minmax()</h1><main>
+    
+
+<p>The <strong><code>minmax()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">CSS function</a> defines a size range greater than or equal to <em>min</em> and less than or equal to <em>max</em>. It is used with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout">CSS Grids</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;inflexible-breadth>, &#x3C;track-breadth> values */
+minmax(200px, 1fr)
+minmax(400px, 50%)
+minmax(30%, 300px)
+minmax(100px, max-content)
+minmax(min-content, 400px)
+minmax(max-content, auto)
+minmax(auto, 300px)
+minmax(min-content, auto)
+
+/* &#x3C;fixed-breadth>, &#x3C;track-breadth> values */
+minmax(200px, 1fr)
+minmax(30%, 300px)
+minmax(400px, 50%)
+minmax(50%, min-content)
+minmax(300px, max-content)
+minmax(200px, auto)
+
+/* &#x3C;inflexible-breadth>, &#x3C;fixed-breadth> values */
+minmax(400px, 50%)
+minmax(30%, 300px)
+minmax(min-content, 200px)
+minmax(max-content, 200px)
+minmax(auto, 300px)
+</pre>
+<p>A function taking two parameters, <em>min</em> and <em>max</em>.</p>
+<p>Each parameter can be a <code>&#x3C;length></code>, a <code>&#x3C;percentage></code>, a <code>&#x3C;flex></code> value, or one of the keyword values <code>max-content</code>, <code>min-content</code>, or <code>auto</code>.</p>
+<p>If <em>max</em> &#x3C; <em>min</em>, then <em>max</em> is ignored and <code>minmax(min,max)</code> is treated as <em>min</em>. As a maximum, a <a href="./css.types.flex.html"><code>&lt;flex&gt;</code></a> value sets the flex factor of a grid track; it is invalid as a minimum.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;()</code></a></dt>
+  <dd>
+    <p>A non-negative length.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a></dt>
+  <dd>
+    <p>A non-negative percentage relative to the inline size of the grid container in column grid tracks, and the block size of the grid container in row grid tracks. If the size of the grid container depends on the size of its tracks, then the <code>&#x3C;percentage></code> must be treated as <code>auto</code>. The <a href="/Glossary/user_agent">user agent</a> may adjust the intrinsic size contributions of the track to the size of the grid container and increase the final size of the track by the minimum amount that would result in honoring the percentage.</p>
+  </dd>
+  <dt><a href="./css.types.flex.html"><code>&lt;flex&gt;()</code></a></dt>
+  <dd>
+    <p>A non-negative dimension with the unit <code>fr</code> specifying the track's flex factor. Each <code>&#x3C;flex></code>-sized track takes a share of the remaining space in proportion to its flex factor.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>Represents the largest max-content contribution of the grid items occupying the grid track.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>Represents the largest min-content contribution of the grid items occupying the grid track.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>
+      As <code>min</code>, it represents the largest minimum size (as specified by <a href="./css.properties.min-width.html"><code>min-width()</code></a>/<a href="./css.properties.min-height.html"><code>min-height()</code></a>) of the grid items occupying the grid track.
+      As <code>max</code>, it is identical to <code>max-content</code>. However, unlike <code>max-content</code>, it allows expansion of the track by the <a href="./css.properties.align-content.html"><code>align-content()</code></a> and <a href="./css.properties.justify-content.html"><code>justify-content()</code></a> property values like <code>normal</code> and <code>stretch</code>.
+    </p>
+  </dd>
+</dl>
+
+<h3>CSS properties</h3>
+<p><code>minmax()</code> function can be used within:</p>
+<ul>
+  <li><a href="./css.properties.grid-template-columns.html"><code>grid-template-columns()</code></a></li>
+  <li><a href="./css.properties.grid-template-rows.html"><code>grid-template-rows()</code></a></li>
+  <li><a href="./css.properties.grid-auto-columns.html"><code>grid-auto-columns()</code></a></li>
+  <li><a href="./css.properties.grid-auto-rows.html"><code>grid-auto-rows()</code></a></li>
+</ul>
+
+<h3>CSS</h3>
+<pre class="brush: css">#container {
+  display: grid;
+  grid-template-columns: minmax(min-content, 300px) minmax(200px, 1fr) 150px;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#container > div {
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div>Item as wide as the content, but at most 300 pixels.&#x3C;/div>
+  &#x3C;div>Item with flexible width but a minimum of 200 pixels.&#x3C;/div>
+  &#x3C;div>Inflexible item of 150 pixels width.&#x3C;/div>
+&#x3C;/div>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#track_sizing_and_minmax">Basic concepts of grid layout - track sizing with minmax()</a></em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes">CSS grids, logical values and writing modes</a></li>
+  <li>Video tutorial: <em><a href="https://gridbyexample.com/video/series-minmax/">Introducing minmax()</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 16</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#valdef-grid-template-columns-minmax">https://drafts.csswg.org/css-grid/#valdef-grid-template-columns-minmax</a></p></section></aside></body>
+</html>

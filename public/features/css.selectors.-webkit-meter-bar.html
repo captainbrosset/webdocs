@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::-webkit-meter-bar"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::-webkit-meter-bar"</h1><main>
+    
+
+<p>The <strong><code>::-webkit-meter-bar</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Pseudo-element">pseudo-element</a> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit extension</a> that represents the meter bar in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter"><code>&lt;meter&gt;</code></a> element. It is used for selecting and applying styles to the container meter gauge.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::-webkit-meter-bar {
+  /* ... */
+}
+</pre>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;meter min="0" max="10" value="6">Score out of 10&#x3C;/meter>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">meter {
+  /* Reset the default appearance for -webkit- only */
+  -webkit-appearance: none;
+}
+
+meter::-webkit-meter-bar {
+  background: #eee;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 3px;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The pseudo-elements used by WebKit/Blink to style other parts of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter"><code>&lt;meter&gt;</code></a> element are as follows:
+    <ul>
+      <li><a href="./css.selectors.-webkit-meter-inner-element.html"><code>::-webkit-meter-inner-element</code></a></li>
+      <li><a href="./css.selectors.-webkit-meter-even-less-good-value.html"><code>::-webkit-meter-even-less-good-value</code></a></li>
+      <li><a href="./css.selectors.-webkit-meter-optimum-value.html"><code>::-webkit-meter-optimum-value</code></a></li>
+      <li><a href="./css.selectors.-webkit-meter-suboptimum-value.html"><code>::-webkit-meter-suboptimum-value</code></a></li>
+    </ul>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit CSS extensions</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 12</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 5.1</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section></aside></body>
+</html>

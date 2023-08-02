@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>columns</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties columns</h1><main>
+    
+
+<p>The <strong><code>columns</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> shorthand property sets the number of columns to use when drawing an element's contents, as well as those columns' widths.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.column-count.html"><code>column-count</code></a></li>
+  <li><a href="./css.properties.column-width.html"><code>column-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Column width */
+columns: 18em;
+
+/* Column count */
+columns: auto;
+columns: 2;
+
+/* Both column width and count */
+columns: 2 auto;
+columns: auto 12em;
+columns: auto auto;
+
+/* Global values */
+columns: inherit;
+columns: initial;
+columns: revert;
+columns: revert-layer;
+columns: unset;
+</pre>
+<p>The <code>columns</code> property may be specified as one or two of the values listed below, in any order.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'column-width'></code></dt>
+  <dd>
+    <p>The ideal column width, defined as a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or the keyword <code>auto</code>. The actual width may be wider or narrower to fit the available space. See <a href="./css.properties.column-width.html"><code>column-width</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'column-count'></code></dt>
+  <dd>
+    <p>The ideal number of columns into which the element's content should be flowed, defined as an <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> or the keyword <code>auto</code>. If neither this value nor the column's width are <code>auto</code>, it merely indicates the maximum allowable number of columns. See <a href="./css.properties.column-count.html"><code>column-count</code></a>.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="content-box">
+  This is a bunch of text split into three columns using the CSS `columns`
+  property. The text is equally distributed over the columns.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.content-box {
+  columns: 3 auto;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.widows.html"><code>widows</code></a></li>
+  <li><a href="./css.properties.orphans.html"><code>orphans</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media">Paged media</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout">Multiple-column Layout</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: 50</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-multicol/#columns">https://drafts.csswg.org/css-multicol/#columns</a></p></section></aside></body>
+</html>

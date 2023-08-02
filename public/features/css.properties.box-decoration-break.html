@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>box-decoration-break</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties box-decoration-break</h1><main>
+    
+
+<p>The <strong><code>box-decoration-break</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies how an element's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fragmentation">fragments</a> should be rendered when broken across multiple lines, columns, or pages.</p>
+<p>The specified value will impact the appearance of the following properties:</p>
+<ul>
+  <li><a href="./css.properties.background.html"><code>background</code></a></li>
+  <li><a href="./css.properties.border.html"><code>border</code></a></li>
+  <li><a href="./css.properties.border-image.html"><code>border-image</code></a></li>
+  <li><a href="./css.properties.box-shadow.html"><code>box-shadow</code></a></li>
+  <li><a href="./css.properties.clip-path.html"><code>clip-path</code></a></li>
+  <li><a href="./css.properties.margin.html"><code>margin</code></a></li>
+  <li><a href="./css.properties.padding.html"><code>padding</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+box-decoration-break: slice;
+box-decoration-break: clone;
+
+/* Global values */
+box-decoration-break: inherit;
+box-decoration-break: initial;
+box-decoration-break: revert;
+box-decoration-break: revert-layer;
+box-decoration-break: unset;
+</pre>
+<p>The <code>box-decoration-break</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>slice</code></dt>
+  <dd>
+    <p>The element is initially rendered as if its box were not fragmented, after which the rendering for this hypothetical box is sliced into pieces for each line/column/page. Note that the hypothetical box can be different for each fragment since it uses its own height if the break occurs in the inline direction, and its own width if the break occurs in the block direction. See the CSS specification for details.</p>
+  </dd>
+  <dt><code>clone</code></dt>
+  <dd>
+    <p>Each box fragment is rendered independently with the specified border, padding, and margin wrapping each fragment. The <a href="./css.properties.border-radius.html"><code>border-radius</code></a>, <a href="./css.properties.border-image.html"><code>border-image</code></a>, and <a href="./css.properties.box-shadow.html"><code>box-shadow</code></a> are applied to each fragment independently. The background is also drawn independently for each fragment, which means that a background image with <a href="./css.properties.background-repeat.html"><code>background-repeat</code></a><code>: no-repeat</code> may nevertheless repeat multiple times.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>slice</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>slice | clone</pre></section>
+
+<h3>Inline box fragments</h3>
+<p>An inline element that contains line breaks styled with:</p>
+<pre class="brush: html">&#x3C;style>
+  .example {
+    background: linear-gradient(to bottom right, yellow, green);
+    box-shadow:
+      8px 8px 10px 0px deeppink,
+      -5px -5px 5px 0px blue,
+      5px 5px 15px 0px yellow;
+    padding: 0em 1em;
+    border-radius: 16px;
+    border-style: solid;
+    margin-left: 10px;
+    font: 24px sans-serif;
+    line-height: 2;
+  }
+&#x3C;/style>
+…
+&#x3C;span class="example">The&#x3C;br />quick&#x3C;br />orange fox&#x3C;/span>
+</pre>
+<p>This results in:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-inline-slice.png" alt="A screenshot of the rendering of an inline element styled with box-decoration-break:slice and styles given in the example.">
+</p>
+<p>Adding <code>box-decoration-break: clone</code> to the above styles:</p>
+<pre class="brush: css">-webkit-box-decoration-break: clone;
+box-decoration-break: clone;
+</pre>
+<p>This one results in:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-inline-clone.png" alt="A screenshot of the rendering of an inline element styled with box-decoration-break:clone and styles given in the example">
+</p>
+<p>You can <a href="https://mdn.dev/archives/media/attachments/2014/07/12/8179/df096e9eb57177d8b7fdcd0c8f64ef18/box-decoration-break-inline.html">try the two inline examples above</a> in your browser.</p>
+<p>Here's an example of an inline element using a large <code>border-radius</code> value. The second <code>"iM"</code> has a line-break between the <code>"i"</code> and the <code>"M"</code>. For comparison, the first <code>"iM"</code> is without line breaks. Note that if you stack the rendering of the two fragments horizontally next to each other it will result in the non-fragmented rendering.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-slice-inline-2.png" alt="A screenshot of the rendering of the second inline element example.">
+</p>
+<p><a href="https://mdn.dev/archives/media/attachments/2014/07/12/8191/7a067e5731355081e856ea02b978ea2e/box-decoration-break-inline-extreme.html">Try the above example</a> in your browser.</p>
+<h3>Block box fragments</h3>
+<p>A block element with similar styles as above and no fragmentation results in:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-block.png" alt="A screenshot of the rendering of the block element used in the examples without any fragmentation.">
+</p>
+<p>Fragmenting the above block into three columns results in:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-block-slice.png" alt="A screenshot of the rendering of the fragmented block used in the examples styled with box-decoration-break:slice.">
+</p>
+<p>Note that stacking these pieces vertically will result in the non-fragmented rendering.</p>
+<p>Now, the same example but styled with <code>box-decoration-break: clone</code> results in:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break/box-decoration-break-block-clone.png" alt="A screenshot of the rendering of the fragmented block used in the examples styled with box-decoration-break:clone.">
+</p>
+<p>Note here that each fragment has an identical replicated border, box-shadow, and background.</p>
+<p>You can <a href="https://mdn.dev/archives/media/attachments/2014/07/12/8187/6288bde9d276d78e203c9f8b9a26ff65/box-decoration-break-block.html">try the block examples above</a> in your browser.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.break-after.html"><code>break-after</code></a>, <a href="./css.properties.break-before.html"><code>break-before</code></a>, <a href="./css.properties.break-inside.html"><code>break-inside</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 22</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-break/#break-decoration">https://drafts.csswg.org/css-break/#break-decoration</a></p></section></aside></body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>oklch()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color oklch()</h1><main>
+    
+
+<p>The <strong><code>oklch()</code></strong> functional notation expresses a given color in the Oklch color space. It has the same L axis as <a href="./css.types.color.oklab.html"><code>oklab()</code></a>, but uses polar coordinates C (Chroma) and H (Hue).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">oklch(40.1% 0.123 21.57)
+oklch(59.69% 0.156 49.77)
+oklch(59.69% 0.156 49.77 / .5)
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>oklch(L C H[ / A])</code></p>
+<dl>
+  <dt><code>L</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>0</code> and <code>1</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>0%</code> and <code>100%</code>, or the keyword <code>none</code>, where the number <code>0</code> corresponds to <code>0%</code> (black) and the number <code>1</code> corresponds to <code>100%</code> (white). <code>L</code> specifies the perceived lightness.</p>
+  </dd>
+  <dt><code>C</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, or the keyword <code>none</code>, where <code>0%</code> is <code>0</code> and <code>100%</code> is the number <code>0.4</code>. It is a measure of the chroma (roughly representing the "amount of color"). Its minimum useful value is <code>0</code>, while the maximum is theoretically unbounded (but in practice does not exceed <code>0.5</code>).</p>
+  </dd>
+  <dt><code>H</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>, or the keyword <code>none</code>, which represents the hue angle. More details on this type can be found on the <a href="./css.types.hue.html"><code>&lt;hue&gt;()</code></a> reference.</p>
+  </dd>
+  <dt><code>A</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/alpha-value"><code>&lt;alpha-value&gt;()</code></a> or the keyword <code>none</code>, where the number <code>1</code> corresponds to <code>100%</code> (full opacity).</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#missing_color_components">Missing color components</a> for the effect of <code>none</code>.</p>
+</div>
+
+
+<h3>Adjusting the lightness, chroma, and hue of a color</h3>
+<p>The following example shows the effect of varying the <code>L</code> (lightness), <code>C</code> (chroma), and <code>H</code> (hue) values of the <code>oklch()</code> color function.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div data-color="blue">&#x3C;/div>
+&#x3C;div data-color="blue-light">&#x3C;/div>
+
+&#x3C;div data-color="red">&#x3C;/div>
+&#x3C;div data-color="red-chroma">&#x3C;/div>
+
+&#x3C;div data-color="green">&#x3C;/div>
+&#x3C;div data-color="green-hue">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+</pre>
+<pre class="brush: css">[data-color="blue"] {
+  background-color: oklch(60% 0.4 240);
+}
+[data-color="blue-light"] {
+  background-color: oklch(90% 0.4 240);
+}
+
+[data-color="red"] {
+  background-color: oklch(100% 0.4 30);
+}
+[data-color="red-chroma"] {
+  background-color: oklch(100% 0.3 40);
+}
+
+[data-color="green"] {
+  background-color: oklch(60% 0.57 161);
+}
+[data-color="green-hue"] {
+  background-color: oklch(60% 0.57 181);
+}
+</pre>
+
+<h3>Adjusting the alpha value of a color</h3>
+<p>
+  The following example shows the effect of varying the <code>A</code> (alpha) value of the <code>oklch()</code> color function.
+  The <code>red</code> and <code>red-alpha</code> elements overlap the <code>#background-div</code> element to demonstrate the effect of opacity.
+  Giving <code>A</code> a value of <code>0.4</code> makes the color 40% opaque.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="background-div">
+  &#x3C;div data-color="red">&#x3C;/div>
+  &#x3C;div data-color="red-alpha">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#background-div {
+  background-color: oklch(100% 0.57 217);
+  width: 150px;
+  height: 40px;
+}
+</pre>
+<pre class="brush: css">[data-color="red"] {
+  background-color: oklch(50% 130 20);
+}
+[data-color="red-alpha"] {
+  background-color: oklch(50% 130 20 / 0.4);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&lt;color&gt;()</code></a>: For a list of all color notations</li>
+  <li><a href="https://bottosson.github.io/posts/oklab/">A perceptual color space for image processing</a></li>
+  <li><a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl">OKLCH in CSS</a></li>
+  <li><a href="https://webkit.org/blog/12156/release-notes-for-safari-technology-preview-137/">Safari Technology Preview 137 release notes</a>: includes <code>oklch()</code> and <a href="./css.types.color.oklab.html"><code>oklab()</code></a> colors</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 113</li><li><strong>firefox_android</strong>: 113</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#ok-lab">https://drafts.csswg.org/css-color/#ok-lab</a></p></section></aside></body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-palette</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-palette</h1><main>
+    
+
+<p>The <strong><code>font-palette</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property allows specifying one of the many palettes contained in a font that a user agent should use for the font. Users can also override the values in a palette or create a new palette by using the <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> at-rule.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Using a font-defined palette */
+font-palette: normal;
+
+/* Using a user-defined palette */
+font-palette: --one;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Specifies the default color palette or the default glyph colorization (set by the font maker) to be used for the font. With this setting, the palette in the font at index 0 is rendered.</p>
+  </dd>
+  <dt><code>light</code></dt>
+  <dd>
+    <p>Specifies the first palette in the font that matches 'light' to be used for the font. Some fonts contain metadata that identify a palette as applicable for a light (close to white) background. If a font does not have this metadata, the <code>light</code> value behaves as <code>normal</code>.</p>
+  </dd>
+  <dt><code>dark</code></dt>
+  <dd>
+    <p>Specifies the first palette in the font that matches 'dark' to be used for the font. Some fonts contain metadata that identify a palette as applicable for a dark (close to black) background. If a font does not have this metadata, the value behaves as <code>normal</code>.</p>
+  </dd>
+  <dt><code>&#x3C;palette-identifier></code></dt>
+  <dd>
+    <p>Allows you to specify your own values for the font palette by using the <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> at-rule. This value is specified using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident">&#x3C;dashed-ident></a> format.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword or identifier</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | light | dark | &lt;palette-identifier&gt;</pre></section>
+
+<h3>Specifying a dark palette</h3>
+<p>This example allows you to use the first palette marked as <em>dark</em> (works best on a near black background) by the font-maker.</p>
+<pre class="brush: css">@media (prefers-color-scheme: dark) {
+  .banner {
+    font-palette: dark;
+  }
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-palette-values.html"><code>@font-palette-values</code></a></li>
+  <li><a href="./css.at-rules.font-palette-values.base-palette.html"><code>base-palette</code></a> descriptor</li>
+  <li><a href="./css.at-rules.font-palette-values.font-family.html"><code>font-family</code></a> descriptor</li>
+  <li><a href="./css.at-rules.font-palette-values.override-colors.html"><code>override-colors</code></a> descriptor</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 101</li><li><strong>chrome_android</strong>: 101</li><li><strong>edge</strong>: 101</li><li><strong>firefox</strong>: 107</li><li><strong>firefox_android</strong>: 107</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 22.0</li><li><strong>opera</strong>: 87</li><li><strong>opera_android</strong>: 70</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 19.0</li><li><strong>webview_android</strong>: 101</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-palette-prop">https://drafts.csswg.org/css-fonts/#font-palette-prop</a></p></section></aside></body>
+</html>

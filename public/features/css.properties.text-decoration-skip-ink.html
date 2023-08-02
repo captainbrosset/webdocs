@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-decoration-skip-ink</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-decoration-skip-ink</h1><main>
+    
+
+<p>The <strong><code>text-decoration-skip-ink</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies how overlines and underlines are drawn when they pass over glyph ascenders and descenders.</p>
+<p><code>text-decoration-skip-ink</code> is not part of the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> shorthand.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single keyword */
+text-decoration-skip-ink: none;
+text-decoration-skip-ink: auto;
+text-decoration-skip-ink: all;
+
+/* Global keywords */
+text-decoration-skip-ink: inherit;
+text-decoration-skip-ink: initial;
+text-decoration-skip-ink: revert;
+text-decoration-skip-ink: revert-layer;
+text-decoration-skip-ink: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Underlines and overlines are drawn across the full length of the text content, including parts that cross over glyph descenders and ascenders.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The default — the browser <em>may</em> interrupt underlines and overlines so that they do not touch or closely approach a glyph. That is, they are interrupted where they would otherwise cross over a glyph.</p>
+  </dd>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>The browser <em>must</em> interrupt underlines and overlines so that they do not touch or closely approach a glyph. This can be helpful with certain Chinese, Japanese, or Korean (CJK) fonts, where the <code>auto</code> behavior might not create interruptions.</p>
+    <p>
+      <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-skip-ink/decoration-skip-ink.png" alt="An example of &#x22;text-decoration-skip-ink&#x22;.">
+    </p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none | all</pre></section>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p>You should go on a quest for a cup of coffee.&#x3C;/p>
+&#x3C;p class="no-skip-ink">Or maybe you'd prefer some tea?&#x3C;/p>
+&#x3C;p>この文は、 text-decoration-skip-ink: auto の使用例を示しています。&#x3C;/p>
+&#x3C;p class="skip-ink-all">
+  この文は、 text-decoration-skip-ink: all の使用例を示しています。
+&#x3C;/p>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">p {
+  font-size: 1.5em;
+  text-decoration: underline blue;
+  text-decoration-skip-ink: auto; /* this is the default anyway */
+}
+
+.no-skip-ink {
+  text-decoration-skip-ink: none;
+}
+
+.skip-ink-all {
+  text-decoration-skip-ink: all;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a></li>
+  <li><a href="./css.properties.text-decoration-skip.html"><code>text-decoration-skip</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 64</li><li><strong>chrome_android</strong>: 64</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 70</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 50</li><li><strong>opera_android</strong>: 46</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 9.0</li><li><strong>webview_android</strong>: 64</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor-4/#text-decoration-skip-ink-property">https://drafts.csswg.org/css-text-decor-4/#text-decoration-skip-ink-property</a></p></section></aside></body>
+</html>

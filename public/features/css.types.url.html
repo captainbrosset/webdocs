@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>url()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types url()</h1><main>
+    
+
+<p>The <strong><code>url()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is used to include a file. The parameter is an absolute URL, a relative URL, a blob URL, or a data URL. The <strong><code>url()</code></strong> function can be passed as a parameter of another CSS functions, like the <a href="./css.types.attr.html"><code>attr()</code></a> function. Depending on the property for which it is a value, the resource sought can be an image, font, or a stylesheet. The <code>url()</code> functional notation is the value for the <code>&#x3C;url></code> data type.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> There is a difference between a <a href="/Glossary/URI">URI</a> and a <a href="/Glossary/URL">URL</a>. A URI identifies a resource. A URL is a type of URI, and describes the <em>location</em> of a resource. A URI can be either a URL or a name (<a href="/Glossary/URN">URN</a>) of a resource.</p>
+  <p>In CSS Level 1, the <code>url()</code> functional notation described only true URLs. In CSS Level 2, the definition of <code>url()</code> was extended to describe any URI, whether a URL or a URN. Confusingly, this meant that <code>url()</code> could be used to create a <code>&#x3C;uri></code> CSS data type. This change was not only awkward but, debatably, unnecessary, since URNs are almost never used in actual CSS. To alleviate the confusion, CSS Level 3 returned to the narrower, initial definition. Now, <code>url()</code> denotes only true <code>&#x3C;url></code>s.</p>
+</div>
+<pre class="brush: css">/* Simple usage */
+url(https://example.com/images/myImg.jpg);
+url(data:image/png;base64,iRxVB0…);
+url(myFont.woff);
+url(#IDofSVGpath);
+
+/* associated properties */
+background-image: url("star.gif");
+list-style-image: url('../images/bullet.jpg');
+content: url("pdficon.jpg");
+cursor: url(mycursor.cur);
+border-image-source: url(/media/diamonds.png);
+src: url('fantasticfont.woff');
+offset-path: url(#path);
+mask-image: url("masks.svg#mask1");
+
+/* Properties with fallbacks */
+cursor: url(pointer.cur), pointer;
+
+/* Associated short-hand properties */
+background: url('star.gif') bottom right repeat-x blue;
+border-image: url("/media/diamonds.png") 30 fill / 30px / 30px space;
+
+/* As a parameter in another CSS function */
+background-image: cross-fade(20% url(first.png), url(second.png));
+mask-image: image(url(mask.png), skyblue, linear-gradient(rgba(0, 0, 0, 1.0), transparent));
+
+/* as part of a non-shorthand multiple value */
+content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
+
+/* at-rules */
+@document url("https://www.example.com/") { /* … */ } <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr>
+@import url("https://www.example.com/style.css");
+@namespace url(http://www.w3.org/1999/xhtml);
+</pre>
+<p>Relative URLs, if used, are relative to the URL of the stylesheet (not to the URL of the web page).</p>
+<p>
+  The <strong><code>url()</code></strong> function can be included as a value for
+  <a href="./css.properties.background.html"><code>background()</code></a>, <a href="./css.properties.background-image.html"><code>background-image()</code></a>, <a href="./css.properties.border.html"><code>border()</code></a>, <a href="./css.properties.border-image.html"><code>border-image()</code></a>, <a href="./css.properties.border-image-source.html"><code>border-image-source()</code></a>, <a href="./css.properties.content.html"><code>content()</code></a>, <a href="./css.properties.cursor.html"><code>cursor()</code></a>, <a href="./css.properties.filter.html"><code>filter()</code></a>, <a href="./css.properties.list-style.html"><code>list-style()</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image()</code></a>, <a href="./css.properties.mask.html"><code>mask()</code></a>, <a href="./css.properties.mask-image.html"><code>mask-image()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path()</code></a>,
+  <a href="./css.at-rules.font-face.src.html">src</a> as part of a <a href="./css.at-rules.font-face.html">@font-face</a> block, and <a href="./css.at-rules.counter-style.symbols.html">@counter-style/symbol</a>
+</p>
+
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;string></code></dt>
+  <dd>
+    <p>A string which may specify a URL or the ID of an SVG shape.</p>
+    <dl>
+      <dt>&#x3C;url></dt>
+      <dd>
+        <p>A URL, which is a relative or absolute address, or pointer, to the web resource to be included, or a data URL, optionally in single or double quotes. Quotes are required if the URL includes parentheses, whitespace, or quotes, unless these characters are escaped, or if the address includes control characters above 0x7e. Double quotes cannot occur inside double quotes and single quotes cannot occur inside single quotes unless escaped. The following are all valid and equivalent:</p>
+        <pre class="brush: css">&#x3C;css_property>: url("https://example.com/image.png")
+&#x3C;css_property>: url('https://example.com/image.png')
+&#x3C;css_property>: url(https://example.com/image.png)
+</pre>
+        <p>If you choose to write the URL without quotes, use a backslash (<code>\</code>) before any parentheses, whitespace characters, single quotes (<code>'</code>) and double quotes (<code>"</code>) that are part of the URL.</p>
+      </dd>
+      <dt>path</dt>
+      <dd>
+        <p>References the ID of an <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">SVG shape</a> — <code>circle</code>, <code>ellipse</code>, <code>line</code>, <code>path</code>, <code>polygon</code>, <code>polyline</code>, or <code>rect</code> — using the shape's geometry as the path.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><code>&#x3C;url-modifier></code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>In the future, the <code>url()</code> function may support specifying a modifier, an identifier or a functional notation, which alters the meaning of the URL string. This is not supported and not fully defined in the specification.</p>
+  </dd>
+</dl>
+<h3>Formal syntax</h3>
+<pre class="brush: css">url( &#x3C;string> &#x3C;url-modifier>* )
+</pre>
+
+<h3>A url used in the background property</h3>
+<pre class="brush: css">.topbanner {
+  background: url("topbanner.png") #00d no-repeat fixed;
+}
+</pre>
+<h3>A url loading an image as a list bullet</h3>
+<pre class="brush: css">ul {
+  list-style: square url(http://www.example.com/redball.png);
+}
+</pre>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>Item 1&#x3C;/li>
+  &#x3C;li>Item 2&#x3C;/li>
+  &#x3C;li>Item 3&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">li::after {
+  content: " - " url(star.gif);
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="background">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">.background {
+  height: 100vh;
+}
+</pre>
+<pre class="brush: css">.background {
+  background: yellow;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='45'%3E%3Cpath d='M10 10h60' stroke='%2300F' stroke-width='5'/%3E%3Cpath d='M10 20h60' stroke='%230F0' stroke-width='5'/%3E%3Cpath d='M10 30h60' stroke='red' stroke-width='5'/%3E%3C/svg%3E");
+}
+</pre>
+<h3>Usage in filters</h3>
+<p>When a URL is used as a path for a filter, the URL must be one of the following:</p>
+<ol>
+  <li>The path to an SVG file with the ID of the filter appended.</li>
+  <li>the ID of the filter, if the SVG already exists on the page.</li>
+</ol>
+<pre class="brush: css">.blur {
+  filter: url(my-file.svg#svg-blur); /* the URL of an SVG file used as a filter */
+}
+
+.inline-blur {
+  filter: url(#svg-blur); /* the ID of an SVG that is embedded in the HTML page */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;()</code></a></li>
+  <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+  <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+  <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#urls">https://drafts.csswg.org/css-values/#urls</a></p></section></aside></body>
+</html>

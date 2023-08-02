@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":first-of-type"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":first-of-type"</h1><main>
+    
+
+<p>The <strong><code>:first-of-type</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents the first element of its type among a group of sibling elements.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:first-of-type {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>Heading&#x3C;/h2>
+&#x3C;p>Paragraph 1&#x3C;/p>
+&#x3C;p>Paragraph 2&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p:first-of-type {
+  color: red;
+  font-style: italic;
+}
+</pre>
+
+<h3>Nested elements</h3>
+<p>This example shows how nested elements can also be targeted. Note that the <a href="./css.selectors.universal.html">universal selector</a> (<code>*</code>) is implied when no type selector is written.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;article>
+  &#x3C;div>This `div` is first!&#x3C;/div>
+  &#x3C;div>This &#x3C;span>nested `span` is first&#x3C;/span>!&#x3C;/div>
+  &#x3C;div>
+    This &#x3C;em>nested `em` is first&#x3C;/em>, but this &#x3C;em>nested `em` is last&#x3C;/em>!
+  &#x3C;/div>
+  &#x3C;div>This &#x3C;span>nested `span` gets styled&#x3C;/span>!&#x3C;/div>
+  &#x3C;p>This `p` qualifies!&#x3C;/p>
+  &#x3C;div>This is the final `div`.&#x3C;/div>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">article :first-of-type {
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.first-child.html"><code>:first-child</code></a>, <a href="./css.selectors.last-of-type.html"><code>:last-of-type</code></a>, <a href="./css.selectors.nth-of-type.html"><code>:nth-of-type</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#first-of-type-pseudo">https://drafts.csswg.org/selectors/#first-of-type-pseudo</a></p></section></aside></body>
+</html>

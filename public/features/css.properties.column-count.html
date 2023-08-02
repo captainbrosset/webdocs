@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-count</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-count</h1><main>
+    
+
+<p>The <strong><code>column-count</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property breaks an element's content into the specified number of columns.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+column-count: auto;
+
+/* &#x3C;integer> value */
+column-count: 3;
+
+/* Global values */
+column-count: inherit;
+column-count: initial;
+column-count: revert;
+column-count: revert-layer;
+column-count: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The number of columns is determined by other CSS properties, such as <a href="./css.properties.column-width.html"><code>column-width</code></a>.</p>
+  </dd>
+  <dt><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></dt>
+  <dd>
+    <p>Is a strictly positive <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> describing the ideal number of columns into which the content of the element will be flowed. If the <a href="./css.properties.column-width.html"><code>column-width</code></a> is also set to a non-<code>auto</code> value, it merely indicates the maximum allowed number of columns.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block containers except table wrapper boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;integer [1,∞]&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="content-box">
+  This is a bunch of text split into three columns using the CSS `column-count`
+  property. The text is equally distributed over the columns.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.content-box {
+  column-count: 3;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.column-width.html"><code>column-width</code></a>, <a href="./css.properties.columns.html"><code>columns</code></a> shorthand</li>
+  <li><a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a>, <a href="./css.properties.column-rule-style.html"><code>column-rule-style</code></a>, <a href="./css.properties.column-rule-width.html"><code>column-rule-width</code></a>, <a href="./css.properties.column-rule.html"><code>column-rule</code></a> shorthand</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout">Multiple-column Layout</a> (Learn Layout)</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout/Basic_concepts">Basic Concepts of Multicol</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-multicol/#cc">https://drafts.csswg.org/css-multicol/#cc</a></p></section></aside></body>
+</html>

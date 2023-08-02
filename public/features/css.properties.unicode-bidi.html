@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>unicode-bidi</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties unicode-bidi</h1><main>
+    
+
+<p>The <strong><code>unicode-bidi</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property, together with the <a href="./css.properties.direction.html"><code>direction</code></a> property, determines how bidirectional text in a document is handled. For example, if a block of content contains both left-to-right and right-to-left text, the user-agent uses a complex Unicode algorithm to decide how to display the text. The <code>unicode-bidi</code> property overrides this algorithm and allows the developer to control the text embedding.</p>
+<p>The <code>unicode-bidi</code> and <a href="./css.properties.direction.html"><code>direction</code></a> properties are the only properties that are not affected by the <a href="./css.properties.all.html"><code>all</code></a> shorthand.</p>
+<div class="notecard warning">
+  <p><strong>Warning:</strong> This property is intended for Document Type Definition (DTD) designers. Web designers and similar authors <strong>should not</strong> override it.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+unicode-bidi: normal;
+unicode-bidi: embed;
+unicode-bidi: isolate;
+unicode-bidi: bidi-override;
+unicode-bidi: isolate-override;
+unicode-bidi: plaintext;
+
+/* Global values */
+unicode-bidi: inherit;
+unicode-bidi: initial;
+unicode-bidi: revert;
+unicode-bidi: revert-layer;
+unicode-bidi: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The element does not offer an additional level of embedding with respect to the bidirectional algorithm. For inline elements, implicit reordering works across element boundaries.</p>
+  </dd>
+  <dt><code>embed</code></dt>
+  <dd>
+    <p>If the element is inline, this value opens an additional level of embedding with respect to the bidirectional algorithm. The direction of this embedding level is given by the <a href="./css.properties.direction.html"><code>direction</code></a> property.</p>
+  </dd>
+  <dt><code>bidi-override</code></dt>
+  <dd>
+    <p>For inline elements this creates an override. For block container elements this creates an override for inline-level descendants not within another block container element. This means that inside the element, reordering is strictly in sequence according to the <a href="./css.properties.direction.html"><code>direction</code></a> property; the implicit part of the bidirectional algorithm is ignored.</p>
+  </dd>
+  <dt><code>isolate</code></dt>
+  <dd>
+    <p>This keyword indicates that the element's container directionality should be calculated without considering the content of this element. The element is therefore <em>isolated</em> from its siblings. When applying its bidirectional-resolution algorithm, its container element treats it as one or several <code>U+FFFC Object Replacement Character</code>, i.e. like an image.</p>
+  </dd>
+  <dt><code>isolate-override</code></dt>
+  <dd>
+    <p>This keyword applies the isolation behavior of the <code>isolate</code> keyword to the surrounding content and the override behavior of the <code>bidi-override</code> keyword to the inner content.</p>
+  </dd>
+  <dt><code>plaintext</code></dt>
+  <dd>
+    <p>
+      This keyword makes the elements directionality calculated without considering its parent bidirectional state or the value of the <a href="./css.properties.direction.html"><code>direction</code></a> property. The directionality is calculated using the P2 and P3 rules of the Unicode Bidirectional Algorithm.
+      This value allows the display of data that is already formatted using a tool following the Unicode Bidirectional Algorithm.
+    </p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements, but see prose</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | embed | isolate | bidi-override | isolate-override | plaintext</pre></section>
+
+<h3>CSS</h3>
+<pre class="brush: css">.bible-quote {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div class="bible-quote">A line of text&#x3C;/div>
+&#x3C;div>Another line of text&#x3C;/div>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.direction.html"><code>direction</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-writing-modes/#unicode-bidi">https://drafts.csswg.org/css-writing-modes/#unicode-bidi</a></p></section></aside></body>
+</html>

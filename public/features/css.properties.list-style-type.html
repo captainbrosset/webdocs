@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>list-style-type</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties list-style-type</h1><main>
+    
+
+<p>The <strong><code>list-style-type</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the marker (such as a disc, character, or custom counter style) of a list item element.</p>
+<p>The <a href="./css.types.color.html">color</a> of the marker will be the same as the computed color of the element it applies to.</p>
+<p>Only a few elements (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a>) have a default value of <code>display: list-item</code>. However, the <code>list-style-type</code> property may be applied to any element whose <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> value is set to <code>list-item</code>. Moreover, because this property is inherited, it can be set on a parent element (commonly <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) to make it apply to all list items.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Partial list of types */
+list-style-type: disc;
+list-style-type: circle;
+list-style-type: square;
+list-style-type: decimal;
+list-style-type: georgian;
+list-style-type: trad-chinese-informal;
+list-style-type: kannada;
+
+/* &#x3C;string> value */
+list-style-type: "-";
+
+/* Identifier matching an @counter-style rule */
+list-style-type: custom-counter-style;
+
+/* Keyword value */
+list-style-type: none;
+
+/* Global values */
+list-style-type: inherit;
+list-style-type: initial;
+list-style-type: revert;
+list-style-type: revert-layer;
+list-style-type: unset;
+</pre>
+<p>The <code>list-style-type</code> property may be defined as any one of:</p>
+<ul>
+  <li>a <code>&#x3C;custom-ident></code> value,</li>
+  <li>a <code>symbols()</code> value,</li>
+  <li>a <code>&#x3C;string></code> value, or</li>
+  <li>the keyword <code>none</code>.</li>
+</ul>
+<p>Note that:</p>
+<ul>
+  <li>Some types require a suitable font installed to display as expected.</li>
+  <li>The <code>cjk-ideographic</code> is identical to <code>trad-chinese-informal</code>; it exists for legacy reasons.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a></dt>
+  <dd>
+    <p>An identifier matching the value of a <a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a> or one of the predefined styles:</p>
+  </dd>
+  <dt><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a></dt>
+  <dd>
+    <p>Defines an anonymous style of the list.</p>
+  </dd>
+  <dt><a href="./css.types.string.html"><code>&lt;string&gt;</code></a></dt>
+  <dd>
+    <p>The specified string will be used as the item's marker.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No item marker is shown.</p>
+  </dd>
+  <dt><code>disc</code></dt>
+  <dd>
+    <p>A filled circle (default value).</p>
+  </dd>
+  <dt><code>circle</code></dt>
+  <dd>
+    <p>A hollow circle.</p>
+  </dd>
+  <dt><code>square</code></dt>
+  <dd>
+    <p>A filled square.</p>
+  </dd>
+  <dt><code>decimal</code></dt>
+  <dd>
+    <p>Decimal numbers, beginning with 1.</p>
+  </dd>
+  <dt><code>cjk-decimal</code></dt>
+  <dd>
+    <p>Han decimal numbers.</p>
+  </dd>
+  <dt><code>decimal-leading-zero</code></dt>
+  <dd>
+    <p>Decimal numbers, padded by initial zeros.</p>
+  </dd>
+  <dt><code>lower-roman</code></dt>
+  <dd>
+    <p>Lowercase roman numerals.</p>
+  </dd>
+  <dt><code>upper-roman</code></dt>
+  <dd>
+    <p>Uppercase roman numerals.</p>
+  </dd>
+  <dt><code>lower-greek</code></dt>
+  <dd>
+    <p>Lowercase classical Greek.</p>
+  </dd>
+  <dt><code>lower-alpha</code>, <code>lower-latin</code></dt>
+  <dd>
+    <p>Lowercase ASCII letters.</p>
+  </dd>
+  <dt><code>upper-alpha</code>, <code>upper-latin</code></dt>
+  <dd>
+    <p>Uppercase ASCII letters.</p>
+  </dd>
+  <dt><code>arabic-indic</code>, <code>-moz-arabic-indic</code></dt>
+  <dd>
+    <p>Arabic-Indic numbers.</p>
+  </dd>
+  <dt><code>armenian</code></dt>
+  <dd>
+    <p>Traditional Armenian numbering.</p>
+  </dd>
+  <dt><code>bengali</code>, <code>-moz-bengali</code></dt>
+  <dd>
+    <p>Bengali numbering.</p>
+  </dd>
+  <dt><code>cambodian</code>/<code>khmer</code></dt>
+  <dd>
+    <p>Cambodian/Khmer numbering.</p>
+  </dd>
+  <dt><code>cjk-earthly-branch</code>, <code>-moz-cjk-earthly-branch</code></dt>
+  <dd>
+    <p>Han "Earthly Branch" ordinals.</p>
+  </dd>
+  <dt><code>cjk-heavenly-stem</code>, <code>-moz-cjk-heavenly-stem</code></dt>
+  <dd>
+    <p>Han "Heavenly Stem" ordinals.</p>
+  </dd>
+  <dt><code>cjk-ideographic</code></dt>
+  <dd>
+    <p>Identical to <code>trad-chinese-informal</code>.</p>
+  </dd>
+  <dt><code>devanagari</code>, <code>-moz-devanagari</code></dt>
+  <dd>
+    <p>Devanagari numbering.</p>
+  </dd>
+  <dt><code>ethiopic-numeric</code></dt>
+  <dd>
+    <p>Ethiopic numbering.</p>
+  </dd>
+  <dt><code>georgian</code></dt>
+  <dd>
+    <p>Traditional Georgian numbering.</p>
+  </dd>
+  <dt><code>gujarati</code>, <code>-moz-gujarati</code></dt>
+  <dd>
+    <p>Gujarati numbering.</p>
+  </dd>
+  <dt><code>gurmukhi</code>, <code>-moz-gurmukhi</code></dt>
+  <dd>
+    <p>Gurmukhi numbering.</p>
+  </dd>
+  <dt><code>hebrew</code></dt>
+  <dd>
+    <p>Traditional Hebrew numbering.</p>
+  </dd>
+  <dt><code>hiragana</code></dt>
+  <dd>
+    <p>Dictionary-order hiragana lettering.</p>
+  </dd>
+  <dt><code>hiragana-iroha</code></dt>
+  <dd>
+    <p><a href="https://en.wikipedia.org/wiki/Iroha">Iroha-order</a> hiragana lettering.</p>
+  </dd>
+  <dt><code>japanese-formal</code></dt>
+  <dd>
+    <p>Japanese formal numbering to be used in legal or financial documents. The kanjis are designed so that they can't be modified to look like another correct one.</p>
+  </dd>
+  <dt><code>japanese-informal</code></dt>
+  <dd>
+    <p>Japanese informal numbering.</p>
+  </dd>
+  <dt><code>kannada</code>, <code>-moz-kannada</code></dt>
+  <dd>
+    <p>Kannada numbering.</p>
+  </dd>
+  <dt><code>katakana</code></dt>
+  <dd>
+    <p>Dictionary-order katakana lettering.</p>
+  </dd>
+  <dt><code>katakana-iroha</code></dt>
+  <dd>
+    <p><a href="https://en.wikipedia.org/wiki/Iroha">Iroha-order</a> katakana lettering.</p>
+  </dd>
+  <dt><code>korean-hangul-formal</code></dt>
+  <dd>
+    <p>Korean hangul numbering.</p>
+  </dd>
+  <dt><code>korean-hanja-formal</code></dt>
+  <dd>
+    <p>Formal Korean Han numbering.</p>
+  </dd>
+  <dt><code>korean-hanja-informal</code></dt>
+  <dd>
+    <p>Korean hanja numbering.</p>
+  </dd>
+  <dt><code>lao</code>, <code>-moz-lao</code></dt>
+  <dd>
+    <p>Laotian numbering.</p>
+  </dd>
+  <dt><code>lower-armenian</code></dt>
+  <dd>
+    <p>Lowercase Armenian numbering.</p>
+  </dd>
+  <dt><code>malayalam</code>, <code>-moz-malayalam</code></dt>
+  <dd>
+    <p>Malayalam numbering.</p>
+  </dd>
+  <dt><code>mongolian</code></dt>
+  <dd>
+    <p>Mongolian numbering.</p>
+  </dd>
+  <dt><code>myanmar</code>, <code>-moz-myanmar</code></dt>
+  <dd>
+    <p>Myanmar (Burmese) numbering.</p>
+  </dd>
+  <dt><code>oriya</code>, <code>-moz-oriya</code></dt>
+  <dd>
+    <p>Oriya numbering.</p>
+  </dd>
+  <dt><code>persian</code>, <code>-moz-persian</code></dt>
+  <dd>
+    <p>Persian numbering.</p>
+  </dd>
+  <dt><code>simp-chinese-formal</code></dt>
+  <dd>
+    <p>Simplified Chinese formal numbering.</p>
+  </dd>
+  <dt><code>simp-chinese-informal</code></dt>
+  <dd>
+    <p>Simplified Chinese informal numbering.</p>
+  </dd>
+  <dt><code>tamil</code>, <code>-moz-tamil</code></dt>
+  <dd>
+    <p>Tamil numbering.</p>
+  </dd>
+  <dt><code>telugu</code>, <code>-moz-telugu</code></dt>
+  <dd>
+    <p>Telugu numbering.</p>
+  </dd>
+  <dt><code>thai</code>, <code>-moz-thai</code></dt>
+  <dd>
+    <p>Thai numbering.</p>
+  </dd>
+  <dt><code>tibetan</code></dt>
+  <dd>
+    <p>Tibetan numbering.</p>
+  </dd>
+  <dt><code>trad-chinese-formal</code></dt>
+  <dd>
+    <p>Traditional Chinese formal numbering.</p>
+  </dd>
+  <dt><code>trad-chinese-informal</code></dt>
+  <dd>
+    <p>Traditional Chinese informal numbering.</p>
+  </dd>
+  <dt><code>upper-armenian</code></dt>
+  <dd>
+    <p>Traditional uppercase Armenian numbering.</p>
+  </dd>
+  <dt><code>disclosure-open</code></dt>
+  <dd>
+    <p>Symbol indicating that a disclosure widget such as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> is opened.</p>
+  </dd>
+  <dt><code>disclosure-closed</code></dt>
+  <dd>
+    <p>Symbol indicating that a disclosure widget, like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> is closed.</p>
+  </dd>
+</dl>
+<h3>Non-standard extensions</h3>
+<p>A few more predefined types are provided by Mozilla (Firefox), Blink (Chrome and Opera) and WebKit (Safari) to support list types in other languages. See the compatibility table to check which browsers support which extension.</p>
+<ul>
+  <li><code>-moz-ethiopic-halehame</code></li>
+  <li><code>-moz-ethiopic-halehame-am</code></li>
+  <li><code>ethiopic-halehame-ti-er</code>, <code>-moz-ethiopic-halehame-ti-er</code></li>
+  <li><code>ethiopic-halehame-ti-et</code>, <code>-moz-ethiopic-halehame-ti-et</code></li>
+  <li><code>hangul</code>, <code>-moz-hangul</code></li>
+  <li><code>hangul-consonant</code>, <code>-moz-hangul-consonant</code></li>
+  <li><code>urdu</code>, <code>-moz-urdu</code></li>
+</ul>
+<h2>Accessibility concerns</h2>
+<p>Safari will not recognize an ordered or unordered list as a list in the accessibility tree if it has a <code>list-style-type</code> value of <code>none</code>. To learn more about this and potential workarounds, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style#accessibility_concerns"><code>list-style</code></a>.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>disc</td></tr><tr><th scope="row">Applies to</th><td>list items</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;counter-style&gt; | &lt;string&gt; | none</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">List 1
+&#x3C;ol class="normal">
+  &#x3C;li>Hello&#x3C;/li>
+  &#x3C;li>World&#x3C;/li>
+  &#x3C;li>What's up?&#x3C;/li>
+&#x3C;/ol>
+
+List 2
+&#x3C;ol class="shortcut">
+  &#x3C;li>Looks&#x3C;/li>
+  &#x3C;li>Like&#x3C;/li>
+  &#x3C;li>The&#x3C;/li>
+  &#x3C;li>Same&#x3C;/li>
+&#x3C;/ol>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ol.normal {
+  list-style-type: upper-alpha;
+}
+
+/* or use the shortcut "list-style": */
+ol.shortcut {
+  list-style: upper-alpha;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ol>
+  &#x3C;li>Apollo&#x3C;/li>
+  &#x3C;li>Hubble&#x3C;/li>
+  &#x3C;li>Chandra&#x3C;/li>
+  &#x3C;li>Cassini-Huygens&#x3C;/li>
+  &#x3C;li>Spitzer&#x3C;/li>
+&#x3C;/ol>
+
+&#x3C;h2>Choose a list style type:&#x3C;/h2>
+
+&#x3C;div class="container">
+  &#x3C;label for="disc">
+    &#x3C;input type="radio" id="disc" name="type" value="disc" />disc
+  &#x3C;/label>
+
+  &#x3C;label for="circle">
+    &#x3C;input type="radio" id="circle" name="type" value="circle" />circle
+  &#x3C;/label>
+
+  &#x3C;label for="square">
+    &#x3C;input type="radio" id="square" name="type" value="square" />square
+  &#x3C;/label>
+
+  &#x3C;label for="decimal">
+    &#x3C;input type="radio" id="decimal" name="type" value="decimal" />decimal
+  &#x3C;/label>
+
+  &#x3C;label for="cjk-decimal">
+    &#x3C;input
+      type="radio"
+      id="cjk-decimal"
+      name="type"
+      value="cjk-decimal" />cjk-decimal
+  &#x3C;/label>
+
+  &#x3C;label for="decimal-leading-zero">
+    &#x3C;input
+      type="radio"
+      id="decimal-leading-zero"
+      name="type"
+      value="decimal-leading-zero" />decimal-leading-zero
+  &#x3C;/label>
+
+  &#x3C;label for="lower-roman">
+    &#x3C;input
+      type="radio"
+      id="lower-roman"
+      name="type"
+      value="lower-roman" />lower-roman
+  &#x3C;/label>
+
+  &#x3C;label for="upper-roman">
+    &#x3C;input
+      type="radio"
+      id="upper-roman"
+      name="type"
+      value="upper-roman" />upper-roman
+  &#x3C;/label>
+
+  &#x3C;label for="lower-greek">
+    &#x3C;input
+      type="radio"
+      id="lower-greek"
+      name="type"
+      value="lower-greek" />lower-greek
+  &#x3C;/label>
+
+  &#x3C;label for="lower-alpha">
+    &#x3C;input
+      type="radio"
+      id="lower-alpha"
+      name="type"
+      value="lower-alpha" />lower-alpha, lower-latin
+  &#x3C;/label>
+
+  &#x3C;label for="upper-alpha">
+    &#x3C;input
+      type="radio"
+      id="upper-alpha"
+      name="type"
+      value="upper-alpha" />upper-alpha, upper-latin
+  &#x3C;/label>
+
+  &#x3C;label for="arabic-indic">
+    &#x3C;input
+      type="radio"
+      id="arabic-indic"
+      name="type"
+      value="arabic-indic" />arabic-indic
+  &#x3C;/label>
+
+  &#x3C;label for="armenian">
+    &#x3C;input type="radio" id="armenian" name="type" value="armenian" />armenian
+  &#x3C;/label>
+
+  &#x3C;label for="bengali">
+    &#x3C;input type="radio" id="bengali" name="type" value="bengali" />bengali
+  &#x3C;/label>
+
+  &#x3C;label for="cambodian">
+    &#x3C;input type="radio" id="cambodian" name="type" value="cambodian" />cambodian
+  &#x3C;/label>
+
+  &#x3C;label for="cjk-earthly-branch">
+    &#x3C;input
+      type="radio"
+      id="cjk-earthly-branch"
+      name="type"
+      value="cjk-earthly-branch" />cjk-earthly-branch
+  &#x3C;/label>
+
+  &#x3C;label for="cjk-heavenly-stem">
+    &#x3C;input
+      type="radio"
+      id="cjk-heavenly-stem"
+      name="type"
+      value="cjk-heavenly-stem" />cjk-heavenly-stem
+  &#x3C;/label>
+
+  &#x3C;label for="cjk-ideographic">
+    &#x3C;input
+      type="radio"
+      id="cjk-ideographic"
+      name="type"
+      value="cjk-ideographic" />cjk-ideographic
+  &#x3C;/label>
+
+  &#x3C;label for="devanagari">
+    &#x3C;input
+      type="radio"
+      id="devanagari"
+      name="type"
+      value="devanagari" />devanagari
+  &#x3C;/label>
+
+  &#x3C;label for="ethiopic-numeric">
+    &#x3C;input
+      type="radio"
+      id="ethiopic-numeric"
+      name="type"
+      value="ethiopic-numeric" />ethiopic-numeric
+  &#x3C;/label>
+
+  &#x3C;label for="georgian">
+    &#x3C;input type="radio" id="georgian" name="type" value="georgian" />georgian
+  &#x3C;/label>
+
+  &#x3C;label for="gujarati">
+    &#x3C;input type="radio" id="gujarati" name="type" value="gujarati" />gujarati
+  &#x3C;/label>
+
+  &#x3C;label for="gurmukhi">
+    &#x3C;input type="radio" id="gurmukhi" name="type" value="gurmukhi" />gurmukhi
+  &#x3C;/label>
+
+  &#x3C;label for="hebrew">
+    &#x3C;input type="radio" id="hebrew" name="type" value="hebrew" />hebrew
+  &#x3C;/label>
+
+  &#x3C;label for="hiragana">
+    &#x3C;input type="radio" id="hiragana" name="type" value="hiragana" />hiragana
+  &#x3C;/label>
+
+  &#x3C;label for="hiragana-iroha">
+    &#x3C;input
+      type="radio"
+      id="hiragana-iroha"
+      name="type"
+      value="hiragana-iroha" />hiragana-iroha
+  &#x3C;/label>
+
+  &#x3C;label for="japanese-formal">
+    &#x3C;input
+      type="radio"
+      id="japanese-formal"
+      name="type"
+      value="japanese-formal" />japanese-formal
+  &#x3C;/label>
+
+  &#x3C;label for="japanese-informal">
+    &#x3C;input
+      type="radio"
+      id="japanese-informal"
+      name="type"
+      value="japanese-informal" />japanese-informal
+  &#x3C;/label>
+
+  &#x3C;label for="kannada">
+    &#x3C;input type="radio" id="kannada" name="type" value="kannada" />kannada
+  &#x3C;/label>
+
+  &#x3C;label for="katakana">
+    &#x3C;input type="radio" id="katakana" name="type" value="katakana" />katakana
+  &#x3C;/label>
+
+  &#x3C;label for="katakana-iroha">
+    &#x3C;input
+      type="radio"
+      id="katakana-iroha"
+      name="type"
+      value="katakana-iroha" />katakana-iroha
+  &#x3C;/label>
+
+  &#x3C;label for="khmer">
+    &#x3C;input type="radio" id="khmer" name="type" value="khmer" />khmer
+  &#x3C;/label>
+
+  &#x3C;label for="korean-hangul-formal">
+    &#x3C;input
+      type="radio"
+      id="korean-hangul-formal"
+      name="type"
+      value="korean-hangul-formal" />korean-hangul-formal
+  &#x3C;/label>
+
+  &#x3C;label for="korean-hanja-formal">
+    &#x3C;input
+      type="radio"
+      id="korean-hanja-formal"
+      name="type"
+      value="korean-hanja-formal" />korean-hanja-formal
+  &#x3C;/label>
+
+  &#x3C;label for="korean-hanja-informal">
+    &#x3C;input
+      type="radio"
+      id="korean-hanja-informal"
+      name="type"
+      value="korean-hanja-informal" />korean-hanja-informal
+  &#x3C;/label>
+
+  &#x3C;label for="lao">
+    &#x3C;input type="radio" id="lao" name="type" value="lao" />lao
+  &#x3C;/label>
+
+  &#x3C;label for="lower-armenian">
+    &#x3C;input
+      type="radio"
+      id="lower-armenian"
+      name="type"
+      value="lower-armenian" />lower-armenian
+  &#x3C;/label>
+
+  &#x3C;label for="malayalam">
+    &#x3C;input type="radio" id="malayalam" name="type" value="malayalam" />malayalam
+  &#x3C;/label>
+
+  &#x3C;label for="mongolian">
+    &#x3C;input type="radio" id="mongolian" name="type" value="mongolian" />mongolian
+  &#x3C;/label>
+
+  &#x3C;label for="myanmar">
+    &#x3C;input type="radio" id="myanmar" name="type" value="myanmar" />myanmar
+  &#x3C;/label>
+
+  &#x3C;label for="oriya">
+    &#x3C;input type="radio" id="oriya" name="type" value="oriya" />oriya
+  &#x3C;/label>
+
+  &#x3C;label for="persian">
+    &#x3C;input type="radio" id="persian" name="type" value="persian" />persian
+  &#x3C;/label>
+
+  &#x3C;label for="simp-chinese-formal">
+    &#x3C;input
+      type="radio"
+      id="simp-chinese-formal"
+      name="type"
+      value="simp-chinese-formal" />simp-chinese-formal
+  &#x3C;/label>
+
+  &#x3C;label for="simp-chinese-informal">
+    &#x3C;input
+      type="radio"
+      id="simp-chinese-informal"
+      name="type"
+      value="simp-chinese-informal" />simp-chinese-informal
+  &#x3C;/label>
+
+  &#x3C;label for="tamil">
+    &#x3C;input type="radio" id="tamil" name="type" value="tamil" />tamil
+  &#x3C;/label>
+
+  &#x3C;label for="telugu">
+    &#x3C;input type="radio" id="telugu" name="type" value="telugu" />telugu
+  &#x3C;/label>
+
+  &#x3C;label for="thai">
+    &#x3C;input type="radio" id="thai" name="type" value="thai" />thai
+  &#x3C;/label>
+
+  &#x3C;label for="tibetan">
+    &#x3C;input type="radio" id="tibetan" name="type" value="tibetan" />tibetan
+  &#x3C;/label>
+
+  &#x3C;label for="trad-chinese-formal">
+    &#x3C;input
+      type="radio"
+      id="trad-chinese-formal"
+      name="type"
+      value="trad-chinese-formal" />trad-chinese-formal
+  &#x3C;/label>
+
+  &#x3C;label for="trad-chinese-informal">
+    &#x3C;input
+      type="radio"
+      id="trad-chinese-informal"
+      name="type"
+      value="trad-chinese-informal" />trad-chinese-informal
+  &#x3C;/label>
+
+  &#x3C;label for="upper-armenian">
+    &#x3C;input
+      type="radio"
+      id="upper-armenian"
+      name="type"
+      value="upper-armenian" />upper-armenian
+  &#x3C;/label>
+
+  &#x3C;label for="disclosure-open">
+    &#x3C;input
+      type="radio"
+      id="disclosure-open"
+      name="type"
+      value="disclosure-open" />disclosure-open
+  &#x3C;/label>
+
+  &#x3C;label for="disclosure-closed">
+    &#x3C;input
+      type="radio"
+      id="disclosure-closed"
+      name="type"
+      value="disclosure-closed" />disclosure-closed
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-ethiopic-halehame">
+    &#x3C;input
+      type="radio"
+      id="-moz-ethiopic-halehame"
+      name="type"
+      value="-moz-ethiopic-halehame" />-moz-ethiopic-halehame
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-ethiopic-halehame-am">
+    &#x3C;input
+      type="radio"
+      id="-moz-ethiopic-halehame-am"
+      name="type"
+      value="-moz-ethiopic-halehame-am" />-moz-ethiopic-halehame-am
+  &#x3C;/label>
+
+  &#x3C;label for="ethiopic-halehame-ti-er">
+    &#x3C;input
+      type="radio"
+      id="ethiopic-halehame-ti-er"
+      name="type"
+      value="ethiopic-halehame-ti-er" />ethiopic-halehame-ti-er
+  &#x3C;/label>
+
+  &#x3C;label for="ethiopic-halehame-ti-et">
+    &#x3C;input
+      type="radio"
+      id="ethiopic-halehame-ti-et"
+      name="type"
+      value="ethiopic-halehame-ti-et" />ethiopic-halehame-ti-et
+  &#x3C;/label>
+
+  &#x3C;label for="hangul">
+    &#x3C;input type="radio" id="hangul" name="type" value="hangul" />hangul
+  &#x3C;/label>
+
+  &#x3C;label for="hangul-consonant">
+    &#x3C;input
+      type="radio"
+      id="hangul-consonant"
+      name="type"
+      value="hangul-consonant" />hangul-consonant
+  &#x3C;/label>
+
+  &#x3C;label for="urdu">
+    &#x3C;input type="radio" id="urdu" name="type" value="urdu" />urdu
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-ethiopic-halehame-ti-er">
+    &#x3C;input
+      type="radio"
+      id="-moz-ethiopic-halehame-ti-er"
+      name="type"
+      value="-moz-ethiopic-halehame-ti-er" />-moz-ethiopic-halehame-ti-er
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-ethiopic-halehame-ti-et">
+    &#x3C;input
+      type="radio"
+      id="-moz-ethiopic-halehame-ti-et"
+      name="type"
+      value="-moz-ethiopic-halehame-ti-et" />-moz-ethiopic-halehame-ti-et
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-hangul">
+    &#x3C;input
+      type="radio"
+      id="-moz-hangul"
+      name="type"
+      value="-moz-hangul" />-moz-hangul
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-hangul-consonant">
+    &#x3C;input
+      type="radio"
+      id="-moz-hangul-consonant"
+      name="type"
+      value="-moz-hangul-consonant" />-moz-hangul-consonant
+  &#x3C;/label>
+
+  &#x3C;label for="-moz-urdu">
+    &#x3C;input type="radio" id="-moz-urdu" name="type" value="-moz-urdu" />-moz-urdu
+  &#x3C;/label>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ol {
+  font-size: 1.2rem;
+}
+
+.container {
+  column-count: 3;
+}
+
+label {
+  display: block;
+}
+
+input {
+  margin: 0.4rem;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const container = document.querySelector(".container");
+container.addEventListener("change", (event) => {
+  const list = document.querySelector("ol");
+  list.setAttribute("style", `list-style-type: ${event.target.value}`);
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#text-markers,https://drafts.csswg.org/css-counter-styles/#extending-css2">https://drafts.csswg.org/css-lists/#text-markers,https://drafts.csswg.org/css-counter-styles/#extending-css2</a></p></section></aside></body>
+</html>

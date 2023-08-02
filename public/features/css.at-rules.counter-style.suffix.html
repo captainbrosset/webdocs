@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>suffix</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style suffix</h1><main>
+    
+
+<p>The <strong><code>suffix</code></strong> descriptor of the <a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a> rule specifies content that will be appended to the marker representation.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;symbol> values */
+suffix: "";
+suffix: ") ";
+suffix: url(bullet.png);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;symbol></code></dt>
+  <dd>
+    <p>Specifies a <code>&#x3C;symbol></code> that is appended to the marker representation. It may be a <a href="./css.types.string.html"><code>&lt;string&gt;</code></a>, <a href="./css.types.image.html"><code>&lt;image&gt;</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="choices">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>None of the above&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style options {
+  system: fixed;
+  symbols: A B C D;
+  suffix: ") ";
+}
+
+.choices {
+  list-style: options;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>, the functional notation creating anonymous counter styles</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 91</li><li><strong>chrome_android</strong>: 91</li><li><strong>edge</strong>: 91</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 77</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 16.0</li><li><strong>webview_android</strong>: 91</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-suffix">https://drafts.csswg.org/css-counter-styles/#counter-style-suffix</a></p></section></aside></body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-border-repeat</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-border-repeat</h1><main>
+    
+
+<p>The <strong><code>mask-border-repeat</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice#edge-regions">edge regions</a> of a source image are adjusted to fit the dimensions of an element's <a href="./css.properties.mask-border.html">mask border</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+mask-border-repeat: stretch;
+mask-border-repeat: repeat;
+mask-border-repeat: round;
+mask-border-repeat: space;
+
+/* top and bottom | left and right */
+mask-border-repeat: round stretch;
+
+/* Global values */
+mask-border-repeat: inherit;
+mask-border-repeat: initial;
+mask-border-repeat: revert;
+mask-border-repeat: revert-layer;
+mask-border-repeat: unset;
+</pre>
+<p>The <code>mask-border-repeat</code> property may be specified using one or two values chosen from the list of values below.</p>
+<ul>
+  <li>When <strong>one</strong> value is specified, it applies the same behavior on <strong>all four sides</strong>.</li>
+  <li>When <strong>two</strong> values are specified, the first applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>stretch</code></dt>
+  <dd>
+    <p>The source image's edge regions are stretched to fill the gap between each border.</p>
+  </dd>
+  <dt><code>repeat</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Tiles may be clipped to achieve the proper fit.</p>
+  </dd>
+  <dt><code>round</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Tiles may be stretched to achieve the proper fit.</p>
+  </dd>
+  <dt><code>space</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Extra space will be distributed in between tiles to achieve the proper fit.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>stretch</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ stretch | repeat | round | space ]{1,2}</pre></section>
+
+<h3>Basic usage</h3>
+<p>This property doesn't appear to be supported anywhere yet. When it eventually starts to be supported, it will serve to define how the border mask slice will repeat around the border — i.e. will it just repeat, or be scaled slightly so a whole number of slices fits, or be stretched so one slice fits?</p>
+<pre class="brush: css">mask-border-repeat: round;
+</pre>
+<p>Chromium-based browsers support an outdated version of this property — <code>mask-box-image-repeat</code> — with a prefix:</p>
+<pre class="brush: css">-webkit-mask-box-image-repeat: round;
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <a href="./css.properties.mask-border.html"><code>mask-border</code></a> page features a working example (using the out-of-date prefixed border mask properties supported in Chromium), so you can get an idea of the effect.</p>
+</div>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.mask-border.html"><code>mask-border</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode"><code>mask-border-mode</code></a></li>
+  <li><a href="./css.properties.mask-border-outset.html"><code>mask-border-outset</code></a></li>
+  <li><a href="./css.properties.mask-border-source.html"><code>mask-border-source</code></a></li>
+  <li><a href="./css.properties.mask-border-width.html"><code>mask-border-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-border-repeat">https://drafts.fxtf.org/css-masking/#the-mask-border-repeat</a></p></section></aside></body>
+</html>

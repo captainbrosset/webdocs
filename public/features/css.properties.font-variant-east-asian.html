@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variant-east-asian</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-variant-east-asian</h1><main>
+    
+
+<p>The <strong><code>font-variant-east-asian</code></strong> CSS property controls the use of alternate glyphs for East Asian scripts, like Japanese and Chinese.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">font-variant-east-asian: normal;
+font-variant-east-asian: ruby;
+font-variant-east-asian: jis78; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: jis83; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: jis90; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: jis04; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: simplified; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: traditional; /* &#x3C;east-asian-variant-values> */
+font-variant-east-asian: full-width; /* &#x3C;east-asian-width-values> */
+font-variant-east-asian: proportional-width; /* &#x3C;east-asian-width-values> */
+font-variant-east-asian: ruby full-width jis83;
+
+/* Global values */
+font-variant-east-asian: inherit;
+font-variant-east-asian: initial;
+font-variant-east-asian: revert;
+font-variant-east-asian: revert-layer;
+font-variant-east-asian: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>This keyword leads to the deactivation of the use of such alternate glyphs.</p>
+  </dd>
+  <dt><code>ruby</code></dt>
+  <dd>
+    <p>This keyword forces the use of special glyphs for ruby characters. As these are usually smaller, font creators often designs specific forms, usually slightly bolder to improve the contrast. This keyword corresponds to the OpenType values <code>ruby</code>.</p>
+  </dd>
+  <dt><code>&#x3C;east-asian-variant-values></code></dt>
+  <dd>
+    <p>These values specify a set of logographic glyph variants which should be used for display. Possible values are:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Standard defining the glyphs</th>
+          <th>OpenType equivalent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>jis78</code></td>
+          <td><a href="https://en.wikipedia.org/wiki/JIS_X_0208#First_standard">JIS X 0208:1978</a></td>
+          <td><code>jp78</code></td>
+        </tr>
+        <tr>
+          <td><code>jis83</code></td>
+          <td><a href="https://en.wikipedia.org/wiki/JIS_X_0208#Second_standard">JIS X 0208:1983</a></td>
+          <td><code>jp83</code></td>
+        </tr>
+        <tr>
+          <td><code>jis90</code></td>
+          <td><a href="https://en.wikipedia.org/wiki/JIS_X_0208#Third_standard">JIS X 0208:1990</a></td>
+          <td><code>jp90</code></td>
+        </tr>
+        <tr>
+          <td><code>jis04</code></td>
+          <td><a href="https://en.wikipedia.org/wiki/JIS_X_0213">JIS X 0213:2004</a></td>
+          <td><code>jp04</code></td>
+        </tr>
+        <tr>
+          <td><code>simplified</code></td>
+          <td>None, use the simplified Chinese glyphs</td>
+          <td><code>smpl</code></td>
+        </tr>
+        <tr>
+          <td><code>traditional</code></td>
+          <td>None, use the traditional Chinese glyphs</td>
+          <td><code>trad</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+  <dt><code>&#x3C;east-asian-width-values></code></dt>
+  <dd>
+    <p>These values control the sizing of figures used for East Asian characters. Two values are possible:</p>
+    <ul>
+      <li><code>proportional-width</code> activating the set of East Asian characters which vary in width. It corresponds to the OpenType values <code>pwid</code>.</li>
+      <li><code>full-width</code> activating the set of East Asian characters which are all of the same, roughly square, width metric. It corresponds to the OpenType values <code>fwid</code>.</li>
+    </ul>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]</pre></section>
+
+<h3>Setting East Asian glyph variants</h3>
+<p>This example require font "Yu Gothic" installed in your OS, other fonts may not support OpenType features.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;thead>&#x3C;/thead>
+  &#x3C;tbody style="border:0;">
+    &#x3C;tr>
+      &#x3C;th>normal/jis78:&#x3C;/th>
+      &#x3C;td>麹町&#x3C;/td>
+      &#x3C;td class="jis78">麹町&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;th>normal/ruby:&#x3C;/th>
+      &#x3C;td>しんかんせん&#x3C;/td>
+      &#x3C;td class="ruby">しんかんせん&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;th>normal/traditional:&#x3C;/th>
+      &#x3C;td>大学&#x3C;/td>
+      &#x3C;td class="traditional">大学&#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">td {
+  font-family: "Yu Gothic";
+  font-size: 20px;
+}
+th {
+  color: grey;
+  padding-right: 10px;
+}
+
+.ruby {
+  font-variant-east-asian: ruby;
+}
+
+.jis78 {
+  font-variant-east-asian: jis78;
+}
+
+.traditional {
+  font-variant-east-asian: traditional;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a></li>
+  <li><a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a></li>
+  <li><a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a></li>
+  <li><a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a></li>
+  <li><a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a></li>
+  <li><a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 63</li><li><strong>chrome_android</strong>: 63</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 50</li><li><strong>opera_android</strong>: 46</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 8.0</li><li><strong>webview_android</strong>: 63</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-variant-east-asian-prop">https://drafts.csswg.org/css-fonts/#font-variant-east-asian-prop</a></p></section></aside></body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Selector list</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors Selector list</h1><main>
+    
+
+<p>The CSS <strong>selector list</strong> (<code>,</code>) selects all the matching nodes. A selector list is a comma-separated list of selectors.</p>
+<h2>Description</h2>
+<p>When multiple selectors share the same declarations, they can be grouped together into a comma-separated list. Selector lists can also be passed as parameters to some functional CSS pseudo-classes. White space may appear before and/or after the comma.</p>
+<p>The following three declarations are equivalent:</p>
+<pre class="brush: css">span {
+  border: red 2px solid;
+}
+div {
+  border: red 2px solid;
+}
+</pre>
+<pre class="brush: css">span,
+div {
+  border: red 2px solid;
+}
+</pre>
+<pre class="brush: css">:is(span, div) {
+  border: red 2px solid;
+}
+</pre>
+<h2>Examples</h2>
+<p>When applying the same styles to elements matching different criteria, grouping the selectors in a comma-separated list can improve consistency while reducing the size of style sheets.</p>
+<h3>Single line grouping</h3>
+<p>This example shows grouping selectors in a single line using a comma-separated list.</p>
+<pre class="brush: css">h1, h2, h3, h4, h5, h6 {
+  font-family: helvetica;
+}
+</pre>
+<h3>Multi line grouping</h3>
+<p>This example shows grouping selectors in multiple lines using a comma-separated list.</p>
+<pre class="brush: css">#main,
+.content,
+article,
+h1 + p {
+  font-size: 1.1em;
+}
+</pre>
+<h2>Valid and invalid selector lists</h2>
+<p>An invalid selector represents, and therefore matches, nothing. When a selector list contains an invalid selector, the entire style block is ignored, except for the <a href="./css.selectors.is.html"><code>:is()</code></a> and <a href="./css.selectors.where.html"><code>:where()</code></a> pseudo-classes that accept <a href="#forgiving_selector_list">forgiving selector lists</a>.</p>
+<h3>Invalid selector list</h3>
+<p>A downside to using a selector list is that a single unsupported selector in the selector list invalidates the entire rule.</p>
+<p>Consider the following two CSS rule sets:</p>
+<pre class="brush: css">h1 {
+  font-family: sans-serif;
+}
+h2:invalid-pseudo {
+  font-family: sans-serif;
+}
+h3 {
+  font-family: sans-serif;
+}
+</pre>
+<pre class="brush: css">h1,
+h2:invalid-pseudo,
+h3 {
+  font-family: sans-serif;
+}
+</pre>
+<p>They are not equivalent. In the first rule set, styles will be applied on the <code>h1</code> and <code>h3</code> elements, but the <code>h2:invalid-pseudo</code> rule will not be parsed. In the second rule set, because one selector in the list is invalid, the entire rule will not be parsed. Because of this, no style will be applied to the <code>h1</code> and <code>h3</code> elements as when any selector in a list of selectors in invalid, the entire style block will be ignored.</p>
+<h3>Forgiving selector list</h3>
+<p>A way to remedy the <a href="#invalid_selector_list">invalid selector list</a> problem is to use the <a href="./css.selectors.is.html"><code>:is()</code></a> or the <a href="./css.selectors.where.html"><code>:where()</code></a> pseudo-class, which accept a forgiving selector list. Each selector in a forgiving selector list is parsed individually. So any invalid selectors in the list are ignored and the valid ones are used.</p>
+<p>Carrying on from the previous example, the following two CSS rule sets are now equivalent:</p>
+<pre class="brush: css">h1 {
+  font-family: sans-serif;
+}
+h2:maybe-unsupported {
+  font-family: sans-serif;
+}
+h3 {
+  font-family: sans-serif;
+}
+</pre>
+<pre class="brush: css">:is(h1, h2:maybe-unsupported, h3) {
+  font-family: sans-serif;
+}
+</pre>
+<p>The difference between the two is that the specificity of <code>:is()</code> is its most specific argument, whereas the <code>:where()</code> selector and the forgiving selector list parameter do not add any specificity weight.</p>
+<h3>Relative selector list</h3>
+<p>A relative selector list is a comma-separated selector list parsed as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector">relative selectors</a>, which begin with an explicit or implied combinator.</p>
+<pre class="brush: css">h2:has(+ p, + ul.red) {
+  font-style: italic;
+}
+</pre>
+<p>In the above example, the italic style will be applied to any <code>h2</code> heading that is immediately followed by <code>&#x3C;p></code> or <code>&#x3C;ul class="red"></code>. Note that pseudo-elements and the <code>:has()</code> selector are not valid within the <a href="./css.selectors.has.html"><code>:has()</code></a> relative selector list.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.selectors.is.html"><code>:is()</code></a> and <a href="./css.selectors.where.html"><code>:where()</code></a> pseudo-classes accept forgiving selector lists.</li>
+  <li>The <a href="./css.selectors.not.html"><code>:not()</code></a> pseudo-class accepts a regular selector list</li>
+  <li>The <a href="./css.selectors.has.html"><code>:has()</code></a> pseudo-class accepts a relative selector list.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#grouping">https://drafts.csswg.org/selectors/#grouping</a></p></section></aside></body>
+</html>

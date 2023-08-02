@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":focus-within"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":focus-within"</h1><main>
+    
+
+<p>The <strong><code>:focus-within</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches an element if the element or any of its descendants are focused. In other words, it represents an element that is itself matched by the <a href="./css.selectors.focus.html"><code>:focus</code></a> pseudo-class or has a descendant that is matched by <code>:focus</code>. (This includes descendants in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">shadow trees</a>.)</p>
+<p>This selector is useful, to take a common example, for highlighting an entire <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> container when the user focuses on one of its <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> fields.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:focus-within {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<p>In this example, the form will receive special coloring styles when either text input receives focus.</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p>Try typing into this form.&#x3C;/p>
+
+&#x3C;form>
+  &#x3C;label for="given_name">Given Name:&#x3C;/label>
+  &#x3C;input id="given_name" type="text" />
+  &#x3C;br />
+  &#x3C;label for="family_name">Family Name:&#x3C;/label>
+  &#x3C;input id="family_name" type="text" />
+&#x3C;/form>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">form {
+  border: 1px solid;
+  color: gray;
+  padding: 4px;
+}
+
+form:focus-within {
+  background: #ff8;
+  color: black;
+}
+
+input {
+  margin: 4px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.focus.html"><code>:focus</code></a></li>
+  <li><a href="./css.selectors.focus-visible.html"><code>:focus-visible</code></a></li>
+  <li><a href="https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4">Grab your user's attention with the focus-within selector</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 60</li><li><strong>chrome_android</strong>: 60</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 47</li><li><strong>opera_android</strong>: 44</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 8.0</li><li><strong>webview_android</strong>: 60</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-focus-within-pseudo">https://drafts.csswg.org/selectors/#the-focus-within-pseudo</a></p></section></aside></body>
+</html>

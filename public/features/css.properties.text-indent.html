@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-indent</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-indent</h1><main>
+    
+
+<p>The <strong><code>text-indent</code></strong> CSS property sets the length of empty space (indentation) that is put before lines of text in a block.</p>
+<p>Horizontal spacing is with respect to the left (or right, for right-to-left layout) edge of the containing block-level element's content box.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+text-indent: 3mm;
+text-indent: 40px;
+
+/* &#x3C;percentage> value
+   relative to the containing block width */
+text-indent: 15%;
+
+/* Keyword values */
+text-indent: 5em each-line;
+text-indent: 5em hanging;
+text-indent: 5em hanging each-line;
+
+/* Global values */
+text-indent: inherit;
+text-indent: initial;
+text-indent: revert;
+text-indent: revert-layer;
+text-indent: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Indentation is specified as an absolute <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>. Negative values are allowed. See <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> values for possible units.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Indentation is a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> of the containing block's width.</p>
+  </dd>
+  <dt><code>each-line</code></dt>
+  <dd>
+    <p>Indentation affects the first line of the block container as well as each line after a <em>forced line break</em>, but does not affect lines after a <em>soft wrap break</em>.</p>
+  </dd>
+  <dt><code>hanging</code></dt>
+  <dd>
+    <p>Inverts which lines are indented. All lines <em>except</em> the first line will be indented.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>block containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>computed &lt;length-percentage&gt; value, plus any specified keywords</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ &lt;length-percentage&gt; ] && hanging? && each-line?</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+&#x3C;/p>
+&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  text-indent: 5em;
+  background: powderblue;
+}
+</pre>
+
+<h3>Skipping indentation on the first paragraph</h3>
+<p>A common typographic practice when paragraph indentation is present is to skip the indentation for the first paragraph. As the <em>The Chicago Manual of Style</em> puts it, "the first line of text following a subhead may begin flush left or be indented by the usual paragraph indention."</p>
+<p>Treating first paragraphs differently from subsequent paragraphs can be done using the <a href="./css.selectors.adjacent_sibling.html">adjacent sibling combinator</a>, as in the following example:</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>Lorem ipsum&#x3C;/h2>
+
+&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu
+  venenatis quam. Vivamus euismod eleifend metus vitae pharetra. In vel tempor
+  metus. Donec dapibus feugiat euismod. Vivamus interdum tellus dolor. Vivamus
+  blandit eros et imperdiet auctor. Mauris sapien nunc, condimentum a efficitur
+  non, elementum ac sapien. Cras consequat turpis non augue ullamcorper, sit
+  amet porttitor dui interdum.
+&#x3C;/p>
+
+&#x3C;p>
+  Sed laoreet luctus erat at rutrum. Proin velit metus, luctus in sapien in,
+  tincidunt mattis ex. Praesent venenatis orci at sagittis eleifend. Nulla
+  facilisi. In feugiat vehicula magna iaculis vehicula. Nulla suscipit tempor
+  odio a semper. Donec vitae dapibus ipsum. Donec libero purus, convallis eu
+  efficitur id, pulvinar elementum diam. Maecenas mollis blandit placerat. Ut
+  gravida pellentesque nunc, in eleifend ante convallis sit amet.
+&#x3C;/p>
+
+&#x3C;h2>Donec ullamcorper elit nisl&#x3C;/h2>
+
+&#x3C;p>
+  Donec ullamcorper elit nisl, sagittis bibendum massa gravida in. Fusce tempor
+  in ante gravida iaculis. Integer posuere tempor metus. Vestibulum lacinia,
+  nunc et dictum viverra, urna massa aliquam tellus, id mollis sem velit
+  vestibulum nulla. Pellentesque habitant morbi tristique senectus et netus et
+  malesuada fames ac turpis egestas. Donec vulputate leo ut iaculis ultrices.
+  Cras egestas rhoncus lorem. Nunc blandit tempus lectus, rutrum hendrerit orci
+  eleifend id. Ut at quam velit.
+&#x3C;/p>
+
+&#x3C;p>
+  Aenean rutrum tempor ligula, at luctus ligula auctor vestibulum. Sed
+  sollicitudin velit in leo fringilla sollicitudin. Proin eu gravida arcu. Nam
+  iaculis malesuada massa, eget aliquet turpis sagittis sed. Sed mollis tellus
+  ac dui ullamcorper, nec lobortis diam pellentesque. Quisque dapibus accumsan
+  libero, sed euismod ipsum ullamcorper sed.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  text-align: justify;
+  margin: 1em 0 0 0;
+}
+p + p {
+  text-indent: 2em;
+  margin: 0;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+&#x3C;/p>
+&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  text-indent: 30%;
+  background: plum;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Learn to style HTML using CSS</a></li>
+  <li>Related CSS properties:
+    <ul>
+      <li><a href="./css.properties.text-justify.html"><code>text-justify</code></a></li>
+      <li><a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+      <li><a href="./css.properties.text-overflow.html"><code>text-overflow</code></a></li>
+      <li><a href="./css.properties.text-rendering.html"><code>text-rendering</code></a></li>
+      <li><a href="./css.properties.text-transform.html"><code>text-transform</code></a></li>
+      <li><a href="./css.properties.hanging-punctuation.html"><code>hanging-punctuation</code></a></li>
+    </ul>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text_decoration">CSS Text Decoration</a> CSS module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text">CSS Text module</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#text-indent-property">https://drafts.csswg.org/css-text/#text-indent-property</a></p></section></aside></body>
+</html>

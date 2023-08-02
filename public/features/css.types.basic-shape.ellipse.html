@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ellipse()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types basic-shape ellipse()</h1><main>
+    
+
+<p>The <strong><code>ellipse()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> function is one of the <a href="./css.types.basic-shape.html"><code>&lt;basic-shape&gt;()</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data types</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">shape-outside: ellipse(40% 50% at left);
+shape-outside: ellipse(closest-side farthest-side at 30%);
+</pre>
+<p>An ellipse is essentially a squashed circle and so <code>ellipse()</code> acts in a very similar way to <a href="./css.types.basic-shape.circle.html"><code>circle()</code></a> except that we have to specify two radii x and y.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;shape-radius></code></dt>
+  <dd>
+    <p>Two radii, x and y in that order. These may be a <a href="./css.types.length.html"><code>length()</code></a>, or a <a href="./css.types.percentage.html"><code>percentage()</code></a> or values <code>closest-side</code> and <code>farthest-side</code>.</p>
+    <dl>
+      <dt><code>closest-side</code></dt>
+      <dd>
+        <p>Uses the length from the center of the shape to the closest side of the reference box. For ellipses, this is the closest side in the radius dimension.</p>
+      </dd>
+      <dt><code>farthest-side</code></dt>
+      <dd>
+        <p>Uses the length from the center of the shape to the farthest side of the reference box. For ellipses, this is the farthest side in the radius dimension.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>Moves the center of the ellipse. May be a <a href="./css.types.length.html"><code>length()</code></a>, or a <a href="./css.types.percentage.html"><code>percentage()</code></a>, or a values such as <code>left</code>.</p>
+  </dd>
+</dl>
+
+<h3>Basic ellipse() example</h3>
+<p>This example shows an ellipse with an x radius of 40%, a y radius of 50% and the position being left. This means that the center of the ellipse is on the left edge of the box giving us a half ellipse shape to wrap our text around. You can change these values to see how the ellipse changes.</p><iframe width="100%" height="800" src="https://mdn.github.io/css-examples/shapes/basic-shape/ellipse.html"></iframe>
+<h3>Using closest-side / farthest-side values</h3>
+<p>The keyword values of <code>closest-side</code> and <code>farthest-side</code> are useful to create a quick ellipse based on the size of the floated element reference box.</p><iframe width="100%" height="800" src="https://mdn.github.io/css-examples/shapes/basic-shape/ellipse-keywords.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Properties that use this data type: <a href="./css.properties.clip-path.html"><code>clip-path()</code></a>, <a href="./css.properties.shape-outside.html"><code>shape-outside()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes/Basic_shapes">Guide to Basic Shapes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 37</li><li><strong>chrome_android</strong>: 37</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 54</li><li><strong>firefox_android</strong>: 54</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 24</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-shapes/#funcdef-basic-shape-ellipse">https://drafts.csswg.org/css-shapes/#funcdef-basic-shape-ellipse</a></p></section></aside></body>
+</html>

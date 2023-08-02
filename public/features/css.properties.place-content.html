@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>place-content</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties place-content</h1><main>
+    
+
+<p>The <strong><code>place-content</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> allows you to align content along both the block and inline directions at once (i.e. the <a href="./css.properties.align-content.html"><code>align-content</code></a> and <a href="./css.properties.justify-content.html"><code>justify-content</code></a> properties) in a relevant layout system such as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout">Grid</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout">Flexbox</a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.align-content.html"><code>align-content</code></a></li>
+  <li><a href="./css.properties.justify-content.html"><code>justify-content</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Positional alignment */
+/* align-content does not take left and right values */
+place-content: center start;
+place-content: start center;
+place-content: end left;
+place-content: flex-start center;
+place-content: flex-end center;
+
+/* Baseline alignment */
+/* justify-content does not take baseline values */
+place-content: baseline center;
+place-content: first baseline space-evenly;
+place-content: last baseline right;
+
+/* Distributed alignment */
+place-content: space-between space-evenly;
+place-content: space-around space-evenly;
+place-content: space-evenly stretch;
+place-content: stretch space-evenly;
+
+/* Global values */
+place-content: inherit;
+place-content: initial;
+place-content: revert;
+place-content: revert-layer;
+place-content: unset;
+</pre>
+<p>The first value is the <a href="./css.properties.align-content.html"><code>align-content</code></a> property value, the second the <a href="./css.properties.justify-content.html"><code>justify-content</code></a> one.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the second value is not present, the first value is used for both, provided it is a valid value for both. If it is invalid for one or the other, the whole value will be invalid.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>start</code></dt>
+  <dd>
+    <p>The items are packed flush to each other toward the start edge of the alignment container in the appropriate axis.</p>
+  </dd>
+  <dt><code>end</code></dt>
+  <dd>
+    <p>The items are packed flush to each other toward the end edge of the alignment container in the appropriate axis.</p>
+  </dd>
+  <dt><code>flex-start</code></dt>
+  <dd>
+    <p>
+      The items are packed flush to each other toward the edge of the alignment container depending on the flex container's main-start or cross-start side.
+      This only applies to flex layout items. For items that are not children of a flex container, this value is treated like <code>start</code>.
+    </p>
+  </dd>
+  <dt><code>flex-end</code></dt>
+  <dd>
+    <p>
+      The items are packed flush to each other toward the edge of the alignment container depending on the flex container's main-end or cross-end side.
+      This only applies to flex layout items. For items that are not children of a flex container, this value is treated like <code>end</code>.
+    </p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>The items are packed flush to each other toward the center of the alignment container.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>The items are packed flush to each other toward the left edge of the alignment container. If the property's axis is not parallel with the inline axis, this value behaves like <code>start</code>.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>The items are packed flush to each other toward the right edge of the alignment container in the appropriate axis. If the property's axis is not parallel with the inline axis, this value behaves like <code>start</code>.</p>
+  </dd>
+  <dt><code>space-between</code></dt>
+  <dd>
+    <p>The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items is the same. The first item is flush with the main-start edge, and the last item is flush with the main-end edge.</p>
+  </dd>
+  <dt><code>baseline</code>, <code>first baseline</code>, <code>last baseline</code></dt>
+  <dd>
+    <p>
+      Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box's first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
+      The fallback alignment for <code>first baseline</code> is <code>start</code>, the one for <code>last baseline</code> is <code>end</code>.
+    </p>
+  </dd>
+  <dt><code>space-around</code></dt>
+  <dd>
+    <p>The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items is the same. The empty space before the first and after the last item equals half of the space between each pair of adjacent items.</p>
+  </dd>
+  <dt><code>space-evenly</code></dt>
+  <dd>
+    <p>The items are evenly distributed within the alignment container. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.</p>
+  </dd>
+  <dt><code>stretch</code></dt>
+  <dd>
+    <p>If the combined size of the items is less than the size of the alignment container, any <code>auto</code>-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by <a href="./css.properties.max-height.html"><code>max-height</code></a>/<a href="./css.properties.max-width.html"><code>max-width</code></a> (or equivalent functionality), so that the combined size exactly fills the alignment container</p>
+  </dd>
+  <dt><code>safe</code></dt>
+  <dd>
+    <p>Used alongside an alignment keyword. If the chosen keyword means that the item overflows the alignment container causing data loss, the item is instead aligned as if the alignment mode were <code>start</code>.</p>
+  </dd>
+  <dt><code>unsafe</code></dt>
+  <dd>
+    <p>Used alongside an alignment keyword. Regardless of the relative sizes of the item and alignment container, and regardless of whether overflow which causes data loss might happen, the given alignment value is honored.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div class="small">Lorem&#x3C;/div>
+  &#x3C;div class="small">Lorem&#x3C;br />ipsum&#x3C;/div>
+  &#x3C;div class="large">Lorem&#x3C;/div>
+  &#x3C;div class="large">Lorem&#x3C;br />ipsum&#x3C;/div>
+  &#x3C;div class="large">&#x3C;/div>
+  &#x3C;div class="large">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<pre class="brush: html hidden">&#x3C;code>writing-mode:&#x3C;/code
+>&#x3C;select id="writingMode">
+  &#x3C;option value="horizontal-tb" selected>horizontal-tb&#x3C;/option>
+  &#x3C;option value="vertical-rl">vertical-rl&#x3C;/option>
+  &#x3C;option value="vertical-lr">vertical-lr&#x3C;/option>
+  &#x3C;option value="sideways-rl">sideways-rl&#x3C;/option>
+  &#x3C;option value="sideways-lr">sideways-lr&#x3C;/option>&#x3C;/select
+>&#x3C;code>;&#x3C;/code>&#x3C;br />
+
+&#x3C;code>direction:&#x3C;/code
+>&#x3C;select id="direction">
+  &#x3C;option value="ltr" selected>ltr&#x3C;/option>
+  &#x3C;option value="rtl">rtl&#x3C;/option>&#x3C;/select
+>&#x3C;code>;&#x3C;/code>&#x3C;br />
+
+&#x3C;code>place-content:&#x3C;/code
+>&#x3C;select id="alignContentAlignment">
+  &#x3C;option value="normal">normal&#x3C;/option>
+  &#x3C;option value="first baseline">first baseline&#x3C;/option>
+  &#x3C;option value="last baseline">last baseline&#x3C;/option>
+  &#x3C;option value="baseline">baseline&#x3C;/option>
+  &#x3C;option value="space-between">space-between&#x3C;/option>
+  &#x3C;option value="space-around">space-around&#x3C;/option>
+  &#x3C;option value="space-evenly" selected>space-evenly&#x3C;/option>
+  &#x3C;option value="stretch">stretch&#x3C;/option>
+  &#x3C;option value="center">center&#x3C;/option>
+  &#x3C;option value="start">start&#x3C;/option>
+  &#x3C;option value="end">end&#x3C;/option>
+  &#x3C;option value="flex-start">flex-start&#x3C;/option>
+  &#x3C;option value="flex-end">flex-end&#x3C;/option>
+  &#x3C;option value="safe">safe&#x3C;/option>
+  &#x3C;option value="unsafe">unsafe&#x3C;/option>
+&#x3C;/select>
+&#x3C;select id="justifyContentAlignment">
+  &#x3C;option value="normal">normal&#x3C;/option>
+  &#x3C;option value="space-between">space-between&#x3C;/option>
+  &#x3C;option value="space-around">space-around&#x3C;/option>
+  &#x3C;option value="space-evenly">space-evenly&#x3C;/option>
+  &#x3C;option value="stretch">stretch&#x3C;/option>
+  &#x3C;option value="center" selected>center&#x3C;/option>
+  &#x3C;option value="start">start&#x3C;/option>
+  &#x3C;option value="end">end&#x3C;/option>
+  &#x3C;option value="flex-start">flex-start&#x3C;/option>
+  &#x3C;option value="flex-end">flex-end&#x3C;/option>
+  &#x3C;option value="left">left&#x3C;/option>
+  &#x3C;option value="right">right&#x3C;/option>
+  &#x3C;option value="safe">safe&#x3C;/option>
+  &#x3C;option value="unsafe">unsafe&#x3C;/option>&#x3C;/select
+>&#x3C;code>;&#x3C;/code>
+</pre>
+<pre class="brush: js hidden">function update() {
+  document.getElementById("container").style.placeContent =
+    `${document.getElementById("alignContentAlignment").value} ` +
+    `${document.getElementById("justifyContentAlignment").value}`;
+}
+
+const alignContentAlignment = document.getElementById("alignContentAlignment");
+alignContentAlignment.addEventListener("change", update);
+
+const justifyContentAlignment = document.getElementById(
+  "justifyContentAlignment",
+);
+justifyContentAlignment.addEventListener("change", update);
+
+const writingM = document.getElementById("writingMode");
+writingM.addEventListener("change", (evt) => {
+  document.getElementById("container").style.writingMode = evt.target.value;
+});
+
+const direction = document.getElementById("direction");
+direction.addEventListener("change", (evt) => {
+  document.getElementById("container").style.direction = evt.target.value;
+});
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  display: flex;
+  height: 240px;
+  width: 240px;
+  flex-wrap: wrap;
+  background-color: #8c8c8c;
+  writing-mode: horizontal-tb; /* Can be changed in the live sample */
+  direction: ltr; /* Can be changed in the live sample */
+  place-content: flex-end center; /* Can be changed in the live sample */
+}
+
+div > div {
+  border: 2px solid #8c8c8c;
+  width: 50px;
+  background-color: #a0c8ff;
+}
+
+.small {
+  font-size: 12px;
+  height: 40px;
+}
+
+.large {
+  font-size: 14px;
+  height: 50px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container">Aligning items in a flex container</a></em></li>
+  <li>CSS Grid Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout">Box alignment in CSS Grid layouts</a></em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_alignment">CSS Box Alignment</a></li>
+  <li>The <a href="./css.properties.align-content.html"><code>align-content</code></a> property</li>
+  <li>The <a href="./css.properties.justify-content.html"><code>justify-content</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 59</li><li><strong>chrome_android</strong>: 59</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 45</li><li><strong>firefox_android</strong>: 45</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 46</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 59</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-align/#place-content">https://drafts.csswg.org/css-align/#place-content</a></p></section></aside></body>
+</html>

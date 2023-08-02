@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background</h1><main>
+    
+
+<p>The <strong><code>background</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets all background style properties at once, such as color, image, origin and size, or repeat method. Component properties not set in the <code>background</code> shorthand property value declaration are set to their default values.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.background-attachment.html"><code>background-attachment</code></a></li>
+  <li><a href="./css.properties.background-clip.html"><code>background-clip</code></a></li>
+  <li><a href="./css.properties.background-color.html"><code>background-color</code></a></li>
+  <li><a href="./css.properties.background-image.html"><code>background-image</code></a></li>
+  <li><a href="./css.properties.background-origin.html"><code>background-origin</code></a></li>
+  <li><a href="./css.properties.background-position.html"><code>background-position</code></a></li>
+  <li><a href="./css.properties.background-repeat.html"><code>background-repeat</code></a></li>
+  <li><a href="./css.properties.background-size.html"><code>background-size</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Using a &#x3C;background-color> */
+background: green;
+
+/* Using a &#x3C;bg-image> and &#x3C;repeat-style> */
+background: url("test.jpg") repeat-y;
+
+/* Using a &#x3C;box> and &#x3C;background-color> */
+background: border-box red;
+
+/* A single image, centered and scaled */
+background: no-repeat center/80% url("../img/image.png");
+
+/* Global values */
+background: inherit;
+background: initial;
+background: revert;
+background: revert-layer;
+background: unset;
+</pre>
+<p>The <code>background</code> property is specified as one or more background layers, separated by commas.</p>
+<p>The syntax of each layer is as follows:</p>
+<ul>
+  <li>Each layer may include zero or one occurrences of any of the following values:
+    <ul>
+      <li><code>&#x3C;attachment></code></li>
+      <li><code>&#x3C;bg-image></code></li>
+      <li><code>&#x3C;position></code></li>
+      <li><code>&#x3C;bg-size></code></li>
+      <li><code>&#x3C;repeat-style></code></li>
+    </ul>
+  </li>
+  <li>The <code>&#x3C;bg-size></code> value may only be included immediately after <code>&#x3C;position></code>, separated with the '/' character, like this: "<code>center/80%</code>".</li>
+  <li>The <code>&#x3C;box></code> value may be included zero, one, or two times. If included once, it sets both <a href="./css.properties.background-origin.html"><code>background-origin</code></a> and <a href="./css.properties.background-clip.html"><code>background-clip</code></a>. If it is included twice, the first occurrence sets <a href="./css.properties.background-origin.html"><code>background-origin</code></a>, and the second sets <a href="./css.properties.background-clip.html"><code>background-clip</code></a>.</li>
+  <li>The <code>&#x3C;background-color></code> value may only be included in the last layer specified.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;attachment></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-attachment.html"><code>background-attachment</code></a>. Default: <code>scroll</code>.</p>
+  </dd>
+  <dt><code>&#x3C;box></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-clip.html"><code>background-clip</code></a> and <a href="./css.properties.background-origin.html"><code>background-origin</code></a>. Default: <code>border-box</code> and <code>padding-box</code> respectively.</p>
+  </dd>
+  <dt><code>&#x3C;background-color></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-color.html"><code>background-color</code></a>. Default: <code>transparent</code>.</p>
+  </dd>
+  <dt><code>&#x3C;bg-image></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-image.html"><code>background-image</code></a>. Default: <code>none</code>.</p>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-position.html"><code>background-position</code></a>. Default: 0% 0%.</p>
+  </dd>
+  <dt><code>&#x3C;repeat-style></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-repeat.html"><code>background-repeat</code></a>. Default: <code>repeat</code>.</p>
+  </dd>
+  <dt><code>&#x3C;bg-size></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.background-size.html"><code>background-size</code></a>. Default: <code>auto</code>.</p>
+  </dd>
+</dl>
+<p>The following three lines of CSS are equivalent:</p>
+<pre class="brush: css">background: none;
+background: transparent;
+background: repeat scroll 0% 0% / auto padding-box border-box none transparent;
+</pre>
+<h2>Accessibility concerns</h2>
+<p>Browsers do not provide any special information on background images to assistive technology. This is important primarily for screen readers, as a screen reader will not announce its presence and therefore convey nothing to its users. If the image contains information critical to understanding the page's overall purpose, it is better to describe it semantically in the document.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_%E2%80%94_providing_text_alternatives_for_non-text_content">MDN Understanding WCAG, Guideline 1.1 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html">Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="topbanner">
+  Starry sky&#x3C;br />
+  Twinkle twinkle&#x3C;br />
+  Starry sky
+&#x3C;/p>
+&#x3C;p class="warning">Here is a paragraph&#x3C;/p>
+&#x3C;p>&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.warning {
+  background: pink;
+}
+
+.topbanner {
+  background: url("starsolid.gif") #99f repeat-y fixed;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.box-decoration-break.html"><code>box-decoration-break</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using gradients</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds">Using multiple backgrounds</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-background">https://drafts.csswg.org/css-backgrounds/#the-background</a></p></section></aside></body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-attachment</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-attachment</h1><main>
+    
+
+<p>The <strong><code>background-attachment</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether a background image's position is fixed within the <a href="/Glossary/viewport">viewport</a>, or scrolls with its containing block.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+background-attachment: scroll;
+background-attachment: fixed;
+background-attachment: local;
+
+/* Global values */
+background-attachment: inherit;
+background-attachment: initial;
+background-attachment: revert;
+background-attachment: revert-layer;
+background-attachment: unset;
+</pre>
+<p>The <code>background-attachment</code> property is specified as one of the keyword values from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>fixed</code></dt>
+  <dd>
+    <p>The background is fixed relative to the viewport. Even if an element has a scrolling mechanism, the background doesn't move with the element. (This is not compatible with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip#values"><code>background-clip: text</code></a>.)</p>
+  </dd>
+  <dt><code>local</code></dt>
+  <dd>
+    <p>The background is fixed relative to the element's contents. If the element has a scrolling mechanism, the background scrolls with the element's contents, and the background painting area and background positioning area are relative to the scrollable area of the element rather than to the border framing them.</p>
+  </dd>
+  <dt><code>scroll</code></dt>
+  <dd>
+    <p>The background is fixed relative to the element itself and does not scroll with its contents. (It is effectively attached to the element's border.)</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>scroll</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item the keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;attachment&gt;#</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  There were doors all round the hall, but they were all locked; and when Alice
+  had been all the way down one side and up the other, trying every door, she
+  walked sadly down the middle, wondering how she was ever to get out again.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  background-image: url("starsolid.gif");
+  background-attachment: fixed;
+}
+</pre>
+
+<h3>Multiple background images</h3>
+<p>This property supports multiple background images. You can specify a different <code>&#x3C;attachment></code> for each background, separated by commas. Each image is matched with the corresponding <code>&#x3C;attachment></code> type, from first specified to last.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  There were doors all round the hall, but they were all locked; and when Alice
+  had been all the way down one side and up the other, trying every door, she
+  walked sadly down the middle, wondering how she was ever to get out again.
+  Suddenly she came upon a little three-legged table, all made of solid glass;
+  there was nothing on it except a tiny golden key, and Alice's first thought
+  was that it might belong to one of the doors of the hall; but, alas! either
+  the locks were too large, or the key was too small, but at any rate it would
+  not open any of them. However, on the second time round, she came upon a low
+  curtain she had not noticed before, and behind it was a little door about
+  fifteen inches high: she tried the little golden key in the lock, and to her
+  great delight it fitted!
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  background-image: url("starsolid.gif"), url("startransparent.gif");
+  background-attachment: fixed, scroll;
+  background-repeat: no-repeat, repeat-y;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds">Using multiple backgrounds</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-background-attachment">https://drafts.csswg.org/css-backgrounds/#the-background-attachment</a></p></section></aside></body>
+</html>

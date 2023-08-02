@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scale()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function scale()</h1><main>
+    
+
+<p>
+  The <strong><code>scale()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that resizes an element on the 2D
+  plane. Because the amount of scaling is defined by a vector, it can resize the horizontal and vertical dimensions at
+  different scales. Its result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<p>
+  This scaling transformation is characterized by a two-dimensional vector. Its coordinates define how much scaling is
+  done in each direction. If both coordinates are equal, the scaling is uniform (<em>isotropic</em>) and the aspect
+  ratio of the element is preserved (this is a <a href="https://en.wikipedia.org/wiki/Homothetic_transformation">homothetic transformation</a>).
+</p>
+<p>
+  When a coordinate value is outside the [-1, 1] range, the element grows along that dimension; when inside, it
+  shrinks. A negative value results in a <a href="https://en.wikipedia.org/wiki/Point_reflection">point reflection</a>
+  in that dimension. The value <code>1</code> has no effect.
+</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> The <code>scale()</code> function only scales in 2D. To scale in 3D, use
+    <a href="./css.types.transform-function.scale3d.html"><code>scale3d()</code></a> instead.
+  </p>
+</div>
+<h2>Syntax</h2>
+<p>
+  The <code>scale()</code> function is specified with either one or two values, which represent the amount of scaling
+  to be applied in each direction.
+</p>
+<pre class="brush: css">scale(sx)
+
+scale(sx, sy)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>sx</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> representing the abscissa of the scaling vector.</p>
+  </dd>
+  <dt><code>sy</code></dt>
+  <dd>
+    <p>
+      A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> representing the ordinate of the scaling vector.
+      If not defined, its default value is <code>sx</code>, resulting in a uniform scaling that preserves the element's aspect ratio.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+    <tr>
+      <td><code>[sx 0 0 sy 0 0]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Accessibility concerns</h2>
+<p>
+  Scaling/zooming animations are problematic for accessibility, as they are a common trigger for certain types of
+  migraine. If you need to include such animations on your website, you should provide a control to allow users to turn
+  off animations, preferably site-wide.
+</p>
+<p>
+  Also, consider making use of the <a href="./css.at-rules.media.prefers-reduced-motion.html"><code>prefers-reduced-motion</code></a> media feature
+  — use it to write a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">media query</a> that will turn off animations if the
+  user has reduced animation specified in their system preferences.
+</p>
+<p>Find out more:</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.3_%e2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions">MDN Understanding WCAG, Guideline 2.3 explanations</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions">Understanding Success Criterion 2.3.3 | W3C Understanding WCAG 2.1</a></li>
+</ul>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="scaled">Scaled&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.scaled {
+  transform: scale(0.7); /* Equal to scaleX(0.7) scaleY(0.7) */
+  background-color: pink;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="scaled">Scaled&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.scaled {
+  transform: scale(2, 0.5); /* Equal to scaleX(2) scaleY(0.5) */
+  transform-origin: left;
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a></li>
+  <li><a href="./css.properties.scale.html"><code>scale()</code></a></li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.types.transform-function.scale3d.html"><code>scale3d()</code></a></li>
+  <li>Other individual transform properties <a href="./css.properties.translate.html"><code>translate()</code></a> and <a href="./css.properties.rotate.html"><code>rotate()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#funcdef-transform-scale">https://drafts.csswg.org/css-transforms/#funcdef-transform-scale</a></p></section></aside></body>
+</html>

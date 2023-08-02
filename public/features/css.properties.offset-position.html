@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>offset-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties offset-position</h1><main>
+    
+
+<p>The <strong><code>offset-position</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines the initial position of an element along a path. This property is typically used in combination with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> property to create a motion effect. The value of <code>offset-position</code> determines where the element gets placed initially for moving along an <code>offset-path</code> if the offset-path function does not specify its own starting position.</p>
+<p>The <code>offset-position</code> property is part of a motion system based on <a href="./css.properties.offset.html"><code>offset</code></a> constituent properties, including <a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a>, <a href="./css.properties.offset-distance.html"><code>offset-distance</code></a>, and <code>offset-path</code>. These properties work together to create various motion effects along a path.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+offset-position: normal;
+offset-position: auto;
+offset-position: top;
+offset-position: bottom;
+offset-position: left;
+offset-position: right;
+offset-position: center;
+
+/* &#x3C;percentage> values */
+offset-position: 25% 75%;
+
+/* &#x3C;length> values */
+offset-position: 0 0;
+offset-position: 1cm 2cm;
+offset-position: 10ch 8em;
+
+/* Edge offsets values */
+offset-position: bottom 10px right 20px;
+offset-position: right 3em bottom 10px;
+offset-position: bottom 10px right;
+offset-position: top right 10px;
+
+/* Global values */
+offset-position: inherit;
+offset-position: initial;
+offset-position: revert;
+offset-position: revert-layer;
+offset-position: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Indicates that the element does not have an offset starting position.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Indicates that the offset starting position is the top-left corner of the element's box. This is the default value.</p>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>A <a href="./css.types.position.html"><code>&lt;position&gt;</code></a>. The position defines an x/y coordinate, to place an item relative to the edges of an element's box. It can be defined using one to four values. If two non-keyword values are used, the first value represents the horizontal position and the second represents the vertical position. If only one value is specified, the second value is assumed to be <code>center</code>. If three or four values are used, the <a href="./css.types.length-percentage.html"><code>length-percentage</code></a> values are offsets for the preceding keyword value(s). For more explanation of these value types, see <a href="./css.properties.background-position.html"><code>background-position</code></a>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>The normal or auto keywords, or a computed &lt;position&gt;</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | auto | &lt;position&gt;</pre></section>
+
+<h3>Setting initial offset-position for an offset-path</h3>
+<p>In this example, the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> property is used to define the path along which the <code>cyan</code> element should move. The value of the <a href="./css.types.basic-shape.path.html"><code>path</code></a> CSS function is an <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d">SVG data path</a> that describes a curved path. The element moves along this curved path during the <code>move</code> animation.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="wrap">
+  &#x3C;div id="motion-demo">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">#wrap {
+  width: 260px;
+  height: 160px;
+  border: 1px dashed black;
+}
+</pre>
+<pre class="brush: css">#motion-demo {
+  offset-path: path("M20,20 C20,100 200,0 200,100");
+  offset-position: left top;
+  animation: move 3000ms infinite alternate ease-in-out;
+  width: 40px;
+  height: 40px;
+  background: cyan;
+}
+
+@keyframes move {
+  0%,
+  20% {
+    offset-distance: 0%;
+  }
+  80%,
+  100% {
+    offset-distance: 100%;
+  }
+}
+</pre>
+
+<h3>Comparing various offset starting positions</h3>
+<p>This example visually compares various initial offset starting position of an element when <code>ray()</code> is used to specify a value for the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> property. The number inside the element box indicates the element to which CSS is applied as well as the element's anchor point.</p>
+<pre class="brush: html hidden">&#x3C;div class="wrap">
+  &#x3C;div class="box">0&#x3C;/div>
+  &#x3C;div class="box box0">0&#x3C;/div>
+  &#x3C;pre>
+    offset-position: normal;
+  &#x3C;/pre>
+&#x3C;/div>
+
+&#x3C;div class="wrap">
+  &#x3C;div class="box">0&#x3C;/div>
+  &#x3C;div class="box box1">1&#x3C;/div>
+  &#x3C;pre>
+    offset-position: normal;
+    offset-path: ray(0deg);
+  &#x3C;/pre>
+&#x3C;/div>
+
+&#x3C;div class="wrap">
+  &#x3C;div class="box">0&#x3C;/div>
+  &#x3C;div class="box box2">2&#x3C;/div>
+  &#x3C;pre>
+    offset-position: auto;
+    offset-path: ray(0deg);
+  &#x3C;/pre>
+&#x3C;/div>
+
+&#x3C;div class="wrap">
+  &#x3C;div class="box">0&#x3C;/div>
+  &#x3C;div class="box box3">3&#x3C;/div>
+  &#x3C;pre>
+    offset-position: left top;
+    offset-path: ray(0deg);
+  &#x3C;/pre>
+&#x3C;/div>
+
+&#x3C;div class="wrap">
+  &#x3C;div class="box">0&#x3C;/div>
+  &#x3C;div class="box box4">4&#x3C;/div>
+  &#x3C;pre>
+    offset-position: 30% 70%;
+    offset-path: ray(120deg);
+  &#x3C;/pre>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.wrap {
+  position: relative;
+  width: 600px;
+  height: 120px;
+  border: 1px solid black;
+  margin: 0 2em 4em 5em;
+  text-align: center;
+}
+
+pre {
+  font-size: 1em;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 1em;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
+.box + .box {
+  opacity: 1;
+}
+</pre>
+<pre class="brush: css">.box {
+  background-color: green;
+  border-top: 6px dashed white;
+  background-clip: border-box;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 20%;
+  color: white;
+}
+
+.box0 {
+  offset-position: normal;
+}
+
+.box1 {
+  offset-position: normal;
+  offset-path: ray(0deg);
+}
+
+.box2 {
+  offset-position: auto;
+  offset-path: ray(0deg);
+}
+
+.box3 {
+  offset-position: left top;
+  offset-path: ray(0deg);
+}
+
+.box4 {
+  offset-position: 30% 70%;
+  offset-path: ray(120deg);
+}
+</pre>
+<h4>Result</h4>
+<p>Notice that when <code>offset-position</code> is <code>normal</code>, the starting position of the ray is <code>50%, 50%</code> of the containing block. Also notice the difference between offset starting positions <code>auto</code> and <code>left top</code>. The value <code>auto</code> places the element such that its anchor point is at the top-left corner of the element box itself, whereas the value <code>left top</code> places the element such that the anchor point is the top-left corner of the containing block.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.offset.html"><code>offset</code></a></li>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="./css.properties.offset-distance.html"><code>offset-distance</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 115</li><li><strong>chrome_android</strong>: 115</li><li><strong>edge</strong>: 115</li><li><strong>firefox</strong>: 116</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: preview</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/motion/#offset-position-property">https://drafts.fxtf.org/motion/#offset-position-property</a></p></section></aside></body>
+</html>

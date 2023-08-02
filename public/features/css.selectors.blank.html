@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":blank"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":blank"</h1><main>
+    
+
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>:blank</code> selector is considered at risk, as the CSSWG keeps changing it.</p>
+  <p>See <a href="https://github.com/w3c/csswg-drafts/issues/1967">CSSWG issue #1967</a>.</p>
+</div>
+<p>The <strong><code>:blank</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> selects empty user input elements (e.g. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a>).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:blank {
+  /* ... */
+}
+</pre>
+
+<h3>Simple :blank example</h3>
+<p>In eventual supporting browsers, the <code>:blank</code> pseudo-class will enable developers to highlight in some way input controls that are not required, but still have no content filled in, perhaps as a reminder to users.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;textarea>&#x3C;/textarea>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">textarea:blank {
+  border: 3px solid red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.empty.html"><code>:empty</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#blank-pseudo">https://drafts.csswg.org/selectors/#blank-pseudo</a></p></section></aside></body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>radial-gradient()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image gradient radial-gradient()</h1><main>
+    
+
+<p>The <strong><code>radial-gradient()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> creates an image consisting of a progressive transition between two or more colors that radiate from an origin. Its shape may be a circle or an ellipse. The function's result is an object of the <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;()</code></a> data type, which is a special kind of <a href="./css.types.image.html"><code>&lt;image&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A gradient at the center of its container,
+   starting red, changing to blue, and finishing green */
+radial-gradient(circle at center, red 0, blue, green 100%)
+</pre>
+<p>A radial gradient is specified by indicating the center of the gradient (where the 0% ellipse will be) and the size and shape of the <em>ending shape</em> (the 100% ellipse).</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.position.html"><code>&lt;position&gt;()</code></a></dt>
+  <dd>
+    <p>The position of the gradient, interpreted in the same way as <a href="./css.properties.background-position.html"><code>background-position()</code></a> or <a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a>. If unspecified, it defaults to <code>center</code>.</p>
+  </dd>
+  <dt><code>&#x3C;ending-shape></code></dt>
+  <dd>
+    <p>The gradient's ending-shape. The value can be <code>circle</code> (meaning that the gradient's shape is a circle with a constant radius) or <code>ellipse</code> (meaning that the shape is an axis-aligned ellipse). If unspecified, it defaults to <code>ellipse</code>.</p>
+  </dd>
+  <dt><code>&#x3C;size></code></dt>
+  <dd>
+    <p>Determines the size of the gradient's ending shape. If omitted it defaults to farthest-corner. It can be given explicitly or by keyword. For the purpose of the keyword definitions, consider the gradient box edges as extending infinitely in both directions, rather than being finite line segments.</p>
+    <p>Both circle and ellipse gradients accept the following keywords for their <code>&#x3C;size></code>:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>closest-side</code></td>
+          <td>The gradient's ending shape meets the side of the box closest to its center (for circles) or meets both the vertical and horizontal sides closest to the center (for ellipses).</td>
+        </tr>
+        <tr>
+          <td><code>closest-corner</code></td>
+          <td>The gradient's ending shape is sized so that it exactly meets the closest corner of the box from its center.</td>
+        </tr>
+        <tr>
+          <td><code>farthest-side</code></td>
+          <td>Similar to <code>closest-side</code>, except the ending shape is sized to meet the side of the box farthest from its center (or vertical and horizontal sides).</td>
+        </tr>
+        <tr>
+          <td><code>farthest-corner</code></td>
+          <td>The default value, the gradient's ending shape is sized so that it exactly meets the farthest corner of the box from its center.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>If <code>&#x3C;ending-shape></code> is specified as <code>circle</code>, the size may be given explicitly as a <a href="./css.types.length.html"><code>&#x3C;length></code></a>, which provides an explicit circle radius. Negative values are invalid.</p>
+    <p>If <code>&#x3C;ending-shape></code> is specified as <code>ellipse</code>, the size may be given as a <a href="./css.types.length-percentage.html"><code>&#x3C;length-percentage></code></a> with two values to provide an explicit ellipse size. The first value represents the horizontal radius and the second is the vertical radius. Percentage values are relative to the corresponding dimension of the gradient box. Negative values are invalid.</p>
+    <p>When the <code>&#x3C;ending-shape></code> keyword is omitted, the gradient shape is determined by the size given. One <code>&#x3C;length></code> value provides a circle, while two values in <code>&#x3C;length-percentage></code>units provide an ellipse. A single <code>&#x3C;percentage></code> value is not valid.</p>
+  </dd>
+  <dt><code>&#x3C;linear-color-stop></code></dt>
+  <dd>
+    <p>A color-stop's <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> value, followed by one or two optional stop positions (either a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> or a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> along the gradient's axis). A percentage of <code>0%</code>, or a length of <code>0</code>, represents the center of the gradient; the value <code>100%</code> represents the intersection of the ending shape with the virtual gradient ray. Percentage values in between are linearly positioned on the gradient ray. Including two stop positions is equivalent to declaring two color stops with the same color at the two positions.</p>
+  </dd>
+  <dt><code>&#x3C;color-hint></code></dt>
+  <dd>
+    <p>The color-hint is an interpolation hint defining how the gradient progresses between adjacent color stops. The length defines at which point between two color stops the gradient color should reach the midpoint of the color transition. If omitted, the midpoint of the color transition is the midpoint between two color stops.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>As with any gradient, a radial gradient has <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image#description">no intrinsic dimensions</a>; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to.</p>
+<p>To create a radial gradient that repeats so as to fill its container, use the <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a> function instead.</p>
+<p>Because <code>&#x3C;gradient></code>s belong to the <code>&#x3C;image></code> data type, they can only be used where <code>&#x3C;image></code>s can be used. For this reason, <code>radial-gradient()</code> won't work on <a href="./css.properties.background-color.html"><code>background-color()</code></a> and other properties that use the <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> data type.</p>
+<h3>Composition of a radial gradient</h3>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient/radial_gradient.png" alt="Graph explaining radial gradients: the virtual radiant ray is horizontal starting from the midpoint. The elliptical gradient, and therefore the ending shape, has the same aspect ratio as the box upon which it is declared.">
+</p>
+<p>A radial gradient is defined by a <em>center point</em>, an <em>ending shape</em>, and two or more <em>color-stop points</em>.</p>
+<p>To create a smooth gradient, the <code>radial-gradient()</code> function draws a series of concentric shapes radiating out from the center to the <em>ending shape</em> (and potentially beyond). The ending shape may be either a circle or an ellipse.</p>
+<p>Color-stop points are positioned on a <em>virtual gradient ray</em> that extends horizontally from the center towards the right. Percentage-based color-stop positions are relative to the intersection between the ending shape and this gradient ray, which represents <code>100%</code>. Each shape is a single color determined by the color on the gradient ray it intersects.</p>
+
+
+<h3>Simple gradient</h3>
+<pre class="brush: html hidden">&#x3C;div class="radial-gradient">&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.radial-gradient {
+  width: 240px;
+  height: 120px;
+}
+</pre>
+<pre class="brush: css">.radial-gradient {
+  background-image: radial-gradient(cyan 0%, transparent 20%, salmon 40%);
+}
+</pre>
+<h3>Non-centered gradient</h3>
+<pre class="brush: html hidden">&#x3C;div class="radial-gradient">&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.radial-gradient {
+  width: 240px;
+  height: 120px;
+}
+</pre>
+<pre class="brush: css">.radial-gradient {
+  background-image: radial-gradient(
+    farthest-corner at 40px 40px,
+    #f35 0%,
+    #43e 100%
+  );
+}
+</pre>
+<h3>More radial-gradient examples</h3>
+<p>Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+  <li>Other gradient functions: <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a>, <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a>, <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a></li>
+  <li><a href="./css.types.image.html"><code>&lt;image&gt;()</code></a></li>
+  <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+  <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+  <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images/#radial-gradients">https://drafts.csswg.org/css-images/#radial-gradients</a></p></section></aside></body>
+</html>

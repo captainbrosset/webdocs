@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-play-state</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-play-state</h1><main>
+    
+
+<p>The <strong><code>animation-play-state</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an animation is running or paused.</p>
+<p>Resuming a paused animation will start the animation from where it left off at the time it was paused, rather than starting over from the beginning of the animation sequence.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single animation */
+animation-play-state: running;
+animation-play-state: paused;
+
+/* Multiple animations */
+animation-play-state: paused, running, running;
+
+/* Global values */
+animation-play-state: inherit;
+animation-play-state: initial;
+animation-play-state: revert;
+animation-play-state: revert-layer;
+animation-play-state: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>running</code></dt>
+  <dd>
+    <p>The <strong>animation</strong> is currently <strong>playing</strong>.</p>
+  </dd>
+  <dt><code>paused</code></dt>
+  <dd>
+    <p>The <strong>animation</strong> is currently <strong>paused</strong>.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they are applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. For situations where the number of animations and <code>animation-*</code> property values do not match, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>running</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;single-animation-play-state&gt;#</pre></section>
+
+<h3>Pausing an animation</h3>
+<p>This animation is paused, but runs when you hover over it.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  animation-name: rotate;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+
+.box:hover {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Hover over the rectangle to play the animation.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a> for examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation-play-state">https://drafts.csswg.org/css-animations/#animation-play-state</a></p></section></aside></body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>calc()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types calc()</h1><main>
+    
+
+<p>The <strong><code>calc()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> lets you perform calculations when specifying CSS property values. It can be used with <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>, <a href="./css.types.frequency.html"><code>&lt;frequency&gt;()</code></a>, <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>, <a href="./css.types.time.html"><code>&lt;time&gt;()</code></a>, <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, or <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> values.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* property: calc(expression) */
+width: calc(100% - 80px);
+</pre>
+<p>The <code>calc()</code> function takes a single expression as its parameter, with the expression's result used as the value. The expression can be any simple expression combining the following operators, using standard <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math#operator_precedence">operator precedence rules</a>:</p>
+<dl>
+  <dt><code>+</code></dt>
+  <dd>
+    <p>Addition.</p>
+  </dd>
+  <dt><code>-</code></dt>
+  <dd>
+    <p>Subtraction.</p>
+  </dd>
+  <dt><code>*</code></dt>
+  <dd>
+    <p>Multiplication. At least one of the arguments must be a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>.</p>
+  </dd>
+  <dt><code>/</code></dt>
+  <dd>
+    <p>Division. The right-hand side must be a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>.</p>
+  </dd>
+</dl>
+<p>The operands in the expression may be any <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> syntax value. You can use different units for each value in your expression, if you wish. You may also use parentheses to establish computation order when needed.</p>
+<h3>Notes</h3>
+<p>
+  Serializing the arguments inside <code>calc()</code> follows the IEEE-754 standard for floating point math which means there's a few cases to be aware of regarding the <code>infinity</code> and <code>NaN</code> constants.
+  For more details on how constants are serialized, see the <a href="./css.types.calc-constant.html"><code>calc-constant</code></a> page.
+</p>
+<p>In addition, the following notes apply:</p>
+<ul>
+  <li>The <code>+</code> and <code>-</code> operators <strong>must be surrounded by <a href="/Glossary/whitespace">whitespace</a></strong>. For instance, <code>calc(50% -8px)</code> will be parsed as "a percentage followed by a negative length" — which is an invalid expression — while <code>calc(50% - 8px)</code> is "a percentage followed by a subtraction operator and a length". Likewise, <code>calc(8px + -50%)</code> is treated as "a length followed by an addition operator and a negative percentage".</li>
+  <li>The <code>*</code> and <code>/</code> operators do not require whitespace, but adding it for consistency is recommended.</li>
+  <li>Math expressions involving percentages for widths and heights on table columns, table column groups, table rows, table row groups, and table cells in both auto and fixed layout tables <em>may</em> be treated as if <code>auto</code> had been specified.</li>
+  <li>It is permitted to nest <code>calc()</code> functions, in which case the inner ones are treated as simple parentheses.</li>
+  <li>For lengths, you can't use <code>0</code> to mean <code>0px</code> (or another length unit); instead, you must use the version with the unit: <code>margin-top: calc(0px + 20px);</code> is valid, while <code>margin-top: calc(0 + 20px);</code> is invalid.</li>
+  <li>The <code>calc()</code> function cannot directly substitute the numeric value for percentage types; for instance <code>calc(100 / 4)%</code> is invalid, while <code>calc(100% / 4)</code> is valid.</li>
+</ul>
+
+<h2>Accessibility concerns</h2>
+<p>When <code>calc()</code> is used for controlling text size, be sure that one of the values includes a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#relative_length_units">relative length unit</a>, for example:</p>
+<pre class="brush: css">h1 {
+  font-size: calc(1.5rem + 3vw);
+}
+</pre>
+<p>This ensures that text size will scale if the page is zoomed.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Usage with integers</h2>
+<p>When <strong><code>calc()</code></strong> is used where an <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> is expected, the value will be rounded to the nearest integer. For example:</p>
+<pre class="brush: css">.modal {
+  z-index: calc(3 / 2);
+}
+</pre>
+<p>This will give <code>.modal</code> a final <code>z-index</code> value of 2.</p>
+
+<h3>Positioning an object on screen with a margin</h3>
+<p><code>calc()</code> makes it easy to position an object with a set margin. In this example, the CSS creates a banner that stretches across the window, with a 40-pixel gap between both sides of the banner and the edges of the window:</p>
+<pre class="brush: css">.banner {
+  position: absolute;
+  left: 40px;
+  width: calc(100% - 80px);
+  border: solid black 1px;
+  box-shadow: 1px 2px;
+  background-color: yellow;
+  padding: 6px;
+  text-align: center;
+  box-sizing: border-box;
+}
+</pre>
+<pre class="brush: html">&#x3C;div class="banner">This is a banner!&#x3C;/div>
+</pre>
+<h3>Automatically sizing form fields to fit their container</h3>
+<p>Another use case for <code>calc()</code> is to help ensure that form fields fit in the available space, without extruding past the edge of their container, while maintaining an appropriate margin.</p>
+<p>Let's look at some CSS:</p>
+<pre class="brush: css">input {
+  padding: 2px;
+  display: block;
+  width: calc(100% - 1em);
+}
+
+#form-box {
+  width: calc(100% / 6);
+  border: 1px solid black;
+  padding: 4px;
+}
+</pre>
+<p>Here, the form itself is established to use 1/6 of the available window width. Then, to ensure that input fields retain an appropriate size, we use <code>calc()</code> again to establish that they should be the width of their container minus 1em. Then, the following HTML makes use of this CSS:</p>
+<pre class="brush: html">&#x3C;form>
+  &#x3C;div id="form-box">
+    &#x3C;label for="misc">Type something:&#x3C;/label>
+    &#x3C;input type="text" id="misc" name="misc" />
+  &#x3C;/div>
+&#x3C;/form>
+</pre>
+<h3>Nested <code>calc()</code> with CSS Variables</h3>
+<p>You can also use <code>calc()</code> with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables">CSS variables</a>. Consider the following code:</p>
+<pre class="brush: css">.foo {
+  --widthA: 100px;
+  --widthB: calc(var(--widthA) / 2);
+  --widthC: calc(var(--widthB) / 2);
+  width: var(--widthC);
+}
+</pre>
+<p>After all variables are expanded, <code>widthC</code>'s value will be <code>calc(calc(100px / 2) / 2)</code>, then when it's assigned to <code>.foo</code>'s width property, all inner <code>calc()</code>s (no matter how deeply nested) will be flattened to just parentheses, so the <code>width</code> property's value will be eventually <code>calc((100px / 2) / 2)</code>, i.e. <code>25px</code>. In short: a <code>calc()</code> inside of a <code>calc()</code> is identical to just parentheses.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.calc-constant.html"><code>&lt;calc-constant&gt;()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">CSS functions</a></li>
+  <li><a href="https://css-tricks.com/a-complete-guide-to-calc-in-css/">A Complete Guide to calc() in CSS</a> (CSS-Tricks)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: 28</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#calc-func">https://drafts.csswg.org/css-values/#calc-func</a></p></section></aside></body>
+</html>

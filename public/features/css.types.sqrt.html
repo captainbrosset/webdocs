@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>sqrt()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types sqrt()</h1><main>
+    
+
+<p>The <strong><code>sqrt()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is an exponential function that returns the <a href="https://en.wikipedia.org/wiki/Square_root">square root</a> of a number.</p>
+<p>The function <code>pow(x, 0.5)</code> is equivalent to <code>sqrt(x)</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A &#x3C;number> value */
+width: calc(100px * sqrt(9)); /*  300px */
+width: calc(100px * sqrt(25)); /*  500px */
+width: calc(100px * sqrt(100)); /* 1000px */
+</pre>
+<h3>Parameters</h3>
+<p>The <code>sqrt(x)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> greater than or equal to 0.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>Returns a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> which is the square root of <code>x</code>.</p>
+<ul>
+  <li>if <code>x</code> is <code>+∞</code>, the result is <code>+∞</code>.</li>
+  <li>If <code>x</code> is <code>0⁻</code>, the result is <code>0⁻</code>.</li>
+  <li>If <code>x</code> is less than <code>0</code>, the result is <code>NaN</code>.</li>
+</ul>
+
+
+<h3>Scale sizes based on square root</h3>
+<p>This example shows how you can use the <code>sqrt()</code> function to calculate sizes.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="boxes">
+  &#x3C;div class="box">50px&#x3C;/div>
+  &#x3C;div class="box one">100px&#x3C;/div>
+  &#x3C;div class="box two">150px&#x3C;/div>
+  &#x3C;div class="box three">200px&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>Here we are using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> to define the sizes to be used. First, we declare the first size (<code>--size-0</code>), which is then used to calculate the other sizes.</p>
+<ul>
+  <li><code>--size-1</code> is calculated by multiplying the value of <code>--size-0</code> (50px) by the square root of 4 (2), which results in 100px.</li>
+  <li><code>--size-2</code> is calculated by multiplying the value of <code>--size-0</code> (50px) by the square root of 9 (3), which results in 150px.</li>
+  <li><code>--size-3</code> is calculated by multiplying the value of <code>--size-0</code> (50px) by the square root of 16 (4), which results in 200px.</li>
+</ul>
+<pre class="brush: css">:root {
+  --size-0: 50px;
+  --size-1: calc(var(--size-0) * sqrt(4)); /*  100px */
+  --size-2: calc(var(--size-0) * sqrt(9)); /*  150px */
+  --size-3: calc(var(--size-0) * sqrt(16)); /*  200px */
+}
+</pre>
+<pre class="brush: css hidden">.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  width: var(--size-0);
+  height: var(--size-0);
+  background-color: tomato;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</pre>
+<p>The sizes are then applied as the <code>width</code> and <code>height</code> values of the selectors.</p>
+<pre class="brush: css">.one {
+  width: var(--size-1);
+  height: var(--size-1);
+}
+.two {
+  width: var(--size-2);
+  height: var(--size-2);
+}
+.three {
+  width: var(--size-3);
+  height: var(--size-3);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.pow.html"><code>pow()</code></a></li>
+  <li><a href="./css.types.hypot.html"><code>hypot()</code></a></li>
+  <li><a href="./css.types.log.html"><code>log()</code></a></li>
+  <li><a href="./css.types.exp.html"><code>exp()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 112</li><li><strong>firefox_android</strong>: 112</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#exponent-funcs">https://drafts.csswg.org/css-values/#exponent-funcs</a></p></section></aside></body>
+</html>

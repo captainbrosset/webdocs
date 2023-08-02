@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>list-style-image</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties list-style-image</h1><main>
+    
+
+<p>The <strong><code>list-style-image</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets an image to be used as the list item marker.</p>
+<p>It is often more convenient to use the shorthand <a href="./css.properties.list-style.html"><code>list-style</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This property is applied to list items, i.e. elements with <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a>: list-item;</code> <a href="https://html.spec.whatwg.org/multipage/rendering.html#lists">by default</a> this includes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements. Because this property is inherited, it can be set on the parent element (normally <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) to let it apply to all list items.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+list-style-image: none;
+
+/* &#x3C;url> values */
+list-style-image: url("starsolid.gif");
+
+/* valid image values */
+list-style-image: linear-gradient(to left bottom, red, blue);
+
+/* Global values */
+list-style-image: inherit;
+list-style-image: initial;
+list-style-image: revert;
+list-style-image: revert-layer;
+list-style-image: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.image.html"><code>&lt;image&gt;</code></a></dt>
+  <dd>
+    <p>A valid image to use as the marker.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Specifies that no image is used as the marker. If this value is set, the marker defined in <a href="./css.properties.list-style-type.html"><code>list-style-type</code></a> will be used instead.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>list items</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the keyword noneor the computed &lt;image&gt;</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;image&gt; | none</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>Item 1&#x3C;/li>
+  &#x3C;li>Item 2&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ul {
+  list-style-image: url("starsolid.gif");
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>Item 1&#x3C;/li>
+  &#x3C;li>Item 2&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ul {
+  font-size: 200%;
+  list-style-image: linear-gradient(to left bottom, red, blue);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-type.html"><code>list-style-type</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.types.url.html"><code>url()</code></a> function</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#image-markers">https://drafts.csswg.org/css-lists/#image-markers</a></p></section></aside></body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>opacity()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types filter-function opacity()</h1><main>
+    
+
+<p>The <strong><code>opacity()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> applies transparency to the samples in the input image. Its result is a <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This function is similar to the more established <a href="./css.properties.opacity.html"><code>opacity()</code></a> property. The difference is that with filters, some browsers provide hardware acceleration for better performance.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">opacity(amount)
+</pre>
+<h3>Parameters</h3>
+<dl>
+  <dt><code>amount</code></dt>
+  <dd>
+    <p>The amount of the conversion, specified as a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. A value of <code>0%</code> is completely transparent, while a value of <code>100%</code> leaves the input unchanged. Values between <code>0%</code> and <code>100%</code> are linear multipliers on the effect. The initial value for <a href="/Glossary/interpolation">interpolation</a> is <code>1</code>.</p>
+  </dd>
+</dl>
+
+<h3>Examples of correct values for opacity()</h3>
+<pre class="brush: css">opacity(0%)   /* Completely transparent */
+opacity(50%)  /* 50% transparent */
+opacity(1)    /* No effect */
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The other <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a> functions available to be used in values of the <a href="./css.properties.filter.html"><code>filter()</code></a> and <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> properties include:
+    <ul>
+      <li><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></li>
+      <li><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></li>
+      <li><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></li>
+      <li><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></li>
+      <li><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></li>
+      <li><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></li>
+      <li><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></li>
+      <li><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></li>
+      <li><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></li>
+    </ul>
+  </li>
+  <li>The CSS <a href="./css.properties.opacity.html"><code>opacity()</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-opacity">https://drafts.fxtf.org/filter-effects/#funcdef-filter-opacity</a></p></section></aside></body>
+</html>

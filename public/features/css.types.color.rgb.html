@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rgb()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color rgb()</h1><main>
+    
+
+<p>The <strong><code>rgb()</code></strong> functional notation expresses a color according to its red, green, and blue components. An optional alpha component represents the color's transparency.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The legacy <code>rgba()</code> syntax is an alias for <code>rgb()</code>, accepting the same parameters and behaving in the same way.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">rgb(255 255 255)
+rgb(255 255 255 / .5)
+</pre>
+<p>The function also accepts a legacy syntax in which all values are separated with commas.</p>
+<h3>Values</h3>
+<p>Functional notation: <code>rgb(R G B[ / A])</code></p>
+<dl>
+  <dt><code>R</code>, <code>G</code>, <code>B</code></dt>
+  <dd>
+    <p>Each as a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>0</code> and <code>255</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>0%</code> and <code>100%</code>, or the keyword <code>none</code>, which represent the red, green, and blue channels, respectively.</p>
+  </dd>
+  <dt><code>A</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/alpha-value"><code>&lt;alpha-value&gt;()</code></a> or the keyword <code>none</code>, where the number <code>1</code> corresponds to <code>100%</code> (full opacity).</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#missing_color_components">Missing color components</a> for the effect of <code>none</code>.</p>
+</div>
+
+
+<h3>Legacy syntax: comma-separated values</h3>
+<p>For legacy reasons, the <code>rgb()</code> function accepts a form in which all values are separated using commas.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="space-separated">&#x3C;/div>
+&#x3C;div class="comma-separated">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 100px;
+  height: 50px;
+  margin: 1rem;
+}
+
+div.space-separated {
+  background-color: rgb(255 0 0 / 0.5);
+}
+
+div.comma-separated {
+  background-color: rgb(255, 0, 0, 0.5);
+}
+</pre>
+
+<h3>Legacy syntax: rgba()</h3>
+<p>The legacy <code>rgba()</code> syntax is an alias for <code>rgb()</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="rgb">&#x3C;/div>
+&#x3C;div class="rgba">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 100px;
+  height: 50px;
+  margin: 1rem;
+}
+
+div.rgb {
+  background-color: rgb(255 0 0 / 0.5);
+}
+
+div.rgba {
+  background-color: rgba(255 0 0 / 0.5);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> data type for a list of all color notations</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#rgb-functions">https://drafts.csswg.org/css-color/#rgb-functions</a></p></section></aside></body>
+</html>

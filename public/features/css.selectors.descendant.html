@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Descendant combinator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors Descendant combinator</h1><main>
+    
+
+<p>The <strong>descendant combinator</strong> — typically represented by a single space (" ") character — combines two selectors such that elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent's parent's parent, etc.) element matching the first selector. Selectors that utilize a descendant combinator are called <em>descendant selectors</em>.</p>
+<pre class="brush: css">/* List items that are descendants of the "my-things" list */
+ul.my-things li {
+  margin: 2em;
+}
+</pre>
+<p>The descendant combinator is technically one or more <a href="/Glossary/CSS">CSS</a> white space characters — the space character and/or one of four control characters: carriage return, form feed, new line, and tab characters — between two selectors in the absence of another combinator. Additionally, the white space characters of which the combinator is comprised may contain any number of CSS comments.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">selector1 selector2 {
+  /* property declarations */
+}
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">li {
+  list-style-type: disc;
+}
+
+li li {
+  list-style-type: circle;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>
+    &#x3C;div>Item 1&#x3C;/div>
+    &#x3C;ul>
+      &#x3C;li>Subitem A&#x3C;/li>
+      &#x3C;li>Subitem B&#x3C;/li>
+    &#x3C;/ul>
+  &#x3C;/li>
+  &#x3C;li>
+    &#x3C;div>Item 2&#x3C;/div>
+    &#x3C;ul>
+      &#x3C;li>Subitem A&#x3C;/li>
+      &#x3C;li>Subitem B&#x3C;/li>
+    &#x3C;/ul>
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.child.html">Child combinator</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#descendant-combinators">https://drafts.csswg.org/selectors/#descendant-combinators</a></p></section></aside></body>
+</html>

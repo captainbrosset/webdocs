@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>color-contrast()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color color-contrast()</h1><main>
+    
+
+<p>The <strong><code>color-contrast()</code></strong> functional notation takes a <a href="./css.types.color.html"><code>color</code></a> value and compares it to a list of other <a href="./css.types.color.html"><code>color</code></a> values, selecting the one with the highest contrast from the list.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">color-contrast(wheat vs tan, sienna, #d2691e)
+color-contrast(#008080 vs olive, var(--myColor), #d2691e)
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>color-contrast(color vs color-list)</code></p>
+<dl>
+  <dt><code>color</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a>.</p>
+  </dd>
+  <dt><code>vs</code></dt>
+  <dd>
+    <p>A literal token as a component of the syntax.</p>
+  </dd>
+  <dt><code>color-list</code></dt>
+  <dd>
+    <p>A comma-separated list of at least two color values to compare with the first value.</p>
+  </dd>
+</dl>
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15</li><li><strong>safari_ios</strong>: 15</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color-6/#colorcontrast">https://drafts.csswg.org/css-color-6/#colorcontrast</a></p></section></aside></body>
+</html>

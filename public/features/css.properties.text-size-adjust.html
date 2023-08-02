@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-size-adjust</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-size-adjust</h1><main>
+    
+
+<p>The <strong><code>text-size-adjust</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS">CSS</a> property controls the text inflation algorithm used on some smartphones and tablets. Other browsers will ignore this property.</p>
+<p>Because many websites have not been developed with small devices in mind, mobile browsers differ from desktop browsers in the way they render web pages. Instead of laying out pages at the width of the device screen, they lay them out using a <a href="/Glossary/viewport">viewport</a> that is much wider, usually 800 or 1000 pixels. To map the extra-wide layout back to the original device size, they either show only part of the whole render or scale the viewport down to fit.</p>
+<p>Since text that has been scaled down to fit a mobile screen may be very small, many mobile browsers apply a text inflation algorithm to enlarge the text to make it more readable. When an element containing text uses 100% of the screen's width, the algorithm increases its text size, but without modifying the layout. The <code>text-size-adjust</code> property allows web authors to disable or modify this behavior, as web pages designed with small screens in mind do not need it.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-size-adjust: none;
+text-size-adjust: auto;
+
+/* &#x3C;percentage> value */
+text-size-adjust: 80%;
+
+/* Global values */
+text-size-adjust: inherit;
+text-size-adjust: initial;
+text-size-adjust: revert;
+text-size-adjust: revert-layer;
+text-size-adjust: unset;
+</pre>
+<p>The <code>text-size-adjust</code> property is specified as <code>none</code>, <code>auto</code>, or a <code>&#x3C;percentage></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Disables the browser's inflation algorithm.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Enables the browser's inflation algorithm. This value is used to cancel a <code>none</code> value previously set with CSS.</p>
+  </dd>
+  <dt><code>&#x3C;percentage></code></dt>
+  <dd>
+    <p>Enables the browser's inflation algorithm, specifying a percentage value with which to increase the font size.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword or percentage</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none | &lt;percentage [0,∞]&gt;</pre></section>
+
+<h3>Basic disabling usage</h3>
+<p>As hinted at above, on a properly designed responsive site the <code>text-size-adjust</code> behavior is not needed, so developers can elect to turn it off by specifying a value of none:</p>
+<pre class="brush: css">p {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW16">Apple's documentation</a></li>
+  <li><a href="https://docs.google.com/document/d/1PPcEwAhXJJ1TQShor29KWB17KJJq7UJOM34oHwYP3Zg/edit">Google Chrome behavior description</a></li>
+  <li><a href="https://dbaron.org/log/20111126-font-inflation">Gecko's behavior description</a>, by L. David Baron</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 54</li><li><strong>chrome_android</strong>: 54</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 41</li><li><strong>opera_android</strong>: 41</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 54</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-size-adjust/#adjustment-control">https://drafts.csswg.org/css-size-adjust/#adjustment-control</a></p></section></aside></body>
+</html>

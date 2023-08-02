@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":out-of-range"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":out-of-range"</h1><main>
+    
+
+<p>The <strong><code>:out-of-range</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> element whose current value is outside the range limits specified by the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#min"><code>min</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#max"><code>max</code></a> attributes.</p>
+<p>This pseudo-class is useful for giving the user a visual indication that a field's current value is outside the permitted limits.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This pseudo-class only applies to elements that have (and can take) a range limitation. In the absence of such a limitation, the element can neither be "in-range" nor "out-of-range."</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:out-of-range {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;form action="" id="form1">
+  &#x3C;p>Values between 1 and 10 are valid.&#x3C;/p>
+  &#x3C;ul>
+    &#x3C;li>
+      &#x3C;input
+        id="value1"
+        name="value1"
+        type="number"
+        placeholder="1 to 10"
+        min="1"
+        max="10"
+        value="12" />
+      &#x3C;label for="value1">Your value is &#x3C;/label>
+    &#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/form>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">li {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+input {
+  border: 1px solid black;
+}
+
+input:in-range {
+  background-color: rgba(0, 255, 0, 0.25);
+}
+
+input:out-of-range {
+  background-color: rgba(255, 0, 0, 0.25);
+  border: 2px solid red;
+}
+
+input:in-range + label::after {
+  content: "okay.";
+}
+
+input:out-of-range + label::after {
+  content: "out of range!";
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.in-range.html"><code>:in-range</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">Form data validation</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 10</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 13</li><li><strong>firefox</strong>: 29</li><li><strong>firefox_android</strong>: 16</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 11</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 5.1</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2.2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-out-of-range,https://drafts.csswg.org/selectors/#out-of-range-pseudo">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-out-of-range,https://drafts.csswg.org/selectors/#out-of-range-pseudo</a></p></section></aside></body>
+</html>

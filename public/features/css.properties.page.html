@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>page</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties page</h1><main>
+    
+
+<p>The <strong><code>page</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is used to specify the named page, a specific type of page defined by the <a href="./css.at-rules.page.html"><code>@page</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>.</p>
+<p>If there are multiple selectors that are using a named page consecutively then a forced page break using <a href="./css.properties.break-after.html"><code>break-after</code></a> may be needed.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* set a named page */
+page: exampleName;
+page: chapterIntro;
+
+/* Use ancestors named page */
+page: auto; /* default value */
+
+/* Global values */
+page: inherit;
+page: initial;
+page: revert;
+page: revert-layer;
+page: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Default value. Use the value of the nearest ancestor with a non-<code>auto</code> value. If no ancestor has a named page value set, the used value for auto is the empty string.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a></dt>
+  <dd>
+    <p>Case-sensitive name defined in a <a href="./css.at-rules.page.html"><code>@page</code></a> at-rule.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>boxes that create class A break points</td></tr><tr><th scope="row">Inherited</th><td>no (but see prose)</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;custom-ident&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<p>There are two parts to this HTML:</p>
+<ul>
+  <li>The print controls</li>
+  <li>The content to be printed</li>
+</ul>
+<p>The print controls allow the user to select how the <code>section</code>s in the <code>article</code> will be printed.</p>
+<pre class="brush: html">&#x3C;!-- print options -->
+&#x3C;fieldset id="printStyle">
+  &#x3C;legend>How would you like to print&#x3C;/legend>
+  &#x3C;label for="single"
+    >&#x3C;input type="radio" id="single" name="type" value="single" checked />No
+    Pages&#x3C;/label
+  >
+  &#x3C;label for="double"
+    >&#x3C;input type="radio" id="grouped" name="type" value="grouped" />Pages with
+    Grouped Chapters&#x3C;/label
+  >
+  &#x3C;label for="double"
+    >&#x3C;input type="radio" id="paged" name="type" value="paged" />Chapters
+    Paged&#x3C;/label
+  >
+  &#x3C;button id="print">Print&#x3C;/button>
+&#x3C;/fieldset>
+&#x3C;!-- Content to be printed -->
+&#x3C;article id="print-area" data-print="single">
+  &#x3C;section id="toc">
+    &#x3C;h2>Table of contents&#x3C;/h2>
+    &#x3C;ul>
+      &#x3C;li>Foreword&#x3C;/li>
+      &#x3C;li>Introduction&#x3C;/li>
+      &#x3C;li>Chapter One - named pages&#x3C;/li>
+      &#x3C;li>Chapter Two - page orientation&#x3C;/li>
+      &#x3C;li>Chapter Three - page margins&#x3C;/li>
+      &#x3C;li>Conclusion&#x3C;/li>
+    &#x3C;/ul>
+  &#x3C;/section>
+  &#x3C;section id="foreword">
+    &#x3C;h2>Foreword&#x3C;/h2>
+    &#x3C;p>
+      This book is all about how the CSS &#x3C;code>@page&#x3C;/code> at-rule can help
+      with printing HTML books.
+    &#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section id="introduction">
+    &#x3C;h2>Introduction&#x3C;/h2>
+    &#x3C;p>
+      This book is a concept to show how an &#x3C;em>HTML&#x3C;/em> document can easily be
+      printed out in pages.
+    &#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section id="chapter1" class="chapter">
+    &#x3C;h2>Named pages&#x3C;/h2>
+    &#x3C;p>Lorem ipsum&#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section id="chapter2" class="chapter">
+    &#x3C;h2>Page Orientation&#x3C;/h2>
+    &#x3C;p>Lorem ipsum&#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section id="chapter3" class="chapter">
+    &#x3C;h2>Page Margins&#x3C;/h2>
+    &#x3C;p>There are 16 page margins that can be set:&#x3C;/p>
+    &#x3C;ul>
+      &#x3C;li>@top-left-corner&#x3C;/li>
+      &#x3C;li>@top-left&#x3C;/li>
+      &#x3C;li>@top-middle&#x3C;/li>
+      &#x3C;li>@top-right&#x3C;/li>
+      &#x3C;li>@top-right-corner&#x3C;/li>
+      &#x3C;li>@left-top&#x3C;/li>
+      &#x3C;li>@left-middle&#x3C;/li>
+      &#x3C;li>@left-bottom&#x3C;/li>
+      &#x3C;li>@right-top&#x3C;/li>
+      &#x3C;li>@right-middle&#x3C;/li>
+      &#x3C;li>@right-bottom&#x3C;/li>
+      &#x3C;li>@bottom-left-corner&#x3C;/li>
+      &#x3C;li>@bottom-left&#x3C;/li>
+      &#x3C;li>@bottom-middle&#x3C;/li>
+      &#x3C;li>@bottom-right&#x3C;/li>
+      &#x3C;li>@bottom-right-corner&#x3C;/li>
+    &#x3C;/ul>
+    &#x3C;p>They can be used to show what appears in these parts of the margin&#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section id="conclusion">
+    &#x3C;h2>Conclusion&#x3C;/h2>
+    &#x3C;p>Now go ahead and write books.&#x3C;/p>
+  &#x3C;/section>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  width: fit-content;
+}
+</pre>
+<p>The first part of the CSS sets up the <strong>named</strong> pages, these include the size and orientation and also some content to go in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page#margin_at-rules"><code>@top-middle</code> margin</a> of the printed pages.</p>
+<pre class="brush: css">@page toc {
+  size: a4 portrait;
+  @top-middle {
+    content: "Table of contents";
+  }
+}
+
+@page foreword {
+  size: a4 portrait;
+  @top-middle {
+    content: "Foreword";
+  }
+}
+
+@page introduction {
+  size: a4 portrait;
+  @top-middle {
+    content: "Introduction";
+  }
+}
+
+@page conclusion {
+  size: a4 portrait;
+  @top-middle {
+    content: "Conclusion";
+  }
+}
+
+@page chapter {
+  size: a4 landscape;
+  @top-middle {
+    content: "Chapter";
+  }
+}
+</pre>
+<p>The next part of the CSS uses <a href="./css.selectors.attribute.html">attribute selectors</a> to apply the print dimensions, orientation, and margins defined in the named <code>@page</code> rules defined in the previous CSS section to elements using the <code>page</code> property.</p>
+<p>The sections with <code>class="chapter"</code> are concurrent and appear as one page. The <code>break-after: page;</code> is used to split them up, which splits each chapter into a separately printed page.</p>
+<pre class="brush: css">@media print {
+  fieldset {
+    display: none;
+  }
+  section {
+    font-size: 2rem;
+    font-family: Roboto;
+  }
+  .chapter {
+    border: tomato 2px solid;
+  }
+  [data-print="grouped"] > #toc,
+  [data-print="paged"] > #toc {
+    page: toc;
+    font-family: Courier;
+  }
+  [data-print="grouped"] > #foreword,
+  [data-print="paged"] > #foreword {
+    page: foreword;
+    font-family: Courier;
+  }
+  [data-print="grouped"] > #introduction,
+  [data-print="paged"] > #introduction {
+    page: introduction;
+    font-family: Courier;
+  }
+  [data-print="grouped"] > #conclusion,
+  [data-print="paged"] > #conclusion {
+    page: conclusion;
+    font-family: Courier;
+  }
+  [data-print="grouped"] > .chapter,
+  [data-print="paged"] > .chapter {
+    page: chapter;
+  }
+  [data-print="paged"] > .chapter {
+    border: none;
+    break-after: page;
+  }
+  .chapter > ul {
+    columns: 2;
+  }
+}
+</pre>
+<h4>JavaScript</h4>
+<p>The JavaScript updates the value of the <code>data-print</code> attribute, which is the attribute on which the named page is applied, when you select a different printing option:</p>
+<pre class="brush: js">const printArea = document.querySelector("#print-area");
+const printButton = document.querySelector("#print");
+const printOption = document.querySelector("#printStyle");
+printOption.addEventListener("change", (event) => {
+  if (event.target.value === "single") {
+    printArea.dataset.print = "single";
+  } else if (event.target.value === "grouped") {
+    printArea.dataset.print = "grouped";
+  } else {
+    printArea.dataset.print = "paged";
+  }
+});
+printButton.addEventListener("click", () => {
+  window.print();
+});
+</pre>
+<h4>Result</h4>
+<p>What is printed, and what is shown in the print preview dialog, will change depending on which print style radio button is selected.</p>
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: 110</li><li><strong>firefox_android</strong>: 110</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: ≤13.1</li><li><strong>safari_ios</strong>: ≤13.4</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-page/#using-named-pages">https://drafts.csswg.org/css-page/#using-named-pages</a></p></section></aside></body>
+</html>

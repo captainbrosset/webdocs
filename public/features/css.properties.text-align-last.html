@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-align-last</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-align-last</h1><main>
+    
+
+<p>The <strong><code>text-align-last</code></strong> CSS property sets how the last line of a block or a line, right before a forced line break, is aligned.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-align-last: auto;
+text-align-last: start;
+text-align-last: end;
+text-align-last: left;
+text-align-last: right;
+text-align-last: center;
+text-align-last: justify;
+
+/* Global values */
+text-align-last: inherit;
+text-align-last: initial;
+text-align-last: revert;
+text-align-last: revert-layer;
+text-align-last: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The affected line is aligned per the value of <a href="./css.properties.text-align.html"><code>text-align</code></a>, unless <a href="./css.properties.text-align.html"><code>text-align</code></a> is <code>justify</code>, in which case the effect is the same as setting <code>text-align-last</code> to <code>start</code>.</p>
+  </dd>
+  <dt><code>start</code></dt>
+  <dd>
+    <p>The same as <code>left</code> if direction is left-to-right and <code>right</code> if direction is right-to-left.</p>
+  </dd>
+  <dt><code>end</code></dt>
+  <dd>
+    <p>The same as <code>right</code> if direction is left-to-right and <code>left</code> if direction is right-to-left.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>The inline contents are aligned to the left edge of the line box.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>The inline contents are aligned to the right edge of the line box.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>The inline contents are centered within the line box.</p>
+  </dd>
+  <dt><code>justify</code></dt>
+  <dd>
+    <p>The text is justified. Text should line up their left and right edges to the left and right content edges of the paragraph.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | start | end | left | right | center | justify | match-parent</pre></section>
+
+<h3>Justifying the last line</h3>
+<pre class="brush: html hidden">&#x3C;p>
+  Integer elementum massa at nulla placerat varius. Suspendisse in libero risus,
+  in interdum massa. Vestibulum ac leo vitae metus faucibus gravida ac in neque.
+  Nullam est eros, suscipit sed dictum quis, accumsan a ligula.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  font-size: 1.4em;
+  text-align: justify;
+  text-align-last: center;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-align.html"><code>text-align</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 47</li><li><strong>chrome_android</strong>: 47</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 34</li><li><strong>opera_android</strong>: 34</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 47</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#text-align-last-property">https://drafts.csswg.org/css-text/#text-align-last-property</a></p></section></aside></body>
+</html>

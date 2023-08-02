@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-transform-3d"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media "-webkit-transform-3d"</h1><main>
+    
+
+<p>The <strong><code>-webkit-transform-3d</code></strong> Boolean <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit extension</a> whose value is <code>true</code> if vendor-prefixed CSS 3D <a href="./css.properties.transform.html"><code>transform</code></a>s are supported.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> While this media feature is currently <a href="#browser-compatibility">supported by most browsers</a>. If possible, use an <a href="./css.at-rules.supports.html"><code>@supports</code></a> feature query instead.</p>
+</div>
+<h2>Syntax</h2>
+<p><code>-webkit-transform-3d</code> is a Boolean <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> whose value is <code>true</code> if the browser supports <code>-webkit</code> prefixed CSS 3D <a href="./css.properties.transform.html"><code>transform</code></a>s.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>true</code></dt>
+  <dd>
+    <p>The browser supports the 3D CSS transforms with the <code>-webkit</code> prefix and supports non-standard, prefixed media queries.</p>
+  </dd>
+  <dt><code>false</code></dt>
+  <dd>
+    <p>The 3D CSS transforms prefixed with <code>-webkit</code> are not supported by the browser.</p>
+  </dd>
+</dl>
+
+<h3>Examples of media queries with -webkit-transform-3d</h3>
+<pre class="brush: css">@media (-webkit-transform-3d) {
+  .foo {
+    transform-style: preserve-3d;
+  }
+}
+</pre>
+<p>A better method for checking for browser support is using a feature query:</p>
+<pre class="brush: css">@supports (transform-style) {
+  .foo {
+    transform-style: preserve-3d;
+  }
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.-webkit-transform-2d.html"><code>-webkit-transform-2d</code></a></li>
+  <li><a href="./css.at-rules.media.-webkit-transition.html"><code>-webkit-transition</code></a></li>
+  <li><a href="./css.at-rules.media.-webkit-animation.html"><code>-webkit-animation</code></a></li>
+  <li><a href="https://www.quirksmode.org/css/tests/mediaqueries/animation.html">Test page at quirksmode.org</a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">using CSS transforms</a></li>
+  <li><a href="./css.at-rules.media.html"><code>@media</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using media queries</a></li>
+  <li><a href="./css.at-rules.supports.html"><code>@supports</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries">using feature queries</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 49</li><li><strong>firefox_android</strong>: 49</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://compat.spec.whatwg.org/#css-media-queries-webkit-transform-3d">https://compat.spec.whatwg.org/#css-media-queries-webkit-transform-3d</a></p></section></aside></body>
+</html>

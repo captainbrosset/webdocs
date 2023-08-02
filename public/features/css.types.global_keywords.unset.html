@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>unset</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types global_keywords unset</h1><main>
+    
+
+<p>The <strong><code>unset</code></strong> CSS keyword resets a property to its inherited value if the property naturally inherits from its parent, and to its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial value</a> if not. In other words, it behaves like the <a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a> keyword in the first case, when the property is an <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance#inherited_properties">inherited property</a>, and like the <a href="./css.types.global_keywords.initial.html"><code>initial</code></a> keyword in the second case, when the property is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance#non-inherited_properties">non-inherited property</a>.</p>
+<p><strong><code>unset</code></strong> can be applied to any CSS property, including the CSS shorthand property <a href="./css.properties.all.html"><code>all</code></a>.</p>
+
+<h3>Color</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition"><code>color</code></a> is an inherited property.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>This text is red.&#x3C;/p>
+&#x3C;div class="foo">
+  &#x3C;p>This text is also red.&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="bar">
+  &#x3C;p>This text is green (default inherited value).&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.foo {
+  color: blue;
+}
+
+.bar {
+  color: green;
+}
+
+p {
+  color: red;
+}
+
+.bar p {
+  color: unset;
+}
+</pre>
+
+<h3>Border</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border#formal_definition"><code>border</code></a> is a non-inherited property.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>This text has a red border.&#x3C;/p>
+&#x3C;div>
+  &#x3C;p>This text has a red border.&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="bar">
+  &#x3C;p>This text has a black border (initial default, not inherited).&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  border: 1px solid green;
+}
+
+p {
+  border: 1px solid red;
+}
+
+.bar p {
+  border-color: unset;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Use the <a href="./css.types.global_keywords.initial.html"><code>initial</code></a> keyword to set a property to its initial value.</li>
+  <li>Use the <a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a> keyword to make an element's property the same as its parent.</li>
+  <li>Use the <a href="./css.types.global_keywords.revert.html"><code>revert</code></a> keyword to reset a property to the value established by the user-agent stylesheet (or by user styles, if any exist).</li>
+  <li>Use the <a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a> keyword to reset a property to the value established in a previous cascade layer.</li>
+  <li>The <a href="./css.properties.all.html"><code>all</code></a> property lets you reset all properties to their initial, inherited, reverted, or unset state at once.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 41</li><li><strong>chrome_android</strong>: 41</li><li><strong>edge</strong>: 13</li><li><strong>firefox</strong>: 27</li><li><strong>firefox_android</strong>: 27</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 28</li><li><strong>opera_android</strong>: 28</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 4.0</li><li><strong>webview_android</strong>: 41</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade/#inherit-initial">https://drafts.csswg.org/css-cascade/#inherit-initial</a></p></section></aside></body>
+</html>

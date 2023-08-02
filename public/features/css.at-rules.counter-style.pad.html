@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pad</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style pad</h1><main>
+    
+
+<p>The <strong><code>pad</code></strong> descriptor can be used with custom counter style definitions when you need the marker representations to have a minimum length.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">pad: 3 "0";
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;integer> &#x26;&#x26; &#x3C;symbol></code></dt>
+  <dd>
+    <p>The <code>&#x3C;integer></code> specifies a minimum length that all counter representations must reach. The value must be non-negative. If the minimum length is not reached, the representation will be padded with the specified <code>&#x3C;symbol></code>.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>If a marker representation is smaller than the specified pad length, then the marker will be padded with the specified pad symbol. Marker representations longer than the pad length are constructed as normal. Pad descriptor takes the minimum marker length as an integer and a symbol to be used for padding as the second parameter. A common usage of the pad descriptor is when you need your list to start numbering from 01 and go through 02, 03 and so on, instead of just 1, 2, 3…</p>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="list">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style pad-example {
+  system: numeric;
+  symbols: "0" "1" "2" "3" "4" "5";
+  pad: 2 "0";
+}
+
+.list {
+  list-style: pad-example;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>, the functional notation creating anonymous counter styles.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 91</li><li><strong>chrome_android</strong>: 91</li><li><strong>edge</strong>: 91</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 77</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: 17</li><li><strong>safari_ios</strong>: 17</li><li><strong>samsunginternet_android</strong>: 16.0</li><li><strong>webview_android</strong>: 91</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-pad">https://drafts.csswg.org/css-counter-styles/#counter-style-pad</a></p></section></aside></body>
+</html>

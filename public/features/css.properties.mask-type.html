@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-type</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-type</h1><main>
+    
+
+<p>The <strong><code>mask-type</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/mask"><code>&lt;mask&gt;</code></a> element is used as a <em>luminance</em> or an <em>alpha</em> mask. It applies to the <code>&#x3C;mask></code> element itself.</p>
+<p>This property may be overridden by the <a href="./css.properties.mask-mode.html"><code>mask-mode</code></a> property, which has the same effect but applies to the element where the mask is used. Alpha masks will generally be faster to render.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+mask-type: luminance;
+mask-type: alpha;
+
+/* Global values */
+mask-type: inherit;
+mask-type: initial;
+mask-type: revert;
+mask-type: revert-layer;
+mask-type: unset;
+</pre>
+<p>The <code>mask-type</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>luminance</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the associated mask image is a luminance mask, i.e., that its <a href="https://en.wikipedia.org/wiki/Luminance_%28relative%29">relative luminance</a> values must be used when applying it.</p>
+  </dd>
+  <dt><code>alpha</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the associated mask image is an alpha mask, i.e., that its <a href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha channel</a> values must be used when applying it.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>luminance</td></tr><tr><th scope="row">Applies to</th><td>mask elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>luminance | alpha</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="redsquare">&#x3C;/div>
+&#x3C;svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="0"
+  height="0">
+  &#x3C;defs>
+    &#x3C;mask id="m" maskContentUnits="objectBoundingBox" style="mask-type:alpha">
+      &#x3C;rect
+        x=".1"
+        y=".1"
+        width=".8"
+        height=".8"
+        fill="red"
+        fill-opacity="0.7" />
+    &#x3C;/mask>
+  &#x3C;/defs>
+&#x3C;/svg>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.redsquare {
+  height: 100px;
+  width: 100px;
+  background-color: rgb(128, 128, 128);
+  border: solid 1px black;
+  mask: url("#m");
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="redsquare">&#x3C;/div>
+&#x3C;svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="0"
+  height="0">
+  &#x3C;defs>
+    &#x3C;mask
+      id="m"
+      maskContentUnits="objectBoundingBox"
+      style="mask-type:luminance">
+      &#x3C;rect
+        x=".1"
+        y=".1"
+        width=".8"
+        height=".8"
+        fill="red"
+        fill-opacity="0.7" />
+    &#x3C;/mask>
+  &#x3C;/defs>
+&#x3C;/svg>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.redsquare {
+  height: 100px;
+  width: 100px;
+  background-color: rgb(128, 128, 128);
+  border: solid 1px black;
+  mask: url("#m");
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other mask-related properties: <a href="./css.properties.mask.html"><code>mask</code></a>, <a href="./css.properties.mask-mode.html"><code>mask-mode</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 24</li><li><strong>chrome_android</strong>: 25</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-type">https://drafts.fxtf.org/css-masking/#the-mask-type</a></p></section></aside></body>
+</html>

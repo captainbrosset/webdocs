@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>z-index</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties z-index</h1><main>
+    
+
+<p>The <strong><code>z-index</code></strong> CSS property sets the z-order of a <a href="./css.properties.position.html">positioned</a> element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.</p>
+<p>For a positioned box (that is, one with any <code>position</code> other than <code>static</code>), the <code>z-index</code> property specifies:</p>
+<ol>
+  <li>The stack level of the box in the current <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context">stacking context</a>.</li>
+  <li>Whether the box establishes a local stacking context.</li>
+</ol>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+z-index: auto;
+
+/* &#x3C;integer> values */
+z-index: 0;
+z-index: 3;
+z-index: 289;
+z-index: -1; /* Negative values to lower the priority */
+
+/* Global values */
+z-index: inherit;
+z-index: initial;
+z-index: revert;
+z-index: revert-layer;
+z-index: unset;
+</pre>
+<p>The <code>z-index</code> property is specified as either the keyword <code>auto</code> or an <code>&#x3C;integer></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The box does not establish a new local stacking context. The stack level of the generated box in the current stacking context is <code>0</code>.</p>
+  </dd>
+  <dt><code>&#x3C;integer></code></dt>
+  <dd>
+    <p>This <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> is the stack level of the generated box in the current stacking context. The box also establishes a local stacking context. This means that the z-indexes of descendants are not compared to the z-indexes of elements outside this element.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>positioned elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;integer&gt; | inherit</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="wrapper">
+  &#x3C;div class="dashed-box">Dashed box&#x3C;/div>
+  &#x3C;div class="gold-box">Gold box&#x3C;/div>
+  &#x3C;div class="green-box">Green box&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapper {
+  position: relative;
+}
+
+.dashed-box {
+  position: relative;
+  z-index: 1;
+  border: dashed;
+  height: 8em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+.gold-box {
+  position: absolute;
+  z-index: 3; /* put .gold-box above .green-box and .dashed-box */
+  background: gold;
+  width: 80%;
+  left: 60px;
+  top: 3em;
+}
+.green-box {
+  position: absolute;
+  z-index: 2; /* put .green-box above .dashed-box */
+  background: lightgreen;
+  width: 20%;
+  left: 65%;
+  top: -25px;
+  height: 7em;
+  opacity: 0.9;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS <a href="./css.properties.position.html"><code>position</code></a> property</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index">Understanding CSS z-indexes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#z-index">https://drafts.csswg.org/css2/#z-index</a></p></section></aside></body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::marker"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::marker"</h1><main>
+    
+
+<p>The <strong><code>::marker</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> selects the marker box of a list item, which typically contains a bullet or number. It works on any element or pseudo-element set to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display: list-item</code></a>, such as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a> elements.</p>
+<h2>Allowable properties</h2>
+<p>Only certain CSS properties can be used in a rule with <code>::marker</code> as a selector:</p>
+<ul>
+  <li>All <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts">font properties</a></li>
+  <li>The <a href="./css.properties.white-space.html"><code>white-space</code></a> property</li>
+  <li><a href="./css.properties.color.html"><code>color</code></a></li>
+  <li><a href="./css.properties.text-combine-upright.html"><code>text-combine-upright</code></a>, <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a> and <a href="./css.properties.direction.html"><code>direction</code></a> properties</li>
+  <li>The <a href="./css.properties.content.html"><code>content</code></a> property</li>
+  <li>All <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations#properties">animation</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions#properties">transition</a> properties</li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> The specification states that additional CSS properties may be supported in future.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">::marker {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>Peaches&#x3C;/li>
+  &#x3C;li>Apples&#x3C;/li>
+  &#x3C;li>Plums&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">ul li::marker {
+  color: red;
+  font-size: 1.5em;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>HTML elements that have marker boxes by default: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 86</li><li><strong>chrome_android</strong>: 86</li><li><strong>edge</strong>: 86</li><li><strong>firefox</strong>: 68</li><li><strong>firefox_android</strong>: 68</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 72</li><li><strong>opera_android</strong>: 61</li><li><strong>safari</strong>: 11.1</li><li><strong>safari_ios</strong>: 11.3</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 86</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-pseudo/#marker-pseudo">https://drafts.csswg.org/css-pseudo/#marker-pseudo</a></p></section></aside></body>
+</html>

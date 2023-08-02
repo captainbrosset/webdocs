@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":focus"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":focus"</h1><main>
+    
+
+<p>The <strong><code>:focus</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents an element (such as a form input) that has received focus. It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's <kbd>Tab</kbd> key.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This pseudo-class applies only to the focused element itself. Use <a href="./css.selectors.focus-within.html"><code>:focus-within</code></a> if you want to select an element that <em>contains</em> a focused element.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:focus {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>&#x3C;input class="red-input" value="I'll be red when focused." />&#x3C;/div>
+&#x3C;div>&#x3C;input class="blue-input" value="I'll be blue when focused." />&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">.red-input:focus {
+  background: yellow;
+  color: red;
+}
+
+.blue-input:focus {
+  background: yellow;
+  color: blue;
+}
+</pre>
+
+<h2>Accessibility concerns</h2>
+<p>Make sure the visual focus indicator can be seen by people with low vision. This will also benefit anyone use a screen in a brightly lit space (like outside in the sun). <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">WCAG 2.1 SC 1.4.11 Non-Text Contrast</a> requires that the visual focus indicator be at least 3 to 1.</p>
+<ul>
+  <li>Accessible Visual Focus Indicators: <a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">Give Your Site Some Focus! Tips for Designing Useful and Usable Focus Indicators</a></li>
+</ul>
+<h3><code>:focus { outline: none; }</code></h3>
+<p>Never just remove the focus outline (visible focus indicator) without replacing it with a focus outline that will pass <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">WCAG 2.1 SC 1.4.11 Non-Text Contrast</a>.</p>
+<ul>
+  <li>Quick Tip: <a href="https://www.a11yproject.com/posts/never-remove-css-outlines/">Never remove CSS outlines</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.focus-visible.html"><code>:focus-visible</code></a></li>
+  <li><a href="./css.selectors.focus-within.html"><code>:focus-within</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-focus,https://drafts.csswg.org/selectors/#focus-pseudo">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-focus,https://drafts.csswg.org/selectors/#focus-pseudo</a></p></section></aside></body>
+</html>

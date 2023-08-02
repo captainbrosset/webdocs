@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Class selectors</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors Class selectors</h1><main>
+    
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <strong>class selector</strong> matches elements based on the contents of their <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#class"><code>class</code></a> attribute.</p>
+<pre class="brush: css">/* All elements with class="spacious" */
+.spacious {
+  margin: 2em;
+}
+
+/* All &#x3C;li> elements with class="spacious" */
+li.spacious {
+  margin: 2em;
+}
+
+/* All &#x3C;li> elements with a class list that includes both "spacious" and "elegant" */
+/* For example, class="elegant retro spacious" */
+li.spacious.elegant {
+  margin: 2em;
+}
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">.class_name { style properties }
+</pre>
+<p>Note that this is equivalent to the following <a href="./css.selectors.attribute.html"><code>attribute selector</code></a>:</p>
+<pre class="brush: css">[class~=class_name] { style properties }
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">.red {
+  color: #f33;
+}
+
+.yellow-bg {
+  background: #ffa;
+}
+
+.fancy {
+  font-weight: bold;
+  text-shadow: 4px 4px 3px #77f;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p class="red">This paragraph has red text.&#x3C;/p>
+&#x3C;p class="red yellow-bg">
+  This paragraph has red text and a yellow background.
+&#x3C;/p>
+&#x3C;p class="red fancy">This paragraph has red text and "fancy" styling.&#x3C;/p>
+&#x3C;p>This is just a regular paragraph.&#x3C;/p>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS Selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">Learn CSS: Selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#class-html">https://drafts.csswg.org/selectors/#class-html</a></p></section></aside></body>
+</html>

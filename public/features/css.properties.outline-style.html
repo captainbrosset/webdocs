@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>outline-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties outline-style</h1><main>
+    
+
+<p>The <strong><code>outline-style</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the style of an element's outline. An outline is a line that is drawn around an element, outside the <a href="./css.properties.border.html"><code>border</code></a>.</p>
+<p>It is often more convenient to use the shorthand property <a href="./css.properties.outline.html"><code>outline</code></a> when defining the appearance of an outline.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+outline-style: auto;
+outline-style: none;
+outline-style: dotted;
+outline-style: dashed;
+outline-style: solid;
+outline-style: double;
+outline-style: groove;
+outline-style: ridge;
+outline-style: inset;
+outline-style: outset;
+
+/* Global values */
+outline-style: inherit;
+outline-style: initial;
+outline-style: revert;
+outline-style: revert-layer;
+outline-style: unset;
+</pre>
+<p>The <code>outline-style</code> property is specified as any one of the values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Permits the user agent to render a custom outline style.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No outline is used. The <a href="./css.properties.outline-width.html"><code>outline-width</code></a> is <code>0</code>.</p>
+  </dd>
+  <dt><code>dotted</code></dt>
+  <dd>
+    <p>The outline is a series of dots.</p>
+  </dd>
+  <dt><code>dashed</code></dt>
+  <dd>
+    <p>The outline is a series of short line segments.</p>
+  </dd>
+  <dt><code>solid</code></dt>
+  <dd>
+    <p>The outline is a single line.</p>
+  </dd>
+  <dt><code>double</code></dt>
+  <dd>
+    <p>The outline is two single lines. The <a href="./css.properties.outline-width.html"><code>outline-width</code></a> is the sum of the two lines and the space between them.</p>
+  </dd>
+  <dt><code>groove</code></dt>
+  <dd>
+    <p>The outline looks as though it were carved into the page.</p>
+  </dd>
+  <dt><code>ridge</code></dt>
+  <dd>
+    <p>The opposite of <code>groove</code>: the outline looks as though it were extruded from the page.</p>
+  </dd>
+  <dt><code>inset</code></dt>
+  <dd>
+    <p>The outline makes the box look as though it were embedded in the page.</p>
+  </dd>
+  <dt><code>outset</code></dt>
+  <dd>
+    <p>The opposite of <code>inset</code>: the outline makes the box look as though it were coming out of the page.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;outline-line-style&gt;</pre></section>
+
+<h3>Setting outline style to auto</h3>
+<p>The <code>auto</code> value indicates a custom outline style, described in <a href="https://www.w3.org/TR/css-ui-3/#outline-style">the specification</a> as "typically a style [that] is either a user interface default for the platform, or perhaps a style that is richer than can be described in detail in CSS, e.g. a rounded edge outline with semi-translucent outer pixels that appears to glow".</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="auto">Outline Demo&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.auto {
+  outline-style: auto; /* same result as "outline: auto" */
+}
+
+/* To make the Demo clearer */
+* {
+  outline-width: 10px;
+  padding: 15px;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;div class="dotted">
+    &#x3C;p class="dashed">Outline Demo&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.dotted {
+  outline-style: dotted; /* same result as "outline: dotted" */
+}
+.dashed {
+  outline-style: dashed;
+}
+
+/* To make the Demo clearer */
+* {
+  outline-width: 10px;
+  padding: 15px;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;div class="solid">
+    &#x3C;p class="double">Outline Demo&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.solid {
+  outline-style: solid;
+}
+.double {
+  outline-style: double;
+}
+
+/* To make the Demo clearer */
+* {
+  outline-width: 10px;
+  padding: 15px;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;div class="groove">
+    &#x3C;p class="ridge">Outline Demo&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.groove {
+  outline-style: groove;
+}
+.ridge {
+  outline-style: ridge;
+}
+
+/* To make the Demo clearer */
+* {
+  outline-width: 10px;
+  padding: 15px;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;div class="inset">
+    &#x3C;p class="outset">Outline Demo&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.inset {
+  outline-style: inset;
+}
+.outset {
+  outline-style: outset;
+}
+
+/* To make the Demo clearer */
+* {
+  outline-width: 10px;
+  padding: 15px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a></li>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.outline-width.html"><code>outline-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#outline-style">https://drafts.csswg.org/css-ui/#outline-style</a></p></section></aside></body>
+</html>

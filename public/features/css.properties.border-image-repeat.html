@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-image-repeat</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-image-repeat</h1><main>
+    
+
+<p>The <strong><code>border-image-repeat</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines how the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice#edge-regions">edge regions</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice#middle-region">middle region</a> of a source image are adjusted to fit the dimensions of an element's <a href="./css.properties.border-image.html">border image</a>. The middle region can be displayed by using the keyword "fill" in the border-image-slice property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+border-image-repeat: stretch;
+border-image-repeat: repeat;
+border-image-repeat: round;
+border-image-repeat: space;
+
+/* top and bottom | left and right */
+border-image-repeat: round stretch;
+
+/* Global values */
+border-image-repeat: inherit;
+border-image-repeat: initial;
+border-image-repeat: revert;
+border-image-repeat: revert-layer;
+border-image-repeat: unset;
+</pre>
+<p>The <code>border-image-repeat</code> property may be specified using one or two values chosen from the list of values below.</p>
+<ul>
+  <li>When <strong>one</strong> value is specified, it applies the same behavior on <strong>all four sides</strong>.</li>
+  <li>When <strong>two</strong> values are specified, the first applies to the <strong>top, middle, and bottom</strong>, the second to the <strong>left and right</strong>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>stretch</code></dt>
+  <dd>
+    <p>The source image's edge regions are stretched to fill the gap between each border.</p>
+  </dd>
+  <dt><code>repeat</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Tiles may be clipped to achieve the proper fit.</p>
+  </dd>
+  <dt><code>round</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Tiles may be stretched to achieve the proper fit.</p>
+  </dd>
+  <dt><code>space</code></dt>
+  <dd>
+    <p>The source image's edge regions are tiled (repeated) to fill the gap between each border. Extra space will be distributed in between tiles to achieve the proper fit.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>stretch</td></tr><tr><th scope="row">Applies to</th><td>All elements, except internal table elements when border-collapse is collapse</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>two keywords, one per axis</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ stretch | repeat | round | space ]{1,2}</pre></section>
+
+
+<h4>CSS</h4>
+<pre class="brush: css">#bordered {
+  width: 12rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 40px solid;
+  border-image: url("border.png") 27;
+  border-image-repeat: stretch; /* Can be changed in the live sample */
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div id="bordered">You can try out various border repetition rules on me!&#x3C;/div>
+
+&#x3C;select id="repetition">
+  &#x3C;option value="stretch">stretch&#x3C;/option>
+  &#x3C;option value="repeat">repeat&#x3C;/option>
+  &#x3C;option value="round">round&#x3C;/option>
+  &#x3C;option value="space">space&#x3C;/option>
+  &#x3C;option value="stretch repeat">stretch repeat&#x3C;/option>
+  &#x3C;option value="space round">space round&#x3C;/option>
+&#x3C;/select>
+</pre>
+<pre class="brush: js hidden">const repetition = document.getElementById("repetition");
+repetition.addEventListener("change", (evt) => {
+  document.getElementById("bordered").style.borderImageRepeat =
+    evt.target.value;
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">Backgrounds and borders</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders">Learn CSS: Backgrounds and borders</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 15</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 15</li><li><strong>firefox_android</strong>: 15</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-border-image-repeat">https://drafts.csswg.org/css-backgrounds/#the-border-image-repeat</a></p></section></aside></body>
+</html>

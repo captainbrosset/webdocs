@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-optical-sizing</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-optical-sizing</h1><main>
+    
+
+<p>The <strong><code>font-optical-sizing</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether text rendering is optimized for viewing at different sizes.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* keyword values */
+font-optical-sizing: none;
+font-optical-sizing: auto; /* default */
+
+/* Global values */
+font-optical-sizing: inherit;
+font-optical-sizing: initial;
+font-optical-sizing: revert;
+font-optical-sizing: revert-layer;
+font-optical-sizing: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>none</dt>
+  <dd>
+    <p>The browser will not modify the shape of glyphs for optimal viewing.</p>
+  </dd>
+  <dt>auto</dt>
+  <dd>
+    <p>The browser will modify the shape of glyphs for optimal viewing.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Optical sizing is enabled by default for fonts that have an optical size variation axis. The optical size variation axis is represented by <code>opsz</code> in <a href="./css.properties.font-variation-settings.html"><code>font-variation-settings</code></a>.</p>
+<p>When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none</pre></section>
+
+<h3>Disabling optical sizing</h3>
+<pre class="brush: html">&#x3C;p class="optical-sizing">
+  This paragraph is optically sized. This is the default across browsers.
+&#x3C;/p>
+
+&#x3C;p class="no-optical-sizing">
+  This paragraph is not optically sized. You should see a difference in
+  supporting browsers.
+&#x3C;/p>
+</pre>
+<pre class="brush: css">@font-face {
+  src: url("AmstelvarAlpha-VF.ttf");
+  font-family: "Amstelvar";
+  font-style: normal;
+}
+
+p {
+  font-size: 36px;
+  font-family: Amstelvar;
+}
+
+.no-optical-sizing {
+  font-optical-sizing: none;
+}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> The font referenced above — which includes optical sizing and is freely-licensed — is good for testing. You can <a href="https://github.com/googlefonts/amstelvar/releases">download it on GitHub</a>.</p>
+</div>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+  <li><a href="./css.properties.font-size-adjust.html"><code>font-size-adjust</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals">Fundamental text and font styling</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 79</li><li><strong>chrome_android</strong>: 79</li><li><strong>edge</strong>: 17</li><li><strong>firefox</strong>: 62</li><li><strong>firefox_android</strong>: 62</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 8.0</li><li><strong>opera</strong>: 66</li><li><strong>opera_android</strong>: 57</li><li><strong>safari</strong>: 11</li><li><strong>safari_ios</strong>: 11</li><li><strong>samsunginternet_android</strong>: 12.0</li><li><strong>webview_android</strong>: 79</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-optical-sizing-def">https://drafts.csswg.org/css-fonts/#font-optical-sizing-def</a></p></section></aside></body>
+</html>

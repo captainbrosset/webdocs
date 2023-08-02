@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>aspect-ratio</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media aspect-ratio</h1><main>
+    
+
+<p>The <strong><code>aspect-ratio</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> can be used to test the aspect ratio of the <a href="/Glossary/viewport">viewport</a>.</p>
+<h2>Syntax</h2>
+<p>The <code>aspect-ratio</code> feature is specified as a <a href="./css.types.ratio.html"><code>&lt;ratio&gt;</code></a> value representing the width-to-height aspect ratio of the viewport. It is a range feature, meaning you can also use the prefixed <strong><code>min-aspect-ratio</code></strong> and <strong><code>max-aspect-ratio</code></strong> variants to query minimum and maximum values, respectively.</p>
+<h2>Examples</h2>
+<p>The example below is contained in an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a>, which creates its own viewport. Resize the <code>&#x3C;iframe></code> to see <code>aspect-ratio</code> in action.</p>
+<p>Note that, when none of the media query conditions are true, the background will turn white because none of the below rules will be applied to the <code>&#x3C;div></code> inside the <code>&#x3C;iframe></code>. See if you can find which width and height values trigger this!</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div id="inner">
+  Watch this element as you resize your viewport's width and height.
+&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">/* Minimum aspect ratio */
+@media (min-aspect-ratio: 8/5) {
+  div {
+    background: #9af; /* blue */
+  }
+}
+
+/* Maximum aspect ratio */
+@media (max-aspect-ratio: 3/2) {
+  div {
+    background: #9ff; /* cyan */
+  }
+}
+
+/* Exact aspect ratio, put it at the bottom to avoid override*/
+@media (aspect-ratio: 1/1) {
+  div {
+    background: #f9a; /* red */
+  }
+}
+</pre>
+<h3>Result</h3>
+<pre class="brush: html hidden">&#x3C;label id="wf" for="w">width:165&#x3C;/label>
+&#x3C;input id="w" name="w" type="range" min="100" max="250" step="5" value="165" />
+&#x3C;label id="hf" for="w">height:165&#x3C;/label>
+&#x3C;input id="h" name="h" type="range" min="100" max="250" step="5" value="165" />
+
+&#x3C;iframe
+  id="outer"
+  src="data:text/html,&#x3C;style> @media (min-aspect-ratio: 8/5) { div { background: %239af; } } @media (max-aspect-ratio: 3/2) { div { background: %239ff; } } @media (aspect-ratio: 1/1) { div { background: %23f9a; } }&#x3C;/style>&#x3C;div id='inner'> Watch this element as you resize your viewport's width and height.&#x3C;/div>">
+&#x3C;/iframe>
+</pre>
+<pre class="brush: css hidden">iframe {
+  display: block;
+}
+</pre>
+<pre class="brush: js hidden">outer.style.width = outer.style.height = "165px";
+
+w.onchange = w.oninput = () => {
+  outer.style.width = `${w.value}px`;
+  wf.textContent = `width: ${w.value}`;
+};
+h.onchange = h.oninput = () => {
+  outer.style.height = `${h.value}px`;
+  hf.textContent = `height: ${h.value}`;
+};
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using Media Queries</a></li>
+  <li><a href="./css.at-rules.media.html">@media</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 3</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#aspect-ratio">https://drafts.csswg.org/mediaqueries/#aspect-ratio</a></p></section></aside></body>
+</html>

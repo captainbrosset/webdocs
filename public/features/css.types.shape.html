@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;shape&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;shape></h1><main>
+    
+
+<p>The <strong><code>&#x3C;shape></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> defines the specific form (shape) of a region. The region represents the part of an element to which the <a href="./css.properties.clip.html"><code>&lt;clip&gt;</code></a> property applies.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>&#x3C;shape></code> and <code>rect()</code> work in conjunction with <a href="./css.properties.clip.html"><code>&lt;clip&gt;</code></a>, which has been deprecated in favor of <a href="./css.properties.clip-path.html"><code>&lt;clip-path&gt;</code></a>. When possible, use <code>clip-path</code> and the <a href="./css.types.basic-shape.html"><code>&lt;basic-shape&gt;</code></a> data type instead.</p>
+</div>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;shape></code> data type is specified using the <code>rect()</code> function, which produces a region in the form of a rectangle.</p>
+<p><code>rect()</code></p>
+<pre class="brush: css">rect(top, right, bottom, left)
+</pre>
+<h3>Values</h3>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/shape/rect.png" alt="A graph showing top, right, bottom, and left, as described below. These define the rectangle&#x27;s shape. The upper left corner is defined by the top and left values. The bottom right corner is defined by the bottom and right values.">
+</p>
+<dl>
+  <dt><em>top</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> representing the offset for the top of the rectangle relative to the top border of the element's box.</p>
+  </dd>
+  <dt><em>right</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> representing the offset for the right of the rectangle relative to the left border of the element's box.</p>
+  </dd>
+  <dt><em>bottom</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> representing the offset for the bottom of the rectangle relative to the top border of the element's box.</p>
+  </dd>
+  <dt><em>left</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> representing the offset for the left of the rectangle relative to the left border of the element's box.</p>
+  </dd>
+</dl>
+<h2>Interpolation</h2>
+<p>When animated, values of the <code>&#x3C;shape></code> data type are interpolated over their <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> components, each treated as a real, floating-point number. The speed of the interpolation is determined by the <a href="./css.types.easing-function.html">easing function</a> associated with the animation.</p>
+
+<h3>Example demonstrating correct use of the rect() function</h3>
+<pre class="brush: css">img.clip04 {
+  clip: rect(10px, 20px, 20px, 10px);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS property: <a href="./css.properties.clip.html"><code>&lt;clip&gt;</code></a></li>
+  <li>The <a href="./css.types.-moz-image-rect.html"><code>-moz-image-rect()</code></a> function has similar coordinate values to <code>rect()</code>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Deprecated feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#value-def-shape">https://drafts.csswg.org/css2/#value-def-shape</a></p></section></aside></body>
+</html>

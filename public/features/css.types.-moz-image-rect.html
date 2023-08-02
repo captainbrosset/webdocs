@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-moz-image-rect"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types "-moz-image-rect"</h1><main>
+    
+
+<p>The <strong><code>-moz-image-rect</code></strong> value for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="./css.properties.background-image.html"><code>background-image()</code></a> lets you use a portion of a larger image as a background.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">-moz-image-rect(<a href="/Web/CSS/url"><code>url()</code></a>, top, right, bottom, left);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.url.html"><code>url()</code></a></dt>
+  <dd>
+    <p>The URI of the image from which to take the sub-image.</p>
+  </dd>
+  <dt><code>top</code></dt>
+  <dd>
+    <p>The top edge, specified as an <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, of the sub-image within the specified image.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>The right edge, specified as an <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, of the sub-image within the specified image.</p>
+  </dd>
+  <dt><code>bottom</code></dt>
+  <dd>
+    <p>The bottom edge, specified as an <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, of the sub-image within the specified image.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>The left edge, specified as an <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, of the sub-image within the specified image.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>This property allows you to, for example, use different parts of one larger image as backgrounds in different parts of your content.</p>
+<p>This works very similarly to the <a href="./css.properties.-moz-image-region.html"><code>-moz-image-region()</code></a> property, which is used with the <a href="./css.properties.list-style-image.html"><code>list-style-image()</code></a> property to use parts of an image as the bullets in lists. However, this can be used for any CSS background.</p>
+<p>The syntax for the rectangle is similar to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape#syntax"><code>rect()</code></a> function generating a <a href="./css.types.shape.html"><code>&lt;shape&gt;()</code></a> CSS type. All four values are relative to the upper left corner of the image.</p>
+<h2>Examples</h2>
+<p>This example loads an image and uses it in four segments to draw the Firefox logo in four <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> blocks. Clicking on their container causes the four segments to rotate around by swapping the <a href="./css.properties.background-image.html"><code>background-image()</code></a> property values among the four <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> blocks.</p>
+<h3>CSS</h3>
+<p>The CSS defines one container style, then the styles for the four boxes that comprise the complete image.</p>
+<p>The container looks like this:</p>
+<pre class="brush: css">#container {
+  width: 267px;
+  height: 272px;
+  top: 100px;
+  left: 100px;
+  position: absolute;
+  font-size: 16px;
+  text-shadow: white 0px 0px 6px;
+  text-align: center;
+}
+</pre>
+<p>Then the four boxes defining the segments of the image are defined. Let's look at them one at a time.</p>
+<pre class="brush: css">#box1 {
+  background-image: -moz-image-rect(url(firefox.png), 0%, 50%, 50%, 0%);
+  width: 133px;
+  height: 136px;
+  position: absolute;
+}
+</pre>
+<p>This is the top-left corner of the image. It defines a rectangle containing the top-left quarter of the image in the file <code>firefox.jpg</code>.</p>
+<pre class="brush: css">#box2 {
+  background-image: -moz-image-rect(url(firefox.png), 0%, 100%, 50%, 50%);
+  width: 133px;
+  height: 136px;
+  position: absolute;
+}
+</pre>
+<p>This defines the top-right corner of the image.</p>
+<p>The other corners follow a similar pattern:</p>
+<pre class="brush: css">#box3 {
+  background-image: -moz-image-rect(url(firefox.png), 50%, 50%, 100%, 0%);
+  width: 133px;
+  height: 136px;
+  position: absolute;
+}
+#box4 {
+  background-image: -moz-image-rect(url(firefox.png), 50%, 100%, 100%, 50%);
+  width: 133px;
+  height: 136px;
+  position: absolute;
+}
+</pre>
+<h3>HTML</h3>
+<p>The HTML is quite simple:</p>
+<pre class="brush: html">&#x3C;div id="container" onclick="rotate()">
+  &#x3C;div id="box1" style="left:0px;top:0px;">Top left&#x3C;/div>
+  &#x3C;div id="box2" style="left:133px;top:0px;">Top right&#x3C;/div>
+  &#x3C;div id="box3" style="left:0px;top:136px;">Bottom left&#x3C;/div>
+  &#x3C;div id="box4" style="left:133px;top:136px;">Bottom right&#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>This places the four segments of our image in a two-by-two box grid. These four segments are all contained within a larger <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> block whose primary purpose is to receive click events and dispatch them to our JavaScript code.</p>
+<h3>The JavaScript code</h3>
+<p>This code handles the click event when the container receives a mouse click.</p>
+<pre class="brush: js">function rotate() {
+  let prevStyle = window
+    .getComputedStyle(document.getElementById("box4"), null)
+    .getPropertyValue("background-image");
+
+  // Now that we've saved the last one, start rotating
+  for (let i = 1; i &#x3C;= 4; i++) {
+    const curId = `box${i}`;
+
+    // Shift the background images
+    const curStyle = window
+      .getComputedStyle(document.getElementById(curId), null)
+      .getPropertyValue("background-image");
+    document.getElementById(curId).style.backgroundImage = prevStyle;
+    prevStyle = curStyle;
+  }
+}
+</pre>
+<p>This uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle()</code></a> to fetch the style of each element, shifting it to the following element. Notice that before it begins doing so it saves a copy of the last box's style since it will be overwritten by the third element's style. By copying the values of the <a href="./css.properties.background-image.html"><code>background-image()</code></a> property from one element to the next with each mouse click, we achieve the desired effect.</p>
+
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions">Mozilla CSS extensions</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">CSS Backgrounds and Borders module</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section></aside></body>
+</html>

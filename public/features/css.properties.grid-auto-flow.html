@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>grid-auto-flow</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-auto-flow</h1><main>
+    
+
+<p>The <strong><code>grid-auto-flow</code></strong> CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+grid-auto-flow: row;
+grid-auto-flow: column;
+grid-auto-flow: dense;
+grid-auto-flow: row dense;
+grid-auto-flow: column dense;
+
+/* Global values */
+grid-auto-flow: inherit;
+grid-auto-flow: initial;
+grid-auto-flow: revert;
+grid-auto-flow: revert-layer;
+grid-auto-flow: unset;
+</pre>
+<p>This property may take one of two forms:</p>
+<ul>
+  <li>a single keyword: one of <code>row</code>, <code>column</code>, or <code>dense</code>.</li>
+  <li>two keywords: <code>row dense</code> or <code>column dense</code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>row</code></dt>
+  <dd>
+    <p>Items are placed by filling each row in turn, adding new rows as necessary. If neither <code>row</code> nor <code>column</code> is provided, <code>row</code> is assumed.</p>
+  </dd>
+  <dt><code>column</code></dt>
+  <dd>
+    <p>Items are placed by filling each column in turn, adding new columns as necessary.</p>
+  </dd>
+  <dt><code>dense</code></dt>
+  <dd>
+    <p>"dense" packing algorithm attempts to fill in holes earlier in the grid, if smaller items come up later. This may cause items to appear out-of-order, when doing so would fill in holes left by larger items.</p>
+    <p>If it is omitted, a "sparse" algorithm is used, where the placement algorithm only ever moves "forward" in the grid when placing items, never backtracking to fill holes. This ensures that all of the auto-placed items appear "in order", even if this leaves holes that could have been filled by later items.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>row</td></tr><tr><th scope="row">Applies to</th><td>grid containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ row | column ] || dense</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="grid">
+  &#x3C;div id="item1">&#x3C;/div>
+  &#x3C;div id="item2">&#x3C;/div>
+  &#x3C;div id="item3">&#x3C;/div>
+  &#x3C;div id="item4">&#x3C;/div>
+  &#x3C;div id="item5">&#x3C;/div>
+&#x3C;/div>
+&#x3C;select id="direction">
+  &#x3C;option value="column">column&#x3C;/option>
+  &#x3C;option value="row">row&#x3C;/option>
+&#x3C;/select>
+&#x3C;input id="dense" type="checkbox" />
+&#x3C;label for="dense">dense&#x3C;/label>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#grid {
+  height: 200px;
+  width: 200px;
+  display: grid;
+  gap: 10px;
+  grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+  grid-auto-flow: column; /* or 'row', 'row dense', 'column dense' */
+}
+
+#item1 {
+  background-color: lime;
+  grid-row-start: 3;
+}
+
+#item2 {
+  background-color: yellow;
+}
+
+#item3 {
+  background-color: blue;
+}
+
+#item4 {
+  grid-column-start: 2;
+  background-color: red;
+}
+
+#item5 {
+  background-color: aqua;
+}
+</pre>
+<pre class="brush: js hidden">function changeGridAutoFlow() {
+  const grid = document.getElementById("grid");
+  const direction = document.getElementById("direction");
+  const dense = document.getElementById("dense");
+  let gridAutoFlow = direction.value === "row" ? "row" : "column";
+
+  if (dense.checked) {
+    gridAutoFlow += " dense";
+  }
+
+  grid.style.gridAutoFlow = gridAutoFlow;
+}
+
+const selectElem = document.querySelector("select");
+const inputElem = document.querySelector("input");
+selectElem.addEventListener("change", changeGridAutoFlow);
+inputElem.addEventListener("change", changeGridAutoFlow);
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.grid-auto-rows.html"><code>grid-auto-rows</code></a>, <a href="./css.properties.grid-auto-columns.html"><code>grid-auto-columns</code></a>, <a href="./css.properties.grid.html"><code>grid</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout">Auto-placement in grid layout</a></em></li>
+  <li>Video tutorial: <em><a href="https://gridbyexample.com/video/series-auto-placement-order/">Introducing Grid auto-placement and order</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 16</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#grid-auto-flow-property">https://drafts.csswg.org/css-grid/#grid-auto-flow-property</a></p></section></aside></body>
+</html>

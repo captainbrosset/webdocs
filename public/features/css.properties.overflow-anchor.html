@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow-anchor</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow-anchor</h1><main>
+    
+
+<p>The <strong><code>overflow-anchor</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property provides a way to opt out of the browser's scroll anchoring behavior, which adjusts scroll position to minimize content shifts.</p>
+<p>Scroll anchoring behavior is enabled by default in any browser that supports it. Therefore, changing the value of this property is typically only required if you are experiencing problems with scroll anchoring in a document or part of a document and need to turn the behavior off.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overflow-anchor: auto;
+overflow-anchor: none;
+
+/* Global values */
+overflow-anchor: inherit;
+overflow-anchor: initial;
+overflow-anchor: revert;
+overflow-anchor: revert-layer;
+overflow-anchor: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The element becomes a potential anchor when adjusting scroll position.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element won't be selected as a potential anchor.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none</pre></section>
+
+<h3>Prevent scroll anchoring</h3>
+<p>To prevent scroll anchoring in a document, use the <code>overflow-anchor</code> property.</p>
+<pre class="brush: css">* {
+  overflow-anchor: none;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring">Guide to scroll anchoring</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 56</li><li><strong>chrome_android</strong>: 56</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 66</li><li><strong>firefox_android</strong>: 66</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 43</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 56</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-anchoring/#exclusion-api">https://drafts.csswg.org/css-scroll-anchoring/#exclusion-api</a></p></section></aside></body>
+</html>

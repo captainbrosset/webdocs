@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::-webkit-progress-inner-element"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::-webkit-progress-inner-element"</h1><main>
+    
+
+<p>The <strong><code>::-webkit-progress-inner-element</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents the outermost container of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress"><code>&lt;progress&gt;</code></a> element. It is the parent of the <a href="./css.selectors.-webkit-progress-bar.html"><code>::-webkit-progress-bar</code></a> pseudo-element.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In order to let <code>::-webkit-progress-value</code> take effect, <a href="./css.properties.appearance.html"><code>appearance</code></a> needs to be set to <code>none</code> on the <code>&#x3C;progress></code> element.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">::-webkit-progress-inner-element {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<p>These examples work only on Blink and WebKit.</p>
+<h3>Adding a black border around the progress bar</h3>
+<p>In this example, a 2px black border is added around the progress bar.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;progress value="10" max="50">&#x3C;/progress>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">progress {
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-inner-element {
+  border: 2px solid black;
+}
+</pre>
+
+<h4>Result screenshot</h4>
+<p>If you're not using a Blink or WebKit browser, the above code results in a progress bar looking like this:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-inner-element/-webkit-progress-inner-element_example.png" alt="Progressbar is a long green and grey box with a black border. The left 20% of the box is green. The right 80% is grey.">
+</p>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li>The pseudo-elements used by WebKit/Blink to style other parts of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress"><code>&lt;progress&gt;</code></a> element:
+    <ul>
+      <li><a href="./css.selectors.-webkit-progress-bar.html"><code>::-webkit-progress-bar</code></a></li>
+      <li><a href="./css.selectors.-webkit-progress-value.html"><code>::-webkit-progress-value</code></a></li>
+    </ul>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-progress-bar"><code>::-moz-progress-bar</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 23</li><li><strong>chrome_android</strong>: 25</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section></aside></body>
+</html>

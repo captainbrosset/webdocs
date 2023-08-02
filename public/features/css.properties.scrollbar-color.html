@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scrollbar-color</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scrollbar-color</h1><main>
+    
+
+<p>The <strong><code>scrollbar-color</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the color of the scrollbar track and thumb.</p>
+<p>The <strong>track</strong> refers to the background of the scrollbar, which is generally fixed regardless of the scrolling position.</p>
+<p>The <strong>thumb</strong> refers to the moving part of the scrollbar, which usually floats on top of the track.</p>
+<p>When <code>scrollbar-color</code> value is set on the document's root element, the values are applied to the viewport scrollbars.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scrollbar-color: auto;
+
+/* &#x3C;color> values */
+scrollbar-color: rebeccapurple green; /* Two valid colors.
+The first applies to the thumb of the scrollbar, the second to the track. */
+
+/* Global values */
+scrollbar-color: inherit;
+scrollbar-color: initial;
+scrollbar-color: revert;
+scrollbar-color: revert-layer;
+scrollbar-color: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;scrollbar-color></code></dt>
+  <dd>
+    <p>Defines the color of the scrollbar.</p>
+    <table class="standard-table">
+      <tbody>
+        <tr>
+          <td><code>auto</code></td>
+          <td>
+            Default platform rendering for the track portion of the scrollbar, in
+            the absence of any other related scrollbar color properties.
+          </td>
+        </tr>
+        <tr>
+          <td><code>&#x3C;color> &#x3C;color></code></td>
+          <td>
+            Applies the first color to the scrollbar thumb, the second to the
+            scrollbar track.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> <a href="./css.at-rules.media.forced-colors.html"><code>@media (forced-colors: active)</code></a> sets <a href="./css.properties.scrollbar-color.html"><code>scrollbar-color</code></a> to <code>auto</code>.</p>
+</div>
+<h2>Accessibility concerns</h2>
+<p>When using <code>scrollbar-color</code> property with specific color values, authors should ensure the specified colors have enough contrast between them. For keyword values, UAs should ensure the colors they use have enough contrast. See <a href="https://www.w3.org/TR/WCAG20-TECHS/G183.html">Techniques for WCAG 2.0: G183: Using a contrast ratio of 3:1</a>.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword or two computed colors</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;color&gt;{2}</pre></section>
+
+
+<h4>CSS</h4>
+<pre class="brush: css">.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: #007 #bada55;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="scroller">
+  Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+  daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens
+  corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts
+  fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
+  earthnut pea peanut soko zucchini.
+&#x3C;/div>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling">CSS scrollbars styling</a> module</li>
+  <li><a href="./css.properties.overflow.html"><code>overflow</code></a></li>
+  <li><a href="./css.properties.scrollbar-gutter.html"><code>scrollbar-gutter</code></a></li>
+  <li><a href="./css.properties.scrollbar-width.html"><code>scrollbar-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 64</li><li><strong>firefox_android</strong>: 64</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scrollbars/#scrollbar-color">https://drafts.csswg.org/css-scrollbars/#scrollbar-color</a></p></section></aside></body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variant-caps</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-variant-caps</h1><main>
+    
+
+<p>The <strong><code>font-variant-caps</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property controls the use of alternate glyphs for capital letters.</p>
+<p>When a given font includes capital letter glyphs of multiple different sizes, this property selects the most appropriate ones. If petite capital glyphs are not available, they are rendered using small capital glyphs. If these are not present, the browser synthesizes them from the uppercase glyphs.</p>
+<p>Fonts sometimes include special glyphs for various caseless characters (such as punctuation marks) to better match the capitalized characters around them. However, small capital glyphs are never synthesized for caseless characters.</p>
+<h3>Language-specific rules</h3>
+<p>This property accounts for language-specific case mapping rules. For example:</p>
+<ul>
+  <li>In Turkic languages, such as Turkish (tr), Azerbaijani (az), Crimean Tatar (crh), Volga Tatar (tt), and Bashkir (ba), there are two kinds of <code>i</code> (one with the dot, one without) and two case pairings: <code>i</code>/<code>İ</code> and <code>ı</code>/<code>I</code>.</li>
+  <li>In German (de), the <code>ß</code> may become <code>ẞ</code> (U+1E9E) in uppercase.</li>
+  <li>In Greek (el), vowels lose their accent when the whole word is in uppercase (<code>ά</code>/<code>Α</code>), except for the disjunctive eta (<code>ή</code>/<code>Ή</code>). Also, diphthongs with an accent on the first vowel lose the accent and gain a diacritic on the second vowel (<code>άι</code>/<code>ΑΪ</code>).</li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-variant-caps: normal;
+font-variant-caps: small-caps;
+font-variant-caps: all-small-caps;
+font-variant-caps: petite-caps;
+font-variant-caps: all-petite-caps;
+font-variant-caps: unicase;
+font-variant-caps: titling-caps;
+
+/* Global values */
+font-variant-caps: inherit;
+font-variant-caps: initial;
+font-variant-caps: revert;
+font-variant-caps: revert-layer;
+font-variant-caps: unset;
+</pre>
+<p>The <code>font-variant-caps</code> property is specified using a single keyword value from the list below. In each case, if the font doesn't support the OpenType value, then it synthesizes the glyphs.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Deactivates of the use of alternate glyphs.</p>
+  </dd>
+  <dt><code>small-caps</code></dt>
+  <dd>
+    <p>Enables display of small capitals (OpenType feature: <code>smcp</code>). Small-caps glyphs typically use the form of uppercase letters but are reduced to the size of lowercase letters.</p>
+  </dd>
+  <dt><code>all-small-caps</code></dt>
+  <dd>
+    <p>Enables display of small capitals for both upper and lowercase letters (OpenType features: <code>c2sc</code>, <code>smcp</code>).</p>
+  </dd>
+  <dt><code>petite-caps</code></dt>
+  <dd>
+    <p>Enables display of petite capitals (OpenType feature: <code>pcap</code>).</p>
+  </dd>
+  <dt><code>all-petite-caps</code></dt>
+  <dd>
+    <p>Enables display of petite capitals for both upper and lowercase letters (OpenType features: <code>c2pc</code>, <code>pcap</code>).</p>
+  </dd>
+  <dt><code>unicase</code></dt>
+  <dd>
+    <p>Enables display of mixture of small capitals for uppercase letters with normal lowercase letters (OpenType feature: <code>unic</code>).</p>
+  </dd>
+  <dt><code>titling-caps</code></dt>
+  <dd>
+    <p>Enables display of titling capitals (OpenType feature: <code>titl</code>). Uppercase letter glyphs are often designed for use with lowercase letters. When used in all uppercase titling sequences they can appear too strong. Titling capitals are designed specifically for this situation.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Large sections of text set with a <code>font-variant</code> value of <code>all-small-caps</code> or <code>all-petite-caps</code> may be difficult for people with cognitive concerns such as Dyslexia to read.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">W3C Understanding WCAG 2.1</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="small-caps">Firefox rocks, small caps!&#x3C;/p>
+&#x3C;p class="normal">Firefox rocks, normal caps!&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.small-caps {
+  font-variant-caps: small-caps;
+  font-style: italic;
+}
+.normal {
+  font-variant-caps: normal;
+  font-style: italic;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a></li>
+  <li><a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a></li>
+  <li><a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a></li>
+  <li><a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a></li>
+  <li><a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a></li>
+  <li><a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 52</li><li><strong>chrome_android</strong>: 52</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 39</li><li><strong>opera_android</strong>: 41</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 52</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-variant-caps-prop">https://drafts.csswg.org/css-fonts/#font-variant-caps-prop</a></p></section></aside></body>
+</html>

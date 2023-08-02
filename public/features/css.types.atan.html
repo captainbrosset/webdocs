@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>atan()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types atan()</h1><main>
+    
+
+<p>The <strong><code>atan()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is a trigonometric function that returns the inverse tangent of a number between <code>-∞</code> and <code>+∞</code>. The function contains a single calculation that returns the number of radians representing an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> between <code>-90deg</code> and <code>90deg</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single &#x3C;number> values */
+transform: rotate(atan(1));
+transform: rotate(atan(4 * 50));
+
+/* Other values */
+transform: rotate(atan(pi / 2));
+transform: rotate(atan(e * 3));
+</pre>
+<h3>Parameter</h3>
+<p>The <code>atan(number)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>number</code></dt>
+  <dd>
+    <p>A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>-∞</code> and <code>+∞</code>.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The inverse tangent of an <code>number</code> will always return an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> between <code>-90deg</code> and <code>90deg</code>.</p>
+<ul>
+  <li>If <code>number</code> is <code>0⁻</code>, the result is <code>0⁻</code>.</li>
+  <li>If <code>number</code> is <code>+∞</code> the result is <code>90deg</code>.</li>
+  <li>If <code>number</code> is <code>-∞</code> the result is <code>-90deg</code>.</li>
+</ul>
+<p>That is:</p>
+<ul>
+  <li><code>atan(-infinity)</code> representing <code>-90deg</code>.</li>
+  <li><code>atan(-1)</code> representing <code>-45deg</code></li>
+  <li><code>atan(0)</code> representing <code>0deg</code></li>
+  <li><code>atan(1)</code> representing <code>45deg</code></li>
+  <li><code>atan(infinity)</code> representing <code>90deg</code>.</li>
+</ul>
+
+
+<h3>Rotate elements</h3>
+<p>The <code>atan()</code> function can be used to <a href="./css.types.transform-function.rotate.html"><code>rotate</code></a> elements as it return an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box box-1">&#x3C;/div>
+&#x3C;div class="box box-2">&#x3C;/div>
+&#x3C;div class="box box-3">&#x3C;/div>
+&#x3C;div class="box box-4">&#x3C;/div>
+&#x3C;div class="box box-5">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+</pre>
+<pre class="brush: css">div.box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(orange, red);
+}
+div.box-1 {
+  transform: rotate(atan(-99999));
+}
+div.box-2 {
+  transform: rotate(atan(-1));
+}
+div.box-3 {
+  transform: rotate(atan(0));
+}
+div.box-4 {
+  transform: rotate(atan(1));
+}
+div.box-5 {
+  transform: rotate(atan(99999));
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.sin.html"><code>sin()</code></a></li>
+  <li><a href="./css.types.cos.html"><code>cos()</code></a></li>
+  <li><a href="./css.types.tan.html"><code>tan()</code></a></li>
+  <li><a href="./css.types.asin.html"><code>asin()</code></a></li>
+  <li><a href="./css.types.acos.html"><code>acos()</code></a></li>
+  <li><a href="./css.types.atan2.html"><code>atan2()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 108</li><li><strong>firefox_android</strong>: 108</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#trig-funcs">https://drafts.csswg.org/css-values/#trig-funcs</a></p></section></aside></body>
+</html>

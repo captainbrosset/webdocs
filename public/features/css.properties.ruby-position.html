@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ruby-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties ruby-position</h1><main>
+    
+
+<p>The <strong><code>ruby-position</code></strong> CSS property defines the position of a ruby element relatives to its base element. It can be positioned over the element (<code>over</code>), under it (<code>under</code>), or between the characters on their right side (<code>inter-character</code>).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+ruby-position: over;
+ruby-position: under;
+ruby-position: inter-character;
+ruby-position: alternate;
+
+/* Global values */
+ruby-position: inherit;
+ruby-position: initial;
+ruby-position: revert;
+ruby-position: revert-layer;
+ruby-position: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>over</code></dt>
+  <dd>
+    <p>
+      <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-position/screen_shot_2015-03-04_at_13.02.20.png" alt="Over example">Is a keyword indicating that the ruby has to be placed over the main text for horizontal scripts and right to it for vertical scripts.
+    </p>
+  </dd>
+  <dt><code>under</code></dt>
+  <dd>
+    <p>
+      <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-position/screen_shot_2015-03-04_at_13.02.07.png" alt="Under example">Is a keyword indicating that the ruby has to be placed under the main text for horizontal scripts and left to it for vertical scripts.
+    </p>
+  </dd>
+  <dt><code>inter-character</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Is a keyword indicating that the ruby has to be placed between the different characters.</p>
+  </dd>
+  <dt><code>alternate</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Is a keyword indicating that the ruby alternates between over and under, when there are multiple levels of annotation.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>alternate</td></tr><tr><th scope="row">Applies to</th><td>ruby annotation containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ alternate || [ over | under ] ] | inter-character</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>超電磁砲&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>レールガン&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-position: over;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>超電磁砲&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>レールガン&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-position: under;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>A&#x3C;/rb>&#x3C;rb>B&#x3C;/rb>&#x3C;rb>C&#x3C;/rb>
+  &#x3C;rtc>Above&#x3C;/rtc>
+  &#x3C;rtc>Below&#x3C;/rtc>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-position: alternate; /* this is also the initial value */
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>HTML Ruby elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp"><code>&lt;rp&gt;</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>.</li>
+  <li>CSS Ruby properties: <a href="./css.properties.ruby-align.html"><code>ruby-align</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-merge"><code>ruby-merge</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 38</li><li><strong>firefox_android</strong>: 38</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ruby/#rubypos">https://drafts.csswg.org/css-ruby/#rubypos</a></p></section></aside></body>
+</html>

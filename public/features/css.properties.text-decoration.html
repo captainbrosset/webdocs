@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-decoration</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-decoration</h1><main>
+    
+
+<p>The <strong><code>text-decoration</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the appearance of decorative lines on text. It is a shorthand for <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a>, and the newer <a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a> property.</p>
+<p>Text decorations are drawn across descendant text elements. This means that if an element specifies a text decoration, then a child element can't remove the decoration. For example, in the markup <code>&#x3C;p>This text has &#x3C;em>some emphasized words&#x3C;/em> in it.&#x3C;/p></code>, the style rule <code>p { text-decoration: underline; }</code> would cause the entire paragraph to be underlined. The style rule <code>em { text-decoration: none; }</code> would not cause any change; the entire paragraph would still be underlined. However, the rule <code>em { text-decoration: overline; }</code> would cause a second decoration to appear on "some emphasized words".</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a></li>
+  <li><a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a></li>
+  <li><a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a></li>
+  <li><a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">text-decoration: underline;
+text-decoration: overline red;
+text-decoration: none;
+
+/* Global values */
+text-decoration: inherit;
+text-decoration: initial;
+text-decoration: revert;
+text-decoration: revert-layer;
+text-decoration: unset;
+</pre>
+<p>The <code>text-decoration</code> property is specified as one or more space-separated values representing the various longhand text-decoration properties.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a></dt>
+  <dd>
+    <p>Sets the kind of decoration used, such as <code>underline</code> or <code>line-through</code>.</p>
+  </dd>
+  <dt><a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a></dt>
+  <dd>
+    <p>Sets the color of the decoration.</p>
+  </dd>
+  <dt><a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a></dt>
+  <dd>
+    <p>Sets the style of the line used for the decoration, such as <code>solid</code>, <code>wavy</code>, or <code>dashed</code>.</p>
+  </dd>
+  <dt><a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a></dt>
+  <dd>
+    <p>Sets the thickness of the line used for the decoration.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Demonstration of text-decoration values</h3>
+<pre class="brush: css">.under {
+  text-decoration: underline red;
+}
+
+.over {
+  text-decoration: wavy overline lime;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.plain {
+  text-decoration: none;
+}
+
+.underover {
+  text-decoration: dashed underline overline;
+}
+
+.thick {
+  text-decoration: solid underline purple 4px;
+}
+
+.blink {
+  text-decoration: blink;
+}
+</pre>
+<pre class="brush: html">&#x3C;p class="under">This text has a line underneath it.&#x3C;/p>
+&#x3C;p class="over">This text has a line over it.&#x3C;/p>
+&#x3C;p class="line">This text has a line going through it.&#x3C;/p>
+&#x3C;p>
+  This &#x3C;a class="plain" href="#">link will not be underlined&#x3C;/a>, as links
+  generally are by default. Be careful when removing the text decoration on
+  anchors since users often depend on the underline to denote hyperlinks.
+&#x3C;/p>
+&#x3C;p class="underover">This text has lines above &#x3C;em>and&#x3C;/em> below it.&#x3C;/p>
+&#x3C;p class="thick">
+  This text has a really thick purple underline in supporting browsers.
+&#x3C;/p>
+&#x3C;p class="blink">
+  This text might blink for you, depending on the browser you use.
+&#x3C;/p>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The individual text-decoration properties are <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a>, and <a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a>.</li>
+  <li>The <a href="./css.properties.text-decoration-skip-ink.html"><code>text-decoration-skip-ink</code></a>, <a href="./css.properties.text-underline-offset.html"><code>text-underline-offset</code></a>, and <a href="./css.properties.text-underline-position.html"><code>text-underline-position</code></a> properties also affect text-decoration, but are not included in the shorthand.</li>
+  <li>The <a href="./css.properties.list-style.html"><code>list-style</code></a> attribute controls the appearance of items in HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a> lists.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor/#text-decoration-property">https://drafts.csswg.org/css-text-decor/#text-decoration-property</a></p></section></aside></body>
+</html>

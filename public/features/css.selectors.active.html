@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":active"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":active"</h1><main>
+    
+
+<p>The <strong><code>:active</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents an element (such as a button) that is being activated by the user. When using a mouse, "activation" typically starts when the user presses down the primary mouse button.</p>
+<p>The <code>:active</code> pseudo-class is commonly used on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements. Other common targets of this pseudo-class include elements that are <em>contained in</em> an activated element, and form elements that are being activated through their associated <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a>.</p>
+<p>Styles defined by the <code>:active</code> pseudo-class will be overridden by any subsequent link-related pseudo-class (<a href="./css.selectors.link.html"><code>:link</code></a>, <a href="./css.selectors.hover.html"><code>:hover</code></a>, or <a href="./css.selectors.visited.html"><code>:visited</code></a>) that has at least equal specificity. To style links appropriately, put the <code>:active</code> rule after all other link-related rules, as defined by the <em>LVHA-order</em>: <code>:link</code> — <code>:visited</code> — <code>:hover</code> — <code>:active</code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> On systems with multi-button mice, CSS specifies that the <code>:active</code> pseudo-class must only apply to the primary button; on right-handed mice, this is typically the leftmost button.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:active {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  This paragraph contains a link:
+  &#x3C;a href="#">This link will turn red while you click on it.&#x3C;/a>
+  The paragraph will get a gray background while you click on it or the link.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Unvisited links */
+a:link {
+  color: blue;
+}
+/* Visited links */
+a:visited {
+  color: purple;
+}
+/* Hovered links */
+a:hover {
+  background: yellow;
+}
+/* Active links */
+a:active {
+  color: red;
+}
+
+/* Active paragraphs */
+p:active {
+  background: #eee;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;form>
+  &#x3C;label for="my-button">My button: &#x3C;/label>
+  &#x3C;button id="my-button" type="button">Try Clicking Me or My Label!&#x3C;/button>
+&#x3C;/form>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">form :active {
+  color: red;
+}
+
+form button {
+  background: white;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Link-related pseudo-classes: <a href="./css.selectors.link.html"><code>:link</code></a>, <a href="./css.selectors.visited.html"><code>:visited</code></a>, and <a href="./css.selectors.hover.html"><code>:hover</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-active,https://drafts.csswg.org/selectors/#the-active-pseudo">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-active,https://drafts.csswg.org/selectors/#the-active-pseudo</a></p></section></aside></body>
+</html>

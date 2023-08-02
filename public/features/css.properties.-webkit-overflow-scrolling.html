@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-overflow-scrolling"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-overflow-scrolling"</h1><main>
+    
+ 
+<p>The <code>-webkit-overflow-scrolling</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property controls whether or not touch devices use momentum-based scrolling for a given element.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+-webkit-overflow-scrolling: auto;
+-webkit-overflow-scrolling: touch;
+
+/* Global values */
+-webkit-overflow-scrolling: inherit;
+-webkit-overflow-scrolling: initial;
+-webkit-overflow-scrolling: revert;
+-webkit-overflow-scrolling: revert-layer;
+-webkit-overflow-scrolling: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Use "regular" scrolling, where the content immediately ceases to scroll when you remove your finger from the touchscreen.</p>
+  </dd>
+  <dt><code>touch</code></dt>
+  <dd>
+    <p>Use momentum-based scrolling, where the content continues to scroll for a while after finishing the scroll gesture and removing your finger from the touchscreen. The speed and duration of the continued scrolling is proportional to how vigorous the scroll gesture was. Also creates a new stacking context.</p>
+  </dd>
+</dl>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">-webkit-overflow-scrolling =
+  auto | touch
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div class="scroll-touch">
+  &#x3C;p>This paragraph has momentum scrolling&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="scroll-auto">
+  &#x3C;p>This paragraph does not.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  width: 100%;
+  overflow: auto;
+}
+
+p {
+  width: 200%;
+  background: #f5f9fa;
+  border: 2px solid #eaf2f4;
+  padding: 10px;
+}
+
+.scroll-touch {
+  -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+}
+
+.scroll-auto {
+  -webkit-overflow-scrolling: auto; /* Stops scrolling immediately */
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard. Apple has <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-overflow-scrolling">a description in the Safari CSS Reference</a>.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/">CSS-Tricks article with demo</a></li>
+  <li><a href="https://www.smashingmagazine.com/2018/08/scroll-bouncing-websites/">Smashing Magazine - describing the effect of scroll bouncing and how it works on different web browsers</a></li>
+  <li><a href="https://developer.apple.com/documentation/safari-release-notes/safari-13-release-notes">Safari 13 Release notes</a>: Indicates the addition of support for one-finger accelerated scrolling to all frames and <code>overflow:scroll</code> elements, eliminating the need to set <code>-webkit-overflow-scrolling: touch</code>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section></aside></body>
+</html>

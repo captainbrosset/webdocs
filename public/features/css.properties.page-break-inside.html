@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>page-break-inside</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties page-break-inside</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> This property has been replaced by the <a href="./css.properties.break-inside.html"><code>break-inside</code></a> property.</p>
+</div>
+<p>The <strong><code>page-break-inside</code></strong> CSS property adjusts page breaks <em>inside</em> the current element.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+page-break-inside: auto;
+page-break-inside: avoid;
+
+/* Global values */
+page-break-inside: inherit;
+page-break-inside: initial;
+page-break-inside: revert;
+page-break-inside: revert-layer;
+page-break-inside: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Initial value. Automatic page breaks (neither forced nor forbidden).</p>
+  </dd>
+  <dt><code>avoid</code></dt>
+  <dd>
+    <p>Avoid page breaks inside the element.</p>
+  </dd>
+</dl>
+<h2>Page break aliases</h2>
+<p>The <code>page-break-inside</code> property is now a legacy property, replaced by <a href="./css.properties.break-inside.html"><code>break-inside</code></a>.</p>
+<p>For compatibility reasons, <code>page-break-inside</code> should be treated by browsers as an alias of <code>break-inside</code>. This ensures that sites using <code>page-break-inside</code> continue to work as designed. A subset of values should be aliased as follows:</p>
+<table>
+  <thead>
+    <tr>
+      <th>page-break-inside</th>
+      <th>break-inside</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>auto</code></td>
+      <td><code>auto</code></td>
+    </tr>
+    <tr>
+      <td><code>avoid</code></td>
+      <td><code>avoid</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block-level elements (but see text)</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>avoid | auto | inherit</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="page">
+  &#x3C;p>This is the first paragraph.&#x3C;/p>
+  &#x3C;section class="list">
+    &#x3C;span>A list&#x3C;/span>
+    &#x3C;ol>
+      &#x3C;li>one&#x3C;/li>
+      &#x3C;!-- &#x3C;li>two&#x3C;/li> -->
+    &#x3C;/ol>
+  &#x3C;/section>
+  &#x3C;ul>
+    &#x3C;li>one&#x3C;/li>
+    &#x3C;!-- &#x3C;li>two&#x3C;/li> -->
+  &#x3C;/ul>
+  &#x3C;p>This is the second paragraph.&#x3C;/p>
+  &#x3C;p>This is the third paragraph, it contains more text.&#x3C;/p>
+  &#x3C;p>
+    This is the fourth paragraph. It has a little bit more text than the third
+    one.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.page {
+  background-color: #8cffa0;
+  height: 90px;
+  width: 200px;
+  columns: 1;
+  column-width: 100px;
+}
+
+.list,
+ol,
+ul,
+p {
+  break-inside: avoid;
+}
+
+p {
+  background-color: #8ca0ff;
+}
+
+ol,
+ul,
+.list {
+  margin: 0.5em 0;
+  display: block;
+  background-color: orange;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.break-before.html"><code>break-before</code></a>, <a href="./css.properties.break-after.html"><code>break-after</code></a>, <a href="./css.properties.break-inside.html"><code>break-inside</code></a></li>
+  <li><a href="./css.properties.page-break-after.html"><code>page-break-after</code></a>, <a href="./css.properties.page-break-before.html"><code>page-break-before</code></a></li>
+  <li><a href="./css.properties.orphans.html"><code>orphans</code></a>, <a href="./css.properties.widows.html"><code>widows</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 19</li><li><strong>firefox_android</strong>: 19</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-page/#page-break-inside">https://drafts.csswg.org/css-page/#page-break-inside</a></p></section></aside></body>
+</html>

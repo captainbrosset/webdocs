@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>place-self</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties place-self</h1><main>
+    
+
+<p>The <strong><code>place-self</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> allows you to align an individual item in both the block and inline directions at once (i.e. the <a href="./css.properties.align-self.html"><code>align-self</code></a> and <a href="./css.properties.justify-self.html"><code>justify-self</code></a> properties) in a relevant layout system such as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout">Grid</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout">Flexbox</a>. If the second value is not present, the first value is also used for it.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.align-self.html"><code>align-self</code></a></li>
+  <li><a href="./css.properties.justify-self.html"><code>justify-self</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+place-self: auto center;
+place-self: normal start;
+
+/* Positional alignment */
+place-self: center normal;
+place-self: start auto;
+place-self: end normal;
+place-self: self-start auto;
+place-self: self-end normal;
+place-self: flex-start auto;
+place-self: flex-end normal;
+
+/* Baseline alignment */
+place-self: baseline normal;
+place-self: first baseline auto;
+place-self: last baseline normal;
+place-self: stretch auto;
+
+/* Global values */
+place-self: inherit;
+place-self: initial;
+place-self: revert;
+place-self: revert-layer;
+place-self: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Computes to the parent's <a href="./css.properties.align-items.html"><code>align-items</code></a> value.</p>
+  </dd>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The effect of this keyword is dependent of the layout mode we are in:</p>
+    <ul>
+      <li>In absolutely-positioned layouts, the keyword behaves like <code>start</code> on <em>replaced</em> absolutely-positioned boxes, and as <code>stretch</code> on <em>all other</em> absolutely-positioned boxes.</li>
+      <li>In static position of absolutely-positioned layouts, the keyword behaves as <code>stretch</code>.</li>
+      <li>For flex items, the keyword behaves as <code>stretch</code>.</li>
+      <li>For grid items, this keyword leads to a behavior similar to the one of <code>stretch</code>, except for boxes with an aspect ratio or an intrinsic sizes where it behaves like <code>start</code>.</li>
+      <li>The property doesn't apply to block-level boxes, and to table cells.</li>
+    </ul>
+  </dd>
+  <dt><code>self-start</code></dt>
+  <dd>
+    <p>Aligns the items to be flush with the edge of the alignment container corresponding to the item's start side in the cross axis.</p>
+  </dd>
+  <dt><code>self-end</code></dt>
+  <dd>
+    <p>Aligns the items to be flush with the edge of the alignment container corresponding to the item's end side in the cross axis.</p>
+  </dd>
+  <dt><code>flex-start</code></dt>
+  <dd>
+    <p>The cross-start margin edge of the flex item is flushed with the cross-start edge of the line.</p>
+  </dd>
+  <dt><code>flex-end</code></dt>
+  <dd>
+    <p>The cross-end margin edge of the flex item is flushed with the cross-end edge of the line.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>The flex item's margin box is centered within the line on the cross-axis. If the cross-size of the item is larger than the flex container, it will overflow equally in both directions.</p>
+  </dd>
+  <dt><code>baseline</code>, <code>first baseline</code>. <code>last baseline</code></dt>
+  <dd>
+    <p>
+      Specifies participation in first- or last-baseline alignment: aligns the alignment baseline of the box's first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group.
+      The fallback alignment for <code>first baseline</code> is <code>start</code>, the one for <code>last baseline</code> is <code>end</code>.
+    </p>
+  </dd>
+  <dt><code>stretch</code></dt>
+  <dd>
+    <p>If the combined size of the items along the cross axis is less than the size of the alignment container and the item is <code>auto</code>-sized, its size is increased equally (not proportionally), while still respecting the constraints imposed by <a href="./css.properties.max-height.html"><code>max-height</code></a>/<a href="./css.properties.max-width.html"><code>max-width</code></a> (or equivalent functionality), so that the combined size of all <code>auto</code>-sized items exactly fills the alignment container along the cross axis.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Simple demonstration</h3>
+<p>In the following example we have a simple 2 x 2 grid layout. Initially the grid container has <a href="./css.properties.justify-items.html"><code>justify-items</code></a> and <a href="./css.properties.align-items.html"><code>align-items</code></a> values of <code>stretch</code> — the defaults — which causes the grid items to stretch across the entire width of their cells.</p>
+<p>The second, third, and fourth grid items are then given different values of <code>place-self</code>, to show how these override the default placements. These values cause the grid items to span only as wide/tall as their content width/height, and align in different positions across their cells, in the block and inline directions.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;article class="container">
+  &#x3C;span>First&#x3C;/span>
+  &#x3C;span>Second&#x3C;/span>
+  &#x3C;span>Third&#x3C;/span>
+  &#x3C;span>Fourth&#x3C;/span>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">html {
+  font-family: helvetica, arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+article {
+  background-color: red;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 80px;
+  grid-gap: 10px;
+  margin: 20px;
+  width: 300px;
+}
+
+span:nth-child(2) {
+  place-self: start center;
+}
+
+span:nth-child(3) {
+  place-self: center start;
+}
+
+span:nth-child(4) {
+  place-self: end;
+}
+
+article span {
+  background-color: black;
+  color: white;
+  margin: 1px;
+  text-align: center;
+}
+
+article,
+span {
+  padding: 10px;
+  border-radius: 7px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container">Aligning items in a flex container</a></em></li>
+  <li>CSS Grid Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout">Box alignment in CSS Grid layouts</a></em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_alignment">CSS Box Alignment</a></li>
+  <li>The <a href="./css.properties.align-self.html"><code>align-self</code></a> property</li>
+  <li>The <a href="./css.properties.justify-self.html"><code>justify-self</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 59</li><li><strong>chrome_android</strong>: 59</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 45</li><li><strong>firefox_android</strong>: 45</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 46</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 11</li><li><strong>safari_ios</strong>: 11</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 59</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-align/#place-self-property">https://drafts.csswg.org/css-align/#place-self-property</a></p></section></aside></body>
+</html>

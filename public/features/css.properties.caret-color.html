@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>caret-color</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties caret-color</h1><main>
+    
+
+<p>The <strong><code>caret-color</code></strong> CSS property sets the color of the <strong>insertion caret</strong>, the visible marker where the next character typed will be inserted. This is sometimes referred to as the <strong>text input cursor</strong>. The caret appears in elements such as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or those with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#contenteditable"><code>contenteditable</code></a> attribute. The caret is typically a thin vertical line that flashes to help make it more noticeable. By default, it is black, but its color can be altered with this property.</p>
+<p>Note that the insertion caret is only one type of caret. For example, many browsers have a "navigation caret," which acts similarly to an insertion caret but can be moved around in non-editable text. On the other hand, the mouse cursor image shown when hovering over text where the <a href="./css.properties.cursor.html"><code>cursor</code></a> property is <code>auto</code>, or when hovering over an element where the <code>cursor</code> property is <code>text</code> or <code>vertical-text</code>, though it sometimes looks like a caret, is not a caret (it's a cursor).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+caret-color: auto;
+caret-color: transparent;
+caret-color: currentcolor;
+
+/* &#x3C;color> values */
+caret-color: red;
+caret-color: #5729e9;
+caret-color: rgb(0 200 0);
+caret-color: hsl(228deg 4% 24% / 0.8);
+
+/* Global values */
+caret-color: inherit;
+caret-color: initial;
+caret-color: revert;
+caret-color: revert-layer;
+caret-color: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The user agent selects an appropriate color for the caret. This is generally <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword"><code>currentcolor</code></a>, but the user agent may choose a different color to ensure good visibility and contrast with the surrounding content, taking into account the value of <code>currentcolor</code>, the background, shadows, and other factors.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> While user agents may use <code>currentcolor</code> (which is usually animatable) for the <code>auto</code> value, <code>auto</code> is not interpolated in transitions and animations.</p>
+    </div>
+  </dd>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>The color of the caret.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>The computed value for auto is auto. For &lt;color&gt; values, see [[!CSS-COLOR-4#resolving-color-values]] in [CSS-COLOR-4].</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;color&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;input value="This field uses a default caret." size="64" />
+&#x3C;input class="custom" value="I have a custom caret color!" size="64" />
+&#x3C;p contenteditable class="custom">
+  This paragraph can be edited, and its caret has a custom color as well!
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">input {
+  caret-color: auto;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input.custom {
+  caret-color: red;
+}
+
+p.custom {
+  caret-color: green;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> element</li>
+  <li>The HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#contenteditable"><code>contenteditable</code></a> attribute, which can be used to make any element's text editable</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color">Applying color to HTML elements using CSS</a></li>
+  <li>The <a href="./css.types.color.html"><code>&lt;color&gt;</code></a> data type</li>
+  <li>Other color-related properties: <a href="./css.properties.color.html"><code>color</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.border-color.html"><code>border-color</code></a>, <a href="./css.properties.outline-color.html"><code>outline-color</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, <a href="./css.properties.text-shadow.html"><code>text-shadow</code></a>, <a href="./css.properties.caret-color.html"><code>caret-color</code></a>, and <a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 11.1</li><li><strong>safari_ios</strong>: 11.3</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#caret-color">https://drafts.csswg.org/css-ui/#caret-color</a></p></section></aside></body>
+</html>

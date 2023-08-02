@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::-moz-range-progress"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::-moz-range-progress"</h1><main>
+    
+
+<p>The <strong><code>::-moz-range-progress</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions">Mozilla extension</a> that represents the lower portion of the <em>track</em> (i.e., groove) in which the indicator slides in an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> of <code>type="range"</code>. This portion corresponds to values lower than the value currently selected by the <em>thumb</em> (i.e., virtual knob).</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Using <code>::-moz-range-progress</code> with anything but an <code>&#x3C;input type="range"></code> doesn't match anything and has no effect.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">::-moz-range-progress {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;input type="range" min="0" max="100" step="5" value="50" />
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">input[type="range"]::-moz-range-progress {
+  background-color: green;
+  height: 1em;
+}
+</pre>
+<h3>Result</h3>
+<p>A progress bar using this style might look something like this:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/::-moz-range-progress/screen_shot_2015-12-04_at_20.14.48.png" alt="The progress bar is a thick green square to the left of the thumb and a thin grey line to the right. The thumb is a circle with a diameter the height of the green area.">
+</p>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li>The pseudo-elements used by Gecko to style other parts of a range input:
+    <ul>
+      <li><a href="./css.selectors.-moz-range-thumb.html"><code>::-moz-range-thumb</code></a> represents the indicator that slides in the groove.</li>
+      <li><a href="./css.selectors.-moz-range-track.html"><code>::-moz-range-track</code></a> represents the groove in which the thumb slides.</li>
+    </ul>
+  </li>
+  <li><a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS</a></li>
+  <li><a href="https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html">QuirksMode: Styling and scripting sliders</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 22</li><li><strong>firefox_android</strong>: 22</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section></aside></body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>caption-side</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties caption-side</h1><main>
+    
+
+<p>The <strong><code>caption-side</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property puts the content of a table's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> on the specified side. The values are relative to the <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> of the table.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Directional values */
+caption-side: top;
+caption-side: bottom;
+
+/* Logical values */
+caption-side: block-start;
+caption-side: block-end;
+caption-side: inline-start;
+caption-side: inline-end;
+
+/* Global values */
+caption-side: inherit;
+caption-side: initial;
+caption-side: revert;
+caption-side: revert-layer;
+caption-side: unset;
+</pre>
+<p>The <code>caption-side</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>top</code></dt>
+  <dd>
+    <p>The caption box should be positioned above the table.</p>
+  </dd>
+  <dt><code>bottom</code></dt>
+  <dd>
+    <p>The caption box should be positioned below the table.</p>
+  </dd>
+  <dt><code>block-start</code></dt>
+  <dd>
+    <p>The caption box should be positioned at the block start edge of the table.</p>
+  </dd>
+  <dt><code>block-end</code></dt>
+  <dd>
+    <p>The caption box should be positioned at the block end edge of the table.</p>
+  </dd>
+  <dt><code>inline-start</code></dt>
+  <dd>
+    <p>The caption box should be positioned at the inline start edge of the table.</p>
+  </dd>
+  <dt><code>inline-end</code></dt>
+  <dd>
+    <p>The caption box should be positioned at the inline end edge of the table.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>top</td></tr><tr><th scope="row">Applies to</th><td>table-caption boxes</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>top | bottom</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table class="top">
+  &#x3C;caption>
+    Caption ABOVE the table
+  &#x3C;/caption>
+  &#x3C;tr>
+    &#x3C;td>Some data&#x3C;/td>
+    &#x3C;td>Some more data&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+
+&#x3C;br />
+
+&#x3C;table class="bottom">
+  &#x3C;caption>
+    Caption BELOW the table
+  &#x3C;/caption>
+  &#x3C;tr>
+    &#x3C;td>Some data&#x3C;/td>
+    &#x3C;td>Some more data&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.top caption {
+  caption-side: top;
+}
+
+.bottom caption {
+  caption-side: bottom;
+}
+
+table {
+  border: 1px solid red;
+}
+
+td {
+  border: 1px solid blue;
+}
+</pre>
+
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#propdef-caption-side,https://drafts.csswg.org/css-logical/#caption-side">https://drafts.csswg.org/css2/#propdef-caption-side,https://drafts.csswg.org/css-logical/#caption-side</a></p></section></aside></body>
+</html>

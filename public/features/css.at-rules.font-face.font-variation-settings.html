@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variation-settings</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face font-variation-settings</h1><main>
+    
+
+<p>The <strong><code>font-variation-settings</code></strong> CSS descriptor allows authors to specify low-level OpenType or TrueType font variations in the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule. The values for this descriptor are the same as the <a href="./css.properties.font-variation-settings.html"><code>font-variation-settings</code></a> property, except for the global keyword values.</p>
+<p>Since this descriptor sets variation values on the font object in the <code>@font-face</code> at-rule and not on an entire element, only some glyphs in an element may be rendered using this descriptor.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Use the default settings */
+font-variation-settings: normal;
+
+/* Set values for OpenType axis names */
+font-variation-settings: "xhgt" 0.7;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Text is laid out using default settings.</p>
+  </dd>
+  <dt><code>&#x3C;string> &#x3C;number></code></dt>
+  <dd>
+    <p>When rendering text, the list of OpenType axis names is passed to the text layout engine to enable or disable font features. Each setting is always a <a href="./css.types.string.html"><code>&lt;string&gt;</code></a> of 4 ASCII characters, followed by a <a href="./css.types.number.html"><code>number</code></a> indicating the axis value. If the <code>&#x3C;string></code> has more or fewer characters or contains characters outside the U+20 - U+7E code point range, the whole property is invalid. The <code>&#x3C;number></code> can be fractional or negative.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Setting font weight and stretch in a @font-face rule</h3>
+<pre class="brush: css">@font-face {
+  font-family: "OpenTypeFont";
+  src: url("open_type_font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-variation-settings:
+    "wght" 400,
+    "wdth" 300;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other <code>@font-face</code> descriptors: <a href="./css.at-rules.font-face.font-display.html"><code>font-display</code></a>, <a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a>, <a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a>, <a href="./css.at-rules.font-face.font-stretch.html"><code>font-stretch</code></a>, <a href="./css.at-rules.font-face.font-style.html"><code>font-style</code></a>, <a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a>, <a href="./css.at-rules.font-face.src.html"><code>src</code></a>, <a href="./css.at-rules.font-face.unicode-range.html"><code>unicode-range</code></a></li>
+  <li>Related font properties: <a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a>, <a href="./css.properties.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 62</li><li><strong>firefox_android</strong>: 62</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-rend-desc">https://drafts.csswg.org/css-fonts/#font-rend-desc</a></p></section></aside></body>
+</html>

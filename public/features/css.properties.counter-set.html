@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>counter-set</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties counter-set</h1><main>
+    
+
+<p>The <strong><code>counter-set</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">CSS counter</a> to a given value. It manipulates the value of existing counters, and will only create new counters if there isn't already a counter of the given name on the element.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The counter's value can be incremented or decremented using the <a href="./css.properties.counter-increment.html"><code>counter-increment</code></a> CSS property.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Set "my-counter" to 0 */
+counter-set: my-counter;
+
+/* Set "my-counter" to -1 */
+counter-set: my-counter -1;
+
+/* Set "counter1" to 1, and "counter2" to 4 */
+counter-set: counter1 1 counter2 4;
+
+/* Cancel any counter that could have been set in less specific rules */
+counter-set: none;
+
+/* Global values */
+counter-set: inherit;
+counter-set: initial;
+counter-set: revert;
+counter-set: revert-layer;
+counter-set: unset;
+</pre>
+<p>The <code>counter-set</code> property is specified as either one of the following:</p>
+<ul>
+  <li>A <code>&#x3C;custom-ident></code> naming the counter, followed optionally by an <code>&#x3C;integer></code>. You may specify as many counters to reset as you want, with each name or name-number pair separated by a space.</li>
+  <li>The keyword value <code>none</code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a></dt>
+  <dd>
+    <p>The name of the counter to set.</p>
+  </dd>
+  <dt><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></dt>
+  <dd>
+    <p>The value to set the counter to on each occurrence of the element. Defaults to <code>0</code> if not specified. If there isn't currently a counter of the given name on the element, the element will create a new counter of the given name with a starting value of 0 (though it may then immediately set or increment that value to something different).</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No counter set is to be performed. This can be used to override a <code>counter-set</code> defined in a less specific rule.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or a list, each item an identifier paired with an integer</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ &lt;counter-name&gt; &lt;integer&gt;? ]+ | none</pre></section>
+
+<h3>Setting named counters</h3>
+<pre class="brush: css">h1 {
+  counter-set: chapter section 1 page;
+  /* Sets the chapter and page counters to 0,
+     and the section counter to 1 */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">Using CSS Counters</a></li>
+  <li><a href="./css.properties.counter-increment.html"><code>counter-increment</code></a></li>
+  <li><a href="./css.properties.counter-reset.html"><code>counter-reset</code></a></li>
+  <li><a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a></li>
+  <li><a href="./css.types.counter.html"><code>counter()</code></a> and <a href="./css.types.counters.html"><code>counters()</code></a> functions</li>
+  <li><a href="./css.properties.content.html"><code>content</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: 68</li><li><strong>firefox_android</strong>: 68</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#propdef-counter-set">https://drafts.csswg.org/css-lists/#propdef-counter-set</a></p></section></aside></body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::view-transition-image-pair"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::view-transition-image-pair"</h1><main>
+    
+
+<p>The <strong><code>::view-transition-image-pair</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents a container for a <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">view transition's</a> "old" and "new" view states — before and after the transition.</p>
+<p>During a view transition, <code>::view-transition-image-pair</code> is included in the associated pseudo-element tree as explained in <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">The view transition process</a>. It is only ever a child of a <a href="./css.selectors.view-transition-group.html"><code>::view-transition-group</code></a>. In terms of children, it can have a <a href="./css.selectors.view-transition-new.html"><code>::view-transition-new</code></a> or a <a href="./css.selectors.view-transition-old.html"><code>::view-transition-old</code></a>, or both.</p>
+<p><code>::view-transition-image-pair</code> is given the following default styling in the UA stylesheet:</p>
+<pre class="brush: css">html::view-transition-image-pair(*) {
+  position: absolute;
+  inset: 0;
+
+  animation-duration: inherit;
+  animation-fill-mode: inherit;
+}
+</pre>
+<p>During a view transition, <code>::view-transition-image-pair</code> has <a href="./css.properties.isolation.html"><code>isolation: isolate</code></a> set on it in the view transition style sheet so that its children can be blended with non-normal blend modes without affecting other visual outputs.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::view-transition-image-pair(&#x3C;pt-name-selector>) {
+  /* ... */
+}
+</pre>
+<p><code>&#x3C;pt-name-selector></code> can be one of the following values:</p>
+<dl>
+  <dt><code>*</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match all view transition groups.</p>
+  </dd>
+  <dt><code>root</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match the default <code>root</code> view transition group created by the user agent to contain the view transition for the overall page, meaning any element not assigned to its own specific view transition group via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a></dt>
+  <dd>
+    <p>Causes the pseudo-element to match a specific view transition group created by assigning the given <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a> to an element via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<pre class="brush: css">::view-transition-image-pair(root) {
+  isolation: auto;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transitions API</a></li>
+  <li><a href="https://developer.chrome.com/docs/web-platform/view-transitions/">Smooth and simple transitions with the View Transitions API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-view-transitions/#::view-transition-image-pair">https://drafts.csswg.org/css-view-transitions/#::view-transition-image-pair</a></p></section></aside></body>
+</html>

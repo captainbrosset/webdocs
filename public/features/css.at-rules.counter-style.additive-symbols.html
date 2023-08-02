@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>additive-symbols</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style additive-symbols</h1><main>
+    
+
+<p>The <strong><code>additive-symbols</code></strong> descriptor lets you specify symbols when the value of a counter <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system"><code>system</code></a> descriptor is <code>additive</code>. The <code>additive-symbols</code> descriptor defines <em>additive tuples</em>, each of which is a pair containing a symbol and a non-negative integer weight. The additive system is used to construct <a href="https://en.wikipedia.org/wiki/Sign-value_notation">sign-value numbering</a> systems such as Roman numerals.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">additive-symbols: 3 "0";
+additive-symbols:
+  3 "0",
+  2 "\2E\20";
+additive-symbols:
+  3 "0",
+  2 url(symbol.png);
+</pre>
+<p>When the <code>system</code> descriptor is <code>cyclic</code>, <code>numeric</code>, <code>alphabetic</code>, <code>symbolic</code>, or <code>fixed</code>, use the <a href="./css.properties.list-style-type.symbols.html"><code>symbols</code></a> descriptor instead of <code>additive-symbols</code>.</p>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="list">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style additive-symbols-example {
+  system: additive;
+  additive-symbols:
+    V 5,
+    IV 4,
+    I 1;
+}
+.list {
+  list-style: additive-symbols-example;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li>The <a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>, functional notation is used for creating anonymous counter styles.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 91</li><li><strong>chrome_android</strong>: 91</li><li><strong>edge</strong>: 91</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 77</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: 17</li><li><strong>safari_ios</strong>: 17</li><li><strong>samsunginternet_android</strong>: 16.0</li><li><strong>webview_android</strong>: 91</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-symbols">https://drafts.csswg.org/css-counter-styles/#counter-style-symbols</a></p></section></aside></body>
+</html>

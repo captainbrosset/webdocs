@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-block</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-block</h1><main>
+    
+
+<p>The <strong><code>border-block</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> for setting the individual logical block border property values in a single place in the style sheet.</p>
+<p><code>border-block</code> can be used to set the values for one or more of <a href="./css.properties.border-block-width.html"><code>border-block-width</code></a>, <a href="./css.properties.border-block-style.html"><code>border-block-style</code></a>, and <a href="./css.properties.border-block-color.html"><code>border-block-color</code></a> setting both the start and end in the block dimension at once. The physical borders to which it maps depends on the element's writing mode, directionality, and text orientation. It corresponds to the <a href="./css.properties.border-top.html"><code>border-top</code></a> and <a href="./css.properties.border-bottom.html"><code>border-bottom</code></a> or <a href="./css.properties.border-right.html"><code>border-right</code></a>, and <a href="./css.properties.border-left.html"><code>border-left</code></a> properties depending on the values defined for <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a>.</p>
+<p>The borders in the other dimension can be set with <a href="./css.properties.border-inline.html"><code>border-inline</code></a>, which sets <a href="./css.properties.border-inline-start.html"><code>border-inline-start</code></a>, and <a href="./css.properties.border-inline-end.html"><code>border-inline-end</code></a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.border-block-color.html"><code>border-block-color</code></a></li>
+  <li><a href="./css.properties.border-block-style.html"><code>border-block-style</code></a></li>
+  <li><a href="./css.properties.border-block-width.html"><code>border-block-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">border-block: 1px;
+border-block: 2px dotted;
+border-block: medium dashed blue;
+
+/* Global values */
+border-block: inherit;
+border-block: initial;
+border-block: revert;
+border-block: revert-layer;
+border-block: unset;
+</pre>
+<h3>Values</h3>
+<p>The <code>border-block</code> is specified with one or more of the following, in any order:</p>
+<dl>
+  <dt><code>&#x3C;'border-width'></code></dt>
+  <dd>
+    <p>The width of the border. See <a href="./css.properties.border-width.html"><code>border-width</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'border-style'></code></dt>
+  <dd>
+    <p>The line style of the border. See <a href="./css.properties.border-style.html"><code>border-style</code></a>.</p>
+  </dd>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>The color of the border.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="exampleText">Example text&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-rl;
+  border-block: 5px dashed blue;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS Logical Properties and Values</a></li>
+  <li>This property maps to one of the physical border properties: <a href="./css.properties.border-top.html"><code>border-top</code></a>, <a href="./css.properties.border-right.html"><code>border-right</code></a>, <a href="./css.properties.border-bottom.html"><code>border-bottom</code></a>, or <a href="./css.properties.border-left.html"><code>border-left</code></a>.</li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 87</li><li><strong>chrome_android</strong>: 87</li><li><strong>edge</strong>: 87</li><li><strong>firefox</strong>: 66</li><li><strong>firefox_android</strong>: 66</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: 73</li><li><strong>opera_android</strong>: 62</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 87</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#propdef-border-block">https://drafts.csswg.org/css-logical/#propdef-border-block</a></p></section></aside></body>
+</html>

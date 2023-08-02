@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>sign()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types sign()</h1><main>
+    
+
+<p>The <strong><code>sign()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> contains one calculation, and returns <code>-1</code> if the numeric value of the argument is negative, <code>+1</code> if the numeric value of the argument is positive, <code>0⁺</code> if the numeric value of the argument is 0⁺, and <code>0⁻</code> if the numeric value of the argument is 0⁻.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> While <code><a href="./css.types.abs.html"><code>abs()</code></a></code> returns the absolute value of the argument, <code>sign()</code> returns the sign of the argument.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* property: sign( expression ) */
+top: sign(20vh - 100px);
+</pre>
+<h3>Parameters</h3>
+<p>The <code>sign(x)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>A calculation which resolves to a number.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>A number representing the sign of <code>A</code>:</p>
+<ul>
+  <li>If <code>x</code> is positive, returns <code>1</code>.</li>
+  <li>If <code>x</code> is negative, returns <code>-1</code>.</li>
+  <li>If <code>x</code> is positive zero, returns <code>0</code>.</li>
+  <li>If <code>x</code> is negative zero, returns <code>-0</code>.</li>
+  <li>Otherwise, returns <code>NaN</code>.</li>
+</ul>
+
+
+<h3>Background image position</h3>
+<p>For example, in <a href="./css.properties.background-position.html"><code>background-position()</code></a> positive percentages resolve to a negative length, and vice versa, if the background image is larger than the background area. Thus <code>sign(10%)</code> might return <code>1</code> or <code>-1</code>, depending on how the percentage is resolved! (Or even <code>0</code>, if it's resolved against a zero length.)</p>
+<pre class="brush: css">div {
+  background-position: sign(10%);
+}
+</pre>
+<h3>Position direction</h3>
+<p>Another use case is to control the <a href="./css.properties.position.html"><code>position()</code></a> of the element. Either a positive or a negative value.</p>
+<pre class="brush: css">div {
+  position: absolute;
+  top: calc(100px * sign(var(--value)));
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.abs.html"><code>abs()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#sign-funcs">https://drafts.csswg.org/css-values/#sign-funcs</a></p></section></aside></body>
+</html>

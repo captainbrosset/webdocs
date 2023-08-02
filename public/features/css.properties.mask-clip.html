@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-clip</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-clip</h1><main>
+    
+
+<p>The <strong><code>mask-clip</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property determines the area which is affected by a mask. The painted content of an element must be restricted to this area.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;geometry-box> values */
+mask-clip: content-box;
+mask-clip: padding-box;
+mask-clip: border-box;
+mask-clip: margin-box;
+mask-clip: fill-box;
+mask-clip: stroke-box;
+mask-clip: view-box;
+
+/* Keyword values */
+mask-clip: no-clip;
+
+/* Non-standard keyword values */
+-webkit-mask-clip: border;
+-webkit-mask-clip: padding;
+-webkit-mask-clip: content;
+-webkit-mask-clip: text;
+
+/* Multiple values */
+mask-clip: padding-box, no-clip;
+mask-clip: view-box, fill-box, border-box;
+
+/* Global values */
+mask-clip: inherit;
+mask-clip: initial;
+mask-clip: revert;
+mask-clip: revert-layer;
+mask-clip: unset;
+</pre>
+<p>One or more of the keyword values listed below, separated by commas.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>content-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the content box.</p>
+  </dd>
+  <dt><code>padding-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the padding box.</p>
+  </dd>
+  <dt><code>border-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the border box.</p>
+  </dd>
+  <dt><code>margin-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the margin box.</p>
+  </dd>
+  <dt><code>fill-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the object bounding box.</p>
+  </dd>
+  <dt><code>stroke-box</code></dt>
+  <dd>
+    <p>The painted content is clipped to the stroke bounding box.</p>
+  </dd>
+  <dt><code>view-box</code></dt>
+  <dd>
+    <p>Uses the nearest SVG viewport as reference box. If a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"><code>viewBox</code></a> attribute is specified for the element creating the SVG viewport, the reference box is positioned at the origin of the coordinate system established by the <code>viewBox</code> attribute and the dimension of the reference box is set to the width and height values of the <code>viewBox</code> attribute.</p>
+  </dd>
+  <dt><code>no-clip</code></dt>
+  <dd>
+    <p>The painted content is not clipped.</p>
+  </dd>
+  <dt><code>border</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>This keyword behaves the same as <code>border-box</code>.</p>
+  </dd>
+  <dt><code>padding</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>This keyword behaves the same as <code>padding-box</code>.</p>
+  </dd>
+  <dt><code>content</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>This keyword behaves the same as <code>content-box</code>.</p>
+  </dd>
+  <dt><code>text</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>This keyword clips the mask image to the text of the element.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>border-box</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ &lt;geometry-box&gt; | no-clip ]#</pre></section>
+
+<h3>Clipping a mask to the border box</h3>
+<p>Change the <code>mask-clip</code> value to any of the allowed values detailed above. If viewing the example in a Chromium-based browser change the value of <code>-webkit-mask-clip</code>.</p><iframe width="100%" height="800" src="https://mdn.github.io/css-examples/masking/mask-clip.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://css-tricks.com/clipping-masking-css/">Clipping and Masking in CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-clip">https://drafts.fxtf.org/css-masking/#the-mask-clip</a></p></section></aside></body>
+</html>

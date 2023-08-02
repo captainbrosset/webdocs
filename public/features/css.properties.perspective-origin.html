@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>perspective-origin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties perspective-origin</h1><main>
+    
+
+<p>The <strong><code>perspective-origin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property determines the position at which the viewer is looking. It is used as the <em>vanishing point</em> by the <a href="./css.properties.perspective.html"><code>perspective</code></a> property.</p>
+<p>The <strong><code>perspective-origin</code></strong> and <a href="./css.properties.perspective.html"><code>perspective</code></a> properties are attached to the parent of a child transformed in 3-dimensional space, unlike the <a href="./css.types.transform-function.perspective.html"><code>perspective()</code></a> transform function which is placed on the element being transformed.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* One-value syntax */
+perspective-origin: x-position;
+
+/* Two-value syntax */
+perspective-origin: x-position y-position;
+
+/* When both x-position and y-position are keywords,
+   the following is also valid */
+perspective-origin: y-position x-position;
+
+/* Global values */
+perspective-origin: inherit;
+perspective-origin: initial;
+perspective-origin: revert;
+perspective-origin: revert-layer;
+perspective-origin: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><em>x-position</em></dt>
+  <dd>
+    <p>Indicates the position of the abscissa of the <em>vanishing point</em>. It can have one of the following values:</p>
+    <ul>
+      <li><a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> indicating the position as an absolute length value or relative to the width of the element. The value may be negative.</li>
+      <li><code>left</code>, a keyword being a shortcut for the <code>0</code> length value.</li>
+      <li><code>center</code>, a keyword being a shortcut for the <code>50%</code> percentage value.</li>
+      <li><code>right</code>, a keyword being a shortcut for the <code>100%</code> percentage value.</li>
+    </ul>
+  </dd>
+  <dt><em>y-position</em></dt>
+  <dd>
+    <p>Indicates the position of the ordinate of the <em>vanishing point</em>. It can have one of the following values:</p>
+    <ul>
+      <li><a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> indicating the position as an absolute length value or relative to the height of the element. The value may be negative.</li>
+      <li><code>top</code>, a keyword being a shortcut for the <code>0</code> length value.</li>
+      <li><code>center</code>, a keyword being a shortcut for the <code>50%</code> percentage value.</li>
+      <li><code>bottom</code>, a keyword being a shortcut for the <code>100%</code> percentage value.</li>
+    </ul>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>50% 50%</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>see background-position</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;position&gt;</pre></section>
+
+<h3>Changing the perspective origin</h3>
+<p>An example showing how to change <code>perspective-origin</code> is given in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#changing_the_perspective_origin">Using CSS transforms > Changing the perspective origin</a>.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS Transforms</a></li>
+  <li><a href="./css.properties.transform-style.html"><code>transform-style</code></a></li>
+  <li><a href="./css.types.transform-function.html"><code>transform-function</code></a></li>
+  <li><a href="./css.properties.perspective.html"><code>perspective</code></a></li>
+  <li><a href="./css.types.transform-function.perspective.html"><code>transform: perspective()</code></a> function</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#perspective-origin-property">https://drafts.csswg.org/css-transforms-2/#perspective-origin-property</a></p></section></aside></body>
+</html>

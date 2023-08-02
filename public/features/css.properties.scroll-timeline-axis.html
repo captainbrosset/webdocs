@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-timeline-axis</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-timeline-axis</h1><main>
+    
+
+<p>The <strong><code>scroll-timeline-axis</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is used to specify the scrollbar direction that will be used to provide the timeline for a <em>named scroll progress timeline</em> animation, which is progressed through by scrolling a scrollable element (<em>scroller</em>) between top and bottom (or left and right). <code>scroll-timeline</code> is set on the scroller that will provide the timeline. See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a> for more details.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the scroller element does not overflow its container in the axis dimension or if the overflow is hidden or clipped, no scroll progress timeline will be created.</p>
+</div>
+<p>The <code>scroll-timeline-axis</code> and <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a> properties can also be set using the <a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a> shorthand property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Logical property values */
+scroll-timeline-axis: block;
+scroll-timeline-axis: inline;
+/* Non-logical property values */
+scroll-timeline-axis: y;
+scroll-timeline-axis: x;
+</pre>
+<h3>Values</h3>
+<p>Allowed values for <code>scroll-timeline-axis</code> are:</p>
+<dl>
+  <dt><code>block</code></dt>
+  <dd>
+    <p>The scrollbar on the block axis of the scroller element, which is the axis in the direction perpendicular to the flow of text within a line. For horizontal writing modes, such as standard English, this is the same as <code>y</code>, while for vertical writing modes, it is the same as <code>x</code>. This is the default value.</p>
+  </dd>
+  <dt><code>inline</code></dt>
+  <dd>
+    <p>The scrollbar on the inline axis of the scroller element, which is the axis in the direction parallel to the flow of text in a line. For horizontal writing modes, this is the same as <code>x</code>, while for vertical writing modes, this is the same as <code>y</code>.</p>
+  </dd>
+  <dt><code>y</code></dt>
+  <dd>
+    <p>The scrollbar on the vertical axis of the scroller element.</p>
+  </dd>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>The scrollbar on the horizontal axis of the scroller element.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>block</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>a list of the keywords specified</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ block | inline | x | y ]#</pre></section>
+
+<h3>Defining the axis of the scroll progress timeline</h3>
+<p>In this example, a scroll progress timeline named <code>--myScroller</code> is defined using the <code>scroll-timeline-name</code> property on the <code>:root</code> element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a>). This timeline is then applied to the animation on the element with the <code>animation</code> class using <code>animation-timeline: --myScroller</code>.</p>
+<p>To demonstrate the effect of <code>scroll-timeline-axis</code>, a horizontal (non-default) scrollbar is used in this example to drive the animation.</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;body>
+  &#x3C;div class="content">&#x3C;/div>
+  &#x3C;div class="box animation">&#x3C;/div>
+&#x3C;/body>
+</pre>
+<h4>CSS</h4>
+<p>
+  The CSS for the container sets the <code>:root</code> as the source of a scroll progress timeline named <code>--myScroller</code> using the <code>scroll-timeline-name</code> property.
+  The scroll axis is set using <code>scroll-timeline-axis: x;</code> (Chromium) and <code>scroll-timeline-axis: horizontal;</code> (Firefox) — this causes the <em>horizontal scrollbar</em> position to determine the animation timeline.
+</p>
+<p>The width of the <code>.content</code> element is set to a large value to make it overflow the <code>:root</code> element.</p>
+<p>Also worth noting is that the <code>.animation</code> element has the timeline applied to it using <code>animation-timeline: --myScroller;</code>, and it also has an <code>animation-duration</code> applied to it so that the example will work in Firefox.</p>
+<pre class="brush: css">:root {
+  scroll-timeline-name: --myScroller;
+
+  /* Chromium supports the new x/y syntax */
+  scroll-timeline-axis: x;
+  /* Firefox still supports the old horizontal/vertical syntax */
+  scroll-timeline-axis: horizontal;
+}
+
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
+.content {
+  height: 100vh;
+  width: 2000px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: rebeccapurple;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+}
+
+.animation {
+  animation: rotate-appear;
+  animation-timeline: --myScroller;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+@keyframes rotate-appear {
+  from {
+    rotate: 0deg;
+    top: 0%;
+  }
+
+  to {
+    rotate: 720deg;
+    top: 100%;
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll the horizontal bar at the bottom to see the square animate as you scroll.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+  <li><a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a>, <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a></li>
+  <li><a href="./css.properties.timeline-scope.html"><code>timeline-scope</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 115</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/scroll-animations/#propdef-scroll-timeline-axis">https://drafts.csswg.org/scroll-animations/#propdef-scroll-timeline-axis</a></p></section></aside></body>
+</html>

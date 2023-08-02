@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>grid-area</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-area</h1><main>
+    
+
+<p>The <strong><code>grid-area</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> specifies a grid item's size and location within a <a href="/Glossary/grid">grid</a> by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its <a href="/Glossary/grid_areas">grid area</a>.</p>
+<p>If four <code>&#x3C;grid-line></code> values are specified, <code>grid-row-start</code> is set to the first value, <code>grid-column-start</code> is set to the second value, <code>grid-row-end</code> is set to the third value, and <code>grid-column-end</code> is set to the fourth value.</p>
+<p>When <code>grid-column-end</code> is omitted, if <code>grid-column-start</code> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>, <code>grid-column-end</code> is set to that <code>&#x3C;custom-ident></code>; otherwise, it is set to <code>auto</code>.</p>
+<p>When <code>grid-row-end</code> is omitted, if <code>grid-row-start</code> is a <code>&#x3C;custom-ident></code>, <code>grid-row-end</code> is set to that <code>&#x3C;custom-ident></code>; otherwise, it is set to <code>auto</code>.</p>
+<p>When <code>grid-column-start</code> is omitted, if <code>grid-row-start</code> is a <code>&#x3C;custom-ident></code>, all four longhands are set to that value. Otherwise, it is set to <code>auto</code>.</p>
+<p>The grid-area property can also be set to a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a> which acts as a name for the area, which can then be placed using <a href="./css.properties.grid-template-areas.html"><code>grid-template-areas</code></a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.grid-row-start.html"><code>grid-row-start</code></a></li>
+  <li><a href="./css.properties.grid-column-start.html"><code>grid-column-start</code></a></li>
+  <li><a href="./css.properties.grid-row-end.html"><code>grid-row-end</code></a></li>
+  <li><a href="./css.properties.grid-column-end.html"><code>grid-column-end</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+grid-area: auto;
+grid-area: auto / auto;
+grid-area: auto / auto / auto;
+grid-area: auto / auto / auto / auto;
+
+/* &#x3C;custom-ident> values */
+grid-area: some-grid-area;
+grid-area: some-grid-area / another-grid-area;
+
+/* &#x3C;integer> &#x26;&#x26; &#x3C;custom-ident>? values */
+grid-area: 4 some-grid-area;
+grid-area: 4 some-grid-area / 2 another-grid-area;
+
+/* span &#x26;&#x26; [ &#x3C;integer> || &#x3C;custom-ident> ] values */
+grid-area: span 3;
+grid-area: span 3 / span some-grid-area;
+grid-area: 2 span / another-grid-area span;
+
+/* Global values */
+grid-area: inherit;
+grid-area: initial;
+grid-area: revert;
+grid-area: revert-layer;
+grid-area: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the property contributes nothing to the grid item's placement, indicating auto-placement or a default span of <code>1</code>.</p>
+  </dd>
+  <dt><code>&#x3C;custom-ident></code></dt>
+  <dd>
+    <p>If there is a named line with the name '<code>&#x3C;custom-ident>-start</code>'/'<code>&#x3C;custom-ident>-end</code>', it contributes the first such line to the grid item's placement.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> Named grid areas automatically generate implicit named lines of this form, so specifying <code>grid-area: foo;</code> will choose the start/end edge of that named grid area (unless another line named <code>foo-start</code>/<code>foo-end</code> was explicitly specified before it).</p>
+    </div>
+    <p>Otherwise, this is treated as if the integer <code>1</code> had been specified along with the <code>&#x3C;custom-ident></code>.</p>
+  </dd>
+  <dt><code>&#x3C;integer> &#x26;&#x26; &#x3C;custom-ident>?</code></dt>
+  <dd>
+    <p>Contributes the n-th grid line to the grid item's placement. If a negative integer is given, it instead counts in reverse, starting from the end edge of the explicit grid.</p>
+    <p>If a name is given as a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>, only lines with that name are counted. If not enough lines with that name exist, all implicit grid lines are assumed to have that name for the purpose of finding this position.</p>
+    <p>An <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> value of <code>0</code> is invalid.</p>
+  </dd>
+  <dt><code>span &#x26;&#x26; [ &#x3C;integer> || &#x3C;custom-ident> ]</code></dt>
+  <dd>
+    <p>Contributes a grid span to the grid item's placement such that the corresponding edge of the grid item's grid area is <em>n</em> lines from the opposite edge.</p>
+    <p>If a name is given as a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>, only lines with that name are counted. If not enough lines with that name exist, all implicit grid lines on the side of the explicit grid corresponding to the search direction are assumed to have that name for the purpose of counting this span.</p>
+    <p>If the <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> is omitted, it defaults to <code>1</code>. Negative integers or 0 are invalid.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="grid">
+  &#x3C;div id="item1">&#x3C;/div>
+  &#x3C;div id="item2">&#x3C;/div>
+  &#x3C;div id="item3">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#grid {
+  display: grid;
+  height: 100px;
+  grid-template: repeat(4, 1fr) / 50px 100px;
+}
+
+#item1 {
+  background-color: lime;
+  grid-area: 2 / 2 / auto / span 3;
+}
+
+#item2 {
+  background-color: yellow;
+}
+
+#item3 {
+  background-color: blue;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.grid-row.html"><code>grid-row</code></a>, <a href="./css.properties.grid-row-start.html"><code>grid-row-start</code></a>, <a href="./css.properties.grid-row-end.html"><code>grid-row-end</code></a>, <a href="./css.properties.grid-column.html"><code>grid-column</code></a>, <a href="./css.properties.grid-column-start.html"><code>grid-column-start</code></a>, <a href="./css.properties.grid-column-end.html"><code>grid-column-end</code></a>, <a href="./css.properties.grid-template-areas.html"><code>grid-template-areas</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_template_areas">Grid template areas</a></em></li>
+  <li>Video tutorial: <em><a href="https://gridbyexample.com/video/grid-template-areas/">Grid Template Areas</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 16</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#propdef-grid-area">https://drafts.csswg.org/css-grid/#propdef-grid-area</a></p></section></aside></body>
+</html>

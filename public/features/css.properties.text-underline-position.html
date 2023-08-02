@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-underline-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-underline-position</h1><main>
+    
+
+<p>The <strong><code>text-underline-position</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the position of the underline which is set using the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> property's <code>underline</code> value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single keyword */
+text-underline-position: auto;
+text-underline-position: under;
+text-underline-position: left;
+text-underline-position: right;
+
+/* Multiple keywords */
+text-underline-position: under left;
+text-underline-position: right under;
+
+/* Global values */
+text-underline-position: inherit;
+text-underline-position: initial;
+text-underline-position: revert;
+text-underline-position: revert-layer;
+text-underline-position: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The <a href="/Glossary/user_agent">user agent</a> uses its own algorithm to place the line at or under the alphabetic baseline.</p>
+  </dd>
+  <dt><code>from-font</code></dt>
+  <dd>
+    <p>If the font file includes information about a preferred position, use that value. If the font file doesn't include this information, behave as if <code>auto</code> was set, with the browser choosing an appropriate position.</p>
+  </dd>
+  <dt><code>under</code></dt>
+  <dd>
+    <p>Forces the line to be set below the alphabetic baseline, at a position where it won't cross any descenders. This is useful for ensuring legibility with chemical and mathematical formulas, which make a large use of subscripts.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>In vertical writing-modes, this keyword forces the line to be placed on the <em>left</em> side of the text. In horizontal writing-modes, it is a synonym of <code>under</code>.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>In vertical writing-modes, this keyword forces the line to be placed on the <em>right</em> side of the text. In horizontal writing-modes, it is a synonym of <code>under</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | [ from-font | under ] || [ left | right ]</pre></section>
+
+<h3>A simple example</h3>
+<p>Let's take a couple of simple example paragraphs:</p>
+<pre class="brush: html">&#x3C;p class="horizontal">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur ac
+  turpis vel laoreet. Nullam volutpat pharetra lorem, sit amet feugiat tortor
+  volutpat quis. Nam eget sodales quam. Aliquam accumsan tellus ac erat posuere.
+&#x3C;/p>
+
+&#x3C;p class="vertical">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur ac
+  turpis vel laoreet. Nullam volutpat pharetra lorem, sit amet feugiat tortor
+  volutpat quis. Nam eget sodales quam. Aliquam accumsan tellus ac erat posuere.
+&#x3C;/p>
+</pre>
+<p>Our CSS looks like this:</p>
+<pre class="brush: css">p {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.horizontal {
+  text-underline-position: under;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+  text-underline-position: left;
+}
+</pre>
+<p>In this example we set both the paragraphs to have a thick underline. In the horizontal text we use <code>text-underline-position: under;</code> to put the underline below all the descenders.</p>
+<p>In the text with a vertical <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> set, we can then use values of <code>left</code> or <code>right</code> to make the underline appear on the left or right of the text as required.</p>
+<p>The live example looks like this:</p>
+<h3>Setting text-underline-position globally</h3>
+<p>Because the <code>text-underline-position</code> property inherits and is not reset by the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> shorthand property, it may be appropriate to set its value at a global level. For example, the <code>under</code> value may be appropriate for a document with lots of chemical and mathematical formulas, which make a large use of subscripts.</p>
+<pre class="brush: css">:root {
+  text-underline-position: under;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> property is a shorthand for setting most text-decoration properties, including <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, and <a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a>. However, it does not set <code>text-underline-position</code>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 33</li><li><strong>chrome_android</strong>: 33</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 74</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: 6</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 20</li><li><strong>opera_android</strong>: 20</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 2.0</li><li><strong>webview_android</strong>: 4.4.3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor/#text-underline-position-property">https://drafts.csswg.org/css-text-decor/#text-underline-position-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-width</h1><main>
+    
+
+<p>The <strong><code>column-width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the ideal column width in a multi-column layout. The container will have as many columns as can fit without any of them having a width less than the <code>column-width</code> value. If the width of the container is narrower than the specified value, the single column's width will be smaller than the declared column width.</p>
+<p>This property can help you create responsive designs that fit different screen sizes. Especially in the presence of the <a href="./css.properties.column-count.html"><code>column-count</code></a> property (which has precedence), you must specify all related length values to achieve an exact column width. In horizontal text these are <a href="./css.properties.width.html"><code>width</code></a>, <a href="./css.properties.column-width.html"><code>column-width</code></a>, <a href="./css.properties.column-gap.html"><code>column-gap</code></a>, and <a href="./css.properties.column-rule-width.html"><code>column-rule-width</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+column-width: auto;
+
+/* &#x3C;length> values */
+column-width: 60px;
+column-width: 15.5em;
+column-width: 3.3vw;
+
+/* Global values */
+column-width: inherit;
+column-width: initial;
+column-width: revert;
+column-width: revert-layer;
+column-width: unset;
+</pre>
+<p>The <code>column-width</code> property is specified as one of the values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Indicates the optimal column width. The actual column width may differ from the specified value: it may be wider when necessary to fill available space, and narrower when the available space is too small. The value must be strictly positive or the declaration is invalid. Percentage values are also invalid.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The width of the column is determined by other CSS properties, such as <a href="./css.properties.column-count.html"><code>column-count</code></a>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block containers except table wrapper boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword auto or an absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length [0,∞]&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="content-box">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+  enim ad minim veniam, quis nostrud exercitation ullamcorper suscipit lobortis
+  nisl ut aliquip ex ea commodo consequat.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.content-box {
+  column-width: 100px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout">Multiple-column Layout</a> (Learn Layout)</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout/Basic_concepts">Basic Concepts of Multicol</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing/#column-sizing,https://drafts.csswg.org/css-multicol/#cw">https://drafts.csswg.org/css-sizing/#column-sizing,https://drafts.csswg.org/css-multicol/#cw</a></p></section></aside></body>
+</html>

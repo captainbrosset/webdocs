@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>blur()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types filter-function blur()</h1><main>
+    
+
+<p>The <strong><code>blur()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> applies a <a href="https://en.wikipedia.org/wiki/Gaussian_blur">Gaussian blur</a> to the input image. Its result is a <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">blur(radius)
+</pre>
+<h3>Parameters</h3>
+<dl>
+  <dt><code>radius</code></dt>
+  <dd>
+    <p>The radius of the blur, specified as a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>. It defines the value of the standard deviation to the Gaussian function, i.e., how many pixels on the screen blend into each other; thus, a larger value will create more blur. A value of <code>0</code> leaves the input unchanged. The initial value for <a href="/Glossary/interpolation">interpolation</a> is <code>0</code>.</p>
+  </dd>
+</dl>
+
+<h3>Setting a blur with pixels and with rem</h3>
+<pre class="brush: css">blur(0)        /* No effect */
+blur(8px)      /* Blur with 8px radius */
+blur(1.17rem)  /* Blur with 1.17rem radius */
+</pre>
+
+
+<h2>See also</h2>
+<p>The other <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a> functions available to be used in values of the <a href="./css.properties.filter.html"><code>filter()</code></a> and <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> properties include:</p>
+<ul>
+  <li><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></li>
+  <li><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></li>
+  <li><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></li>
+  <li><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></li>
+  <li><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></li>
+  <li><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></li>
+  <li><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></li>
+  <li><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></li>
+  <li><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-blur">https://drafts.fxtf.org/filter-effects/#funcdef-filter-blur</a></p></section></aside></body>
+</html>

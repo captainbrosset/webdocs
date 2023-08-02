@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::view-transition"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::view-transition"</h1><main>
+    
+
+<p>The <strong><code>::view-transition</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents the root of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">view transitions</a> overlay, which contains all view transitions and sits over the top of all other page content.</p>
+<p>During a view transition, <code>::view-transition</code> is included in the associated pseudo-element tree as explained in <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">The view transition process</a>. It is the top-level node of this tree, and has one or more <a href="./css.selectors.view-transition-group.html"><code>::view-transition-group</code></a>s as children.</p>
+<p><code>::view-transition</code> is given the following default styling in the UA stylesheet:</p>
+<pre class="brush: css">html::view-transition {
+  position: fixed;
+  inset: 0;
+}
+</pre>
+<p>All <a href="./css.selectors.view-transition-group.html"><code>::view-transition-group</code></a> pseudo-elements are positioned relative to the view transition root.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::view-transition {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<pre class="brush: css">::view-transition {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transitions API</a></li>
+  <li><a href="https://developer.chrome.com/docs/web-platform/view-transitions/">Smooth and simple transitions with the View Transitions API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-view-transitions/#selectordef-view-transition">https://drafts.csswg.org/css-view-transitions/#selectordef-view-transition</a></p></section></aside></body>
+</html>

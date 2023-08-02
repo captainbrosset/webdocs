@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>grid-row</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-row</h1><main>
+    
+
+<p>The <strong><code>grid-row</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> specifies a grid item's size and location within a <a href="/Glossary/grid_row">grid row</a> by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start and inline-end edge of its <a href="/Glossary/grid_areas">grid area</a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.grid-row-end.html"><code>grid-row-end</code></a></li>
+  <li><a href="./css.properties.grid-row-start.html"><code>grid-row-start</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+grid-row: auto;
+grid-row: auto / auto;
+
+/* &#x3C;custom-ident> values */
+grid-row: somegridarea;
+grid-row: somegridarea / someothergridarea;
+
+/* &#x3C;integer> + &#x3C;custom-ident> values */
+grid-row: somegridarea 4;
+grid-row: 4 somegridarea / 6;
+
+/* span + &#x3C;integer> + &#x3C;custom-ident> values */
+grid-row: span 3;
+grid-row: span somegridarea;
+grid-row: 5 somegridarea span;
+grid-row: span 3 / 6;
+grid-row: span somegridarea / span someothergridarea;
+grid-row: 5 somegridarea span / 2 span;
+
+/* Global values */
+grid-row: inherit;
+grid-row: initial;
+grid-row: revert;
+grid-row: revert-layer;
+grid-row: unset;
+</pre>
+<p>This property is specified as one or two <code>&#x3C;grid-line></code> values.</p>
+<p>If two <code>&#x3C;grid-line></code> values are given, they are separated by <code>/</code>. The <code>grid-row-start</code> longhand is set to the value before the slash, and the <code>grid-row-end</code> longhand is set to the value after the slash.</p>
+<p>Each <code>&#x3C;grid-line></code> value can be specified as:</p>
+<ul>
+  <li>either the <code>auto</code> keyword</li>
+  <li>or a <code>&#x3C;custom-ident></code> value</li>
+  <li>or an <code>&#x3C;integer></code> value</li>
+  <li>or both <code>&#x3C;custom-ident></code> and <code>&#x3C;integer></code>, separated by a space</li>
+  <li>or the keyword <code>span</code> together with either a <code>&#x3C;custom-ident></code> or an <code>&#x3C;integer></code> or both.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the property contributes nothing to the grid item's placement, indicating auto-placement, an automatic span, or a default span of <code>1</code>.</p>
+  </dd>
+  <dt><code>&#x3C;custom-ident></code></dt>
+  <dd>
+    <p>If there is a named line with the name <code>&#x3C;custom-ident>-start</code>/<code>&#x3C;custom-ident>-end</code>, it contributes the first such line to the grid item's placement.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> Named grid areas automatically generate implicit named lines of this form, so specifying <code>grid-row: foo;</code> will choose the start/end edge of that named grid area (unless another line named <code>foo-start</code>/<code>foo-end</code> was explicitly specified before it).</p>
+    </div>
+    <p>Otherwise, this is treated as if the integer <code>1</code> had been specified along with the <code>&#x3C;custom-ident></code>.</p>
+  </dd>
+  <dt><code>&#x3C;integer> &#x26;&#x26; &#x3C;custom-ident>?</code></dt>
+  <dd>
+    <p>Contributes the nth grid line to the grid item's placement. If a negative integer is given, it instead counts in reverse, starting from the end edge of the explicit grid.</p>
+    <p>If a name is given as a <code>&#x3C;custom-ident></code>, only lines with that name are counted. If not enough lines with that name exist, all implicit grid lines are assumed to have that name for the purpose of finding this position.</p>
+    <p>An <a href="./css.types.integer.html"><code>integer</code></a> value of <code>0</code> is invalid.</p>
+  </dd>
+  <dt><code>span &#x26;&#x26; [ &#x3C;integer> || &#x3C;custom-ident> ]</code></dt>
+  <dd>
+    <p>Contributes a grid span to the grid item's placement such that the corresponding edge of the grid item's grid area is n lines from the opposite edge.</p>
+    <p>If a name is given as a <code>&#x3C;custom-ident></code>, only lines with that name are counted. If not enough lines with that name exist, all implicit grid lines on the side of the explicit grid corresponding to the search direction are assumed to have that name for the purpose of counting this span.</p>
+    <p>If the <code>&#x3C;integer></code> is omitted, it defaults to <code>1</code>. Negative integers or 0 are invalid.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="grid">
+  &#x3C;div id="item1">&#x3C;/div>
+  &#x3C;div id="item2">&#x3C;/div>
+  &#x3C;div id="item3">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#grid {
+  display: grid;
+  height: 200px;
+  grid-template-columns: 200px;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#item1 {
+  background-color: lime;
+}
+
+#item2 {
+  background-color: yellow;
+  grid-row: 2 / 4;
+}
+
+#item3 {
+  background-color: blue;
+  grid-row: span 2 / 7;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.grid-row-start.html"><code>grid-row-start</code></a>, <a href="./css.properties.grid-row-end.html"><code>grid-row-end</code></a>, <a href="./css.properties.grid-column.html"><code>grid-column</code></a>, <a href="./css.properties.grid-column-start.html"><code>grid-column-start</code></a>, <a href="./css.properties.grid-column-end.html"><code>grid-column-end</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement">Line-based placement with CSS Grid</a></em></li>
+  <li>Video tutorial: <em><a href="https://gridbyexample.com/video/series-line-based-placement/">Line-based placement</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 16</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#placement-shorthands">https://drafts.csswg.org/css-grid/#placement-shorthands</a></p></section></aside></body>
+</html>

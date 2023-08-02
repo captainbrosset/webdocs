@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pow()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types pow()</h1><main>
+    
+
+<p>The <strong><code>pow()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is an exponential function that returns the value of a base raised to the power of a number.</p>
+<p>The <a href="./css.types.exp.html"><code>exp()</code></a> function is a special case of <code>pow()</code> where the value of the base is the mathematical constant <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">e</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A &#x3C;number> value */
+width: calc(10px * pow(5, 2)); /* 10px * 25 = 250px */
+width: calc(10px * pow(5, 3)); /* 10px * 125 = 1250px */
+width: calc(10px * pow(2, 10)); /* 10px * 1024 = 10240px */
+</pre>
+<h3>Parameters</h3>
+<p>The <code>pow(base, number)</code> function accepts two comma-separated values as its parameters.</p>
+<dl>
+  <dt><code>base</code></dt>
+  <dd>
+    <p>A calculation that resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, representing the base.</p>
+  </dd>
+  <dt><code>number</code></dt>
+  <dd>
+    <p>A calculation that resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, representing the exponent.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>Returns a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> representing base<sup>number</sup>, that is, <code>base</code> raised to the power of <code>number</code>.</p>
+
+
+<h3>Scale headings by fixed ratio</h3>
+<p>The <code>pow()</code> function can be useful for strategies like CSS Modular Scale, which relates all the font-sizes on a page to each other by a fixed ratio.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h1>Heading 1&#x3C;/h1>
+&#x3C;h2>Heading 2&#x3C;/h2>
+&#x3C;h3>Heading 3&#x3C;/h3>
+&#x3C;h4>Heading 4&#x3C;/h4>
+&#x3C;h5>Heading 5&#x3C;/h5>
+&#x3C;h6>Heading 6&#x3C;/h6>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">h1 {
+  font-size: calc(1rem * pow(1.5, 4));
+}
+h2 {
+  font-size: calc(1rem * pow(1.5, 3));
+}
+h3 {
+  font-size: calc(1rem * pow(1.5, 2));
+}
+h4 {
+  font-size: calc(1rem * pow(1.5, 1));
+}
+h5 {
+  font-size: calc(1rem * pow(1.5, 0));
+}
+h6 {
+  font-size: calc(1rem * pow(1.5, -1));
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.sqrt.html"><code>sqrt()</code></a></li>
+  <li><a href="./css.types.hypot.html"><code>hypot()</code></a></li>
+  <li><a href="./css.types.exp.html"><code>exp()</code></a></li>
+  <li><a href="./css.types.log.html"><code>log()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 112</li><li><strong>firefox_android</strong>: 112</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#exponent-funcs">https://drafts.csswg.org/css-values/#exponent-funcs</a></p></section></aside></body>
+</html>

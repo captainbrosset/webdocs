@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":only-of-type"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":only-of-type"</h1><main>
+    
+
+<p>The <strong><code>:only-of-type</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents an element that has no siblings of the same type.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> As originally defined, the selected element had to have a parent. Beginning with Selectors Level 4, this is no longer required.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:only-of-type {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;main>
+  &#x3C;div>I am `div` #1.&#x3C;/div>
+  &#x3C;p>I am the only `p` among my siblings.&#x3C;/p>
+  &#x3C;div>I am `div` #2.&#x3C;/div>
+  &#x3C;div>
+    I am `div` #3.
+    &#x3C;i>I am the only `i` child.&#x3C;/i>
+    &#x3C;em>I am `em` #1.&#x3C;/em>
+    &#x3C;em>I am `em` #2.&#x3C;/em>
+  &#x3C;/div>
+&#x3C;/main>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">main :only-of-type {
+  color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.only-child.html"><code>:only-child</code></a></li>
+  <li><a href="./css.selectors.first-of-type.html"><code>:first-of-type</code></a></li>
+  <li><a href="./css.selectors.last-of-type.html"><code>:last-of-type</code></a></li>
+  <li><a href="./css.selectors.nth-of-type.html"><code>:nth-of-type</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#only-of-type-pseudo">https://drafts.csswg.org/selectors/#only-of-type-pseudo</a></p></section></aside></body>
+</html>

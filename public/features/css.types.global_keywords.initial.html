@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>initial</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types global_keywords initial</h1><main>
+    
+
+<p>The <strong><code>initial</code></strong> CSS keyword applies the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial (or default) value</a> of a property to an element. It can be applied to any CSS property, including the CSS shorthand property <a href="./css.properties.all.html"><code>all</code></a>. With <code>all</code> set to <code>initial</code>, all CSS properties can be restored to their respective initial values in one go instead of restoring each one separately.</p>
+<p>On <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance#inherited_properties">inherited properties</a>, the initial value may be unexpected. You should consider using the <a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a>, <a href="./css.types.global_keywords.unset.html"><code>unset</code></a>, <a href="./css.types.global_keywords.revert.html"><code>revert</code></a>, or <a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a> keywords instead.</p>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  &#x3C;span>This text is red.&#x3C;/span>
+  &#x3C;em>This text is in the initial color (typically black).&#x3C;/em>
+  &#x3C;span>This is red again.&#x3C;/span>
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  color: red;
+}
+
+em {
+  color: initial;
+}
+</pre>
+<h4>Result</h4>
+<p>With the <code>initial</code> keyword in this example, <code>color</code> value on the <code>em</code> element is restored to the initial value of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition"><code>color</code></a>, as defined in the specification.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Use the <a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a> keyword to make an element's property the same as its parent.</li>
+  <li>Use the <a href="./css.types.global_keywords.revert.html"><code>revert</code></a> keyword to reset a property to the value established by the user-agent stylesheet (or by user styles, if any exist).</li>
+  <li>Use the <a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a> keyword to reset a property to the value established in a previous cascade layer.</li>
+  <li>Use the <a href="./css.types.global_keywords.unset.html"><code>unset</code></a> keyword to set a property to its inherited value if it inherits or to its initial value if not.</li>
+  <li>The <a href="./css.properties.all.html"><code>all</code></a> property lets you reset all properties to their initial, inherited, reverted, or unset state at once.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 13</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade/#initial">https://drafts.csswg.org/css-cascade/#initial</a></p></section></aside></body>
+</html>

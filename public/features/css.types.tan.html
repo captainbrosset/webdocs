@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>tan()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types tan()</h1><main>
+    
+
+<p>The <strong><code>tan()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is a trigonometric function that returns the tangent of a number, which is a value between <code>−infinity</code> and <code>infinity</code>. The function contains a single calculation that must resolve to either a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> by interpreting the result of the argument as radians.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single &#x3C;angle> values */
+width: calc(100px * tan(45deg));
+width: calc(100px * tan(0.125turn));
+width: calc(100px * tan(0.785398163rad));
+
+/* Single &#x3C;number> values */
+width: calc(100px * tan(0.5773502));
+width: calc(100px * tan(1.732 - 1));
+
+/* Other values */
+width: calc(100px * tan(pi / 3));
+width: calc(100px * tan(e));
+</pre>
+<h3>Parameter</h3>
+<p>The <code>tan(angle)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>angle</code></dt>
+  <dd>
+    <p>A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. When specifying unitless numbers they are interpreted as a number of radians, representing an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The tangent of an <code>angle</code> will always return a number between <code>−∞</code> and <code>+∞</code>.</p>
+<ul>
+  <li>If <code>angle</code> is <code>infinity</code>, <code>-infinity</code>, or <code>NaN</code>, the result is <code>NaN</code>.</li>
+  <li>If <code>angle</code> is <code>0⁻</code>, the result is <code>0⁻</code>.</li>
+  <li>If <code>angle</code> is one of the asymptote values (such as <code>90deg</code>, <code>270deg</code>, etc.), the result is <em>explicitly undefined</em>. Authors <em>must not</em> rely on <code>tan()</code> returning any particular value for these inputs.</li>
+</ul>
+
+
+<h3>Drawing parallelograms</h3>
+<p>The <code>tan()</code> function can be used to draw a parallelogram with a given bounding box.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="parallelogram">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</pre>
+<pre class="brush: css">.parallelogram {
+  --w: 400;
+  --h: 200;
+  --angle: 30deg;
+  position: relative;
+  width: calc(1px * var(--w));
+  height: calc(1px * var(--h));
+}
+.parallelogram::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 100% * var(--h) / var(--w) * tan(var(--angle)));
+  height: 100%;
+  transform-origin: 0 100%;
+  transform: skewX(calc(0deg - var(--angle)));
+  background-color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.sin.html"><code>sin()</code></a></li>
+  <li><a href="./css.types.cos.html"><code>cos()</code></a></li>
+  <li><a href="./css.types.asin.html"><code>asin()</code></a></li>
+  <li><a href="./css.types.acos.html"><code>acos()</code></a></li>
+  <li><a href="./css.types.atan.html"><code>atan()</code></a></li>
+  <li><a href="./css.types.atan2.html"><code>atan2()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 108</li><li><strong>firefox_android</strong>: 108</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#trig-funcs">https://drafts.csswg.org/css-values/#trig-funcs</a></p></section></aside></body>
+</html>

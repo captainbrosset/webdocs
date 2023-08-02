@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":autofill"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":autofill"</h1><main>
+    
+
+<p>The <strong><code>:autofill</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches when an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> element has its value autofilled by the browser. The class stops matching if the user edits the field.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The user agent style sheets of many browsers use <code>!important</code> in their <code>:-webkit-autofill</code> style declarations, making them non-overridable by webpages without resorting to JavaScript hacks. For example Chrome has the following in its internal stylesheet:</p>
+  <pre class="brush: css">background-color: rgb(232, 240, 254) !important;
+background-image: none !important;
+color: -internal-light-dark(black, white) !important;
+</pre>
+  <p>This means that you cannot set the <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.background-image.html"><code>background-image</code></a>, or <a href="./css.properties.color.html"><code>color</code></a> in your own rules.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:autofill {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<p>The following example demonstrates the use of the <code>:autofill</code> pseudo-class to change the border of a text field that has been autocompleted by the browser. For the best browser compatibility use both <code>:-webkit-autofill</code> and <code>:autofill</code>.</p>
+<pre class="brush: css">input {
+  border: 3px solid grey;
+  border-radius: 3px;
+}
+
+input:-webkit-autofill {
+  border: 3px solid blue;
+}
+input:autofill {
+  border: 3px solid blue;
+}
+</pre>
+<pre class="brush: html">&#x3C;form method="post" action="">
+  &#x3C;label for="email">Email&#x3C;/label>
+  &#x3C;input type="email" name="email" id="email" autocomplete="email" />
+&#x3C;/form>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://crbug.com/46543">Chromium issue 46543: Auto-filled input text box yellow background highlight cannot be turned off</a></li>
+  <li><a href="https://webkit.org/b/66032">WebKit bug 66032: Allow site authors to override autofilled fields' colors.</a></li>
+  <li><a href="https://bugzil.la/740979">Mozilla bug 740979: implement <code>:-moz-autofill</code> pseudo-class on input elements with an autofilled value</a></li>
+  <li><a href="https://wiki.csswg.org/spec/css4-ui#more-selectors">User Interface Module Level 4: more selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-autofill">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-autofill</a></p></section></aside></body>
+</html>

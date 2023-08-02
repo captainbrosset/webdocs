@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":right"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":right"</h1><main>
+    
+
+<p>The <strong><code>:right</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a>, used with the <a href="./css.at-rules.page.html"><code>@page</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>, represents all right-hand pages of a printed document.</p>
+<pre class="brush: css">/* Selects any right-hand pages when printing */
+@page :right {
+  margin: 2in 3in;
+}
+</pre>
+<p>Whether a given page is "left" or "right" is determined by the major writing direction of the document. For example, if the first page has a major writing direction of left-to-right then it will be a <code>:right</code> page; if it has a major writing direction of right-to-left then it will be a <a href="./css.selectors.left.html"><code>:left</code></a> page.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This pseudo-class can be used to change only the <a href="./css.properties.margin.html"><code>margin</code></a>, <a href="./css.properties.padding.html"><code>padding</code></a>, <a href="./css.properties.border.html"><code>border</code></a>, and <a href="./css.properties.background.html"><code>background</code></a> properties of the <em>page box</em>. All other properties will be ignored, and only the page box, not the document content on the page, will be affected.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:right {
+  /* ... */
+}
+</pre>
+
+<h3>Setting margins for right-hand pages</h3>
+<pre class="brush: css">@page :right {
+  margin: 2in 3in;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.page.html"><code>@page</code></a></li>
+  <li>Other page-related pseudo-classes: <a href="./css.selectors.first.html"><code>:first</code></a>, <a href="./css.selectors.left.html"><code>:left</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 6</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-page/#left-right-first">https://drafts.csswg.org/css-page/#left-right-first</a></p></section></aside></body>
+</html>

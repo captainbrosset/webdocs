@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-rendering</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-rendering</h1><main>
+    
+
+<p>The <strong><code>text-rendering</code></strong> CSS property provides information to the rendering engine about what to optimize for when rendering text.</p>
+<p>The browser makes trade-offs among speed, legibility, and geometric precision.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>text-rendering</code> property is an SVG property that is not defined in any CSS standard. However, Gecko and WebKit browsers let you apply this property to HTML and XML content on Windows, macOS, and Linux.</p>
+</div>
+<p>One very visible effect is <code>optimizeLegibility</code>, which enables ligatures (ff, fi, fl, etc.) in text smaller than 20px for some fonts (for example, Microsoft's <em>Calibri</em>, <em>Candara</em>, <em>Constantia</em>, and <em>Corbel</em>, or the <em>DejaVu</em> font family).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-rendering: auto;
+text-rendering: optimizeSpeed;
+text-rendering: optimizeLegibility;
+text-rendering: geometricPrecision;
+
+/* Global values */
+text-rendering: inherit;
+text-rendering: initial;
+text-rendering: revert;
+text-rendering: revert-layer;
+text-rendering: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>The browser makes educated guesses about when to optimize for speed, legibility, and geometric precision while drawing text. For differences in how this value is interpreted by the browser, see the compatibility table.</p>
+  </dd>
+  <dt><code>optimizeSpeed</code></dt>
+  <dd>
+    <p>The browser emphasizes rendering speed over legibility and geometric precision when drawing text. It disables kerning and ligatures.</p>
+  </dd>
+  <dt><code>optimizeLegibility</code></dt>
+  <dd>
+    <p>The browser emphasizes legibility over rendering speed and geometric precision. This enables kerning and optional ligatures.</p>
+  </dd>
+  <dt><code>geometricPrecision</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>The browser emphasizes geometric precision over rendering speed and legibility. Certain aspects of fonts — such as kerning — don't scale linearly. So this value can make text using those fonts look good.</p>
+    <p>In SVG, when text is scaled up or down, browsers calculate the final size of the text (which is determined by the specified font size and the applied scale) and request a font of that computed size from the platform's font system. But if you request a font size of, say, 9 with a scale of 140%, the resulting font size of 12.6 doesn't explicitly exist in the font system, so the browser rounds the font size to 12 instead. This results in stair-step scaling of text.</p>
+    <p>But the <code>geometricPrecision</code> property — when fully supported by the rendering engine — lets you scale your text fluidly. For large scale factors, you might see less-than-beautiful text rendering, but the size is what you would expect—neither rounded up nor down to the nearest font size supported by Windows or Linux.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> WebKit precisely applies the specified value, but Gecko treats the value the same as <code>optimizeLegibility</code>.</p>
+    </div>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>‘text’</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | optimizeSpeed | optimizeLegibility | geometricPrecision</pre></section>
+
+<h3>Automatic application of optimizeLegibility</h3>
+<p>This demonstrates how <code>optimizeLegibility</code> is used by browsers automatically when the <code>font-size</code> is smaller than <code>20px</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="small">LYoWAT - ff fi fl ffl&#x3C;/p>
+&#x3C;p class="big">LYoWAT - ff fi fl ffl&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.small {
+  font:
+    19.9px "Constantia",
+    "Times New Roman",
+    "Georgia",
+    "Palatino",
+    serif;
+}
+.big {
+  font:
+    20px "Constantia",
+    "Times New Roman",
+    "Georgia",
+    "Palatino",
+    serif;
+}
+</pre>
+
+<h3>optimizeSpeed vs. optimizeLegibility</h3>
+<p>This example shows the difference between the appearance of <code>optimizeSpeed</code> and <code>optimizeLegibility</code> (in your browser; other browsers may vary).</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="speed">LYoWAT - ff fi fl ffl&#x3C;/p>
+&#x3C;p class="legibility">LYoWAT - ff fi fl ffl&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  font:
+    1.5em "Constantia",
+    "Times New Roman",
+    "Georgia",
+    "Palatino",
+    serif;
+}
+
+.speed {
+  text-rendering: optimizeSpeed;
+}
+.legibility {
+  text-rendering: optimizeLegibility;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text">Drawing text in a <code>&#x3C;canvas></code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text_decoration">CSS Text Decoration</a> CSS module</li>
+  <li>Related CSS properties
+    <ul>
+      <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> (and its longhand properties, such as <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>, <a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a>, and <a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a>)</li>
+      <li><a href="./css.properties.text-emphasis.html"><code>text-emphasis</code></a> (and its longhand properties, including <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, <a href="./css.properties.text-emphasis-position.html"><code>text-emphasis-position</code></a>, and <a href="./css.properties.text-emphasis-style.html"><code>text-emphasis-style</code></a>)</li>
+      <li><a href="./css.properties.text-shadow.html"><code>text-shadow</code></a></li>
+      <li><a href="./css.properties.text-transform.html"><code>text-transform</code></a></li>
+    </ul>
+  </li>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG</a> <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-rendering"><code>text-rendering</code></a> attribute</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_and_CSS">SVG and CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 4</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 46</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://svgwg.org/svg2-draft/painting.html#TextRenderingProperty">https://svgwg.org/svg2-draft/painting.html#TextRenderingProperty</a></p></section></aside></body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@layer"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@layer"</h1><main>
+    
+
+<p>The <strong><code>@layer</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> is used to declare a cascade layer and can also be used to define the order of precedence in case of multiple cascade layers.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">@layer layer-name {rules}
+@layer layer-name;
+@layer layer-name, layer-name, layer-name;
+@layer {rules}
+</pre>
+<p>where:</p>
+<dl>
+  <dt><em>layer-name</em></dt>
+  <dd>
+    <p>Is the name of the cascade layer.</p>
+  </dd>
+  <dt><em>rules</em></dt>
+  <dd>
+    <p>Is the set of CSS rules in the cascade layer.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Rules within a cascade layer cascade together, giving more control over the cascade to web developers. Any styles not in a layer are gathered together and placed into a single anonymous layer that comes after all the declared layers, named and anonymous. This means that any styles declared outside of a layer will override styles declared in a layer, regardless of specificity.</p>
+<p>The <code>@layer</code> at-rule is used to create a cascade layer in one of three ways.</p>
+<p>The first way is to create a named cascade layer with the CSS rules for that layer inside, like so:</p>
+<pre class="brush: css">@layer utilities {
+  .padding-sm {
+    padding: 0.5rem;
+  }
+
+  .padding-lg {
+    padding: 0.8rem;
+  }
+}
+</pre>
+<p>The second way is to create a named cascade layer without assigning any styles. This can be a single layer, as shown below:</p>
+<pre class="brush: css">@layer utilities;
+</pre>
+<p>Multiple layers can be defined at once, as shown below:</p>
+<pre class="brush: css">@layer theme, layout, utilities;
+</pre>
+<p>This is useful because the initial order in which layers are declared indicates which layer has precedence. As with declarations, the last layer to be listed will win if declarations are found in multiple layers. Therefore, with the preceding example, if a competing rule was found in <code>theme</code> and <code>utilities</code>, the one in <code>utilities</code> would win and be applied.</p>
+<p>A rule in <code>utilities</code> would be applied <em>even if it has lower specificity</em> than the rule in <code>theme</code>. This is because once the layer order has been established, specificity and order of appearance are ignored. This enables the creation of simpler CSS selectors because you do not have to ensure that a selector will have high enough specificity to override competing rules; all you need to ensure is that it appears in a later layer.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Having declared your layer names, thus setting their order, you can add CSS rules to the layer by re-declaring the name. The styles are then appended to the layer and the layer order will not be changed.</p>
+</div>
+<p>The third way is to create a cascade layer with no name. For example:</p>
+<pre class="brush: css">@layer {
+  p {
+    margin-block: 1rem;
+  }
+}
+</pre>
+<p>This creates an <em>anonymous cascade layer</em>. This layer functions in the same way as named layers; however, rules cannot be assigned to it later. The order of precedence for anonymous layers is the order in which layers are declared, named or not, and lower than the styles declared outside of a layer.</p>
+<p>Another way to create a cascade layer is by using <a href="./css.at-rules.import.html"><code>@import</code></a>. In this case, the rules would be in the imported stylesheet. Remember that the <code>@import</code> at-rule must precede all other types of rules, except <code>@charset</code> and <code>@layer</code> rules.</p>
+<pre class="brush: css">@import "theme.css" layer(utilities);
+</pre>
+<h3>Nesting layers</h3>
+<p>Layers may be nested. For example:</p>
+<pre class="brush: css">@layer framework {
+  @layer layout {
+  }
+}
+</pre>
+<p>To append rules to the <code>layout</code> layer inside <code>framework</code>, join the two names with a <code>.</code>.</p>
+<pre class="brush: css">@layer framework.layout {
+  p {
+    margin-block: 1rem;
+  }
+}
+</pre>
+
+
+<h3>Simple example</h3>
+<p>In the following example, two CSS rules are created. One for the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element outside of any layer and one inside a layer named <code>type</code> for <code>.box p</code>.</p>
+<p>Without layers, the selector <code>.box p</code> would have the highest specificity, and therefore, the text <code>Hello, world!</code> will display in green. As the <code>type</code> layer comes before the anonymous layer created to hold non-layer content, the text will be purple.</p>
+<p>Also notice the order. Even though we declare the non-layered style first, it's still applied <em>after</em> the layer styles.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box">
+  &#x3C;p>Hello, world!&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  color: rebeccapurple;
+}
+
+@layer type {
+  .box p {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: green;
+  }
+}
+</pre>
+
+<h3>Assigning rules to existing layers</h3>
+<p>In the following example, two layers are created with no rules applied, then CSS rules are applied to the two layers. The <code>base</code> layer defines a <code>color</code>, <code>border</code>, <code>font-size</code>, and <code>padding</code>. The <code>special</code> layer defines a different color. As <code>special</code> comes last when the layers were defined, the color it provides is used and the text is displayed using <code>rebeccapurple</code>. All of the other rules from <code>base</code> still apply.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="item">
+  I am displayed in &#x3C;code>color: rebeccapurple&#x3C;/code> because the
+  &#x3C;code>special&#x3C;/code> layer comes after the &#x3C;code>base&#x3C;/code> layer. My green
+  border, font-size, and padding come from the &#x3C;code>base&#x3C;/code> layer.
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@layer base, special;
+
+@layer special {
+  .item {
+    color: rebeccapurple;
+  }
+}
+
+@layer base {
+  .item {
+    color: green;
+    border: 5px solid green;
+    font-size: 1.3em;
+    padding: 0.5em;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.import.html"><code>@import</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSLayerBlockRule"><code>CSSLayerBlockRule</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSLayerStatementRule"><code>CSSLayerStatementRule</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/important"><code>!important</code></a></li>
+  <li><a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">Introducing the CSS cascade</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">Cascade, specificity, and inheritance</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">Cascade layers</a></li>
+  <li><a href="https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/">The future of CSS: Cascade layers</a> on bram.us (2021)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 99</li><li><strong>chrome_android</strong>: 99</li><li><strong>edge</strong>: 99</li><li><strong>firefox</strong>: 97</li><li><strong>firefox_android</strong>: 97</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 21.0</li><li><strong>opera</strong>: 85</li><li><strong>opera_android</strong>: 68</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 18.0</li><li><strong>webview_android</strong>: 99</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade-5/#layering">https://drafts.csswg.org/css-cascade-5/#layering</a></p></section></aside></body>
+</html>

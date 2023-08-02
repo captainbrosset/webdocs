@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>lab()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color lab()</h1><main>
+    
+
+<p>The <strong><code>lab()</code></strong> functional notation expresses a given color in the CIE L*a*b* color space. Lab represents the entire range of color that humans can see.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">lab(29.2345% 39.3825 20.0664);
+lab(52.2345% 40.1645 59.9971);
+lab(52.2345% 40.1645 59.9971 / .5);
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>lab(L a b[ / A])</code></p>
+<dl>
+  <dt><code>L</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>0</code> and <code>100</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>0%</code> and <code>100%</code>, or the keyword <code>none</code>, which specifies the CIE Lightness. Here the number <code>0</code> corresponds to <code>0%</code> (black) and the number <code>100</code> corresponds to <code>100%</code> (white).</p>
+  </dd>
+  <dt><code>a</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>-125</code> and <code>125</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>-100%</code> and <code>100%</code>, or the keyword <code>none</code>, which specifies the distance along the <code>a</code> axis in the CIELAB colorspace, that is how green/red the color is.</p>
+  </dd>
+  <dt><code>b</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>-125</code> and <code>125</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>-100%</code> and <code>100%</code>, or the keyword <code>none</code>, which specifies the distance along the <code>b</code> axis in the CIELAB colorspace, that is how blue/yellow the color is.</p>
+  </dd>
+  <dt><code>A</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/alpha-value"><code>&lt;alpha-value&gt;()</code></a> or the keyword <code>none</code>, where the number <code>1</code> corresponds to <code>100%</code> (full opacity).</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> Usually when percentage values have a numeric equivalent in CSS, <code>100%</code> is equal to the number <code>1</code>.
+    This case is notable where <code>100%</code> is equal to the number <code>100</code> for the <code>L</code> value and <code>125</code> for the <code>a</code> and <code>b</code> values.
+  </p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#missing_color_components">Missing color components</a> for the effect of <code>none</code>.</p>
+</div>
+
+
+<h3>Adjusting lightness and color axes with lab()</h3>
+<p>The following example shows the effect of varying the lightness, a-axis, and b-axis values of the <code>lab()</code> function.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div data-color="red">&#x3C;/div>
+&#x3C;div data-color="red-a">&#x3C;/div>
+
+&#x3C;div data-color="green">&#x3C;/div>
+&#x3C;div data-color="green-b">&#x3C;/div>
+
+&#x3C;div data-color="blue">&#x3C;/div>
+&#x3C;div data-color="blue-light">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+</pre>
+<pre class="brush: css">[data-color="red"] {
+  background-color: lab(100 125 125);
+}
+[data-color="red-a"] {
+  background-color: lab(100 110 125);
+}
+
+[data-color="green"] {
+  background-color: lab(75% -120 125);
+}
+[data-color="green-b"] {
+  background-color: lab(75% -120 10);
+}
+
+[data-color="blue"] {
+  background-color: lab(0 -120 -120);
+}
+[data-color="blue-light"] {
+  background-color: lab(70 -120 -120);
+}
+</pre>
+
+<h3>Adjusting opacity with lab()</h3>
+<p>
+  The following example shows the effect of varying the <code>A</code> (alpha) value of the <code>lab()</code> functional notation.
+  The <code>red</code> and <code>red-alpha</code> elements overlap the <code>#background-div</code> element to demonstrate the effect of opacity.
+  Giving <code>A</code> a value of <code>0.4</code> makes the color 40% opaque.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="background-div">
+  &#x3C;div data-color="red">&#x3C;/div>
+  &#x3C;div data-color="red-alpha">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#background-div {
+  background-color: lightblue;
+  width: 150px;
+  height: 40px;
+}
+</pre>
+<pre class="brush: css">[data-color="red"] {
+  background-color: lab(100 125 125);
+}
+[data-color="red-alpha"] {
+  background-color: lab(100 125 125 / 0.4);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.types.color.html"><code>&#x3C;color></code> data type</a> for a list of all color notations</li>
+  <li><a href="https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/">LCH colors in CSS: what, why, and how?</a></li>
+  <li><a href="https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/">Safari Technology Preview 122 release notes</a>: includes <code>lab()</code> and <a href="./css.types.color.lch.html"><code>lch()</code></a> colors</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 113</li><li><strong>firefox_android</strong>: 113</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15</li><li><strong>safari_ios</strong>: 15</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#lab-colors">https://drafts.csswg.org/css-color/#lab-colors</a></p></section></aside></body>
+</html>

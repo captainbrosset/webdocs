@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variant-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-variant-position</h1><main>
+    
+
+<p>The <strong><code>font-variant-position</code></strong> CSS property controls the use of alternate, smaller glyphs that are positioned as superscript or subscript.</p>
+<p>The glyphs are positioned relative to the baseline of the font, which remains unchanged. These glyphs are typically used in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub"><code>&lt;sub&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"><code>&lt;sup&gt;</code></a> elements.</p>
+<p>When the usage of these alternate glyphs is activated, if one character in the run doesn't have such a typographically-enhanced glyph, the whole set of characters of the run is rendered using a fallback method, synthesizing these glyphs.</p>
+<p>These alternate glyphs share the same em-box and the same baseline as the rest of the font. They are merely graphically enhanced, and have no effect on the line-height and other box characteristics.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-variant-position: normal;
+font-variant-position: sub;
+font-variant-position: super;
+
+/* Global values */
+font-variant-position: inherit;
+font-variant-position: initial;
+font-variant-position: revert;
+font-variant-position: revert-layer;
+font-variant-position: unset;
+</pre>
+<p>The <code>font-variant-position</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Deactivates alternate superscript and subscript glyphs.</p>
+  </dd>
+  <dt><code>sub</code></dt>
+  <dd>
+    <p>Activates subscript alternate glyphs. If, in a given run, one such glyph is not available for a character, all the characters in the run are rendered using synthesized glyphs.</p>
+  </dd>
+  <dt><code>super</code></dt>
+  <dd>
+    <p>Activates superscript alternate glyphs. If, in a given run, one such glyph is not available for a character, all the characters in the run are rendered using synthesized glyphs.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | sub | super</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="normal">Normal!&#x3C;/p>
+&#x3C;p class="super">Super!&#x3C;/p>
+&#x3C;p class="sub">Sub!&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  display: inline;
+}
+
+.normal {
+  font-variant-position: normal;
+}
+
+.super {
+  font-variant-position: super;
+}
+
+.sub {
+  font-variant-position: sub;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a></li>
+  <li><a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a></li>
+  <li><a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a></li>
+  <li><a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a></li>
+  <li><a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a></li>
+  <li><a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-variant-position-prop">https://drafts.csswg.org/css-fonts/#font-variant-position-prop</a></p></section></aside></body>
+</html>

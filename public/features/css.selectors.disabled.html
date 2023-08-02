@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":disabled"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":disabled"</h1><main>
+    
+
+<p>The <strong><code>:disabled</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents any disabled element. An element is disabled if it can't be activated (selected, clicked on, typed into, etc.) or accept focus. The element also has an enabled state, in which it can be activated or accept focus.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:disabled {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<p>This example shows a basic shipping form. It uses the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event"><code>change</code></a> event to let the user enable/disable the billing fields.</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;form action="#">
+  &#x3C;fieldset id="shipping">
+    &#x3C;legend>Shipping address&#x3C;/legend>
+    &#x3C;input type="text" placeholder="Name" />
+    &#x3C;input type="text" placeholder="Address" />
+    &#x3C;input type="text" placeholder="Zip Code" />
+  &#x3C;/fieldset>
+  &#x3C;br />
+  &#x3C;fieldset id="billing">
+    &#x3C;legend>Billing address&#x3C;/legend>
+    &#x3C;label for="billing-checkbox">Same as shipping address:&#x3C;/label>
+    &#x3C;input type="checkbox" id="billing-checkbox" checked />
+    &#x3C;br />
+    &#x3C;input type="text" placeholder="Name" disabled />
+    &#x3C;input type="text" placeholder="Address" disabled />
+    &#x3C;input type="text" placeholder="Zip Code" disabled />
+  &#x3C;/fieldset>
+&#x3C;/form>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">input[type="text"]:disabled {
+  background: #ccc;
+}
+</pre>
+<h3>JavaScript</h3>
+<pre class="brush: js">// Wait for the page to finish loading
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    // Attach `change` event listener to checkbox
+    document.getElementById("billing-checkbox").onchange = toggleBilling;
+  },
+  false,
+);
+
+function toggleBilling() {
+  // Select the billing text fields
+  const billingItems = document.querySelectorAll('#billing input[type="text"]');
+
+  // Toggle the billing text fields
+  billingItems.forEach((item) => {
+    item.disabled = !item.disabled;
+  });
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.enabled.html"><code>:enabled</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-disabled,https://drafts.csswg.org/selectors/#enableddisabled">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-disabled,https://drafts.csswg.org/selectors/#enableddisabled</a></p></section></aside></body>
+</html>

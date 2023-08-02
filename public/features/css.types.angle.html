@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;angle&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;angle></h1><main>
+    
+
+<p>The <strong><code>&#x3C;angle></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents an angle value expressed in degrees, gradians, radians, or turns. It is used, for example, in <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;</code></a>s and in some <a href="./css.properties.transform.html"><code>&lt;transform&gt;</code></a> functions.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;angle></code> data type consists of a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by one of the units listed below. As with all dimensions, there is no space between the unit literal and the number. The angle unit is optional after the number <code>0</code>.</p>
+<p>Optionally, it may be preceded by a single <code>+</code> or <code>-</code> sign. Positive numbers represent clockwise angles, while negative numbers represent counterclockwise angles. For static properties of a given unit, any angle can be represented by various equivalent values. For example, <code>90deg</code> equals <code>-270deg</code>, and <code>1turn</code> equals <code>4turn</code>. For dynamic properties, like when applying an <a href="./css.properties.animation.html"><code>&lt;animation&gt;</code></a> or <a href="./css.properties.transition.html"><code>&lt;transition&gt;</code></a>, the effect will nevertheless be different.</p>
+<h3>Units</h3>
+<dl>
+  <dt><code>deg</code></dt>
+  <dd>
+    <p>Represents an angle in <a href="https://en.wikipedia.org/wiki/Degree_%28angle%29">degrees</a>. One full circle is <code>360deg</code>. Examples: <code>0deg</code>, <code>90deg</code>, <code>14.23deg</code>.</p>
+  </dd>
+  <dt><code>grad</code></dt>
+  <dd>
+    <p>Represents an angle in <a href="https://en.wikipedia.org/wiki/Gradian">gradians</a>. One full circle is <code>400grad</code>. Examples: <code>0grad</code>, <code>100grad</code>, <code>38.8grad</code>.</p>
+  </dd>
+  <dt><code>rad</code></dt>
+  <dd>
+    <p>Represents an angle in <a href="https://en.wikipedia.org/wiki/Radian">radians</a>. One full circle is 2π radians which approximates to <code>6.2832rad</code>. <code>1rad</code> is 180/π degrees. Examples: <code>0rad</code>, <code>1.0708rad</code>, <code>6.2832rad</code>.</p>
+  </dd>
+  <dt><code>turn</code></dt>
+  <dd>
+    <p>Represents an angle in a number of turns. One full circle is <code>1turn</code>. Examples: <code>0turn</code>, <code>0.25turn</code>, <code>1.2turn</code>.</p>
+  </dd>
+</dl>
+
+<h3>Setting a clockwise right angle</h3>
+<table class="standard-table">
+  <tbody>
+    <tr>
+      <td>
+        <img class="default internal" src="https://developer.mozilla.org/en-US/docs/Web/CSS/angle/angle90.png">
+      </td>
+      <td><code>90deg = 100grad = 0.25turn ≈ 1.5708rad</code></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Setting a flat angle</h3>
+<table class="standard-table">
+  <tbody>
+    <tr>
+      <td>
+        <img class="default internal" src="https://developer.mozilla.org/en-US/docs/Web/CSS/angle/angle180.png">
+      </td>
+      <td><code>180deg = 200grad = 0.5turn ≈ 3.1416rad</code></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Setting a counterclockwise right angle</h3>
+<table class="standard-table">
+  <tbody>
+    <tr>
+      <td>
+        <img class="default internal" src="https://developer.mozilla.org/en-US/docs/Web/CSS/angle/angleminus90.png">
+      </td>
+      <td><code>-90deg = -100grad = -0.25turn ≈ -1.5708rad</code></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Setting a null angle</h3>
+<table class="standard-table">
+  <tbody>
+    <tr>
+      <td>
+        <img class="default internal" src="https://developer.mozilla.org/en-US/docs/Web/CSS/angle/angle0.png">
+      </td>
+      <td><code>0 = 0deg = 0grad = 0turn = 0rad</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">CSS data types</a></li>
+  <li>The <a href="./css.types.image.gradient.html"><code>&#x3C;gradient></code></a> type</li>
+  <li>CSS rotation transforms: <a href="./css.types.transform-function.rotate.html"><code>rotate()</code></a>, <a href="./css.types.transform-function.rotate3d.html"><code>rotate3d()</code></a>, <a href="./css.types.transform-function.rotateX.html"><code>rotateX()</code></a>, <a href="./css.types.transform-function.rotateY.html"><code>rotateY()</code></a>, and <a href="./css.types.transform-function.rotateZ.html"><code>rotateZ()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms">CSS transforms</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.6</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#angles">https://drafts.csswg.org/css-values/#angles</a></p></section></aside></body>
+</html>

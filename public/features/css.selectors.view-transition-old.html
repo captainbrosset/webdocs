@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::view-transition-old"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::view-transition-old"</h1><main>
+    
+
+<p>The <strong><code>::view-transition-old</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents the "old" view state of a view transition — a static screenshot of the old view, before the transition.</p>
+<p>During a view transition, <code>::view-transition-old</code> is included in the associated pseudo-element tree as explained in <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">The view transition process</a>, provided there's an "old" view state to represent. It is only ever a child of a <a href="./css.selectors.view-transition-image-pair.html"><code>::view-transition-image-pair</code></a>, and never has any children.</p>
+<p>It is a replaced element, and therefore can be manipulated with properties such as <a href="./css.properties.object-fit.html"><code>object-fit</code></a> and <a href="./css.properties.object-position.html"><code>object-position</code></a>. It has natural dimensions equal to the content's size.</p>
+<p>The following default styling is included in the UA stylesheet:</p>
+<pre class="brush: css">@keyframes -ua-view-transition-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+html::view-transition-old(*) {
+  position: absolute;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: auto;
+
+  animation-name: -ua-view-transition-fade-out;
+  animation-duration: inherit;
+  animation-fill-mode: inherit;
+}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> Additional view transition style sheet styles are also setup to animate <code>::view-transition-old</code>. These are dynamically generated during the view transition; see the specification <a href="https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements">setup transition pseudo-elements</a> and <a href="https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles">update pseudo-element styles</a> sections for more details.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">::view-transition-old(&#x3C;pt-name-selector>) {
+  /* ... */
+}
+</pre>
+<p><code>&#x3C;pt-name-selector></code> can be one of the following values:</p>
+<dl>
+  <dt><code>*</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match all view transition groups.</p>
+  </dd>
+  <dt><code>root</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match the default <code>root</code> view transition group created by the user agent to contain the view transition for the overall page, meaning any element not assigned to its own specific view transition group via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a></dt>
+  <dd>
+    <p>Causes the pseudo-element to match a specific view transition group created by assigning the given <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a> to an element via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<pre class="brush: css">figcaption {
+  view-transition-name: figure-caption;
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shrink-x {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+::view-transition-old(figure-caption),
+::view-transition-new(figure-caption) {
+  height: auto;
+  right: 0;
+  left: auto;
+  transform-origin: right center;
+}
+
+::view-transition-old(figure-caption) {
+  animation: 0.25s linear both shrink-x;
+}
+
+::view-transition-new(figure-caption) {
+  animation: 0.25s 0.25s linear both grow-x;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transitions API</a></li>
+  <li><a href="https://developer.chrome.com/docs/web-platform/view-transitions/">Smooth and simple transitions with the View Transitions API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-view-transitions/#::view-transition-old">https://drafts.csswg.org/css-view-transitions/#::view-transition-old</a></p></section></aside></body>
+</html>

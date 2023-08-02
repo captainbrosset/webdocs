@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-margin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-margin</h1><main>
+    
+
+<p>The <strong><code>scroll-margin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets all of the scroll margins of an element at once, assigning values much like the <a href="./css.properties.margin.html"><code>margin</code></a> property does for margins of an element.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.scroll-margin-bottom.html"><code>scroll-margin-bottom</code></a></li>
+  <li><a href="./css.properties.scroll-margin-left.html"><code>scroll-margin-left</code></a></li>
+  <li><a href="./css.properties.scroll-margin-right.html"><code>scroll-margin-right</code></a></li>
+  <li><a href="./css.properties.scroll-margin-top.html"><code>scroll-margin-top</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+scroll-margin: 10px;
+scroll-margin: 1em 0.5em 1em 1em;
+
+/* Global values */
+scroll-margin: inherit;
+scroll-margin: initial;
+scroll-margin: revert;
+scroll-margin: revert-layer;
+scroll-margin: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>An outset from the corresponding edge of the scroll container.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>You can see the effect of <code>scroll-margin</code> by scrolling to a point partway between two of the "pages" of the example's content. The value specified for <code>scroll-margin</code> determines how much of the page that's primarily outside the snapport should remain visible.</p>
+<p>Thus, the <code>scroll-margin</code> values represent outsets defining the scroll snap area that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container's coordinate space), then adding the specified outsets.</p>
+
+
+
+<h3>Simple demonstration</h3>
+<p>This example implements something very similar to the interactive example above, except that here we'll explain to you how it's implemented.</p>
+<p>The aim here is to create four horizontally-scrolling blocks, the second and third of which snap into place, near but not quite at the left of each block.</p>
+<h4>HTML</h4>
+<p>The HTML that represents the blocks is very simple:</p>
+<pre class="brush: html">&#x3C;div class="scroller">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>Let's walk through the CSS. The outer container is styled like this:</p>
+<pre class="brush: css">.scroller {
+  text-align: left;
+  width: 250px;
+  height: 250px;
+  overflow-x: scroll;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  scroll-snap-type: x mandatory;
+}
+</pre>
+<p>The main parts relevant to the scroll snapping are <code>overflow-x: scroll</code>, which makes sure the contents will scroll and not be hidden, and <code>scroll-snap-type: x mandatory</code>, which dictates that scroll snapping must occur along the horizontal axis, and the scrolling will always come to rest on a snap point.</p>
+<p>The child elements are styled as follows:</p>
+<pre class="brush: css">.scroller > div {
+  flex: 0 0 250px;
+  width: 250px;
+  background-color: #663399;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(2n) {
+  background-color: #fff;
+  color: #663399;
+}
+</pre>
+<p>The most relevant part here is <code>scroll-snap-align: start</code>, which specifies that the left-hand edges (the "starts" along the x axis, in our case) are the designated snap points.</p>
+<p>Last of all we specify the scroll margin-values, a different one for the second and third child elements:</p>
+<pre class="brush: css">.scroller > div:nth-child(2) {
+  scroll-margin: 1rem;
+}
+
+.scroller > div:nth-child(3) {
+  scroll-margin: 2rem;
+}
+</pre>
+<p>This means that when scrolling past the middle child elements, the scrolling will snap to <code>1rem</code> outside the left edge of the second <code>&#x3C;div></code>, and <code>2rems</code> outside the left edge of the third <code>&#x3C;div></code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Here we are setting <code>scroll-margin</code> on all sides at once, but only the start edge is really relevant. It would work just as well here to only set a scroll margin on that one edge, for example with <code>scroll-margin-inline-start: 1rem</code>, or <code>scroll-margin: 0 0 0 1rem</code>.</p>
+</div>
+<h4>Result</h4>
+<p>Try it for yourself:</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">CSS scroll snap</a></li>
+  <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS scroll snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-snap/#scroll-margin">https://drafts.csswg.org/css-scroll-snap/#scroll-margin</a></p></section></aside></body>
+</html>

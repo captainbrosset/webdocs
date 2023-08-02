@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;time-percentage&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;time-percentage></h1><main>
+    
+
+<p>The <strong><code>&#x3C;time-percentage></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a value that can be either a <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>.</p>
+<h2>Syntax</h2>
+<p>Refer to the documentation for <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> and <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> for details of the individual syntaxes allowed by this type.</p>
+
+
+<h3>Use in calc()</h3>
+<p>Where a <code>&#x3C;time-percentage></code> is specified as an allowable type, this means that the percentage resolves to a time and therefore can be used in a <a href="./css.types.calc.html"><code>calc()</code></a> expression.</p>
+<h3>Valid percentages</h3>
+<pre class="brush: plain example-good">50%
++50%        Optional plus sign
+-50%        Negative percentages are not valid for all properties that accept percentages
+</pre>
+<h3>Invalid percentages</h3>
+<pre class="brush: plain example-bad">50 %        Space not allowed between the number and the percentage sign
+</pre>
+<h3>Valid times</h3>
+<pre class="brush: plain example-good">12s         Positive integer
+-456ms      Negative integer
+4.3ms       Non-integer
+14mS        The unit is case-insensitive, although capital letters are not recommended.
++0s         Zero with a leading + and a unit
+-0ms        Zero with a leading - and a unit
+</pre>
+<h3>Invalid times</h3>
+<pre class="brush: plain example-bad">0           Although unitless zero is allowed for &#x3C;length>s, it's invalid for &#x3C;time>s.
+12.0        This is a &#x3C;number>, not a &#x3C;time>, because it's missing a unit.
+7 ms        No space is allowed between the number and the unit.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></li>
+  <li><a href="./css.types.time.html"><code>&lt;time&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.1</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#mixed-percentages">https://drafts.csswg.org/css-values/#mixed-percentages</a></p></section></aside></body>
+</html>

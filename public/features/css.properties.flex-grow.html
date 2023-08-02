@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>flex-grow</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties flex-grow</h1><main>
+    
+
+<p>The <strong><code>flex-grow</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the flex grow factor, which specifies how much of the flex container's remaining space should be assigned to the flex item's <a href="https://www.w3.org/TR/css-flexbox/#main-size">main size</a>.</p>
+<p>When the flex-container's main size is larger than the combined main size's of the flex items, the extra space is distributed among the flex items, with each item growth being their growth factor value as a proportion of the sum total of all the container's items' flex grow factors.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;number> values */
+flex-grow: 3;
+flex-grow: 0.6;
+
+/* Global values */
+flex-grow: inherit;
+flex-grow: initial;
+flex-grow: revert;
+flex-grow: revert-layer;
+flex-grow: unset;
+</pre>
+<p>The <code>flex-grow</code> property is specified as a single <code>&#x3C;number></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>See <a href="./css.types.number.html"><code>&lt;number&gt;</code></a>. Negative values are invalid. Defaults to 0.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>This property specifies how much of the remaining space in the flex container should be assigned to the item (the flex grow factor).</p>
+<p>The <a href="https://www.w3.org/TR/css-flexbox/#main-size">main size</a> is either width or height of the item which is dependent on the <a href="./css.properties.flex-direction.html"><code>flex-direction</code></a> value.</p>
+<p>The remaining space is the size of the flex container minus the size of all flex items' sizes together. If all sibling items have the same flex grow factor, then all items will receive the same share of remaining space, otherwise it is distributed according to the ratio defined by the different flex grow factors.</p>
+<p><code>flex-grow</code> is used alongside the other flex properties <a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a> and <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a>, and normally defined using the <a href="./css.properties.flex.html"><code>flex</code></a> shorthand to ensure all values are set.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>flex items</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified number</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;number [0,∞]&gt;</pre></section>
+
+<h3>Setting flex item grow factor</h3>
+<p>In this example, there is a total of 8 growth factors distributed among the 6 flex items, meaning each growth factor is 12.5% of the remaining space.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h4>This is a Flex-Grow&#x3C;/h4>
+&#x3C;h5>A,B,C and F are flex-grow:1 . D and E are flex-grow:2 .&#x3C;/h5>
+&#x3C;div id="content">
+  &#x3C;div class="small" style="background-color:red;">A&#x3C;/div>
+  &#x3C;div class="small" style="background-color:lightblue;">B&#x3C;/div>
+  &#x3C;div class="small" style="background-color:yellow;">C&#x3C;/div>
+  &#x3C;div class="double" style="background-color:brown;">D&#x3C;/div>
+  &#x3C;div class="double" style="background-color:lightgreen;">E&#x3C;/div>
+  &#x3C;div class="small" style="background-color:brown;">F&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#content {
+  display: flex;
+
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+.small {
+  flex-grow: 1;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.double {
+  flex-grow: 2;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+}
+</pre>
+<h4>Result</h4>
+<p>When the six flex items are distributed along the container's main axis, if the sum of the main content of those flex items is less than the size of the container's main axis, the extra space is distributed among the size flex items, with A, B, C, and F, each getting 12.5% of the remaining space and D and E each getting 25% of the extra space.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis">Controlling Ratios of flex items along the main axis</a></em></li>
+  <li><a href="https://css-tricks.com/flex-grow-is-weird/"><code>flex-grow</code> is weird. Or is it?</a> article by Manuel Matuzovic on CSS-Tricks, which illustrates how flex-grow works</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 20</li><li><strong>firefox_android</strong>: 20</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-flexbox/#flex-grow-property">https://drafts.csswg.org/css-flexbox/#flex-grow-property</a></p></section></aside></body>
+</html>

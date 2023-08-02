@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>atan2()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types atan2()</h1><main>
+    
+
+<p>The <strong><code>atan2()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is a trigonometric function that returns the inverse tangent of two values between <code>-infinity</code> and <code>infinity</code>. The function accepts two arguments and returns the number of radians representing an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> between <code>-180deg</code> and <code>180deg</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Two &#x3C;number> values */
+transform: rotate(atan2(3, 2));
+
+/* Two &#x3C;dimension> values */
+transform: rotate(atan2(1rem, -0.5rem));
+
+/* Two &#x3C;percentage> values */
+transform: rotate(atan2(20%, -30%));
+
+/* Other values */
+transform: rotate(atan2(pi, 45));
+transform: rotate(atan2(e, 30));
+</pre>
+<h3>Parameters</h3>
+<p>The <code>atan2(y, x)</code> function accepts two comma-separated values as its parameters. Each value can be a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, a <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. Both values must be of the same type, although if they are <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a> they can be of different units (example: <code>atan2(100px, 5vw)</code> is valid).</p>
+<dl>
+  <dt><code>y</code></dt>
+  <dd>
+    <p>The y-coordinate of the point. A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, a <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>.</p>
+  </dd>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>The x-coordinate of the point. A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, a <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>Given two values <code>x</code> and <code>y</code>, the function <code>atan2(y, x)</code> calculates and returns the <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> between the positive x-axis and the ray from the origin to the point <code>(x, y)</code>.</p>
+
+
+<h3>Rotate elements</h3>
+<p>The <code>atan2()</code> function can be used to <a href="./css.types.transform-function.rotate.html"><code>rotate</code></a> elements as it return an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box box-1">&#x3C;/div>
+&#x3C;div class="box box-2">&#x3C;/div>
+&#x3C;div class="box box-3">&#x3C;/div>
+&#x3C;div class="box box-4">&#x3C;/div>
+&#x3C;div class="box box-5">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+</pre>
+<pre class="brush: css">div.box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(orange, red);
+}
+div.box-1 {
+  transform: rotate(atan2(3, 2));
+}
+div.box-2 {
+  transform: rotate(atan2(3%, -2%));
+}
+div.box-3 {
+  transform: rotate(atan2(-1, 0.5));
+}
+div.box-4 {
+  transform: rotate(atan2(1, 0.5));
+}
+div.box-5 {
+  transform: rotate(atan2(1rem, -0.5rem));
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.sin.html"><code>sin()</code></a></li>
+  <li><a href="./css.types.cos.html"><code>cos()</code></a></li>
+  <li><a href="./css.types.tan.html"><code>tan()</code></a></li>
+  <li><a href="./css.types.asin.html"><code>asin()</code></a></li>
+  <li><a href="./css.types.acos.html"><code>acos()</code></a></li>
+  <li><a href="./css.types.atan.html"><code>atan()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 108</li><li><strong>firefox_android</strong>: 108</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#trig-funcs">https://drafts.csswg.org/css-values/#trig-funcs</a></p></section></aside></body>
+</html>

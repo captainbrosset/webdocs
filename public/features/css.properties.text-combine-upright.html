@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-combine-upright</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-combine-upright</h1><main>
+    
+
+<p>The <strong><code>text-combine-upright</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the combination of characters into the space of a single character. If the combined text is wider than 1em, the user agent must fit the contents within 1em. The resulting composition is treated as a single upright glyph for layout and decoration. This property only has an effect in vertical writing modes.</p>
+<p>This is used to produce an effect that is known as tate-chū-yoko <q lang="ja">縦中横</q> in Japanese, or as <q lang="zh-Hant">橫向文字</q> in Chinese.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-combine-upright: none;
+text-combine-upright: all;
+
+/* Digits values */
+text-combine-upright: digits; /* fits 2 consecutive digits horizontally inside vertical text */
+text-combine-upright: digits 4; /* fits up to 4 consecutive digits horizontally inside vertical text */
+
+/* Global values */
+text-combine-upright: inherit;
+text-combine-upright: initial;
+text-combine-upright: revert;
+text-combine-upright: revert-layer;
+text-combine-upright: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>There is no special processing.</p>
+  </dd>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>Attempts to typeset all consecutive characters within the box horizontally, such that they take up the space of a single character within the vertical line of the box.</p>
+  </dd>
+  <dt><code>digits &#x3C;integer>?</code></dt>
+  <dd>
+    <p>Attempts to display a sequence of consecutive ASCII digits (U+0030–U+0039) that has as many or fewer characters than the specified integer, such that it takes up the space of a single character within the vertical line box. If the integer is omitted, it computes to 2. Integers outside the range of 2-4 are invalid.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>inline boxes and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword, plus integer if digits</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | all | [ digits &lt;integer [2,4]&gt;? ]</pre></section>
+
+<h3>Using 'all' with horizontal text</h3>
+<p>The all value requires markup around every piece of horizontal text, but it is currently supported by more browsers than the digits value.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p lang="zh-Hant">
+  民國&#x3C;span class="num">105&#x3C;/span>年&#x3C;span class="num">4&#x3C;/span>月&#x3C;span
+    class="num"
+    >29&#x3C;/span
+  >日
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">html {
+  writing-mode: vertical-rl;
+  font: 24px serif;
+}
+.num {
+  text-combine-upright: all;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 48</li><li><strong>firefox_android</strong>: 48</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-writing-modes/#text-combine-upright">https://drafts.csswg.org/css-writing-modes/#text-combine-upright</a></p></section></aside></body>
+</html>

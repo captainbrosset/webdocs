@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow-block</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow-block</h1><main>
+    
+
+<p>The <strong><code>overflow-block</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets what shows when content overflows the block start and block end edges of a box. This may be nothing, a scroll bar, or the overflow content.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>overflow-block</code> property maps to <a href="./css.properties.overflow-y.html"><code>overflow-y</code></a> or <a href="./css.properties.overflow-x.html"><code>overflow-x</code></a> depending on the writing mode of the document.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overflow-block: visible;
+overflow-block: hidden;
+overflow-block: clip;
+overflow-block: scroll;
+overflow-block: auto;
+
+/* Global values */
+overflow-block: inherit;
+overflow-block: initial;
+overflow-block: revert;
+overflow-block: revert-layer;
+overflow-block: unset;
+</pre>
+<p>The <code>overflow-block</code> property is specified as a single <a href="./css.types.overflow.html"><code>&lt;overflow&gt;</code></a> keyword value:</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>Content is not clipped and may be rendered outside the padding box's block start and block end edges.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>Content is clipped if necessary to fit the block dimension in the padding box. No scrollbars are provided.</p>
+  </dd>
+  <dt><code>clip</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's overflow clip edge that is defined using the <a href="./css.properties.overflow-clip-margin.html"><code>overflow-clip-margin</code></a> property.</p>
+  </dd>
+  <dt><code>scroll</code></dt>
+  <dd>
+    <p>Content is clipped if necessary to fit in the block dimension in the padding box. Browsers display scrollbars whether or not any content is actually clipped. (This prevents scrollbars from appearing or disappearing when the content changes.) Printers may still print overflowing content.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Depends on the user agent. If content fits inside the padding box, it looks the same as <code>visible</code>, but still establishes a new block-formatting context.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>visible</td></tr><tr><th scope="row">Applies to</th><td>block containers [CSS2], flex containers [CSS3-FLEXBOX], grid containers [CSS3-GRID-LAYOUT]</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>usually specified value, but see text</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>visible | hidden | clip | scroll | auto</pre></section>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>
+    &#x3C;code>overflow-block: hidden&#x3C;/code> (hides the text outside the box)
+    &#x3C;div id="hidden">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-block: scroll&#x3C;/code> (always adds a scrollbar)
+    &#x3C;div id="scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-block: clip&#x3C;/code> (hides the text outside the box beyond the
+    overflow clip edge)
+    &#x3C;div id="clip">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-block: visible&#x3C;/code> (displays the text outside the box if
+    needed)
+    &#x3C;div id="visible">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-block: auto&#x3C;/code> (on most browsers, equivalent to
+    &#x3C;code>scroll&#x3C;/code>)
+    &#x3C;div id="auto">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  border: 1px solid black;
+  width: 250px;
+  height: 100px;
+  margin-bottom: 120px;
+}
+
+#hidden {
+  overflow-block: hidden;
+}
+#scroll {
+  overflow-block: scroll;
+}
+#scroll {
+  overflow-block: clip;
+}
+#visible {
+  overflow-block: visible;
+}
+#auto {
+  overflow-block: auto;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-overflow.html"><code>text-overflow</code></a>, <a href="./css.properties.white-space.html"><code>white-space</code></a>, <a href="./css.properties.overflow.html"><code>overflow</code></a>, <a href="./css.properties.overflow-inline.html"><code>overflow-inline</code></a>, <a href="./css.properties.overflow-x.html"><code>overflow-x</code></a>, <a href="./css.properties.overflow-y.html"><code>overflow-y</code></a>, <a href="./css.properties.clip.html"><code>clip</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS logical properties</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling">CSS scrollbars style</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_writing_modes">CSS writing modes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content">CSS building blocks: Overflowing content</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 69</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#overflow-control">https://drafts.csswg.org/css-overflow/#overflow-control</a></p></section></aside></body>
+</html>

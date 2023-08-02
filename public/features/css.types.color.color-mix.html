@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>color-mix()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color color-mix()</h1><main>
+    
+
+<p>The <strong><code>color-mix()</code></strong> functional notation takes two <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> values and returns the result of mixing them in a given colorspace by a given amount.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">color-mix(in lch, plum, pink);
+color-mix(in lch, plum 40%, pink);
+color-mix(in srgb, #34c9eb 20%, white);
+color-mix(in hsl longer hue, hsl(120 100% 50%) 20%, white);
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>color-mix(method, color1[ p1], color2[ p2])</code></p>
+<dl>
+  <dt><code>method</code></dt>
+  <dd>
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method"><code>&lt;color-interpolation-method&gt;()</code></a> specifying the interpolation color space.</p>
+  </dd>
+  <dt><code>color1</code>, <code>color2</code></dt>
+  <dd>
+    <p><a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> values to mix.</p>
+  </dd>
+  <dt><code>p1</code>, <code>p2</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p><a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> values between <code>0%</code> and <code>100%</code>, specifying the amount of each color to mix. They are normalized as follows:</p>
+    <ul>
+      <li>If both <code>p1</code> and <code>p2</code> are omitted, then <code>p1 = p2 = 50%</code>.</li>
+      <li>If <code>p1</code> is omitted, then <code>p1 = 100% - p2</code>.</li>
+      <li>If <code>p2</code> is omitted, then <code>p2 = 100% - p1</code>.</li>
+      <li>If <code>p1 = p2 = 0%</code>, the function is invalid.</li>
+      <li>If <code>p1 + p2 ≠ 100%</code>, then <code>p1' = p1 / (p1 + p2)</code> and <code>p2' = p2 / (p1 + p2)</code>, where <code>p1'</code> and <code>p2'</code> are the normalization results.</li>
+    </ul>
+  </dd>
+</dl>
+
+
+<h3>Mixing two colors</h3>
+<p>In a supporting browser, the items have more blue, and therefore less white, as a higher percentage of <code>#34c9eb</code> is mixed in. When no value is given, the percentage defaults to 50%.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>0%&#x3C;/li>
+  &#x3C;li>25%&#x3C;/li>
+  &#x3C;li>50%&#x3C;/li>
+  &#x3C;li>75%&#x3C;/li>
+  &#x3C;li>100%&#x3C;/li>
+  &#x3C;li>&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 150%;
+  gap: 10px;
+  border: 2px solid;
+  padding: 10px;
+}
+
+li {
+  padding: 10px;
+  flex: 1;
+  box-sizing: border-box;
+  font-family: monospace;
+  outline: 1px solid #34c9eb;
+  text-align: center;
+}
+</pre>
+<pre class="brush: css">li:nth-child(1) {
+  background-color: color-mix(in srgb, #34c9eb 0%, white);
+}
+
+li:nth-child(2) {
+  background-color: color-mix(in srgb, #34c9eb 25%, white);
+}
+
+li:nth-child(3) {
+  background-color: color-mix(in srgb, #34c9eb 50%, white);
+}
+
+li:nth-child(4) {
+  background-color: color-mix(in srgb, #34c9eb 75%, white);
+}
+
+li:nth-child(5) {
+  background-color: color-mix(in srgb, #34c9eb 100%, white);
+}
+
+li:nth-child(6) {
+  background-color: color-mix(in srgb, #34c9eb, white);
+}
+</pre>
+
+<h3>Using hue interpolation in color-mix()</h3>
+<p>
+  When using shorter hue interpolation, the resulting hue angle is halfway between the input angles when taking the shortest route around the color wheel.
+  The longer hue interpolation method results in a hue angle which is the midpoint when taking the longer route around the color wheel.
+  For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method"><code>&lt;hue-interpolation-method&gt;()</code></a>.
+</p>
+<pre class="brush: html">&#x3C;div class="color-one">color one&#x3C;/div>
+&#x3C;div class="color-two">color two&#x3C;/div>
+&#x3C;div class="shorter">mixed shorter&#x3C;/div>
+&#x3C;div class="longer">mixed longer&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  flex-wrap: wrap;
+}
+div {
+  border: 1px solid;
+  font: bold 150% monospace;
+  height: 100px;
+  margin: 10px 5%;
+  width: 30%;
+}
+</pre>
+<pre class="brush: css">.color-one {
+  background-color: hsl(10 100% 50%);
+}
+.color-two {
+  background-color: hsl(60 100% 50%);
+}
+.shorter {
+  background-color: color-mix(
+    in hsl shorter hue,
+    hsl(10 100% 50%),
+    hsl(60 100% 50%)
+  );
+}
+.longer {
+  background-color: color-mix(
+    in hsl longer hue,
+    hsl(10 100% 50%),
+    hsl(60 100% 50%)
+  );
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&lt;color&gt;()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method"><code>&lt;color-interpolation-method&gt;()</code></a></li>
+  <li><a href="./css.types.hue.html"><code>&lt;hue&gt;()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 113</li><li><strong>firefox_android</strong>: 113</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color-5/#color-mix">https://drafts.csswg.org/css-color-5/#color-mix</a></p></section></aside></body>
+</html>

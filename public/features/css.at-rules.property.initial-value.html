@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>initial-value</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules property initial-value</h1><main>
+    
+
+<p>The <strong><code>initial-value</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> descriptor is required when using the <a href="./css.at-rules.property.html"><code>@property</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> unless the syntax accepts any valid token stream. It sets the initial-value for the property.</p>
+<p>The value chosen as the <code>initial-value</code> must parse correctly according to the syntax definition. Therefore, if syntax is <code>&#x3C;color></code> then the initial-value must be a valid <a href="./css.properties.color.html"><code>color</code></a> value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">@property --property-name {
+  syntax: "&#x3C;color>";
+  inherits: false;
+  initial-value: #c0ffee;
+}
+
+@property --property-name {
+  syntax: "&#x3C;color>";
+  inherits: true;
+  initial-value: #c0ffee;
+}
+</pre>
+<h2>Values</h2>
+<p>A string with a value which is a correct value for the chosen <code>syntax</code>.</p>
+
+
+<h2>Examples</h2>
+<p>Add type checking to <code>--my-color</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"><code>custom property</code></a>, as a color, the initial-value being a valid color:</p>
+<p>Using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="./css.at-rules.property.html"><code>@property</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>:</p>
+<pre class="brush: css">@property --my-color {
+  syntax: "&#x3C;color>";
+  inherits: false;
+  initial-value: #c0ffee;
+}
+</pre>
+<p>Using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/registerProperty"><code>CSS.registerProperty</code></a>:</p>
+<pre class="brush: js">window.CSS.registerProperty({
+  name: "--my-color",
+  syntax: "&#x3C;color>",
+  inherits: false,
+  initialValue: "#c0ffee",
+});
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Properties_and_Values_API">CSS Properties and Values API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API">CSS Painting API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API">CSS Typed Object Model</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Houdini">CSS Houdini</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: preview</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: 16.4</li><li><strong>safari_ios</strong>: 16.4</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.css-houdini.org/css-properties-values-api/#initial-value-descriptor">https://drafts.css-houdini.org/css-properties-values-api/#initial-value-descriptor</a></p></section></aside></body>
+</html>

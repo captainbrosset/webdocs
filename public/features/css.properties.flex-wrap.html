@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>flex-wrap</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties flex-wrap</h1><main>
+    
+
+<p>The <strong><code>flex-wrap</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Using CSS flexible boxes</a> for more properties and information.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">flex-wrap: nowrap; /* Default value */
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+
+/* Global values */
+flex-wrap: inherit;
+flex-wrap: initial;
+flex-wrap: revert;
+flex-wrap: revert-layer;
+flex-wrap: unset;
+</pre>
+<p>The <code>flex-wrap</code> property is specified as a single keyword chosen from the list of values below.</p>
+<h3>Values</h3>
+<p>The following values are accepted:</p>
+<dl>
+  <dt><code>nowrap</code></dt>
+  <dd>
+    <p>The flex items are laid out in a single line which may cause the flex container to overflow. The <strong>cross-start</strong> is either equivalent to <strong>start</strong> or <strong>before</strong> depending on the <a href="./css.properties.flex-direction.html"><code>flex-direction</code></a> value. This is the default value.</p>
+  </dd>
+  <dt><code>wrap</code></dt>
+  <dd>
+    <p>The flex items break into multiple lines. The <strong>cross-start</strong> is either equivalent to <strong>start</strong> or <strong>before</strong> depending <code>flex-direction</code> value and the <strong>cross-end</strong> is the opposite of the specified <strong>cross-start</strong>.</p>
+  </dd>
+  <dt><code>wrap-reverse</code></dt>
+  <dd>
+    <p>Behaves the same as <code>wrap</code> but <strong>cross-start</strong> and <strong>cross-end</strong> are permuted.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>nowrap</td></tr><tr><th scope="row">Applies to</th><td>flex containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>nowrap | wrap | wrap-reverse</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h4>This is an example for flex-wrap:wrap&#x3C;/h4>
+&#x3C;div class="content">
+  &#x3C;div class="red">1&#x3C;/div>
+  &#x3C;div class="green">2&#x3C;/div>
+  &#x3C;div class="blue">3&#x3C;/div>
+&#x3C;/div>
+&#x3C;h4>This is an example for flex-wrap:nowrap&#x3C;/h4>
+&#x3C;div class="content1">
+  &#x3C;div class="red">1&#x3C;/div>
+  &#x3C;div class="green">2&#x3C;/div>
+  &#x3C;div class="blue">3&#x3C;/div>
+&#x3C;/div>
+&#x3C;h4>This is an example for flex-wrap:wrap-reverse&#x3C;/h4>
+&#x3C;div class="content2">
+  &#x3C;div class="red">1&#x3C;/div>
+  &#x3C;div class="green">2&#x3C;/div>
+  &#x3C;div class="blue">3&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Common Styles */
+.content,
+.content1,
+.content2 {
+  color: #fff;
+  font: 100 24px/100px sans-serif;
+  height: 150px;
+  width: 897px;
+  text-align: center;
+}
+
+.content div,
+.content1 div,
+.content2 div {
+  height: 50%;
+  width: 300px;
+}
+.red {
+  background: orangered;
+}
+.green {
+  background: yellowgreen;
+}
+.blue {
+  background: steelblue;
+}
+
+/* Flexbox Styles */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content1 {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.content2 {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items">Mastering wrapping of flex items</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 28</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 17</li><li><strong>opera_android</strong>: 18</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-flexbox/#flex-wrap-property">https://drafts.csswg.org/css-flexbox/#flex-wrap-property</a></p></section></aside></body>
+</html>

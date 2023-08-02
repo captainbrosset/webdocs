@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-emphasis</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-emphasis</h1><main>
+    
+
+<p>The <strong><code>text-emphasis</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property applies emphasis marks to text (except spaces and control characters). It is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> for <a href="./css.properties.text-emphasis-style.html"><code>text-emphasis-style</code></a> and <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>.</p>
+<p>The <code>text-emphasis</code> property is quite different from <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a>. The <code>text-decoration</code> property does not inherit, and the decoration specified is applied across the whole element. However, text-emphasis does inherit, which means it is possible to change emphasis marks for descendants.</p>
+<p>The size of the emphasis symbol, like ruby symbols, is about 50% of the size of the font, and <code>text-emphasis</code> may affect line height when the current leading is not enough for the marks.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>text-emphasis</code> doesn't reset the value of <a href="./css.properties.text-emphasis-position.html"><code>text-emphasis-position</code></a>. This is because if the style and the color of emphasis marks may vary in a text, it is extremely unlikely that their position will. In the very rare cases when this is needed, use the property <a href="./css.properties.text-emphasis-position.html"><code>text-emphasis-position</code></a>.</p>
+</div>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a></li>
+  <li><a href="./css.properties.text-emphasis-style.html"><code>text-emphasis-style</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Initial value */
+text-emphasis: none; /* No emphasis marks */
+
+/* &#x3C;string> value */
+text-emphasis: "x";
+text-emphasis: "点";
+text-emphasis: "\25B2";
+text-emphasis: "*" #555;
+text-emphasis: "foo"; /* Should NOT use. It may be computed to or rendered as 'f' only */
+
+/* Keywords value */
+text-emphasis: filled;
+text-emphasis: open;
+text-emphasis: filled sesame;
+text-emphasis: open sesame;
+
+/* Keywords value combined with a color */
+text-emphasis: filled sesame #555;
+
+/* Global values */
+text-emphasis: inherit;
+text-emphasis: initial;
+text-emphasis: revert;
+text-emphasis: revert-layer;
+text-emphasis: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No emphasis marks.</p>
+  </dd>
+  <dt><code>filled</code></dt>
+  <dd>
+    <p>The shape is filled with solid color. If neither <code>filled</code> nor <code>open</code> is present, this is the default.</p>
+  </dd>
+  <dt><code>open</code></dt>
+  <dd>
+    <p>The shape is hollow.</p>
+  </dd>
+  <dt><code>dot</code></dt>
+  <dd>
+    <p>Display small circles as marks. The filled dot is <code>'•'</code> (<code>U+2022</code>), and the open dot is <code>'◦'</code> (<code>U+25E6</code>).</p>
+  </dd>
+  <dt><code>circle</code></dt>
+  <dd>
+    <p>Display large circles as marks. The filled circle is <code>'●'</code> (<code>U+25CF</code>), and the open circle is <code>'○'</code> (<code>U+25CB</code>). This is the default shape in horizontal writing modes when no other shape is given.</p>
+  </dd>
+  <dt><code>double-circle</code></dt>
+  <dd>
+    <p>Display double circles as marks. The filled double-circle is <code>'◉'</code> (<code>U+25C9</code>), and the open double-circle is <code>'◎'</code> (<code>U+25CE</code>).</p>
+  </dd>
+  <dt><code>triangle</code></dt>
+  <dd>
+    <p>Display triangles as marks. The filled triangle is <code>'▲'</code> (<code>U+25B2</code>), and the open triangle is <code>'△'</code> (<code>U+25B3</code>).</p>
+  </dd>
+  <dt><code>sesame</code></dt>
+  <dd>
+    <p>Display sesames as marks. The filled sesame is <code>'﹅'</code> (<code>U+FE45</code>), and the open sesame is <code>'﹆'</code> (<code>U+FE46</code>). This is the default shape in vertical writing modes when no other shape is given.</p>
+  </dd>
+  <dt><code>&#x3C;string></code></dt>
+  <dd>
+    <p>Display the given string as marks. Authors should not specify more than one <em>character</em> in <code>&#x3C;string></code>. The UA may truncate or ignore strings consisting of more than one grapheme cluster.</p>
+  </dd>
+  <dt><code>&#x3C;color></code></dt>
+  <dd>
+    <p>Defines the color of the mark. If no color is present, it defaults to <code>currentcolor</code>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>A heading with emphasis shape and color</h3>
+<p>This example draws a heading with triangles used to emphasize each character.</p>
+<h4>CSS</h4>
+<pre class="brush: css">h2 {
+  text-emphasis: triangle #d55;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>This is important!&#x3C;/h2>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The longhand properties <a href="./css.properties.text-emphasis-style.html"><code>text-emphasis-style</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>.</li>
+  <li>The <a href="./css.properties.text-emphasis-position.html"><code>text-emphasis-position</code></a> property allowing to define the position of the emphasis marks.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 46</li><li><strong>firefox_android</strong>: 46</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor/#text-emphasis-property">https://drafts.csswg.org/css-text-decor/#text-emphasis-property</a></p></section></aside></body>
+</html>

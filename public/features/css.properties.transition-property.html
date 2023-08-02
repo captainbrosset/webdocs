@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>transition-property</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties transition-property</h1><main>
+    
+
+<p>The <strong><code>transition-property</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the CSS properties to which a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">transition effect</a> should be applied.</p>
+<p>If you specify a shorthand property (e.g., <a href="./css.properties.background.html"><code>background</code></a>), all of its longhand sub-properties that can be animated will be.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+transition-property: none;
+transition-property: all;
+
+/* &#x3C;custom-ident> values */
+transition-property: test_05;
+transition-property: -specific;
+transition-property: sliding-vertically;
+
+/* Multiple values */
+transition-property: test1, animation4;
+transition-property: all, height, color;
+transition-property:
+  all,
+  -moz-specific,
+  sliding;
+
+/* Global values */
+transition-property: inherit;
+transition-property: initial;
+transition-property: revert;
+transition-property: revert-layer;
+transition-property: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No properties will transition.</p>
+  </dd>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>All properties that can transition will.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a></dt>
+  <dd>
+    <p>A string identifying the property to which a transition effect should be applied when its value changes.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>all</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none else a list of identifiers</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;single-transition-property&gt;#</pre></section>
+
+<h3>Simple example</h3>
+<p>This example performs a four-second font size transition when the user hovers over the element, the <code>transition-property</code> is the <code>font-size</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;a class="target">Hover over me&#x3C;/a>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.target {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 4s;
+}
+
+.target:hover {
+  font-size: 36px;
+}
+</pre>
+<p>You will find more examples of <code>transition-property</code> included in the main <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">CSS transitions</a> article.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">Using CSS transitions</a></li>
+  <li><a href="./css.properties.transition.html"><code>transition</code></a></li>
+  <li><a href="./css.properties.transition-duration.html"><code>transition-duration</code></a></li>
+  <li><a href="./css.properties.transition-timing-function.html"><code>transition-timing-function</code></a></li>
+  <li><a href="./css.properties.transition-delay.html"><code>transition-delay</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/TransitionEvent"><code>TransitionEvent</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transitions/#transition-property-property">https://drafts.csswg.org/css-transitions/#transition-property-property</a></p></section></aside></body>
+</html>

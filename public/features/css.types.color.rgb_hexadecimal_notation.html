@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;hex-color&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color &#x3C;hex-color></h1><main>
+    
+
+<p>The <strong><code>&#x3C;hex-color></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> is a notation for describing the <em>hexadecimal color syntax</em> of an <a href="https://developer.mozilla.org/en-US/docs/Glossary/RGB">sRGB</a> color using its primary color components (red, green, blue) written as hexadecimal numbers, as well as its transparency.</p>
+<p>A <code>&#x3C;hex-color></code> value can be used everywhere where a <a href="./css.types.color.html"><code>&#x3C;color></code></a> can be used.</p>
+<h2>Syntax</h2>
+<pre class="brush: plain">#RGB        // The three-value syntax
+#RGBA       // The four-value syntax
+#RRGGBB     // The six-value syntax
+#RRGGBBAA   // The eight-value syntax
+</pre>
+<h3>Value</h3>
+<dl>
+  <dt><code>R</code> or <code>RR</code></dt>
+  <dd>
+    <p>The <em>red</em> component of the color, as a case-insensitive hexadecimal number between <code>0</code> and <code>ff</code> (255). If there is only one number, it is duplicated: <code>1</code> means <code>11</code>.</p>
+  </dd>
+  <dt><code>G</code> or <code>GG</code></dt>
+  <dd>
+    <p>The <em>green</em> component of the color, as a case-insensitive hexadecimal number between <code>0</code> and <code>ff</code> (255). If there is only one number, it is duplicated: <code>c</code> means <code>cc</code>.</p>
+  </dd>
+  <dt><code>B</code> or <code>BB</code></dt>
+  <dd>
+    <p>The <em>blue</em> component of the color, as a case-insensitive hexadecimal number between <code>0</code> and <code>ff</code> (255). If there is only one number, it is duplicated: <code>9</code> means <code>99</code>.</p>
+  </dd>
+  <dt><code>A</code> or <code>AA</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>The <em>alpha</em> component of the color, indicating its transparency, as a case-insensitive hexadecimal number between <code>0</code> and <code>ff</code> (255). If there is only one number, it is duplicated: <code>e</code> means <code>ee</code>. <code>0</code>, or <code>00</code>, represents a fully transparent color, and <code>f</code>, or <code>ff</code>, a fully opaque one.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The syntax is case-insensitive: <code>#00ff00</code> is the same as <code>#00FF00</code>.</p>
+</div>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;span>
+  #f09
+  &#x3C;div class="c1">&#x3C;/div>
+&#x3C;/span>
+&#x3C;span>
+  #F09
+  &#x3C;div class="c2">&#x3C;/div>
+&#x3C;/span>
+&#x3C;span>
+  #ff0099
+  &#x3C;div class="c3">&#x3C;/div>
+&#x3C;/span>
+&#x3C;span>
+  #FF0099
+  &#x3C;div class="c4">&#x3C;/div>
+&#x3C;/span>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  justify-content: space-evenly;
+}
+</pre>
+<pre class="brush: css">div {
+  width: 40px;
+  height: 40px;
+}
+.c1 {
+  background: #f09;
+}
+.c2 {
+  background: #f09;
+}
+.c3 {
+  background: #ff0099;
+}
+.c4 {
+  background: #ff0099;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&#x3C;color></code></a>: the color data type</li>
+  <li><a href="./css.types.color.rgb.html"><code>rgb()</code></a>: the function allowing to set the three components of the color, as well as its transparency, using decimal values</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#hex-notation">https://drafts.csswg.org/css-color/#hex-notation</a></p></section></aside></body>
+</html>

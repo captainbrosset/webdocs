@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>shape-outside</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties shape-outside</h1><main>
+    
+
+<p>The <strong><code>shape-outside</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap. By default, inline content wraps around its margin box; <code>shape-outside</code> provides a way to customize this wrapping, making it possible to wrap text around complex objects rather than simple boxes.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+shape-outside: none;
+shape-outside: margin-box;
+shape-outside: content-box;
+shape-outside: border-box;
+shape-outside: padding-box;
+
+/* Function values */
+shape-outside: circle();
+shape-outside: ellipse();
+shape-outside: inset(10px 10px 10px 10px);
+shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
+shape-outside: path("M100,0 A100,100 0 1,1 100,200 A100,100 0 1,1 100,0");
+
+/* &#x3C;url> value */
+shape-outside: url(image.png);
+
+/* &#x3C;gradient> value */
+shape-outside: linear-gradient(45deg, #fff 150px, red 150px);
+
+/* Global values */
+shape-outside: inherit;
+shape-outside: initial;
+shape-outside: revert;
+shape-outside: revert-layer;
+shape-outside: unset;
+</pre>
+<p>The <code>shape-outside</code> property is specified using the values from the list below, which define the <em>float area</em> for <em>float elements</em>. The float area determines the shape around which inline content (float elements) wrap.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The float area is unaffected. Inline content wraps around the element's margin box, like usual.</p>
+  </dd>
+  <dt><code>&#x3C;shape-box></code></dt>
+  <dd>
+    <p>The float area is computed according to the shape of a float element's edges (as defined by the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">CSS box model</a>). This can be <code>margin-box</code>, <code>border-box</code>, <code>padding-box</code>, or <code>content-box</code>. The shape includes any curvature created by the <a href="./css.properties.border-radius.html"><code>border-radius</code></a> property (behavior which is similar to <a href="./css.properties.background-clip.html"><code>background-clip</code></a>).</p>
+    <dl>
+      <dt><code>margin-box</code></dt>
+      <dd>
+        <p>Defines the shape enclosed by the outside margin edge. The corner radii of this shape are determined by the corresponding <a href="./css.properties.border-radius.html"><code>border-radius</code></a> and <a href="./css.properties.margin.html"><code>margin</code></a> values. If the <code>border-radius / margin</code> ratio is <code>1</code> or more, then the margin box corner radius is <code>border-radius + margin</code>. If the ratio is less than <code>1</code>, then the margin box corner radius is <code>border-radius + (margin * (1 + (ratio - 1) ^ 3))</code>.</p>
+      </dd>
+      <dt><code>border-box</code></dt>
+      <dd>
+        <p>Defines the shape enclosed by the outside border edge. The shape follows the normal border radius shaping rules for the outside of the border.</p>
+      </dd>
+      <dt><code>padding-box</code></dt>
+      <dd>
+        <p>Defines the shape enclosed by the outside padding edge. The shape follows the normal border radius shaping rules for the inside of the border.</p>
+      </dd>
+      <dt><code>content-box</code></dt>
+      <dd>
+        <p>Defines the shape enclosed by the outside content edge. Each corner radius of this box is the larger of <code>0</code> or <code>border-radius - border-width - padding</code>.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><a href="./css.types.basic-shape.html"><code>&lt;basic-shape&gt;</code></a></dt>
+  <dd>
+    <p>The float area is computed based on the shape created by of one of <a href="./css.types.basic-shape.inset.html"><code>inset()</code></a>, <a href="./css.types.basic-shape.circle.html"><code>circle()</code></a>, <a href="./css.types.basic-shape.ellipse.html"><code>ellipse()</code></a>, <a href="./css.types.basic-shape.polygon.html"><code>polygon()</code></a> or, as added in the level 2 specification, <code>path()</code>. If a <code>&#x3C;shape-box></code> is also supplied, it defines the reference box for the <code>&#x3C;basic-shape></code> function. Otherwise, the reference box defaults to <code>margin-box</code>.</p>
+  </dd>
+  <dt><a href="./css.types.image.html"><code>&lt;image&gt;</code></a></dt>
+  <dd>
+    <p>The float area is extracted and computed based on the alpha channel of the specified <a href="./css.types.image.html"><code>&lt;image&gt;</code></a> as defined by <a href="./css.properties.shape-image-threshold.html"><code>shape-image-threshold</code></a>.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the image is invalid, the effect is as if the keyword <code>none</code> had been specified. Additionally, the image must be served with <a href="/Glossary/CORS">CORS</a> headers allowing its use.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>floats</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as defined for &lt;basic-shape&gt; (with &lt;shape-box&gt; following, if supplied); else the computed &lt;image&gt;; else the keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>as defined for &lt;basic-shape&gt;, otherwise discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | [ &lt;basic-shape&gt; || &lt;shape-box&gt; ] | &lt;image&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="main">
+  &#x3C;div class="left">&#x3C;/div>
+  &#x3C;div class="right">&#x3C;/div>
+  &#x3C;p>
+    Sometimes a web page's text content appears to be funneling your attention
+    towards a spot on the page to drive you to follow a particular link.
+    Sometimes you don't notice.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.main {
+  width: 530px;
+}
+
+.left,
+.right {
+  background-color: lightgray;
+  height: 12ex;
+  width: 40%;
+}
+
+.left {
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  float: left;
+  shape-outside: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.right {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  float: right;
+  shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+p {
+  text-align: center;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes">CSS shapes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes/Overview_of_shapes">Overview of shapes</a></li>
+  <li><a href="./css.types.basic-shape.html"><code>&lt;basic-shape&gt;</code></a></li>
+  <li><a href="./css.properties.shape-margin.html"><code>shape-margin</code></a></li>
+  <li><a href="./css.properties.shape-image-threshold.html"><code>shape-image-threshold</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 37</li><li><strong>chrome_android</strong>: 37</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 62</li><li><strong>firefox_android</strong>: 62</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 24</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-shapes/#shape-outside-property">https://drafts.csswg.org/css-shapes/#shape-outside-property</a></p></section></aside></body>
+</html>

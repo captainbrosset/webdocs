@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media width</h1><main>
+    
+
+<p>The <strong><code>width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> can be used to test the width of the <a href="/Glossary/viewport">viewport</a> (or the page box, for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media">paged media</a>).</p>
+<h2>Syntax</h2>
+<p>The <code>width</code> feature is specified as a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value representing the viewport width. It is a range feature, meaning that you can also use the prefixed <strong><code>min-width</code></strong> and <strong><code>max-width</code></strong> variants to query minimum and maximum values, respectively.</p>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>Watch this element as you resize your viewport's width.&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">/* Exact width */
+@media (width: 360px) {
+  div {
+    color: red;
+  }
+}
+
+/* Minimum width */
+@media (min-width: 35rem) {
+  div {
+    background: yellow;
+  }
+}
+
+/* Maximum width */
+@media (max-width: 50rem) {
+  div {
+    border: 2px solid blue;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using media queries</a></li>
+  <li><a href="./css.at-rules.media.html">@media</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 2</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#width">https://drafts.csswg.org/mediaqueries/#width</a></p></section></aside></body>
+</html>

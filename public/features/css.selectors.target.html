@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":target"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":target"</h1><main>
+    
+
+<p>The <strong><code>:target</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents a unique element (the <em>target element</em>) with an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> matching the URL's fragment.</p>
+<pre class="brush: css">/* Selects an element with an ID matching the current URL's fragment */
+:target {
+  border: 2px solid black;
+}
+</pre>
+<p>For example, the following URL has a fragment (denoted by the <em>#</em> sign) that points to an element called <code>section2</code>:</p>
+<pre class="brush: url">http://www.example.com/index.html#section2
+</pre>
+<p>The following element would be selected by a <code>:target</code> selector when the current URL is equal to the above:</p>
+<pre class="brush: html">&#x3C;section id="section2">Example&#x3C;/section>
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">:target {
+  /* ... */
+}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> Due to <a href="https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070">a possible bug in the CSS specification</a>, <code>:target</code> doesn't work within a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web component</a> because the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot">shadow root</a> doesn't pass the target element down to the shadow tree.</p>
+</div>
+
+<h3>A table of contents</h3>
+<p>The <code>:target</code> pseudo-class can be used to highlight the portion of a page that has been linked to from a table of contents.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h3>Table of Contents&#x3C;/h3>
+&#x3C;ol>
+  &#x3C;li>&#x3C;a href="#p1">Jump to the first paragraph!&#x3C;/a>&#x3C;/li>
+  &#x3C;li>&#x3C;a href="#p2">Jump to the second paragraph!&#x3C;/a>&#x3C;/li>
+  &#x3C;li>
+    &#x3C;a href="#nowhere">
+      This link goes nowhere, because the target doesn't exist.
+    &#x3C;/a>
+  &#x3C;/li>
+&#x3C;/ol>
+
+&#x3C;h3>My Fun Article&#x3C;/h3>
+&#x3C;p id="p1">
+  You can target &#x3C;i>this paragraph&#x3C;/i> using a URL fragment. Click on the link
+  above to try out!
+&#x3C;/p>
+&#x3C;p id="p2">
+  This is &#x3C;i>another paragraph&#x3C;/i>, also accessible from the links above. Isn't
+  that delightful?
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p:target {
+  background-color: gold;
+}
+
+/* Add a pseudo-element inside the target element */
+p:target::before {
+  font: 70% sans-serif;
+  content: "►";
+  color: limegreen;
+  margin-right: 0.25em;
+}
+
+/* Style italic elements within the target element */
+p:target i {
+  color: red;
+}
+</pre>
+
+<h3>Pure-CSS lightbox</h3>
+<p>You can use the <code>:target</code> pseudo-class to create a lightbox without using any JavaScript. This technique relies on the ability of anchor links to point to elements that are initially hidden on the page. Once targeted, the CSS changes their <code>display</code> so that they are shown.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> A more complete pure-CSS lightbox based on the <code>:target</code> pseudo-class is <a href="https://github.com/madmurphy/takefive.css/">available on GitHub</a> (<a href="https://madmurphy.github.io/takefive.css/">demo</a>).</p>
+</div>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>&#x3C;a href="#example1">Open example #1&#x3C;/a>&#x3C;/li>
+  &#x3C;li>&#x3C;a href="#example2">Open example #2&#x3C;/a>&#x3C;/li>
+&#x3C;/ul>
+
+&#x3C;div class="lightbox" id="example1">
+  &#x3C;figure>
+    &#x3C;a href="#" class="close">&#x3C;/a>
+    &#x3C;figcaption>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis enim,
+      placerat id eleifend eu, semper vel sem.
+    &#x3C;/figcaption>
+  &#x3C;/figure>
+&#x3C;/div>
+
+&#x3C;div class="lightbox" id="example2">
+  &#x3C;figure>
+    &#x3C;a href="#" class="close">&#x3C;/a>
+    &#x3C;figcaption>
+      Cras risus odio, pharetra nec ultricies et, mollis ac augue. Nunc et diam
+      quis sapien dignissim auctor. Quisque quis neque arcu, nec gravida magna.
+    &#x3C;/figcaption>
+  &#x3C;/figure>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Unopened lightbox */
+.lightbox {
+  display: none;
+}
+
+/* Opened lightbox */
+.lightbox:target {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lightbox content */
+.lightbox figcaption {
+  width: 25rem;
+  position: relative;
+  padding: 1.5em;
+  background-color: lightpink;
+}
+
+/* Close button */
+.lightbox .close {
+  position: relative;
+  display: block;
+}
+
+.lightbox .close::after {
+  right: -1rem;
+  top: -1rem;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  content: "×";
+  cursor: pointer;
+}
+
+/* Lightbox overlay */
+.lightbox .close::before {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  content: "";
+  cursor: default;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors">Using the :target pseudo-class in selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-target,https://drafts.csswg.org/selectors/#the-target-pseudo">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-target,https://drafts.csswg.org/selectors/#the-target-pseudo</a></p></section></aside></body>
+</html>

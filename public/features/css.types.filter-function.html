@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;filter-function&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;filter-function></h1><main>
+    
+
+<p>The <strong><code>&#x3C;filter-function></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a graphical effect that can change the appearance of an input image. It is used in the <a href="./css.properties.filter.html"><code>&lt;filter&gt;</code></a> and <a href="./css.properties.backdrop-filter.html"><code>&lt;backdrop-filter&gt;</code></a> properties.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;filter-function></code> data type is specified using one of the filter functions listed below. Each function requires an argument which, if invalid, results in no filter being applied.</p>
+<dl>
+  <dt><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></dt>
+  <dd>
+    <p>Blurs the image.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></dt>
+  <dd>
+    <p>Makes the image brighter or darker.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></dt>
+  <dd>
+    <p>Increases or decreases the image's contrast.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></dt>
+  <dd>
+    <p>Applies a drop shadow behind the image.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></dt>
+  <dd>
+    <p>Converts the image to grayscale.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></dt>
+  <dd>
+    <p>Changes the overall hue of the image.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></dt>
+  <dd>
+    <p>Inverts the colors of the image.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></dt>
+  <dd>
+    <p>Makes the image transparent.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></dt>
+  <dd>
+    <p>Super-saturates or desaturates the input image.</p>
+  </dd>
+  <dt><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></dt>
+  <dd>
+    <p>Converts the image to sepia.</p>
+  </dd>
+</dl>
+
+
+<h3>Filter function comparison</h3>
+<p>This example provides a simple graphic, along with a select menu to allow you to choose between the different types of filter function, and a slider to allow you to vary the values used inside the filter function. Updating the controls updates the filter effect in real time, allowing you to investigate the effects of different filters.</p>
+<pre class="brush: css">div {
+  width: 300px;
+  height: 300px;
+  background: url(firefox.png) no-repeat center;
+  filter: &#x3C;filter-function>(&#x3C;value>);
+}
+</pre>
+<p>
+  Where the <code>&#x3C;filter-function></code> is the filter you select from the drop down and the <code>&#x3C;value></code> is the values you set with the slider:
+  '
+  <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/types/filterfunctions.html"></iframe>
+</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Properties that use this data type: <a href="./css.properties.filter.html"><code>&lt;filter&gt;</code></a> and <a href="./css.properties.backdrop-filter.html"><code>&lt;backdrop-filter&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#typedef-filter-function">https://drafts.fxtf.org/filter-effects/#typedef-filter-function</a></p></section></aside></body>
+</html>

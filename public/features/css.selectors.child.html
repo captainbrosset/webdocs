@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Child combinator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors Child combinator</h1><main>
+    
+
+<p>The <strong>child combinator</strong> (<code>></code>) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first.</p>
+<pre class="brush: css">/* List items that are children of the "my-things" list */
+ul.my-things > li {
+  margin: 2em;
+}
+</pre>
+<p>Elements matched by the second selector must be the immediate children of the elements matched by the first selector. This is stricter than the <a href="./css.selectors.descendant.html">descendant combinator</a>, which matches all elements matched by the second selector for which there exists an ancestor element matched by the first selector, regardless of the number of "hops" up the DOM.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">selector1 > selector2 { style properties }
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">span {
+  background-color: aqua;
+}
+
+div > span {
+  background-color: yellow;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;span>
+    Span #1, in the div.
+    &#x3C;span>Span #2, in the span that's in the div.&#x3C;/span>
+  &#x3C;/span>
+&#x3C;/div>
+&#x3C;span>Span #3, not in the div at all.&#x3C;/span>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.descendant.html">Descendant combinator</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 7</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#child-combinators">https://drafts.csswg.org/selectors/#child-combinators</a></p></section></aside></body>
+</html>

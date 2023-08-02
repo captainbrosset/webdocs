@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>math-depth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties math-depth</h1><main>
+    
+
+<p>The <strong><code>math-depth</code></strong> property describes a notion of <em>depth</em> for each element of a mathematical formula, with respect to the top-level container of that formula. Concretely, this is used to determine the computed value of the <a href="./css.properties.font-size.html">font-size</a> property when its specified value is <code>math</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+math-depth: auto-add;
+
+/* Relative values */
+math-depth: add(2);
+math-depth: add(-2);
+
+/* Absolute value */
+math-depth: 4;
+
+/* Global values */
+math-depth: inherit;
+math-depth: initial;
+math-depth: revert;
+math-depth: revert-layer;
+math-depth: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto-add</code></dt>
+  <dd>
+    <p>Set to the inherited <code>math-depth</code> plus 1 when inherited <a href="./css.properties.math-style.html">math-style</a> is <code>compact</code>.</p>
+  </dd>
+  <dt><code>add(<a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Set to the inherited <code>math-depth</code> plus the specified integer.</p>
+  </dd>
+  <dt><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></dt>
+  <dd>
+    <p>Set to the specified integer.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>All elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>an integer, see below</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto-add | add(&lt;integer&gt;) | &lt;integer&gt;</pre></section>
+
+<h3>CSS</h3>
+<pre class="brush: css">math {
+  math-depth: auto-add;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+  <li><a href="./css.properties.math-style.html"><code>math-style</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: 117</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: 74</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 21.0</li><li><strong>webview_android</strong>: 109</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://w3c.github.io/mathml-core/#the-math-script-level-property">https://w3c.github.io/mathml-core/#the-math-script-level-property</a></p></section></aside></body>
+</html>

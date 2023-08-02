@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rotateX()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function rotateX()</h1><main>
+    
+
+<p>
+  The <strong><code>rotateX()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that rotates an element around the
+  abscissa (horizontal axis) without deforming it. Its result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<p>The axis of rotation passes through an origin, defined by the <a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a> CSS property.</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> <code>rotateX(a)</code> is equivalent to
+    <code>rotate3d(1, 0, 0, a)</code>.
+  </p>
+</div>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> Unlike rotations in the 2D plane, the composition of 3D rotations is usually
+    not commutative. In other words, the order in which the rotations are applied impacts the result.
+  </p>
+</div>
+<h2>Syntax</h2>
+<p>
+  The amount of rotation created by <code>rotateX()</code> is specified by an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. If
+  positive, the movement will be clockwise; if negative, it will be counter-clockwise.
+</p>
+<pre class="brush: css">rotateX(a)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>a</code></dt>
+  <dd>
+    <p>
+      Is an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> representing the angle of the rotation. A positive angle denotes a clockwise
+      rotation, a negative angle a counter-clockwise one.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">
+        This transformation applies to the 3D space and can't be represented on
+        the plane.
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="rotated">Rotated&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.rotated {
+  transform: rotateX(45deg);
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a> property</li>
+  <li><a href="./css.properties.rotate.html"><code>rotate()</code></a> property</li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 12</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 10</li><li><strong>firefox_android</strong>: 10</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#funcdef-rotatex">https://drafts.csswg.org/css-transforms-2/#funcdef-rotatex</a></p></section></aside></body>
+</html>

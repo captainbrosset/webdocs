@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>list-style-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties list-style-position</h1><main>
+    
+
+<p>The <strong><code>list-style-position</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the position of the <a href="./css.selectors.marker.html"><code>::marker</code></a> relative to a list item.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+list-style-position: inside;
+list-style-position: outside;
+
+/* Global values */
+list-style-position: inherit;
+list-style-position: initial;
+list-style-position: revert;
+list-style-position: revert-layer;
+list-style-position: unset;
+</pre>
+<p>The <code>list-style-position</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>inside</code></dt>
+  <dd>
+    <p>The <a href="./css.selectors.marker.html"><code>::marker</code></a> is the first element among the list item's contents.</p>
+  </dd>
+  <dt><code>outside</code></dt>
+  <dd>
+    <p>The <a href="./css.selectors.marker.html"><code>::marker</code></a> is outside the principal block box.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>This property is applied to list items, i.e., elements with <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a>: list-item;</code>. <a href="https://html.spec.whatwg.org/multipage/rendering.html#lists">By default</a> this includes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements. Because this property is inherited, it can be set on the parent element (normally <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) to let it apply to all list items.</p>
+<p>If a block element is the first child of a list element declared as <code>list-style-position: inside</code>, then the block element is placed on the line after the marker-box.</p>
+<p>It is often more convenient to use the shorthand <a href="./css.properties.list-style.html"><code>list-style</code></a>.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>outside</td></tr><tr><th scope="row">Applies to</th><td>list items</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>keyword, but see prose</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>inside | outside</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="inside">
+  List 1
+  &#x3C;li>List Item 1-1&#x3C;/li>
+  &#x3C;li>List Item 1-2&#x3C;/li>
+  &#x3C;li>List Item 1-3&#x3C;/li>
+  &#x3C;li>List Item 1-4&#x3C;/li>
+&#x3C;/ul>
+&#x3C;ul class="outside">
+  List 2
+  &#x3C;li>List Item 2-1&#x3C;/li>
+  &#x3C;li>List Item 2-2&#x3C;/li>
+  &#x3C;li>List Item 2-3&#x3C;/li>
+  &#x3C;li>List Item 2-4&#x3C;/li>
+&#x3C;/ul>
+&#x3C;ul class="inside-img">
+  List 3
+  &#x3C;li>List Item 3-1&#x3C;/li>
+  &#x3C;li>List Item 3-2&#x3C;/li>
+  &#x3C;li>List Item 3-3&#x3C;/li>
+  &#x3C;li>List Item 3-4&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.inside {
+  list-style-position: inside;
+  list-style-type: square;
+}
+
+.outside {
+  list-style-position: outside;
+  list-style-type: circle;
+}
+
+.inside-img {
+  list-style-position: inside;
+  list-style-image: url("starsolid.gif");
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-type.html"><code>list-style-type</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#list-style-position-property">https://drafts.csswg.org/css-lists/#list-style-position-property</a></p></section></aside></body>
+</html>

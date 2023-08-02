@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rotate()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function rotate()</h1><main>
+    
+
+<p>
+  The <strong><code>rotate()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that rotates an element around a
+  fixed point on the 2D plane, without deforming it. Its result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data
+  type.
+</p>
+<p>
+  The fixed point that the element rotates around — mentioned above — is also known as the <strong>transform
+origin</strong>. This defaults to the center of the element, but you can set your own custom transform origin using
+  the <a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a> property.
+</p>
+<h2>Syntax</h2>
+<p>
+  The amount of rotation created by <code>rotate()</code> is specified by an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. If positive,
+  the movement will be clockwise; if negative, it will be counter-clockwise. A rotation by 180° is called <em>point
+reflection</em>.
+</p>
+<pre class="brush: css">rotate(a)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><em>a</em></dt>
+  <dd>
+    <p>
+      Is an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> representing the angle of the rotation. The direction of rotation depends on the writing direction.
+      In a left-to-right context, a positive angle denotes a clockwise rotation, a negative angle a counter-clockwise one. In a right-to-left context,
+      a positive angle denotes a counter-clockwise rotation, a negative angle a clockwise one.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+    <tr>
+      <td><code>[cos(a) sin(a) -sin(a) cos(a) 0 0]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="rotated">Rotated&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.rotated {
+  transform: rotate(45deg); /* Equal to rotateZ(45deg) */
+  background-color: pink;
+}
+</pre>
+
+<h3>Combining rotation with another transformation</h3>
+<p>
+  If you want apply multiple transformations to an element, be careful about the order in which you specify your
+  transformations. For example, if you rotate before translating, the translation will be along the new axis of
+  rotation!
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="rotate">Rotated&#x3C;/div>
+&#x3C;div class="rotate-translate">Rotated + Translated&#x3C;/div>
+&#x3C;div class="translate-rotate">Translated + Rotated&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+}
+
+.rotate {
+  background-color: transparent;
+  outline: 2px dashed;
+  transform: rotate(45deg);
+}
+
+.rotate-translate {
+  background-color: pink;
+  transform: rotate(45deg) translateX(180px);
+}
+
+.translate-rotate {
+  background-color: gold;
+  transform: translateX(180px) rotate(45deg);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a> property</li>
+  <li><a href="./css.properties.rotate.html"><code>rotate()</code></a> property</li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.types.transform-function.rotate3d.html"><code>rotate3d()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#funcdef-transform-rotate">https://drafts.csswg.org/css-transforms/#funcdef-transform-rotate</a></p></section></aside></body>
+</html>

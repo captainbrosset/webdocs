@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow-clip-margin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow-clip-margin</h1><main>
+    
+
+<p>The <strong><code>overflow-clip-margin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property determines how far outside its bounds an element with <a href="./css.properties.overflow.html"><code>overflow: clip</code></a> may be painted before being clipped. The bound defined by this property is called the <em>overflow clip edge</em> of the box.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+overflow-clip-margin: 20px;
+overflow-clip-margin: 1em;
+
+/* &#x3C;visual-box> | &#x3C;length> */
+overflow-clip-margin: content-box 5px;
+
+/* Global values */
+overflow-clip-margin: inherit;
+overflow-clip-margin: initial;
+overflow-clip-margin: revert;
+overflow-clip-margin: revert-layer;
+overflow-clip-margin: unset;
+</pre>
+<p>The <code>&#x3C;visual-box></code> value, which defaults to <code>padding-box</code>, specifies the box edge to use as the overflow clip edge origin. The <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value specified in <code>overflow-clip-margin</code> must be nonnegative.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the element does not have <code>overflow: clip</code> then this property will be ignored.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0px</td></tr><tr><th scope="row">Applies to</th><td>boxes to which overflow applies</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>see individual properties</td></tr><tr><th scope="row">Animation type</th><td>see individual properties</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;visual-box&gt; || &lt;length [0,∞]&gt;</pre></section>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div class="box">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur.
+&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">.box {
+  border: 3px solid black;
+  width: 250px;
+  height: 100px;
+  overflow: clip;
+  overflow-clip-margin: 20px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.text-overflow.html"><code>text-overflow</code></a>, <a href="./css.properties.white-space.html"><code>white-space</code></a>, <a href="./css.properties.overflow.html"><code>overflow</code></a>, <a href="./css.properties.overflow-inline.html"><code>overflow-inline</code></a>, <a href="./css.properties.overflow-x.html"><code>overflow-x</code></a>, <a href="./css.properties.overflow-y.html"><code>overflow-y</code></a>, <a href="./css.properties.clip.html"><code>clip</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 90</li><li><strong>chrome_android</strong>: 90</li><li><strong>edge</strong>: 90</li><li><strong>firefox</strong>: 102</li><li><strong>firefox_android</strong>: 102</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 76</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 15.0</li><li><strong>webview_android</strong>: 90</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#overflow-clip-margin">https://drafts.csswg.org/css-overflow/#overflow-clip-margin</a></p></section></aside></body>
+</html>

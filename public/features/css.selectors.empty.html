@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":empty"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":empty"</h1><main>
+    
+
+<p>The <strong><code>:empty</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents any element that has no children. Children can be either element nodes or text (including whitespace). Comments, processing instructions, and CSS <a href="./css.properties.content.html"><code>content</code></a> do not affect whether an element is considered empty.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In <a href="https://drafts.csswg.org/selectors-4/#the-empty-pseudo">Selectors Level 4</a>, the <code>:empty</code> pseudo-class was changed to act like <a href="./css.selectors.-moz-only-whitespace.html"><code>:-moz-only-whitespace</code></a>, but no browser currently supports this yet.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:empty {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div class="box">&#x3C;!-- I will be lime. -->&#x3C;/div>
+&#x3C;div class="box">I will be pink.&#x3C;/div>
+&#x3C;div class="box">
+  &#x3C;!-- I will be pink in older browsers because of the whitespace around this comment. -->
+&#x3C;/div>
+&#x3C;div class="box">
+  &#x3C;p>
+    &#x3C;!-- I will be pink in all browsers because of the non-collapsible whitespace and elements around this comment. -->
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css hidden">body {
+  display: flex;
+  justify-content: space-around;
+}
+</pre>
+<pre class="brush: css">.box {
+  background: pink;
+  height: 80px;
+  width: 80px;
+}
+
+.box:empty {
+  background: lime;
+}
+</pre>
+
+<h2>Accessibility concerns</h2>
+<p>Assistive technology such as screen readers cannot parse interactive content that is empty. All interactive content must have an accessible name, which is created by providing a text value for the interactive control's parent element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">anchors</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">buttons</a>, etc.). Accessible names expose the interactive control to the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis">accessibility tree</a>, an API that communicates information useful for assistive technologies.</p>
+<p>The text that provides the interactive control's accessible name can be hidden using <a href="https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link">a combination of properties</a> that remove it visually from the screen but keep it parsable by assistive technology. This is commonly used for buttons that rely solely on an icon to convey purpose.</p>
+<ul>
+  <li><a href="https://www.tpgi.com/what-is-an-accessible-name/">What is an accessible name? | The Paciello Group</a></li>
+  <li><a href="https://gomakethings.com/hidden-content-for-better-a11y/">Hidden content for better a11y | Go Make Things</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are">MDN Understanding WCAG, Guideline 2.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html">Understanding Success Criterion 2.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.-moz-only-whitespace.html"><code>:-moz-only-whitespace</code></a> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr> – The <a href="/Glossary/Vendor_Prefix">prefixed</a> implementation of the changes in <a href="https://drafts.csswg.org/selectors-4/#the-empty-pseudo">Selectors Level 4</a></li>
+  <li><a href="./css.selectors.blank.html"><code>:blank</code></a> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-empty-pseudo">https://drafts.csswg.org/selectors/#the-empty-pseudo</a></p></section></aside></body>
+</html>

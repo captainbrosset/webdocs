@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":nth-col()"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":nth-col()"</h1><main>
+    
+
+<p>The <strong><code>:nth-col()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> is designed for tables and grids. It accepts the An+B notation such as used with the <a href="./css.selectors.nth-child.html"><code>:nth-child</code></a> selector, using this to target every nth column. The values odd and even are also valid.</p>
+<pre class="brush: css">/* Selects every odd column in a table */
+:nth-col(odd) {
+  background-color: pink;
+}
+</pre>
+<h2>Syntax</h2>
+<p>The <code>nth-col()</code> pseudo-class is specified with a single argument, which represents the pattern for matching elements. It uses <code>:nth-col(An+B)</code> syntax.</p>
+<p>See <a href="./css.selectors.nth-child.html"><code>:nth-child</code></a> for a more detailed explanation of its syntax.</p>
+<pre class="brush: css">:nth-col(An + B) {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;td>one&#x3C;/td>
+    &#x3C;td>two&#x3C;/td>
+    &#x3C;td>three&#x3C;/td>
+    &#x3C;td>four&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>one&#x3C;/td>
+    &#x3C;td>two&#x3C;/td>
+    &#x3C;td>three&#x3C;/td>
+    &#x3C;td>four&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">td {
+  border: 1px solid #ccc;
+  padding: 0.2em;
+}
+
+/* Odd columns */
+:nth-col(2n + 1) {
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.nth-child.html"><code>:nth-child</code></a>, <a href="./css.selectors.nth-last-of-type.html"><code>:nth-last-of-type</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Specifications</h2><section class="spec"><p>Specification: <a href="null">null</a></p></section></aside></body>
+</html>

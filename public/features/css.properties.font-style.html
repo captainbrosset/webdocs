@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-style</h1><main>
+    
+
+<p>The <strong><code>font-style</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether a font should be styled with a normal, italic, or oblique face from its <a href="./css.properties.font-family.html"><code>font-family</code></a>.</p>
+<p><strong>Italic</strong> font faces are generally cursive in nature, usually using less horizontal space than their unstyled counterparts, while <strong>oblique</strong> faces are usually just sloped versions of the regular face. When the specified style is not available, both italic and oblique faces are simulated by artificially sloping the glyphs of the regular face (use <a href="./css.properties.font-synthesis.html"><code>font-synthesis</code></a> to control this behavior).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">font-style: normal;
+font-style: italic;
+font-style: oblique;
+font-style: oblique 10deg;
+
+/* Global values */
+font-style: inherit;
+font-style: initial;
+font-style: revert;
+font-style: revert-layer;
+font-style: unset;
+</pre>
+<p>The <code>font-style</code> property is specified as a single keyword chosen from the list of values below, which can optionally include an angle if the keyword is <code>oblique</code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Selects a font that is classified as <code>normal</code> within a <a href="./css.properties.font-family.html"><code>font-family</code></a>.</p>
+  </dd>
+  <dt><code>italic</code></dt>
+  <dd>
+    <p>Selects a font that is classified as <code>italic</code>. If no italic version of the face is available, one classified as <code>oblique</code> is used instead. If neither is available, the style is artificially simulated.</p>
+  </dd>
+  <dt><code>oblique</code></dt>
+  <dd>
+    <p>Selects a font that is classified as <code>oblique</code>. If no oblique version of the face is available, one classified as <code>italic</code> is used instead. If neither is available, the style is artificially simulated.</p>
+  </dd>
+  <dt><code>oblique</code> <a href="./css.types.angle.html"><code>&#x3C;angle></code></a></dt>
+  <dd>
+    <p>Selects a font classified as <code>oblique</code>, and additionally specifies an angle for the slant of the text. If one or more oblique faces are available in the chosen font family, the one that most closely matches the specified angle is chosen. If no oblique faces are available, the browser will synthesize an oblique version of the font by slanting a normal face by the specified amount. Valid values are degree values of <code>-90deg</code> to <code>90deg</code> inclusive. If an angle is not specified, an angle of 14 degrees is used. Positive values are slanted to the end of the line, while negative values are slanted towards the beginning.</p>
+    <p>In general, for a requested angle of 14 degrees or greater, larger angles are preferred; otherwise, smaller angles are preferred (see the spec's <a href="https://drafts.csswg.org/css-fonts-4/#font-matching-algorithm">font matching section</a> for the precise algorithm).</p>
+  </dd>
+</dl>
+<h3>Variable fonts</h3>
+<p>Variable fonts can offer a fine control over the degree to which an oblique face is slanted. You can select this using the <code>&#x3C;angle></code> modifier for the <code>oblique</code> keyword.</p>
+<p>For TrueType or OpenType variable fonts, the <code>"slnt"</code> variation is used to implement varying slant angles for oblique, and the <code>"ital"</code> variation with a value of 1 is used to implement italic values. See <a href="./css.properties.font-variation-settings.html"><code>font-variation-settings</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> For the example below to work, you'll need a browser that supports the CSS Fonts Level 4 syntax in which <code>font-style: oblique</code> can accept an <code>&#x3C;angle></code>. The demo loads with <code>font-style: oblique 23deg;</code>. Change the value to see the slant of the text change.</p>
+</div><iframe width="100%" height="860" src="https://mdn.github.io/css-examples/variable-fonts/oblique.html"></iframe>
+<h2>Accessibility concerns</h2>
+<p>Large sections of text set with a <code>font-style</code> value of <code>italic</code> may be difficult for people with cognitive concerns such as Dyslexia to read.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">W3C Understanding WCAG 2.1</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the keyword specified, plus angle in degrees if specified</td></tr><tr><th scope="row">Animation type</th><td>by computed value type; normal animates as oblique 0deg</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | italic | oblique &lt;angle [-90deg,90deg]&gt;?</pre></section>
+
+<h3>Font styles</h3>
+<pre class="brush: html hidden">&#x3C;p class="normal">This paragraph is normal.&#x3C;/p>
+&#x3C;p class="italic">This paragraph is italic.&#x3C;/p>
+&#x3C;p class="oblique">This paragraph is oblique.&#x3C;/p>
+</pre>
+<pre class="brush: css">.normal {
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.oblique {
+  font-style: oblique;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals">Fundamental text and font styling</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-style-prop">https://drafts.csswg.org/css-fonts/#font-style-prop</a></p></section></aside></body>
+</html>

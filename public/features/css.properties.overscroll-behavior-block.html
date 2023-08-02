@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overscroll-behavior-block</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overscroll-behavior-block</h1><main>
+    
+
+<p>The <strong><code>overscroll-behavior-block</code></strong> CSS property sets the browser's behavior when the block direction boundary of a scrolling area is reached.</p>
+<p>See <a href="./css.properties.overscroll-behavior.html"><code>overscroll-behavior</code></a> for a full explanation.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overscroll-behavior-block: auto; /* default */
+overscroll-behavior-block: contain;
+overscroll-behavior-block: none;
+
+/* Global values */
+overscroll-behavior-block: inherit;
+overscroll-behavior-block: initial;
+overscroll-behavior-block: revert;
+overscroll-behavior-block: revert-layer;
+overscroll-behavior-block: unset;
+</pre>
+<p>The <code>overscroll-behavior-block</code> property is specified as a keyword chosen from the list of values below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The default scroll overflow behavior occurs as normal.</p>
+  </dd>
+  <dt><code>contain</code></dt>
+  <dd>
+    <p>Default scroll overflow behavior is observed inside the element this value is set on (e.g. "bounce" effects or refreshes), but no scroll chaining occurs to neighboring scrolling areas, e.g. underlying elements will not scroll.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No scroll chaining occurs to neighboring scrolling areas, and default scroll overflow behavior is prevented.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll container elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>contain | none | auto</pre></section>
+
+<h3>Preventing block overscrolling</h3>
+<p>In this demo we have two block-level boxes, one inside the other. The outer box has a large <a href="./css.properties.height.html"><code>height</code></a> set on it so the page will scroll vertically. The inner box has a small <a href="./css.properties.width.html"><code>width</code></a> (and <code>height</code>) set on it so it sits comfortably inside the viewport, but its content is given a large <code>height</code> so it will also scroll vertically.</p>
+<p>By default, when the inner box is scrolled and a scroll boundary is reached, the whole page will begin to scroll, which is probably not what we want. To avoid this happening in the block direction, we've set <code>overscroll-behavior-block: contain</code> on the inner box.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;main>
+  &#x3C;div>
+    &#x3C;div>
+      &#x3C;p>
+        &#x3C;code>overscroll-behavior-block&#x3C;/code> has been used to make it so that
+        when the scroll boundaries of the yellow inner box are reached, the
+        whole page does not begin to scroll.
+      &#x3C;/p>
+    &#x3C;/div>
+  &#x3C;/div>
+&#x3C;/main>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">main {
+  height: 3000px;
+  width: 500px;
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 19px,
+    rgba(0, 0, 0, 0.5) 20px
+  );
+}
+
+main > div {
+  height: 300px;
+  width: 400px;
+  overflow: auto;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  overscroll-behavior-block: contain;
+}
+
+div > div {
+  height: 1500px;
+  width: 100%;
+  background-color: yellow;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 19px,
+    rgba(0, 0, 0, 0.5) 20px
+  );
+}
+
+p {
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.5);
+  margin: 0;
+  width: 340px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.chrome.com/blog/overscroll-behavior/#full-demo">Take control of your scroll: customizing pull-to-refresh and overflow effects</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 77</li><li><strong>chrome_android</strong>: 77</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 73</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 7.0</li><li><strong>opera</strong>: 64</li><li><strong>opera_android</strong>: 55</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 12.0</li><li><strong>webview_android</strong>: 77</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overscroll/#overscroll-behavior-longhands-logical">https://drafts.csswg.org/css-overscroll/#overscroll-behavior-longhands-logical</a></p></section></aside></body>
+</html>

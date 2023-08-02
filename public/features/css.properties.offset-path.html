@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSS motion path</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties CSS motion path</h1><main>
+    
+
+<p>The <strong>CSS motion path</strong> module allows authors to animate any graphical object along a custom path.</p>
+<p>The idea is that when you want to animate an element moving along a path, you previously only had animating translation, position, etc. at your disposal, which wasn't ideal and only allowed for simple movements. With <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> you can define a specific path of any shape you want. You then animate it along that path by animating <a href="./css.properties.offset-distance.html"><code>offset-distance</code></a>, and can choose to rotate it at any point using <a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a>.</p>
+<h2>Basic example</h2>
+<pre class="brush: html">&#x3C;div id="motion-demo">&#x3C;/div>
+</pre>
+<pre class="brush: css">#motion-demo {
+  offset-path: path("M20,20 C20,100 200,0 200,100");
+  animation: move 3000ms infinite alternate ease-in-out;
+  width: 40px;
+  height: 40px;
+  background: cyan;
+}
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+</pre>
+
+<h3>Properties</h3>
+<ul>
+  <li><a href="./css.properties.offset.html"><code>offset</code></a></li>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="./css.properties.offset-distance.html"><code>offset-distance</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-position.html"><code>offset-position</code></a></li>
+  <li><a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a></li>
+</ul>
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/motion/#offset-path-property">https://drafts.fxtf.org/motion/#offset-path-property</a></p></section></aside></body>
+</html>

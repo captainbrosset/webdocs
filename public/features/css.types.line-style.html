@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;line-style&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;line-style></h1><main>
+    
+
+<p>The <strong><code>&#x3C;line-style></code></strong> <a href="/Glossary/enumerated">enumerated</a> value type represents keyword values that define the style of a line, or the lack of a line. The <code>&#x3C;line-style></code> keyword values are used in the following longhand and shorthand <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">border</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout">column</a> properties:</p>
+<ul>
+  <li><a href="./css.properties.border.html"><code>&lt;border&gt;</code></a>, <a href="./css.properties.border-style.html"><code>&lt;border-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-block.html"><code>&lt;border-block&gt;</code></a>, <a href="./css.properties.border-block-style.html"><code>&lt;border-block-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-block-end.html"><code>&lt;border-block-end&gt;</code></a>, <a href="./css.properties.border-block-end-style.html"><code>&lt;border-block-end-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-block-start.html"><code>&lt;border-block-start&gt;</code></a>, <a href="./css.properties.border-block-start-style.html"><code>&lt;border-block-start-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-bottom.html"><code>&lt;border-bottom&gt;</code></a>, <a href="./css.properties.border-bottom-style.html"><code>&lt;border-bottom-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-inline.html"><code>&lt;border-inline&gt;</code></a>, <a href="./css.properties.border-inline-style.html"><code>&lt;border-inline-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-inline-end.html"><code>&lt;border-inline-end&gt;</code></a>, <a href="./css.properties.border-inline-end-style.html"><code>&lt;border-inline-end-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-inline-start.html"><code>&lt;border-inline-start&gt;</code></a>, <a href="./css.properties.border-inline-start-style.html"><code>&lt;border-inline-start-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-left.html"><code>&lt;border-left&gt;</code></a>, <a href="./css.properties.border-left-style.html"><code>&lt;border-left-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-right.html"><code>&lt;border-right&gt;</code></a>, <a href="./css.properties.border-right-style.html"><code>&lt;border-right-style&gt;</code></a></li>
+  <li><a href="./css.properties.border-top.html"><code>&lt;border-top&gt;</code></a>, <a href="./css.properties.border-top-style.html"><code>&lt;border-top-style&gt;</code></a></li>
+  <li><a href="./css.properties.column-rule.html"><code>&lt;column-rule&gt;</code></a>, <a href="./css.properties.column-rule-style.html"><code>&lt;column-rule-style&gt;</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">&#x3C;line-style> = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset
+</pre>
+<h3>Values</h3>
+<p>The <code>&#x3C;line-style></code> enumerated type is specified using one of the values listed below:</p>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Displays no line. The computed value of the line width is <code>0</code> even if a width value is specified. In the case of table cell and border collapsing, the <code>none</code> value has the <em>lowest</em> priority. If any other conflicting border is set, it will be displayed. The <code>none</code> value is similar to <code>hidden</code>.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>Displays no line. The computed width of the line is <code>0</code> even if a width value is specified. In the case of table cell and border collapsing, the <code>hidden</code> value has the <em>highest</em> priority. If any other conflicting border is set, it won't be displayed. The <code>hidden</code> value is similar to <code>none</code>, but <code>hidden</code> is not a valid value for outline styles.</p>
+  </dd>
+  <dt><code>dotted</code></dt>
+  <dd>
+    <p>Displays a series of round dots. The radius of the dots is half the computed value of the line's width. The spacing of the dots is not defined by the specification and is implementation-specific.</p>
+  </dd>
+  <dt><code>dashed</code></dt>
+  <dd>
+    <p>Displays a series of short square-ended dashes or line segments. The exact size and length of the segments are not defined by the specification and are implementation-specific.</p>
+  </dd>
+  <dt><code>solid</code></dt>
+  <dd>
+    <p>Displays a single, straight solid line.</p>
+  </dd>
+  <dt><code>double</code></dt>
+  <dd>
+    <p>Displays two straight lines with some space between them. The length of the lines adds up to the pixel size defined by the line's width.</p>
+  </dd>
+  <dt><code>groove</code></dt>
+  <dd>
+    <p>Displays a border with a carved appearance. This value is the opposite of <code>ridge</code>.</p>
+  </dd>
+  <dt><code>ridge</code></dt>
+  <dd>
+    <p>Displays a border with an extruded appearance. This value is the opposite of <code>groove</code>.</p>
+  </dd>
+  <dt><code>inset</code></dt>
+  <dd>
+    <p>Displays a border that makes the element appear embedded. This value is the opposite of <code>outset</code>. When applied to a table cell border and <a href="./css.properties.border-collapse.html"><code>&lt;border-collapse&gt;</code></a> is set to <code>collapsed</code>, this value behaves like <code>groove</code>.</p>
+  </dd>
+  <dt><code>outset</code></dt>
+  <dd>
+    <p>Displays a border that makes the element appear embossed. This value is the opposite of <code>inset</code>. When applied to a table cell with <a href="./css.properties.border-collapse.html"><code>&lt;border-collapse&gt;</code></a> set to <code>collapsed</code>, this value behaves like <code>ridge</code>.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When <code>&#x3C;outline-style></code> is used as the value type for <a href="./css.properties.outline.html"><code>&lt;outline&gt;</code></a> and <a href="./css.properties.outline-style.html"><code>&lt;outline-style&gt;</code></a> properties, it is similar to <code>&#x3C;line-style></code>, but does not support <code>hidden</code> and includes the <code>auto</code> value. When <code>auto</code> is set, the user-agent defined <code>&#x3C;line-style></code> value is used.</p>
+</div>
+<h2>Examples</h2>
+<p>The first example demonstrates all the <code>&#x3C;line-style></code> keyword values. The second example demonstrates how some line style colors may display in unexpected ways.</p>
+<h3>Defining line styles</h3>
+<p>This example shows all the <code>&#x3C;line-style></code> values as values for the CSS <a href="./css.properties.border-style.html"><code>&lt;border-style&gt;</code></a> and <a href="./css.properties.column-rule-style.html"><code>&lt;column-rule-style&gt;</code></a> properties.</p>
+<h4>HTML</h4>
+<p>This example uses multiple <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> elements, each with a class representing the <code>&#x3C;line-style></code> value that is being demonstrated.</p>
+<pre class="brush: html">&#x3C;div class="&#x3C;line-style>">
+  &#x3C;p>&#x3C;line-style>&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+</pre>
+<pre class="brush: html hidden">&#x3C;div class="none">
+  &#x3C;p>none&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="hidden">
+  &#x3C;p>hidden&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="dotted">
+  &#x3C;p>dotted&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="dashed">
+  &#x3C;p>dashed&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="solid">
+  &#x3C;p>solid&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="double">
+  &#x3C;p>double&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="groove">
+  &#x3C;p>groove&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="ridge">
+  &#x3C;p>ridge&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="inset">
+  &#x3C;p>inset&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="outset">
+  &#x3C;p>outset&#x3C;/p>
+  &#x3C;p>a b c d e f g h i j k l m n o p q r s t u v w x y z&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>In the CSS for this example, the border and the column-rule for all the <code>&#x3C;p></code> elements is defined to have a width of <code>7px</code> and the style value of <code>double</code>. For each paragraph, the <code>double</code> value is then overridden by specifying a different <code>&#x3C;line-style></code> value for the <code>border-style</code> and <code>column-rule-style</code> properties.</p>
+<pre class="brush: css hidden">div {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  align-items: center;
+}
+div:first-of-type {
+  display: none;
+}
+
+p:first-of-type {
+  text-align: center;
+  line-height: 5em;
+}
+p {
+  width: 10em;
+  height: 5em;
+  background-color: palegoldenrod;
+}
+</pre>
+<pre class="brush: css">p {
+  padding: 5px;
+  border: double 7px #bada55;
+}
+p + p {
+  columns: 3;
+  column-gap: 20px;
+  column-rule: double 7px;
+  border-color: #000000;
+}
+.none p {
+  border-style: none;
+  column-rule-style: none;
+}
+.hidden p {
+  border-style: hidden;
+  column-rule-style: hidden;
+}
+.dotted p {
+  border-style: dotted;
+  column-rule-style: dotted;
+}
+.dashed p {
+  border-style: dashed;
+  column-rule-style: dashed;
+}
+.solid p {
+  border-style: solid;
+  column-rule-style: solid;
+}
+.double p {
+  border-style: double;
+  column-rule-style: double;
+}
+.groove p {
+  border-style: groove;
+  column-rule-style: groove;
+}
+.ridge p {
+  border-style: ridge;
+  column-rule-style: ridge;
+}
+.inset p {
+  border-style: inset;
+  column-rule-style: inset;
+}
+.outset p {
+  border-style: outset;
+  column-rule-style: outset;
+}
+</pre>
+<h4>Result</h4>
+<p>Notice that the black border is not always black.</p>
+<h3>Defining line styles and colors</h3>
+<p>This example demonstrates line-style and color choice. With some <code>&#x3C;line-style></code> keyword values, the color of the line may not be what you expect. To create the required "3D" effect of <code>groove,</code> <code>ridge</code>, <code>inset</code>, and <code>outset</code> styles when displaying these values in black or white, user agents use different color calculations than any other color-line combinations.</p>
+<h4>HTML</h4>
+<p>This example uses multiple <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> elements, each with a different <code>border-color</code> set as an inline <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style"><code>style</code></a>.</p>
+<pre class="brush: html hidden">&#x3C;section>
+</pre>
+<pre class="brush: html">&#x3C;div style="border-color: #000000">&#x3C;/div>
+</pre>
+<pre class="brush: html hidden">&#x3C;div style="border-color: #000001">&#x3C;/div>
+&#x3C;div style="border-color: #ffffff">&#x3C;/div>
+
+&#x3C;div style="border-color: #ff00ff">&#x3C;/div>
+&#x3C;div style="border-color: #ffff00">&#x3C;/div>
+&#x3C;div style="border-color: #00ffff">&#x3C;/div>
+
+&#x3C;div style="border-color: #cc33cc">&#x3C;/div>
+&#x3C;div style="border-color: #cccc33">&#x3C;/div>
+&#x3C;div style="border-color: #33cccc">&#x3C;/div>
+
+&#x3C;div style="border-color: #ff0000">&#x3C;/div>
+&#x3C;div style="border-color: #00ff00">&#x3C;/div>
+&#x3C;div style="border-color: #0000ff">&#x3C;/div>
+
+&#x3C;div style="border-color: #cc3333">&#x3C;/div>
+&#x3C;div style="border-color: #33cc33">&#x3C;/div>
+&#x3C;div style="border-color: #3333cc">&#x3C;/div>
+
+&#x3C;div style="border-color: #993333">&#x3C;/div>
+&#x3C;div style="border-color: #339933">&#x3C;/div>
+&#x3C;div style="border-color: #333399">&#x3C;/div>
+&#x3C;/section>
+</pre>
+<h4>CSS</h4>
+<p>The four sides of each <code>&#x3C;div></code> have a different <code>&#x3C;line-style></code> value, and each list item has a different <a href="./css.types.color.html"><code>&lt;color></code></a> value. We use <a href="./css.properties.content.html">generated content</a> to display the CSS declared inline.</p>
+<pre class="brush: css hidden">section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+</pre>
+<pre class="brush: css">div {
+  border-width: 10px;
+  border-style: inset groove ridge outset;
+  padding: 5px;
+}
+div::before {
+  content: attr(style);
+}
+</pre>
+<h4>Result</h4>
+<p>Notice that the almost-black color of <code>#000001</code> may be different from the actual black, and the contrast between the dark and light edges is more noticeable when using lighter colors.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">CSS backgrounds and borders</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_basic_user_interface">CSS basic user interface</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout">CSS multi-column layout</a> module</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#typedef-line-style">https://drafts.csswg.org/css-backgrounds/#typedef-line-style</a></p></section></aside></body>
+</html>

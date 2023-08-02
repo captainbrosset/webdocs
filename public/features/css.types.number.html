@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;number&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;number></h1><main>
+    
+
+<p>The <strong><code>&#x3C;number></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a number, being either an integer or a number with a fractional component.</p>
+<h2>Syntax</h2>
+<p>The syntax of <code>&#x3C;number></code> extends the syntax of <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a>. A fractional value is represented by a <code>.</code> followed by one or more decimal digits, and may be appended to an integer. There is no unit associated with numbers.</p>
+<h2>Interpolation</h2>
+<p>When animated, values of the <code>&#x3C;number></code> CSS data type are interpolated as real, floating-point numbers. The speed of the interpolation is determined by the <a href="./css.types.easing-function.html">easing function</a> associated with the animation.</p>
+
+<h3>Valid numbers</h3>
+<pre class="brush: plain example-good">12          A raw &#x3C;integer> is also a &#x3C;number>.
+4.01        Positive fraction
+-456.8      Negative fraction
+0.0         Zero
++0.0        Zero, with a leading +
+-0.0        Zero, with a leading -
+.60         Fractional number without a leading zero
+10e3        Scientific notation
+-3.4e-2     Complicated scientific notation
+</pre>
+<h3>Invalid numbers</h3>
+<pre class="brush: plain example-bad">12.         Decimal points must be followed by at least one digit.
++-12.2      Only one leading +/- is allowed.
+12.1.1      Only one decimal point is allowed.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#numbers">https://drafts.csswg.org/css-values/#numbers</a></p></section></aside></body>
+</html>

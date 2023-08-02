@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>contain-intrinsic-block-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties contain-intrinsic-block-size</h1><main>
+    
+
+<p>The <strong><code>contain-intrinsic-block-size</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">logical property</a> defines the block size of an element that a browser can use for layout when the element is subject to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment#size_containment">size containment</a>.</p>
+<p>Block size is the size of an element in the dimension perpendicular to the flow of text within a line. In a horizontal <a href="./css.properties.writing-mode.html">writing mode</a> like standard English, block size is the vertical dimension (height); in a vertical writing mode, block size is the horizontal dimension.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+contain-intrinsic-block-size: none;
+
+/* &#x3C;length> values */
+contain-intrinsic-block-size: 1000px;
+contain-intrinsic-block-size: 10rem;
+
+/* auto &#x3C;length> */
+contain-intrinsic-block-size: auto 300px;
+
+/* Global values */
+contain-intrinsic-block-size: inherit;
+contain-intrinsic-block-size: initial;
+contain-intrinsic-block-size: revert;
+contain-intrinsic-block-size: revert-layer;
+contain-intrinsic-block-size: unset;
+</pre>
+<h3>Values</h3>
+<p>The following values can be specified for the intrinsic block size of an element:</p>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element has no intrinsic block size.</p>
+  </dd>
+  <dt><code>&#x3C;length></code></dt>
+  <dd>
+    <p>The element has the specified block size, expressed using the (<a href="./css.types.length.html"><code>&lt;length&gt;</code></a>) data type.</p>
+  </dd>
+  <dt><code>auto &#x3C;length></code></dt>
+  <dd>
+    <p>
+      When the element is in size containment and skipping its contents (for example, when it is offscreen and <code>content-visibility: auto</code> is set) the block size is remembered from the actual size of the element when it was last able to render its child elements.
+      If the element has never rendered its child elements and hence has no remembered value for the normally rendered element size, or if it is not skipping its contents, the block size is the specified <code>&#x3C;length></code>.
+    </p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>The property is commonly applied alongside elements that can trigger size containment, such as <a href="./css.properties.contain.html"><code>contain: size</code></a> and <a href="./css.properties.content-visibility.html"><code>content-visibility</code></a>.</p>
+<p>
+  Size containment allows a user agent to lay out an element as though it had a fixed size.
+  This prevents unnecessary reflows by avoiding the re-rendering of child elements to determine the actual size (thereby improving user experience).
+  By default, size containment treats elements as though they had no contents and may collapse the layout in the same way as if the contents had no width or height.
+  The <code>contain-intrinsic-block-size</code> property allows authors to specify an appropriate value to be used as the block-size for layout.
+</p>
+<p>
+  The <code>auto &#x3C;length></code> value allows the block-size of an element to be stored if the element is ever "normally rendered" (with its child elements) and then used instead of the specified value when the element does not have any content.
+  This allows offscreen elements with <a href="./css.properties.content-visibility.html"><code>content-visibility: auto</code></a> to benefit from size containment without developers having to be precise in their estimates of element size.
+  The remembered value is not used if the child elements are being rendered; if size containment is enabled, the <code>&#x3C;length></code> value will be used.
+</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>elements with size containment</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with &lt;length&gt; values computed</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto? [ none | &lt;length&gt; ]</pre></section>
+
+<h3>Setting the intrinsic block size</h3>
+<p>The HTML below defines an element "contained_element" that will be subject to size constraint, and which contains a child element.</p>
+<pre class="brush: html">&#x3C;div id="contained_element">
+  &#x3C;div class="child_element">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>
+  The CSS below sets the <a href="./css.properties.content-visibility.html"><code>content-visibility</code></a> of <code>contained_element</code> to <code>auto</code>, so if the element is hidden it will be size constrained.
+  The intrinsic block size and inline size that are used when it is size constrained are set at the same time using <code>contain-intrinsic-block-size</code> and <code>contain-intrinsic-inline-size</code>, respectively.
+</p>
+<pre class="brush: css">#contained_element {
+  border: 2px solid green;
+  inline-size: 151px;
+  content-visibility: auto;
+  contain-intrinsic-inline-size: 152px;
+  contain-intrinsic-block-size: 52px;
+}
+.child_element {
+  border: 1px solid red;
+  background: blue;
+  block-size: 50px;
+  inline-size: 150px;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://web.dev/content-visibility/">content-visibility: the new CSS property that boosts your rendering performance</a> (web.dev)</li>
+  <li><a href="./css.properties.contain-intrinsic-inline-size.html"><code>contain-intrinsic-inline-size</code></a></li>
+  <li><a href="./css.properties.contain-intrinsic-size.html"><code>contain-intrinsic-size</code></a></li>
+  <li><a href="./css.properties.contain-intrinsic-width.html"><code>contain-intrinsic-width</code></a></li>
+  <li><a href="./css.properties.contain-intrinsic-height.html"><code>contain-intrinsic-height</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 95</li><li><strong>chrome_android</strong>: 95</li><li><strong>edge</strong>: 95</li><li><strong>firefox</strong>: 107</li><li><strong>firefox_android</strong>: 107</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 18.0</li><li><strong>opera</strong>: 81</li><li><strong>opera_android</strong>: 67</li><li><strong>safari</strong>: 17</li><li><strong>safari_ios</strong>: 17</li><li><strong>samsunginternet_android</strong>: 17.0</li><li><strong>webview_android</strong>: 95</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-4/#propdef-contain-intrinsic-block-size">https://drafts.csswg.org/css-sizing-4/#propdef-contain-intrinsic-block-size</a></p></section></aside></body>
+</html>

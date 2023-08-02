@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>white-space</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties white-space</h1><main>
+    
+
+<p>The <strong><code>white-space</code></strong> CSS property sets how <a href="/Glossary/whitespace">white space</a> inside an element is handled.</p>
+<p>The property specifies two things:</p>
+<ul>
+  <li>Whether and how white space is <a href="#collapsing_of_white_space">collapsed</a>.</li>
+  <li>Whether and how lines wrap.</li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> To make words break <em>within themselves</em>, use <a href="./css.properties.overflow-wrap.html"><code>overflow-wrap</code></a>, <a href="./css.properties.word-break.html"><code>word-break</code></a>, or <a href="./css.properties.hyphens.html"><code>hyphens</code></a> instead.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single keyword values */
+white-space: normal;
+white-space: nowrap;
+white-space: pre;
+white-space: pre-wrap;
+white-space: pre-line;
+white-space: break-spaces;
+
+/* white-space-collapse and text-wrap shorthand values */
+white-space: collapse balance;
+white-space: preserve nowrap;
+
+/* Global values */
+white-space: inherit;
+white-space: initial;
+white-space: revert;
+white-space: revert-layer;
+white-space: unset;
+</pre>
+<h3>Values</h3>
+<p><code>white-space</code> property values can be specified as a single keyword chosen from the list of values below, or two values representing shorthand for the <a href="./css.properties.white-space-collapse.html"><code>white-space-collapse</code></a> and <a href="./css.properties.text-wrap.html"><code>text-wrap</code></a> properties.</p>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Sequences of white space are <a href="#collapsing_of_white_space">collapsed</a>. Newline characters in the source are handled the same as other white space. Lines are broken as necessary to fill line boxes.</p>
+  </dd>
+  <dt><code>nowrap</code></dt>
+  <dd>
+    <p><a href="#collapsing_of_white_space">Collapses</a> white space as for <code>normal</code>, but suppresses line breaks (text wrapping) within the source.</p>
+  </dd>
+  <dt><code>pre</code></dt>
+  <dd>
+    <p>Sequences of white space are preserved. Lines are only broken at newline characters in the source and at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br"><code>&lt;br&gt;</code></a> elements.</p>
+  </dd>
+  <dt><code>pre-wrap</code></dt>
+  <dd>
+    <p>Sequences of white space are preserved. Lines are broken at newline characters, at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br"><code>&lt;br&gt;</code></a>, and as necessary to fill line boxes.</p>
+  </dd>
+  <dt><code>pre-line</code></dt>
+  <dd>
+    <p>Sequences of white space are <a href="#collapsing_of_white_space">collapsed</a>. Lines are broken at newline characters, at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br"><code>&lt;br&gt;</code></a>, and as necessary to fill line boxes.</p>
+  </dd>
+  <dt><code>break-spaces</code></dt>
+  <dd>
+    <p>The behavior is identical to that of <code>pre-wrap</code>, except that:</p>
+    <ul>
+      <li>Any sequence of preserved white space always takes up space, including at the end of the line.</li>
+      <li>A line-breaking opportunity exists after every preserved white space character, including between white space characters.</li>
+      <li>Such preserved spaces take up space and do not hang, thus affecting the box's intrinsic sizes (<code>min-content</code> size and <code>max-content</code> size).</li>
+    </ul>
+  </dd>
+</dl>
+<p>The following table summarizes the behavior of the various <code>white-space</code> keyword values:</p>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>New lines</th>
+      <th>Spaces and tabs</th>
+      <th>Text wrapping</th>
+      <th>End-of-line spaces</th>
+      <th>End-of-line other space separators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>normal</code></th>
+      <td>Collapse</td>
+      <td>Collapse</td>
+      <td>Wrap</td>
+      <td>Remove</td>
+      <td>Hang</td>
+    </tr>
+    <tr>
+      <th><code>nowrap</code></th>
+      <td>Collapse</td>
+      <td>Collapse</td>
+      <td>No wrap</td>
+      <td>Remove</td>
+      <td>Hang</td>
+    </tr>
+    <tr>
+      <th><code>pre</code></th>
+      <td>Preserve</td>
+      <td>Preserve</td>
+      <td>No wrap</td>
+      <td>Preserve</td>
+      <td>No wrap</td>
+    </tr>
+    <tr>
+      <th><code>pre-wrap</code></th>
+      <td>Preserve</td>
+      <td>Preserve</td>
+      <td>Wrap</td>
+      <td>Hang</td>
+      <td>Hang</td>
+    </tr>
+    <tr>
+      <th><code>pre-line</code></th>
+      <td>Preserve</td>
+      <td>Collapse</td>
+      <td>Wrap</td>
+      <td>Remove</td>
+      <td>Hang</td>
+    </tr>
+    <tr>
+      <th><code>break-spaces</code></th>
+      <td>Preserve</td>
+      <td>Preserve</td>
+      <td>Wrap</td>
+      <td>Wrap</td>
+      <td>Wrap</td>
+    </tr>
+  </tbody>
+</table>
+<div class="notecard note">
+  <p><strong>Note:</strong> There is a distinction made between <strong>spaces</strong> and <strong>other space separators</strong>. These are defined as follows:</p>
+  <dl>
+    <dt>spaces</dt>
+    <dd>
+      <p>Spaces (U+0020), tabs (U+0009), and segment breaks (such as newlines).</p>
+    </dd>
+    <dt>other space separators</dt>
+    <dd>
+      <p>All other space separators defined in Unicode, other than those already defined as spaces.</p>
+    </dd>
+  </dl>
+  <p>Where white space is said to <em>hang</em>, this can affect the size of the box when measured for intrinsic sizing.</p>
+</div>
+<h2>Collapsing of white space</h2>
+<p>The <a href="./css.properties.white-space-collapse.html"><code>white-space-collapse</code></a> property page explains the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space-collapse#collapsing_of_white_space">browser algorithm for collapsing white space</a>.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | pre | nowrap | pre-wrap | pre-line | &lt;'white-space-collapse'&gt; || &lt;'text-wrap'&gt; || &lt;'white-space-trim'&gt;</pre></section>
+
+<h3>Basic example</h3>
+<pre class="brush: css">code {
+  white-space: pre;
+}
+</pre>
+<h3>Line breaks inside &#x3C;pre> elements</h3>
+<pre class="brush: css">pre {
+  white-space: pre-wrap;
+}
+</pre>
+<h3>In action</h3>
+<pre class="brush: html hidden">&#x3C;div id="css-code" class="box">
+  p { white-space:
+  &#x3C;select>
+    &#x3C;option>normal&#x3C;/option>
+    &#x3C;option>nowrap&#x3C;/option>
+    &#x3C;option>pre&#x3C;/option>
+    &#x3C;option>pre-wrap&#x3C;/option>
+    &#x3C;option>pre-line&#x3C;/option>
+    &#x3C;option>break-spaces&#x3C;/option>
+    &#x3C;option>preserve nowrap&#x3C;/option>
+  &#x3C;/select>
+  }
+&#x3C;/div>
+&#x3C;div id="results" class="box">
+  &#x3C;p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.box {
+  width: 300px;
+  padding: 16px;
+}
+
+#css-code {
+  background-color: rgb(220, 220, 220);
+  font-size: 16px;
+  font-family: monospace;
+}
+
+#css-code select {
+  font-family: inherit;
+}
+
+#results {
+  background-color: rgb(230, 230, 230);
+  overflow-x: scroll;
+  white-space: normal;
+  font-size: 14px;
+}
+</pre>
+<pre class="brush: js hidden">const select = document.querySelector("#css-code select");
+const results = document.querySelector("#results p");
+select.addEventListener("change", (e) => {
+  results.setAttribute("style", `white-space: ${e.target.value}`);
+});
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Properties that define how words break <em>within themselves</em>: <a href="./css.properties.overflow-wrap.html"><code>overflow-wrap</code></a>, <a href="./css.properties.word-break.html"><code>word-break</code></a>, <a href="./css.properties.hyphens.html"><code>hyphens</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#white-space-property">https://drafts.csswg.org/css-text/#white-space-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>offset-rotate</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties offset-rotate</h1><main>
+    
+
+<p>The <strong><code>offset-rotate</code></strong> CSS property defines the orientation/direction of the element as it is positioned along the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Early versions of the spec called this property <code>motion-rotation</code>.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Follow the path direction, with optional additional angle */
+offset-rotate: auto;
+offset-rotate: auto 45deg;
+
+/* Follow the path direction but facing the opposite direction of `auto` */
+offset-rotate: reverse;
+
+/* Keep a constant rotation regardless the position on the path */
+offset-rotate: 90deg;
+offset-rotate: 0.5turn;
+
+/* Global values */
+offset-rotate: inherit;
+offset-rotate: initial;
+offset-rotate: revert;
+offset-rotate: revert-layer;
+offset-rotate: unset;
+</pre>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The element is rotated by the angle of the direction of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a>, relative to the positive x-axis. This is the default value.</p>
+  </dd>
+  <dt><code><a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a></code></dt>
+  <dd>
+    <p>The element has a constant clockwise rotation transformation applied to it by the specified rotation angle.</p>
+  </dd>
+  <dt><code>auto &#x3C;angle></code></dt>
+  <dd>
+    <p>If <code>auto</code> is followed by an <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a>, the computed value of the angle is added to the computed value of <code>auto</code>.</p>
+  </dd>
+  <dt><code>reverse</code></dt>
+  <dd>
+    <p>The element is rotated similar to <code>auto</code>, except it faces the opposite direction. It is the same as specifying a value of <code>auto 180deg</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>computed &lt;angle&gt; value, optionally preceded by auto</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ auto | reverse ] || &lt;angle&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 40px;
+  height: 40px;
+  background: #2bc4a2;
+  margin: 20px;
+  clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 30% 50%);
+  animation: move 5000ms infinite alternate ease-in-out;
+
+  offset-path: path("M20,20 C20,50 180,-10 180,20");
+}
+div:nth-child(1) {
+  offset-rotate: auto;
+}
+div:nth-child(2) {
+  offset-rotate: auto 90deg;
+}
+div:nth-child(3) {
+  offset-rotate: 30deg;
+}
+
+@keyframes move {
+  100% {
+    offset-distance: 100%;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.offset.html"><code>offset</code></a></li>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="./css.properties.offset-distance.html"><code>offset-distance</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-position.html"><code>offset-position</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: preview</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/motion/#offset-rotate-property">https://drafts.fxtf.org/motion/#offset-rotate-property</a></p></section></aside></body>
+</html>

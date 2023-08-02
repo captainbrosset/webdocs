@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-composition</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-composition</h1><main>
+    
+
+<p>The <strong><code>animation-composition</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the <a href="/Glossary/composite_operation">composite operation</a> to use when multiple animations affect the same property simultaneously.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single animation */
+animation-composition: replace;
+animation-composition: add;
+animation-composition: accumulate;
+
+/* Multiple animations */
+animation-composition: replace, add;
+animation-composition: add, accumulate;
+animation-composition: replace, add, accumulate;
+
+/* Global values */
+animation-composition: inherit;
+animation-composition: initial;
+animation-composition: revert;
+animation-composition: revert-layer;
+animation-composition: unset;
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they will be applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. If the number of animations and compositions differ, the values listed in the <code>animation-composition</code> property will cycle from the first to the last <code>animation-name</code>, looping until all the animations have an assigned <code>animation-composition</code> value. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>replace</code></dt>
+  <dd>
+    <p>The effect value overrides the underlying value of the property. This is the default value.</p>
+  </dd>
+  <dt><code>add</code></dt>
+  <dd>
+    <p>The effect value builds on the underlying value of the property. This operation produces an additive effect. For animation types where the addition operation is not commutative, the order of the operands is the underlying value followed by the effect value.</p>
+  </dd>
+  <dt><code>accumulate</code></dt>
+  <dd>
+    <p>The effect and underlying values are combined. For animation types where the addition operation is not commutative, the order of the operands is the underlying value followed by the effect value.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Each property that is targeted by the <a href="./css.at-rules.keyframes.html">@keyframes</a> at-rule is associated with an effect stack. The value of the effect stack is calculated by combining the <em>underlying value</em> of a property in a CSS style rule with the <em>effect value</em> of that property in the keyframe. The <code>animation-composition</code> property helps to specify how to combine the underlying value with the effect value.</p>
+<p>For example, in the CSS below, <code>blur(5px)</code> is the underlying value, and <code>blur(10px)</code> is the effect value. The <code>animation-composition</code> property specifies the operation to perform to produce the final effect value after compositing the effect of the underlying value and the effect value.</p>
+<pre class="brush: css">.icon:hover {
+  filter: blur(5px);
+  animation: 3s infinite pulse;
+  animation-composition: add;
+}
+
+@keyframes pulse {
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(20px);
+  }
+}
+</pre>
+<p>Consider different values for the <code>animation-composition</code> property in the above example. The final effect value in each of those cases will be calculated as explained below:</p>
+<ul>
+  <li>With <code>replace</code>, <code>blur(10px)</code> will replace <code>blur(5px)</code> in the <code>0%</code> keyframe. This is the default behavior of the property.</li>
+  <li>With <code>add</code>, the composite effect value in the <code>0%</code> keyframe will be <code>blur(5px) blur(10px)</code>.</li>
+  <li>With <code>accumulate</code>, the composite effect value in <code>0%</code> keyframe will be <code>blur(15px)</code>.</li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> A composite operation can also be specified in a keyframe. In that case, the specified composite operation is used for each property first within that keyframe and then on each property in the next keyframe.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>replace</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;single-animation-composition&gt;#</pre></section>
+
+<h3>Understanding the animation-composition values</h3>
+<p>The example below shows the effect of different <code>animation-composition</code> values side-by-side.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="container">
+  replace
+  &#x3C;div id="replace" class="target">&#x3C;/div>
+&#x3C;/div>
+&#x3C;div class="container">
+  add
+  &#x3C;div id="add" class="target">&#x3C;/div>
+&#x3C;/div>
+&#x3C;div class="container">
+  accumulate
+  &#x3C;div id="accumulate" class="target">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>Here the underlying value is <code>translateX(50px) rotate(45deg)</code>.</p>
+<pre class="brush: css hidden">.container {
+  width: 230px;
+  height: 200px;
+  background: cyan;
+  display: inline-block;
+  text-align: center;
+}
+
+.target {
+  width: 20px;
+  height: 50px;
+  background: green;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+</pre>
+<pre class="brush: css">@keyframes slide {
+  20%,
+  40% {
+    transform: translateX(100px);
+    background: yellow;
+  }
+  80%,
+  100% {
+    transform: translateX(150px);
+    background: orange;
+  }
+}
+
+.target {
+  transform: translateX(30px) rotate(45deg);
+  animation: slide 5s linear infinite;
+}
+.target:hover {
+  animation-play-state: paused;
+}
+#replace {
+  animation-composition: replace;
+}
+#add {
+  animation-composition: add;
+}
+#accumulate {
+  animation-composition: accumulate;
+}
+</pre>
+<h4>Result</h4>
+<ul>
+  <li>With <code>replace</code>, the final effect value for the <code>transform</code> property in the <code>0%, 20%</code> keyframe is <code>translateX(100px)</code> (completely replacing the underlying value <code>translateX(30px) rotate(45deg)</code>). In this case, the element rotates from 45deg to 0deg as it animates from the default value set on the element itself to the non-rotated value set at the 0% mark. This is the default behavior.</li>
+  <li>With <code>add</code>, the final effect value for the <code>transform</code> property in the <code>0%, 20%</code> keyframe is <code>translateX(30px) rotate(45deg)</code> followed by <code>translateX(100px)</code>. So the element is moved <code>30px</code> to the right, rotated <code>45deg</code>, then translated <code>100px</code> more along the redirected X axis.</li>
+  <li>With <code>accumulate</code>, the final effect value in the <code>0%, 20%</code> keyframe is <code>translateX(130px) rotate(45deg)</code>. This means that the two X-axis translation values of <code>30px</code> and <code>100px</code> are combined or "accumulated".</li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/composite">Composite property of KeyFrameEffect</a></li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 112</li><li><strong>chrome_android</strong>: 112</li><li><strong>edge</strong>: 112</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: 115</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 98</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 112</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations-2/#animation-composition">https://drafts.csswg.org/css-animations-2/#animation-composition</a></p></section></aside></body>
+</html>

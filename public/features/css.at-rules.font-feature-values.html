@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@font-feature-values"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@font-feature-values"</h1><main>
+    
+
+<p>The <strong><code>@font-feature-values</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> lets you use a common name in the <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a> property for features activated differently in OpenType. This can help simplify your CSS when using multiple fonts.</p>
+<p>The <code>@font-feature-values</code> at-rule may be used either at the top level of your CSS or inside any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule#conditional_group_rules">CSS conditional-group at-rule</a>.</p>
+
+<h3>Feature value blocks</h3>
+<dl>
+  <dt><code>@swash</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#swash()"><code>swash()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. A swash feature value definition allows only one value: <code>ident1: 2</code> is valid, but <code>ident2: 2 4</code> isn't.</p>
+  </dd>
+  <dt><code>@annotation</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#annotation()"><code>annotation()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. An annotation feature value definition allows only one value: <code>ident1: 2</code> is valid, but <code>ident2: 2 4</code> isn't.</p>
+  </dd>
+  <dt><code>@ornaments</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#ornaments()"><code>ornaments()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. An ornaments feature value definition allows only one value: <code>ident1: 2</code> is valid, but <code>ident2: 2 4</code> isn't.</p>
+  </dd>
+  <dt><code>@stylistic</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#stylistic()"><code>stylistic()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. A stylistic feature value definition allows only one value: <code>ident1: 2</code> is valid, but <code>ident2: 2 4</code> isn't.</p>
+  </dd>
+  <dt><code>@styleset</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#styleset()"><code>styleset()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. A styleset feature value definition allows an unlimited number of values: <code>ident1: 2 4 12 1</code> maps to the OpenType values <code>ss02</code>, <code>ss04</code>, <code>ss12</code>, and <code>ss01</code>. Note that values higher than <code>99</code> are valid, but don't map to any OpenType values and are ignored.</p>
+  </dd>
+  <dt><code>@character-variant</code></dt>
+  <dd>
+    <p>Specifies a feature name that will work with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates#character-variant()"><code>character-variant()</code></a> functional notation of <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>. A character-variant feature value definition allows either one or two values: <code>ident1: 3</code> maps to <code>cv03=1</code>, and <code>ident2: 2 4</code> maps to <code>cv02=4</code>, but <code>ident2: 2 4 5</code> is invalid.</p>
+  </dd>
+</dl>
+
+
+<h3>Using @styleset in a @font-feature-values rule</h3>
+<pre class="brush: css">/* At-rule for "nice-style" in Font One */
+@font-feature-values Font One {
+  @styleset {
+    nice-style: 12;
+  }
+}
+
+/* At-rule for "nice-style" in Font Two */
+@font-feature-values Font Two {
+  @styleset {
+    nice-style: 4;
+  }
+}
+
+…
+
+/* Apply the at-rules with a single declaration */
+.nice-look {
+  font-variant-alternates: styleset(nice-style);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a> property that uses values that this at-rule defines.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-feature-values">https://drafts.csswg.org/css-fonts/#font-feature-values</a></p></section></aside></body>
+</html>

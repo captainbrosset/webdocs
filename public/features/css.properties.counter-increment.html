@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>counter-increment</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties counter-increment</h1><main>
+    
+
+<p>The <strong><code>counter-increment</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property increases or decreases the value of a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">CSS counter</a> by a given value.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The counter's value can be reset to an arbitrary number using the <a href="./css.properties.counter-reset.html"><code>counter-reset</code></a> CSS property.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Increment "my-counter" by 1 */
+counter-increment: my-counter;
+
+/* Decrement "my-counter" by 1 */
+counter-increment: my-counter -1;
+
+/* Increment "counter1" by 1, and decrement "counter2" by 4 */
+counter-increment: counter1 counter2 -4;
+
+/* Do not increment/decrement anything: used to override less specific rules */
+counter-increment: none;
+
+/* Global values */
+counter-increment: inherit;
+counter-increment: initial;
+counter-increment: revert;
+counter-increment: revert-layer;
+counter-increment: unset;
+</pre>
+<p>The <code>counter-increment</code> property is specified as either one of the following:</p>
+<ul>
+  <li>A <code>&#x3C;custom-ident></code> naming the counter, followed optionally by an <code>&#x3C;integer></code>. You may specify as many counters to increment as you want, with each name or name-number pair separated by a space.</li>
+  <li>The keyword value <code>none</code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a></dt>
+  <dd>
+    <p>The name of the counter to increment.</p>
+  </dd>
+  <dt><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></dt>
+  <dd>
+    <p>The value to add to the counter. Defaults to <code>1</code> if not specified.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No counter must be incremented. This is used as the default value, or to cancel an increment in more specific rules.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or a list, each item an identifier paired with an integer</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ &lt;counter-name&gt; &lt;integer&gt;? ]+ | none</pre></section>
+
+<h3>Incrementing named counters</h3>
+<pre class="brush: css">h1 {
+  counter-increment: chapter section 2 page;
+  /* Increases the value of the chapter and page counters by 1,
+     and the section counter by 2 */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">Using CSS Counters</a></li>
+  <li><a href="./css.properties.counter-reset.html"><code>counter-reset</code></a></li>
+  <li><a href="./css.properties.counter-set.html"><code>counter-set</code></a></li>
+  <li><a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a></li>
+  <li>The <a href="./css.types.counter.html"><code>counter()</code></a> and <a href="./css.types.counters.html"><code>counters()</code></a> functions</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 25</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#increment-set">https://drafts.csswg.org/css-lists/#increment-set</a></p></section></aside></body>
+</html>

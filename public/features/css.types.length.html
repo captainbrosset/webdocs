@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;length&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;length></h1><main>
+    
+
+<p>The <strong><code>&#x3C;length></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a distance value. Lengths can be used in numerous CSS properties, such as <a href="./css.properties.width.html"><code>&lt;width&gt;</code></a>, <a href="./css.properties.height.html"><code>&lt;height&gt;</code></a>, <a href="./css.properties.margin.html"><code>&lt;margin&gt;</code></a>, <a href="./css.properties.padding.html"><code>&lt;padding&gt;</code></a>, <a href="./css.properties.border-width.html"><code>&lt;border-width&gt;</code></a>, <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a>, and <a href="./css.properties.text-shadow.html"><code>&lt;text-shadow&gt;</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Although <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values are usable in some of the same properties that accept <code>&#x3C;length></code> values, they are not themselves <code>&#x3C;length></code> values. See <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>.</p>
+</div>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;length></code> data type consists of a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by one of the units listed below. As with all CSS dimensions, there is no space between the number and the unit literal. Specifying the length unit is optional if the number is <code>0</code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Some properties allow negative <code>&#x3C;length></code> values, while others do not.</p>
+</div>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/specified_value">specified value</a> of a length (<em>specified length</em>) is represented by its quantity and unit. The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed value</a> of a length (<em>computed length</em>) is the specified length resolved to an absolute length, and its unit is not distinguished.</p>
+<p>The <code>&#x3C;length></code> units can be relative or absolute. Relative lengths represent a measurement in terms of some other distance. Depending on the unit, this distance can be the size of a specific character, the <a href="./css.properties.line-height.html">line height</a>, or the size of the <a href="/Glossary/viewport">viewport</a>. Style sheets that use relative length units can more easily scale from one output environment to another.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Child elements do not inherit the relative values as specified for their parent; they inherit the computed values.</p>
+</div>
+<p>The relative length units listed here are based on font and viewport.</p>
+<h3>Relative length units based on font</h3>
+<p>Font lengths define the <code>&#x3C;length></code> value in terms of the size of a particular character or font attribute in the font currently in effect in an element or its parent.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> These units, especially <code>em</code> and <code>rem</code>, are often used to create scalable layouts, which maintain the vertical rhythm of the page even when the user changes the font size.</p>
+</div>
+<dl>
+  <dt><code>cap</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Represents the "cap height" (nominal height of capital letters) of the element's <a href="./css.properties.font.html"><code>&lt;font&gt;</code></a>.</p>
+  </dd>
+  <dt><code>ch</code></dt>
+  <dd>
+    <p>
+      Represents the width or more precisely the <a href="/Glossary/advance_measure">advance measure</a> of the glyph <code>0</code> (zero, the Unicode character U+0030) in the element's <a href="./css.properties.font.html"><code>&lt;font&gt;</code></a>.
+      In cases where it is impossible or impractical to determine the measure of the <code>0</code> glyph, it must be assumed to be <code>0.5em</code> wide by <code>1em</code> tall.
+    </p>
+  </dd>
+  <dt><code>em</code></dt>
+  <dd>
+    <p>Represents the calculated <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a> of the element. If used on the <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a> property itself, it represents the <em>inherited</em> font-size of the element.</p>
+  </dd>
+  <dt><code>ex</code></dt>
+  <dd>
+    <p>Represents the <a href="https://en.wikipedia.org/wiki/X-height">x-height</a> of the element's <a href="./css.properties.font.html"><code>&lt;font&gt;</code></a>. In fonts with the <code>x</code> letter, this is generally the height of lowercase letters in the font; <code>1ex ≈ 0.5em</code> in many fonts.</p>
+  </dd>
+  <dt><code>ic</code></dt>
+  <dd>
+    <p>Equal to the used <a href="/Glossary/advance_measure">advance measure</a> of the "水" glyph (CJK water ideograph, U+6C34), found in the font used to render it.</p>
+  </dd>
+  <dt><code>lh</code></dt>
+  <dd>
+    <p>Equal to the computed value of the <a href="./css.properties.line-height.html"><code>&lt;line-height&gt;</code></a> property of the element on which it is used, converted to an absolute length.</p>
+  </dd>
+  <dt><code>rem</code></dt>
+  <dd>
+    <p>Represents the <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a> of the root element (typically <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a>). When used within the root element <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a>, it represents its initial value (a common browser default is <code>16px</code>, but user-defined preferences may modify this).</p>
+  </dd>
+  <dt><code>rlh</code></dt>
+  <dd>
+    <p>Equal to the computed value of the <a href="./css.properties.line-height.html"><code>&lt;line-height&gt;</code></a> property on the root element (typically <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a>), converted to an absolute length. When used on the <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a> or <a href="./css.properties.line-height.html"><code>&lt;line-height&gt;</code></a> properties of the root element, it refers to the properties' initial value.</p>
+  </dd>
+</dl>
+<h3>Relative length units based on viewport</h3>
+<p>The viewport-percentage length units are based on four different viewport sizes: small, large, dynamic, and default. The allowance for the different viewport sizes is in response to browser interfaces expanding and retracting dynamically and hiding and showing the content underneath.</p>
+<dl>
+  <dt><strong>Small</strong></dt>
+  <dd>
+    <p>When you want the smallest possible viewport in response to browser interfaces expanding dynamically, you should use the small viewport size. The small viewport size allows the content you design to fill the entire viewport when browser interfaces are expanded. Choosing this size might also possibly leave empty spaces when browser interfaces retract.</p>
+    <p>For example, an element that is sized using viewport-percentage units based on the small viewport size, the element will fill the screen perfectly without any of its content being obscured when all the dynamic browser interfaces are shown. When those browser interfaces are hidden, however, there might be extra space visible around the element. Therefore, the small viewport-percentage units are "safer" to use in general, but might not produce the most attractive layout after a user starts interacting with the page.</p>
+    <p>The small viewport size is represented by the <code>sv</code> prefix and results in the <code>sv*</code> viewport-percentage length units. The sizes of the small viewport-percentage units are fixed, and therefore stable, unless the viewport itself is resized.</p>
+  </dd>
+  <dt><strong>Large</strong></dt>
+  <dd>
+    <p>When you want the largest possible viewport in response to browser interfaces retracting dynamically, you should use the large viewport size. The large viewport size allows the content you design to fill the entire viewport when browser interfaces are retracting. You need to be aware though that the content might get hidden when browser interfaces expand.</p>
+    <p>For example, on mobile phones where the screen real-estate is at a premium, browsers often hide part or all of the title and address bar after a user starts scrolling the page. When an element is sized using a viewport-percentage unit based on the large viewport size, the content of the element will fill the entire visible page when these browser interfaces are hidden. However, when these retractable browser interfaces are shown, they can hide the content that is sized or positioned using the <em>large</em> viewport-percentage units.</p>
+    <p>The large viewport unit is represented by the <code>lv</code> prefix and results in the <code>lv*</code> viewport-percentage units. The sizes of the large viewport-percentage units are fixed, and therefore stable, unless the viewport itself is resized.</p>
+  </dd>
+  <dt><strong>Dynamic</strong></dt>
+  <dd>
+    <p>When you want the viewport to be automatically sized in response to browser interfaces dynamically expanding or retracting, you can use the dynamic viewport size. The dynamic viewport size allows the content you design to fit exactly within the viewport, irrespective of the presence of dynamic browser interfaces.</p>
+    <p>The dynamic viewport unit is represented by the <code>dv</code> prefix and results in the <code>dv*</code> viewport-percentage units. The sizes of the dynamic viewport-percentage units are not stable, even when the viewport itself is unchanged.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> While the dynamic viewport size can give you more control and flexibility, using viewport-percentage units based on the dynamic viewport size can cause the content to resize while a user is scrolling a page. This can lead to degradation of the user interface and cause a performance hit.</p>
+    </div>
+  </dd>
+  <dt><strong>Default</strong></dt>
+  <dd>
+    <p>The default viewport size is defined by the browser. The behavior of the resulting viewport-percentage unit could be equivalent to the viewport-percentage unit based on the small viewport size, the large viewport size, an intermediate size between the two, or the dynamic viewport size.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> For example, a browser might implement the default viewport-percentage unit for height (<code>vh</code>) that is equivalent to the large viewport-percentage height unit (<code>lvh</code>). If so, this could obscure content on a full-page display while the browser interface is expanded.</p>
+    </div>
+  </dd>
+</dl>
+<p>Viewport-percentage lengths define <code>&#x3C;length></code> values in percentage relative to the size of the initial <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a>, which in turn is based on either the size of the <a href="/Glossary/viewport">viewport</a> or the page area, i.e., the visible portion of the document. When the height or width of the initial containing block is changed, the elements that are sized based on them are scaled accordingly. There is a viewport-percentage length unit variant corresponding to each of the viewport sizes, as described below.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Viewport lengths are invalid in <a href="./css.at-rules.page.html"><code>&lt;@page&gt;</code></a> declaration blocks.</p>
+</div>
+<dl>
+  <dt><code>vh</code></dt>
+  <dd>
+    <p>Represents a percentage of the height of the viewport's initial <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a>. <code>1vh</code> is 1% of the viewport height. For example, if the viewport height is <code>300px</code>, then a value of <code>70vh</code> on a property will be <code>210px</code>.</p>
+    <p>For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svh</code>, <code>lvh</code>, and <code>dvh</code>. <code>vh</code> represents the viewport-percentage length unit based on the browser default viewport size.</p>
+  </dd>
+  <dt><code>vw</code></dt>
+  <dd>
+    <p>Represents a percentage of the width of the viewport's initial <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a>. <code>1vw</code> is 1% of the viewport width. For example, if the viewport width is <code>800px</code>, then a value of <code>50vw</code> on a property will be <code>400px</code>.</p>
+    <p>
+      For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svw</code>, <code>lvw</code>, and <code>dvw</code>.
+      <code>vw</code> represents the viewport-percentage length unit based on the browser default viewport size.
+    </p>
+  </dd>
+  <dt><code>vmax</code></dt>
+  <dd>
+    <p>Represents in percentage the largest of <code>vw</code> and <code>vh</code>.</p>
+    <p>
+      For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svmax</code>, <code>lvmax</code>, and <code>dvmax</code>.
+      <code>vmax</code> represents the viewport-percentage length unit based on the browser default viewport size.
+    </p>
+  </dd>
+  <dt><code>vmin</code></dt>
+  <dd>
+    <p>Represents in percentage the smallest of <code>vw</code> and <code>vh</code>.</p>
+    <p>
+      For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svmin</code>, <code>lvmin</code>, and <code>dvmin</code>.
+      <code>vmin</code> represents the viewport-percentage length unit based on the browser default viewport size.
+    </p>
+  </dd>
+  <dt><code>vb</code></dt>
+  <dd>
+    <p>Represents percentage of the size of the initial <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a>, in the direction of the root element's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values#block_vs._inline">block axis</a>.</p>
+    <p>
+      For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svb</code>, <code>lvb</code>, and <code>dvb</code>, respectively.
+      <code>vb</code> represents the viewport-percentage length unit based on the browser default viewport size.
+    </p>
+  </dd>
+  <dt><code>vi</code></dt>
+  <dd>
+    <p>Represents a percentage of the size of the initial <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a>, in the direction of the root element's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values#block_vs._inline">inline axis</a>.</p>
+    <p>
+      For small, large, and dynamic viewport sizes, the respective viewport-percentage units are <code>svi</code>, <code>lvi</code>, and <code>dvi</code>.
+      <code>vi</code> represents the viewport-percentage length unit based on the browser default viewport size.
+    </p>
+  </dd>
+</dl>
+<h3>Container query length units</h3>
+<p>
+  When applying styles to a container using container queries, you can use container query length units.
+  These units specify a length relative to the dimensions of a query container.
+  Components that use units of length relative to their container are more flexible to use in different containers without having to recalculate concrete length values.
+  For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">Container queries</a>.
+</p>
+<dl>
+  <dt><code>cqw</code></dt>
+  <dd>
+    <p>Represents a percentage of the width of the query container. <code>1cqw</code> is 1% of the query container's width. For example, if the query container's width is <code>800px</code>, then a value of <code>50cqw</code> on a property will be <code>400px</code>.</p>
+  </dd>
+  <dt><code>cqh</code></dt>
+  <dd>
+    <p>Represents a percentage of the height of the query container. <code>1cqh</code> is 1% of the query container's height. For example, if the query container's height is <code>300px</code>, then a value of <code>10cqh</code> on a property will be <code>30px</code>.</p>
+  </dd>
+  <dt><code>cqi</code></dt>
+  <dd>
+    <p>Represents a percentage of the inline size of the query container. <code>1cqi</code> is 1% of the query container's inline size. For example, if the query container's inline size is <code>800px</code>, then a value of <code>50cqi</code> on a property will be <code>400px</code>.</p>
+  </dd>
+  <dt><code>cqb</code></dt>
+  <dd>
+    <p>Represents a percentage of the block size of the query container. <code>1cqb</code> is 1% of the query container's block size. For example, if the query container's block size is <code>300px</code>, then a value of <code>10cqb</code> on a property will be <code>30px</code>.</p>
+  </dd>
+  <dt><code>cqmin</code></dt>
+  <dd>
+    <p>Represents a percentage of the smaller value of either the query container's inline size or block size. <code>1cqmin</code> is 1% of the smaller value of either the query container's inline size or block size. For example, if the query container's inline size is <code>800px</code> and its block size is <code>300px</code>, then a value of <code>50cqmin</code> on a property will be <code>150px</code>.</p>
+  </dd>
+  <dt><code>cqmax</code></dt>
+  <dd>
+    <p>Represents a percentage of the larger value of either the query container's inline size or block size. <code>1cqmax</code> is 1% of the larger value of either the query container's inline size or block size. For example, if the query container's inline size is <code>800px</code> and its block size is <code>300px</code>, then a value of <code>50cqmax</code> on a property will be <code>400px</code>.</p>
+  </dd>
+</dl>
+<h3>Absolute length units</h3>
+<p>Absolute length units represent a physical measurement when the physical properties of the output medium are known, such as for print layout. This is done by anchoring one of the units to a physical unit and then defining the others relative to it. The anchoring is done differently for low-resolution devices, such as screens, versus high-resolution devices, such as printers.</p>
+<p>For low-dpi devices, the unit <code>px</code> represents the physical <em>reference pixel</em>; other units are defined relative to it. Thus, <code>1in</code> is defined as <code>96px</code>, which equals <code>72pt</code>. The consequence of this definition is that on such devices, dimensions described in inches (<code>in</code>), centimeters (<code>cm</code>), or millimeters (<code>mm</code>) don't necessarily match the size of the physical unit with the same name.</p>
+<p>For high-dpi devices, inches (<code>in</code>), centimeters (<code>cm</code>), and millimeters (<code>mm</code>) are the same as their physical counterparts. Therefore, the <code>px</code> unit is defined relative to them (1/96 of <code>1in</code>).</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Many users increase their <a href="/Glossary/user_agent">user agent</a>'s default font size to make text more legible. Absolute lengths can cause accessibility problems because they are fixed and do not scale according to user settings. For this reason, prefer relative lengths (such as <code>em</code> or <code>rem</code>) when setting <code>font-size</code>.</p>
+</div>
+<dl>
+  <dt><code>px</code></dt>
+  <dd>
+    <p>One pixel. For screen displays, it traditionally represents one device pixel (dot). However, for <em>printers</em> and <em>high-resolution screens</em>, one CSS pixel implies multiple device pixels. <code>1px</code> = <code>1in / 96</code>.</p>
+  </dd>
+  <dt><code>cm</code></dt>
+  <dd>
+    <p>One centimeter. <code>1cm</code> = <code>96px / 2.54</code>.</p>
+  </dd>
+  <dt><code>mm</code></dt>
+  <dd>
+    <p>One millimeter. <code>1mm</code> = <code>1cm / 10</code>.</p>
+  </dd>
+  <dt><code>Q</code></dt>
+  <dd>
+    <p>One quarter of a millimeter. <code>1Q</code> = <code>1cm / 40</code>.</p>
+  </dd>
+  <dt><code>in</code></dt>
+  <dd>
+    <p>One inch. <code>1in</code> = <code>2.54cm</code> = <code>96px</code>.</p>
+  </dd>
+  <dt><code>pc</code></dt>
+  <dd>
+    <p>One pica. <code>1pc</code> = <code>12pt</code> = <code>1in / 6</code>.</p>
+  </dd>
+  <dt><code>pt</code></dt>
+  <dd>
+    <p>One point. <code>1pt</code> = <code>1in / 72</code>.</p>
+  </dd>
+</dl>
+<h2>Interpolation</h2>
+<p>When animated, values of the <code>&#x3C;length></code> data type are interpolated as real, floating-point numbers. The interpolation happens on the calculated value. The speed of the interpolation is determined by the <a href="./css.types.easing-function.html">easing function</a> associated with the animation.</p>
+
+<h3>Comparing different length units</h3>
+<p>The following example provides you with an input field in which you can enter a <code>&#x3C;length></code> value (e.g. <code>300px</code>, <code>50%</code>, <code>30vw</code>) to set the width of a result bar that will appear below it once you've pressed the <kbd>Enter</kbd> or the <kbd>Return</kbd> key.</p>
+<p>This allows you to compare and contrast the effect of different length units.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="outer">
+  &#x3C;div class="input-container">
+    &#x3C;label for="length">Enter width:&#x3C;/label>
+    &#x3C;input type="text" id="length" />
+  &#x3C;/div>
+  &#x3C;div class="inner">&#x3C;/div>
+&#x3C;/div>
+&#x3C;div class="results">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">html {
+  font-family: sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.outer {
+  width: 100%;
+  height: 50px;
+  background-color: #eee;
+  position: relative;
+}
+
+.inner {
+  height: 50px;
+  background-color: #999;
+  box-shadow:
+    inset 3px 3px 5px rgb(255 255 255 / 0.5),
+    inset -3px -3px 5px rgb(0 0 0 / 0.5);
+}
+
+.result {
+  height: 20px;
+  box-shadow:
+    inset 3px 3px 5px rgba(255 255 255 / 0.5),
+    inset -3px -3px 5px rgb(0 0 0 / 0.5);
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.result code {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.results {
+  margin-top: 10px;
+}
+
+.input-container {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+}
+
+label {
+  margin: 0 10px 0 20px;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const inputDiv = document.querySelector(".inner");
+const inputElem = document.querySelector("input");
+const resultsDiv = document.querySelector(".results");
+
+inputElem.addEventListener("change", () => {
+  inputDiv.style.width = inputElem.value;
+
+  const result = document.createElement("div");
+  result.className = "result";
+  result.style.width = inputElem.value;
+  result.innerHTML = `&#x3C;code>width: ${inputElem.value}&#x3C;/code>`;
+  resultsDiv.appendChild(result);
+
+  inputElem.value = "";
+  inputElem.focus();
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">CSS values &#x26; units tutorial</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS values &#x26; units reference</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model">Box Model</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#lengths">https://drafts.csswg.org/css-values/#lengths</a></p></section></aside></body>
+</html>

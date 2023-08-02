@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-direction</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-direction</h1><main>
+    
+
+<p>The <strong><code>animation-direction</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an animation should play forward, backward, or alternate back and forth between playing the sequence forward and backward.</p>
+<p>It is often convenient to use the shorthand property <a href="./css.properties.animation.html"><code>animation</code></a> to set all animation properties at once.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single animation */
+animation-direction: normal;
+animation-direction: reverse;
+animation-direction: alternate;
+animation-direction: alternate-reverse;
+
+/* Multiple animations */
+animation-direction: normal, reverse;
+animation-direction: alternate, reverse, normal;
+
+/* Global values */
+animation-direction: inherit;
+animation-direction: initial;
+animation-direction: revert;
+animation-direction: revert-layer;
+animation-direction: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The animation plays <em>forwards</em> each cycle. In other words, each time the animation cycles, the animation will reset to the beginning state and start over again. This is the default value.</p>
+  </dd>
+  <dt><code>reverse</code></dt>
+  <dd>
+    <p>The animation plays <em>backwards</em> each cycle. In other words, each time the animation cycles, the animation will reset to the end state and start over again. Animation steps are performed backwards, and easing functions are also reversed. For example, an <code>ease-in</code> easing function becomes <code>ease-out</code>.</p>
+  </dd>
+  <dt><code>alternate</code></dt>
+  <dd>
+    <p>The animation reverses direction each cycle, with the first iteration being played <em>forwards</em>. The count to determine if a cycle is even or odd starts at one.</p>
+  </dd>
+  <dt><code>alternate-reverse</code></dt>
+  <dd>
+    <p>The animation reverses direction each cycle, with the first iteration being played <em>backwards</em>. The count to determine if a cycle is even or odd starts at one.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they are applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. For situations where the number of animations and <code>animation-*</code> property values do not match, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> When creating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>, specifying an <code>animation-direction</code> works as expected, for example <code>reverse</code> causes the animation to run in reverse over the course of the timeline's progression. A value of <code>alternate</code> (combined with an <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>) causes the animation to run forwards and backwards as the timeline is progressed.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;single-animation-direction&gt;#</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.box:hover {
+  animation-name: rotate;
+  animation-duration: 0.7s;
+  animation-direction: reverse;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a> for examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation-direction">https://drafts.csswg.org/css-animations/#animation-direction</a></p></section></aside></body>
+</html>

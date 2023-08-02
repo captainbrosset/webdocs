@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;length-percentage&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;length-percentage></h1><main>
+    
+
+<p>The <strong><code>&#x3C;length-percentage></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a value that can be either a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>.</p>
+<h2>Syntax</h2>
+<p>Refer to the documentation for <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> and <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> for details of the individual syntaxes allowed by this type.</p>
+
+
+<h3>length-percentage examples</h3>
+<p>The following simple example demonstrates several properties that use <code>&#x3C;length-percentage></code> values.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>You can use percentages and lengths in so many places.&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  /* length-percentage examples */
+  width: 75%;
+  height: 200px;
+  margin: 3rem;
+  padding: 1%;
+  border-radius: 10px 10%;
+  font-size: 250%;
+  line-height: 1.5em;
+
+  /* length examples */
+  text-shadow: 1px 1px 1px red;
+  border: 5px solid red;
+  letter-spacing: 3px;
+
+  /* percentage example */
+  text-size-adjust: 20%;
+}
+</pre>
+
+<h3>Use in calc()</h3>
+<p>Where a <code>&#x3C;length-percentage></code> is specified as an allowable type, this means that the percentage resolves to a length and therefore can be used in a <a href="./css.types.calc.html"><code>calc()</code></a> expression. Therefore, all of the following values are acceptable for <a href="./css.properties.width.html"><code>&lt;width&gt;</code></a>:</p>
+<pre class="brush: css example-good">width: 200px;
+width: 20%;
+width: calc(100% - 200px);
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></li>
+  <li><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#mixed-percentages">https://drafts.csswg.org/css-values/#mixed-percentages</a></p></section></aside></body>
+</html>

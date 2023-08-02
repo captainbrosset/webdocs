@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border</h1><main>
+    
+
+<p>The <strong><code>border</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets an element's border. It sets the values of <a href="./css.properties.border-width.html"><code>border-width</code></a>, <a href="./css.properties.border-style.html"><code>border-style</code></a>, and <a href="./css.properties.border-color.html"><code>border-color</code></a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.border-color.html"><code>border-color</code></a></li>
+  <li><a href="./css.properties.border-style.html"><code>border-style</code></a></li>
+  <li><a href="./css.properties.border-width.html"><code>border-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* style */
+border: solid;
+
+/* width | style */
+border: 2px dotted;
+
+/* style | color */
+border: outset #f33;
+
+/* width | style | color */
+border: medium dashed green;
+
+/* Global values */
+border: inherit;
+border: initial;
+border: revert;
+border: revert-layer;
+border: unset;
+</pre>
+<p>The <code>border</code> property may be specified using one, two, or three of the values listed below. The order of the values does not matter.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The border will be invisible if its style is not defined. This is because the style defaults to <code>none</code>.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;line-width></code></dt>
+  <dd>
+    <p>Sets the thickness of the border. Defaults to <code>medium</code> if absent. See <a href="./css.properties.border-width.html"><code>border-width</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;line-style></code></dt>
+  <dd>
+    <p>Sets the style of the border. Defaults to <code>none</code> if absent. See <a href="./css.properties.border-style.html"><code>border-style</code></a>.</p>
+  </dd>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>Sets the color of the border. Defaults to <code>currentcolor</code> if absent. See <a href="./css.properties.border-color.html"><code>border-color</code></a>.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>As with all shorthand properties, any omitted sub-values will be set to their <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial value</a>. Importantly, <code>border</code> cannot be used to specify a custom value for <a href="./css.properties.border-image.html"><code>border-image</code></a>, but instead sets it to its initial value, i.e., <code>none</code>.</p>
+<p>The <code>border</code> shorthand is especially useful when you want all four borders to be the same. To make them different from each other, however, you can use the longhand <a href="./css.properties.border-width.html"><code>border-width</code></a>, <a href="./css.properties.border-style.html"><code>border-style</code></a>, and <a href="./css.properties.border-color.html"><code>border-color</code></a> properties, which accept different values for each side. Alternatively, you can target one border at a time with the physical (e.g., <a href="./css.properties.border-top.html"><code>border-top</code></a> ) and logical (e.g., <a href="./css.properties.border-block-start.html"><code>border-block-start</code></a>) border properties.</p>
+<h3>Borders vs. outlines</h3>
+<p>Borders and <a href="./css.properties.outline.html">outlines</a> are very similar. However, outlines differ from borders in the following ways:</p>
+<ul>
+  <li>Outlines never take up space, as they are drawn outside of an element's content.</li>
+  <li>According to the spec, outlines don't have to be rectangular, although they usually are.</li>
+</ul>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>I have a border, an outline, and a box shadow! Amazing, isn't it?&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  border: 0.5rem outset pink;
+  outline: 0.5rem solid khaki;
+  box-shadow: 0 0 0 2rem skyblue;
+  border-radius: 12px;
+  font: bold 1rem sans-serif;
+  margin: 2rem;
+  padding: 1rem;
+  outline-offset: 0.5rem;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.border-width.html"><code>border-width</code></a></li>
+  <li><a href="./css.properties.border-style.html"><code>border-style</code></a></li>
+  <li><a href="./css.properties.border-color.html"><code>border-color</code></a></li>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">Backgrounds and borders</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders">Learn CSS: Backgrounds and borders</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#propdef-border">https://drafts.csswg.org/css-backgrounds/#propdef-border</a></p></section></aside></body>
+</html>

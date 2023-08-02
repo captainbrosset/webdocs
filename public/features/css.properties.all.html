@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>all</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties all</h1><main>
+    
+
+<p>The <strong><code>all</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property resets all of an element's properties except <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Custom Properties</a>. It can set properties to their initial or inherited values, or to the values specified in another cascade layer or stylesheet origin.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for all CSS properties except for <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">custom properties</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Global values */
+all: initial;
+all: inherit;
+all: unset;
+all: revert;
+all: revert-layer;
+</pre>
+<p>The <code>all</code> property is specified as one of the CSS global keyword values. Note that none of these values affect the <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a> and <a href="./css.properties.direction.html"><code>direction</code></a> properties.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.global_keywords.initial.html"><code>initial</code></a></dt>
+  <dd>
+    <p>Specifies that all the element's properties should be changed to their <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial values</a>.</p>
+  </dd>
+  <dt><a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a></dt>
+  <dd>
+    <p>Specifies that all the element's properties should be changed to their <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance">inherited values</a>.</p>
+  </dd>
+  <dt><a href="./css.types.global_keywords.unset.html"><code>unset</code></a></dt>
+  <dd>
+    <p>Specifies that all the element's properties should be changed to their inherited values if they inherit by default, or to their initial values if not.</p>
+  </dd>
+  <dt><a href="./css.types.global_keywords.revert.html"><code>revert</code></a></dt>
+  <dd>
+    <p>Specifies behavior that depends on the stylesheet origin to which the declaration belongs:</p>
+    <ul>
+      <li>If the rule belongs to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#author_stylesheets">author origin</a>, the <code>revert</code> value rolls back the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">cascade</a> to the user level, so that the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/specified_value">specified values</a> are calculated as if no author-level rules were specified for the element. For purposes of <code>revert</code>, the author origin includes the Override and Animation origins.</li>
+      <li>If the rule belongs to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#user_stylesheets">user origin</a>, the <code>revert</code> value rolls back the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">cascade</a> to the user-agent level, so that the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/specified_value">specified values</a> are calculated as if no author-level or user-level rules were specified for the element.</li>
+      <li>If the rule belongs to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#user-agent_stylesheets">user-agent origin</a>, the <code>revert</code> value acts like <code>unset</code>.</li>
+    </ul>
+  </dd>
+  <dt><a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a></dt>
+  <dd>
+    <p>Specifies that all the element's properties should roll back the cascade to a previous <a href="./css.at-rules.layer.html">cascade layer</a>, if one exists. If no other cascade layer exists, the element's properties will roll back to the matching rule, if one exists, in the current layer or to a previous <a href="https://developer.mozilla.org/en-US/docs/Glossary/Style_origin">style origin</a>.</p>
+  </dd>
+</dl>
+
+
+<h2>Examples</h2>
+<p>In this example, the CSS file contains styling for the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element in addition to some styling for the parent <code>&#x3C;body></code> element. Various outputs in the Results subsection demonstrate how the styling of the <code>&#x3C;blockquote></code> element is affected when different values are applied to the <code>all</code> property inside the <code>blockquote</code> rule.</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  background-color: skyblue;
+  color: red;
+}
+</pre>
+
+<h4>A. No <code>all</code> property</h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+}
+</pre>
+<p>This is the scenario in which no <code>all</code> property is set inside the <code>blockquote</code> rule. The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element uses the browser's default styling which gives it a margin, together with a specific background and text color as specified in the stylesheet. It also behaves as a <em>block</em> element: the text that follows it is beneath it.</p>
+<h4>B. <code>all: initial</code></h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+  all: initial;
+}
+</pre>
+<p>With the <code>all</code> property set to <code>initial</code> in the <code>blockquote</code> rule, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element doesn't use the browser default styling anymore: it is an <em>inline</em> element now (initial value), its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color#formal_definition"><code>background-color</code></a> is <code>transparent</code> (initial value), its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#formal_definition"><code>font-size</code></a> is <code>medium</code>, and its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition"><code>color</code></a> is <code>black</code> (initial value).</p>
+<h4>C. <code>all: inherit</code></h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+  all: inherit;
+}
+</pre>
+<p>In this case, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element doesn't use the browser default styling. Instead, it inherits style values from its parent <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> element: it is a <em>block</em> element now (inherited value), its <a href="./css.properties.background-color.html"><code>background-color</code></a> is <code>#F0F0F0</code> (inherited value), its <a href="./css.properties.font-size.html"><code>font-size</code></a> is <code>small</code> (inherited value), and its <a href="./css.properties.color.html"><code>color</code></a> is <code>blue</code> (inherited value).</p>
+<h4>D. <code>all: unset</code></h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+  all: unset;
+}
+</pre>
+<p>When the <code>unset</code> value is applied to the <code>all</code> property in the <code>blockquote</code> rule, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element doesn't use the browser default styling. Because <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color#formal_definition"><code>background-color</code></a> is a non-inherited property and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#formal_definition"><code>font-size</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition"><code>color</code></a> are inherited properties, the <code>&#x3C;blockquote></code> element is an <em>inline</em> element now (initial value), its <a href="./css.properties.background-color.html"><code>background-color</code></a> is <code>transparent</code> (initial value), but its <a href="./css.properties.font-size.html"><code>font-size</code></a> is still <code>small</code> (inherited value), and its <a href="./css.properties.color.html"><code>color</code></a> is <code>blue</code> (inherited value).</p>
+<h4>E. <code>all: revert</code></h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+  all: revert;
+}
+</pre>
+<p>When the <code>all</code> property is set to <code>revert</code> in the <code>blockquote</code> rule, the <code>blockquote</code> rule is considered to be non-existent and the styling property values are inherited from the ones applied to the parent element <code>&#x3C;body></code>. So the <code>&#x3C;blockquote></code> element gets styled as a <em>block</em> element, with <a href="./css.properties.background-color.html"><code>background-color</code></a> <code>#F0F0F0</code>, <a href="./css.properties.font-size.html"><code>font-size</code></a> <code>small</code>, and <a href="./css.properties.color.html"><code>color</code></a> <code>blue</code> - all values inherited from the <code>body</code> rule.</p>
+<h4>F. <code>all: revert-layer</code></h4>
+<pre class="brush: html hidden">&#x3C;blockquote id="quote">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&#x3C;/blockquote>
+Phasellus eget velit sagittis.
+</pre>
+<pre class="brush: css hidden">body {
+  font-size: small;
+  background-color: #f0f0f0;
+  color: blue;
+}
+blockquote {
+  background-color: skyblue;
+  color: red;
+  all: revert-layer;
+}
+</pre>
+<p>There are no cascade layers defined in the CSS file, so the <code>&#x3C;blockquote></code> element inherits its style from the matching <code>body</code> rule. The <code>&#x3C;blockquote></code> element here is styled as a <em>block</em> element, with <a href="./css.properties.background-color.html"><code>background-color</code></a> <code>#F0F0F0</code>, <a href="./css.properties.font-size.html"><code>font-size</code></a> <code>small</code>, and <a href="./css.properties.color.html"><code>color</code></a> <code>blue</code> - all values inherited from the <code>body</code> rule. This scenario is an example of the case when <code>all</code> set to <code>revert-layer</code> behaves the same as when <code>all</code> is set to <code>revert</code>.</p>
+
+
+<h2>See also</h2>
+<p>CSS global keyword values: <a href="./css.types.global_keywords.initial.html"><code>initial</code></a>, <a href="./css.types.global_keywords.inherit.html"><code>inherit</code></a>, <a href="./css.types.global_keywords.unset.html"><code>unset</code></a>, <a href="./css.types.global_keywords.revert.html"><code>revert</code></a>, <a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a></p>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 37</li><li><strong>chrome_android</strong>: 37</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 27</li><li><strong>firefox_android</strong>: 27</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 24</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade/#all-shorthand">https://drafts.csswg.org/css-cascade/#all-shorthand</a></p></section></aside></body>
+</html>

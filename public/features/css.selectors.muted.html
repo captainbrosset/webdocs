@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":muted"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":muted"</h1><main>
+    
+
+<p>The <strong><code>:muted</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> selector represents an element that is capable of making sound, such as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>, but is muted (forced silent).</p>
+<p>
+  Muted is different from <a href="./css.selectors.volume-locked.html"><code>:volume-locked</code></a> in that the page author has control over whether a media element can be muted or un-muted.
+  User agents may set media <code>muted</code> value according to use preferences (e.g., remembering the last set value across sessions, on a per-site basis, or otherwise).
+  An element that is <code>:volume-locked</code> cannot be muted, un-muted, or have its volume changed via JavaScript because of an operating system or user agent preference.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:muted {
+  /* ... */
+}
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">:muted {
+  outline: 5px solid red;
+}
+
+video:muted {
+  outline: 5px solid blue;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.buffering.html"><code>:buffering</code></a></li>
+  <li><a href="./css.selectors.paused.html"><code>:paused</code></a></li>
+  <li><a href="./css.selectors.playing.html"><code>:playing</code></a></li>
+  <li><a href="./css.selectors.seeking.html"><code>:seeking</code></a></li>
+  <li><a href="./css.selectors.stalled.html"><code>:stalled</code></a></li>
+  <li><a href="./css.selectors.volume-locked.html"><code>:volume-locked</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/muted"><code>muted</code></a> property of <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement"><code>HTMLMediaElement</code></a> objects</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#selectordef-muted">https://drafts.csswg.org/selectors/#selectordef-muted</a></p></section></aside></body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-mask-repeat-x"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-mask-repeat-x"</h1><main>
+    
+
+<p>The <code>-webkit-mask-repeat-x</code> property specifies whether and how a mask image is repeated (tiled) horizontally.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+-webkit-mask-repeat-x: repeat;
+-webkit-mask-repeat-x: no-repeat;
+-webkit-mask-repeat-x: space;
+-webkit-mask-repeat-x: round;
+
+/* Multiple values */
+-webkit-mask-repeat-x: repeat, no-repeat, space;
+
+/* Global values */
+-webkit-mask-repeat-x: inherit;
+-webkit-mask-repeat-x: initial;
+-webkit-mask-repeat-x: revert;
+-webkit-mask-repeat-x: revert-layer;
+-webkit-mask-repeat-x: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>repeat</dt>
+  <dd>
+    <p>The mask image is repeated both horizontally and vertically.</p>
+  </dd>
+  <dt>no-repeat</dt>
+  <dd>
+    <p>The mask image is not repeated; only one copy of the mask image is drawn. The remainder of the masked element's content is not displayed.</p>
+  </dd>
+  <dt>repeat</dt>
+  <dd>
+    <p>The mask image is repeated both horizontally and vertically.</p>
+  </dd>
+  <dt>space</dt>
+  <dd>
+    <p>The image is repeated as much as possible without clipping. The first and last images are pinned to either side of the element, and whitespace is distributed evenly between the images. The <a href="./css.properties.mask-position.html"><code>mask-position</code></a> property is ignored unless only one image can be displayed without clipping. The only case where clipping happens using space is when there isn't enough room to display one image.</p>
+  </dd>
+  <dt>round</dt>
+  <dd>
+    <p>As the allowed space increases in size, the repeated images will stretch (leaving no gaps) until there is room for another one to be added. When the next image is added, all of the current ones compress to allow room. Example: An image with an original width of 260px, repeated three times, might stretch until each repetition is 300px wide, and then another image will be added. They will then compress to 225px.</p>
+  </dd>
+</dl>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">-webkit-mask-repeat-x =
+  repeat | no-repeat | space | round
+</pre>
+
+<h3>Using a repeating or non-repeating mask image</h3>
+<pre class="brush: css">.exampleone {
+  -webkit-mask-image: url("mask.png");
+  -webkit-mask-repeat-x: repeat;
+}
+
+.exampletwo {
+  -webkit-mask-image: url("mask.png");
+  -webkit-mask-repeat-x: no-repeat;
+}
+</pre>
+<h3>Using multiple mask images</h3>
+<p>You can specify a different <code>&#x3C;repeat-style></code> for each mask image, separated by commas:</p>
+<pre class="brush: css">.examplethree {
+  -webkit-mask-image: url("mask1.png"), url("mask2.png");
+  -webkit-mask-repeat-x: repeat, space;
+}
+</pre>
+<p>Each image is matched with the corresponding repeat style, from first specified to last.</p>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2><a href="./css.properties.mask-repeat.html"><code>-webkit-mask-repeat</code></a>, <a href="./css.properties.-webkit-mask-repeat-y.html"><code>-webkit-mask-repeat-y</code></a>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 3</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section></aside></body>
+</html>

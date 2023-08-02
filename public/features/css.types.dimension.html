@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;dimension&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;dimension></h1><main>
+    
+
+<p>The <strong><code>&#x3C;dimension></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> with a unit attached to it, for example <code>10px</code>.</p>
+<p>CSS uses dimensions to specify distances (<a href="./css.types.length.html"><code>&lt;length&gt;</code></a>), durations (<a href="./css.types.time.html"><code>&lt;time&gt;</code></a>), frequencies (<a href="./css.types.frequency.html"><code>&lt;frequency&gt;</code></a>), resolutions (<a href="./css.types.resolution.html"><code>&lt;resolution&gt;</code></a>), and other quantities.</p>
+<h2>Syntax</h2>
+<p>The syntax of <code>&#x3C;dimension></code> is a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> immediately followed by a unit which is an identifier. Unit identifiers are case insensitive.</p>
+
+<h3>Valid dimensions</h3>
+<pre class="brush: plain example-good">12px      12 pixels
+1rem      1 rem
+1.2pt     1.2 points
+2200ms    2200 milliseconds
+5s        5 seconds
+200hz     200 Hertz
+200Hz     200 Hertz (values are case insensitive)
+</pre>
+<h3>Invalid dimensions</h3>
+<pre class="brush: plain example-bad">12 px       The unit must come immediately after the number.
+12"px"      Units are identifiers and therefore unquoted.
+3sec        The seconds unit is abbreviated "s" not "sec".
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">CSS data types</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Learn to style HTML using CSS</a></li>
+  <li>CSS distances (<a href="./css.types.length.html"><code>&lt;length&gt;</code></a>), durations (<a href="./css.types.time.html"><code>&lt;time&gt;</code></a>), frequencies (<a href="./css.types.frequency.html"><code>&lt;frequency&gt;</code></a>), and resolutions (<a href="./css.types.resolution.html"><code>&lt;resolution&gt;</code></a>)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#dimensions">https://drafts.csswg.org/css-values/#dimensions</a></p></section></aside></body>
+</html>

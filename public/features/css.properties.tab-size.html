@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>tab-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties tab-size</h1><main>
+    
+
+<p>The <strong><code>tab-size</code></strong> CSS property is used to customize the width of tab characters (U+0009).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;integer> values */
+tab-size: 4;
+tab-size: 0;
+
+/* &#x3C;length> values */
+tab-size: 10px;
+tab-size: 2em;
+
+/* Global values */
+tab-size: inherit;
+tab-size: initial;
+tab-size: revert;
+tab-size: revert-layer;
+tab-size: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a></dt>
+  <dd>
+    <p>A multiple of the advance width of the space character (U+0020) to be used as the width of tabs. Must be nonnegative.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>The width of tabs. Must be nonnegative.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>8</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the specified number or absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;number&gt; | &lt;length&gt;</pre></section>
+
+<h3>Expanding by character count</h3>
+<pre class="brush: css">pre {
+  tab-size: 4; /* Set tab size to 4 characters wide */
+}
+</pre>
+<h3>Collapse tabs</h3>
+<pre class="brush: css">pre {
+  tab-size: 0; /* Remove indentation */
+}
+</pre>
+<h3>Comparing to the default size</h3>
+<p>This example compares a default tab size with a custom tab size. Note that <a href="./css.properties.white-space.html"><code>white-space</code></a> is set to <code>pre</code> to prevent the tabs from collapsing.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>no tab&#x3C;/p>
+&#x3C;p>&#x26;#0009;default tab size of 8 characters wide&#x3C;/p>
+&#x3C;p class="custom">&#x26;#0009;custom tab size of 3 characters wide&#x3C;/p>
+&#x3C;p>&#x26;nbsp;&#x26;nbsp;&#x26;nbsp;3 spaces, equivalent to the custom tab size&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  white-space: pre;
+}
+
+.custom {
+  tab-size: 3;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 21</li><li><strong>chrome_android</strong>: 25</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#tab-size-property">https://drafts.csswg.org/css-text/#tab-size-property</a></p></section></aside></body>
+</html>

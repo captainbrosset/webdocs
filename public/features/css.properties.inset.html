@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>inset</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties inset</h1><main>
+    
+
+<p>The <strong><code>inset</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is a shorthand that corresponds to the <a href="./css.properties.top.html"><code>top</code></a>, <a href="./css.properties.right.html"><code>right</code></a>, <a href="./css.properties.bottom.html"><code>bottom</code></a>, and/or <a href="./css.properties.left.html"><code>left</code></a> properties. It has the same multi-value syntax of the <a href="./css.properties.margin.html"><code>margin</code></a> shorthand.</p>
+<p>While part of the <em>CSS Logical Properties</em> specification, it does not define <em>logical</em> offsets. It defines <em>physical</em> offsets, regardless of the element's writing mode, directionality, and text orientation.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.top.html"><code>top</code></a></li>
+  <li><a href="./css.properties.right.html"><code>right</code></a></li>
+  <li><a href="./css.properties.bottom.html"><code>bottom</code></a></li>
+  <li><a href="./css.properties.left.html"><code>left</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+inset: 10px; /* value applied to all edges */
+inset: 4px 8px; /* top/bottom left/right */
+inset: 5px 15px 10px; /* top left/right bottom */
+inset: 2.4em 3em 3em 3em; /* top right bottom left */
+
+/* &#x3C;percentage>s of the width (left/right) or height (top/bottom) of the containing block */
+inset: 10% 5% 5% 5%;
+
+/* Keyword value */
+inset: auto;
+
+/* Global values */
+inset: inherit;
+inset: initial;
+inset: revert;
+inset: revert-layer;
+inset: unset;
+</pre>
+<h3>Values</h3>
+<p>The <code>inset</code> property takes the same values as the <a href="./css.properties.left.html"><code>left</code></a> property.</p>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;span class="exampleText">Example text&#x3C;/span>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  background-color: yellow;
+  width: 150px;
+  height: 120px;
+  position: relative;
+}
+
+.exampleText {
+  writing-mode: sideways-rl;
+  position: absolute;
+  inset: 20px 40px 30px 10px;
+  background-color: #c8c800;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The longhand box offset properties: <a href="./css.properties.top.html"><code>top</code></a>, <a href="./css.properties.right.html"><code>right</code></a>, <a href="./css.properties.bottom.html"><code>bottom</code></a>, and <a href="./css.properties.left.html"><code>left</code></a>.</li>
+  <li>The mapped logical shorthands: <a href="./css.properties.inset-block.html"><code>inset-block</code></a> and <a href="./css.properties.inset-inline.html"><code>inset-inline</code></a></li>
+  <li>The <a href="./css.properties.margin.html"><code>margin</code></a> shorthand multi-value syntax.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 87</li><li><strong>chrome_android</strong>: 87</li><li><strong>edge</strong>: 87</li><li><strong>firefox</strong>: 66</li><li><strong>firefox_android</strong>: 66</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: 73</li><li><strong>opera_android</strong>: 62</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 87</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#propdef-inset">https://drafts.csswg.org/css-logical/#propdef-inset</a></p></section></aside></body>
+</html>

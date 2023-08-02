@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>letter-spacing</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties letter-spacing</h1><main>
+    
+
+<p>The <strong><code>letter-spacing</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the horizontal spacing behavior between text characters. This value is added to the natural spacing between characters while rendering the text. Positive values of <code>letter-spacing</code> causes characters to spread farther apart, while negative values of <code>letter-spacing</code> bring characters closer together.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+letter-spacing: normal;
+
+/* &#x3C;length> values */
+letter-spacing: 0.3em;
+letter-spacing: 3px;
+letter-spacing: 0.3px;
+
+/* Global values */
+letter-spacing: inherit;
+letter-spacing: initial;
+letter-spacing: revert;
+letter-spacing: revert-layer;
+letter-spacing: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The normal letter spacing for the current font. Unlike a value of <code>0</code>, this keyword allows the <a href="/Glossary/user_agent">user agent</a> to alter the space between characters in order to justify text.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Specifies extra inter-character space <em>in addition to</em> the default space between characters. Values may be negative, but there may be implementation-specific limits. User agents may not further increase or decrease the inter-character space in order to justify text.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>A large positive or negative <code>letter-spacing</code> value will make the word(s) the styling is applied to unreadable. For text styled with a very large positive value, the letters will be so far apart that the word(s) will appear like a series of individual, unconnected letters. For text styled with a very large negative value, the letters will overlap each other to the point where the word(s) may be unrecognizable.</p>
+<p>Legible letter-spacing must be determined on a case-by-case basis, as different font families have different character widths. There is no one value that can ensure all font families automatically maintain their legibility.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html">Understanding Success Criterion 1.4.8 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Internationalization concerns</h2>
+<p>Some written languages should not have any letter spacing applied. For instance, languages that use the Arabic script expect connected letters to remain visually connected, as in the following example. Applying letter spacing will lead the text to look broken.</p>
+<blockquote>
+  <p lang="ar" dir="rtl">شسيبتنمك</p>
+</blockquote>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>inline boxes and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>an absolute length and/or a percentage</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | &lt;length-percentage&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="normal">letter spacing&#x3C;/p>
+&#x3C;p class="em-wide">letter spacing&#x3C;/p>
+&#x3C;p class="em-wider">letter spacing&#x3C;/p>
+&#x3C;p class="em-tight">letter spacing&#x3C;/p>
+&#x3C;p class="px-wide">letter spacing&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.normal {
+  letter-spacing: normal;
+}
+.em-wide {
+  letter-spacing: 0.4em;
+}
+.em-wider {
+  letter-spacing: 1em;
+}
+.em-tight {
+  letter-spacing: -0.05em;
+}
+.px-wide {
+  letter-spacing: 6px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-kerning.html"><code>font-kerning</code></a></li>
+  <li><a href="./css.properties.word-spacing.html"><code>word-spacing</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#letter-spacing-property">https://drafts.csswg.org/css-text/#letter-spacing-property</a></p></section></aside></body>
+</html>

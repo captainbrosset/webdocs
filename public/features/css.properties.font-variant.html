@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variant</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-variant</h1><main>
+    
+
+<p>The <strong><code>font-variant</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> allows you to set all the font variants for a font.</p>
+<p>You can also set the CSS Level 2 (Revision 1) values of <code>font-variant</code>, (that is, <code>normal</code> or <code>small-caps</code>), by using the <a href="./css.properties.font.html"><code>font</code></a> shorthand.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a></li>
+  <li><a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a></li>
+  <li><a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a></li>
+  <li><a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a></li>
+  <li><a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a></li>
+  <li><a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a></li>
+  <li><a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">font-variant: small-caps;
+font-variant: common-ligatures small-caps;
+
+/* Global values */
+font-variant: inherit;
+font-variant: initial;
+font-variant: revert;
+font-variant: revert-layer;
+font-variant: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Specifies a normal font face. Each longhand property has an initial value of <code>normal</code>.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Sets the value of the <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a> as <code>none</code> and the values of the other longhand properties as <code>normal</code>, their initial value.</p>
+  </dd>
+  <dt><code>&#x3C;common-lig-values></code>, <code>&#x3C;discretionary-lig-values></code>, <code>&#x3C;historical-lig-values></code>, <code>&#x3C;contextual-alt-values></code></dt>
+  <dd>
+    <p>Specifies the keywords related to the <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a> longhand property. The possible values are <code>common-ligatures</code>, <code>no-common-ligatures</code>, <code>discretionary-ligatures</code>, <code>no-discretionary-ligatures</code>, <code>historical-ligatures</code>, <code>no-historical-ligatures</code>, <code>contextual</code>, and <code>no-contextual</code>.</p>
+  </dd>
+  <dt><code>stylistic()</code>, <code>historical-forms</code>, <code>styleset()</code>, <code>character-variant()</code>, <code>swash()</code>, <code>ornaments()</code>, <code>annotation()</code></dt>
+  <dd>
+    <p>Specifies the keywords and functions related to the <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a> longhand property.</p>
+  </dd>
+  <dt><code>small-caps</code>, <code>all-small-caps</code>, <code>petite-caps</code>, <code>all-petite-caps</code>, <code>unicase</code>, <code>titling-caps</code></dt>
+  <dd>
+    <p>Specifies the keywords and functions related to the <a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a> longhand property.</p>
+  </dd>
+  <dt><code>&#x3C;numeric-figure-values></code>, <code>&#x3C;numeric-spacing-values></code>, <code>&#x3C;numeric-fraction-values></code>, <code>ordinal</code>, <code>slashed-zero</code></dt>
+  <dd>
+    <p>Specifies the keywords related to the <a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a> longhand property. The possible values are <code>lining-nums</code>, <code>oldstyle-nums</code>, <code>proportional-nums</code>, <code>tabular-nums</code>, <code>diagonal-fractions</code>, <code>stacked-fractions</code>, <code>ordinal</code>, and <code>slashed-zero</code>.</p>
+  </dd>
+  <dt><code>&#x3C;east-asian-variant-values></code>, <code>&#x3C;east-asian-width-values></code>, <code>ruby</code></dt>
+  <dd>
+    <p>Specifies the keywords related to the <a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a> longhand property. The possible values are <code>jis78</code>, <code>jis83</code>, <code>jis90</code>, <code>jis04</code>, <code>simplified</code>, <code>traditional</code>, <code>full-width</code>, <code>proportional-width</code>, and <code>ruby</code>.</p>
+  </dd>
+  <dt><code>sub</code>, <code>super</code></dt>
+  <dd>
+    <p>Specifies the keywords and functions related to the <a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a> longhand property.</p>
+  </dd>
+  <dt><code>text</code>, <code>emoji</code>, <code>unicode</code></dt>
+  <dd>
+    <p>Specifies the keywords and functions related to the <a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a> longhand property.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="normal">Firefox rocks!&#x3C;/p>
+&#x3C;p class="small">Firefox rocks!&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p.normal {
+  font-variant: normal;
+}
+p.small {
+  font-variant: small-caps;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-transform.html"><code>text-transform</code></a></li>
+  <li><a href="./css.properties.text-combine-upright.html"><code>text-combine-upright</code></a></li>
+  <li><a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-variant-prop">https://drafts.csswg.org/css-fonts/#font-variant-prop</a></p></section></aside></body>
+</html>

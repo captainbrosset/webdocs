@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-border-before"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-border-before"</h1><main>
+    
+
+<p>The <strong><code>-webkit-border-before</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is a shorthand property for setting the individual logical block start border property values in a single place in the style sheet.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-before-color"><code>-webkit-border-before-color</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-before-style"><code>-webkit-border-before-style</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-before-width"><code>-webkit-border-before-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Border values */
+-webkit-border-before: 1px;
+-webkit-border-before: 2px dotted;
+-webkit-border-before: medium dashed blue;
+
+/* Global values */
+-webkit-border-before: inherit;
+-webkit-border-before: initial;
+-webkit-border-before: revert;
+-webkit-border-before: revert-layer;
+-webkit-border-before: unset;
+</pre>
+<h3>Values</h3>
+<p>One or more of the following, in any order:</p>
+<dl>
+  <dt><code>&#x3C;'border-width'></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.border-width.html"><code>border-width</code></a></p>
+  </dd>
+  <dt><code>&#x3C;'border-style'></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.border-style.html"><code>border-style</code></a></p>
+  </dd>
+  <dt><code>&#x3C;'color'></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.color.html"><code>color</code></a></p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>The <code>-webkit-border-before</code> property maps to a physical border depending on the element's writing mode, directionality, and text orientation. It corresponds to the <a href="./css.properties.border-top.html"><code>border-top</code></a>, <a href="./css.properties.border-right.html"><code>border-right</code></a>, <a href="./css.properties.border-bottom.html"><code>border-bottom</code></a>, or <a href="./css.properties.border-left.html"><code>border-left</code></a> property depending on the values defined for <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a>.</p>
+<p>It relates to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-after"><code>-webkit-border-after</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-start"><code>-webkit-border-start</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-border-end"><code>-webkit-border-end</code></a>, which define the other borders of the element.</p>
+<p>The standard-track equivalent of this property is <a href="./css.properties.border-block-start.html"><code>border-block-start</code></a>.</p>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">-webkit-border-before =
+  &#x3C;'border-width'> || &#x3C;'border-style'> || &#x3C;color>
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="exampleText">Example text&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-rl;
+  -webkit-border-before: 5px dashed blue;
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard, but it relates to the standards-track <a href="./css.properties.border-block-start.html"><code>border-block-start</code></a> property.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.border-block-start.html"><code>border-block-start</code></a></li>
+  <li>The mapped physical properties: <a href="./css.properties.border-top.html"><code>border-top</code></a>, <a href="./css.properties.border-right.html"><code>border-right</code></a>, <a href="./css.properties.border-bottom.html"><code>border-bottom</code></a>, and <a href="./css.properties.border-left.html"><code>border-left</code></a></li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 8</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 15</li><li><strong>safari</strong>: 5.1</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section></aside></body>
+</html>

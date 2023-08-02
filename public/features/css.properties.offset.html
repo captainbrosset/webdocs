@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>offset</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties offset</h1><main>
+    
+
+<p>The <strong><code>offset</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets all the properties required for animating an element along a defined path.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Early versions of the spec called this property <code>motion</code>.</p>
+</div>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="./css.properties.offset-distance.html"><code>offset-distance</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-position.html"><code>offset-position</code></a></li>
+  <li><a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Offset position */
+offset: auto;
+offset: 10px 30px;
+offset: none;
+
+/* Offset path */
+offset: ray(45deg closest-side);
+offset: path("M 100 100 L 300 100 L 200 300 z");
+offset: url(arc.svg);
+
+/* Offset path with distance and/or rotation */
+offset: url(circle.svg) 100px;
+offset: url(circle.svg) 40%;
+offset: url(circle.svg) 30deg;
+offset: url(circle.svg) 50px 20deg;
+
+/* Including offset anchor */
+offset: ray(45deg closest-side) / 40px 20px;
+offset: url(arc.svg) 2cm / 0.5cm 3cm;
+offset: url(arc.svg) 30deg / 50px 100px;
+
+/* Global values */
+offset: inherit;
+offset: initial;
+offset: revert;
+offset: revert-layer;
+offset: unset;
+</pre>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="offsetElement">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@keyframes move {
+  from {
+    offset-distance: 0%;
+  }
+
+  to {
+    offset-distance: 100%;
+  }
+}
+
+#offsetElement {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  offset: path("M 100 100 L 300 100 L 200 300 z") auto;
+  animation: move 3s linear infinite;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="./css.properties.offset-distance.html"><code>offset-distance</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-position.html"><code>offset-position</code></a></li>
+  <li><a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/motion/#offset-shorthand">https://drafts.fxtf.org/motion/#offset-shorthand</a></p></section></aside></body>
+</html>

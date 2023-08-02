@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-decoration-skip</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-decoration-skip</h1><main>
+    
+
+<p>The <strong><code>text-decoration-skip</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets what parts of an element's content any text decoration affecting the element must skip over. It controls all text decoration lines drawn by the element and also any text decoration lines drawn by its ancestors.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Most other browsers are converging on supporting the simpler <a href="./css.properties.text-decoration-skip-ink.html"><code>text-decoration-skip-ink</code></a> property.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-decoration-skip: none;
+text-decoration-skip: objects;
+text-decoration-skip: spaces;
+text-decoration-skip: edges;
+text-decoration-skip: box-decoration;
+
+/* Multiple keywords */
+text-decoration-skip: objects spaces;
+text-decoration-skip: leading-spaces trailing-spaces;
+text-decoration-skip: objects edges box-decoration;
+
+/* Global values */
+text-decoration-skip: inherit;
+text-decoration-skip: initial;
+text-decoration-skip: revert;
+text-decoration-skip: revert-layer;
+text-decoration-skip: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Nothing is skipped. Thus, text decoration is drawn for all text content and across atomic inline-level boxes.</p>
+  </dd>
+  <dt><code>objects</code></dt>
+  <dd>
+    <p>The entire margin box of the element is skipped if it is an atomic inline such as an image or inline-block.</p>
+  </dd>
+  <dt><code>spaces</code></dt>
+  <dd>
+    <p>All spacing is skipped: all <a href="https://www.unicode.org/reports/tr44/#White_Space">Unicode white space characters</a> and all word separators, plus any adjacent <a href="./css.properties.letter-spacing.html"><code>letter-spacing</code></a> or <a href="./css.properties.word-spacing.html"><code>word-spacing</code></a>.</p>
+  </dd>
+  <dt><code>leading-spaces</code></dt>
+  <dd>
+    <p>The same as <code>spaces</code>, except that only leading spaces are skipped.</p>
+  </dd>
+  <dt><code>trailing-spaces</code></dt>
+  <dd>
+    <p>The same as <code>spaces</code>, except that only trailing spaces are skipped.</p>
+  </dd>
+  <dt><code>edges</code></dt>
+  <dd>
+    <p>The start and end of the text decoration is inset slightly (e.g., by half of the line thickness) from the content edge of the decorating box. Thus, adjacent elements receive separate underlines. (This is important in Chinese, where underlining is a form of punctuation.)</p>
+    <p>
+      <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-skip/decoration-skip-edges.png" alt="An example of &#x22;text-decoration-skip: edges;&#x22;.">
+    </p>
+  </dd>
+  <dt><code>box-decoration</code></dt>
+  <dd>
+    <p>The text decoration is skipped over the box's margin, border, and padding areas. This only has an effect on decorations imposed by an ancestor; a <em>decorating box</em> never draws over its own box decoration.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>See individual properties</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>See individual properties</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | auto</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>Hey, grab a cup of &#x3C;em>coffee!&#x3C;/em>&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  margin: 0;
+  font-size: 3em;
+  text-decoration: underline;
+  text-decoration-skip: edges;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-decoration-skip-ink.html"><code>text-decoration-skip-ink</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor-4/#text-decoration-skipping">https://drafts.csswg.org/css-text-decor-4/#text-decoration-skipping</a></p></section></aside></body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>resize</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties resize</h1><main>
+    
+
+<p>The <strong><code>resize</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an element is resizable, and if so, in which directions.</p>
+<p><code>resize</code> does not apply to the following:</p>
+<ul>
+  <li>Inline elements</li>
+  <li>Block elements for which the <a href="./css.properties.overflow.html"><code>overflow</code></a> property is set to <code>visible</code></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+resize: none;
+resize: both;
+resize: horizontal;
+resize: vertical;
+resize: block;
+resize: inline;
+
+/* Global values */
+resize: inherit;
+resize: initial;
+resize: revert;
+resize: revert-layer;
+resize: unset;
+</pre>
+<p>The <code>resize</code> property is specified as a single keyword value from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element offers no user-controllable method for resizing it.</p>
+  </dd>
+  <dt><code>both</code></dt>
+  <dd>
+    <p>The element displays a mechanism for allowing the user to resize it, which may be resized both horizontally and vertically.</p>
+  </dd>
+  <dt><code>horizontal</code></dt>
+  <dd>
+    <p>The element displays a mechanism for allowing the user to resize it in the <em>horizontal</em> direction.</p>
+  </dd>
+  <dt><code>vertical</code></dt>
+  <dd>
+    <p>The element displays a mechanism for allowing the user to resize it in the <em>vertical</em> direction.</p>
+  </dd>
+  <dt><code>block</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The element displays a mechanism for allowing the user to resize it in the <em>block</em> direction (either horizontally or vertically, depending on the <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> and <a href="./css.properties.direction.html"><code>direction</code></a> value).</p>
+  </dd>
+  <dt><code>inline</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The element displays a mechanism for allowing the user to resize it in the <em>inline</em> direction (either horizontally or vertically, depending on the <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> and <a href="./css.properties.direction.html"><code>direction</code></a> value).</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>elements that are scroll containers and optionally replaced elements such as images, videos, and iframes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | both | horizontal | vertical | block | inline</pre></section>
+
+<h3>Disabling resizability of textareas</h3>
+<p>In many browsers, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a> elements are resizable by default. You may override this behavior with the <code>resize</code> property.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;textarea>Type some text here.&#x3C;/textarea>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">textarea {
+  resize: none; /* Disables resizability */
+}
+</pre>
+
+<h3>Using resize with arbitrary elements</h3>
+<p>You can use the <code>resize</code> property to make any element resizable. In the example below, a resizable <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> contains a resizable paragraph (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element).</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="resizable">
+  &#x3C;p class="resizable">
+    This paragraph is resizable in all directions, because the CSS `resize`
+    property is set to `both` on this element.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.resizable {
+  resize: both;
+  overflow: scroll;
+  border: 1px solid black;
+}
+
+div {
+  height: 300px;
+  width: 300px;
+}
+
+p {
+  height: 200px;
+  width: 200px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 12.1</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#resize">https://drafts.csswg.org/css-ui/#resize</a></p></section></aside></body>
+</html>

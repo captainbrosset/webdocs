@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-decoration-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-decoration-style</h1><main>
+    
+
+<p>The <strong><code>text-decoration-style</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the style of the lines specified by <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>. The style applies to all lines that are set with <code>text-decoration-line</code>.</p>
+<p>If the specified decoration has a specific semantic meaning, like a line-through line meaning that some text has been deleted, authors are encouraged to denote this meaning using an HTML tag, like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s"><code>&lt;s&gt;</code></a>. As browsers can disable styling in some cases, the semantic meaning won't disappear in such a situation.</p>
+<p>When setting multiple line-decoration properties at once, it may be more convenient to use the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> shorthand property instead.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-decoration-style: solid;
+text-decoration-style: double;
+text-decoration-style: dotted;
+text-decoration-style: dashed;
+text-decoration-style: wavy;
+
+/* Global values */
+text-decoration-style: inherit;
+text-decoration-style: initial;
+text-decoration-style: revert;
+text-decoration-style: revert-layer;
+text-decoration-style: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>solid</dt>
+  <dd>
+    <p>Draws a single line.</p>
+  </dd>
+  <dt>double</dt>
+  <dd>
+    <p>Draws a double line.</p>
+  </dd>
+  <dt>dotted</dt>
+  <dd>
+    <p>Draws a dotted line.</p>
+  </dd>
+  <dt>dashed</dt>
+  <dd>
+    <p>Draws a dashed line.</p>
+  </dd>
+  <dt>wavy</dt>
+  <dd>
+    <p>Draws a wavy line.</p>
+  </dd>
+  <dt>-moz-none <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>Draws no line. Use <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a><code>: none</code> instead.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>solid</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>solid | double | dotted | dashed | wavy</pre></section>
+
+<h3>Setting a wavy underline</h3>
+<p>The following creates a red wavy underline:</p>
+<h4>CSS</h4>
+<pre class="brush: css">.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: red;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="wavy">This text has a wavy red line beneath it.&#x3C;/p>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>When setting multiple line-decoration properties at once, it may be more convenient to use the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> shorthand property instead.</li>
+  <li><a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a></li>
+  <li><a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a></li>
+  <li><a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a></li>
+  <li><a href="./css.properties.text-underline-offset.html"><code>text-underline-offset</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor/#text-decoration-style-property">https://drafts.csswg.org/css-text-decor/#text-decoration-style-property</a></p></section></aside></body>
+</html>

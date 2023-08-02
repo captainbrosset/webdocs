@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;ratio&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;ratio></h1><main>
+    
+
+<p>The <strong><code>&#x3C;ratio></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a>, used for describing <a href="./css.at-rules.media.aspect-ratio.html">aspect ratios</a> in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">media queries</a>, denotes the proportion between two unitless values.</p>
+<h2>Syntax</h2>
+<p>In Media Queries Level 3, the <code>&#x3C;ratio></code> data type consisted of a strictly positive <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> followed by a forward slash ('/', Unicode <code>U+002F SOLIDUS</code>) and a second strictly positive <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a>. Spaces before and after the slash are optional. The first number represents the width, while the second represents the height.</p>
+<p>In Media Queries Level 4, the <code>&#x3C;ratio></code> date type is updated to consist of a strictly positive <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by a forward slash ('/', Unicode <code>U+002F SOLIDUS</code>) and a second strictly positive <a href="./css.types.number.html"><code>&lt;number&gt;</code></a>. In addition a single <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> as a value is allowable.</p>
+
+
+<h3>Use in a media query</h3>
+<pre class="brush: css">@media screen and (min-aspect-ratio: 16/9) {
+  /* … */
+}
+</pre>
+<h3>Common aspect ratios</h3>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Ratio</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ratio/ratio4_3.png" alt="A rectangle that is three units tall and four units wide">
+      </td>
+      <td><code>4/3</code></td>
+      <td>Traditional TV format in the twentieth century.</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ratio/ratio16_9.png" alt="A rectangle that is nine units tall and sixteen units wide">
+      </td>
+      <td><code>16/9</code></td>
+      <td>Modern "widescreen" TV format.</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ratio/ratio1_1.85.png" alt="A rectangle that is 1 unit tall and 1.85 units wide">
+      </td>
+      <td><code>185/100</code> = <code>91/50</code></td>
+      <td>The most common movie format since the 1960s.</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/ratio/ratio1_2.39.png" alt="A rectangle that is 1 unit tall and 2.39 units wide">
+      </td>
+      <td><code>239/100</code></td>
+      <td>"Widescreen," anamorphic movie format.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.aspect-ratio.html"><code>aspect-ratio</code></a> media feature</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 3</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#values">https://drafts.csswg.org/mediaqueries/#values</a></p></section></aside></body>
+</html>

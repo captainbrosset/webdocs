@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::grammar-error"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::grammar-error"</h1><main>
+    
+
+<p>The <strong><code>::grammar-error</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents a text segment which the <a href="/Glossary/user_agent">user agent</a> has flagged as grammatically incorrect.</p>
+<h2>Allowable properties</h2>
+<p>Only a small subset of CSS properties can be used in a rule with <code>::grammar-error</code> in its selector:</p>
+<ul>
+  <li><a href="./css.properties.color.html"><code>color</code></a></li>
+  <li><a href="./css.properties.background-color.html"><code>background-color</code></a></li>
+  <li><a href="./css.properties.cursor.html"><code>cursor</code></a></li>
+  <li><a href="./css.properties.caret-color.html"><code>caret-color</code></a></li>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a> and its longhands</li>
+  <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> and its associated properties</li>
+  <li><a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a></li>
+  <li><a href="./css.properties.text-shadow.html"><code>text-shadow</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">::grammar-error {
+  /* ... */
+}
+</pre>
+
+<h3>Simple document grammar check</h3>
+<p>In this example, eventual supporting browsers should highlight any flagged grammatical errors with the styles shown.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>My friends is coming to the party tonight.&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">::grammar-error {
+  text-decoration: underline red;
+  color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.spelling-error.html"><code>::spelling-error</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-pseudo/#selectordef-grammar-error">https://drafts.csswg.org/css-pseudo/#selectordef-grammar-error</a></p></section></aside></body>
+</html>

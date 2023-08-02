@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>line-break</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties line-break</h1><main>
+    
+
+<p>The <strong><code>line-break</code></strong> CSS property sets how to break lines of Chinese, Japanese, or Korean (CJK) text when working with punctuation and symbols.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+line-break: auto;
+line-break: loose;
+line-break: normal;
+line-break: strict;
+line-break: anywhere;
+
+/* Global values */
+line-break: inherit;
+line-break: initial;
+line-break: revert;
+line-break: revert-layer;
+line-break: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Break text using the default line break rule.</p>
+  </dd>
+  <dt><code>loose</code></dt>
+  <dd>
+    <p>Break text using the least restrictive line break rule. Typically used for short lines, such as in newspapers.</p>
+  </dd>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Break text using the most common line break rule.</p>
+  </dd>
+  <dt><code>strict</code></dt>
+  <dd>
+    <p>Break text using the most stringent line break rule.</p>
+  </dd>
+  <dt><code>anywhere</code></dt>
+  <dd>
+    <p>There is a soft wrap opportunity around every typographic character unit, including around any punctuation character or preserved white spaces, or in the middle of words, disregarding any prohibition against line breaks, even those introduced by characters with the GL, WJ, or ZWJ character class or mandated by the <a href="./css.properties.word-break.html"><code>word-break</code></a> property. The different wrapping opportunities must not be prioritized. Hyphenation is not applied.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | loose | normal | strict | anywhere</pre></section>
+
+<h3>Setting text wrapping</h3>
+<p>See whether the text is wrapped before "々", "ぁ" and "。".</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div lang="ja">
+  &#x3C;p class="wrapbox auto">
+    auto:&#x3C;br />そこは湖のほとりで木々が輝いていた。&#x3C;br />その景色に、美しいなぁと思わずつぶやいた。
+  &#x3C;/p>
+  &#x3C;p class="wrapbox loose">
+    loose:&#x3C;br />そこは湖のほとりで木々が輝いていた。&#x3C;br />その景色に、美しいなぁと思わずつぶやいた。
+  &#x3C;/p>
+  &#x3C;p class="wrapbox normal">
+    normal:&#x3C;br />そこは湖のほとりで木々が輝いていた。&#x3C;br />その景色に、美しいなぁと思わずつぶやいた。
+  &#x3C;/p>
+  &#x3C;p class="wrapbox strict">
+    strict:&#x3C;br />そこは湖のほとりで木々が輝いていた。&#x3C;br />その景色に、美しいなぁと思わずつぶやいた。
+  &#x3C;/p>
+  &#x3C;p class="wrapbox anywhere">
+    anywhere:&#x3C;br />そこは湖のほとりで木々が輝いていた。&#x3C;br />その景色に、美しいなぁと思わずつぶやいた。
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapbox {
+  width: 10em;
+  margin: 0.5em;
+  white-space: normal;
+  vertical-align: top;
+  display: inline-block;
+}
+.auto {
+  line-break: auto;
+}
+.loose {
+  line-break: loose;
+}
+.normal {
+  line-break: normal;
+}
+.strict {
+  line-break: strict;
+}
+.anywhere {
+  line-break: anywhere;
+}
+</pre>
+<h4>Result</h4>
+
+
+<ul>
+  <li><a href="https://www.w3.org/International/articles/css3-text/">CSS and International text</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 14</li><li><strong>firefox</strong>: 69</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#line-break-property">https://drafts.csswg.org/css-text/#line-break-property</a></p></section></aside></body>
+</html>

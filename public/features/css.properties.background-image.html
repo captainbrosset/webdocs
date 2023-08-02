@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-image</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-image</h1><main>
+    
+
+<p>The <strong><code>background-image</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets one or more background images on an element.</p>
+<p>The background images are drawn on stacking context layers on top of each other. The first layer specified is drawn as if it is closest to the user.</p>
+<p>The <a href="./css.properties.border.html">borders</a> of the element are then drawn on top of them, and the <a href="./css.properties.background-color.html"><code>background-color</code></a> is drawn beneath them. How the images are drawn relative to the box and its borders is defined by the <a href="./css.properties.background-clip.html"><code>background-clip</code></a> and <a href="./css.properties.background-origin.html"><code>background-origin</code></a> CSS properties.</p>
+<p>If a specified image cannot be drawn (for example, when the file denoted by the specified URI cannot be loaded), browsers handle it as they would a <code>none</code> value.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Even if the images are opaque and the color won't be displayed in normal circumstances, web developers should always specify a <a href="./css.properties.background-color.html"><code>background-color</code></a>. If the images cannot be loaded—for instance, when the network is down—the background color will be used as a fallback.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  ), url("catfront.png");
+
+/* Global values */
+background-image: inherit;
+background-image: initial;
+background-image: revert;
+background-image: revert-layer;
+background-image: unset;
+</pre>
+<p>Each background image is specified either as the keyword <code>none</code> or as an <a href="./css.types.image.html"><code>&lt;image&gt;</code></a> value.</p>
+<p>To specify multiple background images, supply multiple values, separated by a comma.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Is a keyword denoting the absence of images.</p>
+  </dd>
+  <dt><code>&#x3C;image></code></dt>
+  <dd>
+    <p>Is an <a href="./css.types.image.html"><code>&lt;image&gt;</code></a> denoting the image to display. There can be several of them, separated by commas, as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds">multiple backgrounds</a> are supported.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Browsers do not provide any special information on background images to assistive technology. This is important primarily for screen readers, as a screen reader will not announce its presence and therefore convey nothing to its users. If the image contains information critical to understanding the page's overall purpose, it is better to describe it semantically in the document.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_%E2%80%94_providing_text_alternatives_for_non-text_content">MDN Understanding WCAG, Guideline 1.1 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html">Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item either an &lt;image&gt; or the keyword none</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;bg-image&gt;#</pre></section>
+
+<h3>Layering background images</h3>
+<p>Note that the star image is partially transparent and is layered over the cat image.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="catsandstars">This paragraph is full of cats&#x3C;br />and stars.&#x3C;/p>
+  &#x3C;p>This paragraph is not.&#x3C;/p>
+  &#x3C;p class="catsandstars">Here are more cats for you.&#x3C;br />Look at them!&#x3C;/p>
+  &#x3C;p>And no more.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  font-size: 1.5em;
+  color: #fe7f88;
+  background-image: none;
+  background-color: transparent;
+}
+
+div {
+  background-image: url("mdn_logo_only_color.png");
+}
+
+.catsandstars {
+  background-image: url("startransparent.gif"), url("catfront.png");
+  background-color: transparent;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS">Implementing image sprites in CSS</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a></li>
+  <li>Image-related data types: <a href="./css.types.image.html"><code>&lt;image&gt;</code></a>, <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;</code></a></li>
+  <li>Image-related functions:
+    <ul>
+      <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+      <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+      <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+      <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+      <li><a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a></li>
+      <li><a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a></li>
+      <li><a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a></li>
+      <li><a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a></li>
+      <li><a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a></li>
+      <li><a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a></li>
+      <li><a href="./css.types.image.paint.html"><code>paint()</code></a></li>
+      <li><a href="./css.types.url.html"><code>url()</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#background-image">https://drafts.csswg.org/css-backgrounds/#background-image</a></p></section></aside></body>
+</html>

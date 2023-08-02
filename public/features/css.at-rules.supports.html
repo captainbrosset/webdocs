@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@supports"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@supports"</h1><main>
+    
+
+<p>
+  The <strong><code>@supports</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> lets you specify CSS declarations that depend on a browser's support for CSS features.
+  Using this at-rule is commonly called a <em>feature query</em>.
+  The rule must be placed at the top level of your code or nested inside any other <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule#conditional_group_rules">conditional group at-rule</a>.
+</p>
+<p>In JavaScript, <code>@supports</code> can be accessed via the CSS object model interface <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSSupportsRule"><code>CSSSupportsRule</code></a>.</p>
+<h2>Syntax</h2>
+<p>
+  The <code>@supports</code> at-rule consists of a block of statements with a <em>supports condition.</em>
+  The supports condition is a set of one or more name-value pairs (e.g., <code>&#x3C;property>: &#x3C;value></code>).
+</p>
+<pre class="brush: css">@supports (&#x3C;supports-condition>) {
+  /* If the condition is true, use the CSS in this block. */
+}
+</pre>
+<p>The conditions can be combined by conjunctions (<code>and</code>), disjunctions (<code>or</code>), and/or negations (<code>not</code>).</p>
+<pre class="brush: css">@supports (&#x3C;supports-condition>) and (&#x3C;supports-condition>) {
+  /* If both conditions are true, use the CSS in this block. */
+}
+</pre>
+<p>
+  The precedence of operators can be defined with parentheses.
+  Supports conditions can use either a <code>&#x3C;property>: &#x3C;value></code> declaration syntax or a <code>&#x3C;function()></code> syntax.
+  The following sections describe the use of each type of supports condition.
+</p>
+<h3>Declaration syntax</h3>
+<p>
+  The declaration syntax checks if a browser supports the specified <code>&#x3C;property>: &#x3C;value></code> declaration.
+  The declaration must be surrounded by parentheses.
+  The following example returns true and applies the CSS style if the browser supports the expression <code>transform-origin: 5% 5%</code>:
+</p>
+<pre class="brush: css">@supports (transform-origin: 5% 5%) {
+}
+</pre>
+<h3>Function syntax</h3>
+<p>
+  The function syntax checks if a browser supports values or expressions within the function.
+  The functions supported in the function syntax are described in the following sections.
+</p>
+<h4><code>selector()</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></h4>
+<p>
+  This function evaluates if a browser supports the specified selector syntax.
+  The following example returns true and applies the CSS style if the browser supports the <a href="./css.selectors.child.html">child combinator</a>:
+</p>
+<pre class="brush: css">@supports selector(h2 > p) {
+}
+</pre>
+<h4><code>font-tech()</code></h4>
+<p>
+  This function checks if a browser supports the specified font technology for layout and rendering.
+  The following example returns true and applies the CSS style if the browser supports the <code>COLRv1</code> font technology:
+</p>
+<pre class="brush: css">@supports font-tech(color-COLRv1) {
+}
+</pre>
+<p>The table below describes the available font technologies that can be queried using this function:</p>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Technology</th>
+      <th align="left">Supports</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><code>color-colrv0</code></td>
+      <td align="left">Multi-colored glyphs via COLR version 0 table</td>
+    </tr>
+    <tr>
+      <td align="left"><code>color-colrv1</code></td>
+      <td align="left">Multi-colored glyphs via COLR version 1 table</td>
+    </tr>
+    <tr>
+      <td align="left"><code>color-svg</code></td>
+      <td align="left">SVG multi-colored tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>color-sbix</code></td>
+      <td align="left">Standard bitmap graphics tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>color-cbdt</code></td>
+      <td align="left">Color bitmap data tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>features-opentype</code></td>
+      <td align="left">OpenType <code>GSUB</code> and <code>GPOS</code> tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>features-aat</code></td>
+      <td align="left">TrueType <code>morx</code> and <code>kerx</code> tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>features-graphite</code></td>
+      <td align="left">Graphite features, namely <code>Silf</code>, <code>Glat</code> , <code>Gloc</code> , <code>Feat</code>, and <code>Sill</code> tables</td>
+    </tr>
+    <tr>
+      <td align="left"><code>incremental</code></td>
+      <td align="left">Incremental font loading</td>
+    </tr>
+    <tr>
+      <td align="left"><code>variations</code></td>
+      <td align="left">Font variations in TrueType and OpenType fonts to control the font axis, weight, glyphs, etc.</td>
+    </tr>
+    <tr>
+      <td align="left"><code>palettes</code></td>
+      <td align="left">Font palettes by means of <code>font-palette</code> to select one of many color palettes in the font</td>
+    </tr>
+  </tbody>
+</table>
+<h4><code>font-format()</code></h4>
+<p>
+  This function checks if a browser supports the specified font format for layout and rendering.
+  The following example returns true and applies the CSS style if the browser supports the <code>opentype</code> font format:
+</p>
+<pre class="brush: css">@supports font-format(opentype) {
+}
+</pre>
+<p>The following table describes the available formats that can be queried with this function:</p>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Format</th>
+      <th align="left">Description</th>
+      <th align="left">File extensions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><code>collection</code></td>
+      <td align="left">OpenType Collection</td>
+      <td align="left"><code>.otc</code>, <code>.ttc</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>embedded-opentype</code></td>
+      <td align="left">Embedded OpenType</td>
+      <td align="left"><code>.eot</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>opentype</code></td>
+      <td align="left">OpenType</td>
+      <td align="left"><code>.ttf</code>, <code>.otf</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>svg</code></td>
+      <td align="left">SVG Font (deprecated)</td>
+      <td align="left"><code>.svg</code>, <code>.svgz</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>truetype</code></td>
+      <td align="left">TrueType</td>
+      <td align="left"><code>.ttf</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>woff</code></td>
+      <td align="left">WOFF 1.0 (Web Open Font Format)</td>
+      <td align="left"><code>.woff</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>woff2</code></td>
+      <td align="left">WOFF 2.0 (Web Open Font Format)</td>
+      <td align="left"><code>.woff2</code></td>
+    </tr>
+  </tbody>
+</table>
+<h3>The not operator</h3>
+<p>
+  The <code>not</code> operator precedes an expression resulting in the negation of the expression.
+  The following returns true if the browser's <a href="./css.properties.transform-origin.html"><code>transform-origin</code></a> property considers <code>10em 10em 10em</code> <strong>to be invalid:</strong>
+</p>
+<pre class="brush: css">@supports not (transform-origin: 10em 10em 10em) {
+}
+</pre>
+<p>
+  As with any operator, the <code>not</code> operator can be applied to a declaration of any complexity.
+  The following examples are both valid:
+</p>
+<pre class="brush: css">@supports not (not (transform-origin: 2px)) {
+}
+@supports (display: grid) and (not (display: inline-grid)) {
+}
+</pre>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> There is no need to enclose the <code>not</code> operator between two parentheses at the top level.
+    To combine it with other operators, like <code>and</code> and <code>or</code>, the parentheses are required.
+  </p>
+</div>
+<h3>The and operator</h3>
+<p>The <code>and</code> operator creates a new expression from the conjunction of two shorter expressions. It returns true only if <strong>both</strong> of the shorter expressions are also true. The following example returns true if and only if the two shorter expressions are simultaneously true:</p>
+<pre class="brush: css">@supports (display: table-cell) and (display: list-item) {
+}
+</pre>
+<p>Multiple conjunctions can be juxtaposed without the need of more parentheses. The following are both equivalent:</p>
+<pre class="brush: css">@supports (display: table-cell) and (display: list-item) and (display: contents) {
+}
+@supports (display: table-cell) and
+  ((display: list-item) and (display: contents)) {
+}
+</pre>
+<h3>The or operator</h3>
+<p>The <code>or</code> operator creates a new expression from the disjunction of two shorter expressions. It returns true if <strong>one or both</strong> of the shorter expressions is also true. The following example returns true if at least one of the two shorter expressions is true:</p>
+<pre class="brush: css">@supports (transform-style: preserve) or (-moz-transform-style: preserve) {
+}
+</pre>
+<p>Multiple disjunctions can be juxtaposed without the need of more parentheses. The following are both equivalent:</p>
+<pre class="brush: css">@supports (transform-style: preserve) or (-moz-transform-style: preserve) or (-webkit-transform-style: preserve) {}
+
+@supports (transform-style: preserve-3d) or ((-moz-transform-style: preserve-3d) or (-webkit-transform-style: preserve-3d))) {}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> When using both <code>and</code> and <code>or</code> operators, the parentheses must be used to define the order in which they apply. Otherwise, the condition is invalid and the whole rule is ignored.</p>
+</div>
+
+
+<h3>Testing for the support of a CSS property</h3>
+<pre class="brush: css">@supports (animation-name: test) {
+  /* CSS applied when animations are supported without a prefix */
+  @keyframes {
+    /* Other at-rules can be nested inside */
+  }
+}
+</pre>
+<h3>Testing for the support of a given CSS property or a prefixed version</h3>
+<pre class="brush: css">@supports (text-stroke: 10px) or (-webkit-text-stroke: 10px) {
+  /* CSS applied when text-stroke, prefixed or not, is supported */
+}
+</pre>
+<h3>Testing for the non-support of a specific CSS property</h3>
+<pre class="brush: css">@supports not ((text-align-last: justify) or (-moz-text-align-last: justify)) {
+  /* CSS to provide fallback alternative for text-align-last: justify */
+}
+</pre>
+<h3>Testing for the support of a selector</h3>
+<p>CSS conditional rules provide the ability to test for the support of a selector such as <a href="./css.selectors.has.html"><code>:has()</code></a>.</p>
+<pre class="brush: css">/* This rule won't be applied in browsers that don't support :has() */
+ul:has(> li li) {
+  /* CSS is applied when the :has(…) pseudo-class is supported */
+}
+
+@supports not selector(:has(a, b)) {
+  /* Fallback for when :has() is unsupported */
+  ul > li,
+  ol > li {
+    /* The above expanded for browsers that don't support :has(…) */
+  }
+}
+
+/* Note: So far, there's no browser that supports the `of` argument of :nth-child(…) */
+@supports selector(:nth-child(1n of a, b)) {
+  /* This rule needs to be inside the @supports block, otherwise
+     it will be partially applied in browsers which don't support
+     the `of` argument of :nth-child(…) */
+  :is(:nth-child(1n of ul, ol) a, details > summary) {
+    /* CSS applied when the :is(…) selector and
+       the `of` argument of :nth-child(…) are both supported */
+  }
+}
+</pre>
+<h3>Testing for the support of a font technology</h3>
+<p>The following example applies the CSS style if the browser supports the <code>COLRv1</code> font technology:</p>
+<pre class="brush: css">@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice");
+
+@supports font-tech(color-COLRv1) {
+  font-family: "Bungee Spice";
+}
+</pre>
+<p>
+  It's also possible to test for the support of a font technology by using the <code>tech</code> function inside the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule.
+  If a browser doesn't support the font technology, a fallback font (<code>Bungee-fallback.otf</code>) can be used instead.
+</p>
+<pre class="brush: css">@font-face {
+  font-family: "Bungee Spice";
+  src:
+    url("https://fonts.googleapis.com/css2?family=Bungee+Spice") tech(color-COLRv1),
+    url("Bungee-fallback.otf") format("opentype");
+}
+</pre>
+<h3>Testing for the support of a font format</h3>
+<p>The following example applies the CSS style if the browser supports the <code>woff2</code> font format:</p>
+<pre class="brush: css">@supports font-format(woff2) {
+  font-family: "Open Sans";
+  src: url("open-sans.woff2") format("woff2");
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries">Using feature queries</a></li>
+  <li>The CSSOM class <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSSupportsRule"><code>CSSSupportsRule</code></a>, and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports"><code>CSS.supports()</code></a> method that allows the same check to be performed via JavaScript.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 28</li><li><strong>chrome_android</strong>: 28</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 22</li><li><strong>firefox_android</strong>: 22</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 12.1</li><li><strong>opera_android</strong>: 12.1</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-conditional-4/#at-supports-ext,https://drafts.csswg.org/css-conditional-3/#at-supports">https://drafts.csswg.org/css-conditional-4/#at-supports-ext,https://drafts.csswg.org/css-conditional-3/#at-supports</a></p></section></aside></body>
+</html>

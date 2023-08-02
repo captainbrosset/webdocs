@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-inline-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-inline-style</h1><main>
+    
+
+<p>The <strong><code>border-inline-style</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines the style of the logical inline borders of an element, which maps to a physical border style depending on the element's writing mode, directionality, and text orientation. It corresponds to the <a href="./css.properties.border-top-style.html"><code>border-top-style</code></a> and <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a>, or <a href="./css.properties.border-left-style.html"><code>border-left-style</code></a> and <a href="./css.properties.border-right-style.html"><code>border-right-style</code></a> properties depending on the values defined for <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a>.</p>
+<p>The border style in the other dimension can be set with <a href="./css.properties.border-block-style.html"><code>border-block-style</code></a>, which sets <a href="./css.properties.border-block-start-style.html"><code>border-block-start-style</code></a>, and <a href="./css.properties.border-block-end-style.html"><code>border-block-end-style</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;'border-style'> values */
+border-inline-style: dashed;
+border-inline-style: dotted;
+border-inline-style: groove;
+
+/* Global values */
+border-inline-style: inherit;
+border-inline-style: initial;
+border-inline-style: revert;
+border-inline-style: revert-layer;
+border-inline-style: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'border-style'></code></dt>
+  <dd>
+    <p>The line style of the border. See <a href="./css.properties.border-style.html"><code>border-style</code></a>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>see individual properties</td></tr><tr><th scope="row">Applies to</th><td>see individual properties</td></tr><tr><th scope="row">Inherited</th><td>see individual properties</td></tr><tr><th scope="row">Computed value</th><td>see individual properties</td></tr><tr><th scope="row">Animation type</th><td>see individual properties</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;'border-top-style'&gt;{1,2}</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="exampleText">Example text&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 5px solid blue;
+  border-inline-style: dashed;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS Logical Properties and Values</a></li>
+  <li>This property maps to one of the physical border properties: <a href="./css.properties.border-top-style.html"><code>border-top-style</code></a>, <a href="./css.properties.border-right-style.html"><code>border-right-style</code></a>, <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a>, or <a href="./css.properties.border-left-style.html"><code>border-left-style</code></a>.</li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 87</li><li><strong>chrome_android</strong>: 87</li><li><strong>edge</strong>: 87</li><li><strong>firefox</strong>: 66</li><li><strong>firefox_android</strong>: 66</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: 73</li><li><strong>opera_android</strong>: 62</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 87</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#propdef-border-inline-style">https://drafts.csswg.org/css-logical/#propdef-border-inline-style</a></p></section></aside></body>
+</html>

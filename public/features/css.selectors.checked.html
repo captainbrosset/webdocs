@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":checked"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":checked"</h1><main>
+    
+
+<p>The <strong><code>:checked</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> selector represents any <strong>radio</strong> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"><code>&#x3C;input type="radio"></code></a>), <strong>checkbox</strong> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"><code>&#x3C;input type="checkbox"></code></a>), or <strong>option</strong> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a> in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>) element that is checked or toggled to an <code>on</code> state.</p>
+<p>The user can engage this state by checking/selecting an element, or disengage it by unchecking/deselecting the element.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Because browsers often treat <code>&#x3C;option></code>s as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced elements</a>, the extent to which they can be styled with the <code>:checked</code> pseudo-class varies from browser to browser.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:checked {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;input type="radio" name="my-input" id="yes" value="yes" />
+  &#x3C;label for="yes">Yes&#x3C;/label>
+
+  &#x3C;input type="radio" name="my-input" id="no" value="no" />
+  &#x3C;label for="no">No&#x3C;/label>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;input type="checkbox" name="my-checkbox" id="opt-in" />
+  &#x3C;label for="opt-in">Check me!&#x3C;/label>
+&#x3C;/div>
+
+&#x3C;select name="my-select" id="fruit">
+  &#x3C;option value="opt1">Apples&#x3C;/option>
+  &#x3C;option value="opt2">Grapes&#x3C;/option>
+  &#x3C;option value="opt3">Pears&#x3C;/option>
+&#x3C;/select>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div,
+select {
+  margin: 8px;
+}
+
+/* Labels for checked inputs */
+input:checked + label {
+  color: red;
+}
+
+/* Radio element, when checked */
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px orange;
+}
+
+/* Checkbox element, when checked */
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px hotpink;
+}
+
+/* Option elements, when selected */
+option:checked {
+  box-shadow: 0 0 0 3px lime;
+  color: red;
+}
+</pre>
+
+<h3>Toggling elements with a hidden checkbox</h3>
+<p>This example utilizes the <code>:checked</code> pseudo-class to let the user toggle content based on the state of a checkbox, all without using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;input type="checkbox" id="expand-toggle" />
+
+&#x3C;table>
+  &#x3C;thead>
+    &#x3C;tr>
+      &#x3C;th>Column #1&#x3C;/th>
+      &#x3C;th>Column #2&#x3C;/th>
+      &#x3C;th>Column #3&#x3C;/th>
+    &#x3C;/tr>
+  &#x3C;/thead>
+  &#x3C;tbody>
+    &#x3C;tr class="expandable">
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td>[cell text]&#x3C;/td>
+      &#x3C;td>[cell text]&#x3C;/td>
+      &#x3C;td>[cell text]&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td>[cell text]&#x3C;/td>
+      &#x3C;td>[cell text]&#x3C;/td>
+      &#x3C;td>[cell text]&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr class="expandable">
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr class="expandable">
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+      &#x3C;td>[more text]&#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+
+&#x3C;label for="expand-toggle" id="expand-btn">Toggle hidden rows&#x3C;/label>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Hide the toggle checkbox */
+#expand-toggle {
+  display: none;
+}
+
+/* Hide expandable content by default */
+.expandable {
+  visibility: collapse;
+  background: #ddd;
+}
+
+/* Style the button */
+#expand-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 11px;
+  background-color: #ff7;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+/* Show hidden content when the checkbox is checked */
+#expand-toggle:checked ~ * .expandable {
+  visibility: visible;
+}
+
+/* Style the button when the checkbox is checked */
+#expand-toggle:checked ~ #expand-btn {
+  background-color: #ccc;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Web forms — working with user data</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms">Styling web forms</a></li>
+  <li>Related HTML elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"><code>&#x3C;input type="checkbox"></code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"><code>&#x3C;input type="radio"></code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">Replaced elements</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-checked,https://drafts.csswg.org/selectors/#checked">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-checked,https://drafts.csswg.org/selectors/#checked</a></p></section></aside></body>
+</html>

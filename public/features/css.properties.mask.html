@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask</h1><main>
+    
+
+<p>The <strong><code>mask</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> hides an element (partially or fully) by masking or clipping the image at specific points.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> As well as the properties listed below, the <code>mask</code> shorthand also resets <a href="./css.properties.mask-border.html"><code>mask-border</code></a> to its initial value. It is therefore recommended to use the <code>mask</code> shorthand rather than other shorthands or the individual properties to override any mask settings earlier in the cascade. This will ensure that <code>mask-border</code> has also been reset to allow the new styles to take effect.</p>
+</div>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.mask-clip.html"><code>mask-clip</code></a></li>
+  <li><a href="./css.properties.mask-composite.html"><code>mask-composite</code></a></li>
+  <li><a href="./css.properties.mask-image.html"><code>mask-image</code></a></li>
+  <li><a href="./css.properties.mask-mode.html"><code>mask-mode</code></a></li>
+  <li><a href="./css.properties.mask-origin.html"><code>mask-origin</code></a></li>
+  <li><a href="./css.properties.mask-position.html"><code>mask-position</code></a></li>
+  <li><a href="./css.properties.mask-repeat.html"><code>mask-repeat</code></a></li>
+  <li><a href="./css.properties.mask-size.html"><code>mask-size</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+mask: none;
+
+/* Image values */
+mask: url(mask.png); /* Pixel image used as mask */
+mask: url(masks.svg#star); /* Element within SVG graphic used as mask */
+
+/* Combined values */
+mask: url(masks.svg#star) luminance; /* Element within SVG graphic used as luminance mask */
+mask: url(masks.svg#star) 40px 20px; /* Element within SVG graphic used as mask positioned 40px from the top and 20px from the left */
+mask: url(masks.svg#star) 0 0/50px 50px; /* Element within SVG graphic used as mask with a width and height of 50px */
+mask: url(masks.svg#star) repeat-x; /* Element within SVG graphic used as horizontally repeated mask */
+mask: url(masks.svg#star) stroke-box; /* Element within SVG graphic used as mask extending to the box enclosed by the stroke */
+mask: url(masks.svg#star) exclude; /* Element within SVG graphic used as mask and combined with background using non-overlapping parts */
+
+/* Global values */
+mask: inherit;
+mask: initial;
+mask: revert;
+mask: revert-layer;
+mask: unset;
+
+/* Multiple masks */
+mask:
+  url(masks.svg#star) left / 16px repeat-y,
+  /* Element within SVG graphic is used as a mask on the left-hand side with a width of 16px */
+    url(masks.svg#circle) right / 16px repeat-y; /* Element within SVG graphic is used as a mask on the right-hand side with a width of 16px */
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;mask-reference></code></dt>
+  <dd>
+    <p>Sets the mask image source. See <a href="./css.properties.mask-image.html"><code>mask-image</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;masking-mode></code></dt>
+  <dd>
+    <p>Sets the masking mode of the mask image. See <a href="./css.properties.mask-mode.html"><code>mask-mode</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>Sets the position of the mask image. See <a href="./css.properties.mask-position.html"><code>mask-position</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;bg-size></code></dt>
+  <dd>
+    <p>Sets the size of the mask image. See <a href="./css.properties.mask-size.html"><code>mask-size</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;repeat-style></code></dt>
+  <dd>
+    <p>Sets the repetition of the mask image. See <a href="./css.properties.mask-repeat.html"><code>mask-repeat</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;geometry-box></code></dt>
+  <dd>
+    <p>If only one <code>&#x3C;geometry-box></code> value is given, it sets both <a href="./css.properties.mask-origin.html"><code>mask-origin</code></a> and <a href="./css.properties.mask-clip.html"><code>mask-clip</code></a>. If two <code>&#x3C;geometry-box></code> values are present, then the first sets <a href="./css.properties.mask-origin.html"><code>mask-origin</code></a> and the second sets <a href="./css.properties.mask-clip.html"><code>mask-clip</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;geometry-box> | no-clip</code></dt>
+  <dd>
+    <p>Sets the area that is affected by the mask image. See <a href="./css.properties.mask-clip.html"><code>mask-clip</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;compositing-operator></code></dt>
+  <dd>
+    <p>Sets the compositing operation used on the current mask layer. See <a href="./css.properties.mask-composite.html"><code>mask-composite</code></a>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Masking an image</h3>
+<pre class="brush: css">.target {
+  mask: url(#c1) luminance;
+}
+
+.anothertarget {
+  mask: url(resources.svg#c1) 50px 30px/10px 10px repeat-x exclude;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.clip-path.html"><code>clip-path</code></a>, <a href="./css.properties.filter.html"><code>filter</code></a></li>
+  <li><a href="https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/">CSS Shapes, clipping and masking – and how to use them</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Applying_SVG_effects_to_HTML_content">Applying SVG effects to HTML content</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 2</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask">https://drafts.fxtf.org/css-masking/#the-mask</a></p></section></aside></body>
+</html>

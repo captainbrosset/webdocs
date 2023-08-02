@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-feature-settings</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face font-feature-settings</h1><main>
+    
+
+<p>The <strong><code>font-feature-settings</code></strong> CSS descriptor allows you to define the initial settings to use for the font defined by the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule. You can further use this descriptor to control typographic font features such as ligatures, small caps, and swashes, for the font defined by <code>@font-face</code>. The values for this descriptor are the same as the <a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a> property, except for the global keyword values.</p>
+<p>Since this descriptor sets feature values on the font object in the <code>@font-face</code> at-rule and not on an entire element, only some glyphs in an element may be rendered using this descriptor.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Use the default settings */
+font-feature-settings: normal;
+
+/* Set values for OpenType feature tags */
+font-feature-settings: "smcp";
+font-feature-settings: "smcp" on;
+font-feature-settings: "swsh" 2;
+</pre>
+<h3>Values</h3>
+<p>This descriptor is specified as either the keyword <code>normal</code> or as a comma-separated list of <code>&#x3C;feature-tag-value></code> values. When rendering text, the list of OpenType <code>&#x3C;feature-tag-value></code> values are passed to the text layout engine to enable or disable font features.</p>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Indicates that text is laid out using default font settings. This is the default value.</p>
+  </dd>
+  <dt><code>&#x3C;feature-tag-value></code></dt>
+  <dd>
+    <p>Represents a space-separated tuple consisting of a tag name and an optional value.</p>
+    <p>The tag name is always a <a href="./css.types.string.html"><code>&lt;string&gt;</code></a> of four ASCII characters. If the tag name has more or fewer characters or if it contains characters outside the <code>U+20</code> – <code>U+7E</code> code point range, the descriptor is invalid.</p>
+    <p>The optional value can be a positive integer or the keyword <code>on</code> or <code>off</code>. The keywords <code>on</code> and <code>off</code> are synonyms for the values <code>1</code> and <code>0</code>, respectively. If no value is set, the default is <code>1</code>. For non-boolean OpenType features (e.g., <a href="https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt">stylistic alternates</a>), the value implies a particular glyph to be selected; for boolean features, the value turns the feature on or off.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Enabling swash glyphs using the @font-face at-rule</h3>
+<p>In this example, the tag name <code>swsh</code> and a boolean value <code>1</code> are used as the value for the <code>font-feature-settings</code> descriptor in the <code>@font-face</code> at-rule.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="swashoff">Swash is off here&#x3C;/p>
+&#x3C;p class="swashon">Swash is on here&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@font-face {
+  font-family: MonteCarlo;
+  src: url("montecarlo-regular.woff2");
+}
+@font-face {
+  font-family: MonteCarlo2;
+  src: url("montecarlo-regular.woff2");
+  font-feature-settings: "swsh" 1;
+}
+p {
+  font-size: 3rem;
+  margin: 0.7rem 3rem;
+}
+.swashoff {
+  font-family: MonteCarlo;
+}
+.swashon {
+  font-family: MonteCarlo2;
+}
+</pre>
+<h4>Result</h4>
+<p>Line 1 shows the default ornate design of the <a href="https://github.com/googlefonts/monte-carlo">MonteCarlo</a> font, and line 2 shows the default glyphs being replaced with <a href="https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-swsh">swash</a> glyphs.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other <code>@font-face</code> descriptors: <a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a>, <a href="./css.at-rules.font-face.font-style.html"><code>font-style</code></a>, <a href="./css.at-rules.font-face.font-variation-settings.html"><code>font-variation-settings</code></a>, <a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a>, <a href="./css.at-rules.font-face.src.html"><code>src</code></a></li>
+  <li>Related font properties: <a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a>, <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>, <a href="./css.properties.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-rend-desc">https://drafts.csswg.org/css-fonts/#font-rend-desc</a></p></section></aside></body>
+</html>

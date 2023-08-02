@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>flex-shrink</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties flex-shrink</h1><main>
+    
+
+<p>The <strong><code>flex-shrink</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the flex shrink factor of a flex item. If the size of all flex items is larger than the flex container, items shrink to fit according to <code>flex-shrink</code>.</p>
+<p>In use, <code>flex-shrink</code> is used alongside the other flex properties <a href="./css.properties.flex-grow.html"><code>flex-grow</code></a> and <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a>, and normally defined using the <a href="./css.properties.flex.html"><code>flex</code></a> shorthand.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;number> values */
+flex-shrink: 2;
+flex-shrink: 0.6;
+
+/* Global values */
+flex-shrink: inherit;
+flex-shrink: initial;
+flex-shrink: revert;
+flex-shrink: revert-layer;
+flex-shrink: unset;
+</pre>
+<p>The <code>flex-shrink</code> property is specified as a single <code>&#x3C;number></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>See <a href="./css.types.number.html"><code>&lt;number&gt;</code></a>. Negative values are invalid. Defaults to 1.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>1</td></tr><tr><th scope="row">Applies to</th><td>flex items</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>number</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;number [0,∞]&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>The width of content is 500px; the flex-basis of the flex items is 120px.&#x3C;/p>
+&#x3C;p>A, B, C have flex-shrink:1 set. D and E have flex-shrink:2 set&#x3C;/p>
+&#x3C;p>The width of D and E is less than the others.&#x3C;/p>
+&#x3C;div id="content">
+  &#x3C;div class="box" style="background-color:red;">A&#x3C;/div>
+  &#x3C;div class="box" style="background-color:lightblue;">B&#x3C;/div>
+  &#x3C;div class="box" style="background-color:yellow;">C&#x3C;/div>
+  &#x3C;div class="box1" style="background-color:brown;">D&#x3C;/div>
+  &#x3C;div class="box1" style="background-color:lightgreen;">E&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#content {
+  display: flex;
+  width: 500px;
+}
+
+#content div {
+  flex-basis: 120px;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.box {
+  flex-shrink: 1;
+}
+
+.box1 {
+  flex-shrink: 2;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis">Controlling Ratios of flex items along the main axis</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-flexbox/#flex-shrink-property">https://drafts.csswg.org/css-flexbox/#flex-shrink-property</a></p></section></aside></body>
+</html>

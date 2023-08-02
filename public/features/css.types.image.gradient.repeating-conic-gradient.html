@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>repeating-conic-gradient()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image gradient repeating-conic-gradient()</h1><main>
+    
+
+<p>The <strong><code>repeating-conic-gradient()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> creates an image consisting of a repeating gradient (rather than a <a href="./css.types.image.gradient.conic-gradient.html"><code>single gradient</code></a>) with color transitions rotated around a center point (rather than <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>radiating from the center</code></a>).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Starburst: a blue on blue starburst: the gradient
+   is a starburst of lighter and darker blue,
+   centered in the upper left quadrant,
+   offset by 3degrees so there is no up/down straight line */
+background: repeating-conic-gradient(
+  from 3deg at 25% 25%,
+  hsl(200, 100%, 50%) 0deg 15deg,
+  hsl(200, 100%, 60%) 10deg 30deg
+);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a></dt>
+  <dd>
+    <p>Preceded by the <code>from</code> keyterm, and taking an angle as its value, defines the gradient rotation in clockwise direction.</p>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>Using the same length, order and keyterm values as the <a href="./css.properties.background-position.html">background-position</a> property, the position defines center of the gradient. If omitted, the default value is <code>center</code>, meaning the gradient will be centered.</p>
+  </dd>
+  <dt><code>&#x3C;angular-color-stop></code></dt>
+  <dd>
+    <p>A color-stop's <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> value, followed by one or two optional stop positions, (an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> along the gradient's circumference axis). The last color stop minus the first color-stop angle defines the size of the repeating gradient.</p>
+  </dd>
+  <dt><code>&#x3C;color-hint></code></dt>
+  <dd>
+    <p>An <a href="/Glossary/interpolation">interpolation</a> hint defining how the gradient progresses between adjacent color stops. The length defines at which point between two color stops the gradient color should reach the midpoint of the color transition. If omitted, the midpoint of the color transition is the midpoint between two color stops.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Rendering of <a href="#gradient_with_multiple_color_stops">color stops in CSS gradients</a> follows the same rules as color stops in <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients">SVG gradients</a>.</p>
+</div>
+<h2>Description</h2>
+<p>Example repeating conic gradients include starbursts. The result of the <code>repeating-conic-gradient()</code> function is an object of the <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;()</code></a> data type, which is a special kind of <a href="./css.types.image.html"><code>&lt;image&gt;()</code></a>.</p>
+<p>If neither the first nor the last color stops include a color stop angle greater than 0deg or less than 360 degrees respectively, the conic-gradient will not repeat.</p>
+<p>As with any gradient, a repeating-conic gradient has <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image#description">no intrinsic dimensions</a>; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to, or the size the <code>&#x3C;image></code> is set to if it's set to something other than the element's size.</p>
+<p>Because <code>&#x3C;gradient></code>s belong to the <code>&#x3C;image></code> data type, they can only be used where <code>&#x3C;image></code>s can be used. For this reason, <code>repeating-conic-gradient()</code> won't work on <a href="./css.properties.background-color.html"><code>background-color()</code></a> and other properties that use the <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> data type.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> To create a conic gradient that does not repeat, make the gradient a full 360 degree rotation, or use the <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a> function instead.</p>
+</div>
+<h3>Understanding repeating conic gradients</h3>
+<p>The repeating-conic-gradient syntax is similar to the <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a> and <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a> syntax. Like the non-repeating conic-gradient, the color-stops are placed around a gradient arc. Like the repeating radial gradient, the size of the repeating section is the first color stop subtracted from the angle of the last color stop.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-conic-gradient/repeatingconicgradient.png" alt="Comparison of the color stops for repeating and non-repeating conic and radial gradients">
+</p>
+<p>The above gradients are defined as being one third blue, one third red, and one third yellow.</p>
+<pre class="brush: css">repeating-conic-gradient(from 0deg, red 0deg 30deg, yellow 30deg 60deg, blue 60deg 90deg);
+
+repeating-radial-gradient(red 0 8%, yellow 8% 16%, blue 16% 24%);
+
+conic-gradient(red 120deg, yellow 120deg 240deg, blue 240deg);
+
+radial-gradient(red 33%, yellow 33% 66%, blue 66%);
+</pre>
+<p>For a repeating gradient to repeat we define the first and last color stops. Like in non-repeating gradients, the first and last color stops are assumed to be 0 and either 100% or 360deg if not explicitly declared. When defaulting to these values, the repeating arc is 360 degrees, and therefore doesn't repeat.</p>
+<p>Like the non-repeating conic gradient, the color-stops are placed around a gradient arc — the circumference of a circle, rather than on the gradient line emerging from the center of the gradient. The colors transition as if spun around the center of a circle, starting at the top if no <code>from &#x3C;angle></code> is declared, and going clockwise for the size of the angle that is the different between the largest and smallest color angle, then repeating.</p>
+<p>A repeating conic gradient is specified by indicating a rotation angle, the center of the gradient, and then specifying a list of color-stops. Like non-repeating conic gradients, the color-stops of a repeating conic gradient are specified with an <a href="./css.types.angle.html"><code>angle()</code></a>. Units include <code>deg</code> for degrees, <code>grad</code> for gradients, <code>rad</code> for radians, and <code>turn</code> for turns. There are 360 degrees, 400 gradians, 2π radians, and 1 turn in a circle. Browsers supporting repeating conic gradients also accept percent values, with 100% equaling 360 degrees, but this is not in the specification.</p>
+<p>Radial and conic gradient syntax provides for positioning the center of the gradient anywhere within, or even outside, the image. The values for the position are similar to the syntax for 2-value <a href="./css.properties.background-position.html"><code>background-position()</code></a>.</p>
+<p>The gradient arc is part of the circumference of the gradient. 0 degrees is north, or 12:00pm. The colors of the gradient are determined by the angled color stops, their starting points, ending points, and, in between, and optional angled color-stop points. The transitions between colors can be altered with color hints between adjacent colors' color stops.</p>
+<h4>Customizing gradients</h4>
+<p>By adding more angled color-stop points on the gradient arc, you can create a highly customized transition between multiple colors. A color-stop's position can be explicitly defined by using an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. If you don't specify the location of a color stop, it is placed halfway between the one that precedes it and the one that follows it. Like the non-repeating gradient counterpart, if you don't specify an angle for the first or last color stop, the values will be 0deg and 360deg. If you don't declare an angle for either, you'll get a non-repeating conic gradient. If you declare a non 0 or 360degree for the first or last respectively, the gradient will repeat based on that value. For example, if you don't declare an angle for the first color, and declare 10% on the last color stop, the arc will repeat 10 times. Rather, the starting point is the first color stop declared, and the last color stop is the last color stop angle declared. The following two gradients are equivalent:</p>
+<pre class="brush: css">repeating-conic-gradient(red, orange, yellow, green, blue 50%);
+repeating-conic-gradient(from -45deg, red 45deg, orange, yellow, green, blue 225deg)
+</pre>
+<p>By default, colors transition smoothly from the color at one color stop to the color at the subsequent color stop, with the midpoint between the colors being the half way point between the color transition. You can move this color transition midpoint to any point between two color stops by adding a color hint, indicating where the middle of the color transition should be.</p>
+<p>If two or more color stops are at the same location, the transition will be a hard line between the first and last colors declared at that location.</p>
+<p>While you can mix and match different angle units, don't. It makes CSS hard to read.</p>
+
+<h2>Accessibility concerns</h2>
+<p>Browsers do not provide any special information on background images to assistive technology. This is important primarily for screen readers, as a screen reader will not announce its presence and therefore convey nothing to its users. While it is possible to create pie charts, checkerboards, and other effects with conic gradients, CSS images provide no native way to assign alternative text, and therefore the image represented by the conic gradient will not be accessible to screen reader users. If the image contains information critical to understanding the page's overall purpose, it is better to describe it semantically in the document.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_%E2%80%94_providing_text_alternatives_for_non-text_content">MDN Understanding WCAG, Guideline 1.1 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html">Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+<h3>Black and white starburst</h3>
+<pre class="brush: css hidden">div {
+  width: 200px;
+  height: 200px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background-image: repeating-conic-gradient(#fff 0 9deg, #000 9deg 18deg);
+}
+</pre>
+<h3>Off-centered gradient</h3>
+<p>This gradient repeats 18 times, but since we only see the right half, we only see 9 repeats.</p>
+<pre class="brush: css hidden">div {
+  width: 200px;
+  height: 200px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background: repeating-conic-gradient(
+    from 3deg at 25% 25%,
+    green,
+    blue 2deg 5deg,
+    green,
+    yellow 15deg 18deg,
+    green 20deg
+  );
+}
+</pre>
+<h3>More repeating-conic-gradient examples</h3>
+<p>Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+  <li>Other gradient functions: <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a>, <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a>, <a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a></li>
+  <li><a href="./css.types.image.html"><code>&lt;image&gt;()</code></a></li>
+  <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+  <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+  <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 83</li><li><strong>firefox_android</strong>: 83</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: 12.1</li><li><strong>safari_ios</strong>: 12.2</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images-4/#repeating-gradients">https://drafts.csswg.org/css-images-4/#repeating-gradients</a></p></section></aside></body>
+</html>

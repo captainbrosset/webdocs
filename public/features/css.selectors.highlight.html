@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::highlight()"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::highlight()"</h1><main>
+    
+
+<p>The <strong><code>::highlight()</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> applies styles to a custom highlight.</p>
+<p>A custom highlight is a collection of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Range"><code>Range</code></a> objects and is registered on a webpage using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HighlightRegistry"><code>HighlightRegistry</code></a>.</p>
+<h2>Allowable properties</h2>
+<p>Only certain CSS properties can be used with <code>::highlight()</code>:</p>
+<ul>
+  <li><a href="./css.properties.color.html"><code>color</code></a></li>
+  <li><a href="./css.properties.background-color.html"><code>background-color</code></a></li>
+  <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> and its associated properties</li>
+  <li><a href="./css.properties.text-shadow.html"><code>text-shadow</code></a></li>
+  <li><a href="./css.properties.-webkit-text-stroke-color.html"><code>-webkit-text-stroke-color</code></a>, <a href="./css.properties.-webkit-text-fill-color.html"><code>-webkit-text-fill-color</code></a> and <a href="./css.properties.-webkit-text-stroke-width.html"><code>-webkit-text-stroke-width</code></a></li>
+</ul>
+<p>In particular, <a href="./css.properties.background-image.html"><code>background-image</code></a> is ignored.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::highlight(custom-highlight-name)
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p id="rainbow-text">CSS Custom Highlight API rainbow&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#rainbow-text {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+::highlight(rainbow-color-1) {
+  color: #ad26ad;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-2) {
+  color: #5d0a99;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-3) {
+  color: #0000ff;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-4) {
+  color: #07c607;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-5) {
+  color: #b3b308;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-6) {
+  color: #ffa500;
+  text-decoration: underline;
+}
+::highlight(rainbow-color-7) {
+  color: #ff0000;
+  text-decoration: underline;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const textNode = document.getElementById("rainbow-text").firstChild;
+
+if (!CSS.highlights) {
+  textNode.textContent =
+    "The CSS Custom Highlight API is not supported in this browser!";
+}
+
+// Create and register highlights for each color in the rainbow.
+const highlights = [];
+for (let i = 0; i &#x3C; 7; i++) {
+  // Create a new highlight for this color.
+  const colorHighlight = new Highlight();
+  highlights.push(colorHighlight);
+
+  // Register this highlight under a custom name.
+  CSS.highlights.set(`rainbow-color-${i + 1}`, colorHighlight);
+}
+
+// Iterate over the text, character by character.
+for (let i = 0; i &#x3C; textNode.textContent.length; i++) {
+  // Create a new range just for this character.
+  const range = new Range();
+  range.setStart(textNode, i);
+  range.setEnd(textNode, i + 1);
+
+  // Add the range to the next available highlight,
+  // looping back to the first one once we've reached the 7th.
+  highlights[i % 7].add(range);
+}
+</pre>
+
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 105</li><li><strong>chrome_android</strong>: 105</li><li><strong>edge</strong>: 105</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 91</li><li><strong>opera_android</strong>: 72</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 105</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-highlight-api/#custom-highlight-pseudo">https://drafts.csswg.org/css-highlight-api/#custom-highlight-pseudo</a></p></section></aside></body>
+</html>

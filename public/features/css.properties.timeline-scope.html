@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>timeline-scope</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties timeline-scope</h1><main>
+    
+
+<p>The <strong><code>timeline-scope</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property modifies the scope of a named animation timeline.</p>
+<p>By default, a named timeline (i.e. declared using <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a> or <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a>) can only be set as the controlling timeline of a direct descendant element (i.e. by setting <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a> on it with the timeline name as its value). This is the timeline's default "scope".</p>
+<p><code>timeline-scope</code> is given the name of a timeline defined on a descendant element; this causes the scope of the timeline to be increased to the element that <code>timeline-scope</code> is set on and any of its descendants. In other words, that element and any of its descendant elements can now be controlled using that timeline.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If no timeline (or more than one timeline) exists with the name given for the <code>timeline-scope</code> value, an inactive timeline with the specified name is created.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">timeline-scope: none;
+timeline-scope: custom_name_for_timeline;
+</pre>
+<h3>Values</h3>
+<p>Allowed values for <code>timeline-scope</code> are:</p>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>There is no change in timeline scope.</p>
+  </dd>
+  <dt><code>&#x3C;dashed-ident></code></dt>
+  <dd>
+    <p>Specifies the name of an existing named timeline (i.e. declared using <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a> or <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a>) defined on a descendant element. This causes the timeline scope to be increased to the element that <code>timeline-scope</code> is set on and any of its descendants.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&#x3C;dashed-ident></code></a> values must start with <code>--</code>, which helps to avoid name clashes with standard CSS keywords.</p>
+    </div>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or a list of CSS identifiers</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;dashed-ident&gt;#</pre></section>
+<h2>Examples</h2>
+<p>In this example, a scroll timeline named <code>--myScroller</code> is defined using the <code>scroll-timeline-name</code> property on the element with the <code>scroller</code> class (the scrolling element). This is then applied to the animation on the element with the <code>box</code> and <code>animation</code> classes (the animated element) using <code>animation-timeline: --myScroller</code>. The key point to note here is that the animated element is not a descendant of the scrolling element — to make this work, we increase the scope of the <code>--myScroller</code> timeline by setting <code>timeline-scope: --myScroller</code> on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a>.</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div class="content">
+  &#x3C;div class="box animation">&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="scroller">
+  &#x3C;div class="long-element">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The CSS is as follows.</p>
+<p>First of all, we set the <code>&#x3C;body></code>'s height to <code>100vh</code>, and lay its two child elements out as two equal columns using flexbox. We also set <code>timeline-scope: --myScroller</code> on it so that the <code>--myScroller</code> timeline can be set as the controlling timeline for an animation set on the <code>&#x3C;body></code> and any element inside it.</p>
+<pre class="brush: css">body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+
+  /* increases the timeline scope from the .scroller &#x3C;div> element
+  to the whole &#x3C;body> */
+  timeline-scope: --myScroller;
+}
+
+.content,
+.scroller {
+  flex: 1;
+}
+</pre>
+<p>Next, the scrolling element has the <code>--myScroller</code> timeline set on it, <code>overflow</code> so that it will scroll, and it is given a background color so that its boundary is clear to see. The scrolling element's child long element is given a large height so that the scrolling element will actually scroll.</p>
+<pre class="brush: css">.scroller {
+  overflow: scroll;
+  scroll-timeline-name: --myScroller;
+  background: deeppink;
+}
+
+.long-element {
+  height: 2000px;
+}
+</pre>
+<p>Next, we give the animated element some rudimentary styling, and apply an animation to it. We also apply the <code>--myScroller</code> timeline to it using <code>animation-timeline: --myScroller</code>. To reiterate, this is only possible because earlier we set <code>timeline-scope: --myScroller</code> on the <code>&#x3C;body></code> element — the animated element is <strong>not</strong> a descendant of the scrolling element.</p>
+<pre class="brush: css">.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: rebeccapurple;
+  position: fixed;
+  top: 20px;
+  left: 0%;
+}
+
+.animation {
+  animation: rotate-appear;
+  animation-timeline: --myScroller;
+}
+
+@keyframes rotate-appear {
+  from {
+    rotate: 0deg;
+    left: 0%;
+  }
+
+  to {
+    rotate: 720deg;
+    left: 100%;
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll the vertical bar on the pink area to see the square animate.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+  <li><a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a>, <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a></li>
+  <li><a href="./css.properties.view-timeline.html"><code>view-timeline</code></a>, <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 116</li><li><strong>chrome_android</strong>: 116</li><li><strong>edge</strong>: 116</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/scroll-animations/#propdef-timeline-scope">https://drafts.csswg.org/scroll-animations/#propdef-timeline-scope</a></p></section></aside></body>
+</html>

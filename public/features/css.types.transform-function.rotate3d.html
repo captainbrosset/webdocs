@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rotate3d()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function rotate3d()</h1><main>
+    
+
+<p>
+  The <strong><code>rotate3d()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that rotates an element around a
+  fixed axis in 3D space, without deforming it. Its result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<p>
+  In 3D space, rotations have three degrees of freedom, which together describe a single axis of rotation. The axis of
+  rotation is defined by an [x, y, z] vector and pass by the origin (as defined by the <a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a>
+  property). If, as specified, the vector is not <em>normalized</em> (i.e., if the sum of the square of its three
+  coordinates is not 1), the <a href="/Glossary/user_agent">user agent</a> will normalize it internally. A non-normalizable vector, such as
+  the null vector, [0, 0, 0], will cause the rotation to be ignored, but without invalidating the whole CSS property.
+</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> Unlike rotations in the 2D plane, the composition of 3D rotations is usually
+    not commutative. In other words, the order in which the rotations are applied impacts the result.
+  </p>
+</div>
+<h2>Syntax</h2>
+<p>
+  The amount of rotation created by <code>rotate3d()</code> is specified by three <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>s and
+  one <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. The <code>&#x3C;number></code>s represent the x-, y-, and z-coordinates of the
+  vector denoting the axis of rotation. The <code>&#x3C;angle></code> represents the angle of rotation; if positive,
+  the movement will be clockwise; if negative, it will be counter-clockwise.
+</p>
+<pre class="brush: css">rotate3d(x, y, z, a)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>
+      Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> describing the x-coordinate of the vector denoting the axis of rotation which
+      can be a positive or negative number.
+    </p>
+  </dd>
+  <dt><code>y</code></dt>
+  <dd>
+    <p>
+      Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> describing the y-coordinate of the vector denoting the axis of rotation which
+      can be a positive or negative number.
+    </p>
+  </dd>
+  <dt><code>z</code></dt>
+  <dd>
+    <p>
+      Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> describing the z-coordinate of the vector denoting the axis of rotation which
+      can be a positive or negative number.
+    </p>
+  </dd>
+  <dt><code>a</code></dt>
+  <dd>
+    <p>
+      Is an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> representing the angle of the rotation. A positive angle denotes a clockwise
+      rotation, a negative angle a counter-clockwise one.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <tbody>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <td rowspan="2">
+        This transformation applies to the 3D space and can't be represented on
+        the plane.
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+    </tr>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d/transform-functions-rotate3d_cart.png"><img src="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d/transform-functions-rotate3d_cart.png"></a>
+        <math>
+          
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                  <mo>(</mo>
+                  <msup>
+                    <mi>x</mi>
+                    <mn>2</mn>
+                  </msup>
+                  <mo>-</mo>
+                  <mn>1</mn>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mi>z</mi>
+                  <mo>·</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>x</mi>
+                  <mi>y</mi>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mi>y</mi>
+                  <mo>·</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>x</mi>
+                  <mi>z</mi>
+                  <mo>·</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>-</mo>
+                  <mi>z</mi>
+                  <mo>·</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>x</mi>
+                  <mi>y</mi>
+                  <mo>·</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                  <mo>(</mo>
+                  <mi>y2</mi>
+                  <mo>-</mo>
+                  <mn>1</mn>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mi>x</mi>
+                  <mo>·</mo>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>y</mi>
+                  <mi>z</mi>
+                  <mo>·</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>y</mi>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>xz</mi>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mo>-</mo>
+                  <mi>x</mi>
+                  <mo>sin</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>+</mo>
+                  <mi>yz</mi>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>-</mo>
+                  <mo>cos</mo>
+                  <mo>(</mo>
+                  <mi>a</mi>
+                  <mo>)</mo>
+                  <mo>)</mo>
+                  <mo>(</mo>
+                  <mi>z2</mi>
+                  <mo>-</mo>
+                  <mn>1</mn>
+                  <mo>)</mo>
+                </mtd>
+                <mtd>
+                  <mi>t</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d/transform-functions-rotate3d_hom4.png"><img src="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d/transform-functions-rotate3d_hom4.png"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="rotated">Rotated&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">body {
+  perspective: 800px;
+}
+
+div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.rotated {
+  transform: rotate3d(0, 1, 0, 60deg);
+  background-color: pink;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="rotated">Rotated&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">body {
+  perspective: 800px;
+}
+
+div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.rotated {
+  transform: rotate3d(1, 2, -1, 192deg);
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a> property</li>
+  <li><a href="./css.properties.rotate.html"><code>rotate()</code></a> property</li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 12</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 10</li><li><strong>firefox_android</strong>: 10</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#funcdef-rotate3d">https://drafts.csswg.org/css-transforms-2/#funcdef-rotate3d</a></p></section></aside></body>
+</html>

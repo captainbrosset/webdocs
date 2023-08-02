@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>line-height</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties line-height</h1><main>
+    
+
+<p>The <strong><code>line-height</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced</a> inline elements, it specifies the height that is used to calculate line box height.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+line-height: normal;
+
+/* Unitless values: use this number multiplied
+by the element's font size */
+line-height: 3.5;
+
+/* &#x3C;length> values */
+line-height: 3em;
+
+/* &#x3C;percentage> values */
+line-height: 34%;
+
+/* Global values */
+line-height: inherit;
+line-height: initial;
+line-height: revert;
+line-height: revert-layer;
+line-height: unset;
+</pre>
+<p>The <code>line-height</code> property is specified as any one of the following:</p>
+<ul>
+  <li>a <code>&#x3C;number></code></li>
+  <li>a <code>&#x3C;length></code></li>
+  <li>a <code>&#x3C;percentage></code></li>
+  <li>the keyword <code>normal</code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Depends on the user agent. Desktop browsers (including Firefox) use a default value of roughly <strong><code>1.2</code></strong>, depending on the element's <code>font-family</code>.</p>
+  </dd>
+  <dt><code>&#x3C;number></code> (unitless)</dt>
+  <dd>
+    <p>The used value is this unitless <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> multiplied by the element's own font size. The computed value is the same as the specified <code>&#x3C;number></code>. In most cases, <strong>this is the preferred way</strong> to set <code>line-height</code> and avoid unexpected results due to inheritance.</p>
+  </dd>
+  <dt><code>&#x3C;length></code></dt>
+  <dd>
+    <p>The specified <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> is used in the calculation of the line box height. Values given in <strong>em</strong> units may produce unexpected results (see example below).</p>
+  </dd>
+  <dt><code>&#x3C;percentage></code></dt>
+  <dd>
+    <p>Relative to the font size of the element itself. The computed value is this <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> multiplied by the element's computed font size. <strong>Percentage</strong> values may produce unexpected results (see the second example below).</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Use a minimum value of <code>1.5</code> for <code>line-height</code> for main paragraph content. This will help people experiencing low vision conditions, as well as people with cognitive concerns such as Dyslexia. If the page is zoomed to increase the text size, using a unitless value ensures that the line height will scale proportionately.</p>
+<p><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">W3C Understanding WCAG 2.1</a></p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>non-replaced inline boxes and SVG text content elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the specified keyword, a number, or a computed &lt;length&gt; value</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | &lt;number&gt; | &lt;length-percentage&gt;</pre></section>
+
+<h3>Basic example</h3>
+<pre class="brush: css">/* All rules below have the same resultant line height */
+
+/* number/unitless */
+div {
+  line-height: 1.2;
+  font-size: 10pt;
+}
+
+/* length */
+div {
+  line-height: 1.2em;
+  font-size: 10pt;
+}
+
+/* percentage */
+div {
+  line-height: 120%;
+  font-size: 10pt;
+}
+
+/* font shorthand */
+div {
+  font:
+    10pt/1.2 Georgia,
+    "Bitstream Charter",
+    serif;
+}
+</pre>
+<p>It is often more convenient to set <code>line-height</code> by using the <a href="./css.properties.font.html"><code>font</code></a> shorthand as shown above, but this requires the <code>font-family</code> property to be specified as well.</p>
+<h3>Prefer unitless numbers for line-height values</h3>
+<p>This example shows why it is better to use <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> values instead of <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> values. We will use two <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> elements. The first, with the green border, uses a unitless <code>line-height</code> value. The second, with the red border, uses a <code>line-height</code> value defined in <code>em</code>s.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box green">
+  &#x3C;h1>Avoid unexpected results by using unitless line-height.&#x3C;/h1>
+  Length and percentage line-heights have poor inheritance behavior.
+&#x3C;/div>
+
+&#x3C;div class="box red">
+  &#x3C;h1>Avoid unexpected results by using unitless line-height.&#x3C;/h1>
+  Length and percentage line-heights have poor inheritance behavior
+&#x3C;/div>
+
+&#x3C;!-- The first &#x3C;h1> line-height is calculated from its own font-size   (30px × 1.1) = 33px -->
+&#x3C;!-- The second &#x3C;h1> line-height results from the red div's font-size  (15px × 1.1) = 16.5px, probably not what you want -->
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.green {
+  line-height: 1.1;
+  border: solid limegreen;
+}
+
+.red {
+  line-height: 1.1em;
+  border: solid red;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.box {
+  width: 18em;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 15px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font.html"><code>font</code></a>, <a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-inline/#line-height-property">https://drafts.csswg.org/css-inline/#line-height-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>forced-colors</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media forced-colors</h1><main>
+    
+
+<p>The <strong><code>forced-colors</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> is used to detect if the <a href="/Glossary/user_agent">user agent</a> has enabled a forced colors mode where it enforces a user-chosen limited color palette on the page. An example of a forced colors mode is Windows High Contrast mode.</p>
+<h2>Syntax</h2>
+<p>The <code>forced-colors</code> media feature indicates whether or not the browser is currently in forced-colors mode.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Forced colors mode is not active; the page's colors are not being forced into a limited palette.</p>
+  </dd>
+  <dt><code>active</code></dt>
+  <dd>
+    <p>Indicates that forced colors mode is active. The browser provides the color palette to authors through the <a href="./css.types.color.system-color.html">CSS system color</a> keywords and, if appropriate, triggers the appropriate value of <a href="./css.at-rules.media.prefers-color-scheme.html"><code>prefers-color-scheme</code></a> so that authors can adapt the page. The browser selects the value for <code>prefers-color-scheme</code> based on the lightness of the <code>Canvas</code> system color (see the <a href="https://www.w3.org/TR/css-color-adjust-1/#forced">color adjust spec</a> for more details).</p>
+  </dd>
+</dl>
+
+<h3>Properties affected by forced-color mode</h3>
+<p>In forced colors mode, the values of the following properties are treated as if they have no author-level values specified. That is, browser-specified values are used instead. The browser-specified values do not affect the style cascade; the values are instead forced by the browser at paint time.</p>
+<p>These browser-specified values are selected from the set of system colors — this ensures a consistent contrast for common UI elements for users that have forced colors enabled.</p>
+<ul>
+  <li><a href="./css.properties.color.html"><code>color</code></a></li>
+  <li><a href="./css.properties.background-color.html"><code>background-color</code></a></li>
+  <li><a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a></li>
+  <li><a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a></li>
+  <li><a href="./css.properties.border-color.html"><code>border-color</code></a></li>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a></li>
+  <li><a href="./css.properties.-webkit-tap-highlight-color.html"><code>-webkit-tap-highlight-color</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill">SVG fill attribute</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke">SVG stroke attribute</a></li>
+</ul>
+<p>Additionally the following properties have special behavior in forced colors mode:</p>
+<ul>
+  <li><a href="./css.properties.box-shadow.html"><code>box-shadow</code></a> is forced to 'none'</li>
+  <li><a href="./css.properties.text-shadow.html"><code>text-shadow</code></a> is forced to 'none'</li>
+  <li><a href="./css.properties.background-image.html"><code>background-image</code></a> is forced to 'none' for values that are not url-based</li>
+  <li><a href="./css.properties.color-scheme.html"><code>color-scheme</code></a> is forced to 'light dark'</li>
+  <li><a href="./css.properties.scrollbar-color.html"><code>scrollbar-color</code></a> is forced to 'auto'</li>
+</ul>
+<p>The system colors that are forced for the above properties depend on the context of the element. For example the <a href="./css.properties.color.html"><code>color</code></a> property on button element will be forced to <code>ButtonText</code>. On normal text it will be forced to <code>CanvasText</code>. See the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#system_colors">list of system colors</a> for additional details of when each might be appropriate in various UI contexts.</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> user agents choose system colors based on native element semantics, <em>not</em> on added ARIA roles.
+    As an example, adding <code>role="button"</code> to a <code>div</code> will <strong>not</strong> cause an element's color to be forced to <code>ButtonText</code>
+  </p>
+</div>
+<p>In addition to these adjustments, browsers will help ensure text legibility by drawing "backplates" behind text. This is particularly important for preserving contrast when text is placed on top of images.</p>
+<p>There are two cases where the user agent does not force the values for the above properties — when a <a href="./css.properties.forced-color-adjust.html"><code>forced-color-adjust</code></a> value of <code>none</code> is applied to an element, or when a system color is specified by the author.</p>
+<p>When forced-color-adjust is set to <code>none</code> on an element, none of the forced color values will apply, and author styles will be applied as normal. Additionally, the backplate for text will be disabled.</p>
+<p>When a system color is specified, it will be used instead of the value that would otherwise have been forced.</p>
+<p>You can also use system colors with any property <em>other</em> than those listed above, to ensure that the rest of the page integrates with the restricted color palette available in forced colors mode.</p>
+<h3>Accessibility concerns</h3>
+<p>In general, web authors should <strong>not</strong> be using the <code>forced-colors</code> media feature to create a separate design for users with this feature enabled. Instead, its intended usage is to make small tweaks to improve usability or legibility when the default application of forced colors does not work well for a given portion of a page.</p>
+<p>The high contrast provided by forced colors mode's reduced palette and text backplates is often essential for some users to be able to read or use a given website, so adjustments that affect content should be chosen carefully and targeted to content that is otherwise not legible.</p>
+<h3>User preferences</h3>
+<p>This media feature is active only if the user has enabled color scheme preferences in their operating system. One example of such a feature is High Contrast mode on Windows.</p>
+<h2>Examples</h2>
+<div class="notecard note">
+  <p><strong>Note:</strong> The below example will only work when using a browser that supports this media feature, and with a preference such as High Contrast mode enabled in your OS.</p>
+</div>
+<p>This example is a button that normally gets its contrast via <a href="./css.properties.box-shadow.html"><code>box-shadow</code></a>. Under forced colors mode, box-shadow is forced to none, so the example uses the forced-colors media feature to ensure there is a border of the appropriate color (ButtonText in this case)</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;button class="button">Press me!&#x3C;/button>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">.button {
+  border: 0;
+  padding: 10px;
+  box-shadow:
+    -2px -2px 5px gray,
+    2px 2px 5px gray;
+}
+
+@media (forced-colors: active) {
+  .button {
+    /* Use a border instead, since box-shadow is forced to 'none' in forced-colors mode */
+    border: 2px ButtonText solid;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.html">@media</a></li>
+  <li><a href="https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/">Styling for Windows high contrast with standards for forced colors.</a></li>
+  <li><a href="./css.properties.forced-color-adjust.html"><code>forced-color-adjust</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 89</li><li><strong>chrome_android</strong>: 89</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 89</li><li><strong>firefox_android</strong>: 89</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 15.0</li><li><strong>opera</strong>: 75</li><li><strong>opera_android</strong>: 63</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 15.0</li><li><strong>webview_android</strong>: 89</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries-5/#forced-colors">https://drafts.csswg.org/mediaqueries-5/#forced-colors</a></p></section></aside></body>
+</html>

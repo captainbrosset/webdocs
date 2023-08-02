@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>float</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties float</h1><main>
+    
+
+<p>The <strong><code>float</code></strong> CSS property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. The element is removed from the normal flow of the page, though still remaining a part of the flow (in contrast to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position#absolute_positioning">absolute positioning</a>).</p>
+<p>A <em>floating element</em> is one where the computed value of <code>float</code> is not <code>none</code>.</p>
+<p>As <code>float</code> implies the use of the block layout, it modifies the computed value of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> values, in some cases:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Specified value</th>
+      <th>Computed value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>inline</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>inline-block</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>inline-table</code></td>
+      <td><code>table</code></td>
+    </tr>
+    <tr>
+      <td><code>table-row</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-row-group</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-column</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-column-group</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-cell</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-caption</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-header-group</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>table-footer-group</code></td>
+      <td><code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>inline-flex</code></td>
+      <td><code>flex</code></td>
+    </tr>
+    <tr>
+      <td><code>inline-grid</code></td>
+      <td><code>grid</code></td>
+    </tr>
+    <tr>
+      <td><em>other</em></td>
+      <td><em>unchanged</em></td>
+    </tr>
+  </tbody>
+</table>
+<div class="notecard note">
+  <p><strong>Note:</strong> If you're referring to this property from JavaScript as a member of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>HTMLElement.style</code></a> object, modern browsers support <code>float</code>, but in older browsers you have to spell it as <code>cssFloat</code>. This was an exception to the rule, that the name of the DOM member is the camel-case name of the dash-separated CSS name (because "float" is a reserved word in JavaScript, as seen in the need to escape "class" as "className" and escape &#x3C;label>'s "for" as "htmlFor").</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+float: left;
+float: right;
+float: none;
+float: inline-start;
+float: inline-end;
+
+/* Global values */
+float: inherit;
+float: initial;
+float: revert;
+float: revert-layer;
+float: unset;
+</pre>
+<p>The <code>float</code> property is specified as a single keyword, chosen from the list of values below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>The element must float on the left side of its containing block.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>The element must float on the right side of its containing block.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element must not float.</p>
+  </dd>
+  <dt><code>inline-start</code></dt>
+  <dd>
+    <p>The element must float on the start side of its containing block. That is the left side with <code>ltr</code> scripts, and the right side with <code>rtl</code> scripts.</p>
+  </dd>
+  <dt><code>inline-end</code></dt>
+  <dd>
+    <p>The element must float on the end side of its containing block. That is the right side with <code>ltr</code> scripts, and the left side with <code>rtl</code> scripts.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements.</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>block-start | block-end | inline-start | inline-end | snap-block | &lt;snap-block()&gt; | snap-inline | &lt;snap-inline()&gt; | left | right | top | bottom | none</pre></section>
+
+<h3>How floated elements are positioned</h3>
+<p>As mentioned above, when an element is floated, it is taken out of the normal flow of the document (though still remaining part of it). It is shifted to the left, or right, until it touches the edge of its containing box, <em>or another floated element</em>.</p>
+<p>In this example, there are three colored squares. Two are floated left, and one is floated right. Note that the second "left" square is placed to the right of the first. Additional squares would continue to stack to the right, until they filled the containing box, after which they would wrap to the next line.</p>
+<p>A floated element is at least as tall as its tallest nested floated children. We gave the parent <code>width: 100%</code> and floated it to ensure it is tall enough to encompass its floated children, and to make sure it takes up the width of the parent so we don't have to clear its adjacent sibling.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;section>
+  &#x3C;div class="left">1&#x3C;/div>
+  &#x3C;div class="left">2&#x3C;/div>
+  &#x3C;div class="right">3&#x3C;/div>
+  &#x3C;p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique
+    sapien ac erat tincidunt, sit amet dignissim lectus vulputate. Donec id
+    iaculis velit. Aliquam vel malesuada erat. Praesent non magna ac massa
+    aliquet tincidunt vel in massa. Phasellus feugiat est vel leo finibus
+    congue.
+  &#x3C;/p>
+&#x3C;/section>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">section {
+  box-sizing: border-box;
+  border: 1px solid blue;
+  width: 100%;
+  float: left;
+}
+
+div {
+  margin: 5px;
+  width: 50px;
+  height: 150px;
+}
+
+.left {
+  float: left;
+  background: pink;
+}
+
+.right {
+  float: right;
+  background: cyan;
+}
+</pre>
+
+<h3>Clearing floats</h3>
+<p>Sometimes you may want to force an item to move below any floated elements. For instance, you may want paragraphs to remain adjacent to floats, but force headings to be on their own line. See <a href="./css.properties.clear.html"><code>clear</code></a> for examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">Block formatting context</a></li>
+  <li>Use <a href="./css.properties.clear.html"><code>clear</code></a> to force an item to move below a floated element.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#propdef-float,https://drafts.csswg.org/css-logical/#float-clear">https://drafts.csswg.org/css2/#propdef-float,https://drafts.csswg.org/css-logical/#float-clear</a></p></section></aside></body>
+</html>

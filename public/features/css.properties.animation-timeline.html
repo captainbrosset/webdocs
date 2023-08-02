@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-timeline</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-timeline</h1><main>
+    
+
+<p>The <strong><code>animation-timeline</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the timeline that is used to control the progress of a CSS animation.</p>
+<p>The following types of timelines can be set via <code>animation-timeline</code>:</p>
+<ul>
+  <li>The default document timeline, which is progressed through by the passing of time since the document was first loaded in the browser. This is the timeline traditionally associated with CSS animations and is selected with a value of <code>auto</code>, or by not specifying an <code>animation-timeline</code> value at all.</li>
+  <li>A <em>scroll progress timeline</em>, which is progressed through by scrolling a scrollable element (<em>scroller</em>) between top and bottom (or left and right). The position in the scroll range is converted into a percentage of progress — 0% at the start and 100% at the end. The element that provides the scroll progress timeline can be specified in two ways:
+    <ul>
+      <li>A <em>named scroll progress timeline</em> is one where the scroller providing the scroll progress timeline is explicitly named using the <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a> property (or the <a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a> shorthand property). The name is then linked to the element to animate by specifying it as the value of that element's <code>animation-timeline</code> property.</li>
+      <li>An <em>anonymous scroll progress timeline</em> is one where the element to animate is given a <a href="./css.properties.animation-timeline.scroll.html"><code>scroll()</code></a> function as an <code>animation-timeline</code> value, which selects the scroller providing the scroll progress timeline and the scroll axis to be used based on the arguments you pass to it.</li>
+    </ul>
+  </li>
+  <li>A <em>view progress timeline</em>, which is progressed through based on the change in visibility of an element (known as the <em>subject</em>) inside a scroller. The visibility of the subject inside the scroller is tracked — by default, the timeline is at 0% when the subject is first visible at one edge of the scroller, and 100% when it reaches the opposite edge. Unlike with scroll progress timelines, you can't specify the scroller — the subject's visibility is always tracked within its nearest ancestor scroller. The subject that provides the view progress timeline can be specified in two ways:
+    <ul>
+      <li>A <em>named view progress timeline</em> is one where the subject is explicitly named using the <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a> property (or the <a href="./css.properties.view-timeline.html"><code>view-timeline</code></a> shorthand property). The name is then linked to the element to animate by specifying it as the value of that element's <code>animation-timeline</code> property. This is a key point — with named view progress timelines, the element to animate does not have to be the same as the subject.</li>
+      <li>An <em>anonymous view progress timeline</em> is one where the subject is given a <a href="./css.properties.animation-timeline.view.html"><code>view()</code></a> function as an <code>animation-timeline</code> value, causing it to be animated based on its position inside its nearest parent scroller.</li>
+    </ul>
+  </li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a> is included in the <a href="./css.properties.animation.html"><code>animation</code></a> shorthand as a reset-only value. This means that including <code>animation</code> resets a previously-declared <code>animation-timeline</code> value to <code>auto</code>, but a specific value cannot be set via <code>animation</code>. When creating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>, you need to declare <code>animation-timeline</code> after declaring any <code>animation</code> shorthand for it to take effect.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword */
+animation-timeline: none;
+animation-timeline: auto;
+
+/* Single animation named timeline */
+animation-timeline: --timeline_name;
+
+/* Single animation anonymous scroll progress timeline */
+animation-timeline: scroll();
+animation-timeline: scroll(scroller axis);
+
+/* Single animation anonymous view progress timeline */
+animation-timeline: view();
+animation-timeline: view(axis inset);
+
+/* Multiple animations */
+animation-timeline: --progressBarTimeline, --carouselTimeline;
+animation-timeline: none, --slidingTimeline;
+
+/* Global values */
+animation-timeline: inherit;
+animation-timeline: initial;
+animation-timeline: revert;
+animation-timeline: revert-layer;
+animation-timeline: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The animation is not associated with a timeline.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The animation's timeline is the document's default <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentTimeline">DocumentTimeline</a>.</p>
+  </dd>
+  <dt><code>scroll()</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>An anonymous scroll progress timeline is provided by some ancestor scroller of the current element. The function parameters allow you to select the scroller, and the scrolling axis the timeline will be measured along.</p>
+    <p>See <a href="./css.properties.animation-timeline.scroll.html"><code>scroll()</code></a> for more information.</p>
+  </dd>
+  <dt><code>view()</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>An anonymous view progress timeline is provided by the subject that <code>animation-timeline: view();</code> is set on. The function parameters allow you to select the scrollbar axis along which timeline progress will be tracked and an inset that adjusts the position of the box in which the subject is deemed to be visible.</p>
+    <p>See <a href="./css.properties.animation-timeline.view.html"><code>view()</code></a> for more information.</p>
+  </dd>
+  <dt><code>&#x3C;dashed-ident></code></dt>
+  <dd>
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident"><code>dashed-ident</code></a> identifying a named timeline previously declared with the <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a> or <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a> property (or the <a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a> or <a href="./css.properties.view-timeline.html"><code>view-timeline</code></a> shorthand property).</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> If two or more timelines share the same name, the last declared within the cascade will be used. Also, if no timeline is found that matches the given name, the animation is not associated with a timeline.</p>
+    </div>
+    <div class="notecard note">
+      <p><strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident"><code>&#x3C;dashed-ident></code></a> values must start with <code>--</code>. This helps avoid name clashes with standard CSS keywords.</p>
+    </div>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item either the keyword none, the keyword auto, a case-sensitive css identifier, a computed scroll() function, or a computed view() function</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;single-animation-timeline&gt;#</pre></section>
+
+<h3>Setting a named scroll progress timeline</h3>
+<p>
+  A scroll progress timeline named <code>--squareTimeline</code> is defined using the <code>scroll-timeline-name</code> property on an element with an <code>id</code> of <code>container</code>.
+  This is then set as the timeline for the animation on the <code>#square</code> element using <code>animation-timeline: --squareTimeline</code>.
+</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div id="square">&#x3C;/div>
+  &#x3C;div id="stretcher">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The CSS for the container sets it as the source of a scroll progress timeline named <code>--squareTimeline</code> using the <code>scroll-timeline-name</code> property (we could explicitly set which scrollbar axis to use with <a href="./css.properties.scroll-timeline-axis.html"><code>scroll-timeline-axis</code></a>, but there is only a block direction scrollbar here, and it will be used by default).</p>
+<p>The height of the container is set to 300px and we also set the container to create a vertical scrollbar if it overflows (below we will use CSS on the "stretcher" element to ensure that it does overflow).</p>
+<pre class="brush: css">#container {
+  height: 300px;
+  overflow-y: scroll;
+  scroll-timeline-name: --squareTimeline;
+  position: relative;
+}
+</pre>
+<p>The CSS below defines a square that rotates in alternate directions according to the timeline provided by the <code>animation-timeline</code> property, which is set to the <code>--squareTimeline</code> timeline named above.</p>
+<pre class="brush: css">#square {
+  background-color: deeppink;
+  width: 100px;
+  height: 100px;
+  margin-top: 100px;
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-direction: alternate;
+  animation-timeline: --squareTimeline;
+
+  position: absolute;
+  bottom: 0;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<p>
+  The "stretcher" CSS sets the block height to 600px, which forces the container element to overflow and create scroll bars.
+  Without this element there would be no scrollbar, and hence no scroll progress timeline to associate with the animation timeline.
+</p>
+<pre class="brush: css">#stretcher {
+  height: 600px;
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll to see the square element being animated.</p>
+<h3>Setting an anonymous scroll progress timeline</h3>
+<p>
+  In this example, the <code>#square</code> element is animated using an anonymous scroll progress timeline, which is applied to the element to be animated using the <code>scroll()</code> function.
+  The timeline in this particular example is provided by the nearest parent element that has (any) scrollbar, from the scrollbar in the block direction.
+</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div id="square">&#x3C;/div>
+  &#x3C;div id="stretcher">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>
+  The CSS below defines a square that rotates in alternate directions according to the timeline provided by the <code>animation-timeline</code> property.
+  In this case, the timeline is provided by <code>scroll(block nearest)</code>, which means that it will select the scrollbar in the block direction of the nearest ancestor element that has scrollbars; in this case the vertical scrollbar of the "container" element.
+</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>block</code> and <code>nearest</code> are actually the default parameter values, so we could have used just <code>scroll()</code>.</p>
+</div>
+<pre class="brush: css">#square {
+  background-color: deeppink;
+  width: 100px;
+  height: 100px;
+  margin-top: 100px;
+  position: absolute;
+  bottom: 0;
+
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-direction: alternate;
+  animation-timeline: scroll(block nearest);
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<p>
+  The CSS for the container sets its height to 300px and we also set the container to create a vertical scrollbar if it overflows.
+  The "stretcher" CSS sets the block height to 600px, which forces the container element to overflow.
+  These two together ensure that the container has a vertical scrollbar, which allows it to be used as the source of the anonymous scroll progress timeline.
+</p>
+<pre class="brush: css">#container {
+  height: 300px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+#stretcher {
+  height: 600px;
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll to see the square element being animated.</p>
+<h3>Setting a named view progress timeline</h3>
+<p>
+  A view progress timeline named <code>--subjectReveal</code> is defined using the <code>view-timeline-name</code> property on a subject element with a <code>class</code> of <code>animation</code>.
+  This is then set as the timeline for the same element using <code>animation-timeline: --subjectReveal;</code>. The result is that the subject element animates as it moves upwards through the document as it is scrolled.
+</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div class="content">
+  &#x3C;h1>Content&#x3C;/h1>
+
+  &#x3C;p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Risus quis varius quam
+    quisque id. Et ligula ullamcorper malesuada proin libero nunc consequat
+    interdum varius. Elit ullamcorper dignissim cras tincidunt lobortis feugiat
+    vivamus at augue.
+  &#x3C;/p>
+
+  &#x3C;p>
+    Dolor sed viverra ipsum nunc aliquet. Sed sed risus pretium quam vulputate
+    dignissim. Tortor aliquam nulla facilisi cras. A erat nam at lectus urna
+    duis convallis convallis. Nibh ipsum consequat nisl vel pretium lectus.
+    Sagittis aliquam malesuada bibendum arcu vitae elementum. Malesuada bibendum
+    arcu vitae elementum curabitur vitae nunc sed velit.
+  &#x3C;/p>
+
+  &#x3C;div class="subject animation">&#x3C;/div>
+
+  &#x3C;p>
+    Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Arcu
+    cursus vitae congue mauris rhoncus aenean vel. Sit amet cursus sit amet
+    dictum. Augue neque gravida in fermentum et. Gravida rutrum quisque non
+    tellus orci ac auctor augue mauris. Risus quis varius quam quisque id diam
+    vel quam elementum. Nibh praesent tristique magna sit amet purus gravida
+    quis. Duis ultricies lacus sed turpis tincidunt id aliquet. In egestas erat
+    imperdiet sed euismod nisi. Eget egestas purus viverra accumsan in nisl nisi
+    scelerisque. Netus et malesuada fames ac.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The <code>subject</code> element and its containing <code>content</code> element are styled minimally, and the text content is given some basic font settings:</p>
+<pre class="brush: css">.subject {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: deeppink;
+}
+
+.content {
+  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+p,
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+</pre>
+<p>The <code>&#x3C;div></code> with the class of <code>subject</code> is also given a class of <code>animation</code> — this is where the <a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a> is set to define a named view progress timeline. It is also given an <code>animation-timeline</code> name with the same value to declare that this will be the element animated as the view progress timeline is progressed.</p>
+<p>Lastly, an animation is specified on the element that animates its opacity and scale, causing it to fade in and size up as it moves up the scroller.</p>
+<pre class="brush: css">.animation {
+  view-timeline-name: --subjectReveal;
+  animation-timeline: --subjectReveal;
+
+  animation-name: appear;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll to see the subject element being animated.</p>
+<h3>Setting an anonymous view progress timeline</h3>
+<p>An anonymous view progress timeline is set on an element with class <code>subject</code> using <code>animation-timeline: view()</code>. The result is that the <code>subject</code> element animates as it moves upwards through the document as it is scrolled.</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div class="content">
+  &#x3C;h1>Content&#x3C;/h1>
+
+  &#x3C;p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Risus quis varius quam
+    quisque id. Et ligula ullamcorper malesuada proin libero nunc consequat
+    interdum varius. Elit ullamcorper dignissim cras tincidunt lobortis feugiat
+    vivamus at augue.
+  &#x3C;/p>
+
+  &#x3C;p>
+    Dolor sed viverra ipsum nunc aliquet. Sed sed risus pretium quam vulputate
+    dignissim. Tortor aliquam nulla facilisi cras. A erat nam at lectus urna
+    duis convallis convallis. Nibh ipsum consequat nisl vel pretium lectus.
+    Sagittis aliquam malesuada bibendum arcu vitae elementum. Malesuada bibendum
+    arcu vitae elementum curabitur vitae nunc sed velit.
+  &#x3C;/p>
+
+  &#x3C;div class="subject animation">&#x3C;/div>
+
+  &#x3C;p>
+    Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Arcu
+    cursus vitae congue mauris rhoncus aenean vel. Sit amet cursus sit amet
+    dictum. Augue neque gravida in fermentum et. Gravida rutrum quisque non
+    tellus orci ac auctor augue mauris. Risus quis varius quam quisque id diam
+    vel quam elementum. Nibh praesent tristique magna sit amet purus gravida
+    quis. Duis ultricies lacus sed turpis tincidunt id aliquet. In egestas erat
+    imperdiet sed euismod nisi. Eget egestas purus viverra accumsan in nisl nisi
+    scelerisque. Netus et malesuada fames ac.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The <code>subject</code> element and its containing <code>content</code> element are styled minimally, and the text content is given some basic font settings:</p>
+<pre class="brush: css">.subject {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: deeppink;
+}
+
+.content {
+  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+p,
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+</pre>
+<p>The <code>&#x3C;div></code> with the class of <code>subject</code> is also given a class of <code>animation</code> — this is where <code>animation-timeline: view()</code> is set to declare that it will be animated as it progresses through the view progress timeline provided by its scrolling ancestor (in this case the document's root element).</p>
+<p>Last, an animation is specified on the element that animates its opacity and scale, causing it to fade in and size up as it moves up the scroller.</p>
+<pre class="brush: css">.animation {
+  animation-timeline: view();
+
+  animation-name: appear;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll to see the subject element being animated.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+  <li><a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a>, <a href="./css.properties.scroll-timeline-axis.html"><code>scroll-timeline-axis</code></a>, <a href="./css.properties.scroll-timeline.html"><code>scroll-timeline</code></a></li>
+  <li><a href="./css.properties.timeline-scope.html"><code>timeline-scope</code></a></li>
+  <li><a href="./css.properties.view-timeline-name.html"><code>view-timeline-name</code></a>, <a href="./css.properties.view-timeline-axis.html"><code>view-timeline-axis</code></a>, <a href="./css.properties.view-timeline.html"><code>view-timeline</code></a>, <a href="./css.properties.view-timeline-inset.html"><code>view-timeline-inset</code></a></li>
+  <li>The JavaScript equivalent: The <code>timeline</code> property available in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animate"><code>Element.animate()</code></a> calls</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 115</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations-2/#animation-timeline">https://drafts.csswg.org/css-animations-2/#animation-timeline</a></p></section></aside></body>
+</html>

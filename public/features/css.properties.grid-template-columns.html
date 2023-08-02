@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>grid-template-columns</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-template-columns</h1><main>
+    
+
+<p>The <strong><code>grid-template-columns</code></strong> CSS property defines the line names and track sizing functions of the <a href="/Glossary/grid_column">grid columns</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+grid-template-columns: none;
+
+/* &#x3C;track-list> values */
+grid-template-columns: 100px 1fr;
+grid-template-columns: [linename] 100px;
+grid-template-columns: [linename1] 100px [linename2 linename3];
+grid-template-columns: minmax(100px, 1fr);
+grid-template-columns: fit-content(40%);
+grid-template-columns: repeat(3, 200px);
+grid-template-columns: subgrid;
+grid-template-columns: masonry;
+
+/* &#x3C;auto-track-list> values */
+grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+grid-template-columns:
+  minmax(100px, max-content)
+  repeat(auto-fill, 200px) 20%;
+grid-template-columns:
+  [linename1] 100px [linename2]
+  repeat(auto-fit, [linename3 linename4] 300px)
+  100px;
+grid-template-columns:
+  [linename1 linename2] 100px
+  repeat(auto-fit, [linename1] 300px) [linename3];
+
+/* Global values */
+grid-template-columns: inherit;
+grid-template-columns: initial;
+grid-template-columns: revert;
+grid-template-columns: revert-layer;
+grid-template-columns: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Indicates that there is no explicit grid. Any columns will be implicitly generated and their size will be determined by the <a href="./css.properties.grid-auto-columns.html"><code>grid-auto-columns</code></a> property.</p>
+  </dd>
+  <dt><code>[linename]</code></dt>
+  <dd>
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&#x3C;custom-ident></code></a> specifying a name for the line in that location. The ident may be any valid string other than the reserved words <code>span</code> and <code>auto</code>. Lines may have multiple names separated by a space inside the square brackets, for example <code>[line-name-a line-name-b]</code>.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>A non-negative length, giving the width of the column.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>
+      Is a non-negative <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> value relative to the inline size of the grid container. If the size of the grid container depends on the size of its tracks, then the percentage must be treated as <code>auto</code>.
+      The intrinsic size contributions of the track may be adjusted to the size of the grid container and increase the final size of the track by the minimum amount that would result in honoring the percentage.
+    </p>
+  </dd>
+  <dt><a href="./css.types.flex.html"><code>&lt;flex&gt;</code></a></dt>
+  <dd>
+    <p>Is a non-negative dimension with the unit <code>fr</code> specifying the track's flex factor. Each <code>&#x3C;flex></code>-sized track takes a share of the remaining space in proportion to its flex factor.</p>
+    <p>When appearing outside a <code>minmax()</code> notation, it implies an automatic minimum (i.e. <code>minmax(auto, &#x3C;flex>)</code>).</p>
+  </dd>
+  <dt><a href="./css.properties.width.max-content.html"><code>max-content</code></a></dt>
+  <dd>
+    <p>Is a keyword representing the largest <a href="https://www.w3.org/TR/css-sizing-3/#max-content">maximal content contribution</a> of the grid items occupying the grid track. For example, if the first element of the grid track contains the sentence <em>"Repetitio est mater studiorum"</em> and the second element contains the sentence <em>"Dum spiro, spero"</em>, maximal content contribution will be defined by the size of the largest sentence among all of the grid elements - <em>"Repetitio est mater studiorum"</em>.</p>
+  </dd>
+  <dt><a href="./css.properties.width.min-content.html"><code>min-content</code></a></dt>
+  <dd>
+    <p>Is a keyword representing the largest <a href="https://www.w3.org/TR/css-sizing-3/#min-content">minimal content contribution</a> of the grid items occupying the grid track. For example, if the first element of the grid track contains the sentence <em>"Repetitio est mater studiorum"</em> and the second element contains the sentence <em>"Dum spiro, spero"</em>, minimal content contribution will be defined by the size of the largest word among all of the sentences in the grid elements - <em>"studiorum"</em>.</p>
+  </dd>
+  <dt><a href="./css.properties.grid-template-columns.minmax.html"><code>minmax(min, max)</code></a></dt>
+  <dd>
+    <p>Is a functional notation that defines a size range greater than or equal to <em>min</em> and less than or equal to <em>max</em>. If <em>max</em> is smaller than <em>min</em>, then <em>max</em> is ignored and the function is treated as <em>min</em>. As a maximum, a <code>&#x3C;flex></code> value sets the track's flex factor. It is invalid as a minimum.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>As a maximum represents the largest <a href="./css.properties.width.max-content.html"><code>max-content</code></a> size of the items in that track.</p>
+    <p>As a minimum represents the largest minimum size of items in that track (specified by the <a href="./css.properties.min-width.html"><code>min-width</code></a>/<a href="./css.properties.min-height.html"><code>min-height</code></a> of the items). This is often, though not always, the <a href="./css.properties.width.min-content.html"><code>min-content</code></a> size.</p>
+    <p>If used outside of <a href="./css.properties.grid-template-columns.minmax.html"><code>minmax()</code></a> notation, <code>auto</code> represents the range between the minimum and maximum described above. This behaves similarly to <code>minmax(min-content,max-content)</code> in most cases.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> <code>auto</code> track sizes (and only <code>auto</code> track sizes) can be stretched by the <a href="./css.properties.align-content.html"><code>align-content</code></a> and <a href="./css.properties.justify-content.html"><code>justify-content</code></a> properties. Therefore by default, an <code>auto</code> sized track will take up any remaining space in the grid container.</p>
+    </div>
+  </dd>
+  <dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content_function"><code>fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )</code></a></code></dt>
+  <dd>
+    <p>Represents the formula <code>max(minimum, min(limit, max-content))</code>, where <em>minimum</em> represents an <code>auto</code> minimum (which is often, but not always, equal to a <a href="./css.properties.width.min-content.html"><code>min-content</code></a> minimum), and <em>limit</em> is the track sizing function passed as an argument to fit-content(). This is essentially calculated as the smaller of <code>minmax(auto, max-content)</code> and <code>minmax(auto, limit)</code>.</p>
+  </dd>
+  <dt><a href="./css.properties.grid-template-columns.repeat.html"><code>repeat( [ &lt;positive-integer&gt; | auto-fill | auto-fit ] , &lt;track-list&gt; )</code></a></dt>
+  <dd>
+    <p>Represents a repeated fragment of the track list, allowing a large number of columns that exhibit a recurring pattern to be written in a more compact form.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Masonry_layout"><code>masonry</code></a> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The masonry value indicates that this axis should be laid out according to the masonry algorithm.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid"><code>subgrid</code></a></dt>
+  <dd>
+    <p>The <code>subgrid</code> value indicates that the grid will adopt the spanned portion of its parent grid in that axis. Rather than being specified explicitly, the sizes of the grid rows/columns will be taken from the parent grid's definition.</p>
+  </dd>
+</dl>
+<div class="notecard warning">
+  <p><strong>Warning:</strong> The <code>masonry</code> value is from Level 3 of the Grid specification and currently only has an experimental implementation behind a flag in Firefox.</p>
+  <p>The <code>subgrid</code> value is from Level 2 of the Grid specification and currently only has implementation in Firefox 71 and onwards.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>grid containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or a computed track list</td></tr><tr><th scope="row">Animation type</th><td>if the list lengths match, by computed value type per item in the computed track list (see § 7.2.5 Computed Value of a Track Listing and § 7.2.3.3 Interpolation/Combination of repeat()); discrete otherwise</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;track-list&gt; | &lt;auto-track-list&gt; | subgrid &lt;line-name-list&gt;?</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="grid">
+  &#x3C;div id="areaA">A&#x3C;/div>
+  &#x3C;div id="areaB">B&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50px 1fr;
+}
+
+#areaA {
+  background-color: lime;
+}
+
+#areaB {
+  background-color: yellow;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.grid-template-rows.html"><code>grid-template-rows</code></a>, <a href="./css.properties.grid-template-areas.html"><code>grid-template-areas</code></a>, <a href="./css.properties.grid-template.html"><code>grid-template</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_tracks">Basic concepts of grid layout - Grid Tracks</a></em></li>
+  <li>Video tutorial: <em><a href="https://gridbyexample.com/video/series-define-a-grid/">Defining a Grid</a></em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid">Subgrid</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#track-sizing,https://drafts.csswg.org/css-grid/#subgrids,https://drafts.csswg.org/css-grid-3/#masonry-layout">https://drafts.csswg.org/css-grid/#track-sizing,https://drafts.csswg.org/css-grid/#subgrids,https://drafts.csswg.org/css-grid-3/#masonry-layout</a></p></section></aside></body>
+</html>

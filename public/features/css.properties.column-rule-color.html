@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-rule-color</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-rule-color</h1><main>
+    
+
+<p>The <strong><code>column-rule-color</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the color of the line drawn between columns in a multi-column layout.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;color> values */
+column-rule-color: red;
+column-rule-color: rgb(192 56 78);
+column-rule-color: transparent;
+column-rule-color: hsl(0 100% 50% / 0.6);
+
+/* Global values */
+column-rule-color: inherit;
+column-rule-color: initial;
+column-rule-color: revert;
+column-rule-color: revert-layer;
+column-rule-color: unset;
+</pre>
+<p>The <code>column-rule-color</code> property is specified as a single <code>&#x3C;color></code> value.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>The color of the rule that separates columns.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>currentcolor</td></tr><tr><th scope="row">Applies to</th><td>multicol containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>computed color</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;color&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  This is a bunch of text split into three columns. The `column-rule-color`
+  property is used to change the color of the line that is drawn between
+  columns. Don't you think that's wonderful?
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  column-count: 3;
+  column-rule-style: solid;
+  column-rule-color: blue;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.types.color.html"><code>&lt;color&gt;</code></a> data type</li>
+  <li>Other color-related properties: <a href="./css.properties.color.html"><code>color</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.border-color.html"><code>border-color</code></a>, <a href="./css.properties.outline-color.html"><code>outline-color</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, <a href="./css.properties.text-shadow.html"><code>text-shadow</code></a>, and <a href="./css.properties.caret-color.html"><code>caret-color</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color">Applying color to HTML elements using CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-multicol/#crc">https://drafts.csswg.org/css-multicol/#crc</a></p></section></aside></body>
+</html>

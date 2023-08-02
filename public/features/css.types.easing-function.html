@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;easing-function&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;easing-function></h1><main>
+    
+
+<p>The <strong><code>&#x3C;easing-function></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> denotes a mathematical function that describes the rate at which a numerical value changes.</p>
+<p>This transition between two values may be applied in different situations. It may be used to describe how fast values change during animations. This lets you vary the animation's speed over the course of its duration. You can specify an easing function for CSS <a href="./css.properties.transition-timing-function.html">transition</a> and <a href="./css.properties.animation-timing-function.html">animation</a> properties.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* linear function and keyword */
+/* linear(&#x3C;point-list>) */
+linear(1, -0.5, 0)
+linear
+
+/* cubic-bezier function and keywords */
+/* cubic-bezier(&#x3C;x1>, &#x3C;y1>, &#x3C;x2>, &#x3C;y2>) */
+cubic-bezier(0.42, 0.0, 1.0, 1.0)
+ease
+ease-in
+ease-out
+ease-in-out
+
+/* steps function and keywords */
+/* steps(&#x3C;number-of-steps>, &#x3C;direction>) */
+steps(4, end)
+step-start
+step-end
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;point-list></code></dt>
+  <dd>
+    <p>List of linear stops.</p>
+  </dd>
+  <dt><code>linear</code></dt>
+  <dd>
+    <p>Indicates that the interpolation goes linearly. This keyword represents the easing function <code>linear(0, 1)</code>.</p>
+  </dd>
+</dl>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/linear.svg" alt="Graph of &#x22;Input progress&#x22; to &#x22;Output progress&#x22; showing a line extending from the origin to (1, 1).">
+</p>
+<dl>
+  <dt><code>&#x3C;x1></code>, <code>&#x3C;y1></code>, <code>&#x3C;x2></code>, <code>&#x3C;y2></code></dt>
+  <dd>
+    <p><a href="./css.types.number.html"><code>&lt;number&gt;</code></a> values representing the abscissas and ordinates of the <a href="#cubic_b%C3%A9zier_functions">P1 and P2 points</a> defining the cubic Bézier curve. <code>x1</code> and <code>x2</code> must be in the range <code>[0, 1]</code>, otherwise the value is invalid.</p>
+  </dd>
+  <dt><code>ease</code></dt>
+  <dd>
+    <p>Indicates that the interpolation starts slowly, accelerates sharply, and then slows gradually towards the end. This keyword represents the easing function <code>cubic-bezier(0.25, 0.1, 0.25, 1.0)</code>. It is similar to <a href="#ease-in-out"><code>ease-in-out</code></a>, though it accelerates more sharply at the beginning.</p>
+  </dd>
+  <dt><code>ease-in</code></dt>
+  <dd>
+    <p>Indicates that the interpolation starts slowly, then progressively speeds up until the end, at which point it stops abruptly. This keyword represents the easing function <code>cubic-bezier(0.42, 0.0, 1.0, 1.0)</code>.</p>
+  </dd>
+  <dt><code>ease-out</code></dt>
+  <dd>
+    <p>Indicates that the interpolation starts abruptly and then progressively slows down towards the end. This keyword represents the easing function <code>cubic-bezier(0.0, 0.0, 0.58, 1.0)</code>.</p>
+  </dd>
+  <dt><code>ease-in-out</code></dt>
+  <dd>
+    <p>Indicates that the interpolation starts slowly, speeds up, and then slows down towards the end. This keyword represents the easing function <code>cubic-bezier(0.42, 0.0, 0.58, 1.0)</code>. At the beginning, it behaves like the <a href="#ease-in"><code>ease-in</code></a> keyword; at the end, it is like the <a href="#ease-out"><code>ease-out</code></a> keyword.</p>
+  </dd>
+</dl>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/ease.svg" alt="Graphs of &#x22;Input progress&#x22; to &#x22;Output progress&#x22;, of which &#x22;ease&#x22; shows a curved line quickly rising from the origin to (1, 1); &#x22;ease-in&#x22; shows a shallow curved line from the origin that straightens out as it approaches (1, 1); &#x22;ease-out&#x22; shows a straight diagonal line that slightly curves as it gets close to (1, 1); and &#x22;ease-in-out&#x22; shows a symmetrical, &#x22;S&#x22;-shaped line curving from the origin to (1, 1).">
+</p>
+<dl>
+  <dt><code>&#x3C;number-of-steps></code></dt>
+  <dd>
+    <p>A strictly positive <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a>, representing the amount of equidistant treads composing the stepping function.</p>
+  </dd>
+  <dt><code>&#x3C;direction></code></dt>
+  <dd>
+    <p>One of the following keywords that indicate when the jumps occur:</p>
+    <ul>
+      <li><code>jump-start</code> denotes that the first step or jump happens when the interpolation begins.</li>
+      <li><code>jump-end</code> denotes that the last step or jump happens when the interpolation ends.</li>
+      <li><code>jump-both</code> denotes that jumps occur at both the 0% and 100% marks, effectively adding a step during the interpolation iteration.</li>
+      <li><code>jump-none</code> denotes no jump on either end. Instead, holding at both the 0% mark and the 100% mark, each for 1/n of the duration.</li>
+      <li><code>start</code> is the equivalent of <code>jump-start</code>.</li>
+      <li><code>end</code> is the equivalent of <code>jump-end</code>. This is the default.</li>
+    </ul>
+  </dd>
+  <dt><code>step-start</code></dt>
+  <dd>
+    <p>Indicates that the interpolation jumps immediately to its final state, where it stays until the end. This keyword represents the easing function <code>steps(1, jump-start)</code> or <code>steps(1, start)</code>.</p>
+  </dd>
+  <dt><code>step-end</code></dt>
+  <dd>
+    <p>Indicates that the interpolation stays in its initial state until the end, at which point it jumps directly to its final state. This keyword represents the easing function <code>steps(1, jump-end)</code> or <code>steps(1, end)</code>.</p>
+  </dd>
+</dl>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/step.svg" alt="Graphs of &#x22;Input progress&#x22; to &#x22;Output progress&#x22;, of which &#x22;step-start&#x22; shows a hollow origin and a horizontal line extending from (0, 1) to (1, 1); and &#x22;step-end&#x22; shows a horizontal line extending from the origin to (1, 0) (hollow) and a point at (1, 1).">
+</p>
+<h2>Description</h2>
+<p>There are three types of easing functions:</p>
+<ul>
+  <li><a href="#linear_easing_function">Linear</a></li>
+  <li><a href="#cubic_b%C3%A9zier_easing_function">Cubic Bézier</a></li>
+  <li><a href="#step_easing_function">Step</a></li>
+</ul>
+<h3>Linear easing function</h3>
+<p>The <code>linear()</code> function defines a piecewise linear function that interpolates linearly between its points, allowing you to approximate more complex animations like bounce and elastic effects. The interpolation is done at a constant rate from beginning to end. A typical use of the <code>linear()</code> function is to provide many points to approximate any curve.</p>
+<p>When you define the <code>linear()</code> function, you specify the <em>linear easing points</em> as a list, as in, <code>linear(0, 0.25, 1)</code>. This <code>linear()</code> function produces an easing function that moves linearly from <code>0</code>, to <code>0.25</code>, then to <code>1</code>.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/linear_function.svg" alt="Graphs of &#x22;Input progress&#x22; to &#x22;Output progress&#x22;, of which &#x22;linear(0, 0.25, 1)&#x22; shows a broken line connecting the origin, (0.5, 0.25), and (1, 1); and &#x22;linear(0, 0.25 75%, 1)&#x22; shows a broken line connecting the origin, (0.75, 0.25), and (1, 1).">
+</p>
+<p>Consider another example of the function: <code>linear(0, 0.25 75%, 1)</code>. This produces a linear easing function that spends 75% of the time transitioning from <code>0</code> to <code>0.25</code> and the last 25% transitioning from <code>0.25</code> to <code>1</code>.</p>
+<p>The <a href="#linear"><code>linear</code></a> keyword is equivalent to the easing function <code>linear(0, 1)</code>.</p>
+<h3>Cubic Bézier easing function</h3>
+<p>The <code>cubic-bezier()</code> functional notation defines a cubic <a href="https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve">Bézier curve</a>. The easing functions in the cubic-bezier subset of easing functions are often called "smooth" easing functions because they can be used to smooth down the start and end of the <a href="/Glossary/interpolation">interpolation</a>. They correlate an input progress to an output progress, both expressed as <a href="./css.types.number.html"><code>&lt;number&gt;</code></a>s. For these values, <code>0.0</code> represents the initial state, and <code>1.0</code> represents the final state.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/cubic-bezier.svg" alt="Graph of &#x22;Input progress&#x22; to &#x22;Output progress&#x22; showing an &#x22;S&#x22;-shaped line curving from the origin to (1, 1) with the Bezier control points P1(0.1, 0.6) and P2(0.7, 0.2).">
+</p>
+<p>A cubic Bézier curve is defined by four points: P0, P1, P2, and P3. The points P0 and P3 represent the start and the end of the curve. In CSS, these points are fixed as the coordinates progress (the abscissa the input progress, the ordinate the output progress). P0 is <code>(0, 0)</code> and represents the initial progress and the initial state. P3 is <code>(1, 1)</code> and represents the final progress and the final state.</p>
+<p>Not all cubic Bézier curves are suitable as easing functions because not all are <a href="https://en.wikipedia.org/wiki/Function_%28mathematics%29">mathematical functions</a>; i.e., curves that for a given abscissa have zero or one value. With P0 and P3 fixed as defined by CSS, a cubic Bézier curve is a function, and is therefore valid, if and only if the abscissas of P1 and P2 are both in the <code>[0, 1]</code> range.</p>
+<p>Cubic Bézier curves with the P1 or P2 ordinate outside the <code>[0, 1]</code> range can cause the value to go farther than the final state and then return. In animations, for some properties, such as <a href="./css.properties.left.html"><code>&lt;left&gt;</code></a> or <a href="./css.properties.right.html"><code>&lt;right&gt;</code></a>, this creates a kind of "bouncing" effect.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/cubic-bezier_out_of_range.svg" alt="Graphs of the easing function &#x22;cubic-bezier(0.3, 0.2, 0.2, 1.4)&#x22;, one of which shows the output progress going above 1 starting from a certain input progress, the other shows the output progress reaching and then staying at 1.">
+</p>
+<p>However, certain properties will restrict the output if it goes outside an allowable range. For example, a color component greater than <code>255</code> or smaller than <code>0</code> in <a href="./css.types.color.rgb.html"><code>rgb()</code></a> will be clipped to the closest allowed value (<code>255</code> and <code>0</code>, respectively). Some <code>cubic-bezier()</code> values exhibit this property.</p>
+<p>When you specify an invalid cubic Bézier curve, CSS ignores the whole property.</p>
+<p>Each of the keywords <a href="#ease"><code>ease</code></a>, <a href="#ease-in"><code>ease-in</code></a>, <a href="#ease-out"><code>ease-out</code></a>, and <a href="#ease-in-out"><code>ease-in-out</code></a> is equivalent to a specific <code>cubic-bezier()</code> value.</p>
+<h3>Steps easing function</h3>
+<p>The <code>steps()</code> functional notation defines a <a href="https://en.wikipedia.org/wiki/Step_function">step function</a> that divides the domain of output values in equidistant steps. This subclass of step functions are sometimes also called <em>staircase functions</em>.</p>
+<p>These are a few examples illustrating the <code>steps()</code> function:</p>
+<pre class="brush: css">steps(2, jump-start) /* Or steps(2, start) */
+steps(4, jump-end) /* Or steps(4, end) */
+steps(5, jump-none)
+steps(3, jump-both)
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/jump.svg" alt="Graphs of &#x22;Input progress&#x22; to &#x22;Output progress&#x22;, of which &#x22;steps(2, jump-start)&#x22; shows horizontal lines extending 0.5 unit from (0, 0.5) and (0.5, 1), respectively, with hollow points at the origin and (0.5, 0.5); &#x22;steps(4, jump-end)&#x22; shows horizontal lines extending 0.25 unit from (0, 0), (0.25, 0.25), (0.5, 0.5), and (0.75, 0.75), respectively, with hollow points at (0.25, 0), (0.5, 0.25), and (0.75, 0.5), and a point at (1, 1); &#x22;steps(5, jump-none)&#x22; shows horizontal lines extending 0.2 unit from (0, 0), (0.2, 0.25), (0.4, 0.5), (0.6, 0.75), and (0.8, 1), respectively, with hollow points at (0.2, 0), (0.4, 0.25), (0.6, 0.5), and (0.8, 0.75); &#x22;steps(3, jump-both)&#x22; shows horizontal lines extending 1/3 unit from (0, 0.25), (1/3, 0.5), and (2/3, 0.75),respectively , with a point at (1, 1) and hollow points at the origin, (1/3, 0.25), (2/3, 0.5), and (1, 0.75).">
+</p>
+<p>Each of the keywords <a href="#step-start"><code>step-start</code></a> and <a href="#step-end"><code>step-end</code></a> is equivalent to a specific <code>steps()</code> value.</p>
+
+
+<h3>Comparing the easing functions</h3>
+<p>This example provides an easy comparison between the different easing functions using an animation. From the drop-down menu, you can select an easing function – there are a couple of keywords and some <code>cubic-bezier()</code> and <code>steps()</code> options. After selecting an option, you can start and stop the animation using the provided button.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;div>&#x3C;/div>
+&#x3C;/div>
+&#x3C;ul>
+  &#x3C;li>
+    &#x3C;button class="animation-button">Start animation&#x3C;/button>
+  &#x3C;/li>
+  &#x3C;li>
+    &#x3C;label for="easing-select">Choose an easing function:&#x3C;/label>
+    &#x3C;select id="easing-select">
+      &#x3C;option selected>linear&#x3C;/option>
+      &#x3C;option>linear(0, 0.5 50%, 1)&#x3C;/option>
+      &#x3C;option>ease&#x3C;/option>
+      &#x3C;option>ease-in&#x3C;/option>
+      &#x3C;option>ease-in-out&#x3C;/option>
+      &#x3C;option>ease-out&#x3C;/option>
+      &#x3C;option>cubic-bezier(0.1, -0.6, 0.2, 0)&#x3C;/option>
+      &#x3C;option>cubic-bezier(0, 1.1, 0.8, 4)&#x3C;/option>
+      &#x3C;option>steps(5, end)&#x3C;/option>
+      &#x3C;option>steps(3, start)&#x3C;/option>
+      &#x3C;option>steps(4)&#x3C;/option>
+    &#x3C;/select>
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">body > div {
+  position: relative;
+  height: 100px;
+}
+
+div > div {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  background-image: radial-gradient(
+    circle at 10px 10px,
+    rgba(25, 255, 255, 0.8),
+    rgba(25, 255, 255, 0.4)
+  );
+  border-radius: 50%;
+  top: 25px;
+  animation: 1.5s infinite alternate;
+}
+
+@keyframes move-right {
+  from {
+    left: 10%;
+  }
+
+  to {
+    left: 90%;
+  }
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const selectElem = document.querySelector("select");
+const startBtn = document.querySelector("button");
+const divElem = document.querySelector("div > div");
+
+startBtn.addEventListener("click", () => {
+  if (startBtn.textContent === "Start animation") {
+    divElem.style.animationName = "move-right";
+    startBtn.textContent = "Stop animation";
+    divElem.style.animationTimingFunction = selectElem.value;
+  } else {
+    divElem.style.animationName = "unset";
+    startBtn.textContent = "Start animation";
+  }
+});
+
+selectElem.addEventListener("change", () => {
+  divElem.style.animationTimingFunction = selectElem.value;
+});
+</pre>
+
+<h3>Using the cubic-bezier() function</h3>
+<p>These cubic Bézier curves are valid for use in CSS:</p>
+<pre class="brush: css example-good">/* The canonical Bézier curve with four &#x3C;number> in the [0,1] range */
+cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+/* Using &#x3C;integer> is valid because any &#x3C;integer> is also a &#x3C;number>. */
+cubic-bezier(0, 0, 1, 1)
+
+/* Negative values for ordinates are valid, leading to bouncing effects. */
+cubic-bezier(0.1, -0.6, 0.2, 0)
+
+/* Values greater than 1.0 for ordinates are also valid. */
+cubic-bezier(0, 1.1, 0.8, 4)
+</pre>
+<p>These cubic Bézier curves definitions are invalid:</p>
+<pre class="brush: css example-bad">/* Though the animated output type may be a color,
+   Bézier curves work with numerical ratios. */
+cubic-bezier(0.1, red, 1.0, green)
+
+/* Abscissas must be in the [0, 1] range or
+   the curve is not a function of time. */
+cubic-bezier(2.45, 0.6, 4, 0.1)
+
+/* The two points must be defined, there is no default value. */
+cubic-bezier(0.3, 2.1)
+
+/* Abscissas must be in the [0, 1] range or
+   the curve is not a function of time. */
+cubic-bezier(-1.9, 0.3, -0.2, 2.1)
+</pre>
+<h3>Using the steps() function</h3>
+<p>These easing functions are valid:</p>
+<pre class="brush: css example-good">/* There are 5 treads, the last one happens
+   right before the end of the animation. */
+steps(5, end)
+
+/* A two-step staircase, the first one happening
+   at the start of the animation. */
+steps(2, start)
+
+/* The second parameter is optional. */
+steps(2)
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the animation contains multiple stops, then the steps specified in the <code>steps()</code> function will apply to each section. Therefore, an animation with three segments and <code>steps(2)</code> will contain 6 steps in total, 2 per segment.</p>
+</div>
+<p>These easing functions are invalid:</p>
+<pre class="brush: css example-bad">/* The first parameter must be an &#x3C;integer> and
+   cannot be a real value, even if it is equal to one. */
+steps(2.0, jump-end)
+
+/* The amount of steps must be non-negative. */
+steps(-3, start)
+
+/* There must be at least one step. */
+steps(0, jump-none)
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations">CSS animations</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions">CSS transitions</a></li>
+  <li><a href="https://cubic-bezier.com/">cubic-bezier</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 4</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-easing/#easing-functions">https://drafts.csswg.org/css-easing/#easing-functions</a></p></section></aside></body>
+</html>

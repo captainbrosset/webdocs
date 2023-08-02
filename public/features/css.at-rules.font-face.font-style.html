@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face font-style</h1><main>
+    
+
+<p>The <strong><code>font-style</code></strong> CSS descriptor allows authors to specify font styles for the fonts specified in the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule.</p>
+<p>For a particular font family, authors can download various font faces that correspond to the different styles of the same font family and then use the <code>font-style</code> descriptor to explicitly specify the font face's style. The values for this CSS descriptor are the same as that of the corresponding <a href="./css.properties.font-style.html"><code>font-style</code></a> property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">font-style: normal;
+font-style: italic;
+font-style: oblique;
+font-style: oblique 30deg;
+font-style: oblique 30deg 50deg;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Selects the normal version of the font-family.</p>
+  </dd>
+  <dt><code>italic</code></dt>
+  <dd>
+    <p>Specifies that font-face is an italicized version of the normal font.</p>
+  </dd>
+  <dt><code>oblique</code></dt>
+  <dd>
+    <p>Specifies that the font-face is an artificially sloped version of the normal font.</p>
+  </dd>
+  <dt><code>oblique</code> with angle</dt>
+  <dd>
+    <p>Selects a font classified as <code>oblique</code>, and additionally specifies an angle for the slant of the text.</p>
+  </dd>
+  <dt><code>oblique</code> with angle range</dt>
+  <dd>
+    <p>Selects a font classified as <code>oblique</code>, and additionally specifies a range of allowable angle for the slant of the text. Note that a range is only supported when the <code>font-style</code> is <code>oblique</code>; for <code>font-style: normal</code> or <code>italic</code>, no second value is allowed.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Specifying an italic font style</h3>
+<p>As an example, consider the garamond font family, in its normal form, we get the following result:</p>
+<pre class="brush: css">@font-face {
+  font-family: garamond;
+  src: url("garamond.ttf");
+}
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style/garamondunstyled.jpg" alt="unstyled Garamond">
+</p>
+<p>The italicized version of this text uses the same glyphs present in the unstyled version, but they are artificially sloped by a few degrees.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style/garamondartificialstyle.jpg" alt="artificially sloped garamond">
+</p>
+<p>On the other hand, if a true italicized version of the font family exists, we can include it in the <code>src</code> descriptor and specify the font style as italic, so that it is clear that the font is italicized. True italics use different glyphs and are a bit different from their upright counterparts, having some unique features and generally have a rounded and calligraphic quality. These fonts are specially created by font designers and are <strong>not</strong> artificially sloped.</p>
+<pre class="brush: css">@font-face {
+  font-family: garamond;
+  src: url("garamond-italic.ttf");
+  font-style: italic;
+}
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style/garamonditalic.jpg" alt="italic garamond">
+</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-face.font-display.html"><code>font-display</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.src.html"><code>src</code></a></li>
+  <li><a href="./css.at-rules.font-face.unicode-range.html"><code>unicode-range</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 4</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-prop-desc">https://drafts.csswg.org/css-fonts/#font-prop-desc</a></p></section></aside></body>
+</html>

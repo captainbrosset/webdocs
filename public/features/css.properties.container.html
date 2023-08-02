@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>container</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties container</h1><main>
+    
+
+<p>The <strong>container</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property establishes the element as a query container and specifies the name or name for the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries#naming_containment_contexts">containment context</a> used in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">container query</a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.container-name.html"><code>container-name</code></a></li>
+  <li><a href="./css.properties.container-type.html"><code>container-type</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;container-name> */
+container: my-layout;
+
+/* &#x3C;container-name> / &#x3C;container-type> */
+container: my-layout / size;
+
+/* Global Values */
+container: inherit;
+container: initial;
+container: revert;
+container: revert-layer;
+container: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;container-name></code></dt>
+  <dd>
+    <p>
+      A case-sensitive name for the containment context.
+      More details on the syntax are covered in the <a href="./css.properties.container-name.html"><code>container-name</code></a> property page.
+    </p>
+  </dd>
+  <dt><code>&#x3C;container-type></code></dt>
+  <dd>
+    <p>
+      The type of containment context.
+      More details on the syntax are covered in the <a href="./css.properties.container-type.html"><code>container-type</code></a> property page.
+    </p>
+  </dd>
+</dl>
+
+
+
+<h3>Establishing inline size containment</h3>
+<p>Given the following HTML example which is a card component with an image, a title, and some text:</p>
+<pre class="brush: html">&#x3C;div class="post">
+  &#x3C;div class="card">
+    &#x3C;h2>Card title&#x3C;/h2>
+    &#x3C;p>Card content&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>The explicit way to create a container context is to declare a <code>container-type</code> with an optional <code>container-name</code>:</p>
+<pre class="brush: css">.post {
+  container-type: inline-size;
+  container-name: sidebar;
+}
+</pre>
+<p>The <code>container</code> shorthand is intended to make this simpler to define in a single declaration:</p>
+<pre class="brush: css">.post {
+  container: sidebar / inline-size;
+}
+</pre>
+<p>You can then target that container by name using the <a href="./css.at-rules.container.html"><code>@container</code></a> at-rule:</p>
+<pre class="brush: css">@container sidebar (min-width: 400px) {
+  /* &#x3C;stylesheet> */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">CSS container queries</a></li>
+  <li><a href="./css.at-rules.container.html"><code>@container</code></a> at-rule</li>
+  <li>CSS <a href="./css.properties.contain.html"><code>contain</code></a> property</li>
+  <li>CSS <a href="./css.properties.container-type.html"><code>container-type</code></a> property</li>
+  <li>CSS <a href="./css.properties.container-name.html"><code>container-name</code></a> property</li>
+  <li>CSS <a href="./css.properties.content-visibility.html"><code>content-visibility</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 105</li><li><strong>chrome_android</strong>: 105</li><li><strong>edge</strong>: 105</li><li><strong>firefox</strong>: 110</li><li><strong>firefox_android</strong>: 110</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 91</li><li><strong>opera_android</strong>: 72</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 105</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-contain-3/#container-shorthand">https://drafts.csswg.org/css-contain-3/#container-shorthand</a></p></section></aside></body>
+</html>

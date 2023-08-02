@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>break-inside</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties break-inside</h1><main>
+    
+
+<p>The <strong><code>break-inside</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how page, column, or region breaks should behave inside a generated box. If there is no generated box, the property is ignored.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+break-inside: auto;
+break-inside: avoid;
+break-inside: avoid-page;
+break-inside: avoid-column;
+break-inside: avoid-region;
+
+/* Global values */
+break-inside: inherit;
+break-inside: initial;
+break-inside: revert;
+break-inside: revert-layer;
+break-inside: unset;
+</pre>
+<p>Each possible break point (in other words, each element boundary) is affected by three properties: the <a href="./css.properties.break-after.html"><code>break-after</code></a> value of the previous element, the <a href="./css.properties.break-before.html"><code>break-before</code></a> value of the next element, and the <code>break-inside</code> value of the containing element.</p>
+<p>To determine if a break must be done, the following rules are applied:</p>
+<ol>
+  <li>If any of the three concerned values is a <em>forced break value</em> (<code>always</code>, <code>left</code>, <code>right</code>, <code>page</code>, <code>column</code>, or <code>region</code>), it has precedence. If more than one of them are such a break, the value of the element that appears the latest in the flow is used. Thus, the <code>break-before</code> value has precedence over the <code>break-after</code> value, which in turn has precedence over the <code>break-inside</code> value.</li>
+  <li>If any of the three concerned values is an <em>avoid break value</em> (<code>avoid</code>, <code>avoid-page</code>, <code>avoid-region</code>, or <code>avoid-column</code>), no such break will be applied at that point.</li>
+</ol>
+<p>Once forced breaks have been applied, soft breaks may be added if needed, but not on element boundaries that resolve in a corresponding <code>avoid</code> value.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Allows, but does not force, any break (page, column, or region) to be inserted within the principal box.</p>
+  </dd>
+  <dt><code>avoid</code></dt>
+  <dd>
+    <p>Avoids any break (page, column, or region) from being inserted within the principal box.</p>
+  </dd>
+  <dt><code>avoid-page</code></dt>
+  <dd>
+    <p>Avoids any page break within the principal box.</p>
+  </dd>
+  <dt><code>avoid-column</code></dt>
+  <dd>
+    <p>Avoids any column break within the principal box.</p>
+  </dd>
+  <dt><code>avoid-region</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Avoids any region break within the principal box.</p>
+  </dd>
+</dl>
+<h2>Page break aliases</h2>
+<p>For compatibility reasons, the legacy <a href="./css.properties.page-break-inside.html"><code>page-break-inside</code></a> property should be treated by browsers as an alias of <code>break-inside</code>. This ensures that sites using <code>page-break-inside</code> continue to work as designed. A subset of values should be aliased as follows:</p>
+<table>
+  <thead>
+    <tr>
+      <th>page-break-inside</th>
+      <th>break-inside</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>auto</code></td>
+      <td><code>auto</code></td>
+    </tr>
+    <tr>
+      <td><code>avoid</code></td>
+      <td><code>avoid</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements except inline-level boxes, internal ruby boxes, table column boxes, table column group boxes, absolutely-positioned boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | avoid | avoid-page | avoid-column | avoid-region</pre></section>
+
+<h3>Avoiding breaking inside a figure</h3>
+<p>In the following example we have a container that contains an <code>&#x3C;h1></code> spanning all columns (achieved using <code>column-span: all</code>) and a series of paragraphs laid out in multiple columns using <code>column-width: 200px</code>. We also have a <code>&#x3C;figure></code> containing an image and a caption.</p>
+<p>By default, it is possible for you to get a break between the image and its caption, which is not what we want. To avoid this, we have set <code>break-inside: avoid</code> on the <code>&#x3C;figure></code>, which causes them to always stay together.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;article>
+  &#x3C;h1>Main heading&#x3C;/h1>
+
+  &#x3C;p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
+    fringilla mauris. Quisque commodo eget nisi sed pretium. Mauris luctus nec
+    lacus in ultricies. Mauris vitae hendrerit arcu, ac scelerisque lacus.
+    Aliquam lobortis in lacus sit amet posuere. Fusce iaculis urna id neque
+    dapibus, eu lacinia lectus dictum.
+  &#x3C;/p>
+
+  &#x3C;figure>
+    &#x3C;img
+      src="https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png" />
+    &#x3C;figcaption>The Firefox logo — fox wrapped around the world&#x3C;/figcaption>
+  &#x3C;/figure>
+
+  &#x3C;p>
+    Praesent condimentum dui dui, sit amet rutrum diam tincidunt eu. Cras
+    suscipit porta leo sit amet rutrum. Sed vehicula ornare tincidunt. Curabitur
+    a ipsum ac diam mattis volutpat ac ut elit. Nullam luctus justo non
+    vestibulum gravida. Morbi metus libero, pharetra non porttitor a, molestie
+    nec nisi.
+  &#x3C;/p>
+
+  &#x3C;p>
+    In finibus viverra enim vel suscipit. Quisque consequat velit eu orci
+    malesuada, ut interdum tortor molestie. Proin sed pellentesque augue. Nam
+    risus justo, faucibus non porta a, congue vel massa. Cras luctus lacus nisl,
+    sed tincidunt velit pharetra ac. Duis suscipit faucibus dui sed ultricies.
+  &#x3C;/p>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">html {
+  font-family: helvetica, arial, sans-serif;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  column-span: all;
+}
+
+h1 + p {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.5;
+  break-after: column;
+}
+
+figure {
+  break-inside: avoid;
+}
+
+img {
+  max-width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.8rem;
+  width: 70%;
+}
+
+article {
+  column-width: 200px;
+  gap: 20px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout">Multiple-column Layout</a></li>
+  <li><a href="https://www.smashingmagazine.com/2019/02/css-fragmentation/">Breaking Boxes With CSS Fragmentation</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 50</li><li><strong>chrome_android</strong>: 50</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 65</li><li><strong>firefox_android</strong>: 65</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 10</li><li><strong>safari_ios</strong>: 10</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 50</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-break/#break-within,https://drafts.csswg.org/css-regions/#region-flow-break,https://drafts.csswg.org/css-multicol/#break-before-break-after-break-inside">https://drafts.csswg.org/css-break/#break-within,https://drafts.csswg.org/css-regions/#region-flow-break,https://drafts.csswg.org/css-multicol/#break-before-break-after-break-inside</a></p></section></aside></body>
+</html>

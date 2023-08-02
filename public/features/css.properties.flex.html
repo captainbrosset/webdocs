@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>flex</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties flex</h1><main>
+    
+
+<p>The <strong><code>flex</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets how a flex <em>item</em> will grow or shrink to fit the space available in its flex container.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.flex-grow.html"><code>flex-grow</code></a></li>
+  <li><a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a></li>
+  <li><a href="./css.properties.flex-basis.html"><code>flex-basis</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+flex: auto;
+flex: initial;
+flex: none;
+
+/* One value, unitless number: flex-grow
+flex-basis is then equal to 0. */
+flex: 2;
+
+/* One value, width/height: flex-basis */
+flex: 10em;
+flex: 30%;
+flex: min-content;
+
+/* Two values: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* Two values: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* Three values: flex-grow | flex-shrink | flex-basis */
+flex: 2 2 10%;
+
+/* Global values */
+flex: inherit;
+flex: initial;
+flex: revert;
+flex: revert-layer;
+flex: unset;
+</pre>
+<p>The <code>flex</code> property may be specified using one, two, or three values.</p>
+<ul>
+  <li><strong>One-value syntax:</strong> the value must be one of:
+    <ul>
+      <li>a valid value for <a href="./css.properties.flex-grow.html"><code>&lt;flex-grow&gt;</code></a>: then the shorthand expands to <code>flex: &#x3C;flex-grow> 1 0</code>.</li>
+      <li>a valid value for <a href="./css.properties.flex-basis.html"><code>&lt;flex-basis&gt;</code></a>: then the shorthand expands to <code>flex: 1 1 &#x3C;flex-basis></code>.</li>
+      <li>the keyword <code>none</code> or one of the global keywords.</li>
+    </ul>
+  </li>
+  <li><strong>Two-value syntax:</strong>
+    <ul>
+      <li>The first value must be a valid value for <a href="./css.properties.flex-grow.html"><code>flex-grow</code></a>.</li>
+      <li>The second value must be one of:
+        <ul>
+          <li>a valid value for <a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a>: then the shorthand expands to <code>flex: &#x3C;flex-grow> &#x3C;flex-shrink> 0</code>.</li>
+          <li>a valid value for <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a>: then the shorthand expands to <code>flex: &#x3C;flex-grow> 1 &#x3C;flex-basis></code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Three-value syntax:</strong> the values must be in the following order:
+    <ol>
+      <li>a valid value for <a href="./css.properties.flex-grow.html"><code>flex-grow</code></a>.</li>
+      <li>a valid value for <a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a>.</li>
+      <li>a valid value for <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a>.</li>
+    </ol>
+  </li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>initial</code></dt>
+  <dd>
+    <p>The item is sized according to its <code>width</code> and <code>height</code> properties. It shrinks to its minimum size to fit the container, but does not grow to absorb any extra free space in the flex container. This is equivalent to setting "<code>flex: 0 1 auto</code>".</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The item is sized according to its <code>width</code> and <code>height</code> properties, but grows to absorb any extra free space in the flex container, and shrinks to its minimum size to fit the container. This is equivalent to setting "<code>flex: 1 1 auto</code>".</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The item is sized according to its <code>width</code> and <code>height</code> properties. It is fully inflexible: it neither shrinks nor grows in relation to the flex container. This is equivalent to setting "<code>flex: 0 0 auto</code>".</p>
+  </dd>
+  <dt><code>&#x3C;'flex-grow'></code></dt>
+  <dd>
+    <p>Defines the <a href="./css.properties.flex-grow.html"><code>flex-grow</code></a> of the flex item. Negative values are considered invalid. Defaults to <code>1</code> when omitted. (initial is <code>0</code>)</p>
+  </dd>
+  <dt><code>&#x3C;'flex-shrink'></code></dt>
+  <dd>
+    <p>Defines the <a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a> of the flex item. Negative values are considered invalid. Defaults to <code>1</code> when omitted. (initial is <code>1</code>)</p>
+  </dd>
+  <dt><code>&#x3C;'flex-basis'></code></dt>
+  <dd>
+    <p>Defines the <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a> of the flex item. A preferred size of <code>0</code> must have a unit to avoid being interpreted as a flexibility. Defaults to <code>0</code> when omitted. (initial is <code>auto</code>)</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>For most purposes, authors should set <code>flex</code> to one of the following values: <code>auto</code>, <code>initial</code>, <code>none</code>, or a positive unitless number. To see the effect of these values, try resizing the flex containers below:</p>
+<pre class="brush: html hidden">&#x3C;div class="flex-container">
+  &#x3C;div class="item auto">auto&#x3C;/div>
+  &#x3C;div class="item auto">auto&#x3C;/div>
+  &#x3C;div class="item auto">auto&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="flex-container">
+  &#x3C;div class="item auto">auto&#x3C;/div>
+  &#x3C;div class="item initial">initial&#x3C;/div>
+  &#x3C;div class="item initial">initial&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="flex-container">
+  &#x3C;div class="item auto">auto&#x3C;/div>
+  &#x3C;div class="item auto">auto&#x3C;/div>
+  &#x3C;div class="item none">none&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="flex-container">
+  &#x3C;div class="item initial">initial&#x3C;/div>
+  &#x3C;div class="item none">none&#x3C;/div>
+  &#x3C;div class="item none">none&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="flex-container">
+  &#x3C;div class="item four">4&#x3C;/div>
+  &#x3C;div class="item two">2&#x3C;/div>
+  &#x3C;div class="item one">1&#x3C;/div>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  background-color: #f4f7f8;
+  resize: horizontal;
+  overflow: hidden;
+  display: flex;
+  margin: 1em;
+}
+
+.item {
+  margin: 1em;
+  padding: 0.5em;
+  width: 110px;
+  min-width: 0;
+  background-color: #1b5385;
+  color: white;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.initial {
+  flex: initial;
+}
+
+.auto {
+  flex: auto;
+}
+
+.none {
+  flex: none;
+}
+
+.four {
+  flex: 4;
+}
+
+.two {
+  flex: 2;
+}
+
+.one {
+  flex: 1;
+}
+</pre>
+<p>By default flex items don't shrink below their minimum content size. To change this, set the item's <a href="./css.properties.min-width.html"><code>min-width</code></a> or <a href="./css.properties.min-height.html"><code>min-height</code></a>.</p>
+
+
+
+<h3>Setting flex: auto</h3>
+<p>This example shows how a flex item with <code>flex: auto</code> grows to absorb any free space in the container.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="flex-container">
+  &#x3C;div id="flex-auto">flex: auto (click to toggle raw box)&#x3C;/div>
+  &#x3C;div id="flex-initial">flex: initial&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#flex-container {
+  display: flex;
+  font-family: Consolas, Arial, sans-serif;
+}
+
+#flex-container > div {
+  padding: 1rem;
+}
+
+#flex-auto {
+  flex: auto;
+  border: 1px solid #f00;
+}
+
+#flex-initial {
+  border: 1px solid #000;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const flexAuto = document.getElementById("flex-auto");
+const flexInitial = document.getElementById("flex-initial");
+flexAuto.addEventListener("click", () => {
+  flexInitial.style.display =
+    flexInitial.style.display === "none" ? "block" : "none";
+});
+</pre>
+<h4>Result</h4>
+<p>The flex container contains two flex items:</p>
+<ul>
+  <li>"flex: auto" has a <code>flex</code> value of <a href="auto"><code>auto</code></a></li>
+  <li>"flex: initial" has a <code>flex</code> value of <a href="#initial"><code>initial</code></a></li>
+</ul>
+<p>The "flex: initial" item takes up as much space as its width requires, but does not expand to take up any more space. All the remaining space is taken up by "flex: auto".</p>
+<p>When you click "flex: auto", we set "flex: initial"'s <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> property to <code>none</code>, removing it from the layout. The "flex: auto" item then expands to occupy all the available space in the container.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis">Controlling Ratios of flex items along the main axis</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 12.1</li><li><strong>opera_android</strong>: 12.1</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-flexbox/#flex-property">https://drafts.csswg.org/css-flexbox/#flex-property</a></p></section></aside></body>
+</html>

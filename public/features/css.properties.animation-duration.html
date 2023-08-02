@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-duration</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-duration</h1><main>
+    
+
+<p>The <strong><code>animation-duration</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the length of time that an animation takes to complete one cycle.</p>
+<p>It is often convenient to use the shorthand property <a href="./css.properties.animation.html"><code>animation</code></a> to set all animation properties at once.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single animation */
+animation-duration: auto; /* Default */
+animation-duration: 6s;
+animation-duration: 120ms;
+
+/* Multiple animations */
+animation-duration: 1.64s, 15.22s;
+animation-duration: 10s, 35s, 230ms;
+
+/* Global values */
+animation-duration: inherit;
+animation-duration: initial;
+animation-duration: revert;
+animation-duration: revert-layer;
+animation-duration: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>For time-based animations, <code>auto</code> is equivalent to a value of <code>0s</code> (see below). For <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>, <code>auto</code> fills the entire timeline with the animation.</p>
+  </dd>
+  <dt><code><a href="./css.types.time.html"><code>&lt;time&gt;</code></a></code></dt>
+  <dd>
+    <p>The time that an animation takes to complete one cycle. This may be specified in either seconds (<code>s</code>) or milliseconds (<code>ms</code>). The value must be positive or zero and the unit is required.</p>
+    <p>If no value is provided, the default value of <code>0s</code> is used, in which case the animation still executes (the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animationstart_event"><code>animationStart</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animationend_event"><code>animationEnd</code></a> events are fired). Whether or not the animation will be visible when the duration is <code>0s</code> will depend on the value of <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, as explained below:</p>
+    <ul>
+      <li>If <code>animation-fill-mode</code> is set to <code>backwards</code> or <code>both</code>, the first frame of the animation as defined by <code>animation-direction</code> will be displayed during <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a> countdown.</li>
+      <li>If <code>animation-fill-mode</code> is set to <code>forwards</code> or <code>both</code>, the last frame of the animation will be displayed, as defined by <code>animation-direction</code>, after the <code>animation-delay</code> expires.</li>
+      <li>If <code>animation-fill-mode</code> is set to <code>none</code>, the animation will have no visible effect.</li>
+    </ul>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Negative values are invalid, causing the declaration to be ignored. Some early, prefixed, implementations may consider them as identical to <code>0s</code>.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they are applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. For situations where the number of animations and <code>animation-*</code> property values do not match, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> When creating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>, specifying an <code>animation-duration</code> value in seconds or milliseconds doesn't really make sense. In tests, it seemed to have no effect on scroll progress timeline animations, while on view progress timeline animations it seemed to push the animation to happen nearer the end of the timeline. However, Firefox requires an <code>animation-duration</code> to be set for it to successfully apply the animation. You are therefore advised to set <code>animation-duration</code> to <code>1ms</code> so that animations will work in Firefox, but the effect is not altered too much by it.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item either a time or the keyword auto</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ auto | &lt;time [0s,∞]&gt; ]#</pre></section>
+
+<h3>Setting animation duration</h3>
+<p>This animation has an animation-duration of 0.7 seconds.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.box:hover {
+  animation-name: rotate;
+  animation-duration: 0.7s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Hover over the rectangle to start the animation.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation-duration">https://drafts.csswg.org/css-animations/#animation-duration</a></p></section></aside></body>
+</html>

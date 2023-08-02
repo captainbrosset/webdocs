@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>container-name</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties container-name</h1><main>
+    
+
+<p>
+  The <strong>container-name</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies a list of query container names used by the <a href="./css.at-rules.container.html">@container</a> at-rule in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">container query</a>.
+  A container query will apply styles to elements based on the size of the nearest ancestor with a containment context.
+  When a containment context is given a name, it can be specifically targeted using the <a href="./css.at-rules.container.html"><code>@container</code></a> at-rule instead of the nearest ancestor with containment.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A single name */
+container-name: myLayout;
+
+/* Multiple names */
+container-name: myPageLayout myComponentLibrary;
+
+/* Global Values */
+container-name: inherit;
+container-name: initial;
+container-name: revert;
+container-name: revert-layer;
+container-name: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;container-name></code></dt>
+  <dd>
+    <p>A case-sensitive string that is used to identify the container.</p>
+    <p>The following conditions apply:</p>
+    <ul>
+      <li>The name can be any valid <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a>, but must not equal <code>default</code>.</li>
+      <li>The name value must not be in quotes.</li>
+      <li>The dashed ident intended to denote author-defined identifiers (e.g., <code>--container-name</code>) is permitted.</li>
+      <li>A list of multiple names separated by a space is allowed.</li>
+    </ul>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none, or an ordered list of identifiers</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;custom-ident&gt;+</pre></section>
+
+<h3>Using a container name</h3>
+<p>Given the following HTML example which is a card component with a title and some text:</p>
+<pre class="brush: html">&#x3C;div class="card">
+  &#x3C;div class="post-meta">
+    &#x3C;h2>Card title&#x3C;/h2>
+    &#x3C;p>My post details.&#x3C;/p>
+  &#x3C;/div>
+  &#x3C;div class="post-excerpt">
+    &#x3C;p>
+      A preview of my &#x3C;a href="https://example.com">blog post&#x3C;/a> about cats.
+    &#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>
+  To create a containment context, add the <code>container-type</code> property to an element in CSS.
+  The following example creates two containment contexts, one for the card meta information and one for the post excerpt:
+</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> A shorthand syntax for these declarations are described in the <a href="./css.properties.container.html"><code>container</code></a> page.</p>
+</div>
+<pre class="brush: css">.post-meta {
+  container-type: inline-size;
+}
+
+.post-excerpt {
+  container-type: inline-size;
+  container-name: excerpt;
+}
+</pre>
+<p>
+  Writing a container query via the <a href="./css.at-rules.container.html"><code>@container</code></a> at-rule will apply styles to the elements of the container when the query evaluates to true.
+  The following example has two container queries, one that will apply only to the contents of the <code>.post-excerpt</code> element and one that will apply to both the <code>.post-meta</code> and <code>.post-excerpt</code> contents:
+</p>
+<pre class="brush: css">@container excerpt (min-width: 400px) {
+  p {
+    visibility: hidden;
+  }
+}
+
+@container (min-width: 400px) {
+  p {
+    font-size: 2rem;
+  }
+}
+</pre>
+<p>For more information on writing container queries, see the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">CSS Container Queries</a> page.</p>
+<h3>Using multiple container names</h3>
+<p>You can also provide multiple names to a container context separated by a space:</p>
+<pre class="brush: css">.post-meta {
+  container-type: inline-size;
+  container-name: meta card;
+}
+</pre>
+<p>
+  This will allow you to target the container using either name in the <a href="./css.at-rules.container.html"><code>@container</code></a> at-rule.
+  This is useful if you want to target the same container with multiple container queries where either condition could be true:
+</p>
+<pre class="brush: css">@container meta (max-width: 500px) {
+  p {
+    visibility: hidden;
+  }
+}
+
+@container card (max-height: 200px) {
+  h2 {
+    font-size: 1.5em;
+  }
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">CSS container queries</a></li>
+  <li><a href="./css.at-rules.container.html"><code>@container</code></a> at-rule</li>
+  <li>CSS <a href="./css.properties.container.html"><code>container</code></a> shorthand property</li>
+  <li>CSS <a href="./css.properties.container-type.html"><code>container-type</code></a> property</li>
+  <li>CSS <a href="./css.properties.content-visibility.html"><code>content-visibility</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 105</li><li><strong>chrome_android</strong>: 105</li><li><strong>edge</strong>: 105</li><li><strong>firefox</strong>: 110</li><li><strong>firefox_android</strong>: 110</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 91</li><li><strong>opera_android</strong>: 72</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 105</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-contain-3/#container-name">https://drafts.csswg.org/css-contain-3/#container-name</a></p></section></aside></body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-align</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-align</h1><main>
+    
+
+<p>The <strong><code>text-align</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the horizontal alignment of the inline-level content inside a block element or table-cell box. This means it works like <a href="./css.properties.vertical-align.html"><code>vertical-align</code></a> but in the horizontal direction.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+text-align: start;
+text-align: end;
+text-align: left;
+text-align: right;
+text-align: center;
+text-align: justify;
+text-align: justify-all;
+text-align: match-parent;
+
+/* Character-based alignment in a table column */
+text-align: ".";
+text-align: "." center;
+
+/* Block alignment values (Non-standard syntax) */
+text-align: -moz-center;
+text-align: -webkit-center;
+
+/* Global values */
+text-align: inherit;
+text-align: initial;
+text-align: revert;
+text-align: revert-layer;
+text-align: unset;
+</pre>
+<p>The <code>text-align</code> property is specified in one of the following ways:</p>
+<ul>
+  <li>Using the keyword values <code>start</code>, <code>end</code>, <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>, <code>justify-all</code>, or <code>match-parent</code>.</li>
+  <li>Using a <code>&#x3C;string></code> value only, in which case the other value defaults to <code>right</code>.</li>
+  <li>Using both a keyword value and a <a href="#string"><code>&#x3C;string></code></a> value.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>start</code></dt>
+  <dd>
+    <p>The same as <code>left</code> if direction is left-to-right and <code>right</code> if direction is right-to-left.</p>
+  </dd>
+  <dt><code>end</code></dt>
+  <dd>
+    <p>The same as <code>right</code> if direction is left-to-right and <code>left</code> if direction is right-to-left.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>The inline contents are aligned to the left edge of the line box.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>The inline contents are aligned to the right edge of the line box.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>The inline contents are centered within the line box.</p>
+  </dd>
+  <dt><code>justify</code></dt>
+  <dd>
+    <p>The inline contents are justified. Text should be spaced to line up its left and right edges to the left and right edges of the line box, except for the last line.</p>
+  </dd>
+  <dt><code>justify-all</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Same as <code>justify</code>, but also forces the last line to be justified.</p>
+  </dd>
+  <dt><code>match-parent</code></dt>
+  <dd>
+    <p>Similar to <code>inherit</code>, but the values <code>start</code> and <code>end</code> are calculated according to the parent's <a href="./css.properties.direction.html"><code>direction</code></a> and are replaced by the appropriate <code>left</code> or <code>right</code> value.</p>
+  </dd>
+  <dt><a href="./css.types.string.html"><code>&lt;string&gt;</code></a> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>When applied to a table cell, specifies the alignment character around which the cell's contents will align.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>The inconsistent spacing between words created by justified text can be problematic for people with cognitive concerns such as Dyslexia.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html">Understanding Success Criterion 1.4.8 | Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>start</td></tr><tr><th scope="row">Applies to</th><td>block containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>see individual properties</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>start | end | left | right | center | &lt;string&gt; | justify | match-parent | justify-all</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="example">
+  Integer elementum massa at nulla placerat varius. Suspendisse in libero risus,
+  in interdum massa. Vestibulum ac leo vitae metus faucibus gravida ac in neque.
+  Nullam est eros, suscipit sed dictum quis, accumsan a ligula.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.example {
+  text-align: start;
+  border: solid;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="example">
+  Integer elementum massa at nulla placerat varius. Suspendisse in libero risus,
+  in interdum massa. Vestibulum ac leo vitae metus faucibus gravida ac in neque.
+  Nullam est eros, suscipit sed dictum quis, accumsan a ligula.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.example {
+  text-align: center;
+  border: solid;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="example">
+  Integer elementum massa at nulla placerat varius. Suspendisse in libero risus,
+  in interdum massa. Vestibulum ac leo vitae metus faucibus gravida ac in neque.
+  Nullam est eros, suscipit sed dictum quis, accumsan a ligula.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.example {
+  text-align: justify;
+  border: solid;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.margin.html"><code>margin: auto</code></a>, <a href="./css.properties.margin-left.html"><code>margin-left: auto</code></a>, <a href="./css.properties.vertical-align.html"><code>vertical-align</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#text-align,https://drafts.csswg.org/css-text/#text-align-property">https://drafts.csswg.org/css-logical/#text-align,https://drafts.csswg.org/css-text/#text-align-property</a></p></section></aside></body>
+</html>

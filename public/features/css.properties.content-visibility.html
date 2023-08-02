@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>content-visibility</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties content-visibility</h1><main>
+    
+
+<p>The <strong><code>content-visibility</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property controls whether or not an element renders its contents at all, along with forcing a strong set of containments, allowing user agents to potentially omit large swathes of layout and rendering work until it becomes needed. It enables the user agent to skip an element's rendering work (including layout and painting) until it is needed — which makes the initial page load much faster.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/contentvisibilityautostatechange_event"><code>contentvisibilityautostatechange</code></a> event fires on any element with <code>content-visibility: auto</code> set on it when its rendering work starts or stops being skipped. This provides a convenient way for an app's code to start or stop rendering processes (e.g. drawing on a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a>) when they are not needed, thereby conserving processing power.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+content-visibility: visible;
+content-visibility: hidden;
+content-visibility: auto;
+
+/* Global values */
+content-visibility: inherit;
+content-visibility: initial;
+content-visibility: revert;
+content-visibility: revert-layer;
+content-visibility: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>No effect. The element's contents are laid out and rendered as normal.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>The element <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment#skips_its_contents">skips its contents</a>. The skipped contents must not be accessible to user-agent features, such as find-in-page, tab-order navigation, etc., nor be selectable or focusable. This is similar to giving the contents <code>display: none</code>.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The element turns on layout containment, style containment, and paint containment. If the element is not <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment#relevant_to_the_user">relevant to the user</a>, it also skips its contents. Unlike hidden, the skipped contents must still be available as normal to user-agent features such as find-in-page, tab order navigation, etc., and must be focusable and selectable as normal.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>visible</td></tr><tr><th scope="row">Applies to</th><td>elements for which size containment can apply</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>see § 8.1 Animating and Interpolating content-visibility</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>visible | auto | hidden</pre></section>
+<h2>Accessibility concerns</h2>
+<p>Off-screen content within a <code>content-visibility: auto</code> property remains in the document object model and the accessibility tree. This allows improving page performance with <code>content-visibility: auto</code> without negatively impacting accessibility.</p>
+<p>
+  Since styles for off-screen content are not rendered, elements intentionally hidden with <code>display: none</code> or <code>visibility: hidden</code> <em>will still appear in the accessibility tree</em>.
+  If you don't want an element to appear in the accessibility tree, use <code>aria-hidden="true"</code>.
+</p>
+
+<h3>Using auto to reduce rendering cost of long pages</h3>
+<p>
+  The following example shows the use of <code>content-visibility: auto</code> to skip painting and rendering of off-screen sections.
+  When a <code>section</code> is out of the viewport then the painting of the content is skipped until the section comes close to the viewport, this helps with both load and interactions on the page.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;section>
+  &#x3C;!-- Content for each section… -->
+&#x3C;/section>
+&#x3C;section>
+  &#x3C;!-- Content for each section… -->
+&#x3C;/section>
+&#x3C;section>
+  &#x3C;!-- Content for each section… -->
+&#x3C;/section>
+&#x3C;!-- … -->
+</pre>
+<h4>CSS</h4>
+<p>The <code>contain-intrinsic-size</code> property adds a default size of 500px to the height and width of each <code>section</code> element. After a section is rendered, it will retain its rendered intrinsic size, even when it is scrolled out of the viewport.</p>
+<pre class="brush: css">section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+</pre>
+<h3>Using hidden to manage visibility</h3>
+<p>
+  The following example shows how to manage content visibility with JavaScript.
+  Using <code>content-visibility: hidden;</code> instead of <code>display: none;</code> preserves the rendering state of content when hidden and rendering is faster.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="hidden">
+  &#x3C;button class="toggle">Show&#x3C;/button>
+  &#x3C;p>
+    This content is initially hidden and can be shown by clicking the button.
+  &#x3C;/p>
+&#x3C;/div>
+&#x3C;div class="visible">
+  &#x3C;button class="toggle">Hide&#x3C;/button>
+  &#x3C;p>
+    This content is initially visible and can be hidden by clicking the button.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The <code>content-visibility</code> property is set on paragraphs that are direct children of elements with the <code>visible</code> and <code>hidden</code> classes. In our example, we can show and hide content in paragraphs depending on the CSS class of parent div elements.</p>
+<p>The <code>contain-intrinsic-size</code> property is included to represent the content size. This helps to reduce layout shift when content is hidden.</p>
+<pre class="brush: css">p {
+  contain-intrinsic-size: 0 1.1em;
+  border: dotted 2px;
+}
+
+.hidden > p {
+  content-visibility: hidden;
+}
+
+.visible > p {
+  content-visibility: visible;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const handleClick = (event) => {
+  const button = event.target;
+  const div = button.parentElement;
+  button.textContent = div.classList.contains("visible") ? "Show" : "Hide";
+  div.classList.toggle("hidden");
+  div.classList.toggle("visible");
+};
+
+document.querySelectorAll("button.toggle").forEach((button) => {
+  button.addEventListener("click", handleClick);
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment">CSS Containment</a></li>
+  <li><a href="./css.properties.contain-intrinsic-size.html"><code>contain-intrinsic-size</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/contentvisibilityautostatechange_event"><code>contentvisibilityautostatechange</code></a></li>
+  <li><a href="https://web.dev/content-visibility/">content-visibility: the new CSS property that boosts your rendering performance</a> (web.dev)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-contain/#content-visibility">https://drafts.csswg.org/css-contain/#content-visibility</a></p></section></aside></body>
+</html>

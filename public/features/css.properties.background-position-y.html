@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-position-y</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-position-y</h1><main>
+    
+
+<p>The <strong><code>background-position-y</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the initial vertical position for each background image. The position is relative to the position layer set by <a href="./css.properties.background-origin.html"><code>background-origin</code></a>.</p>
+<p>The value of this property is overridden by any declaration of the <a href="./css.properties.background.html"><code>background</code></a> or <a href="./css.properties.background-position.html"><code>background-position</code></a> shorthand properties applied to the element after it.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+background-position-y: top;
+background-position-y: center;
+background-position-y: bottom;
+
+/* &#x3C;percentage> values */
+background-position-y: 25%;
+
+/* &#x3C;length> values */
+background-position-y: 0px;
+background-position-y: 1cm;
+background-position-y: 8em;
+
+/* Side-relative values */
+background-position-y: bottom 3px;
+background-position-y: bottom 10%;
+
+/* Multiple values */
+background-position-y: 0px, center;
+
+/* Global values */
+background-position-y: inherit;
+background-position-y: initial;
+background-position-y: revert;
+background-position-y: revert-layer;
+background-position-y: unset;
+</pre>
+<p>The <code>background-position-y</code> property is specified as one or more values, separated by commas.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>top</code></dt>
+  <dd>
+    <p>Aligns the top edge of the background image with the top edge of the background position layer.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>Aligns the vertical center of the background image with the vertical center of the background position layer.</p>
+  </dd>
+  <dt><code>bottom</code></dt>
+  <dd>
+    <p>Aligns the bottom edge of the background image with the bottom edge of the background position layer.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>The offset of the given background image's horizontal edge from the corresponding background position layer's top horizontal edge. (Some browsers allow assigning the bottom edge for offset).</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>The offset of the given background image's vertical position relative to the container. A value of 0% means that the top edge of the background image is aligned with the top edge of the container, and a value of 100% means that the <em>bottom</em> edge of the background image is aligned with the <em>bottom</em> edge of the container, thus a value of 50% vertically centers the background image.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0%</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>A list, each item consisting of: an offset given as a computed &lt;length-percentage&gt; value, plus an origin keyword</td></tr><tr><th scope="row">Animation type</th><td>repeatable list</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ center | [ [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]! ]#</pre></section>
+
+<h3>Basic example</h3>
+<p>The following example shows a simple background image implementation, with background-position-x and background-position-y used to define the image's horizontal and vertical positions separately.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 300px;
+  height: 300px;
+  background-color: skyblue;
+  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: bottom 10px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.background-position.html"><code>background-position</code></a></li>
+  <li><a href="./css.properties.background-position-x.html"><code>background-position-x</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-inline"><code>background-position-inline</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-block"><code>background-position-block</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds">Using multiple backgrounds</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 49</li><li><strong>firefox_android</strong>: 49</li><li><strong>ie</strong>: 6</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands">https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands</a></p></section></aside></body>
+</html>

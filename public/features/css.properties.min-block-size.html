@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>min-block-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties min-block-size</h1><main>
+    
+
+<p>The <strong><code>min-block-size</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines the minimum horizontal or vertical size of an element's block, depending on its writing mode. It corresponds to either the <a href="./css.properties.min-width.html"><code>min-width</code></a> or the <a href="./css.properties.min-height.html"><code>min-height</code></a> property, depending on the value of <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>.</p>
+<p>If the writing mode is vertically oriented, the value of <code>min-block-size</code> relates to the minimum width of the element; otherwise, it relates to the minimum height of the element. A related property is <a href="./css.properties.min-inline-size.html"><code>min-inline-size</code></a>, which defines the other dimension of the element.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+min-block-size: 100px;
+min-block-size: 5em;
+
+/* &#x3C;percentage> values */
+min-block-size: 10%;
+
+/* Keyword values */
+min-block-size: max-content;
+min-block-size: min-content;
+min-block-size: fit-content(20em);
+
+/* Global values */
+min-block-size: inherit;
+min-block-size: initial;
+min-block-size: revert;
+min-block-size: revert-layer;
+min-block-size: unset;
+</pre>
+<h3>Values</h3>
+<p>The <code>min-block-size</code> property takes the same values as the <a href="./css.properties.min-width.html"><code>min-width</code></a> and <a href="./css.properties.min-height.html"><code>min-height</code></a> properties.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>same as height and width</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>Same as min-height, min-width</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;'min-width'&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="exampleText">Example text&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.exampleText {
+  writing-mode: vertical-rl;
+  background-color: yellow;
+  min-block-size: 200px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The mapped physical properties: <a href="./css.properties.min-width.html"><code>min-width</code></a> and <a href="./css.properties.min-height.html"><code>min-height</code></a></li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 41</li><li><strong>firefox_android</strong>: 41</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 12.1</li><li><strong>safari_ios</strong>: 12.2</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#propdef-min-block-size">https://drafts.csswg.org/css-logical/#propdef-min-block-size</a></p></section></aside></body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;hue&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;hue></h1><main>
+    
+
+<p>
+  The <strong><code>&#x3C;hue></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents the hue angle of a color.
+  It is used in the color functions that accept hue expressed as a single value, specifically <a href="./css.types.color.hsl.html"><code>hsl()</code></a>, <a href="./css.types.color.hwb.html"><code>hwb()</code></a>, <a href="./css.types.color.lch.html"><code>lch()</code></a>, and <a href="./css.types.color.oklch.html"><code>oklch()</code></a> functional notations.
+</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/hue/color_wheel.svg" alt="An sRGB color wheel">
+</p>
+<p>The color wheel above shows hues at all angles in the <a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space. In particular, <em>red</em> is at <code>0deg</code>, <em>yellow</em> is at <code>60deg</code>, <em>lime</em> is at <code>120deg</code>, <em>cyan</em> is at <code>180deg</code>, <em>blue</em> is at <code>240deg</code>, and <em>magenta</em> is at <code>300deg</code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The angles corresponding to particular hues depend on the color space. For example, the hue angle of sRGB green is <code>120deg</code> in the sRGB color space, but <code>134.39deg</code> in the CIELAB color space.</p>
+</div>
+<p>The following table lists typical colors at various angles in the sRGB (used by <a href="./css.types.color.hsl.html"><code>hsl()</code></a> and <a href="./css.types.color.hwb.html"><code>hwb()</code></a>), CIELAB (used by <a href="./css.types.color.lch.html"><code>lch()</code></a>), and Oklab (used by <a href="./css.types.color.oklch.html"><code>oklch()</code></a>) color spaces:</p>
+<table>
+  <colgroup>
+    <col>
+    <col span="6" width="15%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">0°</th>
+      <th scope="col">60°</th>
+      <th scope="col">120°</th>
+      <th scope="col">180°</th>
+      <th scope="col">240°</th>
+      <th scope="col">300°</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">sRGB</th>
+      <td style="background: hsl(0 100% 50%);" title="hsl(0 100% 50%)"></td>
+      <td style="background: hsl(60 100% 50%);" title="hsl(60 100% 50%)"></td>
+      <td style="background: hsl(120 100% 50%);" title="hsl(120 100% 50%)"></td>
+      <td style="background: hsl(180 100% 50%);" title="hsl(180 100% 50%)"></td>
+      <td style="background: hsl(240 100% 50%);" title="hsl(240 100% 50%)"></td>
+      <td style="background: hsl(300 100% 50%);" title="hsl(300 100% 50%)"></td>
+    </tr>
+    <tr>
+      <th scope="row">CIELAB</th>
+      <td style="background: lch(50% 50% 0);" title="lch(50% 50% 0)"></td>
+      <td style="background: lch(65% 55% 60);" title="lch(65% 55% 60)"></td>
+      <td style="background: lch(90% 65% 120);" title="lch(90% 65% 120)"></td>
+      <td style="background: lch(90% 35% 180);" title="lch(90% 35% 180)"></td>
+      <td style="background: lch(75% 25% 240);" title="lch(75% 25% 240)"></td>
+      <td style="background: lch(40% 70% 300);" title="lch(40% 70% 300)"></td>
+    </tr>
+    <tr>
+      <th scope="row">Oklab</th>
+      <td style="background: oklch(65% 65% 0);" title="oklch(65% 65% 0)"></td>
+      <td style="background: oklch(75% 40% 60);" title="oklch(75% 40% 60)"></td>
+      <td style="background: oklch(90% 50% 120);" title="oklch(90% 50% 120)"></td>
+      <td style="background: oklch(90% 35% 180);" title="oklch(90% 35% 180)"></td>
+      <td style="background: oklch(70% 40% 240);" title="oklch(70% 40% 240)"></td>
+      <td style="background: oklch(55% 70% 300);" title="oklch(55% 70% 300)"></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Syntax</h2>
+<p>A <code>&#x3C;hue></code> can be either an <code>&#x3C;angle></code> or a <code>&#x3C;number></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a></dt>
+  <dd>
+    <p>An angle expressed in degrees, gradians, radians, or turns using the <code>deg</code>, <code>grad</code>, <code>rad</code>, or <code>turn</code>, respectively.</p>
+  </dd>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>A real number, representing degrees of the hue angle.</p>
+  </dd>
+</dl>
+<p>As an <code>&#x3C;angle></code> is periodic, <code>&#x3C;hue></code> is normalized to the range <code>[0deg, 360deg]</code>. It implicitly wraps around such that <code>480deg</code> is the same as <code>120deg</code>, <code>-120deg</code> is the same as <code>240deg</code>, <code>-1turn</code> is the same as <code>1turn</code>, and so on.</p>
+<h3>Interpolation</h3>
+<p><code>&#x3C;hue></code> values are interpolated as <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a> values, and the default interpolation algorithm is <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method#values"><code>shorter</code></a>. In some color-related CSS functions, this can be overridden by the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method"><code>&lt;hue-interpolation-method&gt;</code></a> component.</p>
+
+
+<h3>Changing the hue of a color using a slider</h3>
+<p>The following example shows the effect of changing the <code>hue</code> value of the <a href="./css.types.color.hsl.html"><code>hsl()</code></a> functional notation on a color.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;input type="range" min="0" max="360" value="0" id="hue-slider" />
+&#x3C;p>Hue: &#x3C;span id="hue-value">0deg&#x3C;/span>&#x3C;/p>
+&#x3C;div id="box">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid black;
+}
+p {
+  font-family: sans-serif;
+}
+span {
+  font-family: monospace;
+  background: rgb(0 0 0 / 0.1);
+  padding: 3px;
+}
+#hue-slider {
+  width: 90%;
+}
+</pre>
+<pre class="brush: css">#box {
+  background-color: hsl(0 100% 50%);
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const hue = document.querySelector("#hue-slider");
+const box = document.querySelector("#box");
+hue.addEventListener("input", () => {
+  box.style.backgroundColor = `hsl(${hue.value} 100% 50%)`;
+  document.querySelector("#hue-value").textContent = `${hue.value}deg`;
+});
+</pre>
+
+<h3>Approximating red hues in different color spaces</h3>
+<p>
+  The following example shows a similar red color in different color spaces.
+  The values in the <code>lch()</code> and <code>oklch()</code> functions are rounded for readability.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div data-color="hsl-red">hsl()&#x3C;/div>
+&#x3C;div data-color="hwb-red">hwb()&#x3C;/div>
+&#x3C;div data-color="lch-red">lch()&#x3C;/div>
+&#x3C;div data-color="oklch-red">oklch()&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">[data-color="hsl-red"] {
+  /* hsl(&#x3C;hue> &#x3C;saturation> &#x3C;lightness>) */
+  background-color: hsl(0 100% 50%);
+}
+[data-color="hwb-red"] {
+  /* hwb(&#x3C;hue> &#x3C;whiteness> &#x3C;blackness>) */
+  background-color: hwb(0 0% 0%);
+}
+[data-color="lch-red"] {
+  /* lch(&#x3C;lightness> &#x3C;chroma> &#x3C;hue>) */
+  background-color: lch(50 150 40);
+}
+[data-color="oklch-red"] {
+  /* oklch(&#x3C;lightness> &#x3C;chroma> &#x3C;hue>) */
+  background-color: oklch(0.6 0.4 20);
+}
+</pre>
+<pre class="brush: css hidden">div {
+  font-family: monospace;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid black;
+  display: inline-block;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&#x3C;color></code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method"><code>&lt;hue-interpolation-method&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Specifications</h2><section class="spec"><p>Specification: <a href="null">null</a></p></section></aside></body>
+</html>

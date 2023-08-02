@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>syntax</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules property syntax</h1><main>
+    
+
+<p>The <strong><code>syntax</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> descriptor is required when using the <a href="./css.at-rules.property.html"><code>@property</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> and describes the allowable syntax for the property.</p>
+<h2>Syntax</h2>
+<p>The following are all valid syntax strings:</p>
+<pre class="brush: css">syntax: "&#x3C;color>"; /* accepts a color */
+
+syntax: "&#x3C;length> | &#x3C;percentage>"; /* accepts lengths or percentages but not calc expressions with a combination of the two */
+
+syntax: "small | medium | large"; /* accepts one of these values set as custom idents. */
+
+syntax: "*"; /* any valid token */
+</pre>
+<h2>Values</h2>
+<p>A string with a supported syntax as defined by the specification. Supported syntaxes are a subset of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">CSS types</a>. These may be used along, or a number of types can be used in combination.</p>
+<dl>
+  <dt><code>"&#x3C;length>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;number>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;percentage>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;length-percentage>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;color>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.color.html"><code>&lt;color&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;image>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.image.html"><code>&lt;image&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;url>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.url.html"><code>url()</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;integer>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;angle>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;time>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;resolution>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.resolution.html"><code>&lt;resolution&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;transform-function>"</code></dt>
+  <dd>
+    <p>Any valid <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;custom-ident>"</code></dt>
+  <dd>
+    <p>Any valid <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a> values.</p>
+  </dd>
+  <dt><code>"&#x3C;transform-list>"</code></dt>
+  <dd>
+    <p>A list of valid <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;</code></a> values.</p>
+  </dd>
+</dl>
+
+
+<h2>Examples</h2>
+<p>Add type checking to <code>--my-color</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"><code>custom property</code></a>, using the <code>&#x3C;color></code> syntax:</p>
+<p>Using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="./css.at-rules.property.html"><code>@property</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>:</p>
+<pre class="brush: css">@property --my-color {
+  syntax: "&#x3C;color>";
+  inherits: false;
+  initial-value: #c0ffee;
+}
+</pre>
+<p>Using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/registerProperty"><code>CSS.registerProperty</code></a>:</p>
+<pre class="brush: js">window.CSS.registerProperty({
+  name: "--my-color",
+  syntax: "&#x3C;color>",
+  inherits: false,
+  initialValue: "#c0ffee",
+});
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Properties_and_Values_API">CSS Properties and Values API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API">CSS Painting API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API">CSS Typed Object Model</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Houdini">CSS Houdini</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: preview</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: 16.4</li><li><strong>safari_ios</strong>: 16.4</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.css-houdini.org/css-properties-values-api/#the-syntax-descriptor">https://drafts.css-houdini.org/css-properties-values-api/#the-syntax-descriptor</a></p></section></aside></body>
+</html>

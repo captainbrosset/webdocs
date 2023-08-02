@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>symbols</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style symbols</h1><main>
+    
+
+<p>The <strong><code>symbols</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> descriptor is used to specify the symbols that the specified counter system will use to construct counter representations.</p>
+<h2>Syntax</h2>
+<p>The <code>symbols</code> descriptor is specified as one or more <code>&#x3C;symbol></code>s.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;symbol></code></dt>
+  <dd>
+    <p>Represents a symbol used within the counter system. This must be one of the following data types:</p>
+    <ul>
+      <li><a href="./css.types.string.html"><code>&lt;string&gt;</code></a></li>
+      <li><a href="./css.types.image.html"><code>&lt;image&gt;</code></a> (Note: This value is "at risk" and may be removed from the specification. It is not yet implemented.)</li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a></li>
+    </ul>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>A symbol can be a string, image, or identifier. It is used within the <a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>.</p>
+<pre class="brush: css">symbols: A B C D E;
+symbols: "\24B6" "\24B7" "\24B8" D E;
+symbols: "0" "1" "2" "4" "5" "6" "7" "8" "9";
+symbols: url("one.svg") url("two.svg") url("three.svg");
+symbols: indic-numbers;
+</pre>
+<p>The <code>symbols</code> descriptor must be specified when the value of the <a href="./css.at-rules.counter-style.system.html"><code>system</code></a> descriptor is <code>cyclic</code>, <code>numeric</code>, <code>alphabetic</code>, <code>symbolic</code>, or <code>fixed</code>. When the <code>additive</code> system is used, use the <a href="./css.at-rules.counter-style.additive-symbols.html"><code>additive-symbols</code></a> descriptor instead to specify the symbols.</p>
+<p>While a space between quoted symbols is not required, it makes the CSS more legible. To use a quote as a symbol, either escape the quote character or enclose the character is using different quotes, such as <code>"'"</code>.</p>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="list">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style symbols-example {
+  system: fixed;
+  symbols: A "1" "\24B7" D E;
+}
+
+.list {
+  list-style: symbols-example;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <code>symbols</code> descriptor is used within the <a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a> at-rule.</li>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>, the functional notation creating anonymous counter styles</li>
+  <li><a href="./css.types.url.html"><code>url()</code></a> function</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles">CSS counter styles</a> module</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 91</li><li><strong>chrome_android</strong>: 91</li><li><strong>edge</strong>: 91</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 77</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: 17</li><li><strong>safari_ios</strong>: 17</li><li><strong>samsunginternet_android</strong>: 16.0</li><li><strong>webview_android</strong>: 91</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-symbols">https://drafts.csswg.org/css-counter-styles/#counter-style-symbols</a></p></section></aside></body>
+</html>

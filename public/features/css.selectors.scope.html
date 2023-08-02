@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":scope"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":scope"</h1><main>
+    
+
+<p>The <strong><code>:scope</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents elements that are a reference point, or scope, for selectors to match against.</p>
+<pre class="brush: css">/* Selects a scoped element */
+:scope {
+  background-color: lime;
+}
+</pre>
+<p>When used in a stylesheet, <code>:scope</code> is the same as <a href="./css.selectors.root.html"><code>:root</code></a>, as there is currently no way to explicitly establish a scoped element. When used from a DOM API, such as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector"><code>querySelector()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll"><code>querySelectorAll()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/matches"><code>matches()</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest"><code>Element.closest()</code></a>, <code>:scope</code> matches the element on which the method was called.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:scope {
+  /* ... */
+}
+</pre>
+
+<h3>Identity match</h3>
+<p>This example demonstrates using the <code>:scope</code> pseudo-class with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/matches"><code>Element.matches()</code></a> method to match the element on which it's called. In this example, if <code>:scope</code> is supported, and the paragraph is within the <code>:root</code>'s scope, text is displayed in the placeholder "output" paragraph.</p>
+<h4>JavaScript</h4>
+<pre class="brush: js">const paragraph = document.getElementById("para");
+const output = document.getElementById("output");
+
+if (paragraph.matches(":scope")) {
+  output.textContent = "The first paragraph is its own scope, as expected!";
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p id="para">
+  This is a paragraph. It is not an interesting paragraph. Sorry about that.
+&#x3C;/p>
+&#x3C;p id="output">&#x3C;/p>
+</pre>
+
+<h3>Direct children</h3>
+<p>A situation where the <code>:scope</code> pseudo-class proves to be useful is when you need to get a direct descendant of an already retrieved <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"><code>Element</code></a>.</p>
+<h4>JavaScript</h4>
+<pre class="brush: js">const context = document.getElementById("context");
+const selected = context.querySelectorAll(":scope > div");
+
+document.getElementById("results").innerHTML = Array.prototype.map
+  .call(selected, (element) => `#${element.getAttribute("id")}`)
+  .join(", ");
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="context">
+  &#x3C;div id="element-1">
+    &#x3C;div id="element-1.1">&#x3C;/div>
+    &#x3C;div id="element-1.2">&#x3C;/div>
+  &#x3C;/div>
+  &#x3C;div id="element-2">
+    &#x3C;div id="element-2.1">&#x3C;/div>
+  &#x3C;/div>
+&#x3C;/div>
+&#x3C;p>
+  Selected elements ids :
+  &#x3C;span id="results">&#x3C;/span>
+&#x3C;/p>
+</pre>
+<h4>Result</h4>
+<p>The scope of <code>context</code> is the element with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> of <code>context</code>. The selected elements are the <code>div</code> elements that are direct children of that context, <code>element-1</code> and <code>element-2</code>, but not their descendants.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.selectors.root.html"><code>:root</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors">Locating DOM elements using selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector"><code>Element.querySelector()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll"><code>Element.querySelectorAll()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code>Document.querySelector()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"><code>Document.querySelectorAll()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment/querySelector"><code>DocumentFragment.querySelector()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment/querySelectorAll"><code>DocumentFragment.querySelectorAll()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 27</li><li><strong>chrome_android</strong>: 27</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 32</li><li><strong>firefox_android</strong>: 32</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 15</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-scope-pseudo">https://drafts.csswg.org/selectors/#the-scope-pseudo</a></p></section></aside></body>
+</html>

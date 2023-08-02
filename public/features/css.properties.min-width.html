@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>min-width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties min-width</h1><main>
+    
+
+<p>The <strong><code>min-width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the minimum width of an element. It prevents the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/used_value">used value</a> of the <a href="./css.properties.width.html"><code>width</code></a> property from becoming smaller than the value specified for <code>min-width</code>.</p>
+<p>The element's width is set to the value of <code>min-width</code> whenever <code>min-width</code> is larger than <a href="./css.properties.max-width.html"><code>max-width</code></a> or <a href="./css.properties.width.html"><code>width</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> value */
+min-width: 3.5em;
+
+/* &#x3C;percentage> value */
+min-width: 10%;
+
+/* Keyword values */
+min-width: max-content;
+min-width: min-content;
+min-width: fit-content(20em);
+
+/* Global values */
+min-width: inherit;
+min-width: initial;
+min-width: revert;
+min-width: revert-layer;
+min-width: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>min-width</code> as an absolute value.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>min-width</code> as a percentage of the containing block's width.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser will calculate and select a <code>min-width</code> for the specified element.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>The intrinsic preferred <code>min-width</code>.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>The intrinsic minimum <code>min-width</code>.</p>
+  </dd>
+  <dt><code>fit-content(<a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Uses the <code>fit-content</code> formula with the available space replaced by the specified argument, i.e. <code>min(max-content, max(min-content, argument))</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements that accept width or height</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with &lt;length-percentage&gt; values computed</td></tr><tr><th scope="row">Animation type</th><td>by computed value, recursing into fit-content()</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length-percentage [0,∞]&gt; | min-content | max-content | fit-content(&lt;length-percentage [0,∞]&gt;)</pre></section>
+
+<h3>Setting minimum element width</h3>
+<pre class="brush: css">table {
+  min-width: 75%;
+}
+
+form {
+  min-width: 0;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.width.html"><code>width</code></a>, <a href="./css.properties.max-width.html"><code>max-width</code></a></li>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">box model</a>, <a href="./css.properties.box-sizing.html"><code>box-sizing</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 7</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing/#min-size-properties">https://drafts.csswg.org/css-sizing/#min-size-properties</a></p></section></aside></body>
+</html>

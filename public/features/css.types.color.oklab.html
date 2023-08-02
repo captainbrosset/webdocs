@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>oklab()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color oklab()</h1><main>
+    
+
+<p>The <strong><code>oklab()</code></strong> functional notation expresses a given color in the Oklab color space, which attempts to mimic how color is perceived by the human eye. The <code>oklab()</code> works with a Cartesian coordinate system on the Oklab color space, the a- and b-axes. If you want a polar color system, chroma and hue, use <a href="./css.types.color.oklch.html"><code>oklch()</code></a>.</p>
+<p>Oklab is a perceptual color space and is useful to:</p>
+<ul>
+  <li>Transform an image to grayscale, without changing its lightness.</li>
+  <li>Modify the saturation of colors, while keeping user perception of hue and lightness</li>
+  <li>Create smooth and uniform gradients of colors (when interpolated manually, for example, in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a> element).</li>
+</ul>
+<p>The function <code>oklab()</code> can represent any color from the Oklab color space that is wider than RGB and include wide gamut and P3 colors.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">oklab(40.1% 0.1143 0.045);
+oklab(59.69% 0.1007 0.1191);
+oklab(59.69% 0.1007 0.1191 / 0.5);
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>oklab(L a b[ / A])</code></p>
+<dl>
+  <dt><code>L</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>0</code> and <code>1</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>0%</code> and <code>100%</code>, or the keyword <code>none</code>, where the number <code>0</code> corresponds to <code>0%</code> (black) and the number <code>1</code> corresponds to <code>100%</code> (white). <code>L</code> specifies the perceived lightness.</p>
+  </dd>
+  <dt><code>a</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>-0.4</code> and <code>0.4</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>-100%</code> and <code>100%</code>, or the keyword <code>none</code>. It specifies the distance along the <code>a</code> axis in the Oklab colorspace, that is, how green or red the color is.</p>
+  </dd>
+  <dt><code>b</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> between <code>-0.4</code> and <code>0.4</code>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> between <code>-100%</code> and <code>100%</code>, or the keyword <code>none</code>. It specifies the distance along the <code>b</code> axis in the Oklab colorspace, that is, how blue or yellow the color is.</p>
+  </dd>
+  <dt><code>A</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/alpha-value"><code>&lt;alpha-value&gt;()</code></a> or the keyword <code>none</code>, where the number <code>1</code> corresponds to <code>100%</code> (full opacity).</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#missing_color_components">Missing color components</a> for the effect of <code>none</code>.</p>
+</div>
+
+
+<h3>Adjusting the lightness and axes with oklab()</h3>
+<p>The following example shows the effect of varying the lightness, a-axis, and b-axis values of the <code>oklab()</code> function.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div data-color="blue">&#x3C;/div>
+&#x3C;div data-color="blue-light">&#x3C;/div>
+
+&#x3C;div data-color="red">&#x3C;/div>
+&#x3C;div data-color="red-a">&#x3C;/div>
+
+&#x3C;div data-color="green">&#x3C;/div>
+&#x3C;div data-color="green-b">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+</pre>
+<pre class="brush: css">[data-color="blue"] {
+  background-color: oklab(0.5 -0.3 -0.4);
+}
+[data-color="blue-light"] {
+  background-color: oklab(0.7 -0.3 -0.4);
+}
+
+[data-color="red"] {
+  background-color: oklab(100% 0.4 0.4);
+}
+[data-color="red-a"] {
+  background-color: oklab(100% 0.2 0.4);
+}
+
+[data-color="green"] {
+  background-color: oklab(100% -100% 0.4);
+}
+[data-color="green-b"] {
+  background-color: oklab(100% -100% 0.6);
+}
+</pre>
+
+<h3>Adjusting opacity with oklab()</h3>
+<p>
+  The following example shows the effect of varying the <code>A</code> (alpha) value of the <code>oklab()</code> function.
+  The <code>red</code> and <code>red-alpha</code> elements overlap the <code>#background-div</code> element to demonstrate the effect of opacity.
+  Giving the <code>red-alpha</code> element an opacity of <code>0.4</code> makes it appear more transparent than the <code>red</code> element.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="background-div">
+  &#x3C;div data-color="red">&#x3C;/div>
+  &#x3C;div data-color="red-alpha">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#background-div {
+  background-color: lightblue;
+  width: 150px;
+  height: 40px;
+}
+</pre>
+<pre class="brush: css">[data-color="red"] {
+  background-color: oklab(50% 130 20);
+}
+[data-color="red-alpha"] {
+  background-color: oklab(50% 130 20 / 0.4);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.types.color.html"><code>&#x3C;color></code> data type</a> for a list of all color notations</li>
+  <li><a href="./css.types.color.oklch.html"><code>oklch()</code></a>: Another functional notation using the same color space as <code>oklab()</code> but in a polar coordinate system</li>
+  <li><a href="https://bottosson.github.io/posts/oklab/">A perceptual color space for image processing</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 113</li><li><strong>firefox_android</strong>: 113</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#ok-lab">https://drafts.csswg.org/css-color/#ok-lab</a></p></section></aside></body>
+</html>

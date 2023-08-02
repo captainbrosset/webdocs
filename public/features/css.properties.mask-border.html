@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-border</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-border</h1><main>
+    
+
+<p>The <strong><code>mask-border</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> lets you create a mask along the edge of an element's border.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode"><code>mask-border-mode</code></a></li>
+  <li><a href="./css.properties.mask-border-outset.html"><code>mask-border-outset</code></a></li>
+  <li><a href="./css.properties.mask-border-repeat.html"><code>mask-border-repeat</code></a></li>
+  <li><a href="./css.properties.mask-border-slice.html"><code>mask-border-slice</code></a></li>
+  <li><a href="./css.properties.mask-border-source.html"><code>mask-border-source</code></a></li>
+  <li><a href="./css.properties.mask-border-width.html"><code>mask-border-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* source | slice */
+mask-border: url("border-mask.png") 25;
+
+/* source | slice | repeat */
+mask-border: url("border-mask.png") 25 space;
+
+/* source | slice | width */
+mask-border: url("border-mask.png") 25 / 35px;
+
+/* source | slice | width | outset | repeat | mode */
+mask-border: url("border-mask.png") 25 / 35px / 12px space alpha;
+
+/* Global values */
+mask-border: inherit;
+mask-border: initial;
+mask-border: revert;
+mask-border: revert-layer;
+mask-border: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'mask-border-source'></code></dt>
+  <dd>
+    <p>The source image. See <a href="./css.properties.mask-border-source.html"><code>mask-border-source</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'mask-border-slice'></code></dt>
+  <dd>
+    <p>The dimensions for slicing the source image into regions. Up to four values may be specified. See <a href="./css.properties.mask-border-slice.html"><code>mask-border-slice</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'mask-border-width'></code></dt>
+  <dd>
+    <p>The width of the border mask. Up to four values may be specified. See <a href="./css.properties.mask-border-width.html"><code>mask-border-width</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'mask-border-outset'></code></dt>
+  <dd>
+    <p>The distance of the border mask from the element's outside edge. Up to four values may be specified. See <a href="./css.properties.mask-border-outset.html"><code>mask-border-outset</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'mask-border-repeat'></code></dt>
+  <dd>
+    <p>Defines how the edge regions of the source image are adjusted to fit the dimensions of the border mask. Up to two values may be specified. See <a href="./css.properties.mask-border-repeat.html"><code>mask-border-repeat</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'mask-border-mode'></code></dt>
+  <dd>
+    <p>Defines whether the source image is treated as a luminance mask or alpha mask. See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode"><code>mask-border-mode</code></a>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Setting a bitmap-based mask border</h3>
+<p>In this example, we will mask an element's border with a diamond pattern. The source for the mask is a ".png" file of 90 by 90 pixels, with three diamonds going vertically and horizontally:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border/mask-border-diamonds.png" alt="The image used for the mask examples on this page. The mask is a transparent square with three rows of three diamonds each. The diamonds are a very light, almost white, shade of grey. The middle part between the diamonds is also solid grey. The parts between the outside of the diamonds and the edge of the image are transparent.">
+</p>
+<p>To match the size of a single diamond, we will use a value of 90 divided by 3, or <code>30</code>, for slicing the image into corner and edge regions. A repeat value of <code>round</code> will make the mask slices fit evenly, i.e., without clipping or gaps.</p><iframe width="100%" height="800" src="https://mdn.github.io/css-examples/masking/mask-border.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode"><code>mask-border-mode</code></a></li>
+  <li><a href="./css.properties.mask-border-outset.html"><code>mask-border-outset</code></a></li>
+  <li><a href="./css.properties.mask-border-repeat.html"><code>mask-border-repeat</code></a></li>
+  <li><a href="./css.properties.mask-border-source.html"><code>mask-border-source</code></a></li>
+  <li><a href="./css.properties.mask-border-width.html"><code>mask-border-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-border">https://drafts.fxtf.org/css-masking/#the-mask-border</a></p></section></aside></body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::first-letter"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::first-letter"</h1><main>
+    
+
+<p>The <strong><code>::first-letter</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> applies styles to the first letter of the first line of a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model#block-level_elements_and_block_boxes">block-level element</a>, but only when not preceded by other content (such as images or inline tables).</p>
+<p>The first letter of an element is not always trivial to identify:</p>
+<ul>
+  <li>Punctuation that precedes or immediately follows the first letter is included in the match. Punctuation includes any Unicode character defined in the <em>open</em> (Ps), <em>close</em> (Pe), <em>initial quote</em> (Pi), <em>final quote</em> (Pf), and <em>other punctuation</em> (Po) classes.</li>
+  <li>Some languages have digraphs that are always capitalized together, like the <code>IJ</code> in Dutch. In these cases, both letters of the digraph should be matched by the <code>::first-letter</code> pseudo-element.</li>
+  <li>A combination of the <a href="./css.selectors.before.html"><code>::before</code></a> pseudo-element and the <a href="./css.properties.content.html"><code>content</code></a> property may inject some text at the beginning of the element. In that case, <code>::first-letter</code> will match the first letter of this generated content.</li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> CSS introduced the <code>::first-letter</code> notation (with two colons) to distinguish <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-classes</a> from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-elements</a>. For backward compatibility, browsers also accept <code>:first-letter</code>, introduced earlier.</p>
+  <p>Browser support for digraphs such as <code>IJ</code> in Dutch is poor. Check the compatibility table below to see the current state of support.</p>
+</div>
+<h2>Allowable properties</h2>
+<p>Only a small subset of CSS properties can be used with the <code>::first-letter</code> pseudo-element:</p>
+<ul>
+  <li>All font properties: <a href="./css.properties.font.html"><code>font</code></a>, <a href="./css.properties.font-style.html"><code>font-style</code></a>, <a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a>, <a href="./css.properties.font-kerning.html"><code>font-kerning</code></a>, <a href="./css.properties.font-language-override.html"><code>font-language-override</code></a>, <a href="./css.properties.font-stretch.html"><code>font-stretch</code></a>, <a href="./css.properties.font-synthesis.html"><code>font-synthesis</code></a>, <a href="./css.properties.font-variant.html"><code>font-variant</code></a>, <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>, <a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a>, <a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a>, <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a>, <a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a>, <a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a>, <a href="./css.properties.font-weight.html"><code>font-weight</code></a>, <a href="./css.properties.font-size.html"><code>font-size</code></a>, <a href="./css.properties.font-size-adjust.html"><code>font-size-adjust</code></a>, <a href="./css.properties.line-height.html"><code>line-height</code></a> and <a href="./css.properties.font-family.html"><code>font-family</code></a></li>
+  <li>All background properties: <a href="./css.properties.background.html"><code>background</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.background-image.html"><code>background-image</code></a>, <a href="./css.properties.background-clip.html"><code>background-clip</code></a>, <a href="./css.properties.background-origin.html"><code>background-origin</code></a>, <a href="./css.properties.background-position.html"><code>background-position</code></a>, <a href="./css.properties.background-repeat.html"><code>background-repeat</code></a>, <a href="./css.properties.background-size.html"><code>background-size</code></a>, <a href="./css.properties.background-attachment.html"><code>background-attachment</code></a>, and <a href="./css.properties.background-blend-mode.html"><code>background-blend-mode</code></a></li>
+  <li>All margin properties: <a href="./css.properties.margin.html"><code>margin</code></a>, <a href="./css.properties.margin-top.html"><code>margin-top</code></a>, <a href="./css.properties.margin-right.html"><code>margin-right</code></a>, <a href="./css.properties.margin-bottom.html"><code>margin-bottom</code></a>, <a href="./css.properties.margin-left.html"><code>margin-left</code></a></li>
+  <li>All padding properties: <a href="./css.properties.padding.html"><code>padding</code></a>, <a href="./css.properties.padding-top.html"><code>padding-top</code></a>, <a href="./css.properties.padding-right.html"><code>padding-right</code></a>, <a href="./css.properties.padding-bottom.html"><code>padding-bottom</code></a>, <a href="./css.properties.padding-left.html"><code>padding-left</code></a></li>
+  <li>All border properties: the shorthands <a href="./css.properties.border.html"><code>border</code></a>, <a href="./css.properties.border-style.html"><code>border-style</code></a>, <a href="./css.properties.border-color.html"><code>border-color</code></a>, <a href="./css.properties.border-width.html"><code>border-width</code></a>, <a href="./css.properties.border-radius.html"><code>border-radius</code></a>, <a href="./css.properties.border-image.html"><code>border-image</code></a>, and the longhands properties</li>
+  <li>The <a href="./css.properties.color.html"><code>color</code></a> property</li>
+  <li>The <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a>, <a href="./css.properties.text-shadow.html"><code>text-shadow</code></a>, <a href="./css.properties.text-transform.html"><code>text-transform</code></a>, <a href="./css.properties.letter-spacing.html"><code>letter-spacing</code></a>, <a href="./css.properties.word-spacing.html"><code>word-spacing</code></a> (when appropriate), <a href="./css.properties.line-height.html"><code>line-height</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-decoration-line.html"><code>text-decoration-line</code></a>, <a href="./css.properties.text-decoration-style.html"><code>text-decoration-style</code></a>, <a href="./css.properties.box-shadow.html"><code>box-shadow</code></a>, <a href="./css.properties.float.html"><code>float</code></a>, <a href="./css.properties.vertical-align.html"><code>vertical-align</code></a> (only if <code>float</code> is <code>none</code>) CSS properties</li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">::first-letter {
+  /* ... */
+}
+</pre>
+
+<h3>Simple drop cap</h3>
+<p>In this example we will use the <code>::first-letter</code> pseudo-element to create a simple drop cap effect on the first letter of the paragraph coming right after the <code>&#x3C;h2></code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>My heading&#x3C;/h2>
+&#x3C;p>
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+  kasd gubergren, no sea takimata sanctus est.
+&#x3C;/p>
+&#x3C;p>
+  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+  consequat.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  width: 500px;
+  line-height: 1.5;
+}
+
+h2 + p::first-letter {
+  color: white;
+  background-color: black;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 red;
+  font-size: 250%;
+  padding: 6px 3px;
+  margin-right: 6px;
+  float: left;
+}
+</pre>
+
+<h3>Effect on special punctuation and non-Latin characters</h3>
+<p>This example illustrates the effect of <code>::first-letter</code> on special punctuation and non-Latin characters.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+  consequat.
+&#x3C;/p>
+&#x3C;p>-The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>_The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>"The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>'The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>*The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>#The beginning of a special punctuation mark.&#x3C;/p>
+&#x3C;p>「特殊的汉字标点符号开头。&#x3C;/p>
+&#x3C;p>《特殊的汉字标点符号开头。&#x3C;/p>
+&#x3C;p>"特殊的汉字标点符号开头。&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p::first-letter {
+  color: red;
+  font-size: 150%;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.first-line.html"><code>::first-line</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-pseudo/#first-letter-pseudo">https://drafts.csswg.org/css-pseudo/#first-letter-pseudo</a></p></section></aside></body>
+</html>

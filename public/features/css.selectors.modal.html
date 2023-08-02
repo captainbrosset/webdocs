@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":modal"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":modal"</h1><main>
+    
+
+<p>The <strong><code>:modal</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches an element that is in a state in which it excludes all interaction with elements outside it until the interaction has been dismissed. Multiple elements can be selected by the <code>:modal</code> pseudo-class at the same time, but only one of them will be active and able to receive input.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:modal {
+  /* ... */
+}
+</pre>
+<h2>Usage notes</h2>
+<p>Examples of elements that will prevent user interaction with the rest of the page and will be selected by the <code>:modal</code> pseudo-class include:</p>
+<ul>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>dialog</code></a> element opened with the <code>showModal()</code> API.</li>
+  <li>The element selected by the <a href="./css.selectors.fullscreen.html"><code>:fullscreen</code></a> pseudo-class when opened with the <code>requestFullscreen()</code> API.</li>
+</ul>
+
+<h3>Styling a modal dialog</h3>
+<p>This example styles a modal dialog that opens when the "Update details" button is activated. This example has been built on top of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> element <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#advanced_example">example</a>.</p>
+<pre class="brush: html hidden">&#x3C;!-- Simple modal dialog containing a form -->
+&#x3C;dialog id="favDialog">
+  &#x3C;form method="dialog">
+    &#x3C;p>
+      &#x3C;label
+        >Favorite animal:
+        &#x3C;select>
+          &#x3C;option value="default">Choose…&#x3C;/option>
+          &#x3C;option>Brine shrimp&#x3C;/option>
+          &#x3C;option>Red panda&#x3C;/option>
+          &#x3C;option>Spider monkey&#x3C;/option>
+        &#x3C;/select>
+      &#x3C;/label>
+    &#x3C;/p>
+    &#x3C;div>
+      &#x3C;button value="cancel">Cancel&#x3C;/button>
+      &#x3C;button id="confirmBtn" value="default">Confirm&#x3C;/button>
+    &#x3C;/div>
+  &#x3C;/form>
+&#x3C;/dialog>
+&#x3C;p>
+  &#x3C;button id="updateDetails">Update details&#x3C;/button>
+&#x3C;/p>
+&#x3C;output>&#x3C;/output>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">:modal {
+  border: 5px solid red;
+  background-color: yellow;
+  box-shadow: 3px 3px 10px rgba(0 0 0 / 0.5);
+}
+</pre>
+<pre class="brush: js hidden">const updateButton = document.getElementById("updateDetails");
+const favDialog = document.getElementById("favDialog");
+const outputBox = document.querySelector("output");
+const selectEl = favDialog.querySelector("select");
+const confirmBtn = favDialog.querySelector("#confirmBtn");
+
+// If a browser doesn't support the dialog, then hide the
+// dialog contents by default.
+if (typeof favDialog.showModal !== "function") {
+  favDialog.hidden = true;
+  // Your fallback script
+}
+// "Update details" button opens the &#x3C;dialog> modally
+updateButton.addEventListener("click", () => {
+  if (typeof favDialog.showModal === "function") {
+    favDialog.showModal();
+  } else {
+    outputBox.value = "Sorry, the dialog API is not supported by this browser.";
+  }
+});
+// "Favorite animal" input sets the value of the submit button
+selectEl.addEventListener("change", (e) => {
+  confirmBtn.value = selectEl.value;
+});
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+favDialog.addEventListener("close", () => {
+  outputBox.value = `${
+    favDialog.returnValue
+  } button clicked - ${new Date().toString()}`;
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>dialog</code></a> element</li>
+  <li>Other element display state pseudo-classes: <a href="./css.selectors.fullscreen.html"><code>:fullscreen</code></a> and <a href="./css.selectors.picture-in-picture.html"><code>:picture-in-picture</code></a></li>
+  <li>Complete list of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-classes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 105</li><li><strong>chrome_android</strong>: 105</li><li><strong>edge</strong>: 105</li><li><strong>firefox</strong>: 103</li><li><strong>firefox_android</strong>: 103</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 91</li><li><strong>opera_android</strong>: 72</li><li><strong>safari</strong>: 15.6</li><li><strong>safari_ios</strong>: 15.6</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 105</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#modal-state">https://drafts.csswg.org/selectors/#modal-state</a></p></section></aside></body>
+</html>

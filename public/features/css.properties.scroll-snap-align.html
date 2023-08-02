@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-snap-align</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-snap-align</h1><main>
+    
+
+<p>The <code>scroll-snap-align</code> property specifies the box's snap position as an alignment of its snap area (as the alignment subject) within its snap container's snapport (as the alignment container). The two values specify the snapping alignment in the block axis and inline axis, respectively. If only one value is specified, the second value defaults to the same value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scroll-snap-align: none;
+scroll-snap-align: start end; /* when two values set first is block, second inline */
+scroll-snap-align: center;
+
+/* Global values */
+scroll-snap-align: inherit;
+scroll-snap-align: initial;
+scroll-snap-align: revert;
+scroll-snap-align: revert-layer;
+scroll-snap-align: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The box does not define a snap position in that axis.</p>
+  </dd>
+  <dt><code>start</code></dt>
+  <dd>
+    <p>The start alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</p>
+  </dd>
+  <dt><code>end</code></dt>
+  <dd>
+    <p>The end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>The center alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>two keywords</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ none | start | end | center ]{1,2}</pre></section>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">CSS scroll snap</a></li>
+  <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS scroll snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 68</li><li><strong>firefox_android</strong>: 68</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: 11</li><li><strong>safari_ios</strong>: 11</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-snap/#scroll-snap-align">https://drafts.csswg.org/css-scroll-snap/#scroll-snap-align</a></p></section></aside></body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>translateY()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function translateY()</h1><main>
+    
+
+<p>
+  The <strong><code>translateY()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> repositions an element vertically on the 2D plane. Its result
+  is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> <code>translateY(ty)</code> is equivalent to
+    <code>translate(0, ty)</code> or
+    <code>translate3d(0, ty, 0)</code>.
+  </p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length-percentage> values */
+transform: translateY(200px);
+transform: translateY(50%);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;length-percentage></code></dt>
+  <dd>
+    <p>
+      The value is a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> representing the ordinate of the
+      translating vector. A percentage value refers to the height of the reference box defined by the
+      <a href="./css.properties.transform-box.html"><code>transform-box()</code></a> property.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        <p>
+          A translation is not a linear transformation in ℝ^2 and can't be
+          represented using a Cartesian-coordinate matrix.
+        </p>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mi>t</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mi>t</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>t</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+    <tr>
+      <td><code>[1 0 0 1 0 t]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Formal syntax</h3>
+<pre class="brush: css">translateY(<a href="/Web/CSS/length-percentage"><code>&lt;length-percentage&gt;()</code></a>)
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>Static&#x3C;/div>
+&#x3C;div class="moved">Moved&#x3C;/div>
+&#x3C;div>Static&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  width: 60px;
+  height: 60px;
+  background-color: skyblue;
+}
+
+.moved {
+  transform: translateY(10px);
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a></li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.properties.translate.html"><code>translate()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#funcdef-transform-translatey">https://drafts.csswg.org/css-transforms/#funcdef-transform-translatey</a></p></section></aside></body>
+</html>

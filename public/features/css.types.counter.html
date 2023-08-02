@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>counter()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types counter()</h1><main>
+    
+
+<p>
+  The <strong><code>counter()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> returns a string representing the current value of the named counter, if there is one.
+  It is generally used in the <a href="./css.properties.content.html"><code>content()</code></a> property of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-elements</a>, but can theoretically be used anywhere a <a href="./css.types.string.html"><code>&#x3C;string></code></a> value is supported.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Simple usage */
+counter(countername);
+
+/* changing the counter display */
+counter(countername, upper-roman)
+</pre>
+<p>
+  A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">counter</a> has no visible effect by itself.
+  The <code>counter()</code> function (and <a href="./css.types.counters.html"><code>counters()</code></a> function) is what makes it useful by returning developer defined strings (or images).
+</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;()</code></a></dt>
+  <dd>
+    <p>A name identifying the counter, which is the same case-sensitive name used for the <a href="./css.properties.counter-reset.html"><code>counter-reset()</code></a> and <a href="./css.properties.counter-increment.html"><code>counter-increment()</code></a>. The name cannot start with two dashes and can't be <code>none</code>, <code>unset</code>, <code>initial</code>, or <code>inherit</code>.</p>
+  </dd>
+  <dt><code>&#x3C;counter-style></code></dt>
+  <dd>
+    <p>A <a href="./css.properties.list-style-type.html"><code>&lt;list-style-type&gt;()</code></a> name, <a href="./css.at-rules.counter-style.html"><code>&lt;@counter-style&gt;()</code></a> name or <a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a> function, where a counter style name is a <code>numeric</code>, <code>alphabetic</code>, or <code>symbolic</code> simple predefined counter style, a complex longhand east Asian or Ethiopic predefined counter style, or other <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles">predefined counter style</a>. If omitted, the counter-style defaults to <code>decimal</code>.</p>
+  </dd>
+</dl>
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ol>
+  &#x3C;li>&#x3C;/li>
+  &#x3C;li>&#x3C;/li>
+  &#x3C;li>&#x3C;/li>
+&#x3C;/ol>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ol {
+  counter-reset: listCounter;
+}
+li {
+  counter-increment: listCounter;
+}
+li::after {
+  content: "[" counter(listCounter) "] == [" counter(listCounter, upper-roman)
+    "]";
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ol>
+  &#x3C;li>&#x3C;/li>
+  &#x3C;li>&#x3C;/li>
+  &#x3C;li>&#x3C;/li>
+&#x3C;/ol>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ol {
+  counter-reset: count;
+}
+li {
+  counter-increment: count;
+}
+li::after {
+  content: "[" counter(count, decimal-leading-zero) "] == [" counter(
+      count,
+      lower-alpha
+    )
+    "]";
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">Using CSS Counters</a></li>
+  <li><a href="./css.properties.counter-reset.html"><code>counter-reset()</code></a></li>
+  <li><a href="./css.properties.counter-set.html"><code>counter-set()</code></a></li>
+  <li><a href="./css.properties.counter-increment.html"><code>counter-increment()</code></a></li>
+  <li><a href="./css.at-rules.counter-style.html"><code>@counter-style()</code></a></li>
+  <li>CSS <a href="./css.types.counters.html"><code>counters()</code></a> function</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-lists/#counter-functions">https://drafts.csswg.org/css-lists/#counter-functions</a></p></section></aside></body>
+</html>

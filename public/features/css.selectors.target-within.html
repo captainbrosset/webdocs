@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":target-within"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":target-within"</h1><main>
+    
+
+<p>The <strong><code>:target-within</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents an element that is a target element or <em>contains</em> an element that is a target. A target element is a unique element with an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> matching the URL's fragment. In other words, it represents an element that is itself matched by the <a href="./css.selectors.target.html"><code>:target</code></a> pseudo-class or has a descendant that is matched by <code>:target</code>. (This includes descendants in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">shadow trees</a>.)</p>
+<pre class="brush: css">/* Selects a &#x3C;div> when one of its descendants is a target */
+div:target-within {
+  background: cyan;
+}
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">:target-within {
+  /* ... */
+}
+</pre>
+
+<h3>Highlighting an article</h3>
+<p>The <code>:target-within</code> pseudo-class can be used to highlight the article if anything inside it has been directly linked to. The <code>:target</code> pseudo-class is also being used to show which item has been targeted.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h3>Table of Contents&#x3C;/h3>
+&#x3C;ol>
+  &#x3C;li>&#x3C;a href="#p1">Jump to the first paragraph!&#x3C;/a>&#x3C;/li>
+  &#x3C;li>&#x3C;a href="#p2">Jump to the second paragraph!&#x3C;/a>&#x3C;/li>
+&#x3C;/ol>
+
+&#x3C;article>
+  &#x3C;h3>My Fun Article&#x3C;/h3>
+  &#x3C;p id="p1">
+    You can target &#x3C;i>this paragraph&#x3C;/i> using a URL fragment. Click on the link
+    above to try out!
+  &#x3C;/p>
+  &#x3C;p id="p2">
+    This is &#x3C;i>another paragraph&#x3C;/i>, also accessible from the links above.
+    Isn't that delightful?
+  &#x3C;/p>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">article:target-within {
+  background-color: gold;
+}
+
+/* Add a pseudo-element inside the target element */
+p:target::before {
+  font: 70% sans-serif;
+  content: "►";
+  color: limegreen;
+  margin-right: 0.25em;
+}
+
+/* Style italic elements within the target element */
+p:target i {
+  color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.target.html"><code>:target</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-target-within-pseudo">https://drafts.csswg.org/selectors/#the-target-within-pseudo</a></p></section></aside></body>
+</html>

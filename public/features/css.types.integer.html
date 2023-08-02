@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;integer&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;integer></h1><main>
+    
+
+<p>The <strong><code>&#x3C;integer></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> is a special type of <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> that represents a whole number, whether positive or negative. Integers can be used in numerous CSS properties, such as <a href="./css.properties.column-count.html"><code>&lt;column-count&gt;</code></a>, <a href="./css.properties.counter-increment.html"><code>&lt;counter-increment&gt;</code></a>, <a href="./css.properties.grid-column.html"><code>&lt;grid-column&gt;</code></a>, <a href="./css.properties.grid-row.html"><code>&lt;grid-row&gt;</code></a>, and <a href="./css.properties.z-index.html"><code>&lt;z-index&gt;</code></a>.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;integer></code> data type consists of one or several decimal digits, 0 through 9 inclusive, optionally preceded by a single <code>+</code> or <code>-</code> sign. There is no unit associated with integers.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> There is no official range of valid <code>&#x3C;integer></code> values and the specification do not specify a range.</p>
+</div>
+<h2>Interpolation</h2>
+<p>When animated, values of the <code>&#x3C;integer></code> data type are <a href="/Glossary/interpolation">interpolated</a> using discrete, whole steps. The calculation is done as if they were real, floating-point numbers; the discrete value is obtained using the <a href="https://en.wikipedia.org/wiki/Floor_function">floor function</a>. The speed of the interpolation is determined by the <a href="./css.types.easing-function.html">easing function</a> associated with the animation.</p>
+
+<h3>Valid integers</h3>
+<pre class="brush: plain example-good">12          Positive integer (without a leading + sign)
++123        Positive integer (with a leading + sign)
+-456        Negative integer
+0           Zero
++0          Zero, with a leading +
+-0          Zero, with a leading -
+</pre>
+<h3>Invalid integers</h3>
+<pre class="brush: plain example-bad">12.0        This is a &#x3C;number>, not an &#x3C;integer>, though it represents an integer.
+12.         Decimal points are not allowed.
++---12      Only one leading +/- is allowed.
+ten         Letters are not allowed.
+_5          Special characters are not allowed.
+\35         Escaped Unicode characters are not allowed, even if they are an integer (here: 5).
+\4E94       Non-arabic numerals are not allowed, even when escaped (here: the Japanese 5, 五).
+3e4         Scientific notation is not allowed.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.number.html"><code>&lt;number&gt;</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#integers">https://drafts.csswg.org/css-values/#integers</a></p></section></aside></body>
+</html>

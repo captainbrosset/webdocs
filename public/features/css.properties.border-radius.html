@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-radius</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-radius</h1><main>
+    
+
+<p>The <strong><code>border-radius</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.</p>
+<p>The radius applies to the whole <a href="./css.properties.background.html"><code>background</code></a>, even if the element has no border; the exact position of the clipping is defined by the <a href="./css.properties.background-clip.html"><code>background-clip</code></a> property.</p>
+<p>The <code>border-radius</code> property does not apply to table elements when <a href="./css.properties.border-collapse.html"><code>border-collapse</code></a> is <code>collapse</code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> As with any shorthand property, individual sub-properties cannot inherit, such as in <code>border-radius:0 0 inherit inherit</code>, which would partially override existing definitions. Instead, the individual longhand properties have to be used.</p>
+</div>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.border-top-left-radius.html"><code>border-top-left-radius</code></a></li>
+  <li><a href="./css.properties.border-top-right-radius.html"><code>border-top-right-radius</code></a></li>
+  <li><a href="./css.properties.border-bottom-right-radius.html"><code>border-bottom-right-radius</code></a></li>
+  <li><a href="./css.properties.border-bottom-left-radius.html"><code>border-bottom-left-radius</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* The syntax of the first radius allows one to four values */
+/* Radius is set for all 4 sides */
+border-radius: 10px;
+
+/* top-left-and-bottom-right | top-right-and-bottom-left */
+border-radius: 10px 5%;
+
+/* top-left | top-right-and-bottom-left | bottom-right */
+border-radius: 2px 4px 2px;
+
+/* top-left | top-right | bottom-right | bottom-left */
+border-radius: 1px 0 3px 4px;
+
+/* The syntax of the second radius allows one to four values */
+/* (first radius values) / radius */
+border-radius: 10px / 20px;
+
+/* (first radius values) / top-left-and-bottom-right | top-right-and-bottom-left */
+border-radius: 10px 5% / 20px 30px;
+
+/* (first radius values) / top-left | top-right-and-bottom-left | bottom-right */
+border-radius: 10px 5px 2em / 20px 25px 30%;
+
+/* (first radius values) / top-left | top-right | bottom-right | bottom-left */
+border-radius: 10px 5% / 20px 25em 30px 35em;
+
+/* Global values */
+border-radius: inherit;
+border-radius: initial;
+border-radius: revert;
+border-radius: revert-layer;
+border-radius: unset;
+</pre>
+<p>The <code>border-radius</code> property is specified as:</p>
+<ul>
+  <li>one, two, three, or four <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values. This is used to set a single radius for the corners.</li>
+  <li>followed optionally by "/" and one, two, three, or four <code>&#x3C;length></code> or <code>&#x3C;percentage></code> values. This is used to set an additional radius, so you can have elliptical corners.</li>
+</ul>
+<h3>Values</h3>
+<table>
+  <tbody>
+    <tr>
+      <td><em>radius</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. All 4 corners are rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/all-corner.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in each corner of the border. It is used only in the
+        one-value syntax.
+      </td>
+    </tr>
+    <tr>
+      <td><em>top-left-and-bottom-right</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The 2 corners on the top left and the bottom right have are rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/top-left-bottom-right.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the top-left and bottom-right corners of the element's
+        box. It is used only in the two-value syntax.
+      </td>
+    </tr>
+    <tr>
+      <td><em>top-right-and-bottom-left</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The 2 corners on the top right and the bottom left are rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/top-right-bottom-left.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the top-right and bottom-left corners of the element's
+        box. It is used only in the two- and three-value syntaxes.
+      </td>
+    </tr>
+    <tr>
+      <td><em>top-left</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The corner on the top left is rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/top-left.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the top-left corner of the element's box. It is used
+        only in the three- and four-value syntaxes.
+      </td>
+    </tr>
+    <tr>
+      <td><em>top-right</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The corner on the top right is rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/top-right.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the top-right corner of the element's box. It is used
+        only in the four-value syntax.
+      </td>
+    </tr>
+    <tr>
+      <td><em>bottom-right</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The bottom right corner is rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/bottom-right.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the bottom-right corner of the element's box. It is
+        used only in the three- and four-value syntaxes.
+      </td>
+    </tr>
+    <tr>
+      <td><em>bottom-left</em></td>
+      <td>
+        <img alt="A light blue rectangle with a light gray border. The bottom left corner is rounded." src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius/bottom-left.png">
+      </td>
+      <td>
+        Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a
+        <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> denoting a radius to use
+        for the border in the bottom-left corner of the element's box. It is
+        used only in the four-value syntax.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Denotes the size of the circle radius, or the semi-major and semi-minor axes of the ellipse, using length values. Negative values are invalid.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Denotes the size of the circle radius, or the semi-major and semi-minor axes of the ellipse, using percentage values. Percentages for the horizontal axis refer to the width of the box; percentages for the vertical axis refer to the height of the box. Negative values are invalid.</p>
+  </dd>
+</dl>
+<p>For example:</p>
+<pre class="brush: css">border-radius: 1em/5em;
+
+/* It is equivalent to: */
+border-top-left-radius: 1em 5em;
+border-top-right-radius: 1em 5em;
+border-bottom-right-radius: 1em 5em;
+border-bottom-left-radius: 1em 5em;
+</pre>
+<pre class="brush: css">border-radius: 4px 3px 6px / 2px 4px;
+
+/* It is equivalent to: */
+border-top-left-radius: 4px 2px;
+border-top-right-radius: 3px 4px;
+border-bottom-right-radius: 6px 2px;
+border-bottom-left-radius: 3px 4px;
+</pre>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>all elements, except table element when border-collapse is collapse</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>see individual properties</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;length-percentage [0,∞]&gt;{1,4} [ / &lt;length-percentage [0,∞]&gt;{1,4} ]?</pre></section>
+<h2>Examples</h2>
+<pre class="brush: html hidden">&#x3C;pre id="example-1">
+  border: solid 10px;
+  border-radius: 10px 40px 40px 10px;
+&#x3C;/pre>
+
+&#x3C;pre id="example-2">
+  border: groove 1em red;
+  border-radius: 2em;
+&#x3C;/pre>
+
+&#x3C;pre id="example-3">
+  background: gold;
+  border: ridge gold;
+  border-radius: 13em/3em;
+&#x3C;/pre>
+
+&#x3C;pre id="example-4">
+  border: none;
+  border-radius: 40px 10px;
+  background: gold;
+&#x3C;/pre>
+
+&#x3C;pre id="example-5">
+  border: none;
+  border-radius: 50%;
+  background: burlywood;
+&#x3C;/pre>
+
+&#x3C;pre id="example-6">
+  border: dotted;
+  border-width: 10px 4px;
+  border-radius: 10px 40px;
+&#x3C;/pre>
+
+&#x3C;pre id="example-7">
+  border: dashed;
+  border-width: 2px 4px;
+  border-radius: 40px;
+&#x3C;/pre>
+</pre>
+<pre class="brush: css hidden">pre {
+  margin: 20px;
+  padding: 20px;
+  width: 80%;
+  height: 80px;
+}
+
+pre#example-1 {
+  border: solid 10px;
+  border-radius: 10px 40px 40px 10px;
+}
+
+pre#example-2 {
+  border: groove 1em red;
+  border-radius: 2em;
+}
+
+pre#example-3 {
+  background: gold;
+  border: ridge gold;
+  border-radius: 13em/3em;
+}
+
+pre#example-4 {
+  border: none;
+  border-radius: 40px 10px;
+  background: gold;
+}
+
+pre#example-5 {
+  border: none;
+  border-radius: 50%;
+  background: burlywood;
+}
+
+pre#example-6 {
+  border: dotted;
+  border-width: 10px 4px;
+  border-radius: 10px 40px;
+}
+
+pre#example-7 {
+  border: dashed;
+  border-width: 2px 4px;
+  border-radius: 40px;
+}
+</pre>
+<h3>Live Samples</h3>
+<ul>
+  <li>Sample 1 : <a href="https://jsfiddle.net/Tripad/qnGKj/2/">https://jsfiddle.net/Tripad/qnGKj/2/</a></li>
+  <li>Sample 2 : <a href="https://jsfiddle.net/Tripad/qnGKj/3/">https://jsfiddle.net/Tripad/qnGKj/3/</a></li>
+  <li>Sample 3 : <a href="https://jsfiddle.net/Tripad/qnGKj/4/">https://jsfiddle.net/Tripad/qnGKj/4/</a></li>
+  <li>Sample 4 : <a href="https://jsfiddle.net/Tripad/qnGKj/5/">https://jsfiddle.net/Tripad/qnGKj/5/</a></li>
+  <li>Sample 5 : <a href="https://jsfiddle.net/Tripad/qnGKj/6/">https://jsfiddle.net/Tripad/qnGKj/6/</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Border-radius-related CSS properties: <a href="./css.properties.border-top-left-radius.html"><code>border-top-left-radius</code></a>, <a href="./css.properties.border-top-right-radius.html"><code>border-top-right-radius</code></a>, <a href="./css.properties.border-bottom-right-radius.html"><code>border-bottom-right-radius</code></a>, <a href="./css.properties.border-bottom-left-radius.html"><code>border-bottom-left-radius</code></a>, <a href="./css.properties.border-start-start-radius.html"><code>border-start-start-radius</code></a>, <a href="./css.properties.border-start-end-radius.html"><code>border-start-end-radius</code></a>, <a href="./css.properties.border-end-start-radius.html"><code>border-end-start-radius</code></a>, <a href="./css.properties.border-end-end-radius.html"><code>border-end-end-radius</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#border-radius">https://drafts.csswg.org/css-backgrounds/#border-radius</a></p></section></aside></body>
+</html>

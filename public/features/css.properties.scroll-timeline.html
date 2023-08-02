@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-timeline</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-timeline</h1><main>
+    
+
+<p>The <strong><code>scroll-timeline</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> is used to define a <em>named scroll progress timeline</em>, which is progressed through by scrolling a scrollable element (<em>scroller</em>) between top and bottom (or left and right). <code>scroll-timeline</code> is set on the scroller that will provide the timeline. The starting scroll position represents 0% progress and the ending scroll position represents 100% progress. If the 0% position and 100% position coincide (i.e., the scroll container has no overflow to scroll), the timeline is inactive.</p>
+<p><code>scroll-timeline</code> can contain two constituent values — a name for the named scroll progress timeline, and an optional scroll axis value.</p>
+<p>The name is then referenced in an <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a> declaration to indicate the container's element that is used to drive the progress of the animation through the scrolling action.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the scroller does not overflow its container in the axis dimension or if the overflow is hidden or clipped, no timeline will be created.</p>
+</div>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a></li>
+  <li><a href="./css.properties.scroll-timeline-axis.html"><code>scroll-timeline-axis</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* two values: one each for scroll-timeline-name and scroll-timeline-axis */
+scroll-timeline: --custom_name_for_timeline block;
+scroll-timeline: --custom_name_for_timeline inline;
+scroll-timeline: --custom_name_for_timeline y;
+scroll-timeline: --custom_name_for_timeline x;
+scroll-timeline: none block;
+scroll-timeline: none inline;
+scroll-timeline: none y;
+scroll-timeline: none x;
+
+/* one value: scroll-timeline-name */
+scroll-timeline: none;
+scroll-timeline: --custom_name_for_timeline;
+</pre>
+<p>The <code>scroll-timeline</code> shorthand property can be applied to a container element as a combination of the <code>&#x3C;scroll-timeline-name></code> and <code>&#x3C;scroll-timeline-axis></code> values. At least one of the values must be specified. If both the values are specified, the order followed must be the <code>&#x3C;scroll-timeline-name></code> value followed by the <code>&#x3C;scroll-timeline-axis></code> value.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>&#x3C;scroll-timeline-name></code>s must be <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident"><code>&#x3C;dashed-ident></code></a> values, which means they must start with <code>--</code>. This helps avoid name clashes with standard CSS keywords.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;scroll-timeline-name></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;scroll-timeline-axis></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.scroll-timeline-axis.html"><code>scroll-timeline-axis</code></a>. The default value is <code>block</code>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Creating a named scroll progress timeline animation</h3>
+<p>
+  In this example, a scroll timeline named <code>--squareTimeline</code> is defined using the <code>scroll-timeline-name</code> property on the element with the ID <code>container</code>.
+  This is then applied to the animation on the <code>#square</code> element using <code>animation-timeline: --squareTimeline</code>.
+</p>
+<h4>HTML</h4>
+<p>The HTML for the example is shown below.</p>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div id="square">&#x3C;/div>
+  &#x3C;div id="stretcher">&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>
+  The CSS for the container sets it as the source of a scroll timeline named <code>--squareTimeline</code> using the <code>scroll-timeline</code> property.
+  It also sets the scrollbar to use for the timeline as the vertical scrollbar (this is not actually needed as it is the default).
+</p>
+<p>The height of the container is set to <code>300px</code>, and the container is also set to create a vertical scrollbar if it overflows (the CSS <code>height</code> rule on the <code>stretcher</code> element below does make the content overflow its container).</p>
+<pre class="brush: css">#container {
+  height: 300px;
+  overflow-y: scroll;
+  scroll-timeline: --squareTimeline y;
+  /* Firefox supports the older "vertical" syntax */
+  scroll-timeline: --squareTimeline vertical;
+  position: relative;
+}
+</pre>
+<p>The CSS below defines a square that rotates according to the timeline provided by the <code>animation-timeline</code> property, which is set to the <code>--squareTimeline</code> timeline named above.</p>
+<pre class="brush: css">#square {
+  background-color: deeppink;
+  width: 100px;
+  height: 100px;
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-timeline: --squareTimeline;
+  position: absolute;
+  bottom: 0;
+}
+
+#stretcher {
+  height: 600px;
+  background: #dedede;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<p>
+  The <code>stretcher</code> CSS rule sets the block height to <code>600px</code>, which creates content that overflows the container element, thereby creating scroll bars.
+  Without this element, the content would not overflow the container, there would be no scrollbar, and hence no scroll timeline to associate with the animation timeline.
+</p>
+<h4>Result</h4>
+<p>Scroll the vertical bar to see the square animate as you scroll.</p>
+<p>The square animates as you scroll, and the animation duration when using <code>scroll-timeline</code> depends on the scroll speed (nevertheless, the <code>animation-duration</code> property has been defined so you can make out the scroll-driven animation).</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+  <li><a href="./css.properties.scroll-timeline-axis.html"><code>scroll-timeline-axis</code></a>, <a href="./css.properties.scroll-timeline-name.html"><code>scroll-timeline-name</code></a></li>
+  <li><a href="./css.properties.timeline-scope.html"><code>timeline-scope</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 115</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/scroll-animations/#scroll-timeline-shorthand">https://drafts.csswg.org/scroll-animations/#scroll-timeline-shorthand</a></p></section></aside></body>
+</html>

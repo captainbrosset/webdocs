@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>perspective</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties perspective</h1><main>
+    
+
+<p>The <strong><code>perspective</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+perspective: none;
+
+/* &#x3C;length> values */
+perspective: 20px;
+perspective: 3.5em;
+
+/* Global values */
+perspective: inherit;
+perspective: initial;
+perspective: revert;
+perspective: revert-layer;
+perspective: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Indicates that no perspective transform is to be applied.</p>
+  </dd>
+  <dt><code>&#x3C;length></code></dt>
+  <dd>
+    <p>A <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> giving the distance from the user to the z=0 plane. It is used to apply a perspective transform to the children of the element. Negative values are syntax errors. If the value is smaller than <code>1px</code>, it is clamped to <code>1px</code>.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>
+  Each 3D element with z>0 becomes larger; each 3D-element with z&#x3C;0 becomes smaller. The strength of the effect is determined by the value of this property.
+  Large values of <code>perspective</code> cause a small transformation;
+  small values of <code>perspective</code> cause a large transformation.
+</p>
+<p>The parts of the 3D elements that are behind the user — i.e. their z-axis coordinates are greater than the value of the <code>perspective</code> CSS property — are not drawn.</p>
+<p>The <em>vanishing point</em> is by default placed at the center of the element, but its position can be changed using the <a href="./css.properties.perspective-origin.html"><code>perspective-origin</code></a> property.</p>
+<p>Using this property with a value other than <code>none</code> creates a new <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context">stacking context</a>. Also, in that case, the object will act as a containing block for <code>position: fixed</code> elements that it contains.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or an absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;length [0,∞]&gt;</pre></section>
+
+<h3>Setting perspective</h3>
+<p>An example showing how a cube varies if the <code>perspective</code> is set at different positions is given in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#setting_perspective">Using CSS transforms > Setting perspective</a>.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS Transforms</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#perspective-property">https://drafts.csswg.org/css-transforms-2/#perspective-property</a></p></section></aside></body>
+</html>

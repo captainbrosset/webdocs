@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@media"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@media"</h1><main>
+    
+
+<p>The <strong><code>@media</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> can be used to apply part of a style sheet based on the result of one or more <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media queries</a>. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In JavaScript, the rules created using <code>@media</code> can be accessed with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSMediaRule"><code>CSSMediaRule</code></a> CSS object model interface.</p>
+</div>
+<h2>Syntax</h2>
+<p>The <code>@media</code> at-rule may be placed at the top level of your code or nested inside any other <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule#conditional_group_rules">conditional group at-rule</a>.</p>
+<pre class="brush: css">/* At the top level of your code */
+@media screen and (min-width: 900px) {
+  article {
+    padding: 1rem 3rem;
+  }
+}
+
+/* Nested within another conditional at-rule */
+@supports (display: flex) {
+  @media screen and (min-width: 900px) {
+    article {
+      display: flex;
+    }
+  }
+}
+</pre>
+<p>For a discussion of media query syntax, please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax">Using media queries</a>.</p>
+
+<h3>Media types</h3>
+<p>
+  <em>Media types</em> describe the general category of a device.
+  Except when using the <code>not</code> or <code>only</code> logical operators, the media type is optional and the <code>all</code> type is implied.
+</p>
+<dl>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>Suitable for all devices.</p>
+  </dd>
+  <dt><code>print</code></dt>
+  <dd>
+    <p>Intended for paged material and documents viewed on a screen in print preview mode. (Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media">paged media</a> for information about formatting issues that are specific to these formats.)</p>
+  </dd>
+  <dt><code>screen</code></dt>
+  <dd>
+    <p>Intended primarily for screens.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> CSS2.1 and <a href="https://drafts.csswg.org/mediaqueries-3/#background">Media Queries 3</a> defined several additional media types (<code>tty</code>, <code>tv</code>, <code>projection</code>, <code>handheld</code>, <code>braille</code>, <code>embossed</code>, and <code>aural</code>), but they were deprecated in <a href="https://drafts.csswg.org/mediaqueries/#media-types">Media Queries 4</a> and shouldn't be used.</p>
+</div>
+<h3>Media features</h3>
+<p>
+  <em>Media features</em> describe specific characteristics of the <a href="/Glossary/user_agent">user agent</a>, output device, or environment.
+  Media feature expressions test for their presence or value, and are entirely optional. Each media feature expression must be surrounded by parentheses.
+</p>
+<dl>
+  <dt><a href="./css.at-rules.media.any-hover.html"><code>any-hover</code></a></dt>
+  <dd>
+    <p>
+      Does any available input mechanism allow the user to hover over elements?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.any-pointer.html"><code>any-pointer</code></a></dt>
+  <dd>
+    <p>
+      Is any available input mechanism a pointing device, and if so, how accurate is it?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.aspect-ratio.html"><code>aspect-ratio</code></a></dt>
+  <dd>
+    <p>Width-to-height aspect ratio of the viewport</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.color.html"><code>color</code></a></dt>
+  <dd>
+    <p>Number of bits per color component of the output device, or zero if the device isn't color</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.color-gamut.html"><code>color-gamut</code></a></dt>
+  <dd>
+    <p>
+      Approximate range of colors that are supported by the user agent and output device.
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.color-index.html"><code>color-index</code></a></dt>
+  <dd>
+    <p>Number of entries in the output device's color lookup table, or zero if the device does not use such a table</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.device-aspect-ratio.html"><code>device-aspect-ratio</code></a> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>
+      Width-to-height aspect ratio of the output device.
+      Deprecated in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.device-height.html"><code>device-height</code></a> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>
+      Height of the rendering surface of the output device.
+      Deprecated in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.device-width.html"><code>device-width</code></a> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Width of the rendering surface of the output device. Deprecated in Media Queries Level 4.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.display-mode.html"><code>display-mode</code></a></dt>
+  <dd>
+    <p>
+      The display mode of the application, as specified in the web app manifest's <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest#display"><code>display</code></a> member.
+      Defined in the <a href="https://w3c.github.io/manifest/#the-display-mode-media-feature">Web App Manifest spec</a>.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.dynamic-range.html"><code>dynamic-range</code></a></dt>
+  <dd>
+    <p>Combination of brightness, contrast ratio, and color depth that are supported by the user agent and the output device. Added in Media Queries Level 5.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.forced-colors.html"><code>forced-colors</code></a></dt>
+  <dd>
+    <p>
+      Detect whether user agent restricts color palette.
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.grid.html"><code>grid</code></a></dt>
+  <dd>
+    <p>Does the device use a grid or bitmap screen?</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.height.html"><code>height</code></a></dt>
+  <dd>
+    <p>Height of the viewport.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.hover.html"><code>hover</code></a></dt>
+  <dd>
+    <p>
+      Does the primary input mechanism allow the user to hover over elements?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.inverted-colors.html"><code>inverted-colors</code></a></dt>
+  <dd>
+    <p>
+      Is the user agent or underlying OS inverting colors?
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.monochrome.html"><code>monochrome</code></a></dt>
+  <dd>
+    <p>Bits per pixel in the output device's monochrome frame buffer, or zero if the device isn't monochrome.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.orientation.html"><code>orientation</code></a></dt>
+  <dd>
+    <p>Orientation of the viewport.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.overflow-block.html"><code>overflow-block</code></a></dt>
+  <dd>
+    <p>
+      How does the output device handle content that overflows the viewport along the block axis?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.overflow-inline.html"><code>overflow-inline</code></a></dt>
+  <dd>
+    <p>
+      Can content that overflows the viewport along the inline axis be scrolled?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.pointer.html"><code>pointer</code></a></dt>
+  <dd>
+    <p>
+      Is the primary input mechanism a pointing device, and if so, how accurate is it?
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.prefers-color-scheme.html"><code>prefers-color-scheme</code></a></dt>
+  <dd>
+    <p>
+      Detect if the user prefers a light or dark color scheme.
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.prefers-contrast.html"><code>prefers-contrast</code></a></dt>
+  <dd>
+    <p>
+      Detects if the user has requested the system increase or decrease the amount of contrast between adjacent colors.
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.prefers-reduced-motion.html"><code>prefers-reduced-motion</code></a></dt>
+  <dd>
+    <p>
+      The user prefers less motion on the page.
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.resolution.html"><code>resolution</code></a></dt>
+  <dd>
+    <p>Pixel density of the output device.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.scripting.html"><code>scripting</code></a></dt>
+  <dd>
+    <p>
+      Detects whether scripting (i.e. JavaScript) is available.
+      Added in Media Queries Level 5.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.update.html"><code>update</code></a></dt>
+  <dd>
+    <p>
+      How frequently the output device can modify the appearance of content.
+      Added in Media Queries Level 4.
+    </p>
+  </dd>
+  <dt><a href="./css.at-rules.media.video-dynamic-range.html"><code>video-dynamic-range</code></a></dt>
+  <dd>
+    <p>Combination of brightness, contrast ratio, and color depth that are supported by the video plane of user agent and the output device. Added in Media Queries Level 5.</p>
+  </dd>
+  <dt><a href="./css.at-rules.media.width.html"><code>width</code></a></dt>
+  <dd>
+    <p>Width of the viewport including width of scrollbar.</p>
+  </dd>
+</dl>
+<h3>Logical operators</h3>
+<p>
+  The <em>logical operators</em> <code>not</code>, <code>and</code>, <code>only</code>, and <code>or</code> can be used to compose a complex media query.
+  You can also combine multiple media queries into a single rule by separating them with commas.
+</p>
+<dl>
+  <dt><code>and</code></dt>
+  <dd>
+    <p>
+      Used for combining multiple media features together into a single media query, requiring each chained feature to return <code>true</code> for the query to be <code>true</code>.
+      It is also used for joining media features with media types.
+    </p>
+  </dd>
+  <dt><code>not</code></dt>
+  <dd>
+    <p>
+      Used to negate a media query, returning <code>true</code> if the query would otherwise return <code>false</code>.
+      If present in a comma-separated list of queries, it will only negate the specific query to which it is applied.
+      If you use the <code>not</code> operator, you <em>must also</em> specify a media type.
+    </p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> In Level 3, the <code>not</code> keyword can't be used to negate an individual media feature expression, only an entire media query.</p>
+    </div>
+  </dd>
+  <dt><code>only</code></dt>
+  <dd>
+    <p>
+      Applies a style only if an entire query matches.
+      It is useful for preventing older browsers from applying selected styles.
+      When not using <code>only</code>, older browsers would interpret the query <code>screen and (max-width: 500px)</code> as <code>screen</code>, ignoring the remainder of the query, and applying its styles on all screens.
+      If you use the <code>only</code> operator, you <em>must also</em> specify a media type.
+    </p>
+  </dd>
+  <dt><code>,</code> (comma)</dt>
+  <dd>
+    <p>
+      Commas are used to combine multiple media queries into a single rule.
+      Each query in a comma-separated list is treated separately from the others
+      Thus, if any of the queries in a list is <code>true</code>, the entire media statement returns <code>true</code>.
+      In other words, lists behave like a logical <code>or</code> operator.
+    </p>
+  </dd>
+  <dt><code>or</code></dt>
+  <dd>
+    <p>Equivalent to the <code>,</code> operator. Added in Media Queries Level 4.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>To best accommodate people who adjust a site's text size, use <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numeric_values"><code>em</code></a>s when you need a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> for your <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media queries</a>.</p>
+<p>Both <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numeric_values"><code>em</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numeric_values"><code>px</code></a> are valid units, but <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numeric_values"><code>em</code></a> works better if the user changes the browser text size.</p>
+<p>Also consider using Level 4 media queries to improve the user's experience. For example, <code>prefers-reduced-motion</code> to <a href="./css.at-rules.media.prefers-reduced-motion.html">detect if the user has requested that the system minimize the amount of animation</a> or motion it uses.</p>
+<h2>Security</h2>
+<p>Because media queries provide insights into the capabilities—and by extension, the features and design—of the device the user is working with, there is the potential that they could be abused to construct a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fingerprinting">"fingerprint"</a> which identifies the device, or at least categorizes it to some degree of detail that may be undesirable to users.</p>
+<p>Because of this potential, a browser may opt to fudge the returned values in some manner in order to prevent them from being used to precisely identify a computer. A browser might also offer additional measures in this area; for example, if Firefox's "Resist Fingerprinting" setting is enabled, many media queries report default values rather than values representing the actual device state.</p>
+
+
+<h3>Testing for print and screen media types</h3>
+<pre class="brush: css">@media print {
+  body {
+    font-size: 10pt;
+  }
+}
+
+@media screen {
+  body {
+    font-size: 13px;
+  }
+}
+
+@media screen, print {
+  body {
+    line-height: 1.2;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) and (resolution: 150dpi) {
+  body {
+    line-height: 1.4;
+  }
+}
+</pre>
+<p>Introduced in Media Queries Level 4 is a new range syntax that allows for less verbose media queries when testing for any feature accepting a range, as shown in the below examples:</p>
+<pre class="brush: css">@media (height > 600px) {
+  body {
+    line-height: 1.4;
+  }
+}
+
+@media (400px &#x3C;= width &#x3C;= 700px) {
+  body {
+    line-height: 1.4;
+  }
+}
+</pre>
+<p>For more examples, please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using media queries</a>.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using media queries</a></li>
+  <li>In JavaScript, <code>@media</code> can be accessed via the CSS object model interface <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSMediaRule"><code>CSSMediaRule</code></a>.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions#media_features">Extended Mozilla media features</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions#media_features">Extended WebKit media features</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 6</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#media-descriptor-table,https://drafts.csswg.org/css-conditional-3/#at-media">https://drafts.csswg.org/mediaqueries/#media-descriptor-table,https://drafts.csswg.org/css-conditional-3/#at-media</a></p></section></aside></body>
+</html>

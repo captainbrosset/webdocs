@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-synthesis</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-synthesis</h1><main>
+    
+
+<p>The <strong><code>font-synthesis</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property lets you specify whether or not the browser may synthesize the bold, italic, and/or small-caps typefaces when they are missing in the specified font-family.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.font-synthesis-weight.html">font-synthesis-weight</a></li>
+  <li><a href="./css.properties.font-synthesis-style.html">font-synthesis-style</a></li>
+  <li><a href="./css.properties.font-synthesis-small-caps.html">font-synthesis-small-caps</a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* none or one or more of the other keyword values */
+font-synthesis: none;
+font-synthesis: weight;
+font-synthesis: style;
+font-synthesis: small-caps style; /* property values can be in any order */
+font-synthesis: style small-caps weight; /* property values can be in any order */
+
+/* Global values */
+font-synthesis: inherit;
+font-synthesis: initial;
+font-synthesis: revert;
+font-synthesis: revert-layer;
+font-synthesis: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Indicates that no bold, italic, or small-caps typeface may be synthesized by the browser.</p>
+  </dd>
+  <dt><code>weight</code></dt>
+  <dd>
+    <p>Indicates that the missing bold typeface may be synthesized by the browser if needed.</p>
+  </dd>
+  <dt><code>style</code></dt>
+  <dd>
+    <p>Indicates that the missing italic typeface may be synthesized by the browser if needed.</p>
+  </dd>
+  <dt><code>small-caps</code></dt>
+  <dd>
+    <p>Indicates that the missing small-caps typeface may be synthesized by the browser if needed.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Most standard Western fonts include italic and bold variants, and some fonts include a small-caps variant. However, many fonts do not. Fonts used for Chinese, Japanese, Korean and other logographic scripts tend not to include these variants and synthesizing them might impede the legibility or change the meaning of the text. In these cases, it may be desirable to switch off the browser's default font-synthesis.</p>
+<p>For example, using the <a href="./css.selectors.lang.html">:lang()</a> pseudo-class, you can disable the browser from synthesizing bold and oblique characters for a language, in this case Arabic:</p>
+<pre class="brush: css">*:lang(ar) {
+  font-synthesis: none;
+}
+</pre>
+<p>The table below shows how a value of the shorthand <code>font-synthesis</code> property maps to the constituent longhand properties.</p>
+<table>
+  <thead>
+    <tr>
+      <th align="left">font-synthesis value</th>
+      <th align="left"><a href="./css.properties.font-synthesis-weight.html">font-synthesis-weight</a> value</th>
+      <th align="left"><a href="./css.properties.font-synthesis-style.html">font-synthesis-style</a> value</th>
+      <th align="left"><a href="./css.properties.font-synthesis-small-caps.html">font-synthesis-small-caps</a> value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>none</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>weight</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>none</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>style</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>none</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>small-caps</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>auto</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>weight style</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>none</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>weight small-caps</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>auto</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>style small-caps</code></td>
+      <td align="left"><code>none</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>auto</code></td>
+    </tr>
+    <tr>
+      <td align="left"><code>weight style small-caps</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>auto</code></td>
+      <td align="left"><code>auto</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>weight style small-caps</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | [ weight || style || small-caps]</pre></section>
+
+<h3>Disabling font synthesis</h3>
+<p>This example shows the browser's default font-synthesis behavior and compares it with when the synthesis behavior is turned off. Notice that the example uses two imported fonts to demonstrate this behavior. You might not be able to replicate turning off of font-synthesis on fonts available on your operating system by default.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;pre> DEFAULT &#x3C;/pre>
+&#x3C;p class="english">
+  This font supports &#x3C;strong>bold&#x3C;/strong> and &#x3C;em>italic&#x3C;/em>.
+&#x3C;/p>
+&#x3C;p class="chinese">这个字体支持&#x3C;strong>加粗&#x3C;/strong>和&#x3C;em>斜体&#x3C;/em>&#x3C;/p>
+&#x3C;br />
+
+&#x3C;pre> SYNTHESIS IS DISABLED &#x3C;/pre>
+&#x3C;p class="english no-syn">
+  This font supports &#x3C;strong>bold&#x3C;/strong> and &#x3C;em>italic.&#x3C;/em>
+&#x3C;/p>
+&#x3C;p class="chinese no-syn">这个字体支持&#x3C;strong>加粗&#x3C;/strong>和&#x3C;em>斜体&#x3C;/em>&#x3C;/p>
+&#x3C;br />
+
+&#x3C;pre> SYNTHESIS IS ENABLED &#x3C;/pre>
+&#x3C;p class="english">
+  This font supports &#x3C;strong>bold&#x3C;/strong> and &#x3C;em>italic&#x3C;/em>.
+&#x3C;/p>
+&#x3C;p class="chinese syn">这个字体支持&#x3C;strong>加粗&#x3C;/strong>和&#x3C;em>斜体&#x3C;/em>&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@import url("https://fonts.googleapis.com/css2?family=Montserrat&#x26;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&#x26;display=swap");
+
+.english {
+  font-family: "Montserrat", sans-serif;
+}
+.chinese {
+  font-family: "Ma Shan Zheng";
+}
+.no-syn {
+  font-synthesis: none;
+}
+.syn {
+  font-synthesis: style weight;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 97</li><li><strong>chrome_android</strong>: 97</li><li><strong>edge</strong>: 97</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 20.0</li><li><strong>opera</strong>: 83</li><li><strong>opera_android</strong>: 68</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 18.0</li><li><strong>webview_android</strong>: 97</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-synthesis">https://drafts.csswg.org/css-fonts/#font-synthesis</a></p></section></aside></body>
+</html>

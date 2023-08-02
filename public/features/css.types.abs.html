@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>abs()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types abs()</h1><main>
+    
+
+<p>The <strong><code>abs()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> returns the absolute value of the argument, as the same type as the input.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* property: abs(expression) */
+width: abs(20% - 100px);
+</pre>
+<h3>Parameters</h3>
+<p>The <code>abs(x)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>A calculation which resolves to a number.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The absolute value of <code>x</code>.</p>
+<ul>
+  <li>if <code>x</code>'s numeric value is positive or <code>0⁺</code>, return <code>x</code>.</li>
+  <li>Otherwise, returns <code>-1 * x</code>.</li>
+</ul>
+
+
+<h3>Positive variables</h3>
+<p>The <code>abs()</code> function can be used to ensure that a value is always positive. In the following example a CSS custom property <code>--font-size</code> is used as the value of <a href="./css.properties.font-size.html"><code>font-size()</code></a>. Wrapping this custom property in <code>abs()</code> will convert a negative value to a positive one.</p>
+<pre class="brush: css">h1 {
+  font-size: abs(var(--font-size));
+}
+</pre>
+<h3>Control gradient angle of direction</h3>
+<p>You can also control the gradient direction using <code>abs()</code> function. In the following example, with an angle of -45deg the gradient would start red and transition to blue. By using <code>abs()</code> to make the value positive, the gradient will start blue and transition to red.</p>
+<pre class="brush: css">div {
+  --deg: -45deg;
+  background-image: linear-gradient(abs(var(--deg)), blue, red);
+}
+</pre>
+<h3>Backwards compatible fallback</h3>
+<p>In older browsers that lack the support for CSS <code>abs()</code> function, you can use the CSS <a href="./css.types.max.html"><code>max()</code></a> function to achieve the same result, as shown below:</p>
+<pre class="brush: css">p {
+  line-height: max(var(--lh), -1 * var(--lh));
+}
+</pre>
+<p>We use the <a href="./css.types.max.html"><code>max()</code></a> function to return the largest (most positive) value from a list of two values: <code>var(--lh)</code> or <code>-1 * var(--lh)</code>. Irrespective of whether <code>--lh</code> is positive or negative, the calculated return value will always be positive, that is, an absolute number.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.sign.html"><code>sign()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#sign-funcs">https://drafts.csswg.org/css-values/#sign-funcs</a></p></section></aside></body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-moz-orient"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-moz-orient"</h1><main>
+    
+
+<p>The <strong><code>-moz-orient</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the orientation of the element to which it's applied.</p>
+<h2>Syntax</h2>
+<p>The <code>-moz-orient</code> property is specified as one of the keyword values chosen from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>inline</code></dt>
+  <dd>
+    <p>The element is rendered in the same direction as the axis of the text: horizontally for horizontal writing modes, vertically for vertical writing modes.</p>
+  </dd>
+  <dt><code>block</code></dt>
+  <dd>
+    <p>The element is rendered orthogonally to the axis of the text: vertically for horizontal writing modes, horizontal for vertical writing modes.</p>
+  </dd>
+  <dt><code>horizontal</code></dt>
+  <dd>
+    <p>The element is rendered horizontally.</p>
+  </dd>
+  <dt><code>vertical</code></dt>
+  <dd>
+    <p>The element is rendered vertically.</p>
+  </dd>
+</dl>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">-moz-orient =
+  inline | block | horizontal | vertical
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p>The following progress meter is horizontal (the default):&#x3C;/p>
+&#x3C;progress max="100" value="75">&#x3C;/progress>
+
+&#x3C;p>The following progress meter is vertical:&#x3C;/p>
+&#x3C;progress class="vert" max="100" value="75">&#x3C;/progress>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">.vert {
+  -moz-orient: vertical;
+  width: 16px;
+  height: 150px;
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard. Though <a href="https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html">submitted</a> to the W3C, with positive initial feedback, this property is not yet part of any specification; currently, this is a Mozilla-specific extension (that is, <code>-moz-orient</code>).</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.box-orient.html"><code>box-orient</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 6</li><li><strong>firefox_android</strong>: 6</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section></aside></body>
+</html>

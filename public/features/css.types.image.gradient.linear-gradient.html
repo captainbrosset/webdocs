@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>linear-gradient()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image gradient linear-gradient()</h1><main>
+    
+
+<p>The <strong><code>linear-gradient()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> creates an image consisting of a progressive transition between two or more colors along a straight line. Its result is an object of the <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;()</code></a> data type, which is a special kind of <a href="./css.types.image.html"><code>&lt;image&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A gradient tilted 45 degrees,
+   starting blue and finishing red */
+linear-gradient(45deg, blue, red);
+
+/* A gradient going from the bottom right to the top left corner,
+   starting blue and finishing red */
+linear-gradient(to left top, blue, red);
+
+/* Color stop: A gradient going from the bottom to top,
+   starting blue, turning green at 40% of its length,
+   and finishing red */
+linear-gradient(0deg, blue, green 40%, red);
+
+/* Color hint: A gradient going from the left to right,
+   starting red, getting to the midpoint color
+   10% of the way across the length of the gradient,
+   taking the rest of the 90% of the length to change to blue */
+linear-gradient(.25turn, red, 10%, blue);
+
+/* Multi-position color stop: A gradient tilted 45 degrees,
+   with a red bottom-left half and a blue top-right half,
+   with a hard line where the gradient changes from red to blue */
+linear-gradient(45deg, red 0 50%, blue 50% 100%);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;side-or-corner></code></dt>
+  <dd>
+    <p>The position of the gradient line's starting point. If specified, it consists of the word <code>to</code> and up to two keywords: one indicates the horizontal side (<code>left</code> or <code>right</code>), and the other the vertical side (<code>top</code> or <code>bottom</code>). The order of the side keywords does not matter. If unspecified, it defaults to <code>to bottom</code>.</p>
+    <p>The values <code>to top</code>, <code>to bottom</code>, <code>to left</code>, and <code>to right</code> are equivalent to the angles <code>0deg</code>, <code>180deg</code>, <code>270deg</code>, and <code>90deg</code>, respectively. The other values are translated into an angle.</p>
+  </dd>
+  <dt><a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a></dt>
+  <dd>
+    <p>The gradient line's angle of direction. A value of <code>0deg</code> is equivalent to <code>to top</code>; increasing values rotate clockwise from there.</p>
+  </dd>
+  <dt><code>&#x3C;linear-color-stop></code></dt>
+  <dd>
+    <p>A color-stop's <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> value, followed by one or two optional stop positions, (each being either a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> or a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> along the gradient's axis).</p>
+  </dd>
+  <dt><code>&#x3C;color-hint></code></dt>
+  <dd>
+    <p>An interpolation hint defining how the gradient progresses between adjacent color stops. The length defines at which point between two color stops the gradient color should reach the midpoint of the color transition. If omitted, the midpoint of the color transition is the midpoint between two color stops.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Rendering of <a href="#composition_of_a_linear_gradient">color stops in CSS gradients</a> follows the same rules as color stops in <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients">SVG gradients</a>.</p>
+</div>
+<h2>Description</h2>
+<p>As with any gradient, a linear gradient has <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image#description">no intrinsic dimensions</a>; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to.</p>
+<p>To create a linear gradient that repeats to fill its container, use the <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a> function instead.</p>
+<p>Because <code>&#x3C;gradient></code>s belong to the <code>&#x3C;image></code> data type, they can only be used where <a href="./css.types.image.html"><code>&#x3C;image></code></a>s can be used. For this reason, <code>linear-gradient()</code> won't work on <a href="./css.properties.background-color.html"><code>background-color()</code></a> and other properties that use the <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> data type.</p>
+<h3>Composition of a linear gradient</h3>
+<p>A linear gradient is defined by an axis—the <em>gradient line</em>—and two or more <em>color-stop points</em>. Each point on the axis is a distinct color; to create a smooth gradient, the <code>linear-gradient()</code> function draws a series of colored lines perpendicular to the gradient line, each one matching the color of the point where it intersects the gradient line.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient/linear-gradient.png" alt="linear-gradient.png">
+</p>
+<p>The gradient line is defined by the center of the box containing the gradient image and by an angle. The colors of the gradient are determined by two or more points: the starting point, the ending point, and, in between, optional color-stop points.</p>
+<p>The <em>starting point</em> is the location on the gradient line where the first color begins. The <em>ending point</em> is the point where the last color ends. Each of these two points is defined by the intersection of the gradient line with a perpendicular line passing from the box corner which is in the same quadrant. The ending point can be understood as the symmetrical point of the starting point. These somewhat complex definitions lead to an interesting effect sometimes called <em>magic corners</em>: the corners nearest to the starting and ending points have the same color as their respective starting or ending points.</p>
+<h4>Customizing Gradients</h4>
+<p>By adding more color-stop points on the gradient line, you can create a highly customized transition between multiple colors. A color-stop's position can be explicitly defined by using a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. If you don't specify the location of a color, it is placed halfway between the one that precedes it and the one that follows it. The following two gradients are equivalent.</p>
+<pre class="brush: css">linear-gradient(red, orange, yellow, green, blue);
+linear-gradient(red 0%, orange 25%, yellow 50%, green 75%, blue 100%);
+</pre>
+<p>By default, colors transition smoothly from the color at one color-stop to the color at the subsequent color-stop, with the midpoint between the colors being the halfway point between the color transition. You can move this midpoint to any position between two color-stops by adding an unlabelled % color hint between the two colors to indicate where the middle of the color transition should be. The following example is solid red from the start to the 10% mark and solid blue from 90% to the end. Between 10% and 90% the color transitions from red to blue, however, the midpoint of the transition is at the 30% mark rather than 50% as would have happened without the 30% color hint.</p>
+<pre class="brush: css">linear-gradient(red 10%, 30%, blue 90%);
+</pre>
+<p>If two or more color-stops are at the same location, the transition will be a hard line between the first and last colors declared at that location.</p>
+<p>Color-stops should be listed in ascending order. Subsequent color-stops of lower value will override the value of the previous color-stop creating a hard transition. The following changes from red to yellow at the 40% mark, and then transitions from yellow to blue over 25% of the gradient:</p>
+<pre class="brush: css">linear-gradient(red 40%, yellow 30%, blue 65%);
+</pre>
+<p>Multi-position color-stops are allowed. A color can be declared as two adjacent color-stops by including both positions in the CSS declaration. The following three gradients are equivalent:</p>
+<pre class="brush: css">linear-gradient(red 0%, orange 10%, orange 30%, yellow 50%, yellow 70%, green 90%, green 100%);
+linear-gradient(red, orange 10% 30%, yellow 50% 70%, green 90%);
+linear-gradient(red 0%, orange 10% 30%, yellow 50% 70%, green 90% 100%);
+</pre>
+<p>By default, if there is no color with a <code>0%</code> stop, the first color declared will be at that point. Similarly, the last color will continue to the <code>100%</code> mark, or be at the <code>100%</code> mark if no length has been declared on that last stop.</p>
+
+
+<h3>Gradient at a 45-degree angle</h3>
+<pre class="brush: css hidden">body {
+  width: 100vw;
+  height: 100vh;
+}
+</pre>
+<pre class="brush: css">body {
+  background: linear-gradient(45deg, red, blue);
+}
+</pre>
+<h3>Gradient that starts at 60% of the gradient line</h3>
+<pre class="brush: css hidden">body {
+  width: 100vw;
+  height: 100vh;
+}
+</pre>
+<pre class="brush: css">body {
+  background: linear-gradient(135deg, orange 60%, cyan);
+}
+</pre>
+<h3>Gradient with multi-position color-stops</h3>
+<p>This example uses multi-position color-stops, with adjacent colors having the same color-stop value, creating a striped effect.</p>
+<pre class="brush: css hidden">body {
+  width: 100vw;
+  height: 100vh;
+}
+</pre>
+<pre class="brush: css">body {
+  background: linear-gradient(
+    to right,
+    red 20%,
+    orange 20% 40%,
+    yellow 40% 60%,
+    green 60% 80%,
+    blue 80%
+  );
+}
+</pre>
+<h3>More linear-gradient examples</h3>
+<p>Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">using CSS gradients</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+  <li>Other gradient functions: <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a>, <a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a>, <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a></li>
+  <li><a href="./css.types.image.html"><code>&lt;image&gt;()</code></a></li>
+  <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+  <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+  <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images">CSS images module</a></li>
+  <li><a href="/en-US/blog/css-color-module-level-4/">New functions, gradients, and hues in CSS colors (Level 4)</a> on MDN blog (2023)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images-4/#linear-gradients">https://drafts.csswg.org/css-images-4/#linear-gradients</a></p></section></aside></body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>place-items</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties place-items</h1><main>
+    
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <strong><code>place-items</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> allows you to align items along both the block and inline directions at once (i.e. the <a href="./css.properties.align-items.html"><code>align-items</code></a> and <a href="./css.properties.justify-items.html"><code>justify-items</code></a> properties) in a relevant layout system such as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout">Grid</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout">Flexbox</a>. If the second value is not set, the first value is also used for it.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.align-items.html"><code>align-items</code></a></li>
+  <li><a href="./css.properties.justify-items.html"><code>justify-items</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+place-items: center;
+place-items: normal start;
+
+/* Positional alignment */
+place-items: center normal;
+place-items: start legacy;
+place-items: end normal;
+place-items: self-start legacy;
+place-items: self-end normal;
+place-items: flex-start legacy;
+place-items: flex-end normal;
+
+/* Baseline alignment */
+place-items: baseline normal;
+place-items: first baseline legacy;
+place-items: last baseline normal;
+place-items: stretch legacy;
+
+/* Global values */
+place-items: inherit;
+place-items: initial;
+place-items: revert;
+place-items: revert-layer;
+place-items: unset;
+</pre>
+<h3>Values</h3>
+<p>One of the following forms:</p>
+<ul>
+  <li>A single <a href="./css.properties.align-items.html"><code>align-items</code></a> value, which is used to set alignment in both block and inline directions.</li>
+  <li>An <a href="./css.properties.align-items.html"><code>align-items</code></a> value, which sets alignment in the block direction, followed by a <a href="./css.properties.justify-items.html"><code>justify-items</code></a> value, which sets alignment in the inline direction.</li>
+</ul>
+
+
+
+<h3>Placing items in a flex container</h3>
+<p>In flexbox <a href="./css.properties.justify-self.html"><code>justify-self</code></a> or <a href="./css.properties.justify-items.html"><code>justify-items</code></a> do not apply, as on the main axis items are treated as a group. Therefore, the second value will be ignored.</p>
+<pre class="brush: css hidden">div > div {
+  box-sizing: border-box;
+  border: 2px solid #8c8c8c;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#item1 {
+  background-color: #8cffa0;
+  min-height: 30px;
+  font-size: 2em;
+}
+
+#item2 {
+  background-color: #a0c8ff;
+  min-height: 50px;
+}
+
+#item3 {
+  background-color: #ffa08c;
+  min-height: 40px;
+}
+
+#item4 {
+  background-color: #ffff8c;
+  min-height: 60px;
+}
+
+#item5 {
+  background-color: #ff8cff;
+  min-height: 70px;
+}
+
+#item6 {
+  background-color: #8cffff;
+  min-height: 50px;
+}
+
+select {
+  font-size: 16px;
+}
+
+.row {
+  margin-top: 10px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div id="container">
+  &#x3C;div id="item1">1&#x3C;/div>
+  &#x3C;div id="item2">2&#x3C;/div>
+  &#x3C;div id="item3">3&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="row">
+  &#x3C;label for="values">place-items: &#x3C;/label>
+  &#x3C;select id="values">
+    &#x3C;option value="stretch">stretch&#x3C;/option>
+    &#x3C;option value="start">start&#x3C;/option>
+    &#x3C;option value="center">center&#x3C;/option>
+    &#x3C;option value="end">end&#x3C;/option>
+    &#x3C;option value="left">left&#x3C;/option>
+    &#x3C;option value="right">right&#x3C;/option>
+    &#x3C;option value="auto center">auto center&#x3C;/option>
+    &#x3C;option value="normal start">normal start&#x3C;/option>
+    &#x3C;option value="center normal">center normal&#x3C;/option>
+    &#x3C;option value="start auto">start auto&#x3C;/option>
+    &#x3C;option value="end normal">end normal&#x3C;/option>
+    &#x3C;option value="self-start auto">self-start auto&#x3C;/option>
+    &#x3C;option value="self-end normal">self-end normal&#x3C;/option>
+    &#x3C;option value="flex-start auto">flex-start auto&#x3C;/option>
+    &#x3C;option value="flex-end normal">flex-end normal&#x3C;/option>
+    &#x3C;option value="left auto">left auto&#x3C;/option>
+    &#x3C;option value="right normal">right normal&#x3C;/option>
+    &#x3C;option value="baseline normal">baseline normal&#x3C;/option>
+    &#x3C;option value="first baseline auto">first baseline auto&#x3C;/option>
+    &#x3C;option value="last baseline normal">last baseline normal&#x3C;/option>
+    &#x3C;option value="stretch auto">stretch auto&#x3C;/option>
+  &#x3C;/select>
+&#x3C;/div>
+</pre>
+<pre class="brush: js hidden">const values = document.getElementById("values");
+const container = document.getElementById("container");
+
+values.addEventListener("change", (evt) => {
+  container.style.placeItems = evt.target.value;
+});
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  height: 200px;
+  width: 240px;
+  place-items: stretch; /* You can change this value by selecting another option in the list */
+  background-color: #8c8c8c;
+  display: flex;
+}
+</pre>
+
+<h3>Placing items in a grid container</h3>
+<p>The following grid container has items which are smaller than the grid areas they are placed in, therefore <code>place-items</code> will move them in the block and inline dimensions.</p>
+<pre class="brush: css hidden">div > div {
+  box-sizing: border-box;
+  border: 2px solid #8c8c8c;
+}
+
+#item1 {
+  background-color: #8cffa0;
+  min-height: 30px;
+  font-size: 2em;
+}
+
+#item2 {
+  background-color: #a0c8ff;
+  min-height: 50px;
+}
+
+#item3 {
+  background-color: #ffa08c;
+  min-height: 40px;
+}
+
+#item4 {
+  background-color: #ffff8c;
+  min-height: 60px;
+}
+
+#item5 {
+  background-color: #ff8cff;
+  min-height: 70px;
+}
+
+#item6 {
+  background-color: #8cffff;
+  min-height: 50px;
+}
+
+select {
+  font-size: 16px;
+}
+
+.row {
+  margin-top: 10px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div id="gridcontainer">
+  &#x3C;div id="item1">1&#x3C;/div>
+  &#x3C;div id="item2">2&#x3C;/div>
+  &#x3C;div id="item3">3&#x3C;/div>
+  &#x3C;div id="item4">4&#x3C;/div>
+  &#x3C;div id="item5">5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;div class="row">
+  &#x3C;label for="gridvalues">place-items: &#x3C;/label>
+  &#x3C;select id="gridvalues">
+    &#x3C;option value="stretch">stretch&#x3C;/option>
+    &#x3C;option value="start">start&#x3C;/option>
+    &#x3C;option value="center">center&#x3C;/option>
+    &#x3C;option value="end">end&#x3C;/option>
+    &#x3C;option value="left">left&#x3C;/option>
+    &#x3C;option value="right">right&#x3C;/option>
+    &#x3C;option value="auto center">auto center&#x3C;/option>
+    &#x3C;option value="normal start">normal start&#x3C;/option>
+    &#x3C;option value="center normal">center normal&#x3C;/option>
+    &#x3C;option value="start auto">start auto&#x3C;/option>
+    &#x3C;option value="end normal">end normal&#x3C;/option>
+    &#x3C;option value="self-start auto">self-start auto&#x3C;/option>
+    &#x3C;option value="self-end normal">self-end normal&#x3C;/option>
+    &#x3C;option value="flex-start auto">flex-start auto&#x3C;/option>
+    &#x3C;option value="flex-end normal">flex-end normal&#x3C;/option>
+    &#x3C;option value="left auto">left auto&#x3C;/option>
+    &#x3C;option value="right normal">right normal&#x3C;/option>
+    &#x3C;option value="baseline normal">baseline normal&#x3C;/option>
+    &#x3C;option value="first baseline auto">first baseline auto&#x3C;/option>
+    &#x3C;option value="last baseline normal">last baseline normal&#x3C;/option>
+    &#x3C;option value="stretch auto">stretch auto&#x3C;/option>
+  &#x3C;/select>
+&#x3C;/div>
+</pre>
+<pre class="brush: js hidden">const values = document.getElementById("gridvalues");
+const container = document.getElementById("gridcontainer");
+
+values.addEventListener("change", (evt) => {
+  container.style.placeItems = evt.target.value;
+});
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#gridcontainer {
+  height: 200px;
+  width: 240px;
+  place-items: stretch; /* You can change this value by selecting another option in the list */
+  background-color: #8c8c8c;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#gridcontainer > div {
+  width: 50px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">Basic Concepts of Flexbox</a></em></li>
+  <li>CSS Flexbox Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container">Aligning items in a flex container</a></em></li>
+  <li>CSS Grid Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout">Box alignment in CSS Grid layouts</a></em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_alignment">CSS Box Alignment</a></li>
+  <li>The <a href="./css.properties.align-items.html"><code>align-items</code></a> property</li>
+  <li>The <a href="./css.properties.align-self.html"><code>align-self</code></a> property</li>
+  <li>The <a href="./css.properties.justify-items.html"><code>justify-items</code></a> property</li>
+  <li>The <a href="./css.properties.justify-self.html"><code>justify-self</code></a> property</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 59</li><li><strong>chrome_android</strong>: 59</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 45</li><li><strong>firefox_android</strong>: 45</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 46</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 11</li><li><strong>safari_ios</strong>: 11</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 59</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-align/#place-items-property">https://drafts.csswg.org/css-align/#place-items-property</a></p></section></aside></body>
+</html>

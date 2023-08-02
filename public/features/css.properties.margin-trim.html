@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>margin-trim</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties margin-trim</h1><main>
+    
+
+<p>The <code>margin-trim</code> property allows the container to trim the margins of its children where they adjoin the container's edges.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">margin-trim: none;
+margin-trim: block;
+margin-trim: block-start;
+margin-trim: block-end;
+margin-trim: inline;
+margin-trim: inline-start;
+margin-trim: inline-end;
+
+/* Global values */
+margin-trim: inherit;
+margin-trim: initial;
+margin-trim: revert;
+margin-trim: revert-layer;
+margin-trim: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Margins are not trimmed by the container.</p>
+  </dd>
+  <dt><code>block</code></dt>
+  <dd>
+    <p>Margins provided to the block children where they adjoin the container's edges are trimmed to zero without affecting the margins provided to the container.</p>
+  </dd>
+  <dt><code>block-start</code></dt>
+  <dd>
+    <p>Margin of the first block child with the container's edge is trimmed to zero.</p>
+  </dd>
+  <dt><code>block-end</code></dt>
+  <dd>
+    <p>Margin of last block child with the container's edge is trimmed to zero.</p>
+  </dd>
+  <dt><code>inline</code></dt>
+  <dd>
+    <p>Margins provided to the inline children where they adjoin the container's edges are trimmed to zero, without affecting the spacing at the beginning and end of the row.</p>
+  </dd>
+  <dt><code>inline-start</code></dt>
+  <dd>
+    <p>Margin between the container's edge and the first inline child is trimmed to zero.</p>
+  </dd>
+  <dt><code>inline-end</code></dt>
+  <dd>
+    <p>Margin between the container's edge and the last inline child is trimmed to zero.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>block containers, multi-column containers, flex containers, grid containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>a set of zero to four keywords indicating which sides to trim</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | block | inline | [ block-start || inline-start || block-end || inline-end ]</pre></section>
+
+<h3>Basic usage</h3>
+<p>Once support is implemented for this property, it will probably work like so:</p>
+<p>When you've got a container with some inline children and you want to put a margin between each child but not have it interfere with the spacing at the end of the row, you might do something like this:</p>
+<pre class="brush: css">article {
+  background-color: red;
+  margin: 20px;
+  padding: 20px;
+  display: inline-block;
+}
+
+article > span {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-right: 20px;
+  margin-left: 30px;
+}
+</pre>
+<p>The problem here is that you'd end up with 20px too much spacing at the right of the row, so you'd maybe do this to fix it:</p>
+<pre class="brush: css">span:last-child {
+  margin-right: 0;
+  margin-left: 0;
+}
+</pre>
+<p>It is a pain having to write another rule to achieve this, and it is also not very flexible. Instead, <code>margin-trim</code> could fix it:</p>
+<pre class="brush: css">article {
+  margin-trim: inline-end;
+  /* … */
+}
+</pre>
+<p>Similarly, to remove left margin with the container's edge:</p>
+<pre class="brush: css">article {
+  margin-trim: inline-start;
+  /* … */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.margin.html"><code>margin</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 16.4</li><li><strong>safari_ios</strong>: 16.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-box-4/#margin-trim">https://drafts.csswg.org/css-box-4/#margin-trim</a></p></section></aside></body>
+</html>

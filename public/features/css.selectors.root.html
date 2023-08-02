@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":root"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":root"</h1><main>
+    
+
+<p>The <strong><code>:root</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches the root element of a tree representing the document. In HTML, <code>:root</code> represents the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a> element and is identical to the selector <code>html</code>, except that its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a> is higher.</p>
+<pre class="brush: css">/* Selects the root element of the document:
+   &#x3C;html> in the case of HTML */
+:root {
+  background: yellow;
+}
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">:root {
+  /* ... */
+}
+</pre>
+
+<h3>Declaring global CSS variables</h3>
+<p><code>:root</code> can be useful for declaring global <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS variables</a>:</p>
+<pre class="brush: css">:root {
+  --main-color: hotpink;
+  --pane-padding: 5px 42px;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/rootElement"><code>Document.rootElement</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/getRootNode"><code>Node.getRootNode()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/shadowRoot"><code>Element.shadowRoot</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot"><code>ShadowRoot</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#root-pseudo">https://drafts.csswg.org/selectors/#root-pseudo</a></p></section></aside></body>
+</html>

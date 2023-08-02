@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":placeholder-shown"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":placeholder-shown"</h1><main>
+    
+
+<p>The <strong><code>:placeholder-shown</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents any <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a> element that is currently displaying <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder">placeholder text</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:placeholder-shown {
+  /* ... */
+}
+</pre>
+
+<h3>Basic example</h3>
+<p>This example applies special font and border styles when the placeholder is shown.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;input placeholder="Type something here!" />
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">input {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+input:placeholder-shown {
+  border-color: teal;
+  color: purple;
+  font-style: italic;
+}
+</pre>
+
+<h3>Overflowing text</h3>
+<p>When form fields are too small, placeholder text can get cropped in an undesirable way. You can use the <a href="./css.properties.text-overflow.html"><code>text-overflow</code></a> property to alter the way overflowing text is displayed.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;input id="input1" placeholder="Name, Rank, and Serial Number" /> &#x3C;br />&#x3C;br />
+&#x3C;input id="input2" placeholder="Name, Rank, and Serial Number" />
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#input2:placeholder-shown {
+  text-overflow: ellipsis;
+}
+</pre>
+
+<h3>Customized input field</h3>
+<p>The following example highlights the Student ID field with a custom style.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;form id="test">
+  &#x3C;p>
+    &#x3C;label for="name">Enter Student Name:&#x3C;/label>
+    &#x3C;input id="name" placeholder="Student Name" />
+  &#x3C;/p>
+  &#x3C;p>
+    &#x3C;label for="branch">Enter Student Branch:&#x3C;/label>
+    &#x3C;input id="branch" placeholder="Student Branch" />
+  &#x3C;/p>
+  &#x3C;p>
+    &#x3C;label for="sid">Enter Student ID:&#x3C;/label>
+    &#x3C;input
+      type="number"
+      pattern="[0-9]{8}"
+      title="8 digit ID"
+      id="sid"
+      class="studentid"
+      placeholder="8 digit id" />
+  &#x3C;/p>
+  &#x3C;input type="submit" />
+&#x3C;/form>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">input {
+  background-color: #e8e8e8;
+  color: black;
+}
+
+input.studentid:placeholder-shown {
+  background-color: yellow;
+  color: red;
+  font-style: italic;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.selectors.placeholder.html"><code>::placeholder</code></a> pseudo-element styles the placeholder <em>itself</em>.</li>
+  <li>Related HTML elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">HTML forms</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 47</li><li><strong>chrome_android</strong>: 47</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 34</li><li><strong>opera_android</strong>: 34</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 47</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#placeholder">https://drafts.csswg.org/selectors/#placeholder</a></p></section></aside></body>
+</html>

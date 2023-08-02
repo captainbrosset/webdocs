@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>content</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties content</h1><main>
+    
+
+<p>The <strong><code>content</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property replaces an element with a generated value. Objects inserted using the <code>content</code> property are <strong>anonymous <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced elements</a></strong>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keywords that cannot be combined with other values */
+content: normal;
+content: none;
+
+/* &#x3C;image> values */
+content: url("http://www.example.com/test.png");
+content: linear-gradient(#e66465, #9198e5);
+content: image-set("image1x.png" 1x, "image2x.png" 2x);
+
+/* alt text for generated content, added in the Level 3 specification */
+content: url("http://www.example.com/test.png") / "This is the alt text";
+
+/* &#x3C;string> value */
+content: "prefix";
+
+/* list of content values */
+content: "prefix" url("http://www.example.com/test.png");
+content: "prefix" url("http://www.example.com/test.png") "suffix" /
+  "This is some alt text";
+
+/* &#x3C;counter> values, optionally with &#x3C;list-style-type> */
+content: counter(chapter_counter);
+content: counter(chapter_counter, upper-roman);
+content: counters(section_counter, ".");
+content: counters(section_counter, ".", decimal-leading-zero);
+
+/* attr() value linked to the HTML attribute value */
+content: attr(value string);
+
+/* Language- and position-dependent keywords */
+content: open-quote;
+content: close-quote;
+content: no-open-quote;
+content: no-close-quote;
+
+/* Except for normal and none, several values can be used simultaneously */
+content: open-quote counter(chapter_counter);
+
+/* Global values */
+content: inherit;
+content: initial;
+content: revert;
+content: revert-layer;
+content: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>When applied to a pseudo-element, the pseudo-element is not generated. If applied to an element, the value has no effect.</p>
+  </dd>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Computes to <code>none</code> for the <code>::before</code> and <code>::after</code> pseudo-elements.</p>
+  </dd>
+  <dt><a href="./css.types.string.html"><code>&lt;string&gt;</code></a></dt>
+  <dd>
+    <p>Specifies the "alt text" for the element. This value can be any number of text characters. Non-Latin characters must be encoded using their Unicode escape sequences: for example, <code>\000A9</code> represents the copyright symbol.</p>
+  </dd>
+  <dt><code>&#x3C;content-list></code></dt>
+  <dd>
+    <p>
+      A list of anonymous inline boxes that will replace the content of the selected element (in the specified order).
+      This list can include strings, images, counters, and so on.
+    </p>
+  </dd>
+  <dt><a href="./css.types.image.html"><code>&lt;image&gt;</code></a></dt>
+  <dd>
+    <p>An <a href="./css.types.image.html"><code>&lt;image&gt;</code></a>, denoted by the <a href="./css.types.url.html"><code>url()</code></a> or <a href="./css.types.image.image-set.html"><code>image-set()</code></a> or <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;</code></a> data type, or part of the webpage, defined by the <a href="./css.types.image.element.html"><code>element()</code></a> function, denoting the content to display.</p>
+  </dd>
+  <dt><a href="./css.types.counter.html"><code>counter()</code></a></dt>
+  <dd>
+    <p>The value of a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters">CSS counter</a>, generally a number produced by computations defined by <a href="./css.properties.counter-reset.html"><code>&lt;counter-reset&gt;</code></a> and <a href="./css.properties.counter-increment.html"><code>&lt;counter-increment&gt;</code></a> properties. It can be displayed using either the <a href="./css.types.counter.html"><code>counter()</code></a> or <a href="./css.types.counters.html"><code>counters()</code></a> function.</p>
+    <p>The <a href="./css.types.counter.html"><code>counter()</code></a> function has two forms: 'counter(<em>name</em>)' or 'counter(<em>name</em>, style)'. The generated text is the value of the innermost counter of the given name in scope at the given pseudo-element. It is formatted in the specified <a href="./css.properties.list-style-type.html"><code>&lt;list-style-type&gt;</code></a> (<code>decimal</code> by default).</p>
+    <p>The <a href="./css.types.counters.html"><code>counters()</code></a> function also has two forms: 'counters(<em>name</em>, <em>string</em>)' or 'counters(<em>name</em>, <em>string</em>, <em>style</em>)'. The generated text is the value of all counters with the given name in scope at the given pseudo-element, from outermost to innermost, separated by the specified string. The counters are rendered in the indicated <a href="./css.properties.list-style-type.html"><code>&lt;list-style-type&gt;</code></a> (<code>decimal</code> by default).</p>
+  </dd>
+  <dt><code>attr(x)</code></dt>
+  <dd>
+    <p>The value of the element's attribute <code>x</code> as a string. If there is no attribute <code>x</code>, an empty string is returned. The case-sensitivity of attribute names depends on the document language.</p>
+  </dd>
+  <dt><code>open-quote</code> | <code>close-quote</code></dt>
+  <dd>
+    <p>These values are replaced by the appropriate string from the <a href="./css.properties.quotes.html"><code>quotes</code></a> property.</p>
+  </dd>
+  <dt><code>no-open-quote</code> | <code>no-close-quote</code></dt>
+  <dd>
+    <p>Introduces no content, but increments (decrements) the level of nesting for quotes.</p>
+  </dd>
+  <dt><code>&#x3C;content-list> / "Alternative text"</code></dt>
+  <dd>
+    <p>
+      Alternative text may be specified for an image (or list of content items) by appending a forward slash and then the text.
+      The alternative text is intended for speech output by screen-readers, but may also be displayed in some browsers.
+      Note that if the browser does not support alternative text, neither the content or alternative text will be used.
+    </p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>CSS-generated content is not included in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">DOM</a>. Because of this, it will not be represented in the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis">accessibility tree</a> and certain assistive technology/browser combinations will not announce it. If the content conveys information that is critical to understanding the page's purpose, it is better to include it in the main document.</p>
+<ul>
+  <li><a href="https://tink.uk/accessibility-support-for-css-generated-content/">Accessibility support for CSS generated content – Tink</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.3_%e2%80%94_create_content_that_can_be_presented_in_different_ways">Explanation of WCAG, Guideline 1.3 – MDN</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html">Understanding Success Criterion 1.3.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements, tree-abiding pseudo-elements, and page margin boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>See prose below</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | none | [ &lt;content-replacement&gt; | &lt;content-list&gt; ] [/ [ &lt;string&gt; | &lt;counter&gt; ]+ ]?</pre></section>
+
+<h3>Headings and quotes</h3>
+<p>This example inserts quotation marks around quotes, and adds the word "Chapter" before headings.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h1>5&#x3C;/h1>
+&#x3C;p>
+  According to Sir Tim Berners-Lee,
+  &#x3C;q cite="http://www.w3.org/People/Berners-Lee/FAQ.html#Internet">
+    I was lucky enough to invent the Web at the time when the Internet already
+    existed - and had for a decade and a half.
+  &#x3C;/q>
+  We must understand that there is nothing fundamentally wrong with building on
+  the contributions of others.
+&#x3C;/p>
+
+&#x3C;h1>6&#x3C;/h1>
+&#x3C;p>
+  According to the Mozilla Manifesto,
+  &#x3C;q cite="http://www.mozilla.org/en-US/about/manifesto/">
+    Individuals must have the ability to shape the Internet and their own
+    experiences on the Internet.
+  &#x3C;/q>
+  Therefore, we can infer that contributing to the open web can protect our own
+  individual experiences on it.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">q {
+  color: blue;
+}
+
+q::before {
+  content: open-quote;
+}
+
+q::after {
+  content: close-quote;
+}
+
+h1::before {
+  content: "Chapter "; /* The trailing space creates separation
+                          between the added content and the
+                          rest of the content */
+}
+</pre>
+
+<h3>Image combined with alternative text</h3>
+<p>
+  This example inserts an image before the link and provides alternative text that a screen reader can output as speech.
+  Some browsers may also display the alternative text.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;a href="https://www.mozilla.org/en-US/">Mozilla Home Page&#x3C;/a>
+</pre>
+<h4>CSS</h4>
+<p>
+  The CSS to show the image and set the alternative text is shown below.
+  This also sets the font and color for the content.
+  This will only be used on browsers that <em>display</em> the alternative text.
+</p>
+<pre class="brush: css">a::before {
+  content: url("https://mozorg.cdn.mozilla.net/media/img/favicon.ico") /
+    " MOZILLA: ";
+  font:
+    x-small Arial,
+    sans-serif;
+  color: gray;
+}
+</pre>
+<h4>Result</h4>
+<p>
+  The browser should display the icon before the link below.
+  If using a screen reader, it should speak the word "MOZILLA" when it reaches the image.
+</p>
+<p>
+  Note that on a browser that does not support the alternative text syntax, the whole line is invalid.
+  In this case neither the image or alternative text will be used!
+  You could partially address this issue by including CSS that adds the image before the line with them both.
+</p>
+<h3>Targeting classes</h3>
+<p>This example inserts additional text after special items in a list.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>Paperback Best Sellers&#x3C;/h2>
+&#x3C;ol>
+  &#x3C;li>Political Thriller&#x3C;/li>
+  &#x3C;li class="new-entry">Halloween Stories&#x3C;/li>
+  &#x3C;li>My Biography&#x3C;/li>
+  &#x3C;li class="new-entry">Vampire Romance&#x3C;/li>
+&#x3C;/ol>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.new-entry::after {
+  content: " New!"; /* The leading space creates separation
+                       between the added content and the
+                       rest of the content */
+  color: red;
+}
+</pre>
+
+<h3>Images and element attributes</h3>
+<p>This example inserts an image before each link, and adds its <code>id</code> attribute after.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>&#x3C;a id="moz" href="https://www.mozilla.org/"> Mozilla Home Page&#x3C;/a>&#x3C;/li>
+  &#x3C;li>
+    &#x3C;a id="mdn" href="https://developer.mozilla.org/">
+      Mozilla Developer Network&#x3C;/a
+    >
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">a {
+  text-decoration: none;
+  border-bottom: 3px dotted navy;
+}
+
+a::after {
+  content: " (" attr(id) ")";
+}
+
+#moz::before {
+  content: url("https://mozorg.cdn.mozilla.net/media/img/favicon.ico");
+}
+
+#mdn::before {
+  content: url("mdn-favicon16.png");
+}
+
+li {
+  margin: 1em;
+}
+</pre>
+
+<h3>Element replacement with <code>url()</code></h3>
+<p>This example replaces an element's content with an image <a href="./css.types.url.html"><code>url()</code></a>. Content added with <code>::before</code> or <code>::after</code> will not be generated as the contents of the element have been replaced.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="replaced">Mozilla&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#replaced {
+  content: url("mdn.svg");
+}
+
+/* will not show if element replacement is supported */
+#replaced::after {
+  content: " (" attr(id) ")";
+}
+</pre>
+
+<h3>Element replacement with <code>&#x3C;gradient></code></h3>
+<p>This example replaces an element's content with a <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="replaced">Mozilla&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid lightgrey;
+}
+</pre>
+<pre class="brush: css">#replaced {
+  content: linear-gradient(purple, yellow);
+}
+</pre>
+
+<h3>Element replacement with <code>image-set()</code></h3>
+<p>This example replaces an element's content with a <a href="./css.types.image.image-set.html"><code>image-set()</code></a>. If the users display has normal resolution the <code>1x.png</code> will be displayed screens with a higher resolution will display the <code>2x.png</code> image.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="replaced">Mozilla&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  border: 1px solid lightgrey;
+}
+</pre>
+<pre class="brush: css">#replaced {
+  content: image-set(
+    "1x.png" 1x,
+    "2x.png" 2x
+  );
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">Replaced elements</a></li>
+  <li><a href="./css.selectors.after.html"><code>::after</code></a></li>
+  <li><a href="./css.selectors.before.html"><code>::before</code></a></li>
+  <li><a href="./css.selectors.marker.html"><code>::marker</code></a></li>
+  <li><a href="./css.properties.contain.html"><code>contain</code></a></li>
+  <li><a href="./css.properties.quotes.html"><code>quotes</code></a></li>
+  <li><a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a> function</li>
+  <li><a href="./css.types.url.html"><code>url()</code></a> function</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-content/#content-property">https://drafts.csswg.org/css-content/#content-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>page-orientation</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules page page-orientation</h1><main>
+    
+
+<p>The <strong><code>page-orientation</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> descriptor for the <a href="./css.at-rules.page.html"><code>@page</code></a> at-rule controls the rotation of a printed page. It handles the flow of content across pages when the orientation of a page is changed. This behavior differs from the <a href="./css.at-rules.page.size.html"><code>size</code></a> descriptor in that a user can define the direction in which to rotate the page.</p>
+<p>This descriptor helps with the layout and orientation of printed documents, especially when documents are printed double-sided. A user can specify how the pages will be rotated when printed. This is particularly useful to lay out content such as tables, which may be wider than the rest of the content, in a different orientation.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page#margin_at-rules">Margin boxes</a> and other positional elements have no special interaction with this descriptor. Margins are laid out as normal in the unrotated page, then rotated along with everything else.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Displays the print content in an upright position */
+@page {
+  page-orientation: upright;
+}
+
+/* Displays the print content rotated counter-clockwise */
+@page {
+  page-orientation: rotate-left;
+}
+
+/* Displays the print content rotated counter-clockwise */
+@page {
+  page-orientation: rotate-right;
+}
+</pre>
+<h2>Values</h2>
+<dl>
+  <dt><code>upright</code></dt>
+  <dd>
+    <p>No orientation is applied and the page is laid out and formatted as normal.</p>
+  </dd>
+  <dt><code>rotate-left</code></dt>
+  <dd>
+    <p>After a page is laid out, the page must be displayed rotated a quarter turn to the left (counter-clockwise).</p>
+  </dd>
+  <dt><code>rotate-right</code></dt>
+  <dd>
+    <p>After the page is laid out, the page must be displayed rotated a quarter turn to the right (clockwise).</p>
+  </dd>
+</dl>
+
+
+
+<h3>Rotating printed pages</h3>
+<p>This example shows how the contents of a print document can be rotated to suit the page content and the page position.</p>
+<pre class="brush: html hidden">&#x3C;fieldset id="printStyle">
+  &#x3C;legend>
+    Click Print. The page will be laid out in the defined orientation.
+  &#x3C;/legend>
+  &#x3C;button id="print">Print&#x3C;/button>
+&#x3C;/fieldset>
+&#x3C;div id="print-area">
+  &#x3C;section class="upright">
+    &#x3C;h2>Section in Portrait/Upright&#x3C;/h2>
+    &#x3C;p>This section will be printed in portrait and upright with:&#x3C;/p>
+    &#x3C;pre>
+.upright {
+  size: portrait;
+  page-orientation: upright;
+}
+    &#x3C;/pre>
+    &#x3C;p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu
+      convallis ligula, tincidunt malesuada tortor. Ut ac turpis erat. Mauris
+      consequat, leo rhoncus venenatis elementum, sem nisl venenatis justo, non
+      mattis diam massa vitae dolor. Aenean ac dolor et leo laoreet tincidunt.
+      Suspendisse tempus risus nibh, a feugiat mauris pharetra a. Nulla mi dui,
+      scelerisque vitae sollicitudin nec, placerat eget purus. Vivamus enim
+      elit, scelerisque id venenatis eu, sodales vel leo. Quisque bibendum
+      feugiat diam, ut feugiat urna suscipit et. Nulla lacinia metus a nisi
+      volutpat interdum. Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Vestibulum vitae elit vel orci malesuada bibendum ut vitae enim. Ut
+      ultrices elit nec vestibulum blandit. In in eleifend dui. Nam nec aliquet
+      nunc. Praesent convallis ipsum sed fermentum scelerisque.
+    &#x3C;/p>
+    &#x3C;p>
+      Praesent posuere, neque non fringilla ultricies, purus mi ullamcorper
+      velit, vitae egestas nisl eros at ex. Nulla sed viverra libero. Praesent
+      sed placerat magna, iaculis commodo lectus. Ut gravida ligula sed purus
+      molestie, in accumsan est eleifend. Etiam consectetur nulla pretium
+      blandit iaculis. Nunc semper libero ut mauris faucibus placerat. Cras ac
+      justo ac est laoreet sollicitudin. Aliquam vel sapien ut sapien vestibulum
+      dictum.
+    &#x3C;/p>
+  &#x3C;/section>
+  &#x3C;section class="left">
+    &#x3C;h2>Section in Landscape/Left&#x3C;/h2>
+    &#x3C;p>This section will be printed in landscape and rotated left with:&#x3C;/p>
+    &#x3C;pre>
+.left {
+  size: landscape;
+  page-orientation: rotate-left;
+}
+    &#x3C;/pre>
+    &#x3C;table>
+      &#x3C;thead>
+        &#x3C;tr>
+          &#x3C;th>&#x3C;/th>
+          &#x3C;th>100m&#x3C;/th>
+          &#x3C;th>1500m&#x3C;/th>
+          &#x3C;th>Hurdles&#x3C;/th>
+          &#x3C;th>Long Jump&#x3C;/th>
+          &#x3C;th>High Jump&#x3C;/th>
+          &#x3C;th>Javelin&#x3C;/th>
+          &#x3C;th>Discus&#x3C;/th>
+        &#x3C;/tr>
+      &#x3C;/thead>
+      &#x3C;tbody>
+        &#x3C;tr>
+          &#x3C;th>Dave&#x3C;/th>
+          &#x3C;td>9.65&#x3C;/td>
+          &#x3C;td>3:49&#x3C;/td>
+          &#x3C;td>12.64&#x3C;/td>
+          &#x3C;td>8.54m&#x3C;/td>
+          &#x3C;td>1.95m&#x3C;/td>
+          &#x3C;td>56.65m&#x3C;/td>
+          &#x3C;td>47.63m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Simon&#x3C;/th>
+          &#x3C;td>9.87&#x3C;/td>
+          &#x3C;td>3:52&#x3C;/td>
+          &#x3C;td>11.89&#x3C;/td>
+          &#x3C;td>8.16m&#x3C;/td>
+          &#x3C;td>1.96m&#x3C;/td>
+          &#x3C;td>59.03m&#x3C;/td>
+          &#x3C;td>45.72m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Fred&#x3C;/th>
+          &#x3C;td>9.67&#x3C;/td>
+          &#x3C;td>3:52&#x3C;/td>
+          &#x3C;td>12.03&#x3C;/td>
+          &#x3C;td>8.04m&#x3C;/td>
+          &#x3C;td>2.01m&#x3C;/td>
+          &#x3C;td>62.58m&#x3C;/td>
+          &#x3C;td>46.83m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Gary&#x3C;/th>
+          &#x3C;td>9.77&#x3C;/td>
+          &#x3C;td>3:56&#x3C;/td>
+          &#x3C;td>13.04&#x3C;/td>
+          &#x3C;td>7.96m&#x3C;/td>
+          &#x3C;td>2.02m&#x3C;/td>
+          &#x3C;td>63.87m&#x3C;/td>
+          &#x3C;td>47.73m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Dick&#x3C;/th>
+          &#x3C;td>9.95&#x3C;/td>
+          &#x3C;td>3:44&#x3C;/td>
+          &#x3C;td>12.99&#x3C;/td>
+          &#x3C;td>5.66m&#x3C;/td>
+          &#x3C;td>1.97m&#x3C;/td>
+          &#x3C;td>56.43m&#x3C;/td>
+          &#x3C;td>43.87m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Tom&#x3C;/th>
+          &#x3C;td>9.84&#x3C;/td>
+          &#x3C;td>3:48&#x3C;/td>
+          &#x3C;td>12.86&#x3C;/td>
+          &#x3C;td>6.87m&#x3C;/td>
+          &#x3C;td>1.95m&#x3C;/td>
+          &#x3C;td>67.03m&#x3C;/td>
+          &#x3C;td>42.73m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Harry&#x3C;/th>
+          &#x3C;td>9.91&#x3C;/td>
+          &#x3C;td>3:53&#x3C;/td>
+          &#x3C;td>13.77&#x3C;/td>
+          &#x3C;td>7.34m&#x3C;/td>
+          &#x3C;td>1.94m&#x3C;/td>
+          &#x3C;td>62.84m&#x3C;/td>
+          &#x3C;td>46.72m&#x3C;/td>
+        &#x3C;/tr>
+      &#x3C;/tbody>
+    &#x3C;/table>
+  &#x3C;/section>
+  &#x3C;section class="right">
+    &#x3C;h2>Section in Landscape/Right&#x3C;/h2>
+    &#x3C;p>This section will be printed in landscape and rotated right with:&#x3C;/p>
+    &#x3C;pre>
+.right {
+  size: landscape;
+  page-orientation: rotate-right;
+}
+    &#x3C;/pre>
+    &#x3C;table>
+      &#x3C;thead>
+        &#x3C;tr>
+          &#x3C;th>&#x3C;/th>
+          &#x3C;th>100m&#x3C;/th>
+          &#x3C;th>1500m&#x3C;/th>
+          &#x3C;th>Hurdles&#x3C;/th>
+          &#x3C;th>Long Jump&#x3C;/th>
+          &#x3C;th>High Jump&#x3C;/th>
+          &#x3C;th>Javelin&#x3C;/th>
+          &#x3C;th>Discus&#x3C;/th>
+        &#x3C;/tr>
+      &#x3C;/thead>
+      &#x3C;tbody>
+        &#x3C;tr>
+          &#x3C;th>Dave&#x3C;/th>
+          &#x3C;td>9.65&#x3C;/td>
+          &#x3C;td>3:49&#x3C;/td>
+          &#x3C;td>12.64&#x3C;/td>
+          &#x3C;td>8.54m&#x3C;/td>
+          &#x3C;td>1.95m&#x3C;/td>
+          &#x3C;td>56.65m&#x3C;/td>
+          &#x3C;td>47.63m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Simon&#x3C;/th>
+          &#x3C;td>9.87&#x3C;/td>
+          &#x3C;td>3:52&#x3C;/td>
+          &#x3C;td>11.89&#x3C;/td>
+          &#x3C;td>8.16m&#x3C;/td>
+          &#x3C;td>1.96m&#x3C;/td>
+          &#x3C;td>59.03m&#x3C;/td>
+          &#x3C;td>45.72m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Fred&#x3C;/th>
+          &#x3C;td>9.67&#x3C;/td>
+          &#x3C;td>3:52&#x3C;/td>
+          &#x3C;td>12.03&#x3C;/td>
+          &#x3C;td>8.04m&#x3C;/td>
+          &#x3C;td>2.01m&#x3C;/td>
+          &#x3C;td>62.58m&#x3C;/td>
+          &#x3C;td>46.83m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Gary&#x3C;/th>
+          &#x3C;td>9.77&#x3C;/td>
+          &#x3C;td>3:56&#x3C;/td>
+          &#x3C;td>13.04&#x3C;/td>
+          &#x3C;td>7.96m&#x3C;/td>
+          &#x3C;td>2.02m&#x3C;/td>
+          &#x3C;td>63.87m&#x3C;/td>
+          &#x3C;td>47.73m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Dick&#x3C;/th>
+          &#x3C;td>9.95&#x3C;/td>
+          &#x3C;td>3:44&#x3C;/td>
+          &#x3C;td>12.99&#x3C;/td>
+          &#x3C;td>5.66m&#x3C;/td>
+          &#x3C;td>1.97m&#x3C;/td>
+          &#x3C;td>56.43m&#x3C;/td>
+          &#x3C;td>43.87m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Tom&#x3C;/th>
+          &#x3C;td>9.84&#x3C;/td>
+          &#x3C;td>3:48&#x3C;/td>
+          &#x3C;td>12.86&#x3C;/td>
+          &#x3C;td>6.87m&#x3C;/td>
+          &#x3C;td>1.95m&#x3C;/td>
+          &#x3C;td>67.03m&#x3C;/td>
+          &#x3C;td>42.73m&#x3C;/td>
+        &#x3C;/tr>
+        &#x3C;tr>
+          &#x3C;th>Harry&#x3C;/th>
+          &#x3C;td>9.91&#x3C;/td>
+          &#x3C;td>3:53&#x3C;/td>
+          &#x3C;td>13.77&#x3C;/td>
+          &#x3C;td>7.34m&#x3C;/td>
+          &#x3C;td>1.94m&#x3C;/td>
+          &#x3C;td>62.84m&#x3C;/td>
+          &#x3C;td>46.72m&#x3C;/td>
+        &#x3C;/tr>
+      &#x3C;/tbody>
+    &#x3C;/table>
+  &#x3C;/section>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>In this first part of the CSS code, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page#named_pages">named pages</a> are set up to define the direction in which to rotate the content.</p>
+<pre class="brush: css">@page upright {
+  size: portrait;
+  page-orientation: upright;
+}
+
+@page left {
+  size: landscape;
+  page-orientation: rotate-left;
+}
+
+@page right {
+  size: landscape;
+  page-orientation: rotate-right;
+}
+</pre>
+<pre class="brush: css hidden">fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  width: fit-content;
+}
+p {
+  max-width: 60ch;
+}
+@media print {
+  fieldset {
+    display: none;
+  }
+  section {
+    font-family: Roboto;
+    font-size: 1.5rem;
+  }
+}
+</pre>
+<p>The following second part of the CSS code declares a named page rule defined above for the selectors, such as <code>&#x3C;section class="left">…&#x3C;/section></code>.</p>
+<pre class="brush: css">@media print {
+  .upright {
+    page: upright;
+  }
+  .left {
+    page: left;
+  }
+  .right {
+    page: right;
+  }
+}
+</pre>
+<pre class="brush: js hidden">const printButton = document.querySelector("#print");
+printButton.addEventListener("click", () => {
+  window.print();
+});
+</pre>
+<h3>Result</h3>
+<p>Click the print button to see the pages rotated.</p>
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 85</li><li><strong>chrome_android</strong>: 85</li><li><strong>edge</strong>: 85</li><li><strong>firefox</strong>: preview</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 12.0</li><li><strong>opera</strong>: 71</li><li><strong>opera_android</strong>: 60</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 85</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-page/#page-orientation-prop">https://drafts.csswg.org/css-page/#page-orientation-prop</a></p></section></aside></body>
+</html>

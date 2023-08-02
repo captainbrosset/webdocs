@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hyphens</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties hyphens</h1><main>
+    
+
+<p>The <strong><code>hyphens</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies how words should be hyphenated when text wraps across multiple lines. It can prevent hyphenation entirely, hyphenate at manually-specified points within the text, or let the browser automatically insert hyphens where appropriate.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In the above demo, the string "An extraordinarily long English word!" contains the hidden <code>&#x26;shy;</code> (soft hyphen) character: <code>An extra&#x26;shy;ordinarily long English word!</code>. This character is used to indicate a potential place to insert a hyphen when <code>hyphens: manual;</code> is specified.</p>
+</div>
+<p>Hyphenation rules are language-specific. In HTML, the language is determined by the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang"><code>lang</code></a> attribute, and browsers will hyphenate only if this attribute is present and the appropriate hyphenation dictionary is available. In XML, the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang"><code>xml:lang</code></a> attribute must be used.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The rules defining how hyphenation is performed are not explicitly defined by the specification, so the exact hyphenation may vary from browser to browser.</p>
+</div>
+<p>If supported, <a href="./css.properties.hyphenate-character.html"><code>hyphenate-character</code></a> may be used to specify an alternative hyphenation character to use at the end of the line being broken.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+hyphens: none;
+hyphens: manual;
+hyphens: auto;
+
+/* Global values */
+hyphens: inherit;
+hyphens: initial;
+hyphens: revert;
+hyphens: revert-layer;
+hyphens: unset;
+</pre>
+<p>The <code>hyphens</code> property is specified as a single keyword value chosen from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Words are not broken at line breaks, even if characters inside the words suggest line break points. Lines will only wrap at whitespace.</p>
+  </dd>
+  <dt><code>manual</code></dt>
+  <dd>
+    <p>Default value. Words are broken for line-wrapping only where characters inside the word suggest line break opportunities. See <a href="#suggesting_line_break_opportunities">Suggesting line break opportunities</a> below for details.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser is free to automatically break words at appropriate hyphenation points, following whatever rules it chooses. However, suggested line break opportunities (see <a href="#suggesting_line_break_opportunities">Suggesting line break opportunities</a> below) will override automatic break point selection when present.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>auto</code> setting's behavior depends on the language being properly tagged to select the appropriate hyphenation rules. You must specify a language using the <code>lang</code> HTML attribute to guarantee that automatic hyphenation is applied in that language.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> If you apply <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-break#break-all"><code>word-break: break-all</code></a> then no hyphens are shown, even if the word breaks at a hyphenation point.</p>
+</div>
+<h2>Suggesting line break opportunities</h2>
+<p>There are two Unicode characters used to manually specify potential line break points within text:</p>
+<dl>
+  <dt>U+2010 (HYPHEN)</dt>
+  <dd>
+    <p>The "hard" hyphen character indicates a visible line break opportunity. Even if the line is not actually broken at that point, the hyphen is still rendered.</p>
+  </dd>
+  <dt>U+00AD (SHY)</dt>
+  <dd>
+    <p>An invisible, "<strong>s</strong>oft" <strong>hy</strong>phen. This character is not rendered visibly; instead, it marks a place where the browser should break the word if hyphenation is necessary. In HTML, use <code>&#x26;shy;</code> to insert a soft hyphen.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr"><code>&#x3C;wbr></code></a> element leads to a line break, no hyphen is added.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>manual</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | manual | auto</pre></section>
+
+<h3>Specifying text hyphenation</h3>
+<p>This example uses three classes, one for each possible configuration of the <code>hyphens</code> property.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;dl>
+  &#x3C;dt>&#x3C;code>none&#x3C;/code>: no hyphen; overflow if needed&#x3C;/dt>
+  &#x3C;dd lang="en" class="none">An extreme&#x26;shy;ly long English word&#x3C;/dd>
+  &#x3C;dt>
+    &#x3C;code>manual&#x3C;/code>: hyphen only at &#x26;amp;hyphen; or &#x26;amp;shy; (if needed)
+  &#x3C;/dt>
+  &#x3C;dd lang="en" class="manual">An extreme&#x26;shy;ly long English word&#x3C;/dd>
+  &#x3C;dt>&#x3C;code>auto&#x3C;/code>: hyphens where the algorithm decides (if needed)&#x3C;/dt>
+  &#x3C;dd lang="en" class="auto">An extreme&#x26;shy;ly long English word&#x3C;/dd>
+&#x3C;/dl>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">dd {
+  width: 55px;
+  border: 1px solid black;
+}
+dd.none {
+  hyphens: none;
+}
+dd.manual {
+  hyphens: manual;
+}
+dd.auto {
+  hyphens: auto;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.content.html"><code>content</code></a></li>
+  <li><a href="./css.properties.overflow-wrap.html"><code>overflow-wrap</code></a> (formerly <code>word-wrap</code>)</li>
+  <li><a href="./css.properties.word-break.html"><code>word-break</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text">Guide to wrapping and breaking text</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 5.1</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#hyphens-property">https://drafts.csswg.org/css-text/#hyphens-property</a></p></section></aside></body>
+</html>

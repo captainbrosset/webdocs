@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::file-selector-button"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::file-selector-button"</h1><main>
+    
+
+<p>The <strong><code>::file-selector-button</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents the button of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file"><code>type="file"</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">selector::file-selector-button
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;form>
+  &#x3C;label for="fileUpload">Upload file&#x3C;/label>
+  &#x3C;input type="file" id="fileUpload" />
+&#x3C;/form>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">form {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+</pre>
+<pre class="brush: css">input[type="file"]::file-selector-button {
+  border: 2px solid #6c5ce7;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #a29bfe;
+  transition: 1s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+</pre>
+<h4>Result</h4>
+<p>Note that <code>::file-selector-button</code> is a whole element, and as such matches the rules from the UA stylesheet. In particular, fonts and colors won't necessarily inherit from the <code>input</code> element.</p>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;form>
+  &#x3C;label for="fileUpload">Upload file&#x3C;/label>
+  &#x3C;input type="file" id="fileUpload" />
+&#x3C;/form>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">form {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+</pre>
+<pre class="brush: css">input[type="file"]::file-selector-button {
+  border: 2px solid #6c5ce7;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #a29bfe;
+  transition: 1s;
+}
+
+input[type="file"]::-ms-browse:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit CSS extensions</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_and_Directory_Entries_API">File and Directory Entries API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_and_Directory_Entries_API/Firefox_support">File and Directory Entries API support in Firefox</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file"><code>&#x3C;input type="file"></code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 82</li><li><strong>firefox_android</strong>: 82</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-pseudo/#file-selector-button-pseudo">https://drafts.csswg.org/css-pseudo/#file-selector-button-pseudo</a></p></section></aside></body>
+</html>

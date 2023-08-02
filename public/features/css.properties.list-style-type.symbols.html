@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>symbols()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties list-style-type symbols()</h1><main>
+    
+
+<p>The <strong><code>symbols()</code></strong> CSS function lets you define counter styles inline, directly as the value of a property such as <a href="./css.properties.list-style.html"><code>list-style()</code></a>. Unlike <a href="./css.at-rules.counter-style.html"><code>@counter-style()</code></a>, <code>symbols()</code> is <em>anonymous</em> (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than <a href="./css.at-rules.counter-style.html"><code>@counter-style()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">symbols() = symbols( &#x3C;symbols-type>? [ &#x3C;string> | &#x3C;image> ]+ );
+</pre>
+<p><code>&#x3C;symbols-type></code> can be one of the following:</p>
+<ul>
+  <li><code>cyclic</code>: The system cycles through the given values in the order of their definition, and returns to the start when it reaches the end.</li>
+  <li><code>numeric</code>: The system interprets the given values as the successive units of a place-value numbering system.</li>
+  <li><code>alphabetic</code>: The system interprets the given values as the digits of an alphabetic numbering system, like a place-value numbering system but without <code>0</code>.</li>
+  <li><code>symbolic</code>: The system cycles through the values, printing them an additional time at each cycle (one time for the first cycle, two times for the second, etc.).</li>
+  <li><code>fixed</code>: The system cycles through the given values once, then falls back to Arabic numerals.</li>
+</ul>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;ol>
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ol>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">ol {
+  list-style: symbols(cyclic "*" "†" "‡");
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.counter-style.html"><code>@counter-style()</code></a></li>
+  <li><a href="./css.properties.list-style-type.html"><code>list-style-type()</code></a> and the corresponding shorthand <a href="./css.properties.list-style.html"><code>list-style()</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#symbols-function">https://drafts.csswg.org/css-counter-styles/#symbols-function</a></p></section></aside></body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":host-context()"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":host-context()"</h1><main>
+    
+
+<p>The <strong><code>:host-context()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> function selects the shadow host of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">shadow DOM</a> containing the CSS it is used inside (so you can select a custom element from inside its shadow DOM) — but only if the selector given as the function's parameter matches the shadow host's ancestor(s) in the place it sits inside the DOM hierarchy.</p>
+<p>In other words, this allows a custom element, or anything within that custom element's shadow DOM, to apply different styles based on its position within the outer DOM or classes/attributes applied to ancestor elements.</p>
+<p>One typical use of this is with a descendant selector expression — for example <code>h1</code> — to select only instances of the custom element that are inside an <code>&#x3C;h1></code>. Another typical use would be to allow inner elements to react to classes or attributes on any ancestor elements - for example, applying a different text color when a <code>.dark-theme</code> class is applied to <code>&#x3C;body></code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This has no effect when used outside a shadow DOM.</p>
+</div>
+<pre class="brush: css">/* Selects a shadow root host, only if it is
+   a descendant of the selector argument given */
+:host-context(h1) {
+  font-weight: bold;
+}
+
+/* Changes paragraph text color from black to white when
+   a .dark-theme class is applied to the document body */
+p {
+  color: #000;
+}
+
+:host-context(body.dark-theme) p {
+  color: #fff;
+}
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">:host-context(&#x3C;compound-selector>) {
+  /* ... */
+}
+</pre>
+
+<h3>Selectively styling shadow hosts</h3>
+<p>The following snippets are taken from our <a href="https://github.com/mdn/web-components-examples/tree/main/host-selectors">host-selectors example</a> (<a href="https://mdn.github.io/web-components-examples/host-selectors/">see it live also</a>).</p>
+<p>In this example we have a simple custom element — <code>&#x3C;context-span></code> — that you can wrap around text:</p>
+<pre class="brush: html">&#x3C;h1>
+  Host selectors &#x3C;a href="#">&#x3C;context-span>example&#x3C;/context-span>&#x3C;/a>
+&#x3C;/h1>
+</pre>
+<p>Inside the element's constructor, we create <code>style</code> and <code>span</code> elements, fill the <code>span</code> with the content of the custom element, and fill the <code>style</code> element with some CSS rules:</p>
+<pre class="brush: js">const style = document.createElement("style");
+const span = document.createElement("span");
+span.textContent = this.textContent;
+
+const shadowRoot = this.attachShadow({ mode: "open" });
+shadowRoot.appendChild(style);
+shadowRoot.appendChild(span);
+
+style.textContent =
+  "span:hover { text-decoration: underline; }" +
+  ":host-context(h1) { font-style: italic; }" +
+  ':host-context(h1):after { content: " - no links in headers!" }' +
+  ":host(.footer) { color : red; }" +
+  ":host { background: rgba(0,0,0,0.1); padding: 2px 5px; }";
+</pre>
+<p>The <code>:host-context(h1) { font-style: italic; }</code> and <code>:host-context(h1):after { content: " - no links in headers!" }</code> rules style the instance of the <code>&#x3C;context-span></code> element (the shadow host in this instance) inside the <code>&#x3C;h1></code>. We've used it to make it clear that the custom element shouldn't appear inside the <code>&#x3C;h1></code> in our design.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">Web components</a></li>
+  <li><a href="./css.selectors.host.html"><code>:host</code></a></li>
+  <li><a href="./css.selectors.hostfunction.html"><code>:host()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 54</li><li><strong>chrome_android</strong>: 54</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 41</li><li><strong>opera_android</strong>: 41</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 54</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scoping/#host-selector">https://drafts.csswg.org/css-scoping/#host-selector</a></p></section></aside></body>
+</html>

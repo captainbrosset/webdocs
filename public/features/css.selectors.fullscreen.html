@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":fullscreen"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":fullscreen"</h1><main>
+    
+
+<p>The <strong><code>:fullscreen</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches every element which is currently in fullscreen mode. If multiple elements have been put into fullscreen mode, this selects them all.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:fullscreen {
+  /* ... */
+}
+</pre>
+<h2>Usage notes</h2>
+<p>The <code>:fullscreen</code> pseudo-class lets you configure your stylesheets to automatically adjust the size, style, or layout of content when elements switch back and forth between fullscreen and traditional presentations.</p>
+<h2>Examples</h2>
+<p>In this example, the color of a button is changed depending on whether or not the document is in fullscreen mode. This is done without needing to specifically apply style changes using JavaScript.</p>
+<h3>HTML</h3>
+<p>The page's HTML looks like this:</p>
+<pre class="brush: html">&#x3C;h1>MDN Web Docs Demo: :fullscreen pseudo-class&#x3C;/h1>
+
+&#x3C;p>
+  This demo uses the &#x3C;code>:fullscreen&#x3C;/code> pseudo-class to automatically
+  change the style of a button used to toggle fullscreen mode on and off,
+  entirely using CSS.
+&#x3C;/p>
+
+&#x3C;button id="fs-toggle">Toggle Fullscreen&#x3C;/button>
+</pre>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> with the ID <code>"fs-toggle"</code> will change between pale red and pale green depending on whether or not the document is in fullscreen mode.</p>
+<h3>CSS</h3>
+<p>The magic happens in the CSS. There are two rules here. The first establishes the background color of the "Toggle Fullscreen Mode" button when the element is not in a fullscreen state. The key is the use of the <code>:not(:fullscreen)</code>, which looks for the element to not have the <code>:fullscreen</code> pseudo-class applied to it.</p>
+<pre class="brush: css">#fs-toggle:not(:fullscreen) {
+  background-color: #afa;
+}
+</pre>
+<p>When the document <em>is</em> in fullscreen mode, the following CSS applies instead, setting the background color to a pale shade of red.</p>
+<pre class="brush: css">#fs-toggle:fullscreen {
+  background-color: #faa;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">Fullscreen API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide">Guide to the Fullscreen API</a></li>
+  <li><a href="./css.selectors.not.html"><code>:not</code></a></li>
+  <li><a href="./css.selectors.backdrop.html"><code>::backdrop</code></a></li>
+  <li>DOM API: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen"><code>Element.requestFullscreen()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/exitFullscreen"><code>Document.exitFullscreen()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenElement"><code>Document.fullscreenElement</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allowfullscreen"><code>allowfullscreen</code></a> attribute</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://fullscreen.spec.whatwg.org/#:fullscreen-pseudo-class">https://fullscreen.spec.whatwg.org/#:fullscreen-pseudo-class</a></p></section></aside></body>
+</html>

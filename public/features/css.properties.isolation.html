@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>isolation</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties isolation</h1><main>
+    
+
+<p>The <strong><code>isolation</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property determines whether an element must create a new <a href="/Glossary/stacking_context">stacking context</a>.</p>
+<p>This property is especially helpful when used in conjunction with <a href="./css.properties.mix-blend-mode.html"><code>mix-blend-mode</code></a> and <a href="./css.properties.z-index.html"><code>z-index</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+isolation: auto;
+isolation: isolate;
+
+/* Global values */
+isolation: inherit;
+isolation: initial;
+isolation: revert;
+isolation: revert-layer;
+isolation: unset;
+</pre>
+<p>The <code>isolation</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>A new stacking context is created only if one of the properties applied to the element requires it.</p>
+  </dd>
+  <dt><code>isolate</code></dt>
+  <dd>
+    <p>A new stacking context must be created.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements, graphics elements and graphics referencing elements. [SVG11]</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;isolation-mode&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="big-square ">
+  &#x3C;div class="isolation-auto">
+    &#x3C;div class="small-square">auto&#x3C;/div>
+  &#x3C;/div>
+  &#x3C;div class="isolation-isolate">
+    &#x3C;div class="small-square">isolate&#x3C;/div>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.isolation-auto {
+  isolation: auto;
+}
+
+.isolation-isolate {
+  isolation: isolate;
+}
+
+.big-square {
+  background-color: rgb(0, 255, 0);
+  width: 200px;
+  height: 210px;
+}
+
+.small-square {
+  background-color: rgb(0, 255, 0);
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 2px;
+  mix-blend-mode: difference;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.blend-mode.html"><code>&lt;blend-mode&gt;</code></a></li>
+  <li><a href="./css.properties.mix-blend-mode.html"><code>mix-blend-mode</code></a>, <a href="./css.properties.background-blend-mode.html"><code>background-blend-mode</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 41</li><li><strong>chrome_android</strong>: 41</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 36</li><li><strong>firefox_android</strong>: 36</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 30</li><li><strong>opera_android</strong>: 30</li><li><strong>safari</strong>: 8</li><li><strong>safari_ios</strong>: 8</li><li><strong>samsunginternet_android</strong>: 4.0</li><li><strong>webview_android</strong>: 41</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/compositing/#isolation">https://drafts.fxtf.org/compositing/#isolation</a></p></section></aside></body>
+</html>

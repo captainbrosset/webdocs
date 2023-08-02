@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties width</h1><main>
+    
+
+<p>The <strong><code>width</code></strong> CSS property sets an element's width. By default, it sets the width of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area">content area</a>, but if <a href="./css.properties.box-sizing.html"><code>box-sizing</code></a> is set to <code>border-box</code>, it sets the width of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area">border area</a>.</p>
+<p>The specified value of <code>width</code> applies to the content area so long as its value remains within the values defined by <a href="./css.properties.min-width.html"><code>min-width</code></a> and <a href="./css.properties.max-width.html"><code>max-width</code></a>.</p>
+<ul>
+  <li>If the value for <code>width</code> is less than the value for <code>min-width</code>, then <code>min-width</code> overrides <code>width</code>.</li>
+  <li>If the value for <code>width</code> is greater than the value for <code>max-width</code>, then <code>max-width</code> overrides <code>width</code>.</li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+width: 300px;
+width: 25em;
+
+/* &#x3C;percentage> value */
+width: 75%;
+
+/* Keyword values */
+width: max-content;
+width: min-content;
+width: fit-content(20em);
+width: auto;
+
+/* Global values */
+width: inherit;
+width: initial;
+width: revert;
+width: revert-layer;
+width: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Defines the width as a distance value.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Defines the width as a percentage of the containing block's width.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser will calculate and select a width for the specified element.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>The intrinsic preferred width.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>The intrinsic minimum width.</p>
+  </dd>
+  <dt><code>fit-content(<a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Uses the fit-content formula with the available space replaced by the specified argument, i.e. <code>min(max-content, max(min-content, &#x3C;length-percentage>))</code>.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Ensure that elements set with a <code>width</code> aren't truncated and/or don't obscure other content when the page is zoomed to increase text size.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements except non-replaced inlines</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with &lt;length-percentage&gt; values computed</td></tr><tr><th scope="row">Animation type</th><td>by computed value type, recursing into fit-content()</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length-percentage [0,∞]&gt; | min-content | max-content | fit-content(&lt;length-percentage [0,∞]&gt;)</pre></section>
+
+<h3>Default width</h3>
+<pre class="brush: css">p.goldie {
+  background: gold;
+}
+</pre>
+<pre class="brush: html">&#x3C;p class="goldie">The Mozilla community produces a lot of great software.&#x3C;/p>
+</pre>
+<h3>Example using pixels and ems</h3>
+<pre class="brush: css">.px_length {
+  width: 200px;
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+}
+
+.em_length {
+  width: 20em;
+  background-color: white;
+  color: red;
+  border: 1px solid black;
+}
+</pre>
+<pre class="brush: html">&#x3C;div class="px_length">Width measured in px&#x3C;/div>
+&#x3C;div class="em_length">Width measured in em&#x3C;/div>
+</pre>
+<h3>Example with percentage</h3>
+<pre class="brush: css">.percent {
+  width: 20%;
+  background-color: silver;
+  border: 1px solid red;
+}
+</pre>
+<pre class="brush: html">&#x3C;div class="percent">Width in percentage&#x3C;/div>
+</pre>
+<h3>Example using "max-content"</h3>
+<pre class="brush: css">p.maxgreen {
+  background: lightgreen;
+  width: intrinsic; /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content; /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+  width: max-content;
+}
+</pre>
+<pre class="brush: html">&#x3C;p class="maxgreen">The Mozilla community produces a lot of great software.&#x3C;/p>
+</pre>
+<h3>Example using "min-content"</h3>
+<pre class="brush: css">p.minblue {
+  background: lightblue;
+  width: -moz-min-content; /* Firefox */
+  width: -webkit-min-content; /* Chrome */
+  width: min-content;
+}
+</pre>
+<pre class="brush: html">&#x3C;p class="minblue">The Mozilla community produces a lot of great software.&#x3C;/p>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">The box model</a></li>
+  <li><a href="./css.properties.height.html"><code>height</code></a></li>
+  <li><a href="./css.properties.box-sizing.html"><code>box-sizing</code></a></li>
+  <li><a href="./css.properties.min-width.html"><code>min-width</code></a>, <a href="./css.properties.max-width.html"><code>max-width</code></a></li>
+  <li>The mapped logical properties: <a href="./css.properties.block-size.html"><code>block-size</code></a>, <a href="./css.properties.inline-size.html"><code>inline-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-4/#width-height-keywords">https://drafts.csswg.org/css-sizing-4/#width-height-keywords</a></p></section></aside></body>
+</html>

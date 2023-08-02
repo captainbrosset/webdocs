@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-span</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-span</h1><main>
+    
+
+<p>The <strong><code>column-span</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property makes it possible for an element to span across all columns when its value is set to <code>all</code>.</p>
+<p>An element that spans more than one column is called a <strong>spanning element</strong>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+column-span: none;
+column-span: all;
+
+/* Global values */
+column-span: inherit;
+column-span: initial;
+column-span: revert;
+column-span: revert-layer;
+column-span: unset;
+</pre>
+<p>The <code>column-span</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element does not span multiple columns.</p>
+  </dd>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>The element spans across all columns. Content in the normal flow that appears before the element is automatically balanced across all columns before the element appears. The element establishes a new block formatting context.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>in-flow block-level elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;integer [1,∞]&gt; | all | auto</pre></section>
+
+<h3>Making a heading span columns</h3>
+<p>In this example, the heading is made to span across all the columns of the article.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;article>
+  &#x3C;h2>Header spanning all of the columns&#x3C;/h2>
+  &#x3C;p>
+    The h2 should span all the columns. The rest of the text should be
+    distributed among the columns.
+  &#x3C;/p>
+  &#x3C;p>
+    This is a bunch of text split into three columns using the CSS `columns`
+    property. The text is equally distributed over the columns.
+  &#x3C;/p>
+  &#x3C;p>
+    This is a bunch of text split into three columns using the CSS `columns`
+    property. The text is equally distributed over the columns.
+  &#x3C;/p>
+  &#x3C;p>
+    This is a bunch of text split into three columns using the CSS `columns`
+    property. The text is equally distributed over the columns.
+  &#x3C;/p>
+  &#x3C;p>
+    This is a bunch of text split into three columns using the CSS `columns`
+    property. The text is equally distributed over the columns.
+  &#x3C;/p>
+&#x3C;/article>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">article {
+  columns: 3;
+}
+
+h2 {
+  column-span: all;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns">Spanning and balancing columns</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Inline-level_content">Inline-level elements</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement"><code>HTMLSpanElement</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 71</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-multicol/#column-span">https://drafts.csswg.org/css-multicol/#column-span</a></p></section></aside></body>
+</html>

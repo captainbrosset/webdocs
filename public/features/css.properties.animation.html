@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation</h1><main>
+    
+
+<p>The <strong><code>animation</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property applies an animation between styles. It is a shorthand for <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, and <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.animation-delay.html"><code>animation-delay</code></a></li>
+  <li><a href="./css.properties.animation-direction.html"><code>animation-direction</code></a></li>
+  <li><a href="./css.properties.animation-duration.html"><code>animation-duration</code></a></li>
+  <li><a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a></li>
+  <li><a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a></li>
+  <li><a href="./css.properties.animation-name.html"><code>animation-name</code></a></li>
+  <li><a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a></li>
+  <li><a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+  <li><a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 3s ease-in 1s 2 reverse both paused slidein;
+
+/* @keyframes duration | easing-function | delay | name */
+animation: 3s linear 1s slidein;
+
+/* two animations */
+animation:
+  3s linear slidein,
+  3s ease-out 5s slideout;
+</pre>
+<p>The <code>animation</code> property is specified as one or more single animations, separated by commas.</p>
+<p>Each individual animation is specified as:</p>
+<ul>
+  <li>zero, one, or two occurrences of the <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> value</li>
+  <li>zero or one occurrences of the following values:
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation#single-easing-function"><code>&lt;single-easing-function&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation#single-animation-iteration-count"><code>&lt;single-animation-iteration-count&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation#single-animation-direction"><code>&lt;single-animation-direction&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation#single-animation-fill-mode"><code>&lt;single-animation-fill-mode&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation#single-animation-play-state"><code>&lt;single-animation-play-state&gt;</code></a></li>
+    </ul>
+  </li>
+  <li>an optional name for the animation, which may be <code>none</code>, a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>, or a <a href="./css.types.string.html"><code>&lt;string&gt;</code></a></li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-range-start.html"><code>animation-range-start</code></a>, and <a href="./css.properties.animation-range-end.html"><code>animation-range-end</code></a> are not currently included in this list, as current implementations are reset-only. This means that including <code>animation</code> resets a previously-declared <code>animation-timeline</code> value to <code>auto</code> and previously-declared <code>animation-range-start</code> and <code>animation-range-end</code> values to <code>normal</code>, but these properties cannot be set via <code>animation</code>. When creating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>, you need to declare these properties after declaring any <code>animation</code> shorthand for it to take effect.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;single-easing-function></code></dt>
+  <dd>
+    <p>Determines the type of transition. The value must be one of those available in <a href="./css.types.easing-function.html"><code>easing-function</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;single-animation-iteration-count></code></dt>
+  <dd>
+    <p>The number of times the animation is played. The value must be one of those available in <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;single-animation-direction></code></dt>
+  <dd>
+    <p>The direction in which the animation is played. The value must be one of those available in <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;single-animation-fill-mode></code></dt>
+  <dd>
+    <p>Determines how styles should be applied to the animation's target before and after its execution. The value must be one of those available in <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;single-animation-play-state></code></dt>
+  <dd>
+    <p>Determines whether the animation is playing or not. The value must be one of those available in <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>The order of time values within each animation definition is important: the first value that can be parsed as a <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> is assigned to the <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, and the second one is assigned to <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>.</p>
+<p>The order of other values within each animation definition is also important for distinguishing an <a href="./css.properties.animation-name.html"><code>animation-name</code></a> value from other values. If a value in the <code>animation</code> shorthand can be parsed as a value for an animation property other than <code>animation-name</code>, then the value will be applied to that property first and not to <code>animation-name</code>. For this reason, the recommended practice is to specify a value for <code>animation-name</code> as the last value in a list of values when using the <code>animation</code> shorthand; this holds true even when you specify multiple, comma-separated animations using the <code>animation</code> shorthand.</p>
+<p>While an animation name must be set for an animation to be applied, all values of the <code>animation</code> shorthand are optional, and default to the initial value for each long-hand <code>animation</code> component. The initial value of <code>animation-name</code> is <code>none</code>, meaning if no <code>animation-name</code> value is declared in the <code>animation</code> shorthand property, there is no animation to apply on any of the properties.</p>
+<p>When the <code>animation-duration</code> value is omitted from the <code>animation</code> shorthand property, the value for this property defaults to <code>0s</code>. In this case, the animation will still occur (the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animationstart_event"><code>animationStart</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animationend_event"><code>animationEnd</code></a> events will be fired) but no animation will be visible.</p>
+<h2>Accessibility concerns</h2>
+<p>Blinking and flashing animation can be problematic for people with cognitive concerns such as Attention Deficit Hyperactivity Disorder (ADHD). Additionally, certain kinds of motion can be a trigger for Vestibular disorders, epilepsy, and migraine and Scotopic sensitivity.</p>
+<p>Consider providing a mechanism for pausing or disabling animation as well as using the <a href="./css.at-rules.media.prefers-reduced-motion.html">Reduced Motion Media Query</a> to create a complimentary experience for users who have expressed a preference for reduced animated experiences.</p>
+<ul>
+  <li><a href="https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/">Designing Safer Web Animation For Motion Sensitivity · An A List Apart Article</a></li>
+  <li><a href="https://css-tricks.com/introduction-reduced-motion-media-query/">An Introduction to the Reduced Motion Media Query | CSS-Tricks</a></li>
+  <li><a href="https://webkit.org/blog/7551/responsive-design-for-motion/">Responsive Design for Motion | WebKit</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.2 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html">Understanding Success Criterion 2.2.2 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+<h2>Examples</h2>
+<div class="notecard note">
+  <p><strong>Note:</strong> Animating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model">CSS Box Model</a> properties is discouraged. Animating any box model property is inherently CPU intensive; consider animating the <a href="./css.properties.transform.html">transform</a> property instead.</p>
+</div>
+<h3>Sun Rise</h3>
+<p>
+  Here we animate a yellow sun across a light blue sky. The sun rises
+  to the center of the viewport and then falls out of sight.
+</p>
+<pre class="brush: html">&#x3C;div class="sun">&#x3C;/div>
+</pre>
+<pre class="brush: css">:root {
+  overflow: hidden; /* hides any part of the sun below the horizon */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center; /* centers the sun in the background */
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%; /* creates a circular background */
+  height: 100vh; /* makes the sun the size of the viewport */
+  aspect-ratio: 1 / 1;
+  animation: 4s linear 0s infinite alternate sun-rise;
+}
+
+@keyframes sun-rise {
+  from {
+    /* pushes the sun down past the viewport */
+    transform: translateY(110vh);
+  }
+  to {
+    /* returns the sun to its default position */
+    transform: translateY(0);
+  }
+}
+</pre>
+<h3>Animating Multiple Properties</h3>
+<p>Adding onto the sun animation in the previous example, we add a second animation changing the color of the sun as it rises and sets. The sun starts off dark red when it is below the horizon and changes to a bright orange as it reaches the top.</p>
+<pre class="brush: html">&#x3C;div class="sun">&#x3C;/div>
+</pre>
+<pre class="brush: css">:root {
+  overflow: hidden;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  height: 100vh;
+  aspect-ratio: 1 / 1;
+  animation: 4s linear 0s infinite alternate animating-multiple-properties;
+}
+
+/* it is possible to animate multiple properties in a single animation */
+@keyframes animating-multiple-properties {
+  from {
+    transform: translateY(110vh);
+    background-color: red;
+    filter: brightness(75%);
+  }
+  to {
+    transform: translateY(0);
+    background-color: orange;
+    /* unset properties i.e. 'filter' will revert to default values */
+  }
+}
+</pre>
+<h3>Applying Multiple Animations</h3>
+<p>
+  Here is a sun that rises and falls on a lightblue background. The sun
+  gradually rotates through a rainbow of colors. The timing of the sun's
+  position and color are independent.
+</p>
+<pre class="brush: html">&#x3C;div class="sun">&#x3C;/div>
+</pre>
+<pre class="brush: css">:root {
+  overflow: hidden;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  height: 100vh;
+  aspect-ratio: 1 / 1;
+  /* multiple animations are separated by commas, each animation's parameters are set independently */
+  animation:
+    4s linear 0s infinite alternate rise,
+    24s linear 0s infinite psychedelic;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes psychedelic {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+</pre>
+<h3>Cascading Multiple Animations</h3>
+<p>
+  Here is a yellow sun on a lightblue background. The sun bounces between the
+  left and right sides of the viewport. The sun remains in the viewport even
+  though a rise animation is defined. The rise animation's transform property
+  is 'overwritten' by the bounce animation.
+</p>
+<pre class="brush: html">&#x3C;div class="sun">&#x3C;/div>
+</pre>
+<pre class="brush: css">:root {
+  overflow: hidden;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  height: 100vh;
+  aspect-ratio: 1 / 1;
+  /*
+    animations declared later in the cascade will override the
+    properties of previously declared animations
+  */
+  /* bounce 'overwrites' the transform set by rise, hence the sun only moves horizontally */
+  animation:
+    4s linear 0s infinite alternate rise,
+    4s linear 0s infinite alternate bounce;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(110vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateX(-50vw);
+  }
+  to {
+    transform: translateX(50vw);
+  }
+}
+</pre>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#examples">Using CSS animations</a> for additional examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation">https://drafts.csswg.org/css-animations/#animation</a></p></section></aside></body>
+</html>

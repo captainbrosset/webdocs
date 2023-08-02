@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>image-rendering</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties image-rendering</h1><main>
+    
+
+<p>The <strong><code>image-rendering</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.</p>
+<p>The <a href="/Glossary/user_agent">user agent</a> will scale an image when the page author specifies dimensions other than its natural size. Scaling may also occur due to user interaction (zooming). For example, if the natural size of an image is <code>100×100px</code><em>,</em> but its actual dimensions are <code>200×200px</code> (or <code>50×50px</code>), then the image will be upscaled (or downscaled) using the algorithm specified by <code>image-rendering</code>. This property has no effect on non-scaled images.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+image-rendering: auto;
+image-rendering: crisp-edges;
+image-rendering: pixelated;
+
+/* Global values */
+image-rendering: inherit;
+image-rendering: initial;
+image-rendering: revert;
+image-rendering: revert-layer;
+image-rendering: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The scaling algorithm is UA dependent. Since version 1.9 (Firefox 3.0), Gecko uses <em>bilinear</em> resampling (high quality).</p>
+  </dd>
+  <dt><code>smooth</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The image should be scaled with an algorithm that maximizes the appearance of the image. In particular, scaling algorithms that "smooth" colors are acceptable, such as bilinear interpolation. This is intended for images such as photos.</p>
+  </dd>
+  <dt><code>high-quality</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Identical to <code>smooth</code>, but with a preference for higher-quality scaling. If system resources are constrained, images with <code>high-quality</code> should be prioritized over those with any other value, when considering which images to degrade the quality of and to what degree.</p>
+  </dd>
+  <dt><code>crisp-edges</code></dt>
+  <dd>
+    <p>The image is scaled with an algorithm that preserves contrast and edges in the image. Generally intended for images such as pixel art or line drawings, no blurring or color smoothing occurs.</p>
+  </dd>
+  <dt><code>pixelated</code></dt>
+  <dd>
+    <p>The image is scaled with the "nearest neighbor" or similar algorithm, preserving a "pixelated" look as the image changes in size.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The values <code>optimizeQuality</code> and <code>optimizeSpeed</code> present in an early draft (and coming from its SVG counterpart <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/image-rendering"><code>image-rendering</code></a>) are defined as synonyms for the <code>smooth</code> and <code>pixelated</code> values respectively.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | smooth | high-quality | pixelated | crisp-edges</pre></section>
+
+<h3>Setting image scaling algorithms</h3>
+<p>In practical use, the <code>pixelated</code> and <code>crisp-edges</code> rules can be combined to provide some fallback for each other. (Just prepend the actual rules with the fallback.) The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a> can provide a <a href="http://phrogz.net/tmp/canvas_image_zoom.html">fallback solution for <code>pixelated</code></a> through manual image data manipulation or with <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled"><code>imageSmoothingEnabled</code></a>.</p>
+<pre class="brush: html hidden">&#x3C;div>
+  &#x3C;img
+    class="auto"
+    alt="A small photo of some white and yellow flower against a leafy green background. The image is about 33% smaller than the size it is being displayed at. This upscaling causes the image to appear blurry, with notable soft edges between objects."
+    src="blumen.jpg" />
+  &#x3C;img
+    class="pixelated"
+    alt="The same photo as the previous image, which is also being upscaled the same amount. Browsers that support the pixelated value for the image-rendering property display the image as very pixelated. Individual pixels are clearly visible and edges appear much sharper."
+    src="blumen.jpg" />
+  &#x3C;img
+    class="crisp-edges"
+    alt="The same photo as the previous images, which is also being upscaled the same amount. Browsers that support the crisp-edges value for the image-rendering property display the image as very pixelated. In these examples, there is virtually no perceivable difference between the pixelated and crisp-edges versions."
+    src="blumen.jpg" />
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">img {
+  height: 200px;
+}
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.auto {
+  image-rendering: auto;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.crisp-edges {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+</pre>
+<h4>Result</h4>
+
+
+<div class="notecard note">
+  <p><strong>Note:</strong> Although <code>crisp-edges</code> is supposed to use a pixel-art scaler like in the specification example, in practice no browsers (as of January 2020) do so. <a href="https://searchfox.org/mozilla-central/rev/1061fae5e225a99ef5e43dbdf560a91a0c0d00d1/gfx/wr/webrender/src/resource_cache.rs#1356">In Firefox</a>, <code>crisp-edges</code> or <code>pixelated</code> is interpreted as nearest-neighbor, and <code>auto</code> is interpolated as trilinear or linear.</p>
+  <p>For behavior on Chromium and Safari (WebKit), see the <a href="https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/style/computed_style.cc;l=1160"><code>GetInterpolationQuality</code></a> function and <a href="https://github.com/WebKit/WebKit/blob/9b26fc6081e0db8a1304cf4b4f8f1c67efb9bc0c/Source/WebCore/css/CSSPrimitiveValueMappings.h#L4045"><code>CSSPrimitiveValue::operator ImageRendering()</code></a> respectively.</p>
+</div>
+<h2>See also</h2>
+<ul>
+  <li>Other image-related CSS properties: <a href="./css.properties.object-fit.html"><code>object-fit</code></a>, <a href="./css.properties.object-position.html"><code>object-position</code></a>, <a href="./css.properties.image-orientation.html"><code>image-orientation</code></a>, <a href="./css.properties.image-rendering.html"><code>image-rendering</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-resolution"><code>image-resolution</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 13</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 3.6</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images/#the-image-rendering">https://drafts.csswg.org/css-images/#the-image-rendering</a></p></section></aside></body>
+</html>

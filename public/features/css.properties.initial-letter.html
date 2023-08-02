@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>initial-letter</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties initial-letter</h1><main>
+    
+
+<p>The <code>initial-letter</code> CSS property sets styling for dropped, raised, and sunken initial letters.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+initial-letter: normal;
+
+/* Numeric values */
+initial-letter: 1.5; /* Initial letter occupies 1.5 lines */
+initial-letter: 3; /* Initial letter occupies 3 lines */
+initial-letter: 3 2; /* Initial letter occupies 3 lines and
+                           sinks 2 lines */
+
+/* Global values */
+initial-letter: inherit;
+initial-letter: initial;
+initial-letter: revert;
+initial-letter: revert-layer;
+initial-letter: unset;
+</pre>
+<p>The keyword value <code>normal</code>, or a <code>&#x3C;number></code> optionally followed by an <code>&#x3C;integer></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>No special initial-letter effect. Text behaves as normal.</p>
+  </dd>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>Defines the size of the initial letter, in terms of how many lines it occupies. Negative values are not allowed.</p>
+  </dd>
+  <dt><code>&#x3C;integer></code></dt>
+  <dd>
+    <p>Defines the number of lines the initial letter should sink when the size of it is given. Values must be greater than zero. If omitted, it duplicates the size value, floored to the nearest positive whole number.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>certain inline-level boxes and ::first-letter and inside ::marker boxes (see prose)</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword normal or a number paired with an integer</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | &lt;number [1,∞]&gt; &lt;integer [1,∞]&gt; | &lt;number [1,∞]&gt; && [ drop | raise ]?</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="normal">Initial letter is normal&#x3C;/p>
+&#x3C;p class="onefive">Initial letter occupies 1.5 lines&#x3C;/p>
+&#x3C;p class="three">Initial letter occupies 3 lines&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.normal::first-letter {
+  -webkit-initial-letter: normal;
+  initial-letter: normal;
+}
+
+.onefive::first-letter {
+  -webkit-initial-letter: 1.5;
+  initial-letter: 1.5;
+}
+
+.three::first-letter {
+  -webkit-initial-letter: 3;
+  initial-letter: 3;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.initial-letter-align.html"><code>initial-letter-align</code></a></li>
+  <li><a href="https://www.oddbird.net/2017/01/03/initial-letter/">Drop caps in CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 110</li><li><strong>chrome_android</strong>: 110</li><li><strong>edge</strong>: 110</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 96</li><li><strong>opera_android</strong>: 74</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 21.0</li><li><strong>webview_android</strong>: 110</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-inline/#sizing-drop-initials">https://drafts.csswg.org/css-inline/#sizing-drop-initials</a></p></section></aside></body>
+</html>

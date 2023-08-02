@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@container"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@container"</h1><main>
+    
+
+<p>
+  The <strong><code>@container</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> is a conditional group rule that applies styles to a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries#naming_containment_contexts">containment context</a>.
+  Style declarations are filtered by a condition and applied to the container if the condition is true.
+  The condition is evaluated when the container changes size.
+</p>
+<p>
+  An optional case-sensitive <a href="./css.properties.container-name.html"><code>container-name</code></a> can be provided which filters the set of query containers considered to just those with a matching query container name.
+  Once an eligible query container has been selected for an element, each container feature in the <code>&#x3C;container-condition></code> is evaluated against that query container.
+</p>
+<h2>Syntax</h2>
+<p>The <code>@container</code> at-rule has the following syntax:</p>
+<pre class="brush: plain">@container &#x3C;container-condition> {
+  &#x3C;stylesheet>
+}
+</pre>
+<p>For example:</p>
+<pre class="brush: css">@container (width > 400px) {
+  h2 {
+    font-size: 1.5em;
+  }
+}
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;container-condition></code></dt>
+  <dd>
+    <p>
+      A set of features that are evaluated against the query container when the size of the container changes.
+      Styles defined in the <code>&#x3C;stylesheet></code> are applied if the condition is true.
+    </p>
+  </dd>
+  <dt><code>&#x3C;stylesheet></code></dt>
+  <dd>
+    <p>A set of CSS declarations.</p>
+  </dd>
+</dl>
+<h3>Logical keywords in container queries</h3>
+<p>Logical keywords can be used to define the container condition:</p>
+<ul>
+  <li><code>and</code> combines two or more conditions.</li>
+  <li><code>or</code> combines two or more conditions.</li>
+  <li><code>not</code> negates the condition. Only one 'not' condition is allowed per container query and cannot be used with the <code>and</code> or <code>or</code> keywords.</li>
+</ul>
+<pre class="brush: css">@container (width > 400px) and (height > 400px) {
+  /* &#x3C;stylesheet> */
+}
+
+@container (width > 400px) or (height > 400px) {
+  /* &#x3C;stylesheet> */
+}
+
+@container not (width &#x3C; 400px) {
+  /* &#x3C;stylesheet> */
+}
+</pre>
+<h3>Named containment contexts</h3>
+<p>A containment context can be named using the <a href="./css.properties.container-name.html"><code>container-name</code></a> property.</p>
+<pre class="brush: css">.post {
+  container-name: sidebar;
+  container-type: inline-size;
+}
+</pre>
+<p>The shorthand syntax for this is to use <a href="./css.properties.container.html"><code>container</code></a> in the form <code>container: &#x3C;name> / &#x3C;type></code>, for example:</p>
+<pre class="brush: css">.post {
+  container: sidebar / inline-size;
+}
+</pre>
+<p>In container queries, the <a href="./css.properties.container-name.html"><code>container-name</code></a> property is used to filter the set of containers to those with a matching query container name:</p>
+<pre class="brush: css">@container sidebar (width > 400px) {
+  /* &#x3C;stylesheet> */
+}
+</pre>
+<p>Details about usage and naming restrictions are described in the <a href="./css.properties.container-name.html"><code>container-name</code></a> page.</p>
+<h3>Descriptors</h3>
+<p>The following descriptors can be used within the container condition:</p>
+<dl>
+  <dt><code>aspect-ratio</code></dt>
+  <dd>
+    <p>The <a href="./css.properties.aspect-ratio.html"><code>aspect-ratio</code></a> of the container calculated as the width to the height of the container expressed as a <a href="./css.types.ratio.html"><code>ratio</code></a> value.</p>
+  </dd>
+  <dt><code>block-size</code></dt>
+  <dd>
+    <p>The <a href="./css.properties.block-size.html"><code>block-size</code></a> of the container expressed as a <a href="./css.types.length.html"><code>length</code></a> value.</p>
+  </dd>
+  <dt><code>height</code></dt>
+  <dd>
+    <p>The height of the container expressed as a <a href="./css.types.length.html"><code>length</code></a> value.</p>
+  </dd>
+  <dt><code>inline-size</code></dt>
+  <dd>
+    <p>The <a href="./css.properties.inline-size.html"><code>inline-size</code></a> of the container expressed as a <a href="./css.types.length.html"><code>length</code></a> value.</p>
+  </dd>
+  <dt><code>orientation</code></dt>
+  <dd>
+    <p>The <a href="./css.at-rules.media.orientation.html">orientation</a> of the container, either <code>landscape</code> or <code>portrait</code>.</p>
+  </dd>
+  <dt><code>width</code></dt>
+  <dd>
+    <p>The width of the container expressed as a <a href="./css.types.length.html"><code>length</code></a> value.</p>
+  </dd>
+</dl>
+
+<h3>Setting styles based on a container's size</h3>
+<p>Consider the following example of a card component with a title and some text:</p>
+<pre class="brush: html">&#x3C;div class="post">
+  &#x3C;div class="card">
+    &#x3C;h2>Card title&#x3C;/h2>
+    &#x3C;p>Card content&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>
+  A container context can be created using the <code>container-type</code> property, in this case using the <code>inline-size</code> value on the <code>.post</code> class.
+  You can then use the <code>@container</code> at-rule to apply styles to the element with the <code>.card</code> class in a container that's narrower than <code>650px</code>.
+</p>
+<pre class="brush: js hidden">const post = document.querySelector(".post");
+const span = document.createElement("span");
+span.innerHTML = ".post width: " + post.clientWidth + "px";
+post.parentNode.insertBefore(span, post.nextSibling);
+// update on resize
+window.addEventListener("resize", () => {
+  span.innerHTML = ".post width: " + post.clientWidth + "px";
+});
+</pre>
+<pre class="brush: css hidden">span {
+  display: block;
+  text-align: center;
+}
+.card {
+  margin: 10px;
+  border: 2px dotted;
+  font-size: 1.5em;
+}
+.post {
+  border: 2px solid;
+}
+</pre>
+<pre class="brush: css">/* A container context based on inline size */
+.post {
+  container-type: inline-size;
+}
+
+/* Apply styles if the container is narrower than 650px */
+@container (width &#x3C; 650px) {
+  .card {
+    width: 50%;
+    background-color: gray;
+    font-size: 1em;
+  }
+}
+</pre>
+<h3>Creating named container contexts</h3>
+<p>Given the following HTML example which is a card component with a title and some text:</p>
+<pre class="brush: html">&#x3C;div class="post">
+  &#x3C;div class="card">
+    &#x3C;h2>Card title&#x3C;/h2>
+    &#x3C;p>Card content&#x3C;/p>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>
+  First, create a container context using the <code>container-type</code> and <code>container-name</code> properties.
+  The shorthand syntax for this declaration is described in the <a href="./css.properties.container.html"><code>container</code></a> page.
+</p>
+<pre class="brush: css">.post {
+  container-type: inline-size;
+  container-name: summary;
+}
+</pre>
+<p>Next, target that container by adding the name to the container query:</p>
+<pre class="brush: css">@container summary (min-width: 400px) {
+  .card {
+    font-size: 1.5em;
+  }
+}
+</pre>
+<h3>Nested container queries</h3>
+<p>
+  It's not possible to target multiple containers in a single container query.
+  It is possible to nest container queries which has the same effect.
+</p>
+<p>The following query evaluates to true and applies the declared style if the container named <code>summary</code> is wider than <code>400px</code> and has an ancestor container wider than <code>800px</code>:</p>
+<pre class="brush: css">@container summary (min-width: 400px) {
+  @container (min-width: 800px) {
+    /* &#x3C;stylesheet> */
+  }
+}
+</pre>
+<h3>Style container queries</h3>
+<p>
+  Container queries can also evaluate the computed style of the container element.
+  The following container query checks if the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value"><code>computed_value</code></a> of the container element's <code>--accent-color</code> is <code>blue</code>:
+</p>
+<pre class="brush: css">@container style(--accent-color: blue) {
+  /* &#x3C;stylesheet> */
+}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> If a custom property has a value of <code>blue</code>, the equivalent hexidecimal code <code>#0000ff</code> will not match unless the property has been defined as a color with <a href="./css.at-rules.property.html"><code>@property</code></a> so the browser can properly compare computed values.</p>
+</div>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">Container queries</a></li>
+  <li><a href="./css.properties.container-name.html"><code>container-name</code></a></li>
+  <li><a href="./css.properties.container-type.html"><code>container-type</code></a></li>
+  <li><a href="./css.properties.contain.html"><code>contain</code></a></li>
+  <li><a href="./css.properties.content-visibility.html"><code>content-visibility</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 105</li><li><strong>chrome_android</strong>: 105</li><li><strong>edge</strong>: 105</li><li><strong>firefox</strong>: 110</li><li><strong>firefox_android</strong>: 110</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 91</li><li><strong>opera_android</strong>: 72</li><li><strong>safari</strong>: 16</li><li><strong>safari_ios</strong>: 16</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 105</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-contain-3/#container-rule">https://drafts.csswg.org/css-contain-3/#container-rule</a></p></section></aside></body>
+</html>

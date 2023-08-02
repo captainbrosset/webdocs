@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ID selectors</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ID selectors</h1><main>
+    
+
+<p>The CSS <strong>ID selector</strong> matches an element based on the value of the element's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id"><code>id</code></a> attribute. In order for the element to be selected, its <code>id</code> attribute must match exactly the value given in the selector.</p>
+<pre class="brush: css">/* The element with id="demo" */
+#demo {
+  border: red 2px solid;
+}
+</pre>
+<h2>Syntax</h2>
+<pre class="brush: css">#id_value { style properties }
+</pre>
+<p>Note that syntactically (but not specificity-wise), this is equivalent to the following <a href="./css.selectors.attribute.html"><code>attribute selector</code></a>:</p>
+<pre class="brush: css">[id=id_value] { style properties }
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">#identified {
+  background-color: skyblue;
+}
+</pre>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div id="identified">This div has a special ID on it!&#x3C;/div>
+&#x3C;div>This is just a regular div.&#x3C;/div>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS Selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">Learn CSS: Selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#id-selectors">https://drafts.csswg.org/selectors/#id-selectors</a></p></section></aside></body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-underline-offset</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-underline-offset</h1><main>
+    
+
+<p>The <strong><code>text-underline-offset</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the offset distance of an underline text decoration line (applied using <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a>) from its original position.</p>
+<p><code>text-underline-offset</code> is not part of the <a href="./css.properties.text-decoration.html"><code>text-decoration</code></a> shorthand. While an element can have multiple <code>text-decoration</code> lines, <code>text-underline-offset</code> only impacts underlining, and <strong>not</strong> other possible line decoration options such as <code>overline</code> or <code>line-through</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single keyword */
+text-underline-offset: auto;
+
+/* length */
+text-underline-offset: 0.1em;
+text-underline-offset: 3px;
+
+/* percentage */
+text-underline-offset: 20%;
+
+/* Global values */
+text-underline-offset: inherit;
+text-underline-offset: initial;
+text-underline-offset: revert;
+text-underline-offset: revert-layer;
+text-underline-offset: unset;
+</pre>
+<p>The <code>text-underline-offset</code> property is specified as a single value from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser chooses the appropriate offset for underlines.</p>
+  </dd>
+  <dt><code>&#x3C;length></code></dt>
+  <dd>
+    <p>Specifies the offset of underlines as a <a href="./css.types.length.html"><code>length</code></a>, overriding the font file suggestion and the browser default. It is recommended to use <code>em</code> units so the offset scales with the font size.</p>
+  </dd>
+  <dt><code>&#x3C;percentage></code></dt>
+  <dd>
+    <p>Specifies the offset of underlines as a <a href="./css.types.percentage.html"><code>percentage</code></a> of <strong>1 em</strong> in the element's font. A percentage inherits as a relative value, and so therefore scales with changes in the font. For a given application of this property, the offset is constant across the whole box that the underline is applied to, even if there are child elements with different font sizes or vertical alignment.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword or absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length&gt; | &lt;percentage&gt;</pre></section>
+
+<h3>Demonstration of text-underline-offset</h3>
+<pre class="brush: html">&#x3C;p class="oneline">Here's some text with an offset wavy red underline!&#x3C;/p>
+&#x3C;br />
+&#x3C;p class="twolines">
+  This text has lines both above and below it. Only the bottom one is offset.
+&#x3C;/p>
+</pre>
+<pre class="brush: css">p {
+  text-decoration: underline wavy red;
+  text-underline-offset: 1em;
+}
+
+.twolines {
+  text-decoration-color: purple;
+  text-decoration-line: underline overline;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-decoration.html"><code>text-decoration</code></a></li>
+  <li><a href="./css.properties.text-decoration-thickness.html"><code>text-decoration-thickness</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 87</li><li><strong>chrome_android</strong>: 87</li><li><strong>edge</strong>: 87</li><li><strong>firefox</strong>: 70</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: 73</li><li><strong>opera_android</strong>: 62</li><li><strong>safari</strong>: 12.1</li><li><strong>safari_ios</strong>: 12.2</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 87</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor-4/#underline-offset">https://drafts.csswg.org/css-text-decor-4/#underline-offset</a></p></section></aside></body>
+</html>

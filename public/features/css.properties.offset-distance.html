@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>offset-distance</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties offset-distance</h1><main>
+    
+
+<p>The <strong><code>offset-distance</code></strong> CSS property specifies a position along an <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> for an element to be placed.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Default value */
+offset-distance: 0;
+
+/* the middle of the offset-path */
+offset-distance: 50%;
+
+/* a fixed length positioned along the path */
+offset-distance: 40px;
+
+/* Global values */
+offset-distance: inherit;
+offset-distance: initial;
+offset-distance: revert;
+offset-distance: revert-layer;
+offset-distance: unset;
+</pre>
+<dl>
+  <dt><code><a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a></code></dt>
+  <dd>
+    <p>A length that specifies how far the element is along the path (defined with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a>).</p>
+    <p>100% represents the total length of the path (when the <code>offset-path</code> is defined as a basic shape or <code>path()</code>).</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>a computed &lt;length-percentage&gt; value</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;length-percentage&gt;</pre></section>
+
+<h3>Using offset-distance in an animation</h3>
+<p>The motion aspect in CSS Motion Path typically comes from animating the <code>offset-distance</code> property. If you want to animate an element along its full path, you would define its <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a> and then set up an animation that takes the <code>offset-distance</code> from <code>0%</code> to <code>100%</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="motion-demo">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#motion-demo {
+  offset-path: path("M20,20 C20,100 200,0 200,100");
+  animation: move 3000ms infinite alternate ease-in-out;
+  width: 40px;
+  height: 40px;
+  background: cyan;
+}
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.offset.html"><code>offset</code></a></li>
+  <li><a href="./css.properties.offset-anchor.html"><code>offset-anchor</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path</code></a></li>
+  <li><a href="./css.properties.offset-position.html"><code>offset-position</code></a></li>
+  <li><a href="./css.properties.offset-rotate.html"><code>offset-rotate</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: preview</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/motion/#offset-distance-property">https://drafts.fxtf.org/motion/#offset-distance-property</a></p></section></aside></body>
+</html>

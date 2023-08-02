@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>margin-inline-end</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties margin-inline-end</h1><main>
+    
+
+<p>The <strong><code>margin-inline-end</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines the logical inline end margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation. In other words, it corresponds to the <a href="./css.properties.margin-top.html"><code>margin-top</code></a>, <a href="./css.properties.margin-right.html"><code>margin-right</code></a>, <a href="./css.properties.margin-bottom.html"><code>margin-bottom</code></a> or <a href="./css.properties.margin-left.html"><code>margin-left</code></a> property depending on the values defined for <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, and <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+margin-inline-end: 10px; /* An absolute length */
+margin-inline-end: 1em; /* relative to the text size */
+margin-inline-end: 5%; /* relative to the nearest block container's width */
+
+/* Keyword values */
+margin-inline-end: auto;
+
+/* Global values */
+margin-inline-end: inherit;
+margin-inline-end: initial;
+margin-inline-end: revert;
+margin-inline-end: revert-layer;
+margin-inline-end: unset;
+</pre>
+<p>It relates to <a href="./css.properties.margin-block-start.html"><code>margin-block-start</code></a>, <a href="./css.properties.margin-block-end.html"><code>margin-block-end</code></a>, and <a href="./css.properties.margin-inline-start.html"><code>margin-inline-start</code></a>, which define the other margins of the element.</p>
+<h3>Values</h3>
+<p>The <code>margin-inline-end</code> property takes the same values as the <a href="./css.properties.margin-left.html"><code>margin-left</code></a> property.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>Same as margin-top</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>Same as corresponding margin-* properties</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;'margin-top'&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p class="exampleText">Example text&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  margin-inline-end: 20px;
+  background-color: #c8c800;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS Logical Properties and Values</a></li>
+  <li><a href="./css.properties.margin-inline-start.html"><code>margin-inline-start</code></a></li>
+  <li>The mapped physical properties: <a href="./css.properties.margin-top.html"><code>margin-top</code></a>, <a href="./css.properties.margin-right.html"><code>margin-right</code></a>, <a href="./css.properties.margin-bottom.html"><code>margin-bottom</code></a>, and <a href="./css.properties.margin-left.html"><code>margin-left</code></a></li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>, <a href="./css.properties.direction.html"><code>direction</code></a>, <a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#margin-properties">https://drafts.csswg.org/css-logical/#margin-properties</a></p></section></aside></body>
+</html>

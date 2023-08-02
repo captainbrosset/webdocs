@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>page-break-after</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties page-break-after</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> This property has been replaced by the <a href="./css.properties.break-after.html"><code>break-after</code></a> property.</p>
+</div>
+<p>The <strong><code>page-break-after</code></strong> CSS property adjusts page breaks <em>after</em> the current element.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+page-break-after: auto;
+page-break-after: always;
+page-break-after: avoid;
+page-break-after: left;
+page-break-after: right;
+page-break-after: recto;
+page-break-after: verso;
+
+/* Global values */
+page-break-after: inherit;
+page-break-after: initial;
+page-break-after: revert;
+page-break-after: revert-layer;
+page-break-after: unset;
+</pre>
+<p>This property applies to block elements that generate a box. It won't apply on an empty <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> that won't generate a box.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Initial value. Automatic page breaks (neither forced nor forbidden).</p>
+  </dd>
+  <dt><code>always</code></dt>
+  <dd>
+    <p>Always force page breaks after the element.</p>
+  </dd>
+  <dt><code>avoid</code></dt>
+  <dd>
+    <p>Avoid page breaks after the element.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>Force page breaks after the element so that the next page is formatted as a left page. It's the page placed on the left side of the spine of the book or the back side of the page in duplex printing.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>Force page breaks after the element so that the next page is formatted as a right page. It's the page placed on the right side of the spine of the book or the front side of the page in duplex printing.</p>
+  </dd>
+  <dt><code>recto</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>If pages progress left-to-right, then this acts like <code>right</code>. If pages progress right-to-left, then this acts like <code>left</code>.</p>
+  </dd>
+  <dt><code>verso</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>If pages progress left-to-right, then this acts like <code>left</code>. If pages progress right-to-left, then this acts like <code>right</code>.</p>
+  </dd>
+</dl>
+<h2>Page break aliases</h2>
+<p>The <code>page-break-after</code> property is now a legacy property, replaced by <a href="./css.properties.break-after.html"><code>break-after</code></a>.</p>
+<p>For compatibility reasons, <code>page-break-after</code> should be treated by browsers as an alias of <code>break-after</code>. This ensures that sites using <code>page-break-after</code> continue to work as designed. A subset of values should be aliased as follows:</p>
+<table>
+  <thead>
+    <tr>
+      <th>page-break-after</th>
+      <th>break-after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>auto</code></td>
+      <td><code>auto</code></td>
+    </tr>
+    <tr>
+      <td><code>left</code></td>
+      <td><code>left</code></td>
+    </tr>
+    <tr>
+      <td><code>right</code></td>
+      <td><code>right</code></td>
+    </tr>
+    <tr>
+      <td><code>avoid</code></td>
+      <td><code>avoid</code></td>
+    </tr>
+    <tr>
+      <td><code>always</code></td>
+      <td><code>page</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block-level elements (but see text)</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | always | avoid | left | right | inherit</pre></section>
+
+<h3>Setting a page break after footnotes</h3>
+<pre class="brush: css">/* move to a new page after footnotes */
+div.footnotes {
+  page-break-after: always;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.break-before.html"><code>break-before</code></a>, <a href="./css.properties.break-after.html"><code>break-after</code></a>, <a href="./css.properties.break-inside.html"><code>break-inside</code></a></li>
+  <li><a href="./css.properties.page-break-before.html"><code>page-break-before</code></a>, <a href="./css.properties.page-break-inside.html"><code>page-break-inside</code></a></li>
+  <li><a href="./css.properties.orphans.html"><code>orphans</code></a>, <a href="./css.properties.widows.html"><code>widows</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#page,https://drafts.csswg.org/css-page/#page-break-after">https://drafts.csswg.org/css-logical/#page,https://drafts.csswg.org/css-page/#page-break-after</a></p></section></aside></body>
+</html>

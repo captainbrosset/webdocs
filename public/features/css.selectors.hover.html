@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":hover"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":hover"</h1><main>
+    
+
+<p>The <strong><code>:hover</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).</p>
+<p>Styles defined by the <code>:hover</code> pseudo-class will be overridden by any subsequent link-related pseudo-class (<a href="./css.selectors.link.html"><code>:link</code></a>, <a href="./css.selectors.visited.html"><code>:visited</code></a>, or <a href="./css.selectors.active.html"><code>:active</code></a>) that has at least equal specificity. To style links appropriately, put the <code>:hover</code> rule after the <code>:link</code> and <code>:visited</code> rules but before the <code>:active</code> one, as defined by the <em>LVHA-order</em>: <code>:link</code> — <code>:visited</code> — <code>:hover</code> — <code>:active</code>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>:hover</code> pseudo-class is problematic on touchscreens. Depending on the browser, the <code>:hover</code> pseudo-class might never match, match only for a moment after touching an element, or continue to match even after the user has stopped touching and until the user touches another element. Web developers should make sure that content is accessible on devices with limited or non-existent hovering capabilities.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:hover {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;a href="#">Try hovering over this link.&#x3C;/a>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">a {
+  background-color: powderblue;
+  transition: background-color 0.5s;
+}
+
+a:hover {
+  background-color: gold;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://crbug.com/370155">Chromium bug #370155: Don't make <code>:hover</code> sticky on tap on sites that set a mobile viewport</a></li>
+  <li><a href="https://crbug.com/306581">Chromium bug #306581: Immediately show hover and active states on touch when page isn't scrollable.</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-hover,https://drafts.csswg.org/selectors/#the-hover-pseudo">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-hover,https://drafts.csswg.org/selectors/#the-hover-pseudo</a></p></section></aside></body>
+</html>

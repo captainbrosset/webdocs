@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>object-fit</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties object-fit</h1><main>
+    
+
+<p>The <strong><code>object-fit</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how the content of a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced element</a>, such as an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>, should be resized to fit its container.</p>
+<p>You can alter the alignment of the replaced element's content object within the element's box using the <a href="./css.properties.object-position.html"><code>object-position</code></a> property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">object-fit: contain;
+object-fit: cover;
+object-fit: fill;
+object-fit: none;
+object-fit: scale-down;
+
+/* Global values */
+object-fit: inherit;
+object-fit: initial;
+object-fit: revert;
+object-fit: revert-layer;
+object-fit: unset;
+</pre>
+<p>The <code>object-fit</code> property is specified as a single keyword chosen from the list of values below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>contain</code></dt>
+  <dd>
+    <p>The replaced content is scaled to maintain its aspect ratio while fitting within the element's content box. The entire object is made to fill the box, while preserving its aspect ratio, so the object will be <a href="https://en.wikipedia.org/wiki/Letterboxing_(filming)">"letterboxed"</a> if its aspect ratio does not match the aspect ratio of the box.</p>
+  </dd>
+  <dt><code>cover</code></dt>
+  <dd>
+    <p>The replaced content is sized to maintain its aspect ratio while filling the element's entire content box. If the object's aspect ratio does not match the aspect ratio of its box, then the object will be clipped to fit.</p>
+  </dd>
+  <dt><code>fill</code></dt>
+  <dd>
+    <p>The replaced content is sized to fill the element's content box. The entire object will completely fill the box. If the object's aspect ratio does not match the aspect ratio of its box, then the object will be stretched to fit.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The replaced content is not resized.</p>
+  </dd>
+  <dt><code>scale-down</code></dt>
+  <dd>
+    <p>The content is sized as if <code>none</code> or <code>contain</code> were specified, whichever would result in a smaller concrete object size.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>fill</td></tr><tr><th scope="row">Applies to</th><td>replaced elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>fill | none | [contain | cover] || scale-down</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;section>
+  &#x3C;h2>object-fit: fill&#x3C;/h2>
+  &#x3C;img class="fill" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;img class="fill narrow" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;h2>object-fit: contain&#x3C;/h2>
+  &#x3C;img class="contain" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;img class="contain narrow" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;h2>object-fit: cover&#x3C;/h2>
+  &#x3C;img class="cover" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;img class="cover narrow" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;h2>object-fit: none&#x3C;/h2>
+  &#x3C;img class="none" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;img class="none narrow" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;h2>object-fit: scale-down&#x3C;/h2>
+  &#x3C;img class="scale-down" src="mdn_logo_only_color.png" alt="MDN Logo" />
+
+  &#x3C;img class="scale-down narrow" src="mdn_logo_only_color.png" alt="MDN Logo" />
+&#x3C;/section>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">h2 {
+  font-family:
+    Courier New,
+    monospace;
+  font-size: 1em;
+  margin: 1em 0 0.3em;
+}
+
+img {
+  width: 150px;
+  height: 100px;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.narrow {
+  width: 100px;
+  height: 150px;
+}
+
+.fill {
+  object-fit: fill;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.none {
+  object-fit: none;
+}
+
+.scale-down {
+  object-fit: scale-down;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other image-related CSS properties: <a href="./css.properties.object-position.html"><code>object-position</code></a>, <a href="./css.properties.image-orientation.html"><code>image-orientation</code></a>, <a href="./css.properties.image-rendering.html"><code>image-rendering</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-resolution"><code>image-resolution</code></a>.</li>
+  <li><a href="./css.properties.background-size.html"><code>background-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 32</li><li><strong>chrome_android</strong>: 32</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 36</li><li><strong>firefox_android</strong>: 36</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 10</li><li><strong>safari_ios</strong>: 10</li><li><strong>samsunginternet_android</strong>: 2.0</li><li><strong>webview_android</strong>: 4.4.3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images/#the-object-fit">https://drafts.csswg.org/css-images/#the-object-fit</a></p></section></aside></body>
+</html>

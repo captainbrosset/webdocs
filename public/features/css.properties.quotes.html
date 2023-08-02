@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>quotes</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties quotes</h1><main>
+    
+
+<p>The <strong><code>quotes</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how the browser should render quotation marks that are added using the <code>open-quotes</code> or <code>close-quotes</code> values of the CSS <a href="./css.properties.content.html"><code>content</code></a> property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+quotes: none;
+quotes: auto;
+
+/* &#x3C;string> values */
+quotes: "«" "»"; /* Set open-quote and close-quote to the French quotation marks */
+quotes: "«" "»" "‹" "›"; /* Set two levels of quotation marks */
+
+/* Global values */
+quotes: inherit;
+quotes: initial;
+quotes: revert;
+quotes: revert-layer;
+quotes: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The <code>open-quote</code> and <code>close-quote</code> values of the <a href="./css.properties.content.html"><code>content</code></a> property produce no quotation marks.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Appropriate quote marks will be used for whatever language value is set on the selected elements (i.e. via the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a> attribute).</p>
+  </dd>
+  <dt><code>[&#x3C;string> &#x3C;string>]+</code></dt>
+  <dd>
+    <p>One or more pairs of <a href="./css.types.string.html"><code>&lt;string&gt;</code></a> values for <code>open-quote</code> and <code>close-quote</code>. The first pair represents the outer level of quotation, the second pair is for the first nested level, next pair for third level and so on.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the keyword none, the keyword auto, or a list, each item a pair of string values</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none | [ &lt;string&gt; &lt;string&gt; ]+</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;q>To be or not to be. That's the question!&#x3C;/q>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">q {
+  quotes: '"' '"' "'" "'";
+}
+q::before {
+  content: open-quote;
+}
+q::after {
+  content: close-quote;
+}
+</pre>
+
+<h3>Auto quotes</h3>
+<p>For most browsers, the default value of <code>quotes</code> is <code>auto</code> (Firefox 70+), or the browser otherwise had this default behavior (Chromiums, Safari, Edge), so this example works without it being explicitly being set.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div lang="fr">
+  &#x3C;q>Ceci est une citation française.&#x3C;/q>
+  &#x3C;div>
+    &#x3C;hr />
+    &#x3C;div lang="ru">
+      &#x3C;q>Это русская цитата&#x3C;/q>
+      &#x3C;div>
+        &#x3C;hr />
+        &#x3C;div lang="de">
+          &#x3C;q>Dies ist ein deutsches Zitat&#x3C;/q>
+          &#x3C;div>
+            &#x3C;hr />
+            &#x3C;div lang="en">
+              &#x3C;q>This is an English quote.&#x3C;/q>
+              &#x3C;div>&#x3C;/div>
+            &#x3C;/div>
+          &#x3C;/div>
+        &#x3C;/div>
+      &#x3C;/div>
+    &#x3C;/div>
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/*q {
+  quotes: auto;
+}*/
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.contain.html"><code>contain</code></a></li>
+  <li><a href="./css.properties.content.html"><code>content</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 11</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 9</li><li><strong>safari_ios</strong>: 9</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-content/#quotes">https://drafts.csswg.org/css-content/#quotes</a></p></section></aside></body>
+</html>

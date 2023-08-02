@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;frequency-percentage&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;frequency-percentage></h1><main>
+    
+
+<p>The <strong><code>&#x3C;frequency-percentage></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a value that can be either a <a href="./css.types.frequency.html"><code>&lt;frequency&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>. Frequency values, e.g. the pitch of a speaking voice, are not currently used in any CSS properties.</p>
+<h2>Syntax</h2>
+<p>The value of a <code>&#x3C;frequency-percentage></code> is either a <a href="./css.types.frequency.html"><code>&lt;frequency&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>; see their individual reference pages for details about their syntaxes.</p>
+
+<h3>Use in calc()</h3>
+<p>Where a <code>&#x3C;frequency-percentage></code> is specified as an allowable type, this means that the percentage resolves to a frequency and therefore can be used in a <a href="./css.types.calc.html"><code>calc()</code></a> expression.</p>
+
+
+<h3>Valid percentage values</h3>
+<pre class="brush: plain example-good">90% Positive percentage
++90% Positive percentage with leading +
+-90% Negative percentage — not valid for all properties that use percentages
+</pre>
+<h3>Invalid percentage values</h3>
+<pre class="brush: plain example-bad">90 % No space is allowed between the number and the unit
+</pre>
+<h3>Valid frequency values</h3>
+<pre class="brush: plain example-good">12Hz     Positive integer
+4.3Hz    Non-integer
+14KhZ    The unit is case-insensitive, though non-SI capitalization is not recommended.
++0Hz     Zero, with a leading + and a unit
+-0kHz    Zero, with a leading - and a unit
+</pre>
+<h3>Invalid frequency values</h3>
+<pre class="brush: plain example-bad">12.0     This is a &#x3C;number>, not an &#x3C;frequency>, because it is missing a unit.
+7 Hz     No space is allowed between the number and the unit.
+0        Although unitless zero is an allowable &#x3C;length>, it's an invalid &#x3C;frequency>.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">CSS data types</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+  <li>Related CSS data types:
+    <ul>
+      <li><a href="./css.types.frequency.html"><code>&lt;frequency&gt;</code></a></li>
+      <li><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#mixed-percentages">https://drafts.csswg.org/css-values/#mixed-percentages</a></p></section></aside></body>
+</html>

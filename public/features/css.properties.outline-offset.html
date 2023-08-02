@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>outline-offset</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties outline-offset</h1><main>
+    
+
+<p>The <strong><code>outline-offset</code></strong> CSS property sets the amount of space between an <a href="./css.properties.outline.html">outline</a> and the edge or border of an element.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+outline-offset: 3px;
+outline-offset: 0.2em;
+
+/* Global values */
+outline-offset: inherit;
+outline-offset: initial;
+outline-offset: revert;
+outline-offset: revert-layer;
+outline-offset: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></code></dt>
+  <dd>
+    <p>The width of the space between the element and its outline. A negative value places the outline inside the element. A value of <code>0</code> places the outline so that there is no space between it and the element.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>An outline is a line that is drawn around an element, outside the border edge. The space between an element and its outline is transparent. In other words, it is the same as the parent element's background.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;length&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>Gallia est omnis divisa in partes tres.&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  outline: 1px dashed red;
+  outline-offset: 10px;
+  background: yellow;
+  border: 1px solid blue;
+  margin: 15px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a></li>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.outline-style.html"><code>outline-style</code></a></li>
+  <li><a href="./css.properties.outline-width.html"><code>outline-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 15</li><li><strong>firefox</strong>: 1.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#outline-offset">https://drafts.csswg.org/css-ui/#outline-offset</a></p></section></aside></body>
+</html>

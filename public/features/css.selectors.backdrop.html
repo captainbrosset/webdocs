@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::backdrop"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::backdrop"</h1><main>
+    
+
+<p>The <strong><code>::backdrop</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> is a box the size of the <a href="/Glossary/viewport">viewport</a>, which is rendered immediately beneath any element being presented in the <a href="/Glossary/top_layer">top layer</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::backdrop {
+  /* ... */
+}
+</pre>
+<h2>Description</h2>
+<p>Backdrops appear in the following instances:</p>
+<ul>
+  <li>Elements which have been placed in fullscreen mode using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">Fullscreen API</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen"><code>Element.requestFullscreen()</code></a> method.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> elements that have been shown in the top layer via a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal"><code>HTMLDialogElement.showModal()</code></a> call.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">Popover</a> elements that have been shown in the top layer via a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/showPopover"><code>HTMLElement.showPopover()</code></a> call.</li>
+</ul>
+<p>When multiple elements have been placed into the top layer, each one has its own <code>::backdrop</code> pseudo-element.</p>
+<pre class="brush: css">/* Backdrop is only displayed when dialog is opened with dialog.showModal() */
+dialog::backdrop {
+  background: rgba(255, 0, 0, 0.25);
+}
+</pre>
+<p>Elements are placed in a last-in/first out (LIFO) stack in the top layer. The <code>::backdrop</code> pseudo-element makes it possible to obscure, style, or completely hide everything located below a top layer element.</p>
+<p><code>::backdrop</code> neither inherits from nor is inherited by any other elements. No restrictions are made on what properties apply to this pseudo-element.</p>
+
+<h3>Styling the backdrop for fullscreen video</h3>
+<p>In this example, the backdrop style used when a video is shifted to fullscreen mode is configured to be a grey-blue color rather than the black it defaults to in most browsers.</p>
+<pre class="brush: css">video::backdrop {
+  background-color: #448;
+}
+</pre>
+<p>The resulting screen looks like this:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop/bbb-backdrop.png" alt="An almost full-screen video player with purple above and below the player as the video player doesn&#x27;t completely fill the screen.">
+</p>
+<p><a href="https://mdn.github.io/css-examples/backdrop/index.html">See this example in action</a>, after changing the color of the background cause the video to go fullscreen to see the change to the backdrop color.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.fullscreen.html"><code>:fullscreen</code></a> pseudo-class</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> HTML element</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">Fullscreen API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">Popover API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 47</li><li><strong>firefox_android</strong>: 47</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-position-4/#backdrop">https://drafts.csswg.org/css-position-4/#backdrop</a></p></section></aside></body>
+</html>

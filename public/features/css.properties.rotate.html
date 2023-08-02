@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>rotate</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties rotate</h1><main>
+    
+
+<p>The <strong><code>rotate</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property allows you to specify rotation transforms individually and independently of the <a href="./css.properties.transform.html"><code>transform</code></a> property. This maps better to typical user interface usage, and saves having to remember the exact order of transform functions to specify in the <code>transform</code> property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+rotate: none;
+
+/* Angle value */
+rotate: 90deg;
+rotate: 0.25turn;
+rotate: 1.57rad;
+
+/* x, y, or z axis name plus angle */
+rotate: x 90deg;
+rotate: y 0.25turn;
+rotate: z 1.57rad;
+
+/* Vector plus angle value */
+rotate: 1 1 1 90deg;
+
+/* Global values */
+rotate: inherit;
+rotate: initial;
+rotate: revert;
+rotate: revert-layer;
+rotate: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>angle value</dt>
+  <dd>
+    <p>An <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a> specifying the angle to rotate the affected element through, around the Z axis. Equivalent to a <code>rotate()</code> (2D rotation) function.</p>
+  </dd>
+  <dt>x, y, or z axis name plus angle value</dt>
+  <dd>
+    <p>The name of the axis you want to rotate the affected element around (<code>"x"</code>, "<code>y</code>", or "<code>z"</code>), plus an <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a> specifying the angle to rotate the element through. Equivalent to a <code>rotateX()</code>/<code>rotateY()</code>/<code>rotateZ()</code> (3D rotation) function.</p>
+  </dd>
+  <dt>vector plus angle value</dt>
+  <dd>
+    <p>Three <a href="./css.types.number.html"><code>&lt;number&gt;</code></a>s representing an origin-centered vector that defines a line around which you want to rotate the element, plus an <a href="./css.types.angle.html"><code>&lt;angle&gt;</code></a> specifying the angle to rotate the element through. Equivalent to a <code>rotate3d()</code> (3D rotation) function.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Specifies that no rotation should be applied.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none, or an &lt;angle&gt; with an axis consisting of a list of three &lt;number&gt;s</td></tr><tr><th scope="row">Animation type</th><td>as SLERP, but see below for none</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;angle&gt; | [ x | y | z | &lt;number&gt;{3} ] && &lt;angle&gt;</pre></section>
+
+<h3>Rotating an element on hover</h3>
+<p>
+  The following example shows how to use the <code>rotate</code> property to rotate an element along various axes on hover.
+  The first box rotates 90 degrees on the Z axis hover, the second rotates 180 degrees on the Y axis on hover, and the third rotates 360 degrees on hover around a vector defined by coordinates.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box" id="box1">rotate Z&#x3C;/div>
+&#x3C;div class="box" id="box2">rotate Y&#x3C;/div>
+&#x3C;div class="box" id="box3">vector &#x26; angle&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  display: inline-block;
+  margin: 1em;
+  min-width: 6.5em;
+  line-height: 6.5em;
+  text-align: center;
+  transition: 1s ease-in-out;
+  border: 0.25em dotted;
+}
+
+#box1:hover {
+  rotate: 90deg;
+}
+
+#box2:hover {
+  rotate: y 180deg;
+}
+
+#box3:hover {
+  rotate: 1 2 1 360deg;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.translate.html"><code>translate</code></a></li>
+  <li><a href="./css.properties.scale.html"><code>scale</code></a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a></li>
+</ul>
+<p>Note: <code>skew</code> is not an independent <code>transform</code> value</p>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 104</li><li><strong>chrome_android</strong>: 104</li><li><strong>edge</strong>: 104</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 23.0</li><li><strong>opera</strong>: 90</li><li><strong>opera_android</strong>: 71</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 104</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#individual-transforms">https://drafts.csswg.org/css-transforms-2/#individual-transforms</a></p></section></aside></body>
+</html>

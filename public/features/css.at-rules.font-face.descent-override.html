@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>descent-override</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face descent-override</h1><main>
+    
+
+<p>The <strong><code>descent-override</code></strong> CSS descriptor for the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule defines the descent metric for the font. The descent metric is the height below the baseline that CSS uses to lay out line boxes in an inline formatting context.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">descent-override: normal;
+descent-override: 90%;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The default value. When used the metric value is obtained from the font file.</p>
+  </dd>
+  <dt><code>&#x3C;percentage></code></dt>
+  <dd>
+    <p>A <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> value.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Overriding metrics of a fallback font</h3>
+<p>The <code>descent-override</code> property can help when overriding the metrics of a fallback font to better match those of a primary web font.</p>
+<pre class="brush: css">@font-face {
+  font-family: web-font;
+  src: url("https://example.com/font.woff");
+}
+
+@font-face {
+  font-family: local-font;
+  src: local(Local Font);
+  descent-override: 125%;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-face.ascent-override.html"><code>ascent-override</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-display.html"><code>font-display</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.line-gap-override.html"><code>line-gap-override</code></a></li>
+  <li><a href="./css.at-rules.font-face.src.html"><code>src</code></a></li>
+  <li><a href="./css.at-rules.font-face.size-adjust.html"><code>size-adjust</code></a></li>
+  <li><a href="./css.at-rules.font-face.unicode-range.html"><code>unicode-range descriptor</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 87</li><li><strong>chrome_android</strong>: 87</li><li><strong>edge</strong>: 87</li><li><strong>firefox</strong>: 89</li><li><strong>firefox_android</strong>: 89</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: 73</li><li><strong>opera_android</strong>: 62</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 14.0</li><li><strong>webview_android</strong>: 87</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-metrics-override-desc">https://drafts.csswg.org/css-fonts/#font-metrics-override-desc</a></p></section></aside></body>
+</html>

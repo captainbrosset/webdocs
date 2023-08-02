@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>transform</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties transform</h1><main>
+    
+
+<p>
+  The <strong><code>transform</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property lets you rotate, scale, skew, or translate an element.
+  It modifies the coordinate space of the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model">visual formatting model</a>.
+</p>
+<p>
+  If the property has a value different than <code>none</code>, a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context">stacking context</a> will be created.
+  In that case, the element will act as a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a> for any <code>position: fixed;</code> or <code>position: absolute;</code> elements that it contains.
+</p>
+<div class="notecard warning">
+  <p>
+    <strong>Warning:</strong> Only transformable elements can be <code>transform</code>ed.
+    That is, all elements whose layout is governed by the CSS box model except for: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Inline-level_content">non-replaced inline boxes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col">table-column boxes</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup">table-column-group boxes</a>.
+  </p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+transform: none;
+
+/* Function values */
+transform: matrix(1, 2, 3, 4, 5, 6);
+transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+transform: perspective(17px);
+transform: rotate(0.5turn);
+transform: rotate3d(1, 2, 3, 10deg);
+transform: rotateX(10deg);
+transform: rotateY(10deg);
+transform: rotateZ(10deg);
+transform: translate(12px, 50%);
+transform: translate3d(12px, 50%, 3em);
+transform: translateX(2em);
+transform: translateY(3in);
+transform: translateZ(2px);
+transform: scale(2, 0.5);
+transform: scale3d(2.5, 1.2, 0.3);
+transform: scaleX(2);
+transform: scaleY(0.5);
+transform: scaleZ(0.3);
+transform: skew(30deg, 20deg);
+transform: skewX(30deg);
+transform: skewY(1.07rad);
+
+/* Multiple function values */
+transform: translateX(10px) rotate(10deg) translateY(5px);
+transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
+
+/* Global values */
+transform: inherit;
+transform: initial;
+transform: revert;
+transform: revert-layer;
+transform: unset;
+</pre>
+<p>The <code>transform</code> property may be specified as either the keyword value <code>none</code> or as one or more <code>&#x3C;transform-function></code> values.</p>
+<p>If <a href="./css.types.transform-function.perspective.html"><code>perspective()</code></a> is one of multiple function values, it must be listed first.</p>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;</code></a></dt>
+  <dd>
+    <p>
+      One or more of the <a href="./css.types.transform-function.html">CSS transform functions</a> to be applied.
+      The transform functions are multiplied in order from left to right, meaning that composite transforms are effectively <a href="#transform-order">applied in order from right to left</a>.
+    </p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Specifies that no transform should be applied.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>
+  Scaling/zooming animations are problematic for accessibility, as they are a common trigger for certain types of migraine.
+  If you need to include such animations on your website, you should provide a control to allow users to turn off animations, preferably site-wide.
+</p>
+<p>Also, consider making use of the <a href="./css.at-rules.media.prefers-reduced-motion.html"><code>prefers-reduced-motion</code></a> media feature — use it to write a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">media query</a> that will turn off animations if the user has reduced animation specified in their system preferences.</p>
+<p>Find out more:</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.3_%E2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions">MDN Understanding WCAG, Guideline 2.3 explanations</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions">Understanding Success Criterion 2.3.3 | W3C Understanding WCAG 2.1</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, but with lengths made absolute</td></tr><tr><th scope="row">Animation type</th><td>transform list, see interpolation rules</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;transform-list&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Transformed element&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  border: solid red;
+  transform: translate(30px, 20px) rotate(20deg);
+  width: 140px;
+  height: 60px;
+}
+</pre>
+
+<h3>Transform order</h3>
+<p>The order of transform functions matters. In this example, two boxes are rotated and translated by the same values; only the transform function order is different.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="original">&#x3C;/div>
+&#x3C;div class="one">1&#x3C;/div>
+&#x3C;div class="two">2&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">div {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: 200px;
+  top: 50px;
+  font-size: 4rem;
+  line-height: 200px;
+  text-align: center;
+}
+.original {
+  border: 1px dashed;
+}
+.original:before,
+.original:after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  width: 500px;
+  left: -150px;
+  height: 1px;
+  border-top: 2px dotted;
+}
+.original:after {
+  transform: rotate(135deg);
+}
+.one {
+  background-color: #ccc;
+}
+.two {
+  background-color: #d6bb72;
+}
+</pre>
+<pre class="brush: css">.one {
+  transform: translateX(200px) rotate(135deg);
+}
+.two {
+  transform: rotate(135deg) translateX(200px);
+}
+</pre>
+<h4>Result</h4>
+<p>When an element is rotated before being translated, the translate direction is on the rotated axis. The axis as indicated with the dotted lines.</p>
+<h3>More examples</h3>
+<p>Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a> and <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;</code></a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a></li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;</code></a> data type with all the transform functions explained.</li>
+  <li>Individual CSS properties: <a href="./css.properties.translate.html"><code>translate</code></a>, <a href="./css.properties.rotate.html"><code>rotate</code></a>, and <a href="./css.properties.scale.html"><code>scale</code></a> (there is no <code>skew</code> property).</li>
+  <li>Online tool to visualize CSS Transform functions: <a href="https://css-transform.moro.es/">CSS Transform Playground</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#transform-functions,https://drafts.csswg.org/css-transforms/#transform-property">https://drafts.csswg.org/css-transforms-2/#transform-functions,https://drafts.csswg.org/css-transforms/#transform-property</a></p></section></aside></body>
+</html>

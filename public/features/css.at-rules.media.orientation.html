@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>orientation</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media orientation</h1><main>
+    
+
+<p>The <strong><code>orientation</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> can be used to test the orientation of the <a href="/Glossary/viewport">viewport</a> (or the page box, for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media">paged media</a>).</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> This feature does not correspond to <em>device</em> orientation. Opening the soft keyboard on many devices in portrait orientation will cause the viewport to become wider than it is tall, thereby causing the browser to use landscape styles instead of portrait.</p>
+</div>
+<h2>Syntax</h2>
+<p>The <code>orientation</code> feature is specified as a keyword value chosen from the list below.</p>
+<h3>Keyword values</h3>
+<dl>
+  <dt><code>portrait</code></dt>
+  <dd>
+    <p>The viewport is in a portrait orientation, i.e., the height is greater than or equal to the width.</p>
+  </dd>
+  <dt><code>landscape</code></dt>
+  <dd>
+    <p>The viewport is in a landscape orientation, i.e., the width is greater than the height.</p>
+  </dd>
+</dl>
+
+<h3>Portrait orientation</h3>
+<p>In this example we have three boxes in the HTML, and use the <code>orientation</code> media feature to switch between a row layout (in landscape) and a column layout (in portrait).</p>
+<p>The example output is embedded in an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a> whose height is greater than its width, so the boxes get a column layout.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Box 1&#x3C;/div>
+&#x3C;div>Box 2&#x3C;/div>
+&#x3C;div>Box 3&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">body {
+  display: flex;
+}
+
+div {
+  background: yellow;
+  width: 200px;
+  height: 200px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+}
+</pre>
+
+<h3>Landscape orientation</h3>
+<p>This example has exactly the same code as the previous example: it has three boxes in the HTML, and uses the <code>orientation</code> media feature to switch between a row layout (in landscape) and a column layout (in portrait).</p>
+<p>However, in this example, the example output is embedded in an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a> whose height is less than its width, so the boxes get a row layout.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Box 1&#x3C;/div>
+&#x3C;div>Box 2&#x3C;/div>
+&#x3C;div>Box 3&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">body {
+  display: flex;
+}
+
+div {
+  background: yellow;
+  width: 200px;
+  height: 200px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+}
+</pre>
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 3</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 2</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.6</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 4.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#orientation">https://drafts.csswg.org/mediaqueries/#orientation</a></p></section></aside></body>
+</html>

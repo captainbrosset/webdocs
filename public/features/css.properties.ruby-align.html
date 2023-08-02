@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ruby-align</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties ruby-align</h1><main>
+    
+
+<p>The <strong><code>ruby-align</code></strong> CSS property defines the distribution of the different ruby elements over the base.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+ruby-align: start;
+ruby-align: center;
+ruby-align: space-between;
+ruby-align: space-around;
+
+/* Global values */
+ruby-align: inherit;
+ruby-align: initial;
+ruby-align: revert;
+ruby-align: revert-layer;
+ruby-align: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>start</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the ruby will be aligned with the start of the base text.</p>
+  </dd>
+  <dt><code>center</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the ruby will be aligned at the middle of the base text.</p>
+  </dd>
+  <dt><code>space-between</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the extra space will be distributed between the elements of the ruby.</p>
+  </dd>
+  <dt><code>space-around</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the extra space will be distributed between the elements of the ruby, and around it.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>space-around</td></tr><tr><th scope="row">Applies to</th><td>ruby bases, ruby annotations, ruby base containers, ruby annotation containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>start | center | space-between | space-around</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>This is a long text to check&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>short ruby&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-align: start;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>This is a long text to check&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>short ruby&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-align: center;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>This is a long text to check&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>short ruby&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-align: space-between;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ruby>
+  &#x3C;rb>This is a long text to check&#x3C;/rb>
+  &#x3C;rp>（&#x3C;/rp>&#x3C;rt>short ruby&#x3C;/rt>&#x3C;rp>）&#x3C;/rp>
+&#x3C;/ruby>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ruby {
+  ruby-align: space-around;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>HTML Ruby elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp"><code>&lt;rp&gt;</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>.</li>
+  <li>CSS Ruby properties: <a href="./css.properties.ruby-position.html"><code>ruby-position</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-merge"><code>ruby-merge</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 38</li><li><strong>firefox_android</strong>: 38</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ruby/#ruby-align-property">https://drafts.csswg.org/css-ruby/#ruby-align-property</a></p></section></aside></body>
+</html>

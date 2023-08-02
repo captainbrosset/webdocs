@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-bottom</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-bottom</h1><main>
+    
+
+<p>The <strong><code>border-bottom</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets an element's bottom <a href="./css.properties.border.html">border</a>. It sets the values of <a href="./css.properties.border-bottom-width.html"><code>border-bottom-width</code></a>, <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a> and <a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a>.</p>
+<p>As with all shorthand properties, <code>border-bottom</code> always sets the values of all of the properties that it can set, even if they are not specified. It sets those that are not specified to their default values. Consider the following code:</p>
+<pre class="brush: css">border-bottom-style: dotted;
+border-bottom: thick green;
+</pre>
+<p>It is actually the same as this one:</p>
+<pre class="brush: css">border-bottom-style: dotted;
+border-bottom: none thick green;
+</pre>
+<p>The value of <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a> given before <code>border-bottom</code> is ignored. Since the default value of <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a> is <code>none</code>, not specifying the <code>border-style</code> part results in no border.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a></li>
+  <li><a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a></li>
+  <li><a href="./css.properties.border-bottom-width.html"><code>border-bottom-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">border-bottom: 1px;
+border-bottom: 2px dotted;
+border-bottom: medium dashed blue;
+
+/* Global values */
+border-bottom: inherit;
+border-bottom: initial;
+border-bottom: revert;
+border-bottom: revert-layer;
+border-bottom: unset;
+</pre>
+<p>The three values of the shorthand property can be specified in any order, and one or two of them may be omitted.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;br-width></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.border-bottom-width.html"><code>border-bottom-width</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;br-style></code></dt>
+  <dd>
+    <p>See <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a>.</p>
+  </dd>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>See <a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a>.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>This box has a border on the bottom side.&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  border-bottom: 4px dashed blue;
+  background-color: gold;
+  height: 100px;
+  width: 100px;
+  font-weight: bold;
+  text-align: center;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.border.html"><code>border</code></a></li>
+  <li><a href="./css.properties.border-block.html"><code>border-block</code></a></li>
+  <li><a href="./css.properties.outline.html"><code>outline</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#border-shorthands">https://drafts.csswg.org/css-backgrounds/#border-shorthands</a></p></section></aside></body>
+</html>

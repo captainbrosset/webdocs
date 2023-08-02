@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>empty-cells</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties empty-cells</h1><main>
+    
+
+<p>The <strong><code>empty-cells</code></strong> CSS property sets whether borders and backgrounds appear around <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> cells that have no visible content.</p>
+<p>This property has an effect only when the <a href="./css.properties.border-collapse.html"><code>border-collapse</code></a> property is <code>separate</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+empty-cells: show;
+empty-cells: hide;
+
+/* Global values */
+empty-cells: inherit;
+empty-cells: initial;
+empty-cells: revert;
+empty-cells: revert-layer;
+empty-cells: unset;
+</pre>
+<p>The <code>empty-cells</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>show</code></dt>
+  <dd>
+    <p>Borders and backgrounds are drawn like in normal cells.</p>
+  </dd>
+  <dt><code>hide</code></dt>
+  <dd>
+    <p>No borders or backgrounds are drawn.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>show</td></tr><tr><th scope="row">Applies to</th><td>table-cell boxes</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>show | hide</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table class="table_1">
+  &#x3C;tr>
+    &#x3C;td>Moe&#x3C;/td>
+    &#x3C;td>Larry&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>Curly&#x3C;/td>
+    &#x3C;td>&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+&#x3C;br />
+&#x3C;table class="table_2">
+  &#x3C;tr>
+    &#x3C;td>Moe&#x3C;/td>
+    &#x3C;td>Larry&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>Curly&#x3C;/td>
+    &#x3C;td>&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.table_1 {
+  empty-cells: show;
+}
+
+.table_2 {
+  empty-cells: hide;
+}
+
+td,
+th {
+  border: 1px solid gray;
+  padding: 0.5rem;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.border-collapse.html"><code>border-collapse</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">Styling tables</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#empty-cells">https://drafts.csswg.org/css2/#empty-cells</a></p></section></aside></body>
+</html>

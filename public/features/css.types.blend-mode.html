@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;blend-mode&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;blend-mode></h1><main>
+    
+
+<p>The <strong><code>&#x3C;blend-mode></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> describes how colors should appear when elements overlap. It is used in the <a href="./css.properties.background-blend-mode.html"><code>&lt;background-blend-mode&gt;</code></a> and <a href="./css.properties.mix-blend-mode.html"><code>&lt;mix-blend-mode&gt;</code></a> properties.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;blend-mode></code> data type is defined using a keyword value chosen from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>
+      The final color is the top color, regardless of what the bottom color is.
+      The effect is like two opaque pieces of paper overlapping.
+    </p>
+  </dd>
+  <dt><code>multiply</code></dt>
+  <dd>
+    <p>
+      The final color is the result of multiplying the top and bottom colors.
+      A black layer leads to a black final layer, and a white layer leads to no change.
+      The effect is like two images printed on transparent film overlapping.
+    </p>
+  </dd>
+  <dt><code>screen</code></dt>
+  <dd>
+    <p>
+      The final color is the result of inverting the colors, multiplying them, and inverting that value.
+      A black layer leads to no change, and a white layer leads to a white final layer.
+      The effect is like two images shone onto a projection screen.
+    </p>
+  </dd>
+  <dt><code>overlay</code></dt>
+  <dd>
+    <p>
+      The final color is the result of <code>multiply</code> if the bottom color is darker, or <code>screen</code> if the bottom color is lighter.
+      This blend mode is equivalent to <code>hard-light</code> but with the layers swapped.
+    </p>
+  </dd>
+  <dt><code>darken</code></dt>
+  <dd>
+    <p>The final color is composed of the darkest values of each color channel.</p>
+  </dd>
+  <dt><code>lighten</code></dt>
+  <dd>
+    <p>The final color is composed of the lightest values of each color channel.</p>
+  </dd>
+  <dt><code>color-dodge</code></dt>
+  <dd>
+    <p>
+      The final color is the result of dividing the bottom color by the inverse of the top color.
+      A black foreground leads to no change. A foreground with the inverse color of the backdrop leads to a fully lit color.
+      This blend mode is similar to <code>screen</code>, but the foreground need only be as light as the inverse of the backdrop to create a fully lit color.
+    </p>
+  </dd>
+  <dt><code>color-burn</code></dt>
+  <dd>
+    <p>
+      The final color is the result of inverting the bottom color, dividing the value by the top color, and inverting that value.
+      A white foreground leads to no change. A foreground with the inverse color of the backdrop leads to a black final image.
+      This blend mode is similar to <code>multiply</code>, but the foreground need only be as dark as the inverse of the backdrop to make the final image black.
+    </p>
+  </dd>
+  <dt><code>hard-light</code></dt>
+  <dd>
+    <p>
+      The final color is the result of <code>multiply</code> if the top color is darker, or <code>screen</code> if the top color is lighter.
+      This blend mode is equivalent to <code>overlay</code> but with the layers swapped.
+      The effect is similar to shining a <em>harsh</em> spotlight on the backdrop.
+    </p>
+  </dd>
+  <dt><code>soft-light</code></dt>
+  <dd>
+    <p>
+      The final color is similar to <code>hard-light</code>, but softer.
+      This blend mode behaves similar to <code>hard-light</code>.
+      The effect is similar to shining a <em>diffused</em> spotlight on the backdrop*.*
+    </p>
+  </dd>
+  <dt><code>difference</code></dt>
+  <dd>
+    <p>
+      The final color is the result of subtracting the darker of the two colors from the lighter one.
+      A black layer has no effect, while a white layer inverts the other layer's color.
+    </p>
+  </dd>
+  <dt><code>exclusion</code></dt>
+  <dd>
+    <p>
+      The final color is similar to <code>difference</code>, but with less contrast.
+      As with <code>difference</code>, a black layer has no effect, while a white layer inverts the other layer's color.
+    </p>
+  </dd>
+  <dt><code>hue</code></dt>
+  <dd>
+    <p>The final color has the <em>hue</em> of the top color, while using the <em>saturation</em> and <em>luminosity</em> of the bottom color.</p>
+  </dd>
+  <dt><code>saturation</code></dt>
+  <dd>
+    <p>
+      The final color has the <em>saturation</em> of the top color, while using the <em>hue</em> and <em>luminosity</em> of the bottom color.
+      A pure gray backdrop, having no saturation, will have no effect.
+    </p>
+  </dd>
+  <dt><code>color</code></dt>
+  <dd>
+    <p>
+      The final color has the <em>hue</em> and <em>saturation</em> of the top color, while using the <em>luminosity</em> of the bottom color.
+      The effect preserves gray levels and can be used to colorize the foreground.
+    </p>
+  </dd>
+  <dt><code>luminosity</code></dt>
+  <dd>
+    <p>
+      The final color has the <em>luminosity</em> of the top color, while using the <em>hue</em> and <em>saturation</em> of the bottom color.
+      This blend mode is equivalent to <code>color</code>, but with the layers swapped.
+    </p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>For each pixel among the layers to which it is applied, a blend mode takes the colors of the foreground and the background, performs a calculation on them, and returns a new color value.</p>
+<p>Changes between blend modes are not interpolated. Any change occurs immediately.</p>
+
+
+<h3>Example using "normal"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: normal;
+}
+</pre>
+<h3>Example using "multiply"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: multiply;
+}
+</pre>
+<h3>Example using "screen"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: screen;
+}
+</pre>
+<h3>Example using "overlay"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: overlay;
+}
+</pre>
+<h3>Example using "darken"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: darken;
+}
+</pre>
+<h3>Example using "lighten"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: lighten;
+}
+</pre>
+<h3>Example using "color-dodge"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: color-dodge;
+}
+</pre>
+<h3>Example using "color-burn"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: color-burn;
+}
+</pre>
+<h3>Example using "hard-light"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: hard-light;
+}
+</pre>
+<h3>Example using "soft-light"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: soft-light;
+}
+</pre>
+<h3>Example using "difference"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: difference;
+}
+</pre>
+<h3>Example using "exclusion"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: exclusion;
+}
+</pre>
+<h3>Example using "hue"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: hue;
+}
+</pre>
+<h3>Example using "saturation"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: saturation;
+}
+</pre>
+<h3>Example using "color"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: color;
+}
+</pre>
+<h3>Example using "luminosity"</h3>
+<pre class="brush: html hidden">&#x3C;div id="div">&#x3C;/div>
+</pre>
+<pre class="brush: css">#div {
+  width: 300px;
+  height: 300px;
+  background: url("br.png"), url("tr.png");
+  background-blend-mode: luminosity;
+}
+</pre>
+<h3>Blend mode comparison</h3>
+<p>In the following example, we have a <code>&#x3C;div></code> with two background images set on it — a Firefox logo on top of a linear gradient. Below it, we have a provided a <code>&#x3C;select></code> menu that allows you to change the <code>background-blend-mode</code> applied to the <code>&#x3C;div></code>, allowing you to compare the different blend mode effects.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;p>Choose a blend-mode:&#x3C;/p>
+&#x3C;select>
+  &#x3C;option selected>normal&#x3C;/option>
+  &#x3C;option>multiply&#x3C;/option>
+  &#x3C;option>screen&#x3C;/option>
+  &#x3C;option>overlay&#x3C;/option>
+  &#x3C;option>darken&#x3C;/option>
+  &#x3C;option>lighten&#x3C;/option>
+  &#x3C;option>color-dodge&#x3C;/option>
+  &#x3C;option>color-burn&#x3C;/option>
+  &#x3C;option>hard-light&#x3C;/option>
+  &#x3C;option>soft-light&#x3C;/option>
+  &#x3C;option>difference&#x3C;/option>
+  &#x3C;option>exclusion&#x3C;/option>
+  &#x3C;option>hue&#x3C;/option>
+  &#x3C;option>saturation&#x3C;/option>
+  &#x3C;option>color&#x3C;/option>
+  &#x3C;option>luminosity&#x3C;/option>
+&#x3C;/select>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 300px;
+  height: 300px;
+  background:
+    url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png)
+      no-repeat center,
+    linear-gradient(to bottom, blue, orange);
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const selectElem = document.querySelector("select");
+const divElem = document.querySelector("div");
+
+selectElem.addEventListener("change", () => {
+  divElem.style.backgroundBlendMode = selectElem.value;
+});
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_compositing_and_blending">CSS compositing and blending</a> module that defines the <code>&#x3C;blend-mode></code> values.</li>
+  <li>Properties that use this data type: <a href="./css.properties.background-blend-mode.html"><code>&lt;background-blend-mode&gt;</code></a>, <a href="./css.properties.mix-blend-mode.html"><code>&lt;mix-blend-mode&gt;</code></a></li>
+</ul>
+<p>Description to various blend modes on other website:</p>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Blend_modes">Blend modes</a> on Wikipedia</li>
+  <li><a href="https://helpx.adobe.com/photoshop/using/blending-modes.html">Blending modes in Adobe Photoshop</a> by Adobe</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 35</li><li><strong>chrome_android</strong>: 59</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 30</li><li><strong>firefox_android</strong>: 54</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 22</li><li><strong>opera_android</strong>: 22</li><li><strong>safari</strong>: 8</li><li><strong>safari_ios</strong>: 8</li><li><strong>samsunginternet_android</strong>: 7.0</li><li><strong>webview_android</strong>: 59</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/compositing/#ltblendmodegt">https://drafts.fxtf.org/compositing/#ltblendmodegt</a></p></section></aside></body>
+</html>

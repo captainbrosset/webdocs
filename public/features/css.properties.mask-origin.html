@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-origin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-origin</h1><main>
+    
+
+<p>The <strong><code>mask-origin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the origin of a mask.</p>
+<p>For elements rendered as a single box, this property specifies the mask positioning area. In other words, this property specifies the origin position of an image specified by the <a href="./css.properties.mask-image.html"><code>mask-image</code></a> CSS property. For elements rendered as multiple boxes, such as inline boxes on several lines or boxes on several pages, it specifies which boxes <a href="./css.properties.box-decoration-break.html"><code>box-decoration-break</code></a> operates upon to determine the mask positioning area.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+mask-origin: content-box;
+mask-origin: padding-box;
+mask-origin: border-box;
+mask-origin: margin-box;
+mask-origin: fill-box;
+mask-origin: stroke-box;
+mask-origin: view-box;
+
+/* Multiple values */
+mask-origin: padding-box, content-box;
+mask-origin: view-box, fill-box, border-box;
+
+/* Non-standard keyword values */
+-webkit-mask-origin: content;
+-webkit-mask-origin: padding;
+-webkit-mask-origin: border;
+
+/* Global values */
+mask-origin: inherit;
+mask-origin: initial;
+mask-origin: revert;
+mask-origin: revert-layer;
+mask-origin: unset;
+</pre>
+<p>One or more of the keyword values listed below, separated by commas.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>content-box</code></dt>
+  <dd>
+    <p>The position is relative to the content box.</p>
+  </dd>
+  <dt><code>padding-box</code></dt>
+  <dd>
+    <p>The position is relative to the padding box. For single boxes <code>0 0</code> is the upper left corner of the padding edge, <code>100% 100%</code> is the lower right corner.</p>
+  </dd>
+  <dt><code>border-box</code></dt>
+  <dd>
+    <p>The position is relative to the border box.</p>
+  </dd>
+  <dt><code>margin-box</code></dt>
+  <dd>
+    <p>The position is relative to the margin box.</p>
+  </dd>
+  <dt><code>fill-box</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The position is relative to the object bounding box.</p>
+  </dd>
+  <dt><code>stroke-box</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The position is relative to the stroke bounding box.</p>
+  </dd>
+  <dt><code>view-box</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Uses the nearest SVG viewport as reference box. If a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"><code>viewBox</code></a> attribute is specified for the element creating the SVG viewport, the reference box is positioned at the origin of the coordinate system established by the <code>viewBox</code> attribute and the dimension of the reference box is set to the width and height values of the <code>viewBox</code> attribute.</p>
+  </dd>
+  <dt><code>content</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>Same as <code>content-box</code>.</p>
+  </dd>
+  <dt><code>padding</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>Same as <code>padding-box</code>.</p>
+  </dd>
+  <dt><code>border</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></dt>
+  <dd>
+    <p>Same as <code>border-box</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>border-box</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;geometry-box&gt;#</pre></section>
+
+<h3>Setting mask origin to border-box</h3>
+<p>Try some of the other possible values by updating the CSS in the box below.</p><iframe width="100%" height="600" src="https://mdn.github.io/css-examples/masking/mask-origin.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://css-tricks.com/clipping-masking-css/">Clipping and Masking in CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-origin">https://drafts.fxtf.org/css-masking/#the-mask-origin</a></p></section></aside></body>
+</html>

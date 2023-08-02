@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>outline</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties outline</h1><main>
+    
+
+<p>The <strong><code>outline</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets most of the outline properties in a single declaration.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.outline-style.html"><code>outline-style</code></a></li>
+  <li><a href="./css.properties.outline-width.html"><code>outline-width</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* style */
+outline: solid;
+
+/* color | style */
+outline: #f66 dashed;
+
+/* style | width */
+outline: inset thick;
+
+/* color | style | width */
+outline: green solid 3px;
+
+/* Global values */
+outline: inherit;
+outline: initial;
+outline: revert;
+outline: revert-layer;
+outline: unset;
+</pre>
+<p>The <code>outline</code> property may be specified using one, two, or three of the values listed below. The order of the values does not matter. As with all shorthand properties, any omitted sub-values will be set to their <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial value</a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The outline will be invisible for many elements if its style is not defined. This is because the style defaults to <code>none</code>. A notable exception is <code>input</code> elements, which are given default styling by browsers.</p>
+</div>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'outline-color'></code></dt>
+  <dd>
+    <p>Sets the color of the outline. Defaults to <code>invert</code> for browsers supporting it, <code>currentcolor</code> for the others. See <a href="./css.properties.outline-color.html"><code>outline-color</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'outline-style'></code></dt>
+  <dd>
+    <p>Sets the style of the outline. Defaults to <code>none</code> if absent. See <a href="./css.properties.outline-style.html"><code>outline-style</code></a>.</p>
+  </dd>
+  <dt><code>&#x3C;'outline-width'></code></dt>
+  <dd>
+    <p>Sets the thickness of the outline. Defaults to <code>medium</code> if absent. See <a href="./css.properties.outline-width.html"><code>outline-width</code></a>.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Outline is a line outside of the element's <a href="./css.properties.border.html">border</a>. Unlike other areas of the box, outlines don't take up space, so they don't affect the layout of the document in any way.</p>
+<p>There are a few properties that affect an outline's appearance. It is possible to change the style, color, and width using the <code>outline</code> property, the distance from the border using the <a href="./css.properties.outline-offset.html"><code>outline-offset</code></a> property, and corner angles using the <a href="./css.properties.border-radius.html"><code>border-radius</code></a> property.</p>
+<p>An outline is not required to be rectangular: While dealing with multiline text, some browsers will draw an outline for each line box separately, while others will wrap the whole text with a single outline.</p>
+<h2>Accessibility concerns</h2>
+<p>Assigning <code>outline</code> a value of <code>0</code> or <code>none</code> will remove the browser's default focus style. If an element can be interacted with it must have a visible focus indicator. Provide obvious focus styling if the default focus style is removed.</p>
+<ul>
+  <li><a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">How to Design Useful and Usable Focus Indicators</a></li>
+  <li>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">Understanding Success Criterion 2.4.7: Focus Visible</a></li>
+</ul>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;a href="#">This link has a special focus style.&#x3C;/a>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">a {
+  border: 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+
+a:focus {
+  outline: 4px dotted #e73;
+  outline-offset: 4px;
+  background: #ffa;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.outline-color.html"><code>outline-color</code></a></li>
+  <li><a href="./css.properties.outline-style.html"><code>outline-style</code></a></li>
+  <li><a href="./css.properties.outline-width.html"><code>outline-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#outline">https://drafts.csswg.org/css-ui/#outline</a></p></section></aside></body>
+</html>

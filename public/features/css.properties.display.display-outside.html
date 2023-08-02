@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;display-outside&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties display &#x3C;display-outside></h1><main>
+    
+
+<p>The <code>&#x3C;display-outside></code> keywords specify the element's outer <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>&lt;display&gt;</code></a> type, which is essentially its role in flow layout. These keywords are used as values of the <code>display</code> property, and can be used for legacy purposes as a single keyword, or as defined in the Level 3 specification alongside a value from the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside"><code>&lt;display-inside&gt;</code></a> keywords.</p>
+<h2>Syntax</h2>
+<p>Valid <code>&#x3C;display-outside></code> values:</p>
+<dl>
+  <dt><code>block</code></dt>
+  <dd>
+    <p>The element generates a block element box, generating line breaks both before and after the element when in the normal flow.</p>
+  </dd>
+  <dt><code>inline</code></dt>
+  <dd>
+    <p>The element generates one or more inline element boxes that do not generate line breaks before or after themselves. In normal flow, the next element will be on the same line if there is space.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Browsers that support the two value syntax, on finding the outer value only, such as when <code>display: block</code> or <code>display: inline</code> is specified, will set the inner value to <code>flow</code>. This will result in expected behavior; for example if you specify an element to be block, you would expect that the children of that element would participate in block and inline normal flow layout.</p>
+</div>
+
+<h2>Examples</h2>
+<p>In the following example, span elements (normally displayed as inline elements) are set to <code>display: block</code> and so break onto new lines and expand to fill their container in the inline dimension.</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;span>span 1&#x3C;/span> &#x3C;span>span 2&#x3C;/span>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">span {
+  display: block;
+  border: 1px solid rebeccapurple;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>&lt;display&gt;</code></a>
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside"><code>&lt;display-inside&gt;</code></a></li>
+      <li><a href="./css.properties.display.list-item.html"><code>&lt;display-listitem&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal"><code>&lt;display-internal&gt;</code></a></li>
+      <li><a href="./css.properties.display.contents.html"><code>&lt;display-box&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-legacy"><code>&lt;display-legacy&gt;</code></a></li>
+    </ul>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow">Block and Inline layout in Normal Flow</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts">Formatting Contexts explained</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-display/#typedef-display-outside">https://drafts.csswg.org/css-display/#typedef-display-outside</a></p></section></aside></body>
+</html>

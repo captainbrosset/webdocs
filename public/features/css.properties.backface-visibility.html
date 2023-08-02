@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>backface-visibility</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties backface-visibility</h1><main>
+    
+
+<p>The <strong><code>backface-visibility</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether the back face of an element is visible when turned towards the user.</p>
+<p>An element's back face is a mirror image of its front face. Though invisible in 2D, the back face can become visible when a transformation causes the element to be rotated in 3D space. (This property has no effect on 2D transforms, which have no perspective.)</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+backface-visibility: visible;
+backface-visibility: hidden;
+
+/* Global values */
+backface-visibility: inherit;
+backface-visibility: initial;
+backface-visibility: revert;
+backface-visibility: revert-layer;
+backface-visibility: unset;
+</pre>
+<p>The <code>backface-visibility</code> property is specified as one of the keywords listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>The back face is visible when turned towards the user.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>The back face is hidden, effectively making the element invisible when turned away from the user.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>visible</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>visible | hidden</pre></section>
+
+<h3>Cube with transparent and opaque faces</h3>
+<p>This example shows a cube with transparent faces, and one with opaque faces.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;th>&#x3C;code>backface-visibility: visible;&#x3C;/code>&#x3C;/th>
+    &#x3C;th>&#x3C;code>backface-visibility: hidden;&#x3C;/code>&#x3C;/th>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>
+      &#x3C;div class="container">
+        &#x3C;div class="cube showbf">
+          &#x3C;div class="face front">1&#x3C;/div>
+          &#x3C;div class="face back">2&#x3C;/div>
+          &#x3C;div class="face right">3&#x3C;/div>
+          &#x3C;div class="face left">4&#x3C;/div>
+          &#x3C;div class="face top">5&#x3C;/div>
+          &#x3C;div class="face bottom">6&#x3C;/div>
+        &#x3C;/div>
+      &#x3C;/div>
+      &#x3C;p>
+        Since all faces are partially transparent, the back faces (2, 4, 5) are
+        visible through the front faces (1, 3, 6).
+      &#x3C;/p>
+    &#x3C;/td>
+    &#x3C;td>
+      &#x3C;div class="container">
+        &#x3C;div class="cube hidebf">
+          &#x3C;div class="face front">1&#x3C;/div>
+          &#x3C;div class="face back">2&#x3C;/div>
+          &#x3C;div class="face right">3&#x3C;/div>
+          &#x3C;div class="face left">4&#x3C;/div>
+          &#x3C;div class="face top">5&#x3C;/div>
+          &#x3C;div class="face bottom">6&#x3C;/div>
+        &#x3C;/div>
+      &#x3C;/div>
+      &#x3C;p>The three back faces (2, 4, 5) are hidden.&#x3C;/p>
+    &#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Classes that will show or hide the
+   three back faces of the "cube" */
+.showbf div {
+  backface-visibility: visible;
+}
+
+.hidebf div {
+  backface-visibility: hidden;
+}
+
+/* Define the container div, the cube div, and a generic face */
+.container {
+  width: 150px;
+  height: 150px;
+  margin: 75px 0 0 75px;
+  border: none;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  perspective: 550px;
+  perspective-origin: 150% 150%;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: none;
+  line-height: 100px;
+  font-family: sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+/* Define each face based on direction */
+.front {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 255, 0, 1);
+  color: black;
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(196, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 196, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(196, 196, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(196, 0, 196, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+/* Make the table a little nicer */
+th,
+p,
+td {
+  background-color: #eeeeee;
+  margin: 0px;
+  padding: 6px;
+  font-family: sans-serif;
+  text-align: left;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#backface-visibility-property">https://drafts.csswg.org/css-transforms-2/#backface-visibility-property</a></p></section></aside></body>
+</html>

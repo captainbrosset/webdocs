@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-display</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face font-display</h1><main>
+    
+
+<p>The <strong><code>font-display</code></strong> descriptor for the <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule determines how a font face is displayed based on whether and when it is downloaded and ready to use.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-display: auto;
+font-display: block;
+font-display: swap;
+font-display: fallback;
+font-display: optional;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The font display strategy is defined by the user agent.</p>
+  </dd>
+  <dt><code>block</code></dt>
+  <dd>
+    <p>Gives the font face a short block period and an infinite swap period.</p>
+  </dd>
+  <dt><code>swap</code></dt>
+  <dd>
+    <p>Gives the font face an extremely small block period and an infinite swap period.</p>
+  </dd>
+  <dt><code>fallback</code></dt>
+  <dd>
+    <p>Gives the font face an extremely small block period and a short swap period.</p>
+  </dd>
+  <dt><code>optional</code></dt>
+  <dd>
+    <p>Gives the font face an extremely small block period and no swap period.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> In Firefox, the preferences <code>gfx.downloadable_fonts.fallback_delay</code>
+    and <code>gfx.downloadable_fonts.fallback_delay_short</code> provide the duration
+    of the "short" and "extremely small" periods, respectively.
+  </p>
+</div>
+<h2>Description</h2>
+<p>The font display timeline is based on a timer that begins the moment the user agent attempts to use a given downloaded font face. The timeline is divided into the three periods below which dictate the rendering behavior of any elements using the font face:</p>
+<ul>
+  <li>Font block period: If the font face is not loaded, any element attempting to use it must render an <em>invisible</em> fallback font face. If the font face successfully loads during this period, it is used normally.</li>
+  <li>Font swap period: If the font face is not loaded, any element attempting to use it must render a fallback font face. If the font face successfully loads during this period, it is used normally.</li>
+  <li>Font failure period: If the font face is not loaded, the user agent treats it as a failed load causing normal font fallback.</li>
+</ul>
+
+
+
+<h3>Specifying fallback font-display</h3>
+<pre class="brush: css">@font-face {
+  font-family: ExampleFont;
+  src:
+    url(/path/to/fonts/examplefont.woff) format("woff"),
+    url(/path/to/fonts/examplefont.eot) format("eot");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.src.html"><code>src</code></a></li>
+  <li><a href="./css.at-rules.font-face.unicode-range.html"><code>unicode-range</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 60</li><li><strong>chrome_android</strong>: 60</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 58</li><li><strong>firefox_android</strong>: 58</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 47</li><li><strong>opera_android</strong>: 44</li><li><strong>safari</strong>: 11.1</li><li><strong>safari_ios</strong>: 11.3</li><li><strong>samsunginternet_android</strong>: 11.0</li><li><strong>webview_android</strong>: 60</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-display-desc">https://drafts.csswg.org/css-fonts/#font-display-desc</a></p></section></aside></body>
+</html>

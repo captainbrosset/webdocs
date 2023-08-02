@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":lang()"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":lang()"</h1><main>
+    
+
+<p>The <strong><code>:lang()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> matches elements based on the language they are determined to be in.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In HTML, the language is determined by a combination of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a> attribute, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"><code>&lt;meta&gt;</code></a> element, and possibly by information from the protocol (such as HTTP headers). For other document types there may be other document methods for determining the language.</p>
+</div>
+
+<h3>Formal syntax</h3>
+<pre class="brush: css">:lang(&#x3C;language-code> [,&#x3C;language-code> ]*)
+  /* ... */
+}
+</pre>
+<h3>Parameters</h3>
+<dl>
+  <dt><code>&#x3C;language-code></code></dt>
+  <dd>
+    <p>
+      A comma separated list of one or more <a href="./css.types.string.html"><code>&lt;string&gt;</code></a>s that target an element with a language value according to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a> language codes.
+      Matching by language range is case-insensitive.
+    </p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>
+  When selecting languages, there is implicit wildcard matching, so <code>:lang(de-DE)</code> will match <code>de-DE</code>, <code>de-DE-1996</code>, <code>de-Latn-DE</code>, <code>de-Latf-DE</code>, and <code>de-Latn-DE-1996</code>.
+  Explicitly using wildcards must include a full match of a language subtag, so <code>:lang("*-F*")</code> is invalid but <code>:lang("*-Fr")</code> is valid.
+</p>
+
+<h3>Matching children of a given language</h3>
+<p>In this example, the <code>:lang()</code> pseudo-class is used to match the parents of quote elements (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"><code>&lt;q&gt;</code></a>) using <a href="./css.selectors.child.html">child combinators</a>. Note that this doesn't illustrate the only way to do this, and that the best method to use depends on the type of document. Also note that <a href="/Glossary/Unicode">Unicode</a> values are used to specify some of the special quote characters.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div lang="en">
+  &#x3C;q>This English quote has a &#x3C;q>nested&#x3C;/q> quote inside.&#x3C;/q>
+&#x3C;/div>
+&#x3C;div lang="fr">
+  &#x3C;q>This French quote has a &#x3C;q>nested&#x3C;/q> quote inside.&#x3C;/q>
+&#x3C;/div>
+&#x3C;div lang="de">
+  &#x3C;q>This German quote has a &#x3C;q>nested&#x3C;/q> quote inside.&#x3C;/q>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">:lang(en) > q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+:lang(fr) > q {
+  quotes: "« " " »";
+}
+:lang(de) > q {
+  quotes: "»" "«" "\2039" "\203A";
+}
+</pre>
+
+<h3>Matching multiple languages</h3>
+<p>
+  The following example shows how to match multiple languages by providing a comma-separated list of language codes.
+  It's also possible to use a wildcard to match languages in a given language range.
+</p>
+<pre class="brush: css hidden">p {
+  margin: 0;
+}
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Matches nl and de */
+:lang("nl", "de") {
+  color: green;
+}
+
+/* Omitting quotes &#x26; case-insensitive matching */
+:lang(EN, FR) {
+  color: blue;
+}
+
+/* Wildcard matching a language range */
+:lang("*-Latn") {
+  color: red;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p lang="nl">Dit is een Nederlandse paragraaf.&#x3C;/p>
+&#x3C;p lang="de">Dies ist ein deutscher Satz.&#x3C;/p>
+&#x3C;p lang="en">This is an English sentence.&#x3C;/p>
+&#x3C;p lang="en-GB">Matching the language range of English.&#x3C;/p>
+&#x3C;p lang="fr">Ceci est un paragraphe français.&#x3C;/p>
+&#x3C;p lang="fr-Latn-FR">Ceci est un paragraphe français en latin.&#x3C;/p>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.selectors.dir.html"><code>:dir</code></a> pseudo-class that matches by directionality of text</li>
+  <li>HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a> attribute</li>
+  <li>HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#translate"><code>translate</code></a> attribute</li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 8</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#lang-pseudo">https://drafts.csswg.org/selectors/#lang-pseudo</a></p></section></aside></body>
+</html>

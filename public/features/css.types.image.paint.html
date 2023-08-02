@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>paint()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image paint()</h1><main>
+    
+
+<p>The <strong><code>paint()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines an <a href="./css.types.image.html"><code>&lt;image&gt;()</code></a> value generated with a PaintWorklet.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">paint(workletName, ...parameters)
+</pre>
+<p>where:</p>
+<dl>
+  <dt><em>workletName</em></dt>
+  <dd>
+    <p>The name of the registered worklet.</p>
+  </dd>
+  <dt><em>parameters</em></dt>
+  <dd>
+    <p>Optional additional parameters to pass to the paintWorklet</p>
+  </dd>
+</dl>
+
+<h3>Basic usage example</h3>
+<p>In JavaScript, we register the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PaintWorkletGlobalScope">paint worklet</a>:</p>
+<pre class="brush: js">CSS.paintWorklet.addModule("boxbg.js");
+</pre>
+<p>...then, in the CSS, we define the <code>background-image</code> as a <code>paint()</code> type with the worklet name, <code>boxbg</code>, along with any variables (ex. <code>--boxColor</code> and <code>--widthSubtractor</code>) the worklet will use:</p>
+<pre class="brush: css">li {
+  background-image: paint(boxbg);
+  --boxColor: hsl(55 90% 60% / 1);
+}
+li:nth-of-type(3n) {
+  --boxColor: hsl(155 90% 60% / 1);
+  --widthSubtractor: 20;
+}
+li:nth-of-type(3n + 1) {
+  --boxColor: hsl(255 90% 60% / 1);
+  --widthSubtractor: 40;
+}
+</pre>
+<p>The result will be the following:</p><iframe width="100%" height="400" src="https://mdn.github.io/css-examples/houdini/css_painting_api/example-boxbg.html"></iframe>
+<h3>With additional parameters</h3>
+<p>You can pass additional arguments via the CSS paint() function. In this example, we passed two arguments: whether the background-image on a group of list items is filled or just has a stroke outline, and the width of that outline:</p>
+<pre class="brush: html hidden">&#x3C;ul>
+  &#x3C;li>item 1&#x3C;/li>
+  &#x3C;li>item 2&#x3C;/li>
+  &#x3C;li>item 3&#x3C;/li>
+  &#x3C;li>item 4&#x3C;/li>
+  &#x3C;li>item 5&#x3C;/li>
+  &#x3C;li>item 6&#x3C;/li>
+  &#x3C;li>item 7&#x3C;/li>
+  &#x3C;li>item 8&#x3C;/li>
+  &#x3C;li>item 9&#x3C;/li>
+  &#x3C;li>item 10&#x3C;/li>
+  &#x3C;li>item 11&#x3C;/li>
+  &#x3C;li>item 12&#x3C;/li>
+  &#x3C;li>item 13&#x3C;/li>
+  &#x3C;li>item 14&#x3C;/li>
+  &#x3C;li>item 15&#x3C;/li>
+  &#x3C;li>item 16&#x3C;/li>
+  &#x3C;li>item 17&#x3C;/li>
+  &#x3C;li>item 18&#x3C;/li>
+  &#x3C;li>item 19&#x3C;/li>
+  &#x3C;li>item 20&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<pre class="brush: js hidden">CSS.paintWorklet.addModule(
+  "https://mdn.github.io/houdini-examples/cssPaint/intro/worklets/hilite.js",
+);
+</pre>
+<pre class="brush: css">li {
+  --boxColor: hsl(55 90% 60% / 1);
+  background-image: paint(hollowHighlights, stroke, 2px);
+}
+
+li:nth-of-type(3n) {
+  --boxColor: hsl(155 90% 60% / 1);
+  background-image: paint(hollowHighlights, filled, 3px);
+}
+
+li:nth-of-type(3n + 1) {
+  --boxColor: hsl(255 90% 60% / 1);
+  background-image: paint(hollowHighlights, stroke, 1px);
+}
+</pre>
+<p>We've included a custom property in the selector block defining a boxColor. Custom properties are accessible to the PaintWorklet.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/PaintWorklet"><code>PaintWorklet</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API">CSS Painting API</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API/Guide">Using the CSS Painting API</a></li>
+  <li><a href="./css.types.image.html"><code>&lt;image&gt;()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 65</li><li><strong>chrome_android</strong>: 65</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 52</li><li><strong>opera_android</strong>: 47</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 9.2</li><li><strong>webview_android</strong>: 65</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.css-houdini.org/css-paint-api/#paint-notation">https://drafts.css-houdini.org/css-paint-api/#paint-notation</a></p></section></aside></body>
+</html>

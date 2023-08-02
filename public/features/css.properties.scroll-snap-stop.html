@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-snap-stop</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-snap-stop</h1><main>
+    
+
+<p>The <strong><code>scroll-snap-stop</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines whether or not the scroll container is allowed to "pass over" possible snap positions.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scroll-snap-stop: normal;
+scroll-snap-stop: always;
+
+/* Global values */
+scroll-snap-stop: inherit;
+scroll-snap-stop: initial;
+scroll-snap-stop: revert;
+scroll-snap-stop: revert-layer;
+scroll-snap-stop: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>When the visual <a href="/Glossary/viewport">viewport</a> of this element's scroll container is scrolled, it may "pass over" possible snap positions.</p>
+  </dd>
+  <dt><code>always</code></dt>
+  <dd>
+    <p>The scroll container must not "pass over" a possible snap position; and must snap to the first of this elements' snap positions.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | always</pre></section>
+
+<h3>Setting different snap stops</h3>
+<p>The example below demonstrates the contrast between the <code>always</code> and <code>normal</code> values of <code>scroll-snap-stop</code>. The difference in the two <code>scroll-snap-stop</code> values is more noticeable when the <code>scroll-snap-type</code> property is set to <code>mandatory</code>, which is what is used in this example.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>scroll-snap-stop: always (X Mandatory)&#x3C;/p>
+&#x3C;div class="x mandatory-scroll-snapping always-stop">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;p>scroll-snap-stop: always (X Mandatory) on odd child elements&#x3C;/p>
+&#x3C;div class="x mandatory-scroll-snapping always-stop-odd">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;p>scroll-snap-stop: always (X Mandatory) on even child elements&#x3C;/p>
+&#x3C;div class="x mandatory-scroll-snapping always-stop-even">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;p>scroll-snap-stop: normal (X Mandatory)&#x3C;/p>
+&#x3C;div class="x mandatory-scroll-snapping normal-stop">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;p>scroll-snap-stop: always (Y Mandatory)&#x3C;/p>
+&#x3C;div class="y mandatory-scroll-snapping always-stop">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+
+&#x3C;p>scroll-snap-stop: normal (Y Mandatory)&#x3C;/p>
+&#x3C;div class="y mandatory-scroll-snapping normal-stop">
+  &#x3C;div>1&#x3C;/div>
+  &#x3C;div>2&#x3C;/div>
+  &#x3C;div>3&#x3C;/div>
+  &#x3C;div>4&#x3C;/div>
+  &#x3C;div>5&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">/* setup */
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  font-family: monospace;
+  text-align: center;
+}
+
+div[class] {
+  font-size: 3rem;
+  display: flex;
+  overflow: auto;
+  flex: none;
+}
+
+.x {
+  width: 50%;
+  min-width: 15rem;
+  height: 6rem;
+  flex-flow: row nowrap;
+}
+
+.y {
+  width: 30%;
+  min-width: 12rem;
+  height: 12rem;
+  flex-flow: column nowrap;
+}
+
+div > div {
+  flex: none;
+  outline: 1px solid #333;
+}
+
+.x > div {
+  width: 90%;
+  height: 100%;
+}
+
+.y > div {
+  width: 100%;
+  height: 80%;
+}
+
+/* coloration */
+div > div:nth-child(even) {
+  background-color: #87ea87;
+}
+
+div > div:nth-child(odd) {
+  background-color: #87ccea;
+}
+</pre>
+<pre class="brush: css">/* setting up mandatory scroll-snap on parent */
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}
+
+.y.mandatory-scroll-snapping {
+  scroll-snap-type: y mandatory;
+}
+
+/* defining scroll-snap alignment on children */
+div > div {
+  scroll-snap-align: center;
+}
+
+/* defining scroll-snap stop on children */
+.always-stop > div {
+  scroll-snap-stop: always;
+}
+
+.always-stop-odd > div:nth-of-type(odd) {
+  scroll-snap-stop: always;
+}
+
+.always-stop-even > div:nth-of-type(even) {
+  scroll-snap-stop: always;
+}
+
+.normal-stop > div {
+  scroll-snap-stop: normal;
+}
+</pre>
+<h4>Result</h4>
+<p>Scroll from left to right and from top to bottom in the X and Y boxes below, respectively. In the X and Y boxes where the <code>scroll-snap-stop</code> property is set to <code>always</code>, the scrolling is forced to stop at the snap point even when you scroll fast. However, in the boxes where the <code>scroll-snap-stop</code> property is set to <code>normal</code>, the snap points are skipped when you scroll fast.</p>
+<p>If required, you can be selective about the items that are <code>always</code> stopped at inside the scroll container. This is demonstrated in the example below by targeting odd and even items; you can choose a different strategy based on your requirement. In the example below, scrolling does not "pass over" odd and even items in the second and third boxes, respectively.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">CSS scroll snap</a></li>
+  <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS scroll snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 75</li><li><strong>chrome_android</strong>: 75</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 103</li><li><strong>firefox_android</strong>: 103</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 7.0</li><li><strong>opera</strong>: 62</li><li><strong>opera_android</strong>: 54</li><li><strong>safari</strong>: 15</li><li><strong>safari_ios</strong>: 15</li><li><strong>samsunginternet_android</strong>: 11.0</li><li><strong>webview_android</strong>: 75</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-snap/#scroll-snap-stop">https://drafts.csswg.org/css-scroll-snap/#scroll-snap-stop</a></p></section></aside></body>
+</html>

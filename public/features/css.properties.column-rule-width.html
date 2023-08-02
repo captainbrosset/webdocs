@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>column-rule-width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties column-rule-width</h1><main>
+    
+
+<p>The <strong><code>column-rule-width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the width of the line drawn between columns in a multi-column layout.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+column-rule-width: thin;
+column-rule-width: medium;
+column-rule-width: thick;
+
+/* &#x3C;length> values */
+column-rule-width: 1px;
+column-rule-width: 2.5em;
+
+/* Global values */
+column-rule-width: inherit;
+column-rule-width: initial;
+column-rule-width: revert;
+column-rule-width: revert-layer;
+column-rule-width: unset;
+</pre>
+<p>The <code>column-rule-width</code> property is specified as a single <code>&#x3C;'border-width'></code> value.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'border-width'></code></dt>
+  <dd>
+    <p>Is a keyword defined by <a href="./css.properties.border-width.html"><code>border-width</code></a> describing the width of the rule. It may be either a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or one of the <code>thin</code>, <code>medium</code>, or <code>thick</code> keywords.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>medium</td></tr><tr><th scope="row">Applies to</th><td>multicol containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>absolute length, snapped as a border width; 0 if the column rule style is none or hidden</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;line-width&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  This is a bunch of text split into three columns. The `column-rule-width`
+  property is used to change the width of the line that is drawn between
+  columns. Don't you think that's wonderful?
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  column-count: 3;
+  column-rule-style: solid;
+  column-rule-width: thick;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout">Multiple-column Layout</a></li>
+  <li><a href="./css.properties.column-rule-style.html"><code>column-rule-style</code></a></li>
+  <li><a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a></li>
+  <li><a href="./css.properties.column-rule.html"><code>column-rule</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-multicol/#crw">https://drafts.csswg.org/css-multicol/#crw</a></p></section></aside></body>
+</html>

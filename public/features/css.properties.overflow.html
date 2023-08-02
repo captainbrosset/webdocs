@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow</h1><main>
+    
+
+<p>The <strong><code>overflow</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets the desired behavior when content does not fit in the parent element box (overflows) in the horizontal and/or vertical direction.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.overflow-x.html"><code>overflow-x</code></a></li>
+  <li><a href="./css.properties.overflow-y.html"><code>overflow-y</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overflow: visible;
+overflow: hidden;
+overflow: clip;
+overflow: scroll;
+overflow: auto;
+overflow: hidden visible;
+
+/* Global values */
+overflow: inherit;
+overflow: initial;
+overflow: revert;
+overflow: revert-layer;
+overflow: unset;
+</pre>
+<p>The <code>overflow</code> property is specified as one or two <a href="./css.types.overflow.html"><code>&lt;overflow&gt;</code></a> keyword values. If only one keyword is specified, both <code>overflow-x</code> and <code>overflow-y</code> are set to the same value. If two keywords are specified, the first value applies to <code>overflow-x</code> in the horizontal direction and the second one applies to <code>overflow-y</code> in the vertical direction.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>Overflow content is not clipped and may be visible outside the element's padding box. The element box is not a <a href="/Glossary/scroll_container">scroll container</a>. This is the default value of the <code>overflow</code> property.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's padding box. There are no scroll bars, and the clipped content is not visible (i.e., clipped content is hidden), but the content still exists. User agents do not add scroll bars and also do not allow users to view the content outside the clipped region by actions such as dragging on a touch screen or using the scroll wheel on a mouse. The content <em>can</em> be scrolled programmatically (for example, by setting the value of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft"><code>scrollLeft</code></a> property or the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo"><code>scrollTo()</code></a> method), in which case. The element box is a scroll container.</p>
+  </dd>
+  <dt><code>clip</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's <em>overflow clip edge</em> that is defined using the <a href="./css.properties.overflow-clip-margin.html"><code>overflow-clip-margin</code></a> property. As a result, content overflows the element's padding box by the <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value of <code>overflow-clip-margin</code> or by <code>0px</code> if not set. Overflow content outside the clipped region is not visible, user agents do not add a scroll bar, and programmatic scrolling is also not supported. No new <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">formatting context</a> is created. To establish a formatting context, use <code>overflow: clip</code> along with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#flow-root"><code>display: flow-root</code></a>. The element box is not a scroll container.</p>
+  </dd>
+  <dt><code>scroll</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's padding box, and overflow content can be scrolled into view using scroll bars. User agents display scroll bars in both horizontal and vertical directions if only one value is set, whether or not any content is overflowing or clipped. The use of this keyword, therefore, can prevent scroll bars from appearing and disappearing as content changes. Printers may still print overflowing content. The element box is a scroll container.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's padding box, and overflow content can be scrolled into view. Unlike <code>scroll</code>, user agents display scroll bars <em>only if</em> the content is overflowing and hide scroll bars by default. If content fits inside the element's padding box, it looks the same as with <code>visible</code> but still establishes a new formatting context. The element box is a scroll container.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The keyword value <code>overlay</code> is a legacy value alias for <code>auto</code>. With <code>overlay</code>, the scroll bars are drawn on top of the content instead of taking up space.</p>
+</div>
+<h2>Description</h2>
+<p>Overflow options include hiding overflowing content, enabling scroll bars to view overflow content or displaying the content flowing out of an element box into the surrounding area, and combinations there of.</p>
+<p>The following nuances should be kept in mind while using the various keywords for <code>overflow</code>:</p>
+<ul>
+  <li>Specifying a value other than <code>visible</code> (the default) or <code>clip</code> for <code>overflow</code> creates a new <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">block formatting context</a>. This is necessary for technical reasons; if a float intersects with a scrolling element, it would forcibly rewrap the content after each scroll step, leading to a slow scrolling experience.</li>
+  <li>For an <code>overflow</code> setting to create the desired effect, the block-level element must have either a set height (<code>height</code> or <code>max-height</code>) or <code>white-space</code> set to <code>nowrap</code>.</li>
+  <li>Setting one axis to <code>visible</code> (the default) while setting the other to a <em>different</em> value results in <code>visible</code> behaving as <code>auto</code>.</li>
+  <li>The JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop"><code>Element.scrollTop</code></a> property may be used to scroll through content in a scroll container, including when <code>overflow</code> is set to <code>hidden</code>.</li>
+</ul>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;code>visible&#x3C;/code>
+  &#x3C;p class="visible">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;code>hidden&#x3C;/code>
+  &#x3C;p class="hidden">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;code>clip&#x3C;/code>
+  &#x3C;p class="clip">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;code>scroll&#x3C;/code>
+  &#x3C;p class="scroll">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;code>auto&#x3C;/code>
+  &#x3C;p class="auto">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;code>overlay&#x3C;/code>
+  &#x3C;p class="overlay">
+    Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+div {
+  margin: 2em;
+  font-size: 1.2em;
+}
+
+p {
+  width: 5em;
+  height: 5em;
+  border: dotted;
+  margin-top: 0.5em;
+}
+
+div:nth-of-type(5),
+div:nth-of-type(6) {
+  margin-top: 200px;
+}
+</pre>
+<pre class="brush: css">p.visible {
+  overflow: visible;
+}
+
+p.hidden {
+  overflow: hidden;
+}
+
+p.clip {
+  overflow: clip;
+  overflow-clip-margin: 1em;
+}
+
+p.scroll {
+  overflow: scroll;
+}
+
+p.auto {
+  overflow: auto;
+}
+
+p.overlay {
+  overflow: overlay;
+}
+</pre>
+
+<h2>Accessibility concerns</h2>
+<p>A scrolling content area cannot be scrolled by a keyboard-only user, with the exception of users on Firefox (which makes the container keyboard focusable by default).</p>
+<p>As a developer, to allow non-Firefox keyboard-only users to scroll the container, you will need to give it a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"><code>tabindex</code></a> using <code>tabindex="0"</code>. Unfortunately, when a screen reader encounters this tab-stop, they will have no context for what it is and their screen reader will likely announce the entirety of its contents. Giving it an appropriate <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">WAI-ARIA role</a> (<code>role="region"</code>, for example) and an accessible name (via <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label"><code>aria-label</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby"><code>aria-labelledby</code></a>) can mitigate this.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.overflow-x.html"><code>overflow-x</code></a>, <a href="./css.properties.overflow-y.html"><code>overflow-y</code></a></li>
+  <li><a href="./css.properties.overflow-block.html"><code>overflow-block</code></a>, <a href="./css.properties.overflow-clip-margin.html"><code>overflow-clip-margin</code></a>, <a href="./css.properties.overflow-inline.html"><code>overflow-inline</code></a></li>
+  <li><a href="./css.properties.clip.html"><code>clip</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a>, <a href="./css.properties.text-overflow.html"><code>text-overflow</code></a>, <a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a></li>
+  <li><a href="https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html">Keyboard-only scrolling areas</a> on adrianroselli.com (2022)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#propdef-overflow">https://drafts.csswg.org/css-overflow/#propdef-overflow</a></p></section></aside></body>
+</html>

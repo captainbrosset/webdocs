@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>max-content</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties width max-content</h1><main>
+    
+
+<p>The <code>max-content</code> sizing keyword represents the intrinsic maximum width or height of the content. For text content this means that the content will not wrap at all even if it causes overflows.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Used as a length */
+width: max-content;
+inline-size: max-content;
+height: max-content;
+block-size: max-content;
+
+/* used in grid tracks */
+grid-template-columns: 200px 1fr max-content;
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div class="item">Item&#x3C;/div>
+  &#x3C;div class="item">
+    Item with more text in it which will overflow the fixed width box.
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  background-color: #8cffa0;
+  padding: 10px;
+  width: 200px;
+}
+
+.item {
+  width: max-content;
+  background-color: #8ca0ff;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div>Item&#x3C;/div>
+  &#x3C;div>Item with more text in it.&#x3C;/div>
+  &#x3C;div>Flexible item&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#container > div {
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related sizing keywords: <a href="./css.properties.width.min-content.html"><code>min-content</code></a>, <a href="./css.properties.width.fit-content.html"><code>fit-content</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: 46</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 46</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-3/#valdef-width-max-content">https://drafts.csswg.org/css-sizing-3/#valdef-width-max-content</a></p></section></aside></body>
+</html>

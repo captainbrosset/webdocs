@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;percentage&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;percentage></h1><main>
+    
+
+<p>The <strong><code>&#x3C;percentage></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a percentage value. It is often used to define a size as relative to an element's parent object. Numerous properties can use percentages, such as <a href="./css.properties.width.html"><code>&lt;width&gt;</code></a>, <a href="./css.properties.height.html"><code>&lt;height&gt;</code></a>, <a href="./css.properties.margin.html"><code>&lt;margin&gt;</code></a>, <a href="./css.properties.padding.html"><code>&lt;padding&gt;</code></a>, and <a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Only calculated values can be inherited. Thus, even if a percentage value is used on the parent property, a real value (such as a width in pixels for a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value) will be accessible on the inherited property, not the percentage value.</p>
+</div>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;percentage></code> data type consists of a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by the percentage sign (<code>%</code>). Optionally, it may be preceded by a single <code>+</code> or <code>-</code> sign, although negative values are not valid for all properties. As with all CSS dimensions, there is no space between the symbol and the number.</p>
+<h2>Interpolation</h2>
+<p>When animated, values of the <code>&#x3C;percentage></code> data type are <a href="/Glossary/interpolation">interpolated</a> as real, floating-point numbers. The speed of the interpolation is determined by the <a href="./css.types.easing-function.html">easing function</a> associated with the animation.</p>
+
+<h3>Width and margin-left</h3>
+<pre class="brush: html">&#x3C;div style="background-color:navy;">
+  &#x3C;div style="width:50%; margin-left:20%; background-color:chartreuse;">
+    Width: 50%, Left margin: 20%
+  &#x3C;/div>
+  &#x3C;div style="width:30%; margin-left:60%; background-color:pink;">
+    Width: 30%, Left margin: 60%
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<p>The above HTML will output:</p>
+<h3>Font-size</h3>
+<pre class="brush: html">&#x3C;div style="font-size:18px;">
+  &#x3C;p>Full-size text (18px)&#x3C;/p>
+  &#x3C;p>&#x3C;span style="font-size:50%;">50% (9px)&#x3C;/span>&#x3C;/p>
+  &#x3C;p>&#x3C;span style="font-size:200%;">200% (36px)&#x3C;/span>&#x3C;/p>
+&#x3C;/div>
+</pre>
+<p>The above HTML will output:</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#percentages">https://drafts.csswg.org/css-values/#percentages</a></p></section></aside></body>
+</html>

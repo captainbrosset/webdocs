@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":valid"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":valid"</h1><main>
+    
+
+<p>The <strong><code>:valid</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents any <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or other <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element whose contents <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation">validate</a> successfully. This allows to easily make valid fields adopt an appearance that helps the user confirm that their data is formatted properly.</p>
+<p>This pseudo-class is useful for highlighting correct fields for the user.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:valid {
+  /* ... */
+}
+</pre>
+
+<h3>Indicating valid and invalid form fields</h3>
+<p>In this example, we use structures like this, which include extra <code>&#x3C;span></code>s to generate content on; we'll use these to provide indicators of valid/invalid data:</p>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;label for="fname">First name *: &#x3C;/label>
+  &#x3C;input id="fname" name="fname" type="text" required />
+  &#x3C;span>&#x3C;/span>
+&#x3C;/div>
+</pre>
+<p>To provide these indicators, we use the following CSS:</p>
+<pre class="brush: css">input + span {
+  position: relative;
+}
+
+input + span::before {
+  position: absolute;
+  right: -20px;
+  top: 5px;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:valid + span::before {
+  content: "✓";
+  color: green;
+}
+</pre>
+<p>We set the <code>&#x3C;span></code>s to <code>position: relative</code> so that we can position the generated content relative to them. We then absolutely position different generated content depending on whether the form's data is valid or invalid — a green check or a red cross, respectively. To add a bit of extra urgency to the invalid data, we've also given the inputs a thick red border when invalid.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> We've used <code>::before</code> to add these labels, as we were already using <code>::after</code> for the "required" labels.</p>
+</div>
+<p>You can try it below:</p><iframe width="100%" height="430" src="https://mdn.github.io/learning-area/html/forms/pseudo-classes/valid-invalid.html"></iframe>
+<p>Notice how the required text inputs are invalid when empty, but valid when they have something filled in. The email input on the other hand is valid when empty, as it is not required, but invalid when it contains something that is not a proper email address.</p>
+<h2>Accessibility concerns</h2>
+<p>The color green is commonly used to indicate valid input. People who have certain types of color blindness will be unable to determine the input's state unless it is accompanied by an additional indicator that does not rely on color to convey meaning. Typically, descriptive text and/or an icon are used.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html">Understanding Success Criterion 1.4.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Other validation-related pseudo-classes: <a href="./css.selectors.required.html"><code>:required</code></a>, <a href="./css.selectors.optional.html"><code>:optional</code></a>, <a href="./css.selectors.invalid.html"><code>:invalid</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">Form data validation</a></li>
+  <li>Accessing the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">validity state</a> from JavaScript</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 10</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 4</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 5</li><li><strong>safari_ios</strong>: 5</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-valid,https://drafts.csswg.org/selectors/#validity-pseudos">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-valid,https://drafts.csswg.org/selectors/#validity-pseudos</a></p></section></aside></body>
+</html>

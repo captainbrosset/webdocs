@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-timing-function</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-timing-function</h1><main>
+    
+
+<p>The <strong><code>animation-timing-function</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how an animation progresses through the duration of each cycle.</p>
+<p>It is often convenient to use the shorthand property <a href="./css.properties.animation.html"><code>animation</code></a> to set all animation properties at once.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+animation-timing-function: ease;
+animation-timing-function: ease-in;
+animation-timing-function: ease-out;
+animation-timing-function: ease-in-out;
+animation-timing-function: linear;
+animation-timing-function: step-start;
+animation-timing-function: step-end;
+
+/* Function values */
+animation-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+animation-timing-function: steps(4, end);
+
+/* Steps Function keywords */
+animation-timing-function: steps(4, jump-start);
+animation-timing-function: steps(10, jump-end);
+animation-timing-function: steps(20, jump-none);
+animation-timing-function: steps(5, jump-both);
+animation-timing-function: steps(6, start);
+animation-timing-function: steps(8, end);
+
+/* Multiple animations */
+animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1, 0.1);
+
+/* Global values */
+animation-timing-function: inherit;
+animation-timing-function: initial;
+animation-timing-function: revert;
+animation-timing-function: revert-layer;
+animation-timing-function: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.easing-function.html"><code>&lt;easing-function&gt;</code></a></dt>
+  <dd>
+    <p>The easing function that corresponds to a given animation, as determined by <a href="./css.properties.animation-name.html"><code>animation-name</code></a>.</p>
+    <p>The non-step keyword values (ease, linear, ease-in-out, etc.) each represent cubic Bézier curve with fixed four point values, with the cubic-bezier() function value allowing for a non-predefined value. The step easing functions divides the input time into a specified number of intervals that are equal in length. It is defined by a number of steps and a step position.</p>
+  </dd>
+  <dt><code>ease</code></dt>
+  <dd>
+    <p>Equal to <code>cubic-bezier(0.25, 0.1, 0.25, 1.0)</code>, the default value, increases in velocity towards the middle of the animation, slowing back down at the end.</p>
+  </dd>
+  <dt><code>linear</code></dt>
+  <dd>
+    <p>Equal to <code>cubic-bezier(0.0, 0.0, 1.0, 1.0)</code>, animates at an even speed.</p>
+  </dd>
+  <dt><code>ease-in</code></dt>
+  <dd>
+    <p>Equal to <code>cubic-bezier(0.42, 0, 1.0, 1.0)</code>, starts off slowly, with the speed of the transition of the animating property increasing until complete.</p>
+  </dd>
+  <dt><code>ease-out</code></dt>
+  <dd>
+    <p>Equal to <code>cubic-bezier(0, 0, 0.58, 1.0)</code>, starts quickly, slowing down the animation continues.</p>
+  </dd>
+  <dt><code>ease-in-out</code></dt>
+  <dd>
+    <p>Equal to <code>cubic-bezier(0.42, 0, 0.58, 1.0)</code>, with the animating properties slowly transitioning, speeding up, and then slowing down again.</p>
+  </dd>
+  <dt><code>cubic-bezier(p1, p2, p3, p4)</code></dt>
+  <dd>
+    <p>An author defined cubic-bezier curve, where the p1 and p3 values must be in the range of 0 to 1.</p>
+  </dd>
+  <dt><code>steps(n, &#x3C;jumpterm>)</code></dt>
+  <dd>
+    <p>Displays an animation iteration along <em>n</em> stops along the transition, displaying each stop for equal lengths of time. For example, if <em>n</em> is 5, there are 5 steps. Whether the animation holds temporarily at 0%, 20%, 40%, 60% and 80%, on the 20%, 40%, 60%, 80% and 100%, or makes 5 stops between the 0% and 100% along the animation, or makes 5 stops including the 0% and 100% marks (on the 0%, 25%, 50%, 75%, and 100%) depends on which of the following jump terms is used:</p>
+    <dl>
+      <dt><code>jump-start</code></dt>
+      <dd>
+        <p>Denotes a left-continuous function, so that the first jump happens when the animation begins;</p>
+      </dd>
+      <dt><code>jump-end</code></dt>
+      <dd>
+        <p>Denotes a right-continuous function, so that the last jump happens when the animation ends;</p>
+      </dd>
+      <dt><code>jump-none</code></dt>
+      <dd>
+        <p>There is no jump on either end. Instead, holding at both the 0% mark and the 100% mark, each for 1/n of the duration.</p>
+      </dd>
+      <dt><code>jump-both</code></dt>
+      <dd>
+        <p>Includes pauses at both the 0% and 100% marks, effectively adding a step during the animation iteration.</p>
+      </dd>
+      <dt><code>start</code></dt>
+      <dd>
+        <p>Same as <code>jump-start</code>.</p>
+      </dd>
+      <dt><code>end</code></dt>
+      <dd>
+        <p>Same as <code>jump-end</code>.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><code>step-start</code></dt>
+  <dd>
+    <p>Equal to <code>steps(1, jump-start)</code></p>
+  </dd>
+  <dt><code>step-end</code></dt>
+  <dd>
+    <p>Equal to <code>steps(1, jump-end)</code></p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they are applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. For situations where the number of animations and <code>animation-*</code> property values do not match, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>animation-timing-function</code> has the same effect when creating <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a> as it does for regular time-based animations.</p>
+</div>
+<h2>Description</h2>
+<p>Easing functions may be specified on individual keyframes in a <a href="./css.at-rules.keyframes.html">@keyframes</a> rule. If no <strong><code>animation-timing-function</code></strong> is specified on a keyframe, the corresponding value of <strong><code>animation-timing-function</code></strong> from the element to which the animation is applied is used for that keyframe.</p>
+<p>Within a keyframe, <code>animation-timing-function</code> is an at-rule-specific descriptor, not the property of the same name. The timing is not being animated. Rather, a keyframe's easing function is applied on a property-by-property basis from the keyframe on which it is specified until the next keyframe specifying that property, or until the end of the animation if there is no subsequent keyframe specifying that property. As a result, an <strong><code>animation-timing-function</code></strong> specified on the <strong><code>100%</code></strong> or <strong><code>to</code></strong> keyframe will never be used.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>ease</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a computed &lt;easing-function&gt;</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;easing-function&gt;#</pre></section>
+
+<h3>Cubic-Bezier examples</h3>
+<pre class="brush: html hidden">&#x3C;div class="parent">
+  &#x3C;div class="ease">ease&#x3C;/div>
+  &#x3C;div class="easein">ease-in&#x3C;/div>
+  &#x3C;div class="easeout">ease-out&#x3C;/div>
+  &#x3C;div class="easeinout">ease-in-out&#x3C;/div>
+  &#x3C;div class="linear">linear&#x3C;/div>
+  &#x3C;div class="cb">cubic-bezier(0.2,-2,0.8,2)&#x3C;/div>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.parent > div[class] {
+  animation-name: changeme;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  margin-bottom: 4px;
+}
+@keyframes changeme {
+  0% {
+    min-width: 12em;
+    width: 12em;
+    background-color: black;
+    border: 1px solid red;
+    color: white;
+  }
+  100% {
+    width: 90vw;
+    min-width: 24em;
+    background-color: magenta;
+    color: yellow;
+    border: 1px solid orange;
+  }
+}
+</pre>
+<pre class="brush: css">.ease {
+  animation-timing-function: ease;
+}
+.easein {
+  animation-timing-function: ease-in;
+}
+.easeout {
+  animation-timing-function: ease-out;
+}
+.easeinout {
+  animation-timing-function: ease-in-out;
+}
+.linear {
+  animation-timing-function: linear;
+}
+.cb {
+  animation-timing-function: cubic-bezier(0.2, -2, 0.8, 2);
+}
+</pre>
+<h3>Step examples</h3>
+<pre class="brush: html hidden">&#x3C;div class="parent">
+  &#x3C;div class="jump-start">jump-start&#x3C;/div>
+  &#x3C;div class="jump-end">jump-end&#x3C;/div>
+  &#x3C;div class="jump-both">jump-both&#x3C;/div>
+  &#x3C;div class="jump-none">jump-none&#x3C;/div>
+  &#x3C;div class="start">start&#x3C;/div>
+  &#x3C;div class="end">end&#x3C;/div>
+  &#x3C;div class="step-start">step-start&#x3C;/div>
+  &#x3C;div class="step-end">step-end&#x3C;/div>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.parent > div[class] {
+  animation-name: changeme;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  margin-bottom: 4px;
+}
+@keyframes changeme {
+  0% {
+    min-width: 12em;
+    width: 12em;
+    background-color: black;
+    border: 1px solid red;
+    color: white;
+  }
+  100% {
+    width: 90vw;
+    min-width: 24em;
+    background-color: magenta;
+    color: yellow;
+    border: 1px solid orange;
+  }
+}
+</pre>
+<pre class="brush: css">.jump-start {
+  animation-timing-function: steps(5, jump-start);
+}
+.jump-end {
+  animation-timing-function: steps(5, jump-end);
+}
+.jump-none {
+  animation-timing-function: steps(5, jump-none);
+}
+.jump-both {
+  animation-timing-function: steps(5, jump-both);
+}
+.start {
+  animation-timing-function: steps(5, start);
+}
+.end {
+  animation-timing-function: steps(5, end);
+}
+.step-start {
+  animation-timing-function: step-start;
+}
+.step-end {
+  animation-timing-function: step-end;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li><a href="./css.types.easing-function.html"><code>easing-function</code></a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+  <li><a href="https://cubic-bezier.com">cubic-bezier.com</a></li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-delay.html"><code>animation-delay</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation-timing-function">https://drafts.csswg.org/css-animations/#animation-timing-function</a></p></section></aside></body>
+</html>

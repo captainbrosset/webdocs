@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>conic-gradient()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image gradient conic-gradient()</h1><main>
+    
+
+<p>The <strong><code>conic-gradient()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> creates an image consisting of a gradient with color transitions rotated around a center point (rather than radiating from the center). Example conic gradients include pie charts and <a href="/Glossary/color_wheel">color wheels</a>. The result of the <code>conic-gradient()</code> function is an object of the <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;()</code></a> data type, which is a special kind of <a href="./css.types.image.html"><code>&lt;image&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A conic gradient rotated 45 degrees,
+   starting blue and finishing red */
+conic-gradient(from 45deg, blue, red);
+
+/* A bluish purple box: the gradient goes from blue to red,
+   but only the bottom right quadrant is visible, as the
+   center of the conic gradient is at the top left corner */
+conic-gradient(from 90deg at 0 0, blue, red);
+
+/* Color wheel */
+background: conic-gradient(
+    hsl(360, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(0, 100%, 50%)
+);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a></dt>
+  <dd>
+    <p>Preceded by the <code>from</code> keyterm, and taking an angle as its value, defines the gradient rotation in clockwise direction.</p>
+  </dd>
+  <dt><code>&#x3C;position></code></dt>
+  <dd>
+    <p>Using the same length, order, and keyterm values as the <a href="./css.properties.background-position.html"><code>background-position</code></a> property, the <code>position</code> value defines center of the gradient. If not specified, the value used for <code>position</code> by default is <code>center</code>, meaning the gradient will be centered.</p>
+  </dd>
+  <dt><code>&#x3C;angular-color-stop></code></dt>
+  <dd>
+    <p>A color-stop's <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> value, followed by one or two optional stop positions, (an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> along the gradient's circumference axis).</p>
+  </dd>
+  <dt><code>&#x3C;color-hint></code></dt>
+  <dd>
+    <p>An <a href="/Glossary/interpolation">interpolation</a> hint defining how the gradient progresses between adjacent color stops. The length defines at which point between two color stops the gradient color should reach the midpoint of the color transition. If omitted, the midpoint of the color transition is the midpoint between two color stops.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Rendering of <a href="#gradient_with_multiple_color_stops">color stops in CSS gradients</a> follows the same rules as color stops in <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients">SVG gradients</a>.</p>
+</div>
+<h2>Description</h2>
+<p>As with any gradient, a conic gradient has <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image#description">no intrinsic dimensions</a>; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to, or the size of the <code>&#x3C;image></code> if it is set to something other than the element size.</p>
+<p>To create a conic gradient that repeats so as to fill a 360 degree rotation, use the <a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a> function instead.</p>
+<p>Because <code>&#x3C;gradient></code>s belong to the <code>&#x3C;image></code> data type, they can only be used where <code>&#x3C;image></code>s can be used. For this reason, <code>conic-gradient()</code> won't work on <a href="./css.properties.background-color.html"><code>background-color()</code></a> and other properties that use the <a href="./css.types.color.html"><code>&lt;color&gt;()</code></a> data type.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Why is it called a "conic" gradient? If the color stops are much lighter on one side than the other, it can look like a cone from above.</p>
+</div>
+<h3>Composition of a conic gradient</h3>
+<p>The conic-gradient syntax is similar to the radial-gradient syntax, but the color-stops are placed around a gradient arc, the circumference of a circle, rather than on the gradient line emerging from the center of the gradient. With conic gradients, the colors transition as if spun around the center of a circle, starting at the top and going clockwise. In a radial gradient, the colors transition from the center of an ellipse, outward, in all directions.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient/screenshot_2018-11-29_21.09.19.png" alt="color stops along the circumference of a conic gradient and the axis of a radial gradient.">
+</p>
+<p>A conic gradient is specified by indicating a rotation angle, the center of the gradient, and then specifying a list of color-stops. Unlike linear and radial gradients, whose color-stops are placed by specifying a <a href="./css.types.length.html">length</a>, the color-stops of a conic gradient are specified with an <a href="./css.types.angle.html">angle</a>. Units include <code>deg</code> for degrees, <code>grad</code> for gradients, <code>rad</code> for radians, and <code>turn</code> for turns. There are 360 degrees, 400 gradians, 2π radians, and 1 turn in a circle. Browsers supporting conic gradients also accept percent values, with 100% equaling 360 degrees, but this is not in the specification.</p>
+<p>Similar to radial gradients, the conic gradient syntax provides for positioning the center of the gradient anywhere within, or even outside, the image. The values for the position are similar to the syntax for 2-value background-position.</p>
+<p>The gradient arc is the circumference of the gradient. The <em>starting point</em> of the gradient or arc is north, or 12:00pm. The gradient is then rotated by the <em>from</em> angle. The colors of the gradient are determined by the angled color stops, their starting points, ending points, and, in between, and optional angled color-stop points. The transitions between colors can be altered with color hints between adjacent colors' color stops.</p>
+<h4>Customizing gradients</h4>
+<p>By adding more angled color-stop points on the gradient arc, you can create a highly customized transition between multiple colors. A color-stop's position can be explicitly defined by using an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. If you don't specify the location of a color stop, it is placed halfway between the one that precedes it and the one that follows it. If you don't specify an angle for the first or last color stop, their values are 0deg and 360deg respectively. The following two gradients are equivalent:</p>
+<pre class="brush: css">conic-gradient(red, orange, yellow, green, blue);
+conic-gradient(red 0deg, orange 90deg, yellow 180deg, green 270deg, blue 360deg);
+</pre>
+<p>By default, colors transition smoothly from the color at one color stop to the color at the subsequent color stop, with the midpoint between the colors being the half way point between the color transition. You can move this color transition midpoint to any point between two color stops by adding a color hint, indicating where the middle of the color transition should be. The following is solid red from the start to the 10% mark, transitions from red to blue over 80% of the turn, with the final 10% being solid blue. The midpoint of the red to blue gradient change, however, is at the 20% mark rather than the 50% mark as would have happened without the 80grad, or 20%, color hint.</p>
+<pre class="brush: css">conic-gradient(red 40grad, 80grad, blue 360grad);
+</pre>
+<p>If two or more color stops are at the same location, the transition will be a hard line between the first and last colors declared at that location. To use conic gradients to create pie charts — which is NOT the correct way to create pie charts as background images are not accessible — use hard color stops, where the color stop angles for two adjacent color stops are the same. The easiest way to do this is to use multiple position colors stops. The following two declarations are equivalent:</p>
+<pre class="brush: css">conic-gradient(#fff 0.09turn, #bbb 0.09turn, #bbb 0.27turn, #666 0.27turn, #666 0.54turn, #000 0.54turn);
+conic-gradient(#fff 0turn 0.09turn, #bbb 0.09turn 0.27turn, #666 0.27turn 0.54turn, #000 0.54turn 1turn);
+</pre>
+<p>Color stops should be listed in ascending order. Subsequent color stops of lower value will override the value of the previous color stop creating a hard transition. The following changes from red to yellow at the 30% mark, and then transitions from yellow to blue over 35% of the gradient:</p>
+<pre class="brush: css">conic-gradient(red .8rad, yellow .6rad, blue 1.3rad);
+</pre>
+<p>There are other effects you can create with conic gradients. Oddly, a checkerboard is one of them. By creating quadrants with an upper left and lower right white quadrant and lower left and upper right black quadrants, then repeating the gradient 16 times (four times across and four times down) you can make a checkerboard.</p>
+<pre class="brush: css">conic-gradient(#fff 90deg, #000 0.25turn 0.5turn, #fff 1rad 1.5rad, #000 300grad);
+background-size: 25% 25%;
+</pre>
+<p>And, yes, you can mix and match different angle units, but don't. The above is hard to read.</p>
+
+<h2>Accessibility concerns</h2>
+<p>Browsers do not provide any special information on background images to assistive technology. This is important primarily for screen readers, as a screen reader will not announce its presence and therefore convey nothing to its users. While it is possible to create pie charts, checkerboards, and other effects with conic gradients, CSS images provide no native way to assign alternative text, and therefore the image represented by the conic gradient will not be accessible to screen reader users. If the image contains information critical to understanding the page's overall purpose, it is better to describe it semantically in the document.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_%E2%80%94_providing_text_alternatives_for_non-text_content">MDN Understanding WCAG, Guideline 1.1 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html">Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+<h3>Gradient at 40-degrees</h3>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background-image: conic-gradient(from 40deg, #fff, #000);
+}
+</pre>
+<h3>Off-centered gradient</h3>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background: conic-gradient(from 0deg at 0% 25%, blue, green, yellow 180deg);
+}
+</pre>
+<h3>Gradient pie-chart</h3>
+<p>This example uses multi-position color stops, with adjacent colors having the same color stop value, creating a striped effect.</p>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background: conic-gradient(red 36deg, orange 36deg 170deg, yellow 170deg);
+  border-radius: 50%;
+}
+</pre>
+<h3>Checkerboard</h3>
+<pre class="brush: css hidden">div {
+  width: 100px;
+  height: 100px;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div>&#x3C;/div>
+</pre>
+<pre class="brush: css">div {
+  background: conic-gradient(
+      #fff 0.25turn,
+      #000 0.25turn 0.5turn,
+      #fff 0.5turn 0.75turn,
+      #000 0.75turn
+    ) top left / 25% 25% repeat;
+  border: 1px solid;
+}
+</pre>
+<h3>More conic-gradient examples</h3>
+<p>Please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+  <li>Other gradient functions: <a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a>, <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a>, <a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a></li>
+  <li><a href="./css.types.image.html"><code>&lt;image&gt;()</code></a></li>
+  <li><a href="./css.types.image.image.html"><code>image()</code></a></li>
+  <li><a href="./css.types.image.element.html"><code>element()</code></a></li>
+  <li><a href="./css.types.image.image-set.html"><code>image-set()</code></a></li>
+  <li><a href="./css.types.image.cross-fade.html"><code>cross-fade()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 83</li><li><strong>firefox_android</strong>: 83</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: 12.1</li><li><strong>safari_ios</strong>: 12.2</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images-4/#conic-gradients">https://drafts.csswg.org/css-images-4/#conic-gradients</a></p></section></aside></body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>touch-action</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties touch-action</h1><main>
+    
+
+<p>The <strong><code>touch-action</code></strong> CSS property sets how an element's region can be manipulated by a touchscreen user (for example, by zooming features built into the browser).</p>
+<p>By default, panning (scrolling) and pinching gestures are handled exclusively by the browser. An application using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">Pointer events</a> will receive a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/pointercancel_event"><code>pointercancel</code></a> event when the browser starts handling a touch gesture. By explicitly specifying which gestures should be handled by the browser, an application can supply its own behavior in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event"><code>pointermove</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerup_event"><code>pointerup</code></a> listeners for the remaining gestures. Applications using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events">Touch events</a> disable the browser handling of gestures by calling <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"><code>preventDefault()</code></a>, but should also use <code>touch-action</code> to ensure the browser knows the intent of the application before any event listeners have been invoked.</p>
+<p>When a gesture is started, the browser intersects the <code>touch-action</code> values of the touched element and its ancestors, up to the one that implements the gesture (in other words, the first containing scrolling element). This means that in practice, <code>touch-action</code> is typically applied only to top-level elements which have some custom behavior, without needing to specify <code>touch-action</code> explicitly on any of that element's descendants.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> After a gesture starts, changes to <code>touch-action</code> will not have any impact on the behavior of the current gesture.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+touch-action: auto;
+touch-action: none;
+touch-action: pan-x;
+touch-action: pan-left;
+touch-action: pan-right;
+touch-action: pan-y;
+touch-action: pan-up;
+touch-action: pan-down;
+touch-action: pinch-zoom;
+touch-action: manipulation;
+
+/* Global values */
+touch-action: inherit;
+touch-action: initial;
+touch-action: revert;
+touch-action: revert-layer;
+touch-action: unset;
+</pre>
+<p>The <code>touch-action</code> property may be specified as either:</p>
+<ul>
+  <li>One of the keywords <code>auto</code>, <code>none</code>, <a href="#manipulation"><code>manipulation</code></a>, <em>or</em></li>
+  <li>One of the keywords <code>pan-x</code>, <code>pan-left</code>, <code>pan-right</code>, and/or one of the keywords <code>pan-y</code>, <code>pan-up</code>, <code>pan-down</code>, plus optionally the keyword <code>pinch-zoom</code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Enable browser handling of all panning and zooming gestures.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Disable browser handling of all panning and zooming gestures.</p>
+  </dd>
+  <dt><code>pan-x</code></dt>
+  <dd>
+    <p>Enable single-finger horizontal panning gestures. May be combined with <strong>pan-y</strong>, <strong>pan-up</strong>, <strong>pan-down</strong> and/or <strong>pinch-zoom</strong>.</p>
+  </dd>
+  <dt><code>pan-y</code></dt>
+  <dd>
+    <p>Enable single-finger vertical panning gestures. May be combined with <strong>pan-x</strong>, <strong>pan-left</strong>, <strong>pan-right</strong> and/or <strong>pinch-zoom</strong>.</p>
+  </dd>
+  <dt><code>manipulation</code></dt>
+  <dd>
+    <p>Enable panning and pinch zoom gestures, but disable additional non-standard gestures such as double-tap to zoom. Disabling double-tap to zoom removes the need for browsers to delay the generation of <strong>click</strong> events when the user taps the screen. This is an alias for "<strong>pan-x pan-y pinch-zoom</strong>" (which, for compatibility, is itself still valid).</p>
+  </dd>
+  <dt><code>pan-left</code>, <code>pan-right</code>, <code>pan-up</code>, <code>pan-down</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>Enable single-finger gestures that begin by scrolling in the given direction(s). Once scrolling has started, the direction may still be reversed. Note that scrolling "up" (<strong>pan-up</strong>) means that the user is dragging their finger downward on the screen surface, and likewise <strong>pan-left</strong> means the user is dragging their finger to the right. Multiple directions may be combined except when there is a simpler representation (for example, <strong>"pan-left pan-right</strong>" is invalid since "<strong>pan-x</strong>" is simpler, but "<strong>pan-left pan-down</strong>" is valid).</p>
+  </dd>
+  <dt><code>pinch-zoom</code></dt>
+  <dd>
+    <p>Enable multi-finger panning and zooming of the page. This may be combined with any of the <strong>pan-</strong> values.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>A declaration of <code>touch-action: none;</code> may inhibit operating a browser's zooming capabilities. This will prevent people experiencing low vision conditions from being able to read and understand page content.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements except: non-replaced inline elements, table rows, row groups, table columns, and column groups.</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>Same as specified value</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] || pinch-zoom ] | manipulation</pre></section>
+
+<h3>Disabling all gestures</h3>
+<p>The most common usage is to disable all gestures on an element (and its non-scrollable descendants) that provides its own dragging and zooming behavior – such as a map or game surface.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="map">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#map {
+  height: 150vh;
+  width: 70vw;
+  background: linear-gradient(blue, green);
+  touch-action: none;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.pointer-events.html"><code>pointer-events</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events"><code>Pointer Events</code></a></li>
+  <li>WebKit Blog <a href="https://webkit.org/blog/5610/more-responsive-tapping-on-ios/">More Responsive Tapping on iOS</a></li>
+  <li>Google Developers Blog <a href="https://developer.chrome.com/blog/scrolling-intervention/">Making touch scrolling fast by default</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">Scroll Snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 36</li><li><strong>chrome_android</strong>: 36</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 52</li><li><strong>firefox_android</strong>: 52</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 23</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 13</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://compat.spec.whatwg.org/#touch-action,https://w3c.github.io/pointerevents/#the-touch-action-css-property">https://compat.spec.whatwg.org/#touch-action,https://w3c.github.io/pointerevents/#the-touch-action-css-property</a></p></section></aside></body>
+</html>

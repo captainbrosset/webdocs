@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>box-flex-group</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties box-flex-group</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> This is a property of the original CSS Flexible Box Layout Module draft. It has been replaced in the specification. See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">flexbox</a> for information about the current standard.</p>
+</div>
+<p>The <strong><code>box-flex-group</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property assigns the flexbox's child elements to a flex group.</p>
+<p>For flexible elements assigned to flex groups, the first flex group is 1 and higher values specify subsequent flex groups. The initial value is 1. When dividing up the box's extra space, the browser first considers all elements within the first flex group. Each element within that group is given extra space based on the ratio of that element's flexibility compared to the flexibility of other elements within the same flex group. If the space of all flexible children within the group has been increased to the maximum, the process repeats for the children within the next flex group, using any space left over from the previous flex group. Once there are no more flex groups, and there is still space remaining, the extra space is divided within the containing box according to the <a href="./css.properties.box-pack.html"><code>box-pack</code></a> property.</p>
+<p>If the box would overflow after the preferred space of the children has been computed, then space is removed from flexible elements in a manner similar to that used when adding extra space. Each flex group is examined in turn and space is removed according to the ratio of the flexibility of each element. Elements do not shrink below their minimum widths.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;integer> values */
+box-flex-group: 1;
+box-flex-group: 5;
+
+/* Global values */
+box-flex-group: inherit;
+box-flex-group: initial;
+box-flex-group: unset;
+</pre>
+<p>The <code>box-flex-group</code> property is specified as any positive <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a>.</p>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">box-flex-group =
+  &#x3C;integer>
+</pre>
+
+<h3>Simple usage example</h3>
+<p>In the original Flexbox spec, <code>box-flex-group</code> could be used to assign flex children to different groups to distribute flexible space between:</p>
+<pre class="brush: css">article:nth-child(1) {
+  -webkit-box-flex-group: 1;
+}
+
+article:nth-child(2) {
+  -webkit-box-flex-group: 2;
+}
+</pre>
+<p>This was only ever supported in WebKit-based browsers, with a prefix, and in subsequent versions of the spec this functionality does not have an equivalent. Instead, distribution of space inside the flex container is now handled using <a href="./css.properties.flex-basis.html"><code>flex-basis</code></a>, <a href="./css.properties.flex-grow.html"><code>flex-grow</code></a>, and <a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a>.</p>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.flex.html"><code>flex</code></a></li>
+  <li><a href="./css.properties.flex-basis.html"><code>flex-basis</code></a></li>
+  <li><a href="./css.properties.flex-grow.html"><code>flex-grow</code></a></li>
+  <li><a href="./css.properties.flex-shrink.html"><code>flex-shrink</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Deprecated feature.</li><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section></aside></body>
+</html>

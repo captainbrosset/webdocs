@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-text-stroke-width"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-text-stroke-width"</h1><main>
+    
+
+<p>The <strong><code>-webkit-text-stroke-width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the width of the stroke for text.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+-webkit-text-stroke-width: thin;
+-webkit-text-stroke-width: medium;
+-webkit-text-stroke-width: thick;
+
+/* &#x3C;length> values */
+-webkit-text-stroke-width: 2px;
+-webkit-text-stroke-width: 0.1em;
+-webkit-text-stroke-width: 1mm;
+-webkit-text-stroke-width: 5pt;
+
+/* Global values */
+-webkit-text-stroke-width: inherit;
+-webkit-text-stroke-width: initial;
+-webkit-text-stroke-width: revert;
+-webkit-text-stroke-width: revert-layer;
+-webkit-text-stroke-width: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;line-width></code></dt>
+  <dd>
+    <p>The width of the stroke.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>absolute length</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;line-width&gt;</pre></section>
+
+
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  margin: 0;
+  font-size: 4em;
+  -webkit-text-stroke-color: red;
+}
+
+#thin {
+  -webkit-text-stroke-width: thin;
+}
+
+#medium {
+  -webkit-text-stroke-width: 3px;
+}
+
+#thick {
+  -webkit-text-stroke-width: 1.5mm;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p id="thin">Thin stroke&#x3C;/p>
+&#x3C;p id="medium">Medium stroke&#x3C;/p>
+&#x3C;p id="thick">Thick stroke&#x3C;/p>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://webkit.org/blog/85/introducing-text-stroke/">Surfin' Safari blog post announcing this feature</a></li>
+  <li><a href="https://css-tricks.com/adding-stroke-to-web-text/">CSS-Tricks article explaining this feature</a></li>
+  <li><a href="./css.properties.-webkit-text-stroke-color.html"><code>-webkit-text-stroke-color</code></a></li>
+  <li><a href="./css.properties.-webkit-text-stroke.html"><code>-webkit-text-stroke</code></a></li>
+  <li><a href="./css.properties.-webkit-text-fill-color.html"><code>-webkit-text-fill-color</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 15</li><li><strong>firefox</strong>: 49</li><li><strong>firefox_android</strong>: 49</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 15</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 38</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://compat.spec.whatwg.org/#the-webkit-text-stroke-width">https://compat.spec.whatwg.org/#the-webkit-text-stroke-width</a></p></section></aside></body>
+</html>

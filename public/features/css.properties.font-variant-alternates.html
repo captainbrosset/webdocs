@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-variant-alternates</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-variant-alternates</h1><main>
+    
+
+<p>The <strong><code>font-variant-alternates</code></strong> CSS property controls the usage of alternate glyphs. These alternate glyphs may be referenced by alternative names defined in <a href="./css.at-rules.font-feature-values.html"><code>@font-feature-values</code></a>.</p>
+<p>The <a href="./css.at-rules.font-feature-values.html"><code>@font-feature-values</code></a> at-rule can be used to associate, for a given font face, a human-readable name with a numeric index that controls a particular OpenType font feature. For features that select alternative glyphs (<code>stylistic</code>, <code>styleset</code>, <code>character-variant</code>, <code>swash</code>, <code>ornament</code> or <code>annotation</code>), the <code>font-variant-alternates</code> property can then reference the human-readable name in order to apply the associated feature.</p>
+<p>This allows CSS rules to enable alternative glyphs without needing to know the specific index values that a particular font uses to control them.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-variant-alternates: normal;
+font-variant-alternates: historical-forms;
+
+/* Functional notation values */
+font-variant-alternates: stylistic(user-defined-ident);
+font-variant-alternates: styleset(user-defined-ident);
+font-variant-alternates: character-variant(user-defined-ident);
+font-variant-alternates: swash(user-defined-ident);
+font-variant-alternates: ornaments(user-defined-ident);
+font-variant-alternates: annotation(user-defined-ident);
+font-variant-alternates: swash(ident1) annotation(ident2);
+
+/* Global values */
+font-variant-alternates: inherit;
+font-variant-alternates: initial;
+font-variant-alternates: revert;
+font-variant-alternates: revert-layer;
+font-variant-alternates: unset;
+</pre>
+<p>This property may take one of two forms:</p>
+<ul>
+  <li>either the keyword <code>normal</code></li>
+  <li>or one or more of the other keywords and functions listed below, space-separated, in any order.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>This keyword deactivates alternate glyphs.</p>
+  </dd>
+  <dt><code>historical-forms</code></dt>
+  <dd>
+    <p>This keyword enables historical forms — glyphs that were common in the past but not today. It corresponds to the OpenType value <code>hist</code>.</p>
+  </dd>
+  <dt><code>stylistic()</code></dt>
+  <dd>
+    <p>This function enables stylistic alternates for individual characters. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType value <code>salt</code>, like <code>salt 2</code>.</p>
+  </dd>
+  <dt><code>styleset()</code></dt>
+  <dd>
+    <p>This function enables stylistic alternatives for sets of characters. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType value <code>ssXY</code>, like <code>ss02</code>.</p>
+  </dd>
+  <dt><code>character-variant()</code></dt>
+  <dd>
+    <p>This function enables specific stylistic alternatives for characters. It is similar to <code>styleset()</code>, but doesn't create coherent glyphs for a set of characters; individual characters will have independent and not necessarily coherent styles. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType value <code>cvXY</code>, like <code>cv02</code>.</p>
+  </dd>
+  <dt><code>swash()</code></dt>
+  <dd>
+    <p>This function enables <a href="https://en.wikipedia.org/wiki/Swash_%28typography%29">swash</a> glyphs. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType values <code>swsh</code> and <code>cswh</code>, like <code>swsh 2</code> and <code>cswh 2</code>.</p>
+  </dd>
+  <dt><code>ornaments()</code></dt>
+  <dd>
+    <p>This function enables ornaments, like <a href="https://en.wikipedia.org/wiki/Fleuron_%28typography%29">fleurons</a> and other dingbat glyphs. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType value <code>ornm</code>, like <code>ornm 2</code>.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> In order to preserve text semantics, font designers should include ornaments that don't match Unicode dingbat characters as ornamental variants of the bullet character (U+2022). Be aware that some existing fonts don't follow this advice.</p>
+    </div>
+  </dd>
+  <dt><code>annotation()</code></dt>
+  <dd>
+    <p>This function enables annotations, like circled digits or inverted characters. The parameter is a font-specific name mapped to a number. It corresponds to the OpenType value <code>nalt</code>, like <code>nalt 2</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | [ stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt;#) || character-variant(&lt;feature-value-name&gt;#) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) ]</pre></section>
+
+<h3>Enabling swash glyphs</h3>
+<p>In this example, we use the <code>@font-feature-values</code> at-rule to define a name for the <code>swash</code> feature of the <a href="https://github.com/googlefonts/monte-carlo">MonteCarlo</a> font. The rule maps the name <code>"fancy"</code> to the index value <code>1</code>.</p>
+<p>We can then use that name inside <code>font-variant-alternates</code> to switch on swashes for that font. This is the equivalent of a line like <code>font-feature-settings: "swsh" 1</code>, except that the CSS applying the feature does not need to include, or even know, the index value needed for this particular font.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>A Fancy Swash&#x3C;/p>
+&#x3C;p class="variant">A Fancy Swash&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@font-face {
+  font-family: MonteCarlo;
+  src: url("montecarlo-regular.woff2");
+}
+
+@font-feature-values "MonteCarlo" {
+  @swash {
+    fancy: 1;
+  }
+}
+
+p {
+  font-family: "MonteCarlo";
+  font-size: 3rem;
+  margin: 0.7rem 3rem;
+}
+
+.variant {
+  font-variant-alternates: swash(fancy);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a></li>
+  <li><a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a></li>
+  <li><a href="./css.properties.font-variant-emoji.html"><code>font-variant-emoji</code></a></li>
+  <li><a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a></li>
+  <li><a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a></li>
+  <li><a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a></li>
+  <li><a href="./css.at-rules.font-feature-values.html"><code>@font-feature-values</code></a></li>
+  <li><a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 34</li><li><strong>firefox_android</strong>: 34</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-variant-alternates-prop">https://drafts.csswg.org/css-fonts/#font-variant-alternates-prop</a></p></section></aside></body>
+</html>

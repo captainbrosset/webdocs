@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>matrix()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function matrix()</h1><main>
+    
+
+<p>
+  The <strong><code>matrix()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a homogeneous 2D transformation matrix. Its result is
+  a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> <code>matrix(a, b, c, d, tx, ty)</code> is a shorthand for
+    <code>matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)</code>.
+  </p>
+</div>
+<h2>Syntax</h2>
+<p>
+  The <code>matrix()</code> function is specified with six values. The constant values are implied and not passed as
+  parameters; the other parameters are described in the column-major order.
+</p>
+<pre class="brush: css">matrix(a, b, c, d, tx, ty)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><em>a</em> <em>b</em> <em>c</em> <em>d</em></dt>
+  <dd>
+    <p>Are <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>s describing the linear transformation.</p>
+  </dd>
+  <dt><em>tx</em> <em>ty</em></dt>
+  <dd>
+    <p>Are <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>s describing the translation to apply.</p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>c</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>b</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mi>tx</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>b</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+                <mtd>
+                  <mi>ty</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mi>tx</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>b</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+                <mtd>
+                  <mi>ty</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td rowspan="2">
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>a</mi>
+                </mtd>
+                <mtd>
+                  <mi>c</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>tx</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>b</mi>
+                </mtd>
+                <mtd>
+                  <mi>d</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>ty</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+    <tr>
+      <td><code>[a b c d tx ty]</code></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  The values represent the following functions:
+  <code>matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</code>
+</p>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="changed">Changed&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.changed {
+  transform: matrix(1, 2, -1, 1, 80, 80);
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a></li>
+  <li>Individual transform properties:
+    <ul>
+      <li><a href="./css.properties.translate.html"><code>translate()</code></a></li>
+      <li><a href="./css.properties.scale.html"><code>scale()</code></a></li>
+      <li><a href="./css.properties.rotate.html"><code>rotate()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.types.transform-function.matrix3d.html"><code>matrix3d()</code></a></li>
+  <li><a href="https://dev.opera.com/articles/understanding-the-css-transforms-matrix/">Understanding the CSS Transforms Matrix</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10.5</li><li><strong>opera_android</strong>: 11</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#funcdef-transform-matrix">https://drafts.csswg.org/css-transforms/#funcdef-transform-matrix</a></p></section></aside></body>
+</html>

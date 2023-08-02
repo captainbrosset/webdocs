@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-synthesis-weight</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-synthesis-weight</h1><main>
+    
+
+<p>The <strong><code>font-synthesis-weight</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property lets you specify whether or not the browser may synthesize the bold typeface when it is missing in a font family.</p>
+<p>It is often convenient to use the shorthand property <a href="./css.properties.font-synthesis.html"><code>font-synthesis</code></a> to control all typeface synthesis values.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+font-synthesis-weight: auto;
+font-synthesis-weight: none;
+
+/* Global values */
+font-synthesis-weight: inherit;
+font-synthesis-weight: initial;
+font-synthesis-weight: revert;
+font-synthesis-weight: revert-layer;
+font-synthesis-weight: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Indicates that the missing bold typeface may be synthesized by the browser if needed.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Indicates that the synthesis of the missing bold typeface by the browser is not allowed.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none</pre></section>
+
+<h3>Disabling synthesis of bold typeface</h3>
+<p>This example shows turning off synthesis of the bold typeface by the browser in the <code>Montserrat</code> font.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="english">
+  This is the default &#x3C;strong>bold typeface&#x3C;/strong> and
+  &#x3C;em>oblique typeface&#x3C;/em>.
+&#x3C;/p>
+
+&#x3C;p class="english no-syn">
+  The &#x3C;strong>bold typeface&#x3C;/strong> is turned off here but not the
+  &#x3C;em>oblique typeface&#x3C;/em>.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@import url("https://fonts.googleapis.com/css2?family=Montserrat&#x26;display=swap");
+
+.english {
+  font-family: "Montserrat", sans-serif;
+}
+.no-syn {
+  font-synthesis-weight: none;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-synthesis.html">font-synthesis</a> shorthand, <a href="./css.properties.font-synthesis-small-caps.html">font-synthesis-small-caps</a>, <a href="./css.properties.font-synthesis-style.html">font-synthesis-style</a></li>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a>, <a href="./css.properties.font-variant.html"><code>font-variant</code></a>, <a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 97</li><li><strong>chrome_android</strong>: 97</li><li><strong>edge</strong>: 97</li><li><strong>firefox</strong>: 111</li><li><strong>firefox_android</strong>: 111</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 20.0</li><li><strong>opera</strong>: 83</li><li><strong>opera_android</strong>: 68</li><li><strong>safari</strong>: 16.4</li><li><strong>safari_ios</strong>: 16.4</li><li><strong>samsunginternet_android</strong>: 18.0</li><li><strong>webview_android</strong>: 97</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-synthesis-weight">https://drafts.csswg.org/css-fonts/#font-synthesis-weight</a></p></section></aside></body>
+</html>

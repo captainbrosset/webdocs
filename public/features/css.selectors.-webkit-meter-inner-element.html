@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::-webkit-meter-inner-element"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::-webkit-meter-inner-element"</h1><main>
+    
+
+<p><strong><code>::-webkit-meter-inner-element</code></strong> is a proprietary WebKit CSS pseudo-element for selecting and applying styles to the outer containing element of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter"><code>&lt;meter&gt;</code></a> element. Additional markup to render the meter element as read-only.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::-webkit-meter-inner-element {
+  /* ... */
+}
+</pre>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+<h2>Examples</h2>
+<p>This will only work in WebKit and Blink-based browsers, such as Safari, Chrome, and Chromium-based versions of Edge.</p>
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;meter min="0" max="10" value="6">Score out of 10&#x3C;/meter>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">meter {
+  /* Reset the default appearance for -webkit- only */
+  -webkit-appearance: none;
+}
+
+meter::-webkit-meter-inner-element {
+  -webkit-appearance: inherit;
+  box-sizing: inherit;
+  border: 1px solid #aaa;
+}
+</pre>
+
+
+<h2>See also</h2>
+<p>The pseudo-elements used by WebKit/Blink to style other parts of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter"><code>&lt;meter&gt;</code></a> element are as follows:</p>
+<ul>
+  <li><a href="./css.selectors.-webkit-meter-bar.html"><code>::-webkit-meter-bar</code></a></li>
+  <li><a href="./css.selectors.-webkit-meter-even-less-good-value.html"><code>::-webkit-meter-even-less-good-value</code></a></li>
+  <li><a href="./css.selectors.-webkit-meter-optimum-value.html"><code>::-webkit-meter-optimum-value</code></a></li>
+  <li><a href="./css.selectors.-webkit-meter-suboptimum-value.html"><code>::-webkit-meter-suboptimum-value</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 23</li><li><strong>chrome_android</strong>: 25</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 7</li><li><strong>safari_ios</strong>: 7</li><li><strong>samsunginternet_android</strong>: 1.5</li><li><strong>webview_android</strong>: 4.4</li></ul></section></aside></body>
+</html>

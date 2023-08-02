@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow-wrap</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow-wrap</h1><main>
+    
+
+<p>The <strong><code>overflow-wrap</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property applies to inline elements, setting whether the browser should insert line breaks within an otherwise unbreakable string to prevent text from overflowing its line box.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In contrast to <a href="./css.properties.word-break.html"><code>word-break</code></a>, <code>overflow-wrap</code> will only create a break if an entire word cannot be placed on its own line without overflowing.</p>
+</div>
+<p>The property was originally a nonstandard and unprefixed Microsoft extension called <code>word-wrap</code>, and was implemented by most browsers with the same name. It has since been renamed to <code>overflow-wrap</code>, with <code>word-wrap</code> being an alias.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overflow-wrap: normal;
+overflow-wrap: break-word;
+overflow-wrap: anywhere;
+
+/* Global values */
+overflow-wrap: inherit;
+overflow-wrap: initial;
+overflow-wrap: revert;
+overflow-wrap: revert-layer;
+overflow-wrap: unset;
+</pre>
+<p>The <code>overflow-wrap</code> property is specified as a single keyword chosen from the list of values below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Lines may only break at normal word break points (such as a space between two words).</p>
+  </dd>
+  <dt><code>anywhere</code></dt>
+  <dd>
+    <p>To prevent overflow, an otherwise unbreakable string of characters — like a long word or URL — may be broken at any point if there are no otherwise-acceptable break points in the line. No hyphenation character is inserted at the break point. Soft wrap opportunities introduced by the word break are considered when calculating min-content intrinsic sizes.</p>
+  </dd>
+  <dt><code>break-word</code></dt>
+  <dd>
+    <p>The same as the <code>anywhere</code> value, with normally unbreakable words allowed to be broken at arbitrary points if there are no otherwise acceptable break points in the line, but soft wrap opportunities introduced by the word break are NOT considered when calculating min-content intrinsic sizes.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | break-word | anywhere</pre></section>
+
+<h3>Comparing overflow-wrap, word-break, and hyphens</h3>
+<p>This example compares the results of <code>overflow-wrap</code>, <code>word-break</code>, and <code>hyphens</code> when breaking up a long word.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  They say the fishing is excellent at Lake
+  &#x3C;em class="normal">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>, though
+  I've never been there myself. (&#x3C;code>normal&#x3C;/code>)
+&#x3C;/p>
+&#x3C;p>
+  They say the fishing is excellent at Lake
+  &#x3C;em class="ow-anywhere">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>,
+  though I've never been there myself. (&#x3C;code>overflow-wrap: anywhere&#x3C;/code>)
+&#x3C;/p>
+&#x3C;p>
+  They say the fishing is excellent at Lake
+  &#x3C;em class="ow-break-word">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>,
+  though I've never been there myself. (&#x3C;code>overflow-wrap: break-word&#x3C;/code>)
+&#x3C;/p>
+&#x3C;p>
+  They say the fishing is excellent at Lake
+  &#x3C;em class="word-break">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>,
+  though I've never been there myself. (&#x3C;code>word-break&#x3C;/code>)
+&#x3C;/p>
+&#x3C;p>
+  They say the fishing is excellent at Lake
+  &#x3C;em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>, though
+  I've never been there myself. (&#x3C;code>hyphens&#x3C;/code>, without
+  &#x3C;code>lang&#x3C;/code> attribute)
+&#x3C;/p>
+&#x3C;p lang="en">
+  They say the fishing is excellent at Lake
+  &#x3C;em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>, though
+  I've never been there myself. (&#x3C;code>hyphens&#x3C;/code>, English rules)
+&#x3C;/p>
+&#x3C;p class="hyphens" lang="de">
+  They say the fishing is excellent at Lake
+  &#x3C;em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg&#x3C;/em>, though
+  I've never been there myself. (&#x3C;code>hyphens&#x3C;/code>, German rules)
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  width: 13em;
+  margin: 2px;
+  background: gold;
+}
+
+.ow-anywhere {
+  overflow-wrap: anywhere;
+}
+
+.ow-break-word {
+  overflow-wrap: break-word;
+}
+
+.word-break {
+  word-break: break-all;
+}
+
+.hyphens {
+  hyphens: auto;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.word-break.html"><code>word-break</code></a></li>
+  <li><a href="./css.properties.hyphens.html"><code>hyphens</code></a></li>
+  <li><a href="./css.properties.text-overflow.html"><code>text-overflow</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text">Guide to wrapping and breaking text</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#overflow-wrap-property">https://drafts.csswg.org/css-text/#overflow-wrap-property</a></p></section></aside></body>
+</html>

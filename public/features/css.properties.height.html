@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>height</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties height</h1><main>
+    
+
+<p>The <strong><code>height</code></strong> CSS property specifies the height of an element. By default, the property defines the height of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area">content area</a>. If <a href="./css.properties.box-sizing.html"><code>box-sizing</code></a> is set to <code>border-box</code>, however, it instead determines the height of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area">border area</a>.</p>
+<p>The <a href="./css.properties.min-height.html"><code>min-height</code></a> and <a href="./css.properties.max-height.html"><code>max-height</code></a> properties override <code>height</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+height: 120px;
+height: 10em;
+height: 100vh;
+
+/* &#x3C;percentage> value */
+height: 75%;
+
+/* Keyword values */
+height: max-content;
+height: min-content;
+height: fit-content(20em);
+height: auto;
+
+/* Global values */
+height: inherit;
+height: initial;
+height: revert;
+height: revert-layer;
+height: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Defines the height as a distance value.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Defines the height as a percentage of the containing block's height.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser will calculate and select a height for the specified element.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>The intrinsic preferred height.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>The intrinsic minimum height.</p>
+  </dd>
+  <dt><code>fit-content</code></dt>
+  <dd>
+    <p>Box will use the available space, but never more than <code>max-content</code></p>
+  </dd>
+  <dt><code>fit-content(<a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Uses the fit-content formula with the available space replaced by the specified argument, i.e. <code>min(max-content, max(min-content, &#x3C;length-percentage>))</code></p>
+  </dd>
+  <dt><a href="./css.types.clamp.html"><code>clamp()</code></a></dt>
+  <dd>
+    <p>Enables selecting a middle value within a range of values between a defined minimum and maximum</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Ensure that elements set with a <code>height</code> aren't truncated and/or don't obscure other content when the page is zoomed to increase text size.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements except non-replaced inlines</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with &lt;length-percentage&gt; values computed</td></tr><tr><th scope="row">Animation type</th><td>by computed value type, recursing into fit-content()</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length-percentage [0,∞]&gt; | min-content | max-content | fit-content(&lt;length-percentage [0,∞]&gt;)</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="taller">I'm 50 pixels tall.&#x3C;/div>
+&#x3C;div id="shorter">I'm 25 pixels tall.&#x3C;/div>
+&#x3C;div id="parent">
+  &#x3C;div id="child">I'm half the height of my parent.&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 250px;
+  margin-bottom: 5px;
+  border: 2px solid blue;
+}
+
+#taller {
+  height: 50px;
+}
+
+#shorter {
+  height: 25px;
+}
+
+#parent {
+  height: 100px;
+}
+
+#child {
+  height: 50%;
+  width: 75%;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">The box model</a></li>
+  <li><a href="./css.properties.width.html"><code>width</code></a></li>
+  <li><a href="./css.properties.box-sizing.html"><code>box-sizing</code></a></li>
+  <li><a href="./css.properties.min-height.html"><code>min-height</code></a>, <a href="./css.properties.max-height.html"><code>max-height</code></a></li>
+  <li>The mapped logical properties: <a href="./css.properties.block-size.html"><code>block-size</code></a>, <a href="./css.properties.inline-size.html"><code>inline-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing/#preferred-size-properties">https://drafts.csswg.org/css-sizing/#preferred-size-properties</a></p></section></aside></body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;system-color&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color &#x3C;system-color></h1><main>
+    
+
+<p>The <strong><code>&#x3C;system-color></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> usually reflects the default color choices used for the different parts of a web page.</p>
+<p>However, user agents can provide an accessibility feature called <em>forced colors mode</em>, in which colors are restricted into a user- and user agent-defined palette, overriding the author's choice of colors in certain properties. In forced colors mode, <code>&#x3C;system-color></code> exposes the chosen colors, so that the rest of the page can integrate with them. An example of forced colors mode is <a href="https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/">high contrast mode on Windows</a>.</p>
+<p>In forced colors mode, authors should use colors from the <code>&#x3C;system-color></code> type for all properties that are <em>not</em> in the set of properties whose colors are overridden. This ensures that the page consistently uses the same color palette across all properties.</p>
+<p>Authors can detect forced colors mode using the <a href="./css.at-rules.media.forced-colors.html"><code>forced-colors</code></a> media feature.</p>
+<p>A <code>&#x3C;system-color></code> value can be used anywhere a <a href="./css.types.color.html"><code>&#x3C;color></code></a> can be used.</p>
+<h2>Syntax</h2>
+<p>Note that these keywords are <em>case insensitive</em>, but are listed here with mixed case for readability.</p>
+<dl>
+  <dt><code>AccentColor</code></dt>
+  <dd>
+    <p>Background of accented user interface controls</p>
+  </dd>
+  <dt><code>AccentColorText</code></dt>
+  <dd>
+    <p>Text of accented user interface controls</p>
+  </dd>
+  <dt><code>ActiveText</code></dt>
+  <dd>
+    <p>Text of active links</p>
+  </dd>
+  <dt><code>ButtonBorder</code></dt>
+  <dd>
+    <p>Base border color of controls</p>
+  </dd>
+  <dt><code>ButtonFace</code></dt>
+  <dd>
+    <p>Background color of controls</p>
+  </dd>
+  <dt><code>ButtonText</code></dt>
+  <dd>
+    <p>Text color of controls</p>
+  </dd>
+  <dt><code>Canvas</code></dt>
+  <dd>
+    <p>Background of application content or documents</p>
+  </dd>
+  <dt><code>CanvasText</code></dt>
+  <dd>
+    <p>Text color in application content or documents</p>
+  </dd>
+  <dt><code>Field</code></dt>
+  <dd>
+    <p>Background of input fields</p>
+  </dd>
+  <dt><code>FieldText</code></dt>
+  <dd>
+    <p>Text in input fields</p>
+  </dd>
+  <dt><code>GrayText</code></dt>
+  <dd>
+    <p>Text color for disabled items (e.g. a disabled control)</p>
+  </dd>
+  <dt><code>Highlight</code></dt>
+  <dd>
+    <p>Background of selected items</p>
+  </dd>
+  <dt><code>HighlightText</code></dt>
+  <dd>
+    <p>Text color of selected items</p>
+  </dd>
+  <dt><code>LinkText</code></dt>
+  <dd>
+    <p>Text of non-active, non-visited links</p>
+  </dd>
+  <dt><code>Mark</code></dt>
+  <dd>
+    <p>Background of text that has been specially marked (such as by the HTML <code>mark</code> element)</p>
+  </dd>
+  <dt><code>MarkText</code></dt>
+  <dd>
+    <p>Text that has been specially marked (such as by the HTML <code>mark</code> element)</p>
+  </dd>
+  <dt><code>VisitedText</code></dt>
+  <dd>
+    <p>Text of visited links</p>
+  </dd>
+</dl>
+<h3>Deprecated system color keywords</h3>
+<p>The following keywords were defined in earlier versions of the CSS Color Module. They are now deprecated for use on public web pages.</p>
+<dl>
+  <dt><code>ActiveBorder</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Active window border.</p>
+  </dd>
+  <dt><code>ActiveCaption</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Active window caption. Should be used with <code>CaptionText</code> as foreground color.</p>
+  </dd>
+  <dt><code>AppWorkspace</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Background color of multiple document interface.</p>
+  </dd>
+  <dt><code>Background</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Desktop background.</p>
+  </dd>
+  <dt><code>ButtonHighlight</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the border facing the light source for 3-D elements that appear 3-D due to that layer of surrounding border.</p>
+  </dd>
+  <dt><code>ButtonShadow</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the border away from the light source for 3-D elements that appear 3-D due to that layer of surrounding border.</p>
+  </dd>
+  <dt><code>CaptionText</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Text in caption, size box, and scrollbar arrow box. Should be used with the <code>ActiveCaption</code> background color.</p>
+  </dd>
+  <dt><code>InactiveBorder</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Inactive window border.</p>
+  </dd>
+  <dt><code>InactiveCaption</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Inactive window caption. Should be used with the <code>InactiveCaptionText</code> foreground color.</p>
+  </dd>
+  <dt><code>InactiveCaptionText</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Color of text in an inactive caption. Should be used with the <code>InactiveCaption</code> background color.</p>
+  </dd>
+  <dt><code>InfoBackground</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Background color for tooltip controls. Should be used with the <code>InfoText</code> foreground color.</p>
+  </dd>
+  <dt><code>InfoText</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Text color for tooltip controls. Should be used with the <code>InfoBackground</code> background color.</p>
+  </dd>
+  <dt><code>Menu</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Menu background. Should be used with the <code>MenuText</code> or <code>-moz-MenuBarText</code> foreground color.</p>
+  </dd>
+  <dt><code>MenuText</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Text in menus. Should be used with the <code>Menu</code> background color.</p>
+  </dd>
+  <dt><code>Scrollbar</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Background color of scroll bars.</p>
+  </dd>
+  <dt><code>ThreeDDarkShadow</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the darker (generally outer) of the two borders away from the light source for 3-D elements that appear 3-D due to two concentric layers of surrounding border.</p>
+  </dd>
+  <dt><code>ThreeDFace</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The face background color for 3-D elements that appear 3-D due to two concentric layers of surrounding border. Should be used with the <code>ButtonText</code> foreground color.</p>
+  </dd>
+  <dt><code>ThreeDHighlight</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the lighter (generally outer) of the two borders facing the light source for 3-D elements that appear 3-D due to two concentric layers of surrounding border.</p>
+  </dd>
+  <dt><code>ThreeDLightShadow</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the darker (generally inner) of the two borders facing the light source for 3-D elements that appear 3-D due to two concentric layers of surrounding border.</p>
+  </dd>
+  <dt><code>ThreeDShadow</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>The color of the lighter (generally inner) of the two borders away from the light source for 3-D elements that appear 3-D due to two concentric layers of surrounding border.</p>
+  </dd>
+  <dt><code>Window</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Window background. Should be used with the <code>WindowText</code> foreground color.</p>
+  </dd>
+  <dt><code>WindowFrame</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Window frame.</p>
+  </dd>
+  <dt><code>WindowText</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Text in windows. Should be used with the <code>Window</code> background color.</p>
+  </dd>
+</dl>
+
+<h3>Using system colors</h3>
+<p>In this example we have a button that normally gets its contrast using the <a href="./css.properties.box-shadow.html"><code>&lt;box-shadow&gt;</code></a> property. In forced colors mode, <code>box-shadow</code> is forced to <code>none</code>, so the example uses the <code>forced-colors</code> media feature to ensure there is a border of the appropriate color (<code>ButtonBorder</code> in this case).</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;button class="button">Press me!&#x3C;/button>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.button {
+  border: 0;
+  padding: 10px;
+  box-shadow:
+    -2px -2px 5px gray,
+    2px 2px 5px gray;
+}
+
+@media (forced-colors: active) {
+  .button {
+    /* Use a border instead, since box-shadow
+    is forced to 'none' in forced-colors mode */
+    border: 2px ButtonBorder solid;
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&#x3C;color></code></a>: the data type these keywords belong to</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#css-system-colors">https://drafts.csswg.org/css-color/#css-system-colors</a></p></section></aside></body>
+</html>

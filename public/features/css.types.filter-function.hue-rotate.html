@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hue-rotate()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types filter-function hue-rotate()</h1><main>
+    
+
+<p>The <strong><code>hue-rotate()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> rotates the <a href="https://en.wikipedia.org/wiki/Hue">hue</a> of an element and its contents. Its result is a <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<p>The <code>hue-rotate()</code> function applies a color rotation to the elements on which it is applied.</p>
+<pre class="brush: css">hue-rotate(angle)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>angle</code></dt>
+  <dd>
+    <p>The relative change in hue of the input sample, specified as an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. A value of <code>0deg</code> leaves the input unchanged. A positive hue rotation increases the hue value, while a negative rotation decreases the hue value. The initial value for <a href="/Glossary/interpolation">interpolation</a> is <code>0</code>. There is no minimum or maximum value. The effect of values above <code>360deg</code> are, given <code>hue-rotate(Ndeg)</code>, evaluates to <code>N</code> modulo 360.</p>
+  </dd>
+</dl>
+<p>The <code>&#x3C;angle></code> CSS data type represents an angle value expressed in degrees, gradians, radians, or turns. The following are equivalent:</p>
+<pre class="brush: css">hue-rotate(-180deg)
+hue-rotate(540deg)
+hue-rotate(200grad)
+hue-rotate(3.14159rad)
+hue-rotate(0.5turn)
+</pre>
+
+
+<h3>With the backdrop-filter property</h3>
+<p>This example applies a <code>hue-rotate()</code> filter via the <code>backdrop-filter</code> CSS property to the paragraph, color shifting to the area behind the <code>&#x3C;p></code>.</p>
+<pre class="brush: css">.container {
+  background: url(image.jpg) no-repeat left / contain #011296;
+}
+p {
+  backdrop-filter: hue-rotate(240deg);
+  text-shadow: 2px 2px #011296;
+}
+</pre>
+<pre class="brush: css hidden">.container {
+  padding: 3rem;
+  width: 30rem;
+}
+p {
+  padding: 0.5rem;
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div
+  class="container"
+  style="background-image: url(listen_to_black_women.jpg);">
+  &#x3C;p>
+    Text on images can be illegible and inaccessible even with a drop shadow.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h3>With the filter property</h3>
+<p>This example applies a <code>hue-rotate()</code> filter via the <code>filter</code> CSS property adding the color shift to the entire element, including content, border, and background image.</p>
+<pre class="brush: css">p {
+  filter: hue-rotate(-60deg);
+  text-shadow: 2px 2px blue;
+  background-color: magenta;
+  color: goldenrod;
+  border: 1em solid rebeccapurple;
+  box-shadow:
+    inset -5px -5px red,
+    5px 5px yellow;
+}
+</pre>
+<pre class="brush: css hidden">p {
+  padding: 0.5rem;
+  font-size: 2rem;
+  font-family: sans-serif;
+  width: 85vw;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;p>The person who wrote this example is not a designer, fortunately.&#x3C;/p>
+</pre>
+<h3>With url() and the SVG hue-rotate filter</h3>
+<p>The SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter"><code>&lt;filter&gt;</code></a> element is used to define custom filter effects that can then be referenced by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a>. The <code>&#x3C;filter></code>'s <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix"><code>&lt;feColorMatrix&gt;</code></a> primitive <code>hueRotate</code> type provides the same effect. Given the following:</p>
+<pre class="brush: svg">&#x3C;filter id="filterID">
+  &#x3C;feColorMatrix type="hueRotate" values="90" />
+&#x3C;/filter>
+</pre>
+<p>These values produce the same results:</p>
+<pre class="brush: css">filter: hue-rotate(90deg); /* 90deg rotation */
+filter: url(#filterID); /* with embedded SVG */
+filter: url(folder/fileName.svg#filterID); /* external svg filter definition */
+</pre>
+<p>This example shows three images: the image with a <code>hue-rotate()</code> filter function applied, the image with an equivalent <code>url()</code> filter applied, and the original images for comparison:</p>
+<pre class="brush: html hidden">&#x3C;table cellpadding="5">
+  &#x3C;thead>
+    &#x3C;tr>
+      &#x3C;th>&#x3C;code>hue-rotate()&#x3C;/code>&#x3C;/th>
+      &#x3C;th>&#x3C;code>url()&#x3C;/code>&#x3C;/th>
+      &#x3C;th>Original image&#x3C;/th>
+    &#x3C;/tr>
+  &#x3C;/thead>
+  &#x3C;tbody>
+    &#x3C;tr>
+      &#x3C;td>
+        &#x3C;img
+          style="filter: hue-rotate(90deg)"
+          src="flag.jpg"
+          alt="Pride flag with rotated colors" />
+      &#x3C;/td>
+      &#x3C;td>
+        &#x3C;svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 220 220"
+          color-interpolation-filters="sRGB"
+          height="220"
+          width="220">
+          &#x3C;filter id="hue-rotate">
+            &#x3C;feColorMatrix type="hueRotate" values="90" />
+          &#x3C;/filter>
+          &#x3C;image
+            xlink:href="flag.jpg"
+            filter="url(#hue-rotate)"
+            width="220"
+            height="220" />
+        &#x3C;/svg>
+      &#x3C;/td>
+
+      &#x3C;td>&#x3C;img src="flag.jpg" alt="Pride flag" />&#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_filter_effects">CSS filter effects</a> module</li>
+  <li>The other <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a> functions available to be used in values of the <a href="./css.properties.filter.html"><code>filter()</code></a> and <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> properties include:
+    <ul>
+      <li><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></li>
+      <li><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></li>
+      <li><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></li>
+      <li><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></li>
+      <li><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></li>
+      <li><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></li>
+      <li><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></li>
+      <li><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></li>
+      <li><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-hue-rotate">https://drafts.fxtf.org/filter-effects/#funcdef-filter-hue-rotate</a></p></section></aside></body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;resolution&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;resolution></h1><main>
+    
+
+<p>The <strong><code>&#x3C;resolution></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a>, used for describing <a href="./css.at-rules.media.resolution.html">resolutions</a> in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries">media queries</a>, denotes the pixel density of an output device, i.e., its resolution.</p>
+<p>On screens, the units are related to <em>CSS</em> inches, centimeters, or pixels, not physical values.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;resolution></code> data type consists of a strictly positive <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by one of the units listed below. As with all CSS dimensions, there is no space between the unit literal and the number.</p>
+<h3>Units</h3>
+<dl>
+  <dt><code>dpi</code></dt>
+  <dd>
+    <p>Represents the number of <a href="https://en.wikipedia.org/wiki/Dots_per_inch">dots per inch</a>. Screens typically contains 72 or 96 dots per inch, but the dpi for printed documents is usually much greater. As 1 inch is 2.54 cm, <code>1dpi ≈ 0.39dpcm</code>.</p>
+  </dd>
+  <dt><code>dpcm</code></dt>
+  <dd>
+    <p>Represents the number of <a href="https://en.wikipedia.org/wiki/Dots_per_inch">dots per centimeter</a>. As 1 inch is 2.54 cm, <code>1dpcm ≈ 2.54dpi</code>.</p>
+  </dd>
+  <dt><code>dppx</code></dt>
+  <dd>
+    <p>Represents the number of dots per <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#px"><code>px</code></a> unit. Due to the 1:96 fixed ratio of CSS <code>in</code> to CSS <code>px</code>, <code>1dppx</code> is equivalent to <code>96dpi</code>, which corresponds to the default resolution of images displayed in CSS as defined by <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-resolution"><code>&lt;image-resolution&gt;</code></a>.</p>
+  </dd>
+  <dt><code>x</code></dt>
+  <dd>
+    <p>Alias for <code>dppx</code>.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Although the number <code>0</code> is always the same regardless of unit, the unit may not be omitted. In other words, <code>0</code> is invalid and does not represent <code>0dpi</code>, <code>0dpcm</code>, or <code>0dppx</code>.</p>
+</div>
+
+<h3>Use in a media query</h3>
+<pre class="brush: css">@media print and (min-resolution: 300dpi) {
+  /* … */
+}
+</pre>
+<h3>Valid resolutions</h3>
+<pre class="brush: plain example-good">96dpi
+50.82dpcm
+3dppx
+</pre>
+<h3>Invalid resolutions</h3>
+<pre class="brush: plain example-bad">72 dpi     Spaces are not allowed between the number and the unit.
+ten dpi    The number must use digits only.
+0          The unit is required.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.resolution.html">resolution</a> media feature</li>
+  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-resolution"><code>&lt;image-resolution&gt;</code></a> property</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using @media queries</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 29</li><li><strong>chrome_android</strong>: 29</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 2.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#resolution">https://drafts.csswg.org/css-values/#resolution</a></p></section></aside></body>
+</html>

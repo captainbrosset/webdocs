@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pointer-events</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties pointer-events</h1><main>
+    
+
+<p>The <strong><code>pointer-events</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets under what circumstances (if any) a particular graphic element can become the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target">target</a> of pointer events.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+pointer-events: auto;
+pointer-events: none;
+pointer-events: visiblePainted; /* SVG only */
+pointer-events: visibleFill; /* SVG only */
+pointer-events: visibleStroke; /* SVG only */
+pointer-events: visible; /* SVG only */
+pointer-events: painted; /* SVG only */
+pointer-events: fill; /* SVG only */
+pointer-events: stroke; /* SVG only */
+pointer-events: all; /* SVG only */
+
+/* Global values */
+pointer-events: inherit;
+pointer-events: initial;
+pointer-events: revert;
+pointer-events: revert-layer;
+pointer-events: unset;
+</pre>
+<p>The <code>pointer-events</code> property is specified as a single keyword chosen from the list of values below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The element behaves as it would if the <code>pointer-events</code> property were not specified. In SVG content, this value and the value <code>visiblePainted</code> have the same effect.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>The element is never the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target">target</a> of pointer events; however, pointer events may target its descendant elements if those descendants have <code>pointer-events</code> set to some other value. In these circumstances, pointer events will trigger event listeners on this parent element as appropriate on their way to/from the descendant during the event capture/<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/bubbles">bubble</a> phases.</p>
+  </dd>
+</dl>
+<h4>SVG only (experimental for HTML)</h4>
+<dl>
+  <dt><code>visiblePainted</code></dt>
+  <dd>
+    <p>SVG only (experimental for HTML). The element can only be the target of a pointer event when the <code>visibility</code> property is set to <code>visible</code> and e.g. when a mouse cursor is over the interior (i.e., 'fill') of the element and the <code>fill</code> property is set to a value other than <code>none</code>, or when a mouse cursor is over the perimeter (i.e., 'stroke') of the element and the <code>stroke</code> property is set to a value other than <code>none</code>.</p>
+  </dd>
+  <dt><code>visibleFill</code></dt>
+  <dd>
+    <p>SVG only. The element can only be the target of a pointer event when the <code>visibility</code> property is set to <code>visible</code> and when e.g. a mouse cursor is over the interior (i.e., fill) of the element. The value of the <code>fill</code> property does not affect event processing.</p>
+  </dd>
+  <dt><code>visibleStroke</code></dt>
+  <dd>
+    <p>SVG only. The element can only be the target of a pointer event when the <code>visibility</code> property is set to <code>visible</code> and e.g. when the mouse cursor is over the perimeter (i.e., stroke) of the element. The value of the <code>stroke</code> property does not affect event processing.</p>
+  </dd>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>SVG only (experimental for HTML). The element can be the target of a pointer event when the <code>visibility</code> property is set to <code>visible</code> and e.g. the mouse cursor is over either the interior (i.e., fill) or the perimeter (i.e., stroke) of the element. The values of the <code>fill</code> and <code>stroke</code> do not affect event processing.</p>
+  </dd>
+  <dt><code>painted</code></dt>
+  <dd>
+    <p>SVG only (experimental for HTML). The element can only be the target of a pointer event when e.g. the mouse cursor is over the interior (i.e., 'fill') of the element and the <code>fill</code> property is set to a value other than <code>none</code>, or when the mouse cursor is over the perimeter (i.e., 'stroke') of the element and the <code>stroke</code> property is set to a value other than <code>none</code>. The value of the <code>visibility</code> property does not affect event processing.</p>
+  </dd>
+  <dt><code>fill</code></dt>
+  <dd>
+    <p>SVG only. The element can only be the target of a pointer event when the pointer is over the interior (i.e., fill) of the element. The values of the <code>fill</code> and <code>visibility</code> properties do not affect event processing.</p>
+  </dd>
+  <dt><code>stroke</code></dt>
+  <dd>
+    <p>SVG only. The element can only be the target of a pointer event when the pointer is over the perimeter (i.e., stroke) of the element. The values of the <code>stroke</code> and <code>visibility</code> properties do not affect event processing.</p>
+  </dd>
+  <dt><code>all</code></dt>
+  <dd>
+    <p>SVG only (experimental for HTML). The element can only be the target of a pointer event when the pointer is over the interior (i.e., fill) or the perimeter (i.e., stroke) of the element. The values of the <code>fill</code>, <code>stroke</code>, and <code>visibility</code> properties do not affect event processing.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>When this property is unspecified, the same characteristics of the <code>visiblePainted</code> value apply to SVG content.</p>
+<p>In addition to indicating that the element is not the target of pointer events, the value <code>none</code> instructs the pointer event to go "through" the element and target whatever is "underneath" that element instead.</p>
+<p>Note that preventing an element from being the target of pointer events by using <code>pointer-events</code> does <em>not</em> necessarily mean that pointer event listeners on that element <em>cannot</em> or <em>will not</em> be triggered. If one of the element's children has <code>pointer-events</code> explicitly set to <em>allow</em> that child to be the target of pointer events, then any events targeting that child will pass through the parent as the event travels along the parent chain, and trigger event listeners on the parent as appropriate. Of course any pointer activity at a point on the screen that is covered by the parent but not by the child will not be caught by either the child or the parent (it will go "through" the parent and target whatever is underneath).</p>
+<p>Elements with <code>pointer-events: none</code> will still receive focus through sequential keyboard navigation using the <kbd>Tab</kbd> key.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>container elements, graphics elements and ‘use’</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | bounding-box | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | none</pre></section>
+
+<h3>Disabling pointer events on all images</h3>
+<p>This example disables pointer events (clicking, dragging, hovering, etc.) on all images.</p>
+<pre class="brush: css">img {
+  pointer-events: none;
+}
+</pre>
+<h3>Disabling pointer events on a single link</h3>
+<p>This example disables pointer events on the link to <code>http://example.com</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>&#x3C;a href="https://developer.mozilla.org">MDN&#x3C;/a>&#x3C;/li>
+  &#x3C;li>&#x3C;a href="http://example.com">example.com&#x3C;/a>&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">a[href="http://example.com"]
+{
+  pointer-events: none;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The SVG attribute <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointer-events"><code>pointer-events</code></a></li>
+  <li>The SVG attribute <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/visibility"><code>visibility</code></a></li>
+  <li><a href="https://webkit.org/specs/PointerEventsProperty.html">WebKit Specs PointerEventsProperty</a> extended for use in (X)HTML content</li>
+  <li><a href="./css.properties.user-select.html"><code>user-select</code></a> - controls whether the user can select text</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-ui/#pointer-events-control,https://svgwg.org/svg2-draft/interact.html#PointerEventsProperty">https://drafts.csswg.org/css-ui/#pointer-events-control,https://svgwg.org/svg2-draft/interact.html#PointerEventsProperty</a></p></section></aside></body>
+</html>

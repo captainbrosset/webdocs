@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-kerning</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-kerning</h1><main>
+    
+
+<p>The <strong><code>font-kerning</code></strong> CSS property sets the use of the kerning information stored in a font.</p>
+<p><em>Kerning</em> defines how letters are spaced. In <em>well-kerned</em> fonts, this feature makes character spacing more uniform and pleasant to read than it would otherwise be.</p>
+<p>In the image below, for instance, the examples on the left do not use kerning, while the ones on the right do:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/font-kerning/font-kerning.png" alt="Example of font-kerning">
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">font-kerning: auto;
+font-kerning: normal;
+font-kerning: none;
+
+/* Global values */
+font-kerning: inherit;
+font-kerning: initial;
+font-kerning: revert;
+font-kerning: revert-layer;
+font-kerning: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The browser determines whether font kerning should be used or not. For example, some browsers will disable kerning on small fonts, since applying it could harm the readability of text.</p>
+  </dd>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Font kerning information stored in the font must be applied.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Font kerning information stored in the font is disabled.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | normal | none</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="kern">&#x3C;/div>
+&#x3C;div id="nokern">&#x3C;/div>
+&#x3C;textarea id="input">AV T. ij&#x3C;/textarea>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  font-size: 2rem;
+  font-family: serif;
+}
+
+#nokern {
+  font-kerning: none;
+}
+
+#kern {
+  font-kerning: normal;
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">const input = document.getElementById("input");
+const kern = document.getElementById("kern");
+const nokern = document.getElementById("nokern");
+
+input.addEventListener("keyup", () => {
+  kern.textContent = input.value; /* Update content */
+  nokern.textContent = input.value;
+});
+
+kern.textContent = input.value; /* Initialize content */
+nokern.textContent = input.value;
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a>, <a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a>, <a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a>, <a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a>, <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a>, <a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a>, <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>, <a href="./css.properties.font-synthesis.html"><code>font-synthesis</code></a>, <a href="./css.properties.letter-spacing.html"><code>letter-spacing</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 32</li><li><strong>firefox_android</strong>: 32</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-kerning-prop">https://drafts.csswg.org/css-fonts/#font-kerning-prop</a></p></section></aside></body>
+</html>

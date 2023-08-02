@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>sin()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types sin()</h1><main>
+    
+
+<p>The <strong><code>sin()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is a trigonometric function that returns the sine of a number, which is a value between <code>-1</code> and <code>1</code>. The function contains a single calculation that must resolve to either a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> by interpreting the result of the argument as radians. That is, <code>sin(45deg)</code>, <code>sin(0.125turn)</code>, and <code>sin(3.14159 / 4)</code> all represent the same value, approximately <code>0.707</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single &#x3C;angle> values */
+width: calc(100px * sin(45deg));
+width: calc(100px * sin(0.25turn));
+width: calc(100px * sin(1.0471967rad));
+
+/* Single &#x3C;number> values */
+width: calc(100px * sin(63.673));
+width: calc(100px * sin(2 * 0.125));
+
+/* Other values */
+width: calc(100px * sin(pi / 2));
+width: calc(100px * sin(e / 4));
+</pre>
+<h3>Parameter</h3>
+<p>The <code>sin(angle)</code> function accepts only one value as its parameter.</p>
+<dl>
+  <dt><code>angle</code></dt>
+  <dd>
+    <p>A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>. When specifying unitless numbers they are interpreted as a number of radians, representing an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a></p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The sine of an <code>angle</code> will always return a number between <code>−1</code> and <code>1</code>.</p>
+<ul>
+  <li>If <code>angle</code> is <code>infinity</code>, <code>-infinity</code>, or <code>NaN</code>, the result is <code>NaN</code>.</li>
+  <li>If <code>angle</code> is <code>0⁻</code>, the result is <code>0⁻</code>.</li>
+</ul>
+
+
+<h3>Changing box sizes</h3>
+<p>In this example, <code>sin(30deg)</code> will return <code>0.5</code>, making the box have a <code>50px</code> width and a <code>50px</code> height.</p>
+<pre class="brush: css">div {
+  background-color: red;
+  width: calc(sin(30deg) * 100px);
+  height: calc(sin(30deg) * 100px);
+}
+</pre>
+<h3>Controlling animation duration</h3>
+<p>Another use case is to control the <a href="./css.properties.animation-duration.html"><code>animation-duration()</code></a>, reducing the duration based on the sine value. In this case, the animation duration will be <code>1s</code>.</p>
+<pre class="brush: css">div {
+  animation-name: myAnimation;
+  animation-duration: calc(sin(0.25turn) * 1s);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.cos.html"><code>cos()</code></a></li>
+  <li><a href="./css.types.tan.html"><code>tan()</code></a></li>
+  <li><a href="./css.types.asin.html"><code>asin()</code></a></li>
+  <li><a href="./css.types.acos.html"><code>acos()</code></a></li>
+  <li><a href="./css.types.atan.html"><code>atan()</code></a></li>
+  <li><a href="./css.types.atan2.html"><code>atan2()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: 108</li><li><strong>firefox_android</strong>: 108</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#trig-funcs">https://drafts.csswg.org/css-values/#trig-funcs</a></p></section></aside></body>
+</html>

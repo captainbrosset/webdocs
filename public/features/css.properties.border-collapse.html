@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-collapse</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-collapse</h1><main>
+    
+
+<p>The <strong><code>border-collapse</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether cells inside a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> have shared or separate borders.</p>
+<p>When cells are collapsed, the <a href="./css.properties.border-style.html"><code>border-style</code></a> value of <code>inset</code> behaves like <code>ridge</code>, and <code>outset</code> behaves like <code>groove</code>.</p>
+<p>When cells are separated, the distance between cells is defined by the <a href="./css.properties.border-spacing.html"><code>border-spacing</code></a> property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+border-collapse: collapse;
+border-collapse: separate;
+
+/* Global values */
+border-collapse: inherit;
+border-collapse: initial;
+border-collapse: revert;
+border-collapse: revert-layer;
+border-collapse: unset;
+</pre>
+<p>The <code>border-collapse</code> property is specified as a single keyword, which may be chosen from the list below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>collapse</code></dt>
+  <dd>
+    <p>Adjacent cells have shared borders (the collapsed-border table rendering model).</p>
+  </dd>
+  <dt><code>separate</code></dt>
+  <dd>
+    <p>Adjacent cells have distinct borders (the separated-border table rendering model).</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>separate</td></tr><tr><th scope="row">Applies to</th><td>table grid boxes</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>separate | collapse</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table class="separate">
+  &#x3C;caption>
+    &#x3C;code>border-collapse: separate&#x3C;/code>
+  &#x3C;/caption>
+  &#x3C;tbody>
+    &#x3C;tr>
+      &#x3C;th>Browser&#x3C;/th>
+      &#x3C;th>Layout Engine&#x3C;/th>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="fx">Firefox&#x3C;/td>
+      &#x3C;td class="gk">Gecko&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="ed">Edge&#x3C;/td>
+      &#x3C;td class="tr">EdgeHTML&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="sa">Safari&#x3C;/td>
+      &#x3C;td class="wk">Webkit&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="ch">Chrome&#x3C;/td>
+      &#x3C;td class="bk">Blink&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="op">Opera&#x3C;/td>
+      &#x3C;td class="bk">Blink&#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+&#x3C;table class="collapse">
+  &#x3C;caption>
+    &#x3C;code>border-collapse: collapse&#x3C;/code>
+  &#x3C;/caption>
+  &#x3C;tbody>
+    &#x3C;tr>
+      &#x3C;th>Browser&#x3C;/th>
+      &#x3C;th>Layout Engine&#x3C;/th>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="fx">Firefox&#x3C;/td>
+      &#x3C;td class="gk">Gecko&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="ed">Edge&#x3C;/td>
+      &#x3C;td class="tr">EdgeHTML&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="sa">Safari&#x3C;/td>
+      &#x3C;td class="wk">Webkit&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="ch">Chrome&#x3C;/td>
+      &#x3C;td class="bk">Blink&#x3C;/td>
+    &#x3C;/tr>
+    &#x3C;tr>
+      &#x3C;td class="op">Opera&#x3C;/td>
+      &#x3C;td class="bk">Blink&#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.collapse {
+  border-collapse: collapse;
+}
+
+.separate {
+  border-collapse: separate;
+}
+
+table {
+  display: inline-table;
+  margin: 1em;
+  border: dashed 5px;
+}
+
+table th,
+table td {
+  border: solid 3px;
+}
+
+.fx {
+  border-color: orange blue;
+}
+.gk {
+  border-color: black red;
+}
+.ed {
+  border-color: blue gold;
+}
+.tr {
+  border-color: aqua;
+}
+.sa {
+  border-color: silver blue;
+}
+.wk {
+  border-color: gold blue;
+}
+.ch {
+  border-color: red yellow green blue;
+}
+.bk {
+  border-color: navy blue teal aqua;
+}
+.op {
+  border-color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.border-spacing.html"><code>border-spacing</code></a>, <a href="./css.properties.border-style.html"><code>border-style</code></a></li>
+  <li>The <code>border-collapse</code> property alters the appearance of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> HTML element.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1.2</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2.2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#propdef-border-collapse">https://drafts.csswg.org/css2/#propdef-border-collapse</a></p></section></aside></body>
+</html>

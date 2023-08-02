@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;gradient&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types image &#x3C;gradient></h1><main>
+    
+
+<p>The <strong><code>&#x3C;gradient></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> is a special type of <a href="./css.types.image.html"><code>&lt;image&gt;</code></a> that consists of a progressive transition between two or more colors.</p>
+<p>A CSS gradient has <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image#description">no intrinsic dimensions</a>; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element to which it applies.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;gradient></code> data type is defined with one of the function types listed below.</p>
+<h3>Linear gradient</h3>
+<p>Linear gradients transition colors progressively along an imaginary line. They are generated with the <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a> function.</p>
+<h3>Radial gradient</h3>
+<p>Radial gradients transition colors progressively from a center point (origin). They are generated with the <a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a> function.</p>
+<h3>Repeating gradient</h3>
+<p>Repeating gradients duplicate a gradient as much as necessary to fill a given area. They are generated with the <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a> and <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a> functions.</p>
+<h3>Conic gradient</h3>
+<p>Conic gradients transition colors progressively around a circle. They are generated with the <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a> function.</p>
+<h2>Interpolation</h2>
+<p>As with any interpolation involving colors, gradients are calculated in the alpha-premultiplied color space. This prevents unexpected shades of gray from appearing when both the color and the opacity are changing. (Be aware that older browsers may not use this behavior when using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/named-color#transparent">transparent keyword</a>.)</p>
+
+
+<h3>Linear gradient example</h3>
+<p>A simple linear gradient.</p>
+<pre class="brush: html hidden">&#x3C;div class="linear-gradient">Linear gradient&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">div {
+  width: 240px;
+  height: 80px;
+}
+</pre>
+<pre class="brush: css">.linear-gradient {
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+}
+</pre>
+<h3>Radial gradient example</h3>
+<p>A simple radial gradient.</p>
+<pre class="brush: html hidden">&#x3C;div class="radial-gradient">Radial gradient&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">div {
+  width: 240px;
+  height: 80px;
+}
+</pre>
+<pre class="brush: css">.radial-gradient {
+  background: radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+</pre>
+<h3>Repeating gradient examples</h3>
+<p>Simple repeating linear and radial gradient examples.</p>
+<pre class="brush: html hidden">&#x3C;div class="linear-repeat">Repeating linear gradient&#x3C;/div>
+&#x3C;br />
+&#x3C;div class="radial-repeat">Repeating radial gradient&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">div {
+  width: 240px;
+  height: 80px;
+}
+</pre>
+<pre class="brush: css">.linear-repeat {
+  background: repeating-linear-gradient(
+    to top left,
+    lightpink,
+    lightpink 5px,
+    white 5px,
+    white 10px
+  );
+}
+
+.radial-repeat {
+  background: repeating-radial-gradient(
+    powderblue,
+    powderblue 8px,
+    white 8px,
+    white 16px
+  );
+}
+</pre>
+<h3>Conic gradient example</h3>
+<p>A simple conic gradient example. Note that this isn't supported widely across browser as of yet.</p>
+<pre class="brush: html hidden">&#x3C;div class="conic-gradient">Conic gradient&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">div {
+  width: 200px;
+  height: 200px;
+}
+</pre>
+<pre class="brush: css">.conic-gradient {
+  background: conic-gradient(lightpink, white, powderblue);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients">Using CSS gradients</a></li>
+  <li>Gradient functions: <a href="./css.types.image.gradient.linear-gradient.html"><code>linear-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-linear-gradient.html"><code>repeating-linear-gradient()</code></a>, <a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-radial-gradient.html"><code>repeating-radial-gradient()</code></a>, <a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a>, <a href="./css.types.image.gradient.repeating-conic-gradient.html"><code>repeating-conic-gradient()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">CSS Basic Data Types</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Units and Values</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">Introduction to CSS: Values and Units</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.6</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-images-4/#gradients">https://drafts.csswg.org/css-images-4/#gradients</a></p></section></aside></body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>max()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types max()</h1><main>
+    
+
+<p>The <strong><code>max()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> lets you set the largest (most positive) value from a list of comma-separated expressions as the value of a CSS property value. The <code>max()</code> function can be used anywhere a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>, <a href="./css.types.frequency.html"><code>&lt;frequency&gt;()</code></a>, <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>, <a href="./css.types.time.html"><code>&lt;time&gt;()</code></a>, <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, or <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a> is allowed.</p>
+<p>In the first example shown above, the width will be at least 400px, but will be wider if the viewport is more than 2000px wide (in which case 1vw would be 20px, so 20vw would be 400px). This technique uses an absolute unit to specify a fixed minimum value for the property, and a relative unit to allow the value to grow to suit larger viewports.</p>
+<h2>Syntax</h2>
+<p>The <code>max()</code> function takes one or more comma-separated expressions as its parameter, with the largest (most positive) expression value used as the value of the property to which it is assigned.</p>
+<p>The expressions can be math expressions (using arithmetic operators), literal values, or other expressions, such as <a href="./css.types.attr.html"><code>attr()</code></a>, that evaluate to a valid argument type (like <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>), or nested <a href="./css.types.min.html"><code>min()</code></a> and <code>max()</code> functions.</p>
+<p>You can use different units for each value in your expression. You may also use parentheses to establish computation order when needed.</p>
+<h3>Notes</h3>
+<ul>
+  <li>Math expressions involving percentages for widths and heights on table columns, table column groups, table rows, table row groups, and table cells in both auto and fixed layout tables <em>may</em> be treated as if <code>auto</code> had been specified.</li>
+  <li>It is permitted to nest <code>min()</code> and other <code>max()</code> functions as expression values. The expressions are full math expressions, so you can use direct addition, subtraction, multiplication and division without using the calc() function itself.</li>
+  <li>The expression can be values combining the addition ( + ), subtraction ( - ), multiplication ( * ) and division ( / ) operators, using standard operator precedence rules. Make sure to put a space on each side of the + and - operands. The operands in the expression may be any &#x3C;length> syntax value.</li>
+  <li>You can (and often need to) combine <code>min()</code> and <code>max()</code> values, or use <code>max()</code> within a <code>clamp()</code> or <code>calc()</code> function.</li>
+</ul>
+
+
+<h3>Setting a minimum size for a font</h3>
+<p>Another use case for <code>max()</code> is to allow a font size to grow while ensuring it is at least a minimum size, enabling responsive font sizes while ensuring legibility.</p>
+<p>Let's look at some CSS:</p>
+<pre class="brush: css">h1 {
+  font-size: 2rem;
+}
+h1.responsive {
+  font-size: max(4vw, 2em, 2rem);
+}
+</pre>
+<p>The font-size will at minimum be 2rems, or twice the default size of font for the page. This ensures that it is legible and accessible.</p>
+<pre class="brush: html">&#x3C;h1>This text is always legible, but doesn't change size&#x3C;/h1>
+&#x3C;h1 class="responsive">
+  This text is always legible, and is responsive, to a point
+&#x3C;/h1>
+</pre>
+<p>Think of the <code>max()</code> function as finding the minimum value allowed for a property.</p>
+<h2>Accessibility concerns</h2>
+<p>When <code>max()</code> is used for controlling text size, make sure the text is always large enough to read. A suggestion is to use the <a href="./css.types.min.html"><code>min()</code></a> function nested within a <code>max()</code> that has as its second value a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#relative_length_units">relative length unit</a> that is always large enough to read. For example:</p>
+<pre class="brush: css">small {
+  font-size: max(min(0.5vw, 0.5em), 1rem);
+}
+</pre>
+<p>This ensures a minimum size of <em>1rem</em>, with a text size that scales if the page is zoomed.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.calc.html"><code>calc()</code></a></li>
+  <li><a href="./css.types.clamp.html"><code>clamp()</code></a></li>
+  <li><a href="./css.types.min.html"><code>min()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">CSS Values</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 79</li><li><strong>chrome_android</strong>: 79</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 75</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 8.0</li><li><strong>opera</strong>: 66</li><li><strong>opera_android</strong>: 57</li><li><strong>safari</strong>: 11.1</li><li><strong>safari_ios</strong>: 11.3</li><li><strong>samsunginternet_android</strong>: 12.0</li><li><strong>webview_android</strong>: 79</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#calc-notation">https://drafts.csswg.org/css-values/#calc-notation</a></p></section></aside></body>
+</html>

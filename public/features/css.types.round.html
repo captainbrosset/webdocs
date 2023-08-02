@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>round()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types round()</h1><main>
+    
+
+<p>The <strong><code>round()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> returns a rounded number based on a selected rounding strategy.</p>
+<p>Authors should use a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">custom CSS property</a> (e.g., <code>--my-property</code>) for the rounding value, interval, or both; using the <code>round()</code> function is redundant if these have known values.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">width: round(var(--width), 50px);
+width: round(up, 101px, var(--interval));
+width: round(down, var(--height), var(--interval));
+margin: round(to-zero, -105px, 10px);
+</pre>
+<h3>Parameter</h3>
+<p>
+  The <code>round(&#x3C;rounding-strategy>, valueToRound, roundingInterval)</code> function specifies an optional rounding strategy, a value (or mathematical expression) to be rounded and a rounding interval (or mathematical expression).
+  The <code>valueToRound</code> is rounded according to the rounding strategy, to the nearest integer multiple of <code>roundingInterval</code>.
+</p>
+<dl>
+  <dt><code>&#x3C;rounding-strategy></code></dt>
+  <dd>
+    <p>
+      The rounding strategy.
+      This may be one of the following values:
+    </p>
+    <dl>
+      <dt><code>up</code></dt>
+      <dd>
+        <p>Round <code>valueToRound</code> up to the nearest integer multiple of <code>roundingInterval</code> (if the value is negative, it will become "more positive"). This is equivalent to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil"><code>Math.ceil()</code></a> method.</p>
+      </dd>
+      <dt><code>down</code></dt>
+      <dd>
+        <p>Round <code>valueToRound</code> down to the nearest integer multiple of <code>roundingInterval</code> (if the value is negative, it will become "more negative"). This is equivalent to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor"><code>Math.floor()</code></a> method.</p>
+      </dd>
+      <dt><code>nearest</code> (default)</dt>
+      <dd>
+        <p>
+          Round <code>valueToRound</code> to the nearest integer multiple of <code>roundingInterval</code>, which may be either above or below the value.
+          If the <code>valueToRound</code> is half way between the rounding targets above and below (neither is "nearest"), it will be rounded up.
+          Equivalent to JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round"><code>Math.round()</code></a>.
+        </p>
+      </dd>
+      <dt><code>to-zero</code></dt>
+      <dd>
+        <p>Round <code>valueToRound</code> to the nearest integer multiple of <code>roundingInterval</code> closer to/towards zero (a positive number will decrease, while a negative value will become "less negative"). This is equivalent to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc"><code>Math.trunc()</code></a> method.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><code>valueToRound</code></dt>
+  <dd>
+    <p>
+      The value to be rounded.
+      This must be a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, or a mathematical expression that resolves to one of those values.
+    </p>
+  </dd>
+  <dt><code>roundingInterval</code></dt>
+  <dd>
+    <p>
+      The rounding interval.
+      This is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, or a mathematical expression that resolves to one of those values.
+    </p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The value of <code>valueToRound</code>, rounded to the nearest lower or higher integer multiple of <code>roundingInterval</code>, depending on the <code>rounding strategy</code>.</p>
+<ul>
+  <li>If <code>roundingInterval</code> is 0, the result is <code>NaN</code>.</li>
+  <li>If <code>valueToRound</code> and <code>roundingInterval</code> are both <code>infinite</code>, the result is <code>NaN</code>.</li>
+  <li>If <code>valueToRound</code> is infinite but <code>roundingInterval</code> is finite, the result is the same <code>infinity</code>.</li>
+  <li>If <code>valueToRound</code> is finite but <code>roundingInterval</code> is infinite, the result depends on the rounding strategy and the sign of <code>A</code>:
+    <ul>
+      <li><code>up</code> - If <code>valueToRound</code> is positive (not zero), return <code>+∞</code>. If <code>valueToRound</code> is <code>0⁺</code>, return <code>0⁺</code>. Otherwise, return <code>0⁻</code>.</li>
+      <li><code>down</code> - If <code>valueToRound</code> is negative (not zero), return <code>−∞</code>. If <code>valueToRound</code> is <code>0⁻</code>, return <code>0⁻</code>. Otherwise, return <code>0⁺</code>.</li>
+      <li><code>nearest</code>, <code>to-zero</code> - If <code>valueToRound</code> is positive or <code>0⁺</code>, return <code>0⁺</code>. Otherwise, return <code>0⁻</code>.</li>
+    </ul>
+  </li>
+  <li>The argument calculations can resolve to <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, <a href="./css.types.dimension.html"><code>&lt;dimension&gt;()</code></a>, or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, but must have the same type, or else the function is invalid; the result will have the same type as the arguments.</li>
+  <li>If <code>valueToRound</code> is exactly equal to an integer multiple of <code>roundingInterval</code>, <code>round()</code> resolves to <code>valueToRound</code> exactly (preserving whether <code>valueToRound</code> is <code>0⁻</code> or <code>0⁺</code>, if relevant). Otherwise, there are two integer multiples of <code>roundingInterval</code> that are potentially "closest" to <code>valueToRound</code>, lower <code>roundingInterval</code> which is closer to <code>−∞</code> and upper <code>roundingInterval</code> which is closer to <code>+∞</code>.</li>
+</ul>
+
+
+<h3>Round positive values</h3>
+<p>This example demonstrates how the <code>round()</code> function's rounding strategies work for positive values.</p>
+<p>
+  Of the five boxes below, the <code>round()</code> function is used to set the height of the last four.
+  The value to be rounded is between 100 px and 125 px in each case, and the rounding value is 25px in all cases.
+  The height of the boxes is therefore either rounded up to 125 px or down to 100 px.
+</p>
+<h4>HTML</h4>
+<p>
+  The HTML defines 5 <code>div</code> elements that will be rendered as boxes by the CSS.
+  The elements contain text indicating the rounding strategy, initial value, and expected final height of the box (in brackets).
+</p>
+<pre class="brush: html">&#x3C;div class="box box-1">height: 100px&#x3C;/div>
+&#x3C;div class="box box-2">up 101px (125px)&#x3C;/div>
+&#x3C;div class="box box-3">down 122px (100px)&#x3C;/div>
+&#x3C;div class="box box-4">to-zero 120px (100px)&#x3C;/div>
+&#x3C;div class="box box-5">nearest 117px (125px)&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+</pre>
+<p>
+  The CSS that is applied to all boxes is shown below.
+  Note that we apply a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">custom CSS property</a> named <code>--rounding-interval</code>, that we will use for the rounding interval.
+</p>
+<pre class="brush: css">div.box {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  padding: 5px;
+  --rounding-interval: 25px;
+}
+</pre>
+<p>
+  The first <code>div</code> from the left isn't targeted with specific CSS rules, so it will have a default height of 100px.
+  The CSS for <code>div</code> two, three, and four is shown below, which round, up, down, and to-zero, respectively.
+</p>
+<pre class="brush: css">div.box-2 {
+  height: round(up, 101px, var(--rounding-interval));
+}
+div.box-3 {
+  height: round(down, 122px, var(--rounding-interval));
+}
+div.box-4 {
+  height: round(to-zero, 120px, var(--rounding-interval));
+}
+</pre>
+<p>Notice how above we indicate the rounding interval using <code>var()</code> and the custom CSS property <code>--rounding-interval</code>.</p>
+<p>
+  The last box is set without specifying a rounding strategy, and hence defaults to <code>nearest</code>.
+  In this case, the nearest interval to 117 px is 125px, so it will round up.
+  Just for contrast, here we specified hard coded values for both the rounding value and interval.
+  While this is allowed, you wouldn't do this normally because there is no point rounding a number when you already know what the result must be.
+</p>
+<pre class="brush: css">div.box-5 {
+  height: round(117px, 25px);
+}
+</pre>
+<h4>Result</h4>
+<p>If the browser supports the CSS <code>round()</code> function, you should see five columns with heights that are rounded as indicated by their contained text.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.mod.html"><code>mod()</code></a></li>
+  <li><a href="./css.types.rem.html"><code>rem()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#funcdef-round">https://drafts.csswg.org/css-values/#funcdef-round</a></p></section></aside></body>
+</html>

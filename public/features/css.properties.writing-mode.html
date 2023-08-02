@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>writing-mode</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties writing-mode</h1><main>
+    
+
+<p>The <strong><code>writing-mode</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether lines of text are laid out horizontally or vertically, as well as the direction in which blocks progress. When set for an entire document, it should be set on the root element (<code>html</code> element for HTML documents).</p>
+<p>This property specifies the <em>block flow direction</em>, which is the direction in which block-level containers are stacked, and the direction in which inline-level content flows within a block container. Thus, it also determines the ordering of block-level content.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+writing-mode: horizontal-tb;
+writing-mode: vertical-rl;
+writing-mode: vertical-lr;
+
+/* Global values */
+writing-mode: inherit;
+writing-mode: initial;
+writing-mode: revert;
+writing-mode: revert-layer;
+writing-mode: unset;
+</pre>
+<p>The <code>writing-mode</code> property is specified as one of the values listed below. The flow direction in horizontal scripts is also affected by the <a href="https://www.w3.org/International/questions/qa-scripts.en">directionality of that script</a>, either left-to-right (<code>ltr</code>, like English and most other languages) or right-to-left (<code>rtl</code>, like Hebrew or Arabic).</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>horizontal-tb</code></dt>
+  <dd>
+    <p>For <code>ltr</code> scripts, content flows horizontally from left to right. For <code>rtl</code> scripts, content flows horizontally from right to left. The next horizontal line is positioned below the previous line.</p>
+  </dd>
+  <dt><code>vertical-rl</code></dt>
+  <dd>
+    <p>For <code>ltr</code> scripts, content flows vertically from top to bottom, and the next vertical line is positioned to the left of the previous line. For <code>rtl</code> scripts, content flows vertically from bottom to top, and the next vertical line is positioned to the right of the previous line.</p>
+  </dd>
+  <dt><code>vertical-lr</code></dt>
+  <dd>
+    <p>For <code>ltr</code> scripts, content flows vertically from top to bottom, and the next vertical line is positioned to the right of the previous line. For <code>rtl</code> scripts, content flows vertically from bottom to top, and the next vertical line is positioned to the left of the previous line.</p>
+  </dd>
+  <dt><code>sideways-rl</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>For <code>ltr</code> scripts, content flows vertically from top to bottom. For <code>rtl</code> scripts, content flows vertically from bottom to top. All the glyphs, even those in vertical scripts, are set sideways toward the right.</p>
+  </dd>
+  <dt><code>sideways-lr</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>For <code>ltr</code> scripts, content flows vertically from bottom to top. For <code>rtl</code> scripts, content flows vertically from top to bottom. All the glyphs, even those in vertical scripts, are set sideways toward the left.</p>
+  </dd>
+  <dt><code>lr</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>horizontal-tb</code> instead.</p>
+  </dd>
+  <dt><code>lr-tb</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>horizontal-tb</code> instead.</p>
+  </dd>
+  <dt><code>rl</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>horizontal-tb</code> instead.</p>
+  </dd>
+  <dt><code>tb</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>vertical-lr</code> instead.</p>
+  </dd>
+  <dt><code>tb-lr</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>vertical-lr</code> instead.</p>
+  </dd>
+  <dt><code>tb-rl</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></dt>
+  <dd>
+    <p>Deprecated except for SVG1 documents. For CSS, use <code>vertical-rl</code> instead.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>horizontal-tb</td></tr><tr><th scope="row">Applies to</th><td>All elements except table row groups, table column groups, table rows, table columns, ruby base containers, ruby annotation containers</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr</pre></section>
+
+<h3>Using multiple writing modes</h3>
+<p>This example demonstrates all of the writing modes, showing each with text in various languages.</p>
+<h4>HTML</h4>
+<p>The HTML is a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> with each writing mode in a row with a column showing text in various scripts using that writing mode.</p>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;th>Value&#x3C;/th>
+    &#x3C;th>Vertical script&#x3C;/th>
+    &#x3C;th>Horizontal (LTR) script&#x3C;/th>
+    &#x3C;th>Horizontal (RTL) script&#x3C;/th>
+    &#x3C;th>Mixed script&#x3C;/th>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>horizontal-tb&#x3C;/td>
+    &#x3C;td class="example Text1">&#x3C;span>我家没有电脑。&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text1">&#x3C;span>Example text&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text1">&#x3C;span>מלל ארוך לדוגמא&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text1">&#x3C;span>1994年に至っては&#x3C;/span>&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>vertical-lr&#x3C;/td>
+    &#x3C;td class="example Text2">&#x3C;span>我家没有电脑。&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text2">&#x3C;span>Example text&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text2">&#x3C;span>מלל ארוך לדוגמא&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text2">&#x3C;span>1994年に至っては&#x3C;/span>&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>vertical-rl&#x3C;/td>
+    &#x3C;td class="example Text3">&#x3C;span>我家没有电脑。&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text3">&#x3C;span>Example text&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text3">&#x3C;span>מלל ארוך לדוגמא&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text3">&#x3C;span>1994年に至っては&#x3C;/span>&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>sideways-lr&#x3C;/td>
+    &#x3C;td class="example Text4">&#x3C;span>我家没有电脑。&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text4">&#x3C;span>Example text&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text4">&#x3C;span>מלל ארוך לדוגמא&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text4">&#x3C;span>1994年に至っては&#x3C;/span>&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>sideways-rl&#x3C;/td>
+    &#x3C;td class="example Text5">&#x3C;span>我家没有电脑。&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text5">&#x3C;span>Example text&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text5">&#x3C;span>מלל ארוך לדוגמא&#x3C;/span>&#x3C;/td>
+    &#x3C;td class="example Text5">&#x3C;span>1994年に至っては&#x3C;/span>&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">table {
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px black solid;
+  padding: 3px;
+}
+th {
+  background-color: lightgray;
+}
+.example {
+  height: 75px;
+  width: 75px;
+}
+</pre>
+<p>The CSS that adjusts the directionality of the content looks like this:</p>
+<pre class="brush: css">.example.Text1 span,
+.example.Text1 {
+  writing-mode: horizontal-tb;
+}
+
+.example.Text2 span,
+.example.Text2 {
+  writing-mode: vertical-lr;
+}
+
+.example.Text3 span,
+.example.Text3 {
+  writing-mode: vertical-rl;
+}
+
+.example.Text4 span,
+.example.Text4 {
+  writing-mode: sideways-lr;
+}
+
+.example.Text5 span,
+.example.Text5 {
+  writing-mode: sideways-rl;
+}
+</pre>
+<h4>Result</h4>
+<p>This image shows what the output should look like, in case your browser's support for <code>writing-mode</code> is incomplete:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode/screenshot_2020-02-05_21-04-30.png" alt="A 6 rows by 5 columns table showing the various directional flow of text and number adjusted using the vertical-lr or rl, horizontal-lr or rl, sideways-lr or rl horizontal-tb CSS properties. The flow is applied to different languages">
+</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/writing-mode"><code>writing-mode</code></a> attribute</li>
+  <li><a href="./css.properties.direction.html"><code>direction</code></a></li>
+  <li><a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a></li>
+  <li><a href="./css.properties.text-orientation.html"><code>text-orientation</code></a></li>
+  <li><a href="./css.properties.text-combine-upright.html"><code>text-combine-upright</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS Logical properties</a></li>
+  <li><a href="https://www.w3.org/International/articles/vertical-text/">Styling vertical text (Chinese, Japanese, Korean and Mongolian)</a></li>
+  <li>Extensive browsers support test results: <a href="https://w3c.github.io/i18n-tests/results/writing-mode-vertical">https://w3c.github.io/i18n-tests/results/writing-mode-vertical</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 41</li><li><strong>firefox_android</strong>: 41</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-writing-modes/#block-flow">https://drafts.csswg.org/css-writing-modes/#block-flow</a></p></section></aside></body>
+</html>

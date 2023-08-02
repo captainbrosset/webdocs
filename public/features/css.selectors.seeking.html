@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":seeking"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":seeking"</h1><main>
+    
+
+<p>
+  The <strong><code>:seeking</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> selector represents an element that is playable, such as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>, when the playable element is seeking a playback position in the media resource.
+  A resource is considered to be seeking if the user has requested playback of a specific position in the media resource, but the media element has not yet reached that position.
+</p>
+<p>
+  Seeking is different from <a href="./css.selectors.buffering.html"><code>:buffering</code></a> in that the media element is not currently loading data, but is instead skipping to a new position in the media resource.
+  For more information, see the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable">Media buffering, seeking, and time ranges</a> guide.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:seeking {
+  /* ... */
+}
+</pre>
+
+<h3>CSS</h3>
+<pre class="brush: css">:seeking {
+  outline: 5px solid red;
+}
+
+video:seeking {
+  outline: 5px solid blue;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.buffering.html"><code>:buffering</code></a></li>
+  <li><a href="./css.selectors.muted.html"><code>:muted</code></a></li>
+  <li><a href="./css.selectors.paused.html"><code>:paused</code></a></li>
+  <li><a href="./css.selectors.playing.html"><code>:playing</code></a></li>
+  <li><a href="./css.selectors.stalled.html"><code>:stalled</code></a></li>
+  <li><a href="./css.selectors.volume-locked.html"><code>:volume-locked</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS selectors</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#selectordef-seeking">https://drafts.csswg.org/selectors/#selectordef-seeking</a></p></section></aside></body>
+</html>

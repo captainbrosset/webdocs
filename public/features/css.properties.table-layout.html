@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>table-layout</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties table-layout</h1><main>
+    
+
+<p>The <strong><code>table-layout</code></strong> CSS property sets the algorithm used to lay out <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> cells, rows, and columns.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+table-layout: auto;
+table-layout: fixed;
+
+/* Global values */
+table-layout: inherit;
+table-layout: initial;
+table-layout: revert;
+table-layout: revert-layer;
+table-layout: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The automatic table layout algorithm is used. The widths of the table and its cells are adjusted to fit the content. Most browsers use this algorithm by default.</p>
+  </dd>
+  <dt><code>fixed</code></dt>
+  <dd>
+    <p>The fixed table layout algorithm is used. When using this keyword, the table's width <em>needs to be specified explicitly</em> using the <a href="./css.properties.width.html"><code>width</code></a> property. If the value of the <code>width</code> property is set to <code>auto</code>or is not specified, the browser uses the automatic table layout algorithm, in which case the <code>fixed</code> value has no effect.<br>The fixed table layout algorithm is faster than the automatic layout algorithm because the horizontal layout of the table depends only on the table's width, the width of the columns, and borders or cell spacing. The horizontal layout doesn't depend on the contents of the cells because it depends only on explicitly set widths.</p>
+    <p>In the fixed table layout algorithm, the width of each column is determined as follows:</p>
+    <ul>
+      <li>A column element with explicit width sets the width for that column.</li>
+      <li>Otherwise, a cell in the first row with explicit width determines the width for that column.</li>
+      <li>Otherwise, the column gets the width from the shared remaining horizontal space.</li>
+    </ul>
+    <p>With this algorithm the entire table can be rendered once the first table row has been downloaded and analyzed. This can speed up rendering time over the "automatic" layout method, but subsequent cell content might not fit in the column widths provided. Cells use the <a href="./css.properties.overflow.html"><code>overflow</code></a> property to determine whether to clip any overflowing content, but only if the table has a known width; otherwise, they won't overflow the cells.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>table grid boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | fixed</pre></section>
+
+<h3>Fixed-width tables with text-overflow</h3>
+<p>This example uses a fixed table layout, combined with the <a href="./css.properties.width.html"><code>width</code></a> property, to restrict the table's width. The <a href="./css.properties.text-overflow.html"><code>text-overflow</code></a> property is used to apply an ellipsis to words that are too long to fit. If the table layout were <code>auto</code>, the table would grow to accommodate its contents, despite the specified <code>width</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;td>Ed&#x3C;/td>
+    &#x3C;td>Wood&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>Albert&#x3C;/td>
+    &#x3C;td>Schweitzer&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>Jane&#x3C;/td>
+    &#x3C;td>Fonda&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td>William&#x3C;/td>
+    &#x3C;td>Shakespeare&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">table {
+  table-layout: fixed;
+  width: 120px;
+  border: 1px solid red;
+}
+
+td {
+  border: 1px solid blue;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&#x3C;table></code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 14</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 1.5</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#width-layout">https://drafts.csswg.org/css2/#width-layout</a></p></section></aside></body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>color-scheme</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties color-scheme</h1><main>
+    
+
+<p>The <strong><code>color-scheme</code></strong> CSS property allows an element to indicate which color schemes it can comfortably be rendered in.</p>
+<p>Common choices for operating system color schemes are "light" and "dark", or "day mode" and "night mode". When a user selects one of these color schemes, the operating system makes adjustments to the user interface. This includes form controls, scrollbars, and the used values of CSS system colors.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">color-scheme: normal;
+color-scheme: light;
+color-scheme: dark;
+color-scheme: light dark;
+color-scheme: only light;
+
+/* Global values */
+color-scheme: inherit;
+color-scheme: initial;
+color-scheme: revert;
+color-scheme: revert-layer;
+color-scheme: unset;
+</pre>
+<p>The <code>color-scheme</code> property's value must be one of the following keywords.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Indicates that the element isn't aware of any color schemes, and so should be rendered using the browser's default color scheme.</p>
+  </dd>
+  <dt><code>light</code></dt>
+  <dd>
+    <p>Indicates that the element can be rendered using the operating system light color scheme.</p>
+  </dd>
+  <dt><code>dark</code></dt>
+  <dd>
+    <p>Indicates that the element can be rendered using the operating system dark color scheme.</p>
+  </dd>
+  <dt><code>only</code></dt>
+  <dd>
+    <p>Forbids the user agent from overriding the color scheme for the element.</p>
+    <p>Can be used to turn off color overrides caused by Chrome's <a href="https://developer.chrome.com/blog/auto-dark-theme/#per-element-opt-out">Auto Dark Theme</a>, by applying <code>color-scheme: only light;</code> on a specific element or <code>:root</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>the keyword normal, or an ordered list of specified color scheme keywords</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | [ light | dark | &lt;custom-ident&gt; ]+ && only?</pre></section>
+
+<h3>Adapting to color schemes</h3>
+<p>To opt the entire page into the user's color scheme preferences declare <code>color-scheme</code> on the <a href="./css.selectors.root.html"><code>:root</code></a> element.</p>
+<pre class="brush: css">:root {
+  color-scheme: light dark;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.prefers-color-scheme.html"><code>prefers-color-scheme</code></a> media query to detect user preferences for color schemes.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color">Applying color to HTML elements using CSS</a></li>
+  <li>Other color-related properties: <a href="./css.properties.color.html"><code>color</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.border-color.html"><code>border-color</code></a>, <a href="./css.properties.outline-color.html"><code>outline-color</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, <a href="./css.properties.text-shadow.html"><code>text-shadow</code></a>, <a href="./css.properties.caret-color.html"><code>caret-color</code></a>, and <a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a></li>
+  <li><a href="./css.properties.background-image.html"><code>background-image</code></a></li>
+  <li><a href="./css.properties.print-color-adjust.html"><code>print-color-adjust</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 81</li><li><strong>chrome_android</strong>: 81</li><li><strong>edge</strong>: 81</li><li><strong>firefox</strong>: 96</li><li><strong>firefox_android</strong>: 96</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 9.0</li><li><strong>opera</strong>: 68</li><li><strong>opera_android</strong>: 58</li><li><strong>safari</strong>: 13</li><li><strong>safari_ios</strong>: 13</li><li><strong>samsunginternet_android</strong>: 13.0</li><li><strong>webview_android</strong>: 81</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color-adjust/#color-scheme-prop">https://drafts.csswg.org/css-color-adjust/#color-scheme-prop</a></p></section></aside></body>
+</html>

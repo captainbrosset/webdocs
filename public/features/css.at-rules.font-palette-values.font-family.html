@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-family</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-palette-values font-family</h1><main>
+    
+
+<p>The <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_Descriptor">descriptor</a> <strong><code>font-family</code></strong> is used to specify which font-family palette values are to be applied to. This need to match exactly the values used when setting the CSS <a href="./css.properties.font-family.html">font-family</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">@font-palette-values --Dark-mode {
+  font-family: "Bungee Spice";
+  /* other palette settings follow */
+}
+</pre>
+<p>Other palette values that follow apply only to the specified font family. You can create <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> for other font families by using the same <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident">&#x3C;dashed-ident>s</a>. This means that if you have multiple Color Fonts and can use the same identifier for each.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;family-name></code></dt>
+  <dd>
+    <p>Specifies the name of the <a href="./css.properties.font-family.html">font-family</a>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Using matching family names</h3>
+<p>In this example, when the <code>font-family</code> descriptor is used in the <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> at-rule, the same value is used for the <code>font-family</code>, as when it is declared.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h2>This is spicy&#x3C;/h2>
+&#x3C;h2 class="extra-spicy">This is extra hot &#x26; spicy&#x3C;/h2>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@import url(https://fonts.googleapis.com/css2?family=Bungee+Spice);
+@font-palette-values --bungee-extra-spicy {
+  font-family: "Bungee Spice";
+  override-colors:
+    0 DarkRed,
+    1 Red;
+}
+
+h2 {
+  font-family: "Bungee Spice";
+}
+
+h2.extra-spicy {
+  font-palette: --bungee-extra-spicy;
+}
+</pre>
+
+<h3>Using the same palette identifier for multiple font-families</h3>
+<p>In this example, two <a href="./css.at-rules.font-palette-values.html">@font-palette-values</a> at-rules are set for two font families, but both the at-rules use the same dashed-ident identifier, <code>--Dark Mode</code>. This helps to set the <a href="./css.properties.font-palette.html">font-palette</a> property for multiple elements, <code>h1</code> and <code>h2</code> in this case, at the same time. This can be useful when you want to update font colors to match your site's branding.</p>
+<pre class="brush: css">@font-palette-values --Dark-Mode {
+  font-family: "Bungee Spice";
+  /* palette settings for Bungee Spice */
+}
+
+@font-palette-values --Dark-Mode {
+  font-family: Bixa;
+  /* palette settings for Bixa */
+}
+
+h1,
+h2 {
+  font-palette: --Dark-Mode;
+}
+
+h1 {
+  font-family: "Bungee Spice";
+}
+
+h2 {
+  font-family: Bixa;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-face.font-family.html"><code>font-family</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values/"><code>@font-palette-values</code></a></li>
+  <li><a href="./css.at-rules.font-palette-values.font-family.html"><code>font-family</code></a> descriptor</li>
+  <li><a href="./css.at-rules.font-palette-values.override-colors.html"><code>override-colors</code></a> descriptor</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-palette/"><code>font-palette</code></a> property</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSFontPaletteValuesRule/fontFamily"><code>CSSFontPaletteValuesRule.fontFamily</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 101</li><li><strong>chrome_android</strong>: 101</li><li><strong>edge</strong>: 101</li><li><strong>firefox</strong>: 107</li><li><strong>firefox_android</strong>: 107</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 22.0</li><li><strong>opera</strong>: 87</li><li><strong>opera_android</strong>: 70</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: 19.0</li><li><strong>webview_android</strong>: 101</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-family-2-desc">https://drafts.csswg.org/css-fonts/#font-family-2-desc</a></p></section></aside></body>
+</html>

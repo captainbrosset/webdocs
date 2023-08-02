@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::view-transition-group"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::view-transition-group"</h1><main>
+    
+
+<p>The <strong><code>::view-transition-group</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> represents a single view transition group.</p>
+<p>During a view transition, <code>::view-transition-group</code> is included in the associated pseudo-element tree as explained in <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">The view transition process</a>. It is only ever a child of <a href="./css.selectors.view-transition.html"><code>::view-transition</code></a>, and has a <a href="./css.selectors.view-transition-image-pair.html"><code>::view-transition-image-pair</code></a> as a child.</p>
+<p><code>::view-transition-group</code> is given the following default styling in the UA stylesheet:</p>
+<pre class="brush: css">html::view-transition-group(*) {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+</pre>
+<p>By default, selected elements initially mirror the size and position of the <a href="./css.selectors.view-transition-old.html"><code>::view-transition-old</code></a> pseudo-element representing the "old" view state, or the <a href="./css.selectors.view-transition-new.html"><code>::view-transition-new</code></a> pseudo-element representing the "new" view state if there isn't an "old" view state.</p>
+<p>If there's both an "old" and "new" view state, styles in the view transition style sheet animate this pseudo-element's <a href="./css.properties.width.html"><code>width</code></a> and <a href="./css.properties.height.html"><code>height</code></a> from the size of the "old" view state's border box to that of the "new" view state's border box.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> View transition style sheet styles are dynamically generated during the view transition; see the specification <a href="https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements">setup transition pseudo-elements</a> and <a href="https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles">update pseudo-element styles</a> sections for more details.</p>
+</div>
+<p>In addition, the element's transform is animated from the "old" view state's screen space transform to the new view state's screen space transform. This style is generated dynamically since the values of animated properties are determined at the time that the transition begins.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">::view-transition-group(&#x3C;pt-name-selector>) {
+  /* ... */
+}
+</pre>
+<p><code>&#x3C;pt-name-selector></code> can be one of the following values:</p>
+<dl>
+  <dt><code>*</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match all view transition groups.</p>
+  </dd>
+  <dt><code>root</code></dt>
+  <dd>
+    <p>Causes the pseudo-element to match the default <code>root</code> view transition group created by the user agent to contain the view transition for the overall page, meaning any element not assigned to its own specific view transition group via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+  <dt><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a></dt>
+  <dd>
+    <p>Causes the pseudo-element to match a specific view transition group created by assigning the given <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>custom-ident</code></a> to an element via the <a href="./css.properties.view-transition-name.html"><code>view-transition-name</code></a> property.</p>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<pre class="brush: css">view-transition-group(embed-container) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  z-index: 1;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transitions API</a></li>
+  <li><a href="https://developer.chrome.com/docs/web-platform/view-transitions/">Smooth and simple transitions with the View Transitions API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 111</li><li><strong>chrome_android</strong>: 111</li><li><strong>edge</strong>: 111</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 97</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 22.0</li><li><strong>webview_android</strong>: 111</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-view-transitions/#::view-transition-group">https://drafts.csswg.org/css-view-transitions/#::view-transition-group</a></p></section></aside></body>
+</html>

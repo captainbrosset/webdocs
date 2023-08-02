@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-size</h1><main>
+    
+
+<p>The <strong><code>mask-size</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the sizes of the mask images. The size of the image can be fully or partially constrained in order to preserve its intrinsic ratio.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If the value of this property is not set in a <a href="./css.properties.mask.html"><code>mask</code></a> shorthand property that is applied to the element after the <code>mask-size</code> CSS property, the value of this property is then reset to its initial value by the shorthand property.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keywords syntax */
+mask-size: cover;
+mask-size: contain;
+
+/* One-value syntax */
+/* the width of the image (height set to 'auto') */
+mask-size: 50%;
+mask-size: 3em;
+mask-size: 12px;
+mask-size: auto;
+
+/* Two-value syntax */
+/* first value: width of the image, second value: height */
+mask-size: 50% auto;
+mask-size: 3em 25%;
+mask-size: auto 6px;
+mask-size: auto auto;
+
+/* Multiple values */
+/* Do not confuse this with mask-size: auto auto */
+mask-size: auto, auto;
+mask-size: 50%, 25%, 25%;
+mask-size: 6px, auto, contain;
+
+/* Global values */
+mask-size: inherit;
+mask-size: initial;
+mask-size: revert;
+mask-size: revert-layer;
+mask-size: unset;
+</pre>
+<p>One or more <code>&#x3C;bg-size></code> values, separated by commas.</p>
+<p>A <code>&#x3C;bg-size></code> can be specified in one of three ways:</p>
+<ul>
+  <li>using the keyword <code>contain</code></li>
+  <li>using the keyword <code>cover</code></li>
+  <li>using width and height values</li>
+</ul>
+<p>To specify a size using width and height, you can supply one or two values:</p>
+<ul>
+  <li>If only one value is given it sets the width, with the height set to <code>auto</code>.</li>
+  <li>If two values are given, the first sets width and the second sets height.</li>
+</ul>
+<p>Each value can be a <code>&#x3C;length></code>, a <code>&#x3C;percentage></code>, or <code>auto</code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;length></code></dt>
+  <dd>
+    <p>A <code><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></code> value scales the mask image to the specified length in the corresponding dimension. Negative lengths are not allowed.</p>
+  </dd>
+  <dt><code>&#x3C;percentage></code></dt>
+  <dd>
+    <p>A <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> value scales the mask image in the corresponding dimension to the specified percentage of the mask positioning area, which is determined by the value of <a href="./css.properties.mask-origin.html"><code>mask-origin</code></a>. The mask positioning area is, by default, the area containing the content of the box and its padding; the area may also be changed to just the content or to the area containing borders, padding and content. Negative percentages are not allowed.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>A keyword that scales the mask image in the corresponding directions in order to maintain its intrinsic proportion.</p>
+  </dd>
+  <dt><code>contain</code></dt>
+  <dd>
+    <p>A keyword that scales the image as large as possible and maintains image aspect ratio (image doesn't get squished). The image is <em>letterboxed</em> within the container. The image is automatically centered unless over-ridden by another property such as <a href="./css.properties.mask-position.html"><code>mask-position</code></a>.</p>
+  </dd>
+  <dt><code>cover</code></dt>
+  <dd>
+    <p>A keyword that is the inverse of <code>contain</code>. Scales the image as large as possible and maintains image aspect ratio (image doesn't get squished). The image "covers" the entire width or height of the container. When the image and container have different dimensions, <em>the image is clipped</em> either on left/right or at top/bottom.</p>
+  </dd>
+</dl>
+<p>The interpretation of possible values depends on the image's intrinsic dimensions (width and height) and intrinsic proportion (ratio of width and height). A bitmap image always has intrinsic dimensions and an intrinsic proportion. A vector image may have both intrinsic dimensions and thus it has an intrinsic proportion too. It also may have one or no intrinsic dimensions and in either case it might or might not have an intrinsic proportion. Gradients are treated as images with no intrinsic dimensions or intrinsic proportion.</p>
+<p>The rendered size of the mask image is then computed as follows:</p>
+<dl>
+  <dt>If both components of <code>mask-size</code> are specified and are not <code>auto</code>:</dt>
+  <dd>
+    <p>The mask image renders at the specified size.</p>
+  </dd>
+  <dt>If the <code>mask-size</code> is <code>contain</code> or <code>cover</code>:</dt>
+  <dd>
+    <p>The image is rendered by preserving its intrinsic proportion at the largest size contained within or covering the mask positioning area. If the image has no intrinsic proportion, then it is rendered at the size of the mask positioning area.</p>
+  </dd>
+  <dt>If the <code>mask-size</code> is <code>auto</code> or <code>auto auto</code>:</dt>
+  <dd>
+    <p>If the image has both intrinsic dimensions, it is rendered at that size. If it has no intrinsic dimensions and no intrinsic proportion, it is rendered at the size of the mask positioning area. If it has no dimensions but has a proportion, it's rendered as if <code>contain</code> had been specified instead. If the image has one intrinsic dimension and a proportion, it's rendered at the size determined by that one dimension and the proportion. If the image has one intrinsic dimension but no proportion, it's rendered using the intrinsic dimension and the corresponding dimension of the mask positioning area.</p>
+  </dd>
+  <dt>If <code>mask-size</code> has one <code>auto</code> component and one non-<code>auto</code> component:</dt>
+  <dd>
+    <p>If the image has an intrinsic proportion, then render it using the specified dimension and compute the other dimension from the specified dimension and the intrinsic proportion. If the image has no intrinsic proportion, use the specified dimension for that dimension. For the other dimension, use the image's corresponding intrinsic dimension if there is one. If there is no such intrinsic dimension, use the corresponding dimension of the mask positioning area.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, but with lengths made absolute</td></tr><tr><th scope="row">Animation type</th><td>repeatable list</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;bg-size&gt;#</pre></section>
+
+<h3>Setting mask size as a percentage</h3><iframe width="100%" height="700" src="https://mdn.github.io/css-examples/masking/mask-size.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://css-tricks.com/clipping-masking-css/">Clipping and Masking in CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 4</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-size">https://drafts.fxtf.org/css-masking/#the-mask-size</a></p></section></aside></body>
+</html>

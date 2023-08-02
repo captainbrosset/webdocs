@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":any-link"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":any-link"</h1><main>
+    
+
+<p>The <strong><code>:any-link</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> selector represents an element that acts as the source anchor of a hyperlink, independent of whether it has been visited. In other words, it matches every <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element that has an <code>href</code> attribute. Thus, it matches all elements that match <a href="./css.selectors.link.html"><code>:link</code></a> or <a href="./css.selectors.visited.html"><code>:visited</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:any-link {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;a href="https://example.com">External link&#x3C;/a>&#x3C;br />
+&#x3C;a href="#">Internal target link&#x3C;/a>&#x3C;br />
+&#x3C;a>Placeholder link (won't get styled)&#x3C;/a>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">a:any-link {
+  border: 1px solid blue;
+  color: orange;
+}
+
+/* WebKit browsers */
+a:-webkit-any-link {
+  border: 1px solid blue;
+  color: orange;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">Creating hyperlinks</a></li>
+  <li>Matches HTML elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&#x3C;a></code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area"><code>&#x3C;area></code></a> with an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute</li>
+  <li>Related CSS selectors:
+    <ul>
+      <li><a href="./css.selectors.visited.html"><code>:visited</code></a></li>
+      <li><a href="./css.selectors.link.html"><code>:link</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-any-link-pseudo">https://drafts.csswg.org/selectors/#the-any-link-pseudo</a></p></section></aside></body>
+</html>

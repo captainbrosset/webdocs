@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-text-security"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-text-security"</h1><main>
+    
+
+<p><strong><code>-webkit-text-security</code></strong> is a non-standard CSS property that obfuscates characters in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> field (such as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a>) by replacing them with a shape. It only affects fields that are <em>not</em> of <code>type=password</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">-webkit-text-security: circle;
+-webkit-text-security: disc;
+-webkit-text-security: square;
+-webkit-text-security: none;
+
+/* Global values */
+-webkit-text-security: inherit;
+-webkit-text-security: initial;
+-webkit-text-security: revert;
+-webkit-text-security: revert-layer;
+-webkit-text-security: unset;
+</pre>
+
+
+
+<h3>Obscuring a text input</h3>
+<p>Try typing in the field below. If your browser supports this property, the characters should be visually replaced with squares.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;label for="name">Name:&#x3C;/label> &#x3C;input type="text" name="name" id="name" />
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">input {
+  -webkit-text-security: square;
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit CSS extensions</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 114</li><li><strong>firefox_android</strong>: 114</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section></aside></body>
+</html>

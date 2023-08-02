@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-padding</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-padding</h1><main>
+    
+
+<p>The <strong><code>scroll-padding</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets scroll padding on all sides of an element at once, much like the <a href="./css.properties.padding.html"><code>padding</code></a> property does for padding on an element.</p>
+<p>The <code>scroll-padding-*</code> properties define offsets for the <em>optimal viewing region</em> of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars), or to put more breathing room between a targeted element and the edges of the scrollport.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.scroll-padding-bottom.html"><code>scroll-padding-bottom</code></a></li>
+  <li><a href="./css.properties.scroll-padding-left.html"><code>scroll-padding-left</code></a></li>
+  <li><a href="./css.properties.scroll-padding-right.html"><code>scroll-padding-right</code></a></li>
+  <li><a href="./css.properties.scroll-padding-top.html"><code>scroll-padding-top</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scroll-padding: auto;
+
+/* &#x3C;length> values */
+scroll-padding: 10px;
+scroll-padding: 1em 0.5em 1em 1em;
+scroll-padding: 10%;
+
+/* Global values */
+scroll-padding: inherit;
+scroll-padding: initial;
+scroll-padding: revert;
+scroll-padding: revert-layer;
+scroll-padding: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a></dt>
+  <dd>
+    <p>An inwards offset from the corresponding edge of the scrollport, as a valid <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The offset is determined by the user agent. This will generally be <code>0px</code>, but the user agent is free to detect and do something else if a non-zero value is more appropriate.</p>
+  </dd>
+</dl>
+
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">CSS scroll snap</a></li>
+  <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS scroll snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 68</li><li><strong>firefox_android</strong>: 68</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-snap/#scroll-padding">https://drafts.csswg.org/css-scroll-snap/#scroll-padding</a></p></section></aside></body>
+</html>

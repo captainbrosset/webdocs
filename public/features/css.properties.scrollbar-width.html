@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scrollbar-width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scrollbar-width</h1><main>
+    
+
+<p>The <strong><code>scrollbar-width</code></strong> property allows the author to set the maximum thickness of an element's scrollbars when they are shown.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scrollbar-width: auto;
+scrollbar-width: thin;
+scrollbar-width: none;
+
+/* Global values */
+scrollbar-width: inherit;
+scrollbar-width: initial;
+scrollbar-width: revert;
+scrollbar-width: revert-layer;
+scrollbar-width: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;scrollbar-width></code></dt>
+  <dd>
+    <p>Defines the width of the scrollbar as a keyword. It must be one of the following values:</p>
+    <table class="standard-table">
+      <tbody>
+        <tr>
+          <td><code>auto</code></td>
+          <td>The default scrollbar width for the platform.</td>
+        </tr>
+        <tr>
+          <td><code>thin</code></td>
+          <td>
+            A thin scrollbar width variant on platforms that provide that option, or
+            a thinner scrollbar than the default platform scrollbar width.
+          </td>
+        </tr>
+        <tr>
+          <td><code>none</code></td>
+          <td>No scrollbar shown, however the element will still be scrollable.</td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> User Agents must apply any <code>scrollbar-width</code> value set on the root element to the viewport.</p>
+</div>
+<h2>Accessibility concerns</h2>
+<p>Use this property with caution — setting <code>scrollbar-width</code> to <code>thin</code> or <code>none</code> can make content hard or impossible to scroll if the author does not provide an alternative scrolling mechanism. While swiping gestures or mouse wheels can enable scrolling on such content, some devices have no scroll alternative.</p>
+<p>WCAG criterion 2.1.1 (Keyboard) has been in place for a long time to advise on basic keyboard accessibility, and this should include scrolling of content areas. And introduced in WCAG 2.1, criterion 2.5.5 (Target Size) advises that touch targets should be at least 44px in width and height (although the problem is compounded on high-resolution screens; thorough testing is advised).</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.1_%E2%80%94_keyboard_accessible_make_all_functionality_available_from_a_keyboard">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.5_input_modalities_make_it_easier_for_users_to_operate_functionality_through_various_inputs_beyond_keyboard">MDN Understanding WCAG, Guideline 2.5 explanations</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">Understanding Success Criterion 2.1.1 | W3C Understanding WCAG 2.1</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">Understanding Success Criterion 2.5.5 | W3C Understanding WCAG 2.1</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | thin | none</pre></section>
+
+
+<h4>CSS</h4>
+<pre class="brush: css">.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+</pre>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="scroller">
+  Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+  daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens
+  corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts
+  fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
+  earthnut pea peanut soko zucchini.
+&#x3C;/div>
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling">CSS scrollbars styling</a> module</li>
+  <li><a href="./css.properties.overflow.html"><code>overflow</code></a></li>
+  <li><a href="./css.properties.scrollbar-gutter.html"><code>scrollbar-gutter</code></a></li>
+  <li><a href="./css.properties.scrollbar-color.html"><code>scrollbar-color</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: preview</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 64</li><li><strong>firefox_android</strong>: 64</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scrollbars/#scrollbar-width">https://drafts.csswg.org/css-scrollbars/#scrollbar-width</a></p></section></aside></body>
+</html>

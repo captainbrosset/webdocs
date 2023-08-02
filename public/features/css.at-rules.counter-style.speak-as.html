@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>speak-as</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style speak-as</h1><main>
+    
+
+<p>The <strong><code>speak-as</code></strong> descriptor specifies how a counter symbol constructed with a given <a href="./css.at-rules.counter-style.html"><code>@counter-style</code></a> will be represented in the spoken form. For example, an author can specify a counter symbol to be either spoken as its numerical value or just represented with an audio cue.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+speak-as: auto;
+speak-as: bullets;
+speak-as: numbers;
+speak-as: words;
+speak-as: spell-out;
+
+/* @counter-style name value */
+speak-as: &#x3C;counter-style-name>;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>If the value of <code>speak-as</code> is specified as <code>auto</code>, then the effective value of <code>speak-as</code> will be determined based on the value of the <a href="./css.at-rules.counter-style.system.html"><code>system</code></a> descriptor:</p>
+    <ul>
+      <li>If the value of <code>system</code> is <code>alphabetic</code>, the effective value of <code>speak-as</code> will be <code>spell-out</code>.</li>
+      <li>If <code>system</code> is <code>cyclic</code>, the effective value of <code>speak-as</code> will be <code>bullets</code>.</li>
+      <li>If <code>system</code> is <code>extends</code>, the value of <code>speak-as</code> will be the same as if <code>speak-as: auto</code> is specified on the extended style.</li>
+      <li>For all other cases, specifying <code>auto</code> has the same effect as specifying <code>speak-as: numbers</code>.</li>
+    </ul>
+  </dd>
+  <dt><code>bullets</code></dt>
+  <dd>
+    <p>A phrase or an audio cue defined by the <a href="/Glossary/user_agent">user agent</a> for representing an unordered list item will be read out.</p>
+  </dd>
+  <dt><code>numbers</code></dt>
+  <dd>
+    <p>The numerical value of the counter will be read out in the document language.</p>
+  </dd>
+  <dt><code>words</code></dt>
+  <dd>
+    <p>The user agent will generate a counter value as normal and read it out as a word in the document language.</p>
+  </dd>
+  <dt><code>spell-out</code></dt>
+  <dd>
+    <p>The user agent will generate a counter representation as normal and would read it out letter by letter. If the user agent doesn't know how to read out a particular counter symbol, the user agent might read it out as if the value of <code>speak-as</code> was <code>numbers</code>.</p>
+  </dd>
+  <dt><code>&#x3C;counter-style-name></code></dt>
+  <dd>
+    <p>The name of another counter style, specified as a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a>. If included, the counter will be spoken out in the form specified in that counter style, kind of like specifying the <a href="./css.at-rules.counter-style.fallback.html"><code>fallback</code></a> descriptor. If the specified style does not exist, <code>speak-as</code> defaults to <code>auto</code>.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Assistive technology support is very limited for the <code>speak-as</code> property. Do not rely on it to convey information critical to understanding the page's purpose.</p>
+<p><a href="https://css-tricks.com/lets-talk-speech-css/">Let's Talk About Speech CSS | CSS Tricks</a></p>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="list">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style speak-as-example {
+  system: fixed;
+  symbols:     ;
+  suffix: " ";
+  speak-as: numbers;
+}
+
+.list {
+  list-style: speak-as-example;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>, the functional notation creating anonymous counter styles.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-speak-as">https://drafts.csswg.org/css-counter-styles/#counter-style-speak-as</a></p></section></aside></body>
+</html>

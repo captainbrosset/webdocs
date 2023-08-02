@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>min-content</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties width min-content</h1><main>
+    
+
+<p>The <code>min-content</code> sizing keyword represents the intrinsic minimum width of the content. For text content this means that the content will take all soft-wrapping opportunities, becoming as small as the longest word.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Used as a length */
+width: min-content;
+inline-size: min-content;
+height: min-content;
+block-size: min-content;
+
+/* used in grid tracks */
+grid-template-columns: 200px 1fr min-content;
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="item">Item&#x3C;/div>
+&#x3C;div class="item">Item with more text in it.&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.item {
+  width: min-content;
+  background-color: #8ca0ff;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div>Item&#x3C;/div>
+  &#x3C;div>Item with more text in it.&#x3C;/div>
+  &#x3C;div>Flexible item&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  display: grid;
+  grid-template-columns: min-content min-content 1fr;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#container > div {
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+</pre>
+
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-3/#valdef-width-min-content">https://drafts.csswg.org/css-sizing-3/#valdef-width-min-content</a></p></section></aside></body>
+</html>

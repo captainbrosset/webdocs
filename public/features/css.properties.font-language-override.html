@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-language-override</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font-language-override</h1><main>
+    
+
+<p>The <strong><code>font-language-override</code></strong> CSS property controls the use of language-specific glyphs in a typeface.</p>
+<p>By default, HTML's <code>lang</code> attribute tells browsers to display glyphs designed specifically for that language. For example, a lot of fonts have a special character for the digraph <code>fi</code> that merge the dot on the "i" with the "f." However, if the language is set to Turkish the typeface will likely know not to use the merged glyph; Turkish has two versions of the "i," one with a dot (<code>i</code>) and one without (<code>ı</code>), and using the ligature would incorrectly transform a dotted "i" into a dotless "i."</p>
+<p>The <code>font-language-override</code> property lets you override the typeface behavior for a specific language. This is useful, for example, when the typeface you're using lacks proper support for the language. For instance, if a typeface doesn't have proper rules for the Azeri language, you can force the font to use Turkish glyphs, which follow similar rules.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+font-language-override: normal;
+
+/* &#x3C;string> values */
+font-language-override: "ENG"; /* Use English glyphs */
+font-language-override: "TRK"; /* Use Turkish glyphs */
+
+/* Global values */
+font-language-override: inherit;
+font-language-override: initial;
+font-language-override: revert;
+font-language-override: revert-layer;
+font-language-override: unset;
+</pre>
+<p>The <code>font-language-override</code> property is specified as the keyword <code>normal</code> or a <code>&#x3C;string></code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>Tells the browser to use font glyphs that are appropriate for the language specified by the <code>lang</code> attribute. This is the default value.</p>
+  </dd>
+  <dt><a href="./css.types.string.html"><code>string</code></a></dt>
+  <dd>
+    <p>Tells the browser to use font glyphs that are appropriate for the language specified by the string. The string must match a language tag found in the <a href="https://docs.microsoft.com/typography/opentype/spec/languagetags">OpenType language system</a>. For example, "ENG" is English, and "KOR" is Korean.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified string or the keyword none</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | &lt;string&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="para1">Default language setting.&#x3C;/p>
+&#x3C;p class="para2">
+  This is a string with the &#x3C;code>font-language-override&#x3C;/code> set to Danish.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p.para1 {
+  font-language-override: normal;
+}
+
+p.para2 {
+  font-language-override: "DAN";
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a>, <a href="./css.properties.font-variant-position.html"><code>font-variant-position</code></a>, <a href="./css.properties.font-variant-east-asian.html"><code>font-variant-east-asian</code></a>, <a href="./css.properties.font-variant-caps.html"><code>font-variant-caps</code></a>, <a href="./css.properties.font-variant-ligatures.html"><code>font-variant-ligatures</code></a>, <a href="./css.properties.font-variant-numeric.html"><code>font-variant-numeric</code></a>, <a href="./css.properties.font-variant-alternates.html"><code>font-variant-alternates</code></a>, <a href="./css.properties.font-synthesis.html"><code>font-synthesis</code></a>, <a href="./css.properties.font-kerning.html"><code>font-kerning</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-language-override-prop">https://drafts.csswg.org/css-fonts/#font-language-override-prop</a></p></section></aside></body>
+</html>

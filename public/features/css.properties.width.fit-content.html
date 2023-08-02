@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fit-content</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties width fit-content</h1><main>
+    
+
+<p>The <strong><code>fit-content</code></strong> behaves as <code>fit-content(stretch)</code>. In practice this means that the box will use the available space, but never more than <a href="./css.properties.width.max-content.html"><code>max-content</code></a>.</p>
+<p>When used as laid out box size for <a href="./css.properties.width.html"><code>width</code></a>, <a href="./css.properties.height.html"><code>height</code></a>, <a href="./css.properties.min-width.html"><code>min-width</code></a>, <a href="./css.properties.min-height.html"><code>min-height</code></a>, <a href="./css.properties.max-width.html"><code>max-width</code></a> and <a href="./css.properties.max-height.html"><code>max-height</code></a> the maximum and minimum sizes refer to the content size.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The CSS Sizing specification also defines the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content_function"><code>fit-content()</code></a> function. This page details the keyword.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">width: fit-content;
+block-size: fit-content;
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="container">
+  &#x3C;div class="item">Item&#x3C;/div>
+  &#x3C;div class="item">Item with more text in it.&#x3C;/div>
+  &#x3C;div class="item">
+    Item with more text in it, hopefully we have added enough text so the text
+    will start to wrap.
+  &#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.container {
+  border: 2px solid #ccc;
+  padding: 10px;
+  width: 20em;
+}
+
+.item {
+  width: fit-content;
+  background-color: #8ca0ff;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related sizing keywords: <a href="./css.properties.width.min-content.html"><code>min-content</code></a>, <a href="./css.properties.width.max-content.html"><code>max-content</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content">https://drafts.csswg.org/css-sizing-4/#valdef-width-fit-content</a></p></section></aside></body>
+</html>

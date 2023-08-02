@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-origin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-origin</h1><main>
+    
+
+<p>The <strong><code>background-origin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the background's origin: from the border start, inside the border, or inside the padding.</p>
+<p>Note that <code>background-origin</code> is ignored when <a href="./css.properties.background-attachment.html"><code>background-attachment</code></a> is <code>fixed</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+background-origin: border-box;
+background-origin: padding-box;
+background-origin: content-box;
+
+/* Global values */
+background-origin: inherit;
+background-origin: initial;
+background-origin: revert;
+background-origin: revert-layer;
+background-origin: unset;
+</pre>
+<p>The <code>background-origin</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>border-box</code></dt>
+  <dd>
+    <p>The background is positioned relative to the border box.</p>
+  </dd>
+  <dt><code>padding-box</code></dt>
+  <dd>
+    <p>The background is positioned relative to the padding box.</p>
+  </dd>
+  <dt><code>content-box</code></dt>
+  <dd>
+    <p>The background is positioned relative to the content box.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>padding-box</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a keyword as specified</td></tr><tr><th scope="row">Animation type</th><td>repeatable list</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;box&gt;#</pre></section>
+
+<h3>Setting background origins</h3>
+<pre class="brush: css">.example {
+  border: 10px double;
+  padding: 10px;
+  background: url("image.jpg");
+  background-position: center left;
+  background-origin: content-box;
+}
+</pre>
+<pre class="brush: css">#example2 {
+  border: 4px solid black;
+  padding: 10px;
+  background: url("image.gif");
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+</pre>
+<pre class="brush: css">div {
+  background-image: url("logo.jpg"), url("mainback.png"); /* Applies two images to the background */
+  background-position:
+    top right,
+    0px 0px;
+  background-origin: content-box, padding-box;
+}
+</pre>
+<h3>Using two gradients</h3>
+<p>In this example the box has a thick dotted border. The first gradient uses the <code>padding-box</code> as the <code>background-origin</code> and therefore the background sits inside the border. The second uses the <code>content-box</code> and so only displays behind the content.</p>
+<pre class="brush: css">.box {
+  margin: 10px 0;
+  color: #fff;
+  background: linear-gradient(
+      90deg,
+      rgba(131, 58, 180, 1) 0%,
+      rgba(253, 29, 29, 0.6) 60%,
+      rgba(252, 176, 69, 1) 100%
+    ), radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 28%);
+  border: 20px dashed black;
+  padding: 20px;
+  width: 400px;
+  background-origin: padding-box, content-box;
+  background-repeat: no-repeat;
+}
+</pre>
+<pre class="brush: html">&#x3C;div class="box">Hello!&#x3C;/div>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.background-clip.html"><code>background-clip</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-background-origin">https://drafts.csswg.org/css-backgrounds/#the-background-origin</a></p></section></aside></body>
+</html>

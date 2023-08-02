@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>max-block-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties max-block-size</h1><main>
+    
+
+<p>The <strong><code>max-block-size</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the maximum size of an element in the direction opposite that of the writing direction as specified by <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a>. That is, if the writing direction is horizontal, then <code>max-block-size</code> is equivalent to <a href="./css.properties.max-height.html"><code>max-height</code></a>; if the writing direction is vertical, <code>max-block-size</code> is the same as <a href="./css.properties.max-width.html"><code>max-width</code></a>.</p>
+<p>The other dimension's maximum length is specified using the <a href="./css.properties.max-inline-size.html"><code>max-inline-size</code></a> property.</p>
+<p>This is useful because the <code>max-width</code> is always used for horizontal sizes and <code>max-height</code> is always used for vertical sizes, and if you need to set lengths based on the size of your text content, you need to be able to do so with the writing direction in mind.</p>
+<p>Any time you would normally use <code>max-height</code> or <code>max-width</code>, you should instead use <code>max-block-size</code> to set the maximum "height" of the content (even though this may not be a vertical value) and <code>max-inline-size</code> to set the maximum "width" of the content (although this may instead be vertical rather than horizontal). See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode#examples"><code>writing-mode</code> examples</a>, which show the different writing modes in action.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> values */
+max-block-size: 300px;
+max-block-size: 25em;
+
+/* &#x3C;percentage> values */
+max-block-size: 75%;
+
+/* Keyword values */
+max-block-size: none;
+max-block-size: max-content;
+max-block-size: min-content;
+max-block-size: fit-content(20em);
+
+/* Global values */
+max-block-size: inherit;
+max-block-size: initial;
+max-block-size: revert;
+max-block-size: revert-layer;
+max-block-size: unset;
+</pre>
+<h3>Values</h3>
+<p>The <code>max-block-size</code> property's value can be any value that's legal for the <a href="./css.properties.max-width.html"><code>max-width</code></a> and <a href="./css.properties.max-height.html"><code>max-height</code></a> properties:</p>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>max-block-size</code> as an absolute value.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>max-block-size</code> as a percentage of the containing block's size in block axis.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No limit on the size of the box.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>The intrinsic preferred <code>max-block-size</code>.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>The intrinsic minimum <code>max-block-size</code>.</p>
+  </dd>
+  <dt><code>fit-content(<a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Uses the <code>fit-content</code> formula with the available space replaced by the specified argument, i.e. <code>min(max-content, max(min-content, argument))</code>.</p>
+  </dd>
+</dl>
+<h3>How writing-mode affects directionality</h3>
+<p>The values of <code>writing-mode</code> affect the mapping of <code>max-block-size</code> to <code>max-width</code> or <code>max-height</code> as follows:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Values of <code>writing-mode</code></th>
+      <th><code>max-block-size</code> is equivalent to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>horizontal-tb</code>, <code>lr</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr>, <code>lr-tb</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr>, <code>rl</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr>, <code>rb</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr>, <code>rb-rl</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></td>
+      <td><a href="./css.properties.max-height.html"><code>max-height</code></a></td>
+    </tr>
+    <tr>
+      <td><code>vertical-rl</code>, <code>vertical-lr</code>, <code>sideways-rl</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr>, <code>sideways-lr</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr>, <code>tb</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr>, <code>tb-rl</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites."><span class="visually-hidden">Deprecated</span></abbr></td>
+      <td><a href="./css.properties.max-width.html"><code>max-width</code></a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>writing-mode</code> values <code>sideways-lr</code> and <code>sideways-rl</code> were removed from the CSS Writing Modes Level 3 specification late in its design process. They may be restored in Level 4.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> The writing modes <code>lr</code>, <code>lr-tb</code>, <code>rl</code>, <code>rb</code>, and <code>rb-tl</code> are no longer allowed in <a href="/Glossary/HTML">HTML</a> contexts; they may only be used in <a href="/Glossary/SVG">SVG</a> 1.x contexts.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>same as height and width</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>Same as max-height, max-width</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;'max-width'&gt;</pre></section>
+
+<h3>Setting max-block-size with horizontal and vertical text</h3>
+<p>In this example, the same text (the opening sentences from <a href="https://en.wikipedia.org/wiki/Herman_Melville">Herman Melville's</a> novel <em><a href="https://en.wikipedia.org/wiki/Moby-Dick">Moby-Dick</a></em>) is presented in both the <code>horizontal-tb</code> and <code>vertical-rl</code> writing modes.</p>
+<p>Everything else about the two boxes is identical, including the values used for <a href="./css.properties.max-block-size.html"><code>max-block-size</code></a>.</p>
+<h4>HTML</h4>
+<p>The HTML establishes the two <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> blocks that will be presented with their <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> set using the classes <code>horizontal</code> or <code>vertical</code>. Both boxes share the <code>standard-box</code> class, which establishes coloring, padding, and their respective values of <code>max-block-size</code>.</p>
+<pre class="brush: html">&#x3C;p>Writing mode &#x3C;code>horizontal-tb&#x3C;/code> (the default):&#x3C;/p>
+&#x3C;div class="standard-box horizontal">
+  Call me Ishmael. Some years ago—never mind how long precisely—having little or
+  no money in my purse, and nothing particular to interest me on shore, I
+  thought I would sail about a little and see the watery part of the world. It
+  is a way I have of driving off the spleen and regulating the circulation.
+&#x3C;/div>
+
+&#x3C;p>Writing mode &#x3C;code>vertical-rl&#x3C;/code>:&#x3C;/p>
+&#x3C;div class="standard-box vertical">
+  Call me Ishmael. Some years ago—never mind how long precisely—having little or
+  no money in my purse, and nothing particular to interest me on shore, I
+  thought I would sail about a little and see the watery part of the world. It
+  is a way I have of driving off the spleen and regulating the circulation.
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>The CSS defines three classes. The first, <code>standard-box</code>, is applied to both boxes, as seen above. It provides standard styling including the minimum and maximum block sizes, font size, and so forth.</p>
+<p>After that come the classes <code>horizontal</code> and <code>vertical</code>, which add the <a href="./css.properties.writing-mode.html"><code>writing-mode</code></a> property to the box, with the value set to <code>horizontal-tb</code> or <code>vertical-rl</code> depending on which class is used.</p>
+<pre class="brush: css">.standard-box {
+  padding: 4px;
+  background-color: #abcdef;
+  color: #000;
+  font:
+    16px "Open Sans",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+  max-block-size: 160px;
+  min-block-size: 100px;
+}
+
+.horizontal {
+  writing-mode: horizontal-tb;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The mapped physical properties: <a href="./css.properties.max-width.html"><code>max-width</code></a> and <a href="./css.properties.max-height.html"><code>max-height</code></a></li>
+  <li>Setting the other direction's maximum size: <a href="./css.properties.max-inline-size.html"><code>max-inline-size</code></a></li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 41</li><li><strong>firefox_android</strong>: 41</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 12.1</li><li><strong>safari_ios</strong>: 12.2</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#propdef-max-block-size">https://drafts.csswg.org/css-logical/#propdef-max-block-size</a></p></section></aside></body>
+</html>

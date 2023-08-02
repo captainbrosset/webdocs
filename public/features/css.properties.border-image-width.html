@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-image-width</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-image-width</h1><main>
+    
+
+<p>The <strong><code>border-image-width</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the width of an element's <a href="./css.properties.border-image.html">border image</a>.</p>
+<p>If this property's value is greater than the element's <a href="./css.properties.border-width.html"><code>border-width</code></a>, the border image will extend beyond the padding (and/or content) edge.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+border-image-width: auto;
+
+/* &#x3C;length> value */
+border-image-width: 1rem;
+
+/* &#x3C;percentage> value */
+border-image-width: 25%;
+
+/* &#x3C;number> value */
+border-image-width: 3;
+
+/* top and bottom | left and right */
+border-image-width: 2em 3em;
+
+/* top | left and right | bottom */
+border-image-width: 5% 15% 10%;
+
+/* top | right | bottom | left */
+border-image-width: 5% 2em 10% auto;
+
+/* Global values */
+border-image-width: inherit;
+border-image-width: initial;
+border-image-width: revert;
+border-image-width: revert-layer;
+border-image-width: unset;
+</pre>
+<p>The <code>border-image-width</code> property may be specified using one, two, three, or four values chosen from the list of values below.</p>
+<ul>
+  <li>When <strong>one</strong> value is specified, it applies the same width to <strong>all four sides</strong>.</li>
+  <li>When <strong>two</strong> values are specified, the first width applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</li>
+  <li>When <strong>three</strong> values are specified, the first width applies to the <strong>top</strong>, the second to the <strong>left and right</strong>, the third to the <strong>bottom</strong>.</li>
+  <li>When <strong>four</strong> values are specified, the widths apply to the <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, and <strong>left</strong> in that order (clockwise).</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;length-percentage></code></dt>
+  <dd>
+    <p>The width of the border, specified as a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>. Percentages are relative to the <em>width</em> of the border image area for horizontal offsets and the <em>height</em> of the border image area for vertical offsets. Must not be negative.</p>
+  </dd>
+  <dt><code>&#x3C;number></code></dt>
+  <dd>
+    <p>The width of the border, specified as a multiple of the corresponding <a href="./css.properties.border-width.html"><code>border-width</code></a>. Must not be negative.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The width of the border is made equal to the intrinsic width or height (whichever is applicable) of the corresponding <a href="./css.properties.border-image-slice.html"><code>border-image-slice</code></a>. If the image does not have the required intrinsic dimension, the corresponding <code>border-width</code> is used instead.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>1</td></tr><tr><th scope="row">Applies to</th><td>All elements, except internal table elements when border-collapse is collapse</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>four values, each either a number, the keyword auto, or a computed &lt;length-percentage&gt; value</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ &lt;length-percentage [0,∞]&gt; | &lt;number [0,∞]&gt; | auto ]{1,4}</pre></section>
+
+<h3>Tiling a border image</h3>
+<p>This example creates a border image using the following ".png" file, which is 90 by 90 pixels:</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-width/border.png" alt="Square image containing eight circles. The circles in each corner are light purple. The four side circles are blue. The area in the middle, where a ninth circle could fit, is blank.">
+</p>
+<p>Thus, each circle in the source image is 30 by 30 pixels.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+  kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  border: 20px solid;
+  border-image: url("border.png") 30 round;
+  border-image-width: 16px;
+  padding: 40px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">Backgrounds and borders</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders">Learn CSS: Backgrounds and borders</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 15</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 13</li><li><strong>firefox_android</strong>: 14</li><li><strong>ie</strong>: 11</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-border-image-width">https://drafts.csswg.org/css-backgrounds/#the-border-image-width</a></p></section></aside></body>
+</html>

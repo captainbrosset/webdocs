@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-left-style</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-left-style</h1><main>
+    
+
+<p>The <strong><code>border-left-style</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the line style of an element's left <a href="./css.properties.border.html"><code>border</code></a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The specification doesn't define how borders of different styles connect in the corners.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+border-left-style: none;
+border-left-style: hidden;
+border-left-style: dotted;
+border-left-style: dashed;
+border-left-style: solid;
+border-left-style: double;
+border-left-style: groove;
+border-left-style: ridge;
+border-left-style: inset;
+border-left-style: outset;
+
+/* Global values */
+border-left-style: inherit;
+border-left-style: initial;
+border-left-style: revert;
+border-left-style: revert-layer;
+border-left-style: unset;
+</pre>
+<p>The <code>border-left-style</code> property is specified as a single <a href="./css.types.line-style.html"><code>line-style</code></a> keyword value.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements except ruby base containers and ruby annotation containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;line-style&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;td class="b1">none&#x3C;/td>
+    &#x3C;td class="b2">hidden&#x3C;/td>
+    &#x3C;td class="b3">dotted&#x3C;/td>
+    &#x3C;td class="b4">dashed&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td class="b5">solid&#x3C;/td>
+    &#x3C;td class="b6">double&#x3C;/td>
+    &#x3C;td class="b7">groove&#x3C;/td>
+    &#x3C;td class="b8">ridge&#x3C;/td>
+  &#x3C;/tr>
+  &#x3C;tr>
+    &#x3C;td class="b9">inset&#x3C;/td>
+    &#x3C;td class="b10">outset&#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Define look of the table */
+table {
+  border-width: 2px;
+  background-color: #52e385;
+}
+tr,
+td {
+  padding: 3px;
+}
+
+/* border-left-style example classes */
+.b1 {
+  border-left-style: none;
+}
+.b2 {
+  border-left-style: hidden;
+}
+.b3 {
+  border-left-style: dotted;
+}
+.b4 {
+  border-left-style: dashed;
+}
+.b5 {
+  border-left-style: solid;
+}
+.b6 {
+  border-left-style: double;
+}
+.b7 {
+  border-left-style: groove;
+}
+.b8 {
+  border-left-style: ridge;
+}
+.b9 {
+  border-left-style: inset;
+}
+.b10 {
+  border-left-style: outset;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The other style-related border properties: <a href="./css.properties.border-bottom-style.html"><code>border-bottom-style</code></a>, <a href="./css.properties.border-right-style.html"><code>border-right-style</code></a>, <a href="./css.properties.border-top-style.html"><code>border-top-style</code></a>, and <a href="./css.properties.border-style.html"><code>border-style</code></a>.</li>
+  <li>The other left-border-related properties: <a href="./css.properties.border-left.html"><code>border-left</code></a>, <a href="./css.properties.border-left-color.html"><code>border-left-color</code></a>, and <a href="./css.properties.border-left-width.html"><code>border-left-width</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 14</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2.2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-border-style">https://drafts.csswg.org/css-backgrounds/#the-border-style</a></p></section></aside></body>
+</html>

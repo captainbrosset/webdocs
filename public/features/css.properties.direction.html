@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>direction</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties direction</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> Where possible, authors are encouraged to avoid using the <code>direction</code> CSS property and use the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#dir"><code>dir</code></a> global attribute instead.</p>
+</div>
+<p>The <strong><code>direction</code></strong> CSS property sets the direction of text, table columns, and horizontal overflow. Use <code>rtl</code> for languages written from right to left (like Hebrew or Arabic), and <code>ltr</code> for those written from left to right (like English and most other languages).</p>
+<p>Note that text direction is usually defined within a document (e.g., with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir">HTML's <code>dir</code> attribute</a>) rather than through direct use of the <code>direction</code> property.</p>
+<p>The property sets the base text direction of block-level elements and the direction of embeddings created by the <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a> property. It also sets the default alignment of text, block-level elements, and the direction that cells flow within a table row.</p>
+<p>Unlike the <code>dir</code> attribute in HTML, the <code>direction</code> property is not inherited from table columns into table cells, since CSS inheritance follows the document tree, and table cells are inside of rows but not inside of columns.</p>
+<p>The <code>direction</code> and <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a> properties are the two only properties which are not affected by the <a href="./css.properties.all.html"><code>all</code></a> shorthand property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+direction: ltr;
+direction: rtl;
+
+/* Global values */
+direction: inherit;
+direction: initial;
+direction: revert;
+direction: revert-layer;
+direction: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>ltr</code></dt>
+  <dd>
+    <p>Text and other elements go from left to right. This is the default value.</p>
+  </dd>
+  <dt><code>rtl</code></dt>
+  <dd>
+    <p>Text and other elements go from right to left.</p>
+  </dd>
+</dl>
+<p>For the <code>direction</code> property to have any effect on inline-level elements, the <a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a> property's value must be <code>embed</code> or <code>override</code>.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>ltr</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified value</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>ltr | rtl</pre></section>
+
+<h3>Setting right-to-left direction</h3>
+<p>In the example below are two strings of text, both which are displaying using <code>direction: rtl</code>. While the Arabic text is displayed correctly with this setting, the English text now has a full stop in an unusual location.</p>
+<pre class="brush: css">blockquote {
+  direction: rtl;
+  width: 300px;
+}
+</pre>
+<pre class="brush: html">&#x3C;blockquote>
+  &#x3C;p>This paragraph is in English but incorrectly goes right to left.&#x3C;/p>
+  &#x3C;p>&#x3C;/p>
+&#x3C;/blockquote>
+
+&#x3C;blockquote>
+  &#x3C;p>هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.&#x3C;/p>
+  &#x3C;p>&#x3C;/p>
+&#x3C;/blockquote>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.unicode-bidi.html"><code>unicode-bidi</code></a></li>
+  <li><a href="./css.properties.writing-mode.html"><code>writing-mode</code></a></li>
+  <li>The HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#dir"><code>dir</code></a> global attribute</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-writing-modes/#direction">https://drafts.csswg.org/css-writing-modes/#direction</a></p></section></aside></body>
+</html>

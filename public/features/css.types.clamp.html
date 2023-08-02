@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>clamp()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types clamp()</h1><main>
+    
+
+<p>The <strong><code>clamp()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> clamps a middle value within a range of values between a defined minimum bound and a maximum bound. The function takes three parameters: a minimum value, a preferred value, and a maximum allowed value.</p>
+<p>Note that using <code>clamp()</code> for font sizes, as in these examples, allows you to set a font-size that grows with the size of the viewport, but doesn't go below a minimum font-size or above a maximum font-size. It has the same effect as the code in <a href="https://css-tricks.com/snippets/css/fluid-typography/">Fluid Typography</a> but in one line, and without the use of media queries.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Static values */
+width: clamp(200px, 40%, 400px);
+width: clamp(20rem, 30vw, 70rem);
+width: clamp(10vw, 20em, 100vw);
+
+/* Calculated values */
+width: clamp(min(10vw, 20rem), 300px, max(90vw, 55rem));
+width: clamp(100px, calc(30% / 2rem + 10px), 900px);
+</pre>
+<h3>Parameters</h3>
+<p>The <code>clamp(min, val, max)</code> function accepts three comma-separated expressions as its parameters.</p>
+<dl>
+  <dt><code>min</code></dt>
+  <dd>
+    <p>The minimum value is the smallest (most negative) value. This is the lower bound in the range of allowed values. If the preferred value is less than this value, the minimum value will be used.</p>
+  </dd>
+  <dt><code>val</code></dt>
+  <dd>
+    <p>The preferred value is the expression whose value will be used as long as the result is between the minimum and maximum values.</p>
+  </dd>
+  <dt><code>max</code></dt>
+  <dd>
+    <p>The maximum value is the largest (most positive) expression value to which the value of the property will be assigned if the preferred value is greater than this upper bound.</p>
+  </dd>
+</dl>
+<p>The expressions can be math functions (see <a href="./css.types.calc.html"><code>calc()</code></a> for more information), literal values, other expressions that evaluate to a valid argument type (like <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>), or nested <a href="./css.types.min.html"><code>min()</code></a> and <a href="./css.types.max.html"><code>max()</code></a> functions. For math expressions, you can use addition, subtraction, multiplication, and division without using the <code>calc()</code> function itself. You may also use parentheses to establish computation order when needed.</p>
+<p>You can use different units for each value in your expressions and different units in any math function making up any of the arguments.</p>
+<p>Keep the following aspects in mind while working with the function:</p>
+<ul>
+  <li>Math expressions involving percentages for widths and heights on table columns, table column groups, table rows, table row groups, and table cells in both auto and fixed layout tables <em>may</em> be treated as if <code>auto</code> had been specified.</li>
+  <li>It is permitted to nest <code>max()</code> and <code>min()</code> functions as expression values, in which case the inner ones are treated as simple parentheses. The expressions are full math expressions, so you can use direct addition, subtraction, multiplication and division without using the calc() function itself.</li>
+  <li>The expression can be values combining the addition ( <code>+</code> ), subtraction ( <code>-</code> ), multiplication ( <code>*</code> ) and division ( <code>/</code> ) operators, using standard operator precedence rules. Make sure to put a space on each side of the <code>+</code> and <code>-</code> operands. The operands in the expression may be any <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> syntax value. You can use different units for each value in your expression. You may also use parentheses to establish computation order when needed.</li>
+  <li>Oftentimes you will want to use <a href="./css.types.min.html"><code>min()</code></a> and <a href="./css.types.max.html"><code>max()</code></a> within a <code>clamp()</code> function.</li>
+</ul>
+<h3>Return value</h3>
+<p><code>clamp(MIN, VAL, MAX)</code> is resolved as <code><a href="./css.types.max.html"><code>max</code></a>(MIN, <a href="./css.types.min.html"><code>min</code></a>(VAL, MAX))</code>.</p>
+<p>Based on the provided parameters, the function returns <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a>, <a href="./css.types.frequency.html"><code>&lt;frequency&gt;()</code></a>, <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>, <a href="./css.types.time.html"><code>&lt;time&gt;()</code></a>, <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>, <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, or <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a>.</p>
+
+
+<h3>min(), max(), and clamp() comparison</h3>
+<p>In this example we have a web page that uses <a href="./css.types.min.html"><code>min()</code></a>, <a href="./css.types.max.html"><code>max()</code></a>, and <a href="./css.types.clamp.html"><code>clamp()</code></a> to set sizes responsively.</p>
+<p>The example adjusts the sizes of page elements in three ways:</p>
+<ul>
+  <li>the lengths of the lines of text</li>
+  <li>the font size of paragraph text</li>
+  <li>the font size of heading text</li>
+</ul>
+<p>In all three cases, the page uses a combination of a viewport-relative units (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#vw"><code>vw</code></a> and <a href="./css.types.percentage.html"><code>&#x3C;percentage></code></a>), to set a size that varies with the viewport width, and a value that is not viewport relative (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#rem"><code>rem</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#px"><code>px</code></a>) to implement minimum and/or maximum sizes.</p>
+<p>The example is at <a href="https://mdn.github.io/css-examples/min-max-clamp/">https://mdn.github.io/css-examples/min-max-clamp/</a>. Open it in a new window and try adjusting the window width.</p>
+<p>The <strong>line length</strong> (controlled by the <a href="./css.properties.width.html"><code>width</code></a> of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&#x3C;body></code></a> element) will increase as the window width increases, but only up to a certain point (<code>1000px</code>), and beyond that point, it won't increase anymore. We're using <code>min()</code> to set a <strong>maximum line length</strong>: it can go under <code>1000px</code>, but won't go over. This is helpful because long lines are harder to read, so we often want to limit how long a line can be. To achieve this we use <code>min(1000px, calc(70% + 100px))</code>: when the result of the percentage-based calculation goes above <code>1000px</code>, we switch to the fixed <code>1000px</code> value.</p>
+<p>The <strong>size of the paragraph text</strong>, controlled by the <a href="./css.properties.font-size.html"><code>font-size</code></a> of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><code>&#x3C;p></code></a> element, decreases as the window gets narrower, but only up to a certain point, and beyond that point (the point where <code>1.2vw</code> is less than <code>1.2rem</code>) it doesn't get any smaller: it stays at <code>1.2rem</code>. We're using <code>max()</code> to set a <strong>minimum font size</strong>: the font can grow above <code>1.2rem</code> but will never go below it. This is helpful because really small text is hard to read. To achieve this we use <code>max(1.2rem, 1.2vw)</code>. This means that the <code>font-size</code> will be set at <code>1.2rem</code>, unless the computed value of <code>1.2vw</code> is greater than that of <code>1.2rem</code>, in which case it will be set to <code>1.2vw</code> instead.</p>
+<p>The <strong>size of the heading text</strong>, controlled by the <a href="./css.properties.font-size.html"><code>font-size</code></a> of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"><code>&#x3C;h1></code></a> element, has a viewport-relative value with both a maximum and a minimum threshold. To achieve this we use <code>clamp(1.8rem, 2.5vw, 2.8rem)</code>. The viewport-relative value is <code>2.5vw</code> but it is clamped between <code>1.8rem</code> and <code>2.8rem</code>, so:</p>
+<ul>
+  <li>if the calculated value of <code>2.5vw</code> is less than <code>1.8rem</code>, then <code>1.8rem</code> will be used</li>
+  <li>if the calculated value of <code>2.5vw</code> is greater than <code>2.8rem</code>, then <code>2.8rem</code> will be used.</li>
+</ul>
+<p>This prevents the heading text from getting too small in a very narrow window, or too big in a very wide window.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;h1>Simple responsive test&#x3C;/h1>
+&#x3C;p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In orci orci,
+  eleifend id risus nec, mattis rutrum velit. Suspendisse fringilla egestas erat
+  eu convallis. Phasellus eu velit ut magna dapibus elementum cursus at ligula.
+  Ut tempus varius nibh, nec auctor sapien iaculis sit amet. Fusce iaculis,
+  libero quis elementum viverra, nulla ante accumsan lectus, sit amet convallis
+  lacus ipsum vel est. Curabitur et urna non est consectetur pulvinar vel id
+  risus. Ut vestibulum, sem in semper aliquet, felis arcu euismod sapien, ac
+  imperdiet massa nisl quis sem. Vestibulum ac elementum felis, in tempor velit.
+  Pellentesque purus ex, mattis at ornare quis, porta condimentum mi. Donec
+  vestibulum ligula vel nulla blandit, quis euismod nulla vestibulum.
+  Suspendisse potenti. Nunc neque mauris, tempor sed facilisis at, ultrices eget
+  nulla. Pellentesque convallis ante nec augue porttitor, id tempus ante luctus.
+&#x3C;/p>
+
+&#x3C;p>
+  Integer rutrum sollicitudin tellus, quis cursus nulla scelerisque nec. Nunc eu
+  facilisis lorem. Maecenas faucibus sapien eleifend, semper tellus at, pharetra
+  quam. Cras feugiat vulputate tortor at rhoncus. Class aptent taciti sociosqu
+  ad litora torquent per conubia nostra, per inceptos himenaeos. Nam non felis
+  quis sem lobortis sodales vel id libero. Phasellus sit amet placerat lorem.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  width: min(1000px, calc(70% + 100px));
+}
+
+h1 {
+  letter-spacing: 2px;
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+}
+
+p {
+  line-height: 1.5;
+  font-size: max(1.2rem, 1.2vw);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.calc.html"><code>calc()</code></a></li>
+  <li><a href="./css.types.max.html"><code>max()</code></a></li>
+  <li><a href="./css.types.min.html"><code>min()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">CSS Values</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 79</li><li><strong>chrome_android</strong>: 79</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 75</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 8.0</li><li><strong>opera</strong>: 66</li><li><strong>opera_android</strong>: 57</li><li><strong>safari</strong>: 13.1</li><li><strong>safari_ios</strong>: 13.4</li><li><strong>samsunginternet_android</strong>: 12.0</li><li><strong>webview_android</strong>: 79</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#calc-notation">https://drafts.csswg.org/css-values/#calc-notation</a></p></section></aside></body>
+</html>

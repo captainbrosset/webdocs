@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scroll-padding-inline-start</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scroll-padding-inline-start</h1><main>
+    
+
+<p>The <code>scroll-padding-inline-start</code> property defines offsets for the start edge in the inline dimension of the <em>optimal viewing region</em> of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or to put more breathing room between a targeted element and the edges of the scrollport.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scroll-padding-inline-start: auto;
+
+/* &#x3C;length> values */
+scroll-padding-inline-start: 10px;
+scroll-padding-inline-start: 1em;
+scroll-padding-inline-start: 10%;
+
+/* Global values */
+scroll-padding-inline-start: inherit;
+scroll-padding-inline-start: initial;
+scroll-padding-inline-start: revert;
+scroll-padding-inline-start: revert-layer;
+scroll-padding-inline-start: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;length-percentage></code></dt>
+  <dd>
+    <p>An inwards offset from the inline start edge of the scrollport, as a valid length or a percentage.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The offset is determined by the user agent. This will generally be 0px, but a user agent is able to detect and do something else if a non-zero value is more appropriate.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword auto or a computed &lt;length-percentage&gt; value</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | &lt;length-percentage [0,∞]&gt;</pre></section>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap">CSS scroll snap</a></li>
+  <li><a href="https://web.dev/css-scroll-snap/">Well-controlled scrolling with CSS scroll snap</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 69</li><li><strong>chrome_android</strong>: 69</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 68</li><li><strong>firefox_android</strong>: 68</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 6.0</li><li><strong>opera</strong>: 56</li><li><strong>opera_android</strong>: 48</li><li><strong>safari</strong>: 15</li><li><strong>safari_ios</strong>: 15</li><li><strong>samsunginternet_android</strong>: 10.0</li><li><strong>webview_android</strong>: 69</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-scroll-snap/#padding-longhands-logical">https://drafts.csswg.org/css-scroll-snap/#padding-longhands-logical</a></p></section></aside></body>
+</html>

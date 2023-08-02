@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>log()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types log()</h1><main>
+    
+
+<p>The <strong><code>log()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is an exponential function that returns the logarithm of a number.</p>
+<p><a href="https://en.wikipedia.org/wiki/Logarithm">Logarithm</a> is the inverse of exponentiation. It is the number that a fixed base has to be raised to in order to yield the number passed as the first parameter.</p>
+<p>In CSS, when a single parameter is passed, the natural logarithm <code>e</code>, or approximately <code>2.7182818</code>, is used, though the base can be set to any value with an optional second parameter.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* A &#x3C;number> value */
+width: calc(100px * log(7.389)); /* 200px */
+width: calc(100px * log(8, 2)); /* 300px */
+width: calc(100px * log(625, 5)); /* 400px */
+</pre>
+<h3>Parameters</h3>
+<p>The <code>log(value [, base]?)</code> function accepts two comma-separated values as its parameters.</p>
+<dl>
+  <dt><code>value</code></dt>
+  <dd>
+    <p>A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> greater than or equal to 0. Representing the value to be logarithmed.</p>
+  </dd>
+  <dt><code>base</code></dt>
+  <dd>
+    <p>Optional. A calculation which resolves to a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> greater than or equal to 0. Representing the base of the logarithm. If not defined, the default logarithmic base <code>e</code> is used.</p>
+  </dd>
+</dl>
+<h3>Return value</h3>
+<p>The logarithm of <code>value</code>, when <code>base</code> is defined.</p>
+<p>The natural logarithm (base <code>e</code>) of <code>value</code>, when <code>base</code> is not defined.</p>
+
+
+<h3>Sizes based on <code>log()</code> function</h3>
+<p>This example shows how you can use the <code>log()</code> function to calculate sizes.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="boxes">
+  &#x3C;div class="box zero">50px&#x3C;/div>
+  &#x3C;div class="box one">100px&#x3C;/div>
+  &#x3C;div class="box two">150px&#x3C;/div>
+  &#x3C;div class="box three">200px&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<p>Here we are using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> to define the sizes to be used. First, we declare the first size (<code>--size-0</code>), which is then used to calculate the other sizes.</p>
+<ul>
+  <li><code>--size-1</code> is calculated by multiplying <code>--size-0</code> (50px) by the value of <code>log(7.389)</code> (2) which results in 100px.</li>
+  <li><code>--size-2</code> is calculated by multiplying <code>--size-0</code> (50px) by the value of <code>log(8, 2)</code> (3) which results in 150px.</li>
+  <li><code>--size-3</code> is calculated by multiplying <code>--size-0</code> (50px) by the value of <code>log(625, 5)</code> (4) which results in 200px.</li>
+</ul>
+<pre class="brush: css">:root {
+  --size-0: 50px;
+  --size-1: calc(var(--size-0) * log(7.389)); /*  100px */
+  --size-2: calc(var(--size-0) * log(8, 2)); /*  150px */
+  --size-3: calc(var(--size-0) * log(625, 5)); /*  200px */
+}
+</pre>
+<pre class="brush: css hidden">.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  width: var(--size-0);
+  height: var(--size-0);
+  background-color: tomato;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</pre>
+<p>The sizes are then applied as the <code>width</code> and <code>height</code> values of the selectors.</p>
+<pre class="brush: css">.one {
+  width: var(--size-1);
+  height: var(--size-1);
+}
+.two {
+  width: var(--size-2);
+  height: var(--size-2);
+}
+.three {
+  width: var(--size-3);
+  height: var(--size-3);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.pow.html"><code>pow()</code></a></li>
+  <li><a href="./css.types.sqrt.html"><code>sqrt()</code></a></li>
+  <li><a href="./css.types.hypot.html"><code>hypot()</code></a></li>
+  <li><a href="./css.types.exp.html"><code>exp()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 112</li><li><strong>firefox_android</strong>: 112</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 15.4</li><li><strong>safari_ios</strong>: 15.4</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#exponent-funcs">https://drafts.csswg.org/css-values/#exponent-funcs</a></p></section></aside></body>
+</html>

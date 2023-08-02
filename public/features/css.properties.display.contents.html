@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;display-box&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties display &#x3C;display-box></h1><main>
+    
+
+<p>These keywords define whether an element generates display boxes at all.</p>
+<h2>Syntax</h2>
+<p>Valid <code>&#x3C;display-box></code> values:</p>
+<dl>
+  <dt><code>contents</code></dt>
+  <dd>
+    <p>These elements don't produce a specific box by themselves. They are replaced by their pseudo-box and their child boxes. Please note that the CSS Display Level 3 spec defines how the <code>contents</code> value should affect "unusual elements" — elements that aren't rendered purely by CSS box concepts such as replaced elements. See <a href="https://drafts.csswg.org/css-display/#unbox">Appendix B: Effects of display: contents on Unusual Elements</a> for more details.</p>
+    <p><em>Due to a bug in browsers this will currently remove the element from the accessibility tree — screen readers will not look at what's inside. See the <a href="#accessibility_concerns">Accessibility concerns</a> section below for more details.</em></p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>
+      Turns off the display of an element so that it has no effect on layout (the document is rendered as though the element did not exist). All descendant elements also have their display turned off.
+      To have an element take up the space that it would normally take, but without actually rendering anything, use the <a href="./css.properties.visibility.html"><code>&lt;visibility&gt;</code></a> property instead.
+    </p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Current implementations in most browsers will remove from the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis">accessibility tree</a> any element with a <code>display</code> value of <code>contents</code>. This will cause the element — and in some browser versions, its descendant elements — to no longer be announced by screen reading technology. This is incorrect behavior according to the <a href="https://drafts.csswg.org/css-display/#the-display-properties">CSSWG specification</a>.</p>
+<ul>
+  <li><a href="https://hidde.blog/more-accessible-markup-with-display-contents/">More accessible markup with display: contents | Hidde de Vries</a></li>
+  <li><a href="https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html">Display: Contents Is Not a CSS Reset | Adrian Roselli</a></li>
+</ul>
+
+<h2>Examples</h2>
+<p>In this first example, the paragraph with a class of secret is set to <code>display: none</code>; the box and any content is now not rendered.</p>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>Visible text&#x3C;/p>
+&#x3C;p class="secret">Invisible text&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p.secret {
+  display: none;
+}
+</pre>
+
+<h3>display: contents</h3>
+<p>In this example the outer <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> has a 2-pixel red border and a width of 300px. However it also has <code>display: contents</code> specified therefore this <code>&#x3C;div></code> will not be rendered, the border and width will no longer apply, and the child element will be displayed as if the parent had never existed.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="outer">
+  &#x3C;div>Inner div.&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.outer {
+  border: 2px solid red;
+  width: 300px;
+  display: contents;
+}
+
+.outer > div {
+  border: 1px solid green;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>&lt;display&gt;</code></a>
+    <ul>
+      <li><a href="./css.properties.display.display-outside.html"><code>&lt;display-outside&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside"><code>&lt;display-inside&gt;</code></a></li>
+      <li><a href="./css.properties.display.list-item.html"><code>&lt;display-listitem&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal"><code>&lt;display-internal&gt;</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-legacy"><code>&lt;display-legacy&gt;</code></a></li>
+    </ul>
+  </li>
+  <li><a href="https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html">Display: Contents Is Not a CSS Reset | Adrian Roselli</a></li>
+  <li><a href="https://hidde.blog/more-accessible-markup-with-display-contents/">More accessible markup with display: contents — hiddedevries.nl</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 65</li><li><strong>chrome_android</strong>: 65</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 37</li><li><strong>firefox_android</strong>: 37</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 52</li><li><strong>opera_android</strong>: 47</li><li><strong>safari</strong>: 11.1</li><li><strong>safari_ios</strong>: 11.3</li><li><strong>samsunginternet_android</strong>: 9.0</li><li><strong>webview_android</strong>: 65</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="null">null</a></p></section></aside></body>
+</html>

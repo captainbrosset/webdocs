@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>overflow-y</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties overflow-y</h1><main>
+    
+
+<p>The <strong><code>overflow-y</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets what shows when content overflows a block-level element's top and bottom edges. This may be nothing, a scroll bar, or the overflow content. This property may also be set by using the <a href="./css.properties.overflow.html"><code>overflow</code></a> shorthand property.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+overflow-y: visible;
+overflow-y: hidden;
+overflow-y: clip;
+overflow-y: scroll;
+overflow-y: auto;
+
+/* Global values */
+overflow-y: inherit;
+overflow-y: initial;
+overflow-y: revert;
+overflow-y: revert-layer;
+overflow-y: unset;
+</pre>
+<p>The <code>overflow-y</code> property is specified as a single <a href="./css.types.overflow.html"><code>&lt;overflow&gt;</code></a> keyword value.</p>
+<p>If <a href="./css.properties.overflow-x.html"><code>overflow-x</code></a> is <code>hidden</code>, <code>scroll</code>, or <code>auto</code> and the <code>overflow-y</code> property is <code>visible</code> (default), the value will be implicitly computed as <code>auto</code>.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>visible</code></dt>
+  <dd>
+    <p>Overflow content is not clipped and may be visible outside the element's padding box at the top and bottom edges. The element box is not a <a href="/Glossary/scroll_container">scroll container</a>.</p>
+  </dd>
+  <dt><code>hidden</code></dt>
+  <dd>
+    <p>Overflow content is clipped if necessary to fit vertically in the elements' padding box. No scroll bars are provided.</p>
+  </dd>
+  <dt><code>clip</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's <em>overflow clip edge</em> that is defined using the <a href="./css.properties.overflow-clip-margin.html"><code>overflow-clip-margin</code></a> property. As a result, content overflows the element's padding box by the <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value of <code>overflow-clip-margin</code> or by <code>0px</code> if not set. The difference between <code>clip</code> and <code>hidden</code> is that the <code>clip</code> keyword also forbids all scrolling, including programmatic scrolling. No new formatting context is created. To establish a formatting context, use <code>overflow: clip</code> along with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#flow-root"><code>display: flow-root</code></a>. The element box is not a scroll container.</p>
+  </dd>
+  <dt><code>scroll</code></dt>
+  <dd>
+    <p>Overflow content is clipped if necessary to fit vertically inside the element's padding box. Browsers display scroll bars in the vertical direction whether or not any content is actually clipped. (This prevents scroll bars from appearing or disappearing when the content changes.) Printers may still print overflowing content.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Overflow content is clipped at the element's padding box, and overflow content can be scrolled into view. Unlike <code>scroll</code>, user agents display scroll bars <em>only if</em> the content is overflowing, hiding scroll bars by default. If content fits inside the element's padding box, it looks the same as with <code>visible</code>, but still establishes a new block-formatting context.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> The keyword value <code>overlay</code> is a legacy value alias for <code>auto</code>. With <code>overlay</code>, the scroll bars are drawn on top of the content instead of taking up space.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>visible</td></tr><tr><th scope="row">Applies to</th><td>block containers [CSS2], flex containers [CSS3-FLEXBOX], grid containers [CSS3-GRID-LAYOUT]</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>usually specified value, but see text</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>visible | hidden | clip | scroll | auto</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>
+    &#x3C;code>overflow-y:hidden&#x3C;/code> — hides the text outside the box
+    &#x3C;div id="div1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-y:scroll&#x3C;/code> — always adds a scrollbar
+    &#x3C;div id="div2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-y:visible&#x3C;/code> — displays the text outside the box if
+    needed
+    &#x3C;div id="div3">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+
+  &#x3C;li>
+    &#x3C;code>overflow-y:auto&#x3C;/code> — equivalent to &#x3C;code>scroll&#x3C;/code>
+    on most browsers
+    &#x3C;div id="div4">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    &#x3C;/div>
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  border: 1px solid black;
+  width: 250px;
+  height: 100px;
+}
+
+#div1 {
+  overflow-y: hidden;
+  margin-bottom: 12px;
+}
+#div2 {
+  overflow-y: scroll;
+  margin-bottom: 12px;
+}
+#div3 {
+  overflow-y: visible;
+  margin-bottom: 120px;
+}
+#div4 {
+  overflow-y: auto;
+  margin-bottom: 120px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.clip.html"><code>clip</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a>, <a href="./css.properties.text-overflow.html"><code>text-overflow</code></a>, <a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content">CSS building blocks: Overflowing content</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#overflow-properties">https://drafts.csswg.org/css-overflow/#overflow-properties</a></p></section></aside></body>
+</html>

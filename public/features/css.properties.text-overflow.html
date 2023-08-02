@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-overflow</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-overflow</h1><main>
+    
+
+<p>The <strong><code>text-overflow</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets how hidden overflow content is signaled to users. It can be clipped, display an ellipsis ('<code>…</code>'), or display a custom string.</p>
+<p>The <code>text-overflow</code> property doesn't force an overflow to occur. To make text overflow its container, you have to set other CSS properties: <a href="./css.properties.overflow.html"><code>overflow</code></a> and <a href="./css.properties.white-space.html"><code>white-space</code></a>. For example:</p>
+<pre class="brush: css">overflow: hidden;
+white-space: nowrap;
+</pre>
+<p>The <code>text-overflow</code> property only affects content that is overflowing a block container element in its <em>inline</em> progression direction (not text overflowing at the bottom of a box, for example).</p>
+<h2>Syntax</h2>
+<pre class="brush: css">text-overflow: clip;
+text-overflow: ellipsis ellipsis;
+text-overflow: ellipsis " [..]";
+
+/* Global values */
+text-overflow: inherit;
+text-overflow: initial;
+text-overflow: revert;
+text-overflow: revert-layer;
+text-overflow: unset;
+</pre>
+<p>The <code>text-overflow</code> property may be specified using one or two values. If one value is given, it specifies overflow behavior for the end of the line (the right end for left-to-right text, the left end for right-to-left text). If two values are given, the first specifies overflow behavior for the left end of the line, and the second specifies it for the right end of the line.</p>
+<ul>
+  <li>one of the keyword values: <code>clip</code>, <code>ellipsis</code>, <code>fade</code></li>
+  <li>the function <code>fade()</code>, which is passed a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> to control the fade distance</li>
+  <li>a <code>&#x3C;string></code>.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>clip</code></dt>
+  <dd>
+    <p>The default for this property. This keyword value will truncate the text at the limit of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">content area</a>, therefore the truncation can happen in the middle of a character. To clip at the transition between characters you can specify <code>text-overflow</code> as an empty string, if that is supported in your target browsers: <code>text-overflow: '';</code>.</p>
+  </dd>
+  <dt><code>ellipsis</code></dt>
+  <dd>
+    <p>This keyword value will display an ellipsis (<code>'…'</code>, <code>U+2026 HORIZONTAL ELLIPSIS</code>) to represent clipped text. The ellipsis is displayed inside the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">content area</a>, decreasing the amount of text displayed. If there is not enough space to display the ellipsis, it is clipped.</p>
+  </dd>
+  <dt><code>&#x3C;string></code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The <a href="./css.types.string.html"><code>&lt;string&gt;</code></a> to be used to represent clipped text. The string is displayed inside the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">content area</a>, shortening the size of the displayed text. If there is not enough space to display the string itself, it is clipped.</p>
+  </dd>
+  <dt><code>fade</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>This keyword clips the overflowing inline content and applies a fade-out effect near the edge of the line box with complete transparency at the edge.</p>
+  </dd>
+  <dt><code>fade( &#x3C;length> | &#x3C;percentage> )</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>This function clips the overflowing inline content and applies a fade-out effect near the edge of the line box with complete transparency at the edge.</p>
+    <p>The argument determines the distance over which the fade effect is applied. The <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> is resolved against the width of the line box. Values lower than <code>0</code> are clipped to <code>0</code>. Values greater than the width of the line box are clipped to the width of the line box.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>clip</td></tr><tr><th scope="row">Applies to</th><td>block containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with lengths made absolute</td></tr><tr><th scope="row">Animation type</th><td>by computed value type</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ clip | ellipsis | &lt;string&gt; | fade | &lt;fade()&gt; ]{1,2}</pre></section>
+
+<h3>One-value syntax</h3>
+<p>This example shows different values for <code>text-overflow</code> applied to a paragraph, for left-to-right and right-to-left text.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="ltr">
+  &#x3C;h2>Left to right text&#x3C;/h2>
+  &#x3C;pre>clip&#x3C;/pre>
+  &#x3C;p class="overflow-clip">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+  &#x3C;pre>ellipsis&#x3C;/pre>
+  &#x3C;p class="overflow-ellipsis">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+  &#x3C;pre>" [..]"&#x3C;/pre>
+  &#x3C;p class="overflow-string">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div class="rtl">
+  &#x3C;h2>Right to left text&#x3C;/h2>
+  &#x3C;pre>clip&#x3C;/pre>
+  &#x3C;p class="overflow-clip">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+  &#x3C;pre>ellipsis&#x3C;/pre>
+  &#x3C;p class="overflow-ellipsis">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+  &#x3C;pre>" [..]"&#x3C;/pre>
+  &#x3C;p class="overflow-string">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  width: 200px;
+  border: 1px solid;
+  padding: 2px 5px;
+
+  /* Both of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflow-clip {
+  text-overflow: clip;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.overflow-string {
+  text-overflow: " [..]";
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ltr > p {
+  direction: ltr;
+}
+
+.rtl > p {
+  direction: rtl;
+}
+</pre>
+
+<h3>Two-value syntax</h3>
+<p>
+  This example shows the two-value syntax for <code>text-overflow</code>, where you can define different overflow behavior for the start and end of the text.
+  To show the effect we have to scroll the line so the start of the line is also hidden.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;pre>clip clip&#x3C;/pre>
+&#x3C;p class="overflow-clip-clip">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+&#x3C;/p>
+&#x3C;pre>clip ellipsis&#x3C;/pre>
+&#x3C;p class="overflow-clip-ellipsis">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+&#x3C;/p>
+&#x3C;pre>ellipsis ellipsis&#x3C;/pre>
+&#x3C;p class="overflow-ellipsis-ellipsis">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+&#x3C;/p>
+&#x3C;pre>ellipsis " [..]"&#x3C;/pre>
+&#x3C;p class="overflow-ellipsis-string">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  width: 200px;
+  border: 1px solid;
+  padding: 2px 5px;
+
+  /* Both of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+.overflow-clip-clip {
+  text-overflow: clip clip;
+}
+
+.overflow-clip-ellipsis {
+  text-overflow: clip ellipsis;
+}
+
+.overflow-ellipsis-ellipsis {
+  text-overflow: ellipsis ellipsis;
+}
+
+.overflow-ellipsis-string {
+  text-overflow: ellipsis " [..]";
+}
+</pre>
+<h4>JavaScript</h4>
+<pre class="brush: js">// Scroll each paragraph so the start is also hidden
+const paras = document.querySelectorAll("p");
+
+for (const para of paras) {
+  para.scroll(100, 0);
+}
+</pre>
+<h4>Result</h4>
+
+<p>A previous version of this interface reached the <em>Candidate Recommendation</em> status. As some not-listed-at-risk features needed to be removed, the spec was demoted to the <em>Working Draft</em> level, explaining why browsers implemented this property unprefixed, though not at the CR state.</p>
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.overflow.html"><code>overflow</code></a>, <a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+  <li>CSS properties that control line breaks in words: <a href="./css.properties.overflow-wrap.html"><code>overflow-wrap</code></a>, <a href="./css.properties.word-break.html"><code>word-break</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 7</li><li><strong>firefox_android</strong>: 7</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#text-overflow">https://drafts.csswg.org/css-overflow/#text-overflow</a></p></section></aside></body>
+</html>

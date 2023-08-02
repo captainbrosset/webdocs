@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font-family</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules font-face font-family</h1><main>
+    
+
+<p>The <strong><code>font-family</code></strong> CSS descriptor sets the font family for a font specified in an <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> at-rule.</p>
+<p>
+  The value is used for name matching against a particular <code>@font-face</code> when styling elements using the <a href="./css.properties.font-family.html"><code>font-family</code></a> property.
+  Any name may be used, and this overrides any name specified in the underlying font data.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;string> values */
+font-family: "font family";
+font-family: "another font family";
+
+/* &#x3C;custom-ident> value */
+font-family: examplefont;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;family-name></code></dt>
+  <dd>
+    <p>Specifies the name of the font family.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Setting the font family name</h3>
+<pre class="brush: css">@font-face {
+  font-family: "Some font family";
+  src: url("some_font_name.ttf");
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.font-face.font-display.html"><code>font-display</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.properties.font-feature-settings.html"><code>font-feature-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.font-variation-settings.html"><code>font-variation-settings</code></a></li>
+  <li><a href="./css.at-rules.font-face.src.html"><code>src</code></a></li>
+  <li><a href="./css.at-rules.font-face.unicode-range.html"><code>unicode-range</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 4</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 3.5</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 6</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2.2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-family-desc">https://drafts.csswg.org/css-fonts/#font-family-desc</a></p></section></aside></body>
+</html>

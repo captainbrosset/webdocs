@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;color&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;color></h1><main>
+    
+
+<p>
+  The <strong><code>&#x3C;color></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a color.
+  A <code>&#x3C;color></code> may also include an <a href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha-channel</a> <em>transparency value</em>, indicating how the color should <a href="https://www.w3.org/TR/compositing-1/#simplealphacompositing">composite</a> with its background.
+</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Although <code>&#x3C;color></code> values are precisely defined, their actual appearance may vary (sometimes significantly) from device to device. This is because most devices are not calibrated, and some browsers do not support output devices' <a href="https://en.wikipedia.org/wiki/ICC_profile">color profiles</a>.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Named colors */
+rebeccapurple
+aliceblue
+
+/* RGB Hexadecimal */
+#f09
+#ff0099
+
+/* RGB (Red, Green, Blue) */
+rgb(255 0 153)
+rgb(255 0 153 / 80%)
+
+/* HSL (Hue, Saturation, Lightness) */
+hsl(150 30% 60%)
+hsl(150 30% 60% / 0.8)
+
+/* HWB (Hue, Whiteness, Blackness) */
+hwb(12 50% 0%)
+hwb(194 0% 0% / 0.5)
+
+/* LAB (Lightness, A-axis, B-axis) */
+lab(50% 40 59.5)
+lab(50% 40 59.5 / 0.5)
+
+/* LCH (Lightness, Chroma, Hue) */
+lch(52.2% 72.2 50)
+lch(52.2% 72.2 50 / 0.5)
+
+/* Oklab (Lightness, A-axis, B-axis) */
+oklab(59% 0.1 0.1)
+oklab(59% 0.1 0.1 / 0.5)
+
+/* Oklch (Lightness, Chroma, Hue) */
+oklch(60% 0.15 50)
+oklch(60% 0.15 50 / 0.5)
+</pre>
+<p>A <code>&#x3C;color></code> value can be specified using one of the methods listed below:</p>
+<ul>
+  <li>By keywords: <a href="./css.types.color.named-color.html"><code>&lt;named-color&gt;</code></a> (such as <code>blue</code> or <code>pink</code>), <a href="./css.types.color.system-color.html"><code>&lt;system-color&gt;</code></a>, and <a href="#currentcolor_keyword"><code>currentcolor</code></a>.</li>
+  <li>By hexadecimal notations: <a href="./css.types.color.rgb_hexadecimal_notation.html"><code>&lt;hex-color&gt;</code></a> (such as <code>#ff0000</code>).</li>
+  <li>By parameters in a color space using functional notations:
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space: <a href="./css.types.color.hsl.html"><code>hsl()</code></a>, <a href="./css.types.color.hwb.html"><code>hwb()</code></a>, <a href="./css.types.color.rgb.html"><code>rgb()</code></a>;</li>
+      <li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">CIELAB</a> color space: <a href="./css.types.color.lab.html"><code>lab()</code></a>, <a href="./css.types.color.lch.html"><code>lch()</code></a>;</li>
+      <li><a href="https://bottosson.github.io/posts/oklab/">Oklab</a> color space: <a href="./css.types.color.oklab.html"><code>oklab()</code></a>, <a href="./css.types.color.oklch.html"><code>oklch()</code></a>;</li>
+      <li>Other color spaces: <a href="./css.types.color.color.html"><code>color()</code></a>.</li>
+    </ul>
+  </li>
+  <li>By mixing two colors: <a href="./css.types.color.color-mix.html"><code>color-mix()</code></a>.</li>
+</ul>
+<h3>currentcolor keyword</h3>
+<p>The <code>currentcolor</code> keyword represents the value of an element's <a href="./css.properties.color.html"><code>&lt;color&gt;</code></a> property. This lets you use the <code>color</code> value on properties that do not receive it by default.</p>
+<p>If <code>currentcolor</code> is used as the value of the <code>color</code> property, it instead takes its value from the inherited value of the <code>color</code> property.</p>
+<pre class="brush: html">&#x3C;div style="color: blue; border: 1px dashed currentcolor;">
+  The color of this text is blue.
+  &#x3C;div style="background: currentcolor; height:9px;">&#x3C;/div>
+  This block is surrounded by a blue border.
+&#x3C;/div>
+</pre>
+<h3>Missing color components</h3>
+<p>Each component of any CSS color functions - except for those using the legacy comma-separated syntax - can be specified as the keyword <code>none</code> to be a missing component.</p>
+<p>Explicitly specifying missing components is useful in <a href="#interpolation_with_missing_components">color interpolation</a> for cases where you would like to interpolate some color components but not others. For all other purposes, a missing component will effectively have a zero value in an appropriate unit: <code>0</code>, <code>0%</code>, or <code>0deg</code>. For example, the following colors are equivalent when used outside of interpolation:</p>
+<pre class="brush: css">/* These are equivalent */
+color: oklab(50% none -0.25);
+color: oklab(50% 0 -0.25);
+
+/* These are equivalent */
+background-color: hsl(none 100% 50%);
+background-color: hsl(0deg 100% 50%);
+</pre>
+<h2>Interpolation</h2>
+<p>Color interpolation happens with <a href="./css.types.image.gradient.html">gradients</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">transitions</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">animations</a>.</p>
+<p>When interpolating <code>&#x3C;color></code> values, they are first converted to a given color space, and then each component of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed values</a> are interpolated linearly, with interpolation's speed being determined by the <a href="./css.types.easing-function.html">easing function</a> in transitions and animations. The interpolation color space defaults to Oklab, but can be overridden through <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method"><code>&lt;color-interpolation-method&gt;</code></a> in some color-related functional notations.</p>
+
+<h4>Interpolating colors in the same space</h4>
+<p>
+  When interpolating colors that are exactly in the interpolation color space, missing components from one color are replaced with existing values of the same components from the other color.
+  For example, the following two expressions are equivalent:
+</p>
+<pre class="brush: css">color-mix(in oklch, oklch(none 0.2 10), oklch(60% none 30))
+color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> If a component is missing from both colors, this component will be missing after the interpolation.</p>
+</div>
+<h4>Interpolating colors from different spaces: analogous components</h4>
+<p>If any color to be interpolated is not in the interpolation color space, its missing components are transferred into the converted color based on <strong>analogous components</strong> of the same category as described in the following table:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Analogous components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reds</td>
+      <td><code>R</code>, <code>X</code></td>
+    </tr>
+    <tr>
+      <td>Greens</td>
+      <td><code>G</code>, <code>Y</code></td>
+    </tr>
+    <tr>
+      <td>Blues</td>
+      <td><code>B</code>, <code>Z</code></td>
+    </tr>
+    <tr>
+      <td>Lightness</td>
+      <td><code>L</code></td>
+    </tr>
+    <tr>
+      <td>Colorfulness</td>
+      <td><code>C</code>, <code>S</code></td>
+    </tr>
+    <tr>
+      <td>Hue</td>
+      <td><code>H</code></td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td><code>a</code></td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td><code>b</code></td>
+    </tr>
+  </tbody>
+</table>
+<p>For example:</p>
+<ul>
+  <li><code>X</code> (<code>0.2</code>) in <code>color(xyz 0.2 0.1 0.6)</code> is analogous to <code>R</code> (<code>50%</code>) in <code>rgb(50% 70% 30%)</code>.</li>
+  <li><code>H</code> (<code>0deg</code>) in <code>hsl(0deg 100% 80%)</code> is analogous to <code>H</code> (<code>140</code>) in <code>oklch(80% 0.1 140)</code>.</li>
+</ul>
+<p>Using Oklch as the interpolation color space and the two colors below as an example:</p>
+<pre class="brush: css">lch(80% 30 none)
+color(display-p3 0.7 0.5 none)
+</pre>
+<p>the preprocessing procedure is:</p>
+<ol>
+  <li>Replace the missing components in both colors with a zero value:
+    <pre class="brush: css">lch(80% 30 0)
+color(display-p3 0.7 0.5 0)
+</pre>
+  </li>
+  <li>Convert both colors into the interpolation color space:
+    <pre class="brush: css">oklch(83.915% 0.0902 0.28)
+oklch(63.612% 0.1522 78.748)
+</pre>
+  </li>
+  <li>If any component of the converted colors is analogous to a missing component in the corresponding original color, reset it as a missing component:
+    <pre class="brush: css">oklch(83.915% 0.0902 none)
+oklch(63.612% 0.1522 78.748)
+</pre>
+  </li>
+  <li>Replace any missing component with the same component from the other converted color:
+    <pre class="brush: css">oklch(83.915% 0.0902 78.748)
+oklch(63.612% 0.1522 78.748)
+</pre>
+  </li>
+</ol>
+<h2>Accessibility considerations</h2>
+<p>Some people have difficulty distinguishing colors. The <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color">WCAG 2.2</a> recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">color and color contrast</a> for more information.</p>
+
+
+<h3>Color value tester</h3>
+<p>In this example we provide a <code>&#x3C;div></code> and a text input. Entering a valid color into the input causes the <code>&#x3C;div></code> to adopt that color, allowing you to test our color values.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;hr />
+&#x3C;label for="color">Enter a valid color value:&#x3C;/label>
+&#x3C;input type="text" id="color" />
+</pre>
+<pre class="brush: css hidden">div {
+  height: 200px;
+  width: 200px;
+}
+</pre>
+<pre class="brush: js hidden">const inputElem = document.querySelector("input");
+const divElem = document.querySelector("div");
+
+function validTextColor(stringToTest) {
+  if (stringToTest === "inherit" || stringToTest === "transparent") {
+    return false;
+  }
+
+  const div = document.createElement("div");
+  div.style.color = stringToTest;
+  return !!div.style.color;
+}
+
+inputElem.addEventListener("input", () => {
+  if (validTextColor(inputElem.value)) {
+    divElem.style.backgroundColor = inputElem.value;
+    divElem.textContent = "";
+  } else {
+    divElem.removeAttribute("style");
+    divElem.textContent = "Invalid color value";
+  }
+});
+</pre>
+
+<h3>Fully saturated sRGB colors</h3>
+<p>This example shows fully saturated sRGB colors in the sRGB color space.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  flex-wrap: wrap;
+}
+div {
+  height: 80px;
+  margin: 10px;
+  width: 80px;
+}
+</pre>
+<pre class="brush: css">div:nth-child(1) {
+  background-color: hsl(0 100% 50%);
+}
+div:nth-child(2) {
+  background-color: hsl(30 100% 50%);
+}
+div:nth-child(3) {
+  background-color: hsl(60 100% 50%);
+}
+div:nth-child(4) {
+  background-color: hsl(90 100% 50%);
+}
+div:nth-child(5) {
+  background-color: hsl(120 100% 50%);
+}
+div:nth-child(6) {
+  background-color: hsl(150 100% 50%);
+}
+div:nth-child(7) {
+  background-color: hsl(180 100% 50%);
+}
+div:nth-child(8) {
+  background-color: hsl(210 100% 50%);
+}
+div:nth-child(9) {
+  background-color: hsl(240 100% 50%);
+}
+div:nth-child(10) {
+  background-color: hsl(270 100% 50%);
+}
+div:nth-child(11) {
+  background-color: hsl(300 100% 50%);
+}
+div:nth-child(12) {
+  background-color: hsl(330 100% 50%);
+}
+</pre>
+
+<h3>Reds of different shades</h3>
+<p>This example shows reds of different shades in the sRGB color space.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  flex-wrap: wrap;
+}
+div {
+  box-sizing: border-box;
+  height: 80px;
+  margin: 10px;
+  width: 80px;
+}
+</pre>
+<pre class="brush: css">div:nth-child(1) {
+  background-color: hsl(0 100% 0%);
+}
+div:nth-child(2) {
+  background-color: hsl(0 100% 20%);
+}
+div:nth-child(3) {
+  background-color: hsl(0 100% 40%);
+}
+div:nth-child(4) {
+  background-color: hsl(0 100% 60%);
+}
+div:nth-child(5) {
+  background-color: hsl(0 100% 80%);
+}
+div:nth-child(6) {
+  background-color: hsl(0 100% 100%);
+  border: solid;
+}
+</pre>
+
+<h3>Reds of different saturations</h3>
+<p>This example shows reds of different saturations in the sRGB color space.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">body {
+  display: flex;
+  flex-wrap: wrap;
+}
+div {
+  height: 80px;
+  margin: 10px;
+  width: 80px;
+}
+</pre>
+<pre class="brush: css">div:nth-child(1) {
+  background-color: hsl(0 0% 50%);
+}
+div:nth-child(2) {
+  background-color: hsl(0 20% 50%);
+}
+div:nth-child(3) {
+  background-color: hsl(0 40% 50%);
+}
+div:nth-child(4) {
+  background-color: hsl(0 60% 50%);
+}
+div:nth-child(5) {
+  background-color: hsl(0 80% 50%);
+}
+div:nth-child(6) {
+  background-color: hsl(0 100% 50%);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.opacity.html"><code>&lt;opacity&gt;</code></a>: the property defining transparency at the element level</li>
+  <li><a href="./css.types.hue.html"><code>&lt;hue&gt;</code></a>: the data type representing the hue angle of a color</li>
+  <li><a href="./css.properties.color.html"><code>&lt;color&gt;</code></a>, <a href="./css.properties.background-color.html"><code>&lt;background-color&gt;</code></a>, <a href="./css.properties.border-color.html"><code>&lt;border-color&gt;</code></a>, <a href="./css.properties.box-shadow.html"><code>&lt;box-shadow&gt;</code></a>, <a href="./css.properties.outline-color.html"><code>&lt;outline-color&gt;</code></a>, <a href="./css.properties.text-shadow.html"><code>&lt;text-shadow&gt;</code></a>: common properties that use <code>&#x3C;color></code></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color">Applying color to HTML elements using CSS</a></li>
+  <li><a href="/en-US/blog/css-color-module-level-4/">New functions, gradients, and hues in CSS colors (Level 4)</a> on MDN blog (2023)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#color-syntax">https://drafts.csswg.org/css-color/#color-syntax</a></p></section></aside></body>
+</html>

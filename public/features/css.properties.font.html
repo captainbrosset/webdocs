@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>font</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties font</h1><main>
+    
+
+<p>The <strong><code>font</code></strong> CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> sets all the different properties of an element's font. Alternatively, it sets an element's font to a system font.</p>
+<p>As with any shorthand property, any individual value that is not specified is set to its corresponding initial value (possibly overriding values previously set using non-shorthand properties). Though not directly settable by <code>font</code>, the longhands <a href="./css.properties.font-size-adjust.html"><code>font-size-adjust</code></a> and <a href="./css.properties.font-kerning.html"><code>font-kerning</code></a> are also reset to their initial values.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.font-family.html"><code>font-family</code></a></li>
+  <li><a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+  <li><a href="./css.properties.font-stretch.html"><code>font-stretch</code></a></li>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.properties.font-variant.html"><code>font-variant</code></a></li>
+  <li><a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="./css.properties.line-height.html"><code>line-height</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<p>The <code>font</code> property may be specified as either a single keyword, which will select a system font, or as a shorthand for various font-related properties.</p>
+<p>If <code>font</code> is specified as a system keyword, it must be one of: <code>caption</code>, <code>icon</code>, <code>menu</code>, <code>message-box</code>, <code>small-caption</code>, <code>status-bar</code>.</p>
+<p>If <code>font</code> is specified as a shorthand for several font-related properties, then:</p>
+<ul>
+  <li>it must include values for:
+    <ul>
+      <li><a href="./css.properties.font-size.html"><code>&lt;font-size&gt;</code></a></li>
+      <li><a href="./css.properties.font-family.html"><code>&lt;font-family&gt;</code></a></li>
+    </ul>
+  </li>
+  <li>it may optionally include values for:
+    <ul>
+      <li><a href="./css.properties.font-style.html"><code>&lt;font-style&gt;</code></a></li>
+      <li><a href="./css.properties.font-variant.html"><code>&lt;font-variant&gt;</code></a></li>
+      <li><a href="./css.properties.font-weight.html"><code>&lt;font-weight&gt;</code></a></li>
+      <li><a href="./css.properties.font-stretch.html"><code>&lt;font-stretch&gt;</code></a></li>
+      <li><a href="./css.properties.line-height.html"><code>&lt;line-height&gt;</code></a></li>
+    </ul>
+  </li>
+  <li><code>font-style</code>, <code>font-variant</code> and <code>font-weight</code> must precede <code>font-size</code></li>
+  <li><code>font-variant</code> may only specify the values defined in CSS 2.1, that is <code>normal</code> and <code>small-caps</code></li>
+  <li><code>font-stretch</code> may only be a single keyword value.</li>
+  <li><code>line-height</code> must immediately follow <code>font-size</code>, preceded by "/", like this: "<code>16px/3</code>"</li>
+  <li><code>font-family</code> must be the last value specified.</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;'font-style'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-style.html"><code>font-style</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'font-variant'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-variant.html"><code>font-variant</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'font-weight'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-weight.html"><code>font-weight</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'font-stretch'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-stretch.html"><code>font-stretch</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'font-size'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-size.html"><code>font-size</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'line-height'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.line-height.html"><code>line-height</code></a> CSS property.</p>
+  </dd>
+  <dt><code>&#x3C;'font-family'></code></dt>
+  <dd>
+    <p>See the <a href="./css.properties.font-family.html"><code>font-family</code></a> CSS property.</p>
+  </dd>
+</dl>
+<h4>System font values</h4>
+<dl>
+  <dt><code>caption</code></dt>
+  <dd>
+    <p>The system font used for captioned controls (e.g., buttons, drop-downs, etc.).</p>
+  </dd>
+  <dt><code>icon</code></dt>
+  <dd>
+    <p>The system font used to label icons.</p>
+  </dd>
+  <dt><code>menu</code></dt>
+  <dd>
+    <p>The system font used in menus (e.g., dropdown menus and menu lists).</p>
+  </dd>
+  <dt><code>message-box</code></dt>
+  <dd>
+    <p>The system font used in dialog boxes.</p>
+  </dd>
+  <dt><code>small-caption</code></dt>
+  <dd>
+    <p>The system font used for labeling small controls.</p>
+  </dd>
+  <dt><code>status-bar</code></dt>
+  <dd>
+    <p>The system font used in window status bars.</p>
+  </dd>
+  <dt>Prefixed system font keywords</dt>
+  <dd>
+    <p>Browsers often implement several more, prefixed, keywords: Gecko implements <code>-moz-window</code>, <code>-moz-document</code>, <code>-moz-desktop</code>, <code>-moz-info</code>, <code>-moz-dialog</code>, <code>-moz-button</code>, <code>-moz-pull-down-menu</code>, <code>-moz-list</code>, and <code>-moz-field</code>.</p>
+  </dd>
+</dl>
+
+
+
+<h3>Setting font properties</h3>
+<pre class="brush: css">/* Set the font size to 12px and the line height to 14px.
+   Set the font family to sans-serif */
+p {
+  font: 12px/14px sans-serif;
+}
+
+/* Set the font size to 80% of the parent element
+   or default value (if no parent element present).
+   Set the font family to sans-serif */
+p {
+  font: 80% sans-serif;
+}
+
+/* Set the font weight to bold,
+   the font-style to italic,
+   the font size to large,
+   and the font family to serif. */
+p {
+  font: bold italic large serif;
+}
+
+/* Use the same font as the status bar of the window */
+p {
+  font: status-bar;
+}
+</pre>
+<h3>Live sample</h3>
+<pre class="brush: html hidden">&#x3C;p>
+  Change the radio buttons below to see the generated shorthand and its effect.
+&#x3C;/p>
+&#x3C;form action="createShortHand()">
+  &#x3C;div class="cf">
+    &#x3C;div class="setPropCont">
+      font-style&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-style-none"
+        name="font_style"
+        checked=""
+        value=""
+        onchange="setCss()" />
+      &#x3C;label for="font-style-none">none&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-style-normal"
+        name="font_style"
+        value="normal"
+        onchange="setCss()" />
+      &#x3C;label for="font-style-normal">normal&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-style-italic"
+        name="font_style"
+        value="italic"
+        onchange="setCss()" />
+      &#x3C;label for="font-style-italic">italic&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-style-oblique"
+        name="font_style"
+        value="oblique"
+        onchange="setCss()" />
+      &#x3C;label for="font-style-oblique">oblique&#x3C;/label>
+    &#x3C;/div>
+
+    &#x3C;div class="setPropCont">
+      font-variant&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-variant-none"
+        name="font_variant"
+        checked=""
+        value=" "
+        onchange="setCss()" />
+      &#x3C;label for="font-variant-none">none&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-variant-normal"
+        name="font_variant"
+        value="normal"
+        onchange="setCss()" />
+      &#x3C;label for="font-variant-normal">normal&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-variant-small-caps"
+        name="font_variant"
+        value="small-caps"
+        onchange="setCss()" />
+      &#x3C;label for="font-variant-small-caps">small-caps&#x3C;/label>
+    &#x3C;/div>
+
+    &#x3C;div class="setPropCont">
+      font-weight&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-weight-none"
+        name="font_weight"
+        value=""
+        onchange="setCss()" />
+      &#x3C;label for="font-weight-none">none&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-weight-normal"
+        checked=""
+        name="font_weight"
+        value="400"
+        onchange="setCss()" />
+      &#x3C;label for="font-weight-normal">normal&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-weight-bold"
+        name="font_weight"
+        value="700"
+        onchange="setCss()" />
+      &#x3C;label for="font-weight-bold">bold&#x3C;/label>
+    &#x3C;/div>
+
+    &#x3C;div class="setPropCont">
+      font-size&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-size-12px"
+        name="font_size"
+        value="12px"
+        onchange="setCss()" />
+      &#x3C;label for="font-size-12px">12px&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-size-16px"
+        name="font_size"
+        value="16px"
+        checked=""
+        onchange="setCss()" />
+      &#x3C;label for="font-size-16px">16px&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-size-24px"
+        name="font_size"
+        value="24px"
+        onchange="setCss()" />
+      &#x3C;label for="font-size-24px">24px&#x3C;/label>
+    &#x3C;/div>
+
+    &#x3C;div class="setPropCont">
+      line-height&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="line-height-none"
+        name="line_height"
+        checked=""
+        value=""
+        onchange="setCss()" />
+      &#x3C;label for="line-height-none">none&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="line-height-1.2"
+        name="line_height"
+        value="/1.2"
+        onchange="setCss()" />
+      &#x3C;label for="line-height-1.2">1.2&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="line-height-3"
+        name="line_height"
+        value="/3"
+        onchange="setCss()" />
+      &#x3C;label for="line-height-3">3&#x3C;/label>
+    &#x3C;/div>
+    &#x3C;br />
+
+    &#x3C;div class="setPropCont fontfamily">
+      font-family&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-courier"
+        name="font_family"
+        checked=""
+        value="courier"
+        onchange="setCss(5,'courier')" />
+      &#x3C;label for="font-family-courier">courier&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-serif"
+        name="font_family"
+        value="serif"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-serif">serif&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-sans-serif"
+        name="font_family"
+        value="sans-serif"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-sans-serif">sans-serif&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-arial"
+        name="font_family"
+        value="arial"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-arial">Arial&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-monospace"
+        name="font_family"
+        value="monospace"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-monospace">monospace&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-cursive"
+        name="font_family"
+        value="cursive"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-cursive">cursive&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-fantasy"
+        name="font_family"
+        value="fantasy"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-fantasy">fantasy&#x3C;/label>&#x3C;br />
+      &#x3C;input
+        type="radio"
+        id="font-family-system-ui"
+        name="font_family"
+        value="system-ui"
+        onchange="setCss()" />
+      &#x3C;label for="font-family-system-ui">system-ui&#x3C;/label>&#x3C;br />
+    &#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;div class="cf propInputs">
+    &#x3C;div class="propInputCont tar">font :&#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss" id="input_font_style" />&#x3C;br />
+      font-style &#x3C;br />
+      optional
+    &#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss" id="input_font_variant" /> &#x3C;br />
+      font-variant &#x3C;br />
+      optional
+    &#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss" id="input_font_weight" /> &#x3C;br />
+      font-weight &#x3C;br />
+      optional
+    &#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss mandatory" id="input_font_size" /> &#x3C;br />
+      font-size &#x3C;br />
+      mandatory
+    &#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss" id="input_line_height" /> &#x3C;br />
+      line-height &#x3C;br />
+      optional
+    &#x3C;/div>
+    &#x3C;div class="propInputCont">
+      &#x3C;input type="text" class="curCss mandatory" id="input_font_family" />
+      &#x3C;br />
+      font-family &#x3C;br />
+      mandatory
+    &#x3C;/div>
+  &#x3C;/div>
+&#x3C;/form>
+
+&#x3C;div class="fontShortHand">This is some sample text.&#x3C;/div>
+&#x3C;br />&#x3C;br />&#x3C;br />&#x3C;br />&#x3C;br />&#x3C;br />
+</pre>
+<pre class="brush: css hidden">body,
+input {
+  font: 14px arial;
+  overflow: hidden;
+}
+
+.propInputCont {
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+  width: 80px;
+}
+
+.setPropCont {
+  float: left;
+  margin-right: 5px;
+  width: 120px;
+}
+
+.propInputs,
+.setPropCont {
+  margin-bottom: 1em;
+}
+
+.curCss {
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+  width: 80px;
+}
+
+.mandatory {
+  border-bottom-color: red;
+}
+
+.cf::before,
+.cf::after {
+  content: " ";
+  display: table;
+}
+
+.cf::after {
+  clear: both;
+}
+
+.tar {
+  width: 40px;
+  text-align: right;
+}
+.fontfamily {
+  display: inline-block;
+}
+</pre>
+<pre class="brush: js hidden">const textAreas = document.getElementsByClassName("curCss");
+
+function getProperties() {
+  return (
+    `${getCheckedValue("font_style")} ` +
+    `${getCheckedValue("font_variant")} ` +
+    `${getCheckedValue("font_weight")} ` +
+    `${getCheckedValue("font_size")}` +
+    `${getCheckedValue("line_height")} ` +
+    `${getCheckedValue("font_family")}`
+  );
+}
+
+function getCheckedValue(radioName) {
+  const radios = document.forms[0].elements[radioName];
+  for (let i = 0; i &#x3C; radios.length; i++) {
+    if (radios[i].checked) {
+      const curElemName = `input_${radioName}`;
+      const curElem = document.getElementById(curElemName);
+      curElem.value = radios[i].value;
+
+      return radios[i].value;
+    }
+  }
+}
+
+function setCss() {
+  injectCss(getProperties());
+}
+
+function injectCss(cssFragment) {
+  const old = document.body.getElementsByTagName("style");
+  if (old.length > 1) {
+    old[1].parentElement.removeChild(old[1]);
+  }
+  css = document.createElement("style");
+  css.textContent = `.fontShortHand{font: ${cssFragment}}`;
+  document.body.appendChild(css);
+}
+
+setCss();
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.font-style.html"><code>font-style</code></a></li>
+  <li><a href="./css.properties.font-weight.html"><code>font-weight</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals">Fundamental text and font styling</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 3</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-fonts/#font-prop">https://drafts.csswg.org/css-fonts/#font-prop</a></p></section></aside></body>
+</html>

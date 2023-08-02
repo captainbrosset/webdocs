@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"@import"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules "@import"</h1><main>
+    
+
+<p>
+  The <strong><code>@import</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a> is used to import style rules from other valid stylesheets.
+  An <code>@import</code> rule <em>must</em> be defined at the top of the stylesheet, before any other at-rule (except <a href="./css.at-rules.charset.html">@charset</a> and <a href="./css.at-rules.layer.html">@layer</a>) and style declarations, or it will be ignored.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">@import url;
+@import url layer;
+@import url layer(layer-name);
+@import url layer(layer-name) supports(supports-condition);
+@import url layer(layer-name) supports(supports-condition) list-of-media-queries;
+@import url layer(layer-name) list-of-media-queries;
+@import url supports(supports-condition);
+@import url supports(supports-condition) list-of-media-queries;
+@import url list-of-media-queries;
+</pre>
+<p>where:</p>
+<dl>
+  <dt><em>url</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.string.html"><code>&lt;string&gt;</code></a>, a <code>&#x3C;url></code>, or a <a href="./css.types.url.html"><code>url</code></a> function representing the location of the resource to import. The URL may be absolute or relative.</p>
+  </dd>
+  <dt><em>list-of-media-queries</em></dt>
+  <dd>
+    <p>Is a comma-separated list of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media queries</a>, which specify the media-dependent conditions for applying the CSS rules defined in the linked URL. If the browser does not support any of these queries, it does not load the linked resource.</p>
+  </dd>
+  <dt><em>layer-name</em></dt>
+  <dd>
+    <p>Is the name of a <a href="./css.at-rules.layer.html">cascade layer</a> into which the contents of the linked resource are imported.</p>
+  </dd>
+  <dt><em>supports-condition</em> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>
+      Indicates the feature(s) that the browser must support in order for the stylesheet to be imported.
+      If the browser does not conform to the conditions specified in the <em>supports-condition</em>, it may not fetch the linked stylesheet, and even if downloaded through some other path, will not load it.
+      The syntax of <code>supports()</code> is almost identical to that described in <a href="./css.at-rules.supports.html"><code>@supports</code></a>, and that topic can be used as a more complete reference.
+    </p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>Imported rules must come before all other types of rules, except <a href="./css.at-rules.charset.html"><code>@charset</code></a> rules and layer creating <a href="./css.at-rules.layer.html"><code>@layer</code></a> statements.</p>
+<pre class="brush: css example-bad">* {
+  margin: 0;
+  padding: 0;
+}
+/* more styles */
+@import url("my-imported-styles.css");
+</pre>
+<p>As the <code>@import</code> at-rule is declared after the styles it is invalid and hence ignored.</p>
+<pre class="brush: css example-good">@import url("my-imported-styles.css");
+* {
+  margin: 0;
+  padding: 0;
+}
+/* more styles */
+</pre>
+<p>The <code>@import</code> rule is not a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax#nested_statements">nested statement</a>. Therefore, it cannot be used inside <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule#conditional_group_rules">conditional group at-rules</a>.</p>
+<p>So that <a href="/Glossary/user_agent">user agents</a> can avoid retrieving resources for unsupported media types, authors may specify media-dependent import conditions. These conditional imports specify comma-separated <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media queries</a> after the URL. In the absence of any media query, the import is not conditional on the media used. Specifying <code>all</code> for the <code>list-of-media-queries</code> has the same effect.</p>
+<p>
+  Similarly, user agents can use the <code>supports()</code> function in an <code>@import</code> at-rule to only fetch resources if a particular feature set is (or is not) supported.
+  This allows authors to take advantage of recently introduced CSS features, while providing graceful fallbacks for older browser versions.
+  Note that the conditions in the <code>supports()</code> function of an <code>@import</code> at-rule can be obtained in JavaScript using <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSImportRule/supportsText"><code>CSSImportRule.supportsText</code></a>.
+</p>
+<p>The <code>@import</code> rule can also be used to create a <a href="./css.at-rules.layer.html">cascade layer</a> by importing rules from a linked resource. Rules can also be imported into an existing cascade layer. The <code>layer</code> keyword or the <code>layer()</code> function is used with <code>@import</code> for this purpose. Declarations in style rules from imported stylesheets interact with the cascade as if they were written literally into the stylesheet at the point of the import.</p>
+
+
+<h3>Importing CSS rules</h3>
+<pre class="brush: css">@import "custom.css";
+@import url("chrome://communicator/skin/");
+</pre>
+<p>The two examples above show how to specify the <em>url</em> as a <code>&#x3C;string></code> and as a <code>url()</code> function.</p>
+<h3>Importing CSS rules conditional on media queries</h3>
+<pre class="brush: css">@import url("fineprint.css") print;
+@import url("bluish.css") print, screen;
+@import "common.css" screen;
+@import url("landscape.css") screen and (orientation: landscape);
+</pre>
+<p>The <code>@import</code> rules in the above examples show media-dependent conditions that will need to be true before the linked CSS rules are applied. So for instance, the last <code>@import</code> rule will load the <code>landscape.css</code> stylesheet only on a screen device in landscape orientation.</p>
+<h3>Importing CSS rules conditional on feature support</h3>
+<pre class="brush: css">@import url("gridy.css") supports(display: grid) screen and (max-width: 400px);
+@import url("flexy.css") supports(not (display: grid) and (display: flex)) screen
+  and (max-width: 400px);
+</pre>
+<p>
+  The <code>@import</code> rules above illustrate how you might import a layout that uses a grid if <code>display: grid</code> is supported, and otherwise imports CSS that uses <code>display: flex</code>.
+  While you can only have one <code>supports()</code> statement, you can combine any number of feature checks with <code>not</code>, <code>and</code>, and <code>or</code>, as long as you wrap each condition to be tested in parentheses.
+  You can also use parentheses to indicate precedence.
+  Note that if you just have a single declaration then you don't need to wrap it in additional brackets: this is shown in the first example above.
+</p>
+<p>
+  The examples above show support conditions using simple declaration syntax.
+  You can also specify CSS functions in <code>supports()</code>, and it will evaluate to <code>true</code> if they are supported and can be evaluated on the user-agent.
+  For example, the code below shows an <code>@import</code> that is conditional on both <a href="./css.selectors.child.html">child combinators</a> (<code>selector()</code>) and the <code>font-tech()</code> function:
+</p>
+<pre class="brush: css">@import url("whatever.css") supports((selector(h2 > p)) and
+    (font-tech(color-COLRv1)));
+</pre>
+<h3>Importing CSS rules into a cascade layer</h3>
+<pre class="brush: css">@import "theme.css" layer(utilities);
+</pre>
+<p>In the above example, a cascade layer named <code>utilities</code> is created and it will include rules from the imported stylesheet <code>theme</code>.</p>
+<pre class="brush: css">@import url(headings.css) layer(default);
+@import url(links.css) layer(default);
+
+@layer default {
+  audio[controls] {
+    display: block;
+  }
+}
+</pre>
+<p>In the above example, the rules in <code>headings.css</code> and <code>links.css</code> stylesheets cascade within the same layer as the <code>audio[controls]</code> rule.</p>
+<pre class="brush: css">@import "theme.css" layer();
+@import "style.css" layer;
+</pre>
+<p>This is an example of creating two separate unnamed cascade layers and importing the linked rules into each one separately. A cascade layer declared without a name is an unnamed cascade layer. Unnamed cascade layers are finalized when created: they do not provide any means for re-arranging or adding styles and they cannot be referenced from outside.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.html"><code>@media</code></a></li>
+  <li><a href="./css.at-rules.supports.html"><code>@supports</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 5.5</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade-5/#at-import">https://drafts.csswg.org/css-cascade-5/#at-import</a></p></section></aside></body>
+</html>

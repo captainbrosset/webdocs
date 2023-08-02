@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-transform-2d"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media "-webkit-transform-2d"</h1><main>
+    
+ 
+<div class="notecard note">
+  <p><strong>Note:</strong> All browsers support the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#browser_compatibility"><code>transform</code></a> property without vendor prefixes. Only WebKit (Safari), and not Chromium, based browsers supports the <code>-webkit-transform-2d</code> media feature. No browsers support <code>transform</code>, without the prefix or <code>2d</code> extension, as a media query. Use the <a href="./css.at-rules.supports.html"><code>@supports (transform)</code></a> feature query instead.</p>
+</div>
+<p>The <strong><code>-webkit-transform-2d</code></strong> Boolean <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">WebKit extension</a> whose value is <code>true</code> if vendor-prefixed CSS 2D <a href="./css.properties.transform.html"><code>transform</code></a>s and non-standard vendor-prefixed media queries are supported.</p>
+<p>Apple has <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/OtherStandardCSS3Features.html#//apple_ref/doc/uid/TP40007601-SW3">a description in Safari CSS Reference</a>.</p>
+<h2>Syntax</h2>
+<p><code>-webkit-transform-2d</code> is a Boolean <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> whose value is <code>true</code> if the browser supports <code>-webkit</code> prefixed CSS 2D <a href="./css.properties.transform.html"><code>transform</code></a>s.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>true</code></dt>
+  <dd>
+    <p>The browser supports the 2D CSS transforms with the <code>-webkit</code> prefix.</p>
+  </dd>
+  <dt><code>false</code></dt>
+  <dd>
+    <p>The 2D CSS transforms prefixed with <code>-webkit</code> are not supported by the browser.</p>
+  </dd>
+</dl>
+
+<h3>Basic example</h3>
+<pre class="brush: css">@media (-webkit-transform-2d) {
+  div {
+    -webkit-transform: translate(100px, 100px);
+  }
+}
+</pre>
+<p>This media feature is only supported by WebKit. The unprefixed <a href="./css.properties.transform.html"><code>transform</code></a> property is supported in all modern browsers. If possible, use an <a href="./css.at-rules.supports.html"><code>@supports</code></a> feature query instead:</p>
+<pre class="brush: css">@supports (-webkit-transform: translate(100px, 100px)) {
+  div {
+    -webkit-transform: translate(100px, 100px);
+  }
+}
+</pre>
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.media.-webkit-transform-3d.html"><code>-webkit-transform-3d</code></a></li>
+  <li><a href="./css.at-rules.media.-webkit-transition.html"><code>-webkit-transition</code></a></li>
+  <li><a href="./css.at-rules.media.-webkit-animation.html"><code>-webkit-animation</code></a></li>
+  <li><a href="https://www.quirksmode.org/css/tests/mediaqueries/animation.html">Test page at quirksmode.org</a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">using CSS transforms</a></li>
+  <li><a href="./css.at-rules.media.html"><code>@media</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using media queries</a></li>
+  <li><a href="./css.at-rules.supports.html"><code>@supports</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries">using feature queries</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section></aside></body>
+</html>

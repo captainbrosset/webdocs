@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;basic-shape&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;basic-shape></h1><main>
+    
+
+<p>The <strong><code>&#x3C;basic-shape></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a shape used in the <a href="./css.properties.clip-path.html"><code>&lt;clip-path&gt;</code></a>, <a href="./css.properties.shape-outside.html"><code>&lt;shape-outside&gt;</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>&lt;offset-path&gt;</code></a> properties.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;basic-shape></code> data type is defined with one of the basic shape functions listed below.</p>
+<p>When creating a shape, the reference box is defined by each property that uses <code>&#x3C;basic-shape></code> values. The coordinate system for the shape has its origin at the top-left corner of the reference box, with the x-axis running to the right and the y-axis running downwards. All the lengths expressed in percentages are resolved from the used dimensions of the reference box.</p>
+<p>The default reference box is the <code>margin-box</code>, as demonstrated in the below image which shows a circle created using <code>shape-outside: circle(50%)</code>. The shape is being defined with reference to the margin box.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/basic-shape/shapes-reference-box.png" alt="An image showing a circle inspected with the Firefox DevTools Shape Inspector. The different parts of the box model are highlighted.">
+</p>
+<h3>Shape functions</h3>
+<p>The following shapes are supported. All <code>&#x3C;basic-shape></code> values use functional notation and are defined here using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax">value definition syntax</a>.</p>
+<dl>
+  <dt><code><a href="./css.types.basic-shape.inset.html"><code>inset()</code></a></code></dt>
+  <dd>
+    <p>Defines an inset rectangle.</p>
+    <pre class="brush: css">inset( &#x3C;shape-arg>{1,4} [round &#x3C;border-radius>]? )
+</pre>
+    <p>When all of the first four arguments are supplied they represent the top, right, bottom and left offsets from the reference box inward that define the positions of the edges of the inset rectangle. These arguments follow the syntax of the margin shorthand, that let you set all four insets with one, two or four values.</p>
+    <p>The optional <a href="./css.properties.border-radius.html"><code>&#x3C;border-radius></code></a> argument(s) define rounded corners for the inset rectangle using the border-radius shorthand syntax.</p>
+    <p>A pair of insets in either dimension that add up to more than the used dimension (such as left and right insets of 75% apiece) define a shape enclosing no area. For this specification, this results in an empty float area.</p>
+  </dd>
+  <dt><code><a href="./css.types.basic-shape.circle.html"><code>circle()</code></a></code></dt>
+  <dd>
+    <p>Defines a circle using a radius and a position.</p>
+    <pre class="brush: css">circle( [&#x3C;shape-radius>]? [at &#x3C;position>]? )
+</pre>
+    <p>The <code>&#x3C;shape-radius></code> argument represents <em>r</em>, the radius of the circle. Negative values are invalid. A percentage value here is resolved from the used width and height of the reference box as <code>sqrt(width^2+height^2)/sqrt(2)</code>.</p>
+    <p>The <a href="./css.types.position.html"><code>&lt;position&gt;</code></a> argument defines the center of the circle. This defaults to center if omitted.</p>
+  </dd>
+  <dt><code><a href="./css.types.basic-shape.ellipse.html"><code>ellipse()</code></a></code></dt>
+  <dd>
+    <p>Defines an ellipse using two radii and a position.</p>
+    <pre class="brush: css">ellipse( [&#x3C;shape-radius>{2}]? [at &#x3C;position>]? )
+</pre>
+    <p>The <code>&#x3C;shape-radius></code> arguments represent rx and ry, the x-axis and y-axis radii of the ellipse, in that order. Negative values for either radius are invalid. Percentage values here are resolved against the used width (for the rx value) and the used height (for the ry value) of the reference box.</p>
+    <p>The position argument defines the center of the ellipse. This defaults to center if omitted.</p>
+  </dd>
+  <dt><code><a href="./css.types.basic-shape.polygon.html"><code>polygon()</code></a></code></dt>
+  <dd>
+    <p>Defines a polygon using an SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule"><code>fill-rule</code></a> and a set of vertices.</p>
+    <pre class="brush: css">polygon( [&#x3C;fill-rule>,]? [&#x3C;shape-arg> &#x3C;shape-arg>]# )
+</pre>
+    <p><code>&#x3C;fill-rule></code> represents the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule"><code>fill-rule</code></a> used to determine the interior of the polygon. Possible values are <code>nonzero</code> and <code>evenodd</code>. Default value when omitted is <code>nonzero</code>.</p>
+    <p>Each pair argument in the list represents <em>xi</em> and <em>yi</em> - the x and y axis coordinates of the vertex of the polygon at position i.</p>
+  </dd>
+  <dt><code><a href="./css.types.basic-shape.path.html"><code>path()</code></a></code></dt>
+  <dd>
+    <p>Defines a shape using an SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule"><code>fill-rule</code></a> and an SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d">path definition</a>.</p>
+    <pre class="brush: css">path( [&#x3C;fill-rule>,]? &#x3C;string>)
+</pre>
+    <p>The optional <code>&#x3C;fill-rule></code> represents the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule"><code>fill-rule</code></a> used to determine the interior of the path. Possible values are <code>nonzero</code> and <code>evenodd</code>. Default value when omitted is <code>nonzero</code>.</p>
+    <p>The required &#x3C;string> is an <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d">SVG Path</a> string encompassed in quotes</p>
+  </dd>
+</dl>
+<p>The arguments not defined above are defined as follows:</p>
+<pre class="brush: css">&#x3C;shape-arg> = &#x3C;length> | &#x3C;percentage>
+&#x3C;shape-radius> = &#x3C;length> | &#x3C;percentage> | closest-side | farthest-side
+</pre>
+<p>Defines a radius for a circle or ellipse. If omitted it defaults to <code>closest-side</code>.</p>
+<p><code>closest-side</code> uses the length from the center of the shape to the closest side of the reference box. For circles, this is the closest side in any dimension. For ellipses, this is the closest side in the radius dimension.</p>
+<p><code>farthest-side</code> uses the length from the center of the shape to the farthest side of the reference box. For circles, this is the farthest side in any dimension. For ellipses, this is the farthest side in the radius dimension.</p>
+
+<h3>Computed values of basic shapes</h3>
+<p>The values in a <code>&#x3C;basic-shape></code> function are computed as specified, with these exceptions:</p>
+<ul>
+  <li>Omitted values are included and compute to their defaults.</li>
+  <li>A <a href="./css.types.position.html"><code>&lt;position&gt;</code></a> value in <code>circle()</code> or <code>ellipse()</code> is computed as a pair of offsets (horizontal then vertical) from the top left origin, each given as a combination of an absolute length and a percentage.</li>
+  <li>A <a href="./css.properties.border-radius.html"><code>&#x3C;border-radius></code></a> value in <code>inset()</code> is computed as an expanded list of all eight <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or percentage values.</li>
+</ul>
+<h3>Interpolation of basic shapes</h3>
+<p>When animating between one <code>&#x3C;basic-shape></code> and another, the rules below are applied. The values in the shape functions <a href="/Glossary/interpolation">interpolate</a> as a simple list. The list values interpolate as <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>, <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>, or <a href="./css.types.calc.html"><code>calc()</code></a> where possible. If list values are not one of those types but are identical, those values do interpolate.</p>
+<ul>
+  <li>Both shapes must use the same reference box.</li>
+  <li>If both shapes are the same type, that type is <code>ellipse()</code> or <code>circle()</code>, and none of the radii use the <code>closest-side</code> or <code>farthest-side</code> keywords, interpolate between each value in the shape functions.</li>
+  <li>If both shapes are of type <code>inset()</code>, interpolate between each value in the shape functions.</li>
+  <li>If both shapes are of type <code>polygon()</code>, both polygons have the same number of vertices, and use the same <code>&#x3C;fill-rule></code>, interpolate between each value in the shape functions.</li>
+  <li>If both shapes are of type <code>path()</code>, both paths strings have the same number and types of path data commands in the same order, interpolate each path data command as real numbers.</li>
+  <li>In all other cases no interpolation occurs.</li>
+</ul>
+
+<h3>Animated polygon</h3>
+<p>In this example, we use the <a href="./css.at-rules.keyframes.html">@keyframes</a> at-rule to animate a clip path between two polygons. Note that both polygons have the same number of vertices, which is necessary for this type of animation to work.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 300px;
+  height: 300px;
+  background: repeating-linear-gradient(red, orange 50px);
+  clip-path: polygon(
+    50% 0%,
+    60% 40%,
+    100% 50%,
+    60% 60%,
+    50% 100%,
+    40% 60%,
+    0% 50%,
+    40% 40%
+  );
+  animation: 4s poly infinite alternate ease-in-out;
+  margin: 10px auto;
+}
+
+@keyframes poly {
+  from {
+    clip-path: polygon(
+      50% 0%,
+      60% 40%,
+      100% 50%,
+      60% 60%,
+      50% 100%,
+      40% 60%,
+      0% 50%,
+      40% 40%
+    );
+  }
+
+  to {
+    clip-path: polygon(
+      50% 30%,
+      100% 0%,
+      70% 50%,
+      100% 100%,
+      50% 70%,
+      0% 100%,
+      30% 50%,
+      0% 0%
+    );
+  }
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Properties that use this data type: <a href="./css.properties.clip-path.html"><code>&lt;clip-path&gt;</code></a>, <a href="./css.properties.shape-outside.html"><code>&lt;shape-outside&gt;</code></a></li>
+  <li><a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html">Edit Shape Paths in CSS — Firefox Developer Tools</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes/Overview_of_shapes">Overview of CSS Shapes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 37</li><li><strong>chrome_android</strong>: 37</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 54</li><li><strong>firefox_android</strong>: 54</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 24</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-shapes/#basic-shape-functions">https://drafts.csswg.org/css-shapes/#basic-shape-functions</a></p></section></aside></body>
+</html>

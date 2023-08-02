@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>clip</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties clip</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> Where possible, authors are encouraged to use the newer <a href="./css.properties.clip-path.html"><code>clip-path</code></a> property instead.</p>
+</div>
+<p>The <strong><code>clip</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property defines a visible portion of an element. The <code>clip</code> property applies only to absolutely positioned elements — that is, elements with <a href="./css.properties.position.html"><code>position:absolute</code></a> or <a href="./css.properties.position.html"><code>position:fixed</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+clip: auto;
+
+/* &#x3C;shape> values */
+clip: rect(1px, 10em, 3rem, 2ch);
+
+/* Global values */
+clip: inherit;
+clip: initial;
+clip: revert;
+clip: revert-layer;
+clip: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.shape.html"><code>shape</code></a></dt>
+  <dd>
+    <p>A rectangular <a href="./css.types.shape.html"><code>shape</code></a> of the form <code>rect(&#x3C;top>, &#x3C;right>, &#x3C;bottom>, &#x3C;left>)</code>. The <code>&#x3C;top></code> and <code>&#x3C;bottom></code> values are offsets from the <em>inside top border edge</em> of the box, while <code>&#x3C;right></code> and <code>&#x3C;left></code> are offsets from the <em>inside left border edge</em> of the box — that is, the extent of the padding box.</p>
+    <p>The <code>&#x3C;top></code>, <code>&#x3C;right></code>, <code>&#x3C;bottom></code>, and <code>&#x3C;left></code> values may be either a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or <code>auto</code>. If any side's value is <code>auto</code>, the element is clipped to that side's <em>inside border edge</em>.</p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The element does not clip (default). This is different from <code>rect(auto, auto, auto, auto)</code>, which clips to the element's inside border edges.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>Absolutely positioned elements. In SVG, it applies to elements which establish a new viewport, pattern elements and mask elements.</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;rect()&gt; | auto</pre></section>
+
+<h3>Clipping an image</h3>
+<pre class="brush: html">&#x3C;p class="dotted-border">
+  &#x3C;img src="macarons.png" alt="Original graphic" />
+  &#x3C;img id="top-left" src="macarons.png" alt="Graphic clipped to upper left" />
+  &#x3C;img id="middle" src="macarons.png" alt="Graphic clipped towards middle" />
+  &#x3C;img
+    id="bottom-right"
+    src="macarons.png"
+    alt="Graphic clipped to bottom right" />
+&#x3C;/p>
+</pre>
+<pre class="brush: css">.dotted-border {
+  border: dotted;
+  position: relative;
+  width: 390px;
+  height: 400px;
+}
+
+#top-left,
+#middle,
+#bottom-right {
+  position: absolute;
+  top: 0;
+}
+
+#top-left {
+  left: 400px;
+  clip: rect(0, 130px, 90px, 0);
+}
+
+#middle {
+  left: 270px;
+  clip: rect(100px, 260px, 190px, 130px);
+}
+
+#bottom-right {
+  left: 140px;
+  clip: rect(200px, 390px, 290px, 260px);
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>This property is deprecated. Use <a href="./css.properties.clip-path.html"><code>clip-path</code></a> instead.</li>
+  <li>Related CSS properties:
+    <ul>
+      <li><a href="./css.properties.text-overflow.html"><code>text-overflow</code></a></li>
+      <li><a href="./css.properties.white-space.html"><code>white-space</code></a></li>
+      <li><a href="./css.properties.overflow-x.html"><code>overflow-x</code></a></li>
+      <li><a href="./css.properties.overflow-y.html"><code>overflow-y</code></a></li>
+      <li><a href="./css.properties.overflow.html"><code>overflow</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a></li>
+      <li><a href="./css.properties.position.html"><code>position</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Deprecated feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#clip-property">https://drafts.fxtf.org/css-masking/#clip-property</a></p></section></aside></body>
+</html>

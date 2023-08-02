@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text-emphasis-position</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties text-emphasis-position</h1><main>
+    
+
+<p>The <strong><code>text-emphasis-position</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets where emphasis marks are drawn. Like ruby text, if there isn't enough room for emphasis marks, the line height is increased.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Initial value */
+text-emphasis-position: over right;
+
+/* Keywords value */
+text-emphasis-position: over left;
+text-emphasis-position: under right;
+text-emphasis-position: under left;
+
+text-emphasis-position: left over;
+text-emphasis-position: right under;
+text-emphasis-position: left under;
+
+/* Global values */
+text-emphasis-position: inherit;
+text-emphasis-position: initial;
+text-emphasis-position: revert;
+text-emphasis-position: revert-layer;
+text-emphasis-position: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>over</code></dt>
+  <dd>
+    <p>Draws marks over the text in horizontal writing mode.</p>
+  </dd>
+  <dt><code>under</code></dt>
+  <dd>
+    <p>Draws marks under the text in horizontal writing mode.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>Draws marks to the right of the text in vertical writing mode.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>Draws marks to the left of the text in vertical writing mode.</p>
+  </dd>
+</dl>
+<h2>Description</h2>
+<p>The preferred position of emphasis marks depends on the language. In Japanese for example, the preferred position is <code>over right</code>. In Chinese, on the other hand, the preferred position is <code>under right</code>. The informative table below summarizes the preferred emphasis mark positions for Chinese, Mongolian and Japanese:</p>
+<table>
+  <caption>Preferred emphasis mark and ruby position</caption>
+  <thead>
+    <tr>
+      <th rowspan="2" scope="col">Language</th>
+      <th colspan="2" scope="col">Preferred position</th>
+      <th colspan="2" rowspan="2" scope="col">Illustration</th>
+    </tr>
+    <tr>
+      <th>Horizontal</th>
+      <th>Vertical</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Japanese</td>
+      <td rowspan="3">over</td>
+      <td rowspan="3">right</td>
+      <td rowspan="3">
+        <img alt="Emphasis marks appear over each emphasized character in horizontal Japanese text." src="https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position/text-emphasis-ja.png" title="Emphasis (shown in blue for clarity) applied above a fragment of Japanese text">
+      </td>
+      <td rowspan="4">
+        <img alt="Emphasis marks appear on the right of each emphasized character in vertical Japanese text." src="https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position/text-emphasis-v.gif" title="Emphasis applied on the right of a fragment of Japanese text">
+      </td>
+    </tr>
+    <tr>
+      <td>Korean</td>
+    </tr>
+    <tr>
+      <td>Mongolian</td>
+    </tr>
+    <tr>
+      <td>Chinese</td>
+      <td>under</td>
+      <td>right</td>
+      <td>
+        <img alt="Emphasis marks appear below each emphasized character in horizontal Simplified Chinese text." src="https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position/text-emphasis-zh.gif" title="Emphasis (shown in blue for clarity) applied below a fragment of Chinese text">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>text-emphasis-position</code> cannot be set, and therefore are not reset either, using the <a href="./css.properties.text-emphasis.html"><code>text-emphasis</code></a> shorthand property.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>over right</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ over | under ] && [ right | left ]?</pre></section>
+
+<h3>Preferring ruby over emphasis marks</h3>
+<p>Some editors prefer to hide emphasis marks when they conflict with ruby. In HTML, this can be done with the following style rule:</p>
+<pre class="brush: css">ruby {
+  text-emphasis: none;
+}
+</pre>
+<h3>Preferring emphasis marks over ruby</h3>
+<p>Some other editors prefer to hide ruby when they conflict with emphasis marks. In HTML, this can be done with the following pattern:</p>
+<pre class="brush: css">em {
+  text-emphasis: dot; /* Set text-emphasis for &#x3C;em> elements */
+}
+
+em rt {
+  display: none; /* Hide ruby inside &#x3C;em> elements */
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li>The longhand properties <a href="./css.properties.text-emphasis-style.html"><code>text-emphasis-style</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, and the corresponding shorthand property <a href="./css.properties.text-emphasis.html"><code>text-emphasis</code></a>.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 46</li><li><strong>firefox_android</strong>: 46</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text-decor/#text-emphasis-position-property">https://drafts.csswg.org/css-text-decor/#text-emphasis-position-property</a></p></section></aside></body>
+</html>

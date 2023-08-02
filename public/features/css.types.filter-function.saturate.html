@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>saturate()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types filter-function saturate()</h1><main>
+    
+
+<p>The <strong><code>saturate()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> super-saturates or desaturates the input image. Its result is a <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">saturate(amount)
+</pre>
+<h3>Parameters</h3>
+<dl>
+  <dt><code>amount</code></dt>
+  <dd>
+    <p>The amount of the conversion, specified as a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. A value under <code>100%</code> desaturates the image, while a value over <code>100%</code> super-saturates it. A value of <code>0%</code> is completely unsaturated, while a value of <code>100%</code> leaves the input unchanged. The initial value for <a href="/Glossary/interpolation">interpolation</a> is <code>1</code>.</p>
+  </dd>
+</dl>
+
+<h3>Examples of correct values for saturate()</h3>
+<pre class="brush: css">saturate(0)     /* Completely unsaturated */
+saturate(.4)    /* 40% saturated */
+saturate(100%)  /* No effect */
+saturate(200%)  /* Double saturation */
+</pre>
+
+
+<h2>See also</h2>
+<p>The other <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a> functions available to be used in values of the <a href="./css.properties.filter.html"><code>filter()</code></a> and <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> properties include:</p>
+<ul>
+  <li><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></li>
+  <li><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></li>
+  <li><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></li>
+  <li><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></li>
+  <li><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></li>
+  <li><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></li>
+  <li><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></li>
+  <li><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></li>
+  <li><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-saturate">https://drafts.fxtf.org/filter-effects/#funcdef-filter-saturate</a></p></section></aside></body>
+</html>

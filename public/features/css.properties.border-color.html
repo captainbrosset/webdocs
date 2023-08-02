@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>border-color</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties border-color</h1><main>
+    
+
+<p>The <strong><code>border-color</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the color of an element's border.</p>
+<p>Each side can be set individually using <a href="./css.properties.border-top-color.html"><code>border-top-color</code></a>, <a href="./css.properties.border-right-color.html"><code>border-right-color</code></a>, <a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a>, and <a href="./css.properties.border-left-color.html"><code>border-left-color</code></a>; or using the writing mode-aware <a href="./css.properties.border-block-start-color.html"><code>border-block-start-color</code></a>, <a href="./css.properties.border-block-end-color.html"><code>border-block-end-color</code></a>, <a href="./css.properties.border-inline-start-color.html"><code>border-inline-start-color</code></a>, and <a href="./css.properties.border-inline-end-color.html"><code>border-inline-end-color</code></a>.</p>
+<p>You can find more information about border colors in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color#borders_2">CSS colors</a>.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a></li>
+  <li><a href="./css.properties.border-left-color.html"><code>border-left-color</code></a></li>
+  <li><a href="./css.properties.border-right-color.html"><code>border-right-color</code></a></li>
+  <li><a href="./css.properties.border-top-color.html"><code>border-top-color</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;color> values */
+border-color: red;
+
+/* top and bottom | left and right */
+border-color: red #f015ca;
+
+/* top | left and right | bottom */
+border-color: red rgb(240, 30, 50, 0.7) green;
+
+/* top | right | bottom | left */
+border-color: red yellow green blue;
+
+/* Global values */
+border-color: inherit;
+border-color: initial;
+border-color: revert;
+border-color: revert-layer;
+border-color: unset;
+</pre>
+<p>The <code>border-color</code> property may be specified using one, two, three, or four values.</p>
+<ul>
+  <li>When <strong>one</strong> value is specified, it applies the same color to <strong>all four sides</strong>.</li>
+  <li>When <strong>two</strong> values are specified, the first color applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</li>
+  <li>When <strong>three</strong> values are specified, the first color applies to the <strong>top</strong>, the second to the <strong>left and right</strong>, the third to the <strong>bottom</strong>.</li>
+  <li>When <strong>four</strong> values are specified, the colors apply to the <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, and <strong>left</strong> in that order (clockwise).</li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.color.html"><code>&lt;color&gt;</code></a></dt>
+  <dd>
+    <p>Defines the color of the border.</p>
+  </dd>
+</dl>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="justone">
+  &#x3C;p>&#x3C;code>border-color: red;&#x3C;/code> is equivalent to&#x3C;/p>
+  &#x3C;ul>
+    &#x3C;li>&#x3C;code>border-top-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-right-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-bottom-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-left-color: red;&#x3C;/code>&#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/div>
+&#x3C;div id="horzvert">
+  &#x3C;p>&#x3C;code>border-color: gold red;&#x3C;/code> is equivalent to&#x3C;/p>
+  &#x3C;ul>
+    &#x3C;li>&#x3C;code>border-top-color: gold;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-right-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-bottom-color: gold;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-left-color: red;&#x3C;/code>&#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/div>
+&#x3C;div id="topvertbott">
+  &#x3C;p>&#x3C;code>border-color: red cyan gold;&#x3C;/code> is equivalent to&#x3C;/p>
+  &#x3C;ul>
+    &#x3C;li>&#x3C;code>border-top-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-right-color: cyan;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-bottom-color: gold;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-left-color: cyan;&#x3C;/code>&#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/div>
+&#x3C;div id="trbl">
+  &#x3C;p>&#x3C;code>border-color: red cyan black gold;&#x3C;/code> is equivalent to&#x3C;/p>
+  &#x3C;ul>
+    &#x3C;li>&#x3C;code>border-top-color: red;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-right-color: cyan;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-bottom-color: black;&#x3C;/code>&#x3C;/li>
+    &#x3C;li>&#x3C;code>border-left-color: gold;&#x3C;/code>&#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#justone {
+  border-color: red;
+}
+
+#horzvert {
+  border-color: gold red;
+}
+
+#topvertbott {
+  border-color: red cyan gold;
+}
+
+#trbl {
+  border-color: red cyan black gold;
+}
+
+/* Set width and style for all divs */
+div {
+  border: solid 0.3em;
+  width: auto;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Border-color related CSS properties: <a href="./css.properties.border.html"><code>border</code></a>, <a href="./css.properties.border-top-color.html"><code>border-top-color</code></a>, <a href="./css.properties.border-right-color.html"><code>border-right-color</code></a>, <a href="./css.properties.border-bottom-color.html"><code>border-bottom-color</code></a>, <a href="./css.properties.border-left-color.html"><code>border-left-color</code></a>,</li>
+  <li>Other border-related CSS properties: <a href="./css.properties.border-width.html"><code>border-width</code></a>, <a href="./css.properties.border-style.html"><code>border-style</code></a></li>
+  <li>The <a href="./css.types.color.html"><code>&lt;color&gt;</code></a> data type</li>
+  <li>Other color-related properties: <a href="./css.properties.color.html"><code>color</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.outline-color.html"><code>outline-color</code></a>, <a href="./css.properties.text-decoration-color.html"><code>text-decoration-color</code></a>, <a href="./css.properties.text-emphasis-color.html"><code>text-emphasis-color</code></a>, <a href="./css.properties.text-shadow.html"><code>text-shadow</code></a>, <a href="./css.properties.caret-color.html"><code>caret-color</code></a>, and <a href="./css.properties.column-rule-color.html"><code>column-rule-color</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Applying_color">Applying color to HTML elements using CSS</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-logical/#logical-shorthand-keyword,https://drafts.csswg.org/css-backgrounds/#border-color">https://drafts.csswg.org/css-logical/#logical-shorthand-keyword,https://drafts.csswg.org/css-backgrounds/#border-color</a></p></section></aside></body>
+</html>

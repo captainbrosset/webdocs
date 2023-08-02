@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-size</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-size</h1><main>
+    
+
+<p>
+  The <strong><code>background-size</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the size of the element's background image.
+  The image can be left to its natural size, stretched, or constrained to fit the available space.
+</p>
+<p>Spaces not covered by a background image are filled with the <a href="./css.properties.background-color.html"><code>background-color</code></a> property, and the background color will be visible behind background images that have transparency/translucency.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+background-size: cover;
+background-size: contain;
+
+/* One-value syntax */
+/* the width of the image (height becomes 'auto') */
+background-size: 50%;
+background-size: 3.2em;
+background-size: 12px;
+background-size: auto;
+
+/* Two-value syntax */
+/* first value: width of the image, second value: height */
+background-size: 50% auto;
+background-size: 3em 25%;
+background-size: auto 6px;
+background-size: auto auto;
+
+/* Multiple backgrounds */
+background-size: auto, auto; /* Not to be confused with `auto auto` */
+background-size: 50%, 25%, 25%;
+background-size: 6px, auto, contain;
+
+/* Global values */
+background-size: inherit;
+background-size: initial;
+background-size: revert;
+background-size: revert-layer;
+background-size: unset;
+</pre>
+<p>The <code>background-size</code> property is specified in one of the following ways:</p>
+<ul>
+  <li>Using the keyword values <code>contain</code> or <code>cover</code>.</li>
+  <li>Using a width value only, in which case the height defaults to <code>auto</code>.</li>
+  <li>
+    Using both a width and a height value, in which case the first sets the width and the second sets the height.
+    Each value can be a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>, or <code>auto</code>.
+  </li>
+</ul>
+<p>To specify the size of multiple background images, separate the value for each one with a comma.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>contain</code></dt>
+  <dd>
+    <p>
+      Scales the image as large as possible within its container without cropping or stretching the image.
+      If the container is larger than the image, this will result in image tiling, unless the <a href="./css.properties.background-repeat.html"><code>background-repeat</code></a> property is set to <code>no-repeat</code>.
+    </p>
+  </dd>
+  <dt><code>cover</code></dt>
+  <dd>
+    <p>
+      Scales the image (while preserving its ratio) to the smallest possible size to fill the container (that is: both its height and width completely <em>cover</em> the container), leaving no empty space.
+      If the proportions of the background differ from the element, the image is cropped either vertically or horizontally.
+    </p>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>Scales the background image in the corresponding direction such that its intrinsic proportions are maintained.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Stretches the image in the corresponding dimension to the specified length. Negative values are not allowed.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>
+      Stretches the image in the corresponding dimension to the specified percentage of the <em>background positioning area</em>.
+      The background positioning area is determined by the value of <a href="./css.properties.background-origin.html"><code>background-origin</code></a> (by default, the padding box).
+      However, if the background's <a href="./css.properties.background-attachment.html"><code>background-attachment</code></a> value is <code>fixed</code>, the positioning area is instead the entire <a href="/Glossary/viewport">viewport</a>.
+      Negative values are not allowed.
+    </p>
+  </dd>
+</dl>
+<h3>Intrinsic dimensions and proportions</h3>
+<p>
+  The computation of values depends on the image's intrinsic dimensions (width and height) and intrinsic proportions (width-to-height ratio).
+  These attributes are as follows:
+</p>
+<ul>
+  <li>A bitmap image (such as JPG) always has intrinsic dimensions and proportions.</li>
+  <li>
+    A vector image (such as SVG) does not necessarily have intrinsic dimensions.
+    If it has both horizontal and vertical intrinsic dimensions, it also has intrinsic proportions.
+    If it has no dimensions or only one dimension, it may or may not have proportions.
+  </li>
+  <li>CSS <a href="./css.types.image.gradient.html"><code>&lt;gradient&gt;</code></a>s have no intrinsic dimensions or intrinsic proportions.</li>
+  <li>Background images created with the <a href="./css.types.image.element.html"><code>element()</code></a> function use the intrinsic dimensions and proportions of the generating element.</li>
+</ul>
+<div class="notecard note">
+  <p><strong>Note:</strong> In Gecko, background images created using the <a href="./css.types.image.element.html"><code>element()</code></a> function are currently treated as images with the dimensions of the element, or of the background positioning area if the element is SVG, with the corresponding intrinsic proportion. This is non-standard behavior.</p>
+</div>
+<p>Based on the intrinsic dimensions and proportions, the rendered size of the background image is computed as follows:</p>
+<ul>
+  <li><strong>If both components of <code>background-size</code> are specified and are not <code>auto</code>:</strong> The background image is rendered at the specified size.</li>
+  <li>
+    <strong>If the <code>background-size</code> is <code>contain</code> or <code>cover</code>:</strong> While preserving its intrinsic proportions, the image is rendered at the largest size contained within, or covering, the background positioning area.
+    If the image has no intrinsic proportions, then it's rendered at the size of the background positioning area.
+  </li>
+  <li><strong>If the <code>background-size</code> is <code>auto</code> or <code>auto auto</code>:</strong>
+    <ul>
+      <li>If the image has both horizontal and vertical intrinsic dimensions, it's rendered at that size.</li>
+      <li>If the image has no intrinsic dimensions and has no intrinsic proportions, it's rendered at the size of the background positioning area.</li>
+      <li>If the image has no intrinsic dimensions but has intrinsic proportions, it's rendered as if <code>contain</code> had been specified instead.</li>
+      <li>
+        If the image has only one intrinsic dimension and has intrinsic proportions, it's rendered at the size corresponding to that one dimension.
+        The other dimension is computed using the specified dimension and the intrinsic proportions.
+      </li>
+      <li>If the image has only one intrinsic dimension but has no intrinsic proportions, it's rendered using the specified dimension and the other dimension of the background positioning area.</li>
+    </ul>
+    <div class="notecard note">
+      <p><strong>Note:</strong> SVG images have a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio"><code>preserveAspectRatio</code></a> attribute that defaults to the equivalent of <code>contain</code>; an explicit <code>background-size</code> causes <code>preserveAspectRatio</code> to be ignored.</p>
+    </div>
+  </li>
+  <li><strong>If the <code>background-size</code> has one <code>auto</code> component and one non-<code>auto</code> component:</strong>
+    <ul>
+      <li>
+        If the image has intrinsic proportions, it's stretched to the specified dimension.
+        The unspecified dimension is computed using the specified dimension and the intrinsic proportions.
+      </li>
+      <li>
+        If the image has no intrinsic proportions, it's stretched to the specified dimension.
+        The unspecified dimension is computed using the image's corresponding intrinsic dimension, if there is one.
+        If there is no such intrinsic dimension, it becomes the corresponding dimension of the background positioning area.
+      </li>
+    </ul>
+  </li>
+</ul>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> Background sizing for vector images that lack intrinsic dimensions or proportions is not yet fully implemented in all browsers.
+    Be careful about relying on the behavior described above, and test in multiple browsers to be sure the results are acceptable.
+  </p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a pair of sizes (one per axis) each represented as either a keyword or a computed &lt;length-percentage&gt; value</td></tr><tr><th scope="row">Animation type</th><td>repeatable list</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;bg-size&gt;#</pre></section>
+
+<h3>Tiling a large image</h3>
+<p>
+  Let's consider a large image, a 2982x2808 Firefox logo image. We want to tile four copies of this image into a 300x300-pixel element.
+  To do this, we can use a fixed <code>background-size</code> value of 150 pixels.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="tiledBackground">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.tiledBackground {
+  background-image: url(https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png);
+  background-size: 150px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid;
+  color: pink;
+}
+</pre>
+<h4>Result</h4>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images">Resizing background images</a> for more examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images">Resizing background images</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Scaling_of_SVG_backgrounds">Scaling of SVG backgrounds</a></li>
+  <li><a href="./css.properties.object-fit.html"><code>object-fit</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#the-background-size">https://drafts.csswg.org/css-backgrounds/#the-background-size</a></p></section></aside></body>
+</html>

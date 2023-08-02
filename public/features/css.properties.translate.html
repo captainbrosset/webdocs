@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>translate</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties translate</h1><main>
+    
+
+<p>The <strong><code>translate</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property allows you to specify translation transforms individually and independently of the <a href="./css.properties.transform.html"><code>transform</code></a> property. This maps better to typical user interface usage, and saves having to remember the exact order of transform functions to specify in the <code>transform</code> value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+translate: none;
+
+/* Single values */
+translate: 100px;
+translate: 50%;
+
+/* Two values */
+translate: 100px 200px;
+translate: 50% 105px;
+
+/* Three values */
+translate: 50% 105px 5rem;
+
+/* Global values */
+translate: inherit;
+translate: initial;
+translate: revert;
+translate: revert-layer;
+translate: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>Single <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> value</dt>
+  <dd>
+    <p>A <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> that specifies a translation along the X-axis. Equivalent to a <code>translate()</code> (2D translation) function with a single value specified.</p>
+  </dd>
+  <dt>Two <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> values</dt>
+  <dd>
+    <p>Two <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> that specify the X and Y axis translation values (respectively) of a 2D translation. Equivalent to a <code>translate()</code> (2D translation) function with two values specified.</p>
+  </dd>
+  <dt>Three values</dt>
+  <dd>
+    <p>Two <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a> and single <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> values that specify the X, Y, and Z axis translation values (respectively) of a 3D translation. Equivalent to a <code>translate3d()</code> (3D translation) function.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Specifies that no translation should be applied.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none or a pair of computed &lt;length-percentage&gt; values and an absolute length</td></tr><tr><th scope="row">Animation type</th><td>by computed value, but see below for none</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;length-percentage&gt; [ &lt;length-percentage&gt; &lt;length&gt;? ]?</pre></section>
+
+<h3>Translating an element on hover</h3>
+<p>
+  This example shows how to use the <code>translate</code> property to move an element in three axes.
+  The first box is moved along the X axis and the second box is moved along the X and Y axes.
+  The third box is moved along the X, Y and Z axes and has the appearance of moving toward the viewer because of the addition of <a href="./css.properties.perspective.html"><code>perspective</code></a> to the parent element.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="wrapper">
+  &#x3C;div id="box1">translate X&#x3C;/div>
+  &#x3C;div id="box2">translate X,Y&#x3C;/div>
+  &#x3C;div id="box3">translate X,Y,Z&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapper {
+  perspective: 100px;
+  display: inline-flex;
+  gap: 1em;
+}
+.wrapper > div {
+  width: 7em;
+  line-height: 7em;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  border: 3px dotted;
+}
+#box1:hover {
+  translate: 20px;
+}
+
+#box2:hover {
+  translate: 20px 20px;
+}
+
+#box3:hover {
+  translate: 5px 5px 30px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.scale.html"><code>scale</code></a></li>
+  <li><a href="./css.properties.rotate.html"><code>rotate</code></a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a></li>
+</ul>
+<p>Note: skew is not an independent transform value</p>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 104</li><li><strong>chrome_android</strong>: 104</li><li><strong>edge</strong>: 104</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 23.0</li><li><strong>opera</strong>: 90</li><li><strong>opera_android</strong>: 71</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 104</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#individual-transforms">https://drafts.csswg.org/css-transforms-2/#individual-transforms</a></p></section></aside></body>
+</html>

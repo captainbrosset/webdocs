@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>polygon()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types basic-shape polygon()</h1><main>
+    
+
+<p>The <strong><code>polygon()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> function is one of the <a href="./css.types.basic-shape.html"><code>&lt;basic-shape&gt;()</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data types</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">clip-path: polygon(50% 2.4%, 34.5% 33.8%, 0% 38.8%, 25% 63.1%, 19.1% 97.6%);
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;fill-rule></code></dt>
+  <dd>
+    <p>An optional value of <code>nonzero</code> (the default when omitted) or <code>evenodd</code>, which specifies the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule">filling rule</a>.</p>
+  </dd>
+  <dt><code>[&#x3C;length-percentage>&#x3C;length-percentage>]#</code></dt>
+  <dd>
+    <p>Three or more pairs of values (a polygon must at least draw a triangle). These values are co-ordinates drawn with reference to the reference box.</p>
+  </dd>
+</dl>
+
+<h3>Basic polygon() example</h3>
+<p>In this example a shape is created for text to follow using the <code>polygon()</code>, you can change any of the values to see how the shape is changed.</p><iframe width="100%" height="800" src="https://mdn.github.io/css-examples/shapes/basic-shape/polygon.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li>Properties that use this data type: <a href="./css.properties.clip-path.html"><code>clip-path()</code></a>, <a href="./css.properties.shape-outside.html"><code>shape-outside()</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes/Basic_shapes">Guide to Basic Shapes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 37</li><li><strong>chrome_android</strong>: 37</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 54</li><li><strong>firefox_android</strong>: 54</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 24</li><li><strong>opera_android</strong>: 24</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 3.0</li><li><strong>webview_android</strong>: 37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-shapes/#funcdef-basic-shape-polygon">https://drafts.csswg.org/css-shapes/#funcdef-basic-shape-polygon</a></p></section></aside></body>
+</html>

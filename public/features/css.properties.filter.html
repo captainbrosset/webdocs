@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>filter</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties filter</h1><main>
+    
+
+<p>The <strong><code>filter</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property applies graphical effects like blur or color shift to an element. Filters are commonly used to adjust the rendering of images, backgrounds, and borders.</p>
+<p>Several <a href="#functions">functions</a>, such as <code>blur()</code> and <code>contrast()</code>, are available to help you achieve predefined effects.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;filter-function> values */
+filter: blur(5px);
+filter: brightness(0.4);
+filter: contrast(200%);
+filter: drop-shadow(16px 16px 20px blue);
+filter: grayscale(50%);
+filter: hue-rotate(90deg);
+filter: invert(75%);
+filter: opacity(25%);
+filter: saturate(30%);
+filter: sepia(60%);
+
+/* URL */
+filter: url("filters.svg#filter-id");
+
+/* Multiple filters */
+filter: contrast(175%) brightness(3%);
+filter: drop-shadow(3px 3px red) sepia(100%) drop-shadow(-3px -3px blue);
+
+/* Use no filter */
+filter: none;
+
+/* Global values */
+filter: inherit;
+filter: initial;
+filter: revert;
+filter: revert-layer;
+filter: unset;
+</pre>
+<p>With a function, use the following:</p>
+<pre class="brush: css">filter: &#x3C;filter-function> [&#x3C;filter-function>]* | none;
+</pre>
+<p>You can use <code>url()</code> to reference an <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter">SVG filter element</a>. For a reference to an SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter"><code>&lt;filter&gt;</code></a> element, use the following syntax:</p>
+<pre class="brush: css">filter: url(file.svg#filter-element-id);
+</pre>
+<h2>Functions</h2>
+<p>The <code>filter</code> property is specified as <code>none</code> or one or more of the functions listed below. If the parameter for any function is invalid, the function returns <code>none</code>. Except where noted, the functions that take a value expressed with a percent sign (as in <code>34%</code>) also accept the value expressed as decimal (as in <code>0.34</code>).</p>
+<p>When the <code>filter</code> property values contains multiple functions, the filters are applied in order.</p>
+<dl>
+  <dt><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></dt>
+  <dd>
+    <p>Applies a Gaussian blur to the input image.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: blur(5px);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></dt>
+  <dd>
+    <p>Applies a linear multiplier to the input image, making it appear more or less bright. Values are linear multipliers on the effect, with <code>0%</code> creating a completely black image, <code>100%</code> having no effect, and values over <code>100%</code> brightening the image.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: brightness(2);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.contrast.html"><code>contrast()</code></a></dt>
+  <dd>
+    <p>Adjusts the contrast of the input image. A value of <code>0%</code> makes the image grey, <code>100%</code> has no effect, and values over <code>100%</code> create a contrast.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: contrast(200%);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></dt>
+  <dd>
+    <p>Applies the parameter <code>&#x3C;shadow></code> as a drop shadow, following the contours of the image. The shadow syntax is similar to <code>&#x3C;box-shadow></code> (defined in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders">CSS backgrounds and borders module</a>), with the exception that the <code>inset</code> keyword and <code>spread</code> parameter are not allowed. As with all <code>filter</code> property values, any filters after the <code>drop-shadow()</code> are applied to the shadow.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: drop-shadow(16px 16px 10px black);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></dt>
+  <dd>
+    <p>Converts the image to grayscale. A value of <code>100%</code> is completely grayscale. The initial value of <code>0%</code> leaves the input unchanged. Values between <code>0%</code> and <code>100%</code> produce linear multipliers on the effect.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: grayscale(100%);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></dt>
+  <dd>
+    <p>Applies a hue rotation. The <code>&#x3C;angle></code> value defines the number of degrees around the hue color circle at which the input samples will be adjusted. A value of <code>0deg</code> leaves the input unchanged.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: hue-rotate(90deg);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></dt>
+  <dd>
+    <p>Inverts the samples in the input image. A value of <code>100%</code> completely inverts the image. A value of <code>0%</code> leaves the input unchanged. Values between <code>0%</code> and <code>100%</code> have linear multipliers on the effect.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: invert(100%);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></dt>
+  <dd>
+    <p>Applies transparency. <code>0%</code> makes the image completely transparent and <code>100%</code> leaves the image unchanged.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: opacity(50%);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></dt>
+  <dd>
+    <p>Saturates the image, with <code>0%</code> being completely unsaturated, <code>100%</code> leaving the image unchanged, and values of over <code>100%</code> increasing saturation.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: saturate(200%);
+</pre>
+<dl>
+  <dt><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></dt>
+  <dd>
+    <p>Converts the image to sepia, with a value of <code>100%</code> making the image completely sepia and <code>0%</code> making no change.</p>
+  </dd>
+</dl>
+<pre class="brush: css">filter: sepia(100%);
+</pre>
+<h2>Combining functions</h2>
+<p>You may combine any number of functions to manipulate the rendering. The filters are applied in the order declared. The following example enhances the contrast and brightness of the image:</p>
+<pre class="brush: css">filter: contrast(175%) brightness(103%);
+</pre>
+<h3>Interpolation</h3>
+<p>When animated, if both the beginning and end filters have a function list of the same length without <a href="./css.types.url.html"><code>url()</code></a> in the same order, each of their filter functions is <a href="/Glossary/interpolation">interpolated</a> according to the filter function's specific rules.</p>
+<p>If the filter lists are of different lengths, the missing equivalent filter functions from the longer list are added to the end of the shorter list. The added functions use their initial, no filter modification values. All the filters listed are then interpolated according to the filter function's specific rules. Otherwise, discrete interpolation is used.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements without the defs element, all graphics elements and the use element.</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>See prose in Animation of Filters.</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;filter-value-list&gt;</pre></section>
+
+<h3>Applying filter functions</h3>
+<p>The <code>filter</code> property is applied to the second image, greying and blurring both the image and its border.</p>
+<pre class="brush: css">img {
+  border: 5px solid yellow;
+}
+/* Gray the second image by 40% and blur by 5px */
+img:nth-of-type(2) {
+  filter: grayscale(0.4) blur(5px);
+}
+</pre>
+<pre class="brush: html">&#x3C;img src="pencil.jpg" alt="Original image is sharp" />
+&#x3C;img src="pencil.jpg" alt="The image and border are blurred and muted" />
+</pre>
+<h3>Repeating filter functions</h3>
+<p>Filter functions are applied in order of appearance. The same filter function can be repeated.</p>
+<pre class="brush: css">#MDN-logo {
+  border: 1px solid blue;
+  filter: drop-shadow(5px 5px 0 red) hue-rotate(180deg) drop-shadow(5px 5px 0
+        red);
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;svg
+  id="MDN-logo"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 361 104.2"
+  xml:space="preserve"
+  role="img">
+  &#x3C;title>MDN Web Docs&#x3C;/title>
+  &#x3C;path
+    d="M197.6 73.2h-17.1v-5.5h3.8V51.9c0-3.7-.7-6.3-2.1-7.9-1.4-1.6-3.3-2.3-5.7-2.3-3.2 0-5.6 1.1-7.2 3.4s-2.4 4.6-2.5 6.9v15.6h6v5.5h-17.1v-5.5h3.8V51.9c0-3.8-.7-6.4-2.1-7.9-1.4-1.5-3.3-2.3-5.6-2.3-3.2 0-5.5 1.1-7.2 3.3-1.6 2.2-2.4 4.5-2.5 6.9v15.8h6.9v5.5h-20.2v-5.5h6V42.4h-6.1v-5.6h13.4v6.4c1.2-2.1 2.7-3.8 4.7-5.2 2-1.3 4.4-2 7.3-2s5.3.7 7.5 2.1c2.2 1.4 3.7 3.5 4.5 6.4 1.1-2.5 2.7-4.5 4.9-6.1s4.8-2.4 7.9-2.4c3.5 0 6.5 1.1 8.9 3.3s3.7 5.6 3.7 10.2v18.2h6.1v5.5zm42.5 0h-13.2V66c-1.2 2.2-2.8 4.1-4.9 5.6-2.1 1.6-4.8 2.4-8.3 2.4-4.8 0-8.7-1.6-11.6-4.9-2.9-3.2-4.3-7.7-4.3-13.3 0-5 1.3-9.6 4-13.7 2.6-4.1 6.9-6.2 12.8-6.2s9.8 2.2 12.3 6.5V22.7h-8.6v-5.6h15.8v50.6h6v5.5zm-13.3-16.8V52c-.1-3-1.2-5.5-3.2-7.3s-4.4-2.8-7.2-2.8c-3.6 0-6.3 1.3-8.2 3.9-1.9 2.6-2.8 5.8-2.8 9.6 0 4.1 1 7.3 3 9.5s4.5 3.3 7.4 3.3c3.2 0 5.8-1.3 7.8-3.8 2.1-2.6 3.1-5.3 3.2-8zm61.5 16.8H269v-5.5h6V51.9c0-3.7-.7-6.3-2.2-7.9-1.4-1.6-3.4-2.3-5.7-2.3-3.1 0-5.6 1-7.4 3s-2.8 4.4-2.9 7v15.9h6v5.5h-19.3v-5.5h6V42.4h-6.2v-5.6h13.6V43c2.6-4.6 6.8-6.9 12.7-6.9 3.6 0 6.7 1.1 9.2 3.3s3.7 5.6 3.7 10.2v18.2h6v5.4h-.2z"
+    style="fill: var(--text-primary);">&#x3C;/path>
+  &#x3C;g style="fill:blue;">
+    &#x3C;path
+      d="M42 .2 13.4 92.3H1.7L30.2.2H42zM52.4.2v92.1H42V.2h10.4zm40.3 0L64.2 92.3H52.5L81 .2h11.7zM103.1.2v92.1H92.7V.2h10.4zM294 95h67v8.8h-67V95z">&#x3C;/path>
+  &#x3C;/g>
+&#x3C;/svg>
+</pre>
+<p>The filters are applied in order. This is why the drop shadows are not the same color: the first drop shadow's hue is altered by the <code>hue-rotate()</code> function but the second one is not.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li>CSS <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter</code></a> property</li>
+  <li>CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_compositing_and_blending">compositing and blending</a> module, including the CSS <a href="./css.properties.background-blend-mode.html"><code>background-blend-mode</code></a> and <a href="./css.properties.mix-blend-mode.html"><code>mix-blend-mode</code></a> properties.</li>
+  <li>The CSS <a href="./css.properties.mask.html"><code>mask</code></a> property</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG</a>, including the SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter"><code>&lt;filter&gt;</code></a> element and SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filter"><code>filter</code></a> attribute.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Applying_SVG_effects_to_HTML_content">Applying SVG effects to HTML content</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#FilterProperty">https://drafts.fxtf.org/filter-effects/#FilterProperty</a></p></section></aside></body>
+</html>

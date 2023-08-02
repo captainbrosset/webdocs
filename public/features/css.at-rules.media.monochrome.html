@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>monochrome</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules media monochrome</h1><main>
+    
+
+<p>The <strong><code>monochrome</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media feature</a> can be used to test the number of bits per pixel in the monochrome frame buffer of the output device.</p>
+<h2>Syntax</h2>
+<p>The <code>monochrome</code> feature is specified as an <a href="./css.types.integer.html"><code>&lt;integer&gt;</code></a> representing the number of bits per pixel in the monochrome frame buffer. If the device is not a monochrome device, the value is zero. It is a range feature, meaning that you can also use the prefixed <strong><code>min-monochrome</code></strong> and <strong><code>max-monochrome</code></strong> variants to query minimum and maximum values, respectively.</p>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p class="mono">Your device supports monochrome pixels!&#x3C;/p>
+&#x3C;p class="no-mono">Your device doesn't support monochrome pixels.&#x3C;/p>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">p {
+  display: none;
+}
+
+/* Any monochrome device */
+@media (monochrome) {
+  p.mono {
+    display: block;
+    color: #333;
+  }
+}
+
+/* Any non-monochrome device */
+@media (monochrome: 0) {
+  p.no-mono {
+    display: block;
+    color: #ee3636;
+  }
+}
+</pre>
+
+
+
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 2</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 10</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/mediaqueries/#monochrome">https://drafts.csswg.org/mediaqueries/#monochrome</a></p></section></aside></body>
+</html>

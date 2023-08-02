@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>repeat()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties grid-template-columns repeat()</h1><main>
+    
+
+<p>The <strong><code>repeat()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> represents a repeated fragment of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout">track list</a>, allowing a large number of columns or rows that exhibit a recurring pattern to be written in a more compact form.</p>
+<p>This function can be used in the CSS Grid properties <a href="./css.properties.grid-template-columns.html"><code>grid-template-columns()</code></a> and <a href="./css.properties.grid-template-rows.html"><code>grid-template-rows()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;track-repeat> values */
+repeat(4, 1fr)
+repeat(4, [col-start] 250px [col-end])
+repeat(4, [col-start] 60% [col-end])
+repeat(4, [col-start] 1fr [col-end])
+repeat(4, [col-start] min-content [col-end])
+repeat(4, [col-start] max-content [col-end])
+repeat(4, [col-start] auto [col-end])
+repeat(4, [col-start] minmax(100px, 1fr) [col-end])
+repeat(4, [col-start] fit-content(200px) [col-end])
+repeat(4, 10px [col-start] 30% [col-middle] auto [col-end])
+repeat(4, [col-start] min-content [col-middle] max-content [col-end])
+
+/* &#x3C;auto-repeat> values */
+repeat(auto-fill, 250px)
+repeat(auto-fit, 250px)
+repeat(auto-fill, [col-start] 250px [col-end])
+repeat(auto-fit, [col-start] 250px [col-end])
+repeat(auto-fill, [col-start] minmax(100px, 1fr) [col-end])
+repeat(auto-fill, 10px [col-start] 30% [col-middle] 400px [col-end])
+
+/* &#x3C;fixed-repeat> values */
+repeat(4, 250px)
+repeat(4, [col-start] 250px [col-end])
+repeat(4, [col-start] 60% [col-end])
+repeat(4, [col-start] minmax(100px, 1fr) [col-end])
+repeat(4, [col-start] fit-content(200px) [col-end])
+repeat(4, 10px [col-start] 30% [col-middle] 400px [col-end])
+</pre>
+<p>The <code>repeat()</code> function takes two arguments:</p>
+<ul>
+  <li><strong>repeat count</strong>: the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more, or with the keyword values <a href="#auto-fill"><code>auto-fill</code></a> or <a href="#auto-fit"><code>auto-fit</code></a>. These keyword values repeat the set of tracks as many times as is needed to fill the grid container.</li>
+  <li><strong>tracks</strong>: the second argument specifies the set of tracks that will be repeated. Fundamentally this consists of one or more values, where each value represents the size of that track. Each size is specified using either a <a href="#track-size"><code>&#x3C;track-size></code></a> value or a <a href="#fixed-size"><code>&#x3C;fixed-size></code></a> value. You can also specify one or more <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines">line names</a> before or after each track, by providing <a href="#line-names"><code>&#x3C;line-names></code></a> values before and/or after the track size.</li>
+</ul>
+<p>If you use <a href="#auto-fill"><code>auto-fill</code></a> or <a href="#auto-fit"><code>auto-fit</code></a> to set the repeat count, you may only specify track sizes using the <a href="#fixed-size"><code>&#x3C;fixed-size></code></a> type, not the <a href="#track-size"><code>&#x3C;track-size></code></a> type. This give us three main syntax forms for <code>repeat()</code>:</p>
+<ul>
+  <li><code>&#x3C;track-repeat></code>, which uses:
+    <ul>
+      <li>an integer to set the repeat count</li>
+      <li><a href="#track-size"><code>&#x3C;track-size></code></a> values to set track sizes.</li>
+    </ul>
+  </li>
+  <li><code>&#x3C;auto-repeat></code>, which uses
+    <ul>
+      <li><a href="#auto-fill"><code>auto-fill</code></a> or <a href="#auto-fit"><code>auto-fit</code></a> to set the repeat count</li>
+      <li><a href="#fixed-size"><code>&#x3C;fixed-size></code></a> to set track sizes.</li>
+    </ul>
+  </li>
+  <li><code>&#x3C;fixed-repeat></code>, which uses:
+    <ul>
+      <li>an integer to set the repeat count</li>
+      <li><a href="#fixed-size"><code>&#x3C;fixed-size></code></a> values to set track sizes.</li>
+    </ul>
+  </li>
+</ul>
+<p>Then if a property declaration uses <code>&#x3C;auto-repeat></code>, it is only allowed to use <code>&#x3C;fixed-repeat></code> for any additional <code>repeat()</code> calls. For example, this is invalid, because it combines the <code>&#x3C;auto-repeat></code> form with the <code>&#x3C;track-repeat></code> form:</p>
+<pre class="brush: css example-bad">.wrapper {
+  grid-template-columns:
+    repeat(auto-fill, 10px)
+    repeat(2, minmax(min-content, max-content));
+}
+</pre>
+<p>There is a fourth form, <code>&#x3C;name-repeat></code>, which is used to add line names to subgrids. It only used with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid"><code>subgrid</code></a> keyword and only specifies line names, not track sizes.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;fixed-size></code></dt>
+  <dd>
+    <p>One of the following forms:</p>
+    <ul>
+      <li>a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value</li>
+      <li>a <a href="./css.properties.grid-template-columns.minmax.html"><code>minmax()</code></a> function with:
+        <ul>
+          <li><code>min</code> given as a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value</li>
+          <li><code>max</code> given as one of a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value, a <a href="./css.types.flex.html"><code>&lt;flex&gt;()</code></a> value, or one of the following keywords: <a href="#min-content"><code>min-content</code></a>, <a href="#max-content"><code>max-content</code></a>, or <a href="#auto"><code>auto</code></a></li>
+        </ul>
+      </li>
+      <li>a <a href="./css.properties.grid-template-columns.minmax.html"><code>minmax()</code></a> function with:
+        <ul>
+          <li><code>min</code> given as a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value or one of the following keywords: <a href="#min-content"><code>min-content</code></a>, <a href="#max-content"><code>max-content</code></a>, or <a href="#auto"><code>auto</code></a></li>
+          <li><code>max</code> given as a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value.</li>
+        </ul>
+      </li>
+    </ul>
+  </dd>
+  <dt><a href="./css.types.flex.html"><code>&lt;flex&gt;()</code></a></dt>
+  <dd>
+    <p>A non-negative dimension with the unit <code>fr</code> specifying the track's flex factor. Each <code>&#x3C;flex></code>-sized track takes a share of the remaining space in proportion to its flex factor.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;()</code></a></dt>
+  <dd>
+    <p>A positive integer length.</p>
+  </dd>
+  <dt><code>&#x3C;line-names></code></dt>
+  <dd>
+    <p>Zero or more <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;()</code></a> values, space-separated and enclosed in square brackets, like this: <code>[first header-start]</code>.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a></dt>
+  <dd>
+    <p>A non-negative percentage relative to the inline size of the grid container in column grid tracks, and the block size of the grid container in row grid tracks. If the size of the grid container depends on the size of its tracks, then the <code>&#x3C;percentage></code> must be treated as <code>auto</code>. The user-agent may adjust the intrinsic size contributions of the track to the size of the grid container and increase the final size of the track by the minimum amount that would result in honoring the percentage.</p>
+  </dd>
+  <dt><code>&#x3C;track-size></code></dt>
+  <dd>
+    <p>One of the following forms:</p>
+    <ul>
+      <li>a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value, a <a href="./css.types.flex.html"><code>&lt;flex&gt;()</code></a> value, or one of the following keywords: <a href="#min-content"><code>min-content</code></a>, <a href="#max-content"><code>max-content</code></a>, or <a href="#auto"><code>auto</code></a></li>
+      <li>a <a href="./css.properties.grid-template-columns.minmax.html"><code>minmax()</code></a> function with:
+        <ul>
+          <li><code>min</code> given as a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value, or one of the following keywords: <a href="#min-content"><code>min-content</code></a>, <a href="#max-content"><code>max-content</code></a>, or <a href="#auto"><code>auto</code></a></li>
+          <li><code>max</code> given as a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value, a <a href="./css.types.flex.html"><code>&lt;flex&gt;()</code></a> value, or one of the following keywords: <a href="#min-content"><code>min-content</code></a>, <a href="#max-content"><code>max-content</code></a>, or <a href="#auto"><code>auto</code></a></li>
+        </ul>
+      </li>
+      <li>a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content_function"><code>fit-content()</code></a> function, passed a <a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;()</code></a> value.</li>
+    </ul>
+  </dd>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>As a maximum, identical to <code>max-content</code>. As a minimum it represents the largest minimum size (as specified by <a href="./css.properties.min-width.html"><code>min-width()</code></a>/<a href="./css.properties.min-height.html"><code>min-height()</code></a>) of the grid items occupying the grid track.</p>
+  </dd>
+  <dt><code>auto-fill</code></dt>
+  <dd>
+    <p>If the grid container has a definite or maximal size in the relevant axis, then the number of repetitions is the largest possible positive integer that does not cause the grid to overflow its grid container. Treating each track as its maximal track sizing function (each independent value used to define <code>grid-template-rows</code> or <code>grid-template-columns</code>), if that is definite. Otherwise, as its minimum track sizing function, and taking grid-gap into account. If any number of repetitions would overflow, then the repetition is <code>1</code>. Otherwise, if the grid container has a definite minimal size in the relevant axis, the number of repetitions is the smallest possible positive integer that fulfills that minimum requirement. Otherwise, the specified track list repeats only once.</p>
+  </dd>
+  <dt><code>auto-fit</code></dt>
+  <dd>
+    <p>Behaves the same as <code>auto-fill</code>, except that after placing the grid items any empty repeated tracks are collapsed. An empty track is one with no in-flow grid items placed into or spanning across it. (This can result in all tracks being collapsed, if they're all empty.)</p>
+    <p>A collapsed track is treated as having a single fixed track sizing function of <code>0px</code>, and the gutters on either side of it collapse.</p>
+    <p>For the purpose of finding the number of auto-repeated tracks, the user agent floors the track size to a user agent specified value (e.g., <code>1px</code>), to avoid division by zero.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>Represents the largest max-content contribution of the grid items occupying the grid track.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>Represents the largest min-content contribution of the grid items occupying the grid track.</p>
+  </dd>
+</dl>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div id="container">
+  &#x3C;div>This item is 50 pixels wide.&#x3C;/div>
+  &#x3C;div>Item with flexible width.&#x3C;/div>
+  &#x3C;div>This item is 50 pixels wide.&#x3C;/div>
+  &#x3C;div>Item with flexible width.&#x3C;/div>
+  &#x3C;div>Inflexible item of 100 pixels width.&#x3C;/div>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">#container {
+  display: grid;
+  grid-template-columns: repeat(2, 50px 1fr) 100px;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#container > div {
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>Related CSS properties: <a href="./css.properties.grid-template.html"><code>grid-template()</code></a>, <a href="./css.properties.grid-template-rows.html"><code>grid-template-rows()</code></a>, <a href="./css.properties.grid-template-columns.html"><code>grid-template-columns()</code></a>, <a href="./css.properties.grid-template-areas.html"><code>grid-template-areas()</code></a>, <a href="./css.properties.grid-auto-columns.html"><code>grid-auto-columns()</code></a>, <a href="./css.properties.grid-auto-rows.html"><code>grid-auto-rows()</code></a>, <a href="./css.properties.grid-auto-flow.html"><code>grid-auto-flow()</code></a></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement">Line-based placement with CSS Grid</a></em></li>
+  <li>Grid Layout Guide: <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands">Grid template areas - Grid definition shorthands</a></em></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 57</li><li><strong>chrome_android</strong>: 57</li><li><strong>edge</strong>: 16</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 44</li><li><strong>opera_android</strong>: 43</li><li><strong>safari</strong>: 10.1</li><li><strong>safari_ios</strong>: 10.3</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 57</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-grid/#repeat-notation">https://drafts.csswg.org/css-grid/#repeat-notation</a></p></section></aside></body>
+</html>

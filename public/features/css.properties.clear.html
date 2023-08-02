@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>clear</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties clear</h1><main>
+    
+
+<p>The <strong><code>clear</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an element must be moved below (cleared) <a href="./css.properties.float.html">floating</a> elements that precede it. The <code>clear</code> property applies to floating and non-floating elements.</p>
+<p>When applied to non-floating blocks, it moves the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area">border edge</a> of the element down until it is below the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area">margin edge</a> of all relevant floats. The non-floated block's top margin collapses.</p>
+<p>Vertical margins between two floated elements on the other hand will not collapse. When applied to floating elements, the margin edge of the bottom element is moved below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.</p>
+<p>The floats that are relevant to be cleared are the earlier floats within the same <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">block formatting context</a>.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> If an element contains only floated elements, its height collapses to nothing. If you want it to always be able to resize, so that it contains floating elements inside it, set the value of the element's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> property to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#flow-root"><code>flow-root</code></a>.</p>
+  <pre class="brush: css">#container {
+  display: flow-root;
+}
+</pre>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+clear: none;
+clear: left;
+clear: right;
+clear: both;
+clear: inline-start;
+clear: inline-end;
+
+/* Global values */
+clear: inherit;
+clear: initial;
+clear: revert;
+clear: revert-layer;
+clear: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is <em>not</em> moved down to clear past floating elements.</p>
+  </dd>
+  <dt><code>left</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is moved down to clear past <em>left</em> floats.</p>
+  </dd>
+  <dt><code>right</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is moved down to clear past <em>right</em> floats.</p>
+  </dd>
+  <dt><code>both</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is moved down to clear past <em>both</em> left and right floats.</p>
+  </dd>
+  <dt><code>inline-start</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is moved down to clear floats on <em>start side of its containing block</em>, that is the <em>left</em> floats on ltr scripts and the <em>right</em> floats on rtl scripts.</p>
+  </dd>
+  <dt><code>inline-end</code></dt>
+  <dd>
+    <p>Is a keyword indicating that the element is moved down to clear floats on <em>end side of its containing block</em>, that is the <em>right</em> floats on ltr scripts and the <em>left</em> floats on rtl scripts.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>block-level elements, floats, regions, pages</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>inline-start | inline-end | block-start | block-end | left | right | top | bottom | none</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="wrapper">
+  &#x3C;p class="black">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus sit amet
+    diam. Duis mattis varius dui. Suspendisse eget dolor.
+  &#x3C;/p>
+  &#x3C;p class="red">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&#x3C;/p>
+  &#x3C;p class="left">This paragraph clears left.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapper {
+  border: 1px solid black;
+  padding: 10px;
+}
+.left {
+  border: 1px solid black;
+  clear: left;
+}
+.black {
+  float: left;
+  margin: 0;
+  background-color: black;
+  color: #fff;
+  width: 20%;
+}
+.red {
+  float: left;
+  margin: 0;
+  background-color: pink;
+  width: 20%;
+}
+p {
+  width: 50%;
+}
+</pre>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="wrapper">
+  &#x3C;p class="black">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus sit amet
+    diam. Duis mattis varius dui. Suspendisse eget dolor.
+  &#x3C;/p>
+  &#x3C;p class="red">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&#x3C;/p>
+  &#x3C;p class="right">This paragraph clears right.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapper {
+  border: 1px solid black;
+  padding: 10px;
+}
+.right {
+  border: 1px solid black;
+  clear: right;
+}
+.black {
+  float: right;
+  margin: 0;
+  background-color: black;
+  color: #fff;
+  width: 20%;
+}
+.red {
+  float: right;
+  margin: 0;
+  background-color: pink;
+  width: 20%;
+}
+p {
+  width: 50%;
+}
+</pre>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="wrapper">
+  &#x3C;p class="black">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus sit amet
+    diam. Duis mattis varius dui. Suspendisse eget dolor. Fusce pulvinar lacus
+    ac dui.
+  &#x3C;/p>
+  &#x3C;p class="red">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus sit amet
+    diam. Duis mattis varius dui. Suspendisse eget dolor.
+  &#x3C;/p>
+  &#x3C;p class="both">This paragraph clears both.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.wrapper {
+  border: 1px solid black;
+  padding: 10px;
+}
+.both {
+  border: 1px solid black;
+  clear: both;
+}
+.black {
+  float: left;
+  margin: 0;
+  background-color: black;
+  color: #fff;
+  width: 20%;
+}
+.red {
+  float: right;
+  margin: 0;
+  background-color: pink;
+  width: 20%;
+}
+p {
+  width: 45%;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">CSS basic box model</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#propdef-clear,https://drafts.csswg.org/css-logical/#float-clear">https://drafts.csswg.org/css2/#propdef-clear,https://drafts.csswg.org/css-logical/#float-clear</a></p></section></aside></body>
+</html>

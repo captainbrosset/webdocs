@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scaleZ()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function scaleZ()</h1><main>
+    
+
+<p>
+  The <strong><code>scaleZ()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that resizes an element along the
+  z-axis. Its result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<p>
+  This scaling transformation modifies the z-coordinate of each element point by a constant factor, except when the
+  scale factor is 1, in which case the function is the identity transform. The scaling is not isotropic, and the angles
+  of the element are not conserved. <code>scaleZ(-1)</code> defines an <a href="https://en.wikipedia.org/wiki/Axial_symmetry">axial symmetry</a>, with the z-axis passing through the origin
+  (as specified by the <a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a> property).
+</p>
+<p>
+  In the above interactive examples, <a href="./css.properties.perspective.html"><code>perspective: 550px;</code></a> (to
+  create a 3D space) and <a href="./css.properties.transform-style.html"><code>transform-style: preserve-3d;</code></a>
+  (so the children, the 6 sides of the cube, are also positioned in the 3D space), have been set on the cube.
+</p>
+<div class="notecard note">
+  <p>
+    <strong>Note:</strong> <code>scaleZ(sz)</code> is equivalent to
+    <code>scale3d(1, 1, sz)</code>.
+  </p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">scaleZ(s)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>s</code></dt>
+  <dd>
+    <p>
+      Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> representing the scaling factor to apply on the z-coordinate of each point of
+      the element.
+    </p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">
+        This transformation applies to the 3D space and can't be represented on
+        the plane.
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>s</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>s</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="perspective">Translated&#x3C;/div>
+&#x3C;div class="scaled-translated">Scaled&#x3C;/div>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.perspective {
+  /* Includes a perspective to create a 3D space */
+  transform: perspective(400px) translateZ(-100px);
+  background-color: limegreen;
+}
+
+.scaled-translated {
+  /* Includes a perspective to create a 3D space */
+  transform: perspective(400px) scaleZ(2) translateZ(-100px);
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.transform-function.scaleX.html"><code>scaleX()</code></a></li>
+  <li><a href="./css.types.transform-function.scaleY.html"><code>scaleY()</code></a></li>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a></li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.properties.transform-origin.html"><code>transform-origin()</code></a></li>
+  <li>Individual transform properties:
+    <ul>
+      <li><a href="./css.properties.translate.html"><code>translate()</code></a></li>
+      <li><a href="./css.properties.scale.html"><code>scale()</code></a></li>
+      <li><a href="./css.properties.rotate.html"><code>rotate()</code></a></li>
+      <li>Note: there is no <code>skew</code> property</li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 12</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 10</li><li><strong>firefox_android</strong>: 10</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#funcdef-scalez">https://drafts.csswg.org/css-transforms-2/#funcdef-scalez</a></p></section></aside></body>
+</html>

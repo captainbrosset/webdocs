@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":not()"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":not()"</h1><main>
+    
+
+<p>The <strong><code>:not()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents elements that do not match a list of selectors. Since it prevents specific items from being selected, it is known as the <em>negation pseudo-class</em>.</p>
+<p>The <code>:not()</code> pseudo-class has a number of <a href="#description">quirks, tricks, and unexpected results</a> that you should be aware of before using it.</p>
+<h2>Syntax</h2>
+<p>The <code>:not()</code> pseudo-class requires a comma-separated list of one or more selectors as its argument. The list must not contain another negation selector or a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a>.</p>
+<pre class="brush: css">:not(&#x3C;complex-selector-list>) {
+  /* ... */
+}
+</pre>
+<h2>Description</h2>
+<p>There are several unusual effects and outcomes when using <code>:not()</code> that you should keep in mind when using it:</p>
+<ul>
+  <li>Useless selectors can be written using this pseudo-class. For example, <code>:not(*)</code> matches any element which is not an element, which is obviously nonsense, so the accompanying rule will never be applied.</li>
+  <li>This pseudo-class can increase the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a> of a rule. For example, <code>#foo:not(#bar)</code> will match the same element as the simpler <code>#foo</code>, but has the higher specificity of two <code>id</code> selectors.</li>
+  <li>The specificity of the <code>:not()</code> pseudo-class is replaced by the specificity of the most specific selector in its comma-separated argument of selectors; providing the same specificity as if it had been written <a href="./css.selectors.is.html"><code>:not(:is(argument))</code></a>.</li>
+  <li><code>:not(.foo)</code> will match anything that isn't <code>.foo</code>, <em>including <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a>.</em></li>
+  <li>This selector will match everything that is "not an X". This may be surprising when used with <a href="./css.selectors.descendant.html">descendant combinators</a>, since there are multiple paths to select a target element. For instance, <code>body :not(table) a</code> will still apply to links inside a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a>, since <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody"><code>&lt;tbody&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a>, etc. can all match the <code>:not(table)</code> part of the selector.</li>
+  <li>You can negate several selectors at the same time. Example: <code>:not(.foo, .bar)</code> is equivalent to <code>:not(.foo):not(.bar)</code>.</li>
+  <li>If any selector passed to the <code>:not()</code> pseudo-class is invalid or not supported by the browser, the whole rule will be invalidated. The effective way to overcome this behavior is to use <a href="./css.selectors.is.html"><code>:is()</code></a> pseudo-class, which accepts a forgiving selector list. For example <code>:not(.foo, :invalid-pseudo-class)</code> will invalidate a whole rule, but <code>:not(:is(.foo, :invalid-pseudo-class))</code> will match any (<em>including <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a></em>) element that isn't <code>.foo</code>.</li>
+</ul>
+
+<h3>Using :not() with valid selectors</h3>
+<p>This example shows some simple cases of using <code>:not()</code>.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>I am a paragraph.&#x3C;/p>
+&#x3C;p class="fancy">I am so very fancy!&#x3C;/p>
+&#x3C;div>I am NOT a paragraph.&#x3C;/div>
+&#x3C;h2>
+  &#x3C;span class="foo">foo inside h2&#x3C;/span>
+  &#x3C;span class="bar">bar inside h2&#x3C;/span>
+&#x3C;/h2>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.fancy {
+  text-shadow: 2px 2px 3px gold;
+}
+
+/* &#x3C;p> elements that don't have a class `.fancy` */
+p:not(.fancy) {
+  color: green;
+}
+
+/* Elements that are not &#x3C;p> elements */
+body :not(p) {
+  text-decoration: underline;
+}
+
+/* Elements that are not &#x3C;div>s or `.fancy` */
+body :not(div):not(.fancy) {
+  font-weight: bold;
+}
+
+/* Elements that are not &#x3C;div>s or `.fancy` */
+body :not(div, .fancy) {
+  text-decoration: overline underline;
+}
+
+/* Elements inside an &#x3C;h2> that aren't a &#x3C;span> with a class of `.foo` */
+h2 :not(span.foo) {
+  color: red;
+}
+</pre>
+
+<h3>Using :not() with invalid selectors</h3>
+<p>This example shows the use of <code>:not()</code> with invalid selectors and how to prevent invalidation.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p class="foo">I am a paragraph with .foo&#x3C;/p>
+&#x3C;p class="bar">I am a paragraph with .bar&#x3C;/p>
+&#x3C;div>I am a div without a class&#x3C;/div>
+&#x3C;div class="foo">I am a div with .foo&#x3C;/div>
+&#x3C;div class="bar">I am a div with .bar&#x3C;/div>
+&#x3C;div class="foo bar">I am a div with .foo and .bar&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* Invalid rule, does nothing */
+p:not(.foo, :invalid-pseudo-class) {
+  color: red;
+  font-style: italic;
+}
+
+/* Select all &#x3C;p> elements without the `foo` class */
+p:not(:is(.foo, :invalid-pseudo-class)) {
+  color: green;
+  border-top: dotted thin currentcolor;
+}
+
+/* Select all &#x3C;div> elements without the `foo` or the `bar` class */
+div:not(.foo, .bar) {
+  color: red;
+  font-style: italic;
+}
+
+/* Select all &#x3C;div> elements without the `foo` or the `bar` class */
+div:not(:is(.foo, .bar)) {
+  border-bottom: dotted thin currentcolor;
+}
+</pre>
+<h4>Result</h4>
+<p>The <code>p:not(.foo, :invalid-pseudo-class)</code> rule is invalid because it contains an invalid selector. The <code>:is()</code> pseudo-class accepts a forgiving selector list, so the <code>:is(.foo, :invalid-pseudo-class)</code> rule is valid and equivalent to <code>:is(.foo)</code>. Thus, the <code>p:not(:is(.foo, :invalid-pseudo-class))</code> rule is valid and equivalent to <code>p:not(.foo)</code>.</p>
+<p>If <code>:invalid-pseudo-class</code> was a valid selector, the first two rules above would still be equivalent (the last two rules showcase that). The use of <code>:is()</code> makes the rule more robust.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-classes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements">Pseudo-classes and pseudo-elements</a></li>
+  <li>Other functional CSS pseudo-classes:
+    <ul>
+      <li><a href="./css.selectors.has.html"><code>:has()</code></a></li>
+      <li><a href="./css.selectors.is.html"><code>:is()</code></a></li>
+      <li><a href="./css.selectors.where.html"><code>:where()</code></a></li>
+    </ul>
+  </li>
+  <li><a href="/en-US/blog/css-not-pseudo-multiple-selectors/">How :not() chains multiple selectors</a> on MDN blog (2023)</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#negation">https://drafts.csswg.org/selectors/#negation</a></p></section></aside></body>
+</html>

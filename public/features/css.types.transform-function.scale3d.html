@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scale3d()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types transform-function scale3d()</h1><main>
+    
+
+<p>
+  The <strong><code>scale3d()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> defines a transformation that resizes an element in 3D space.
+  Because the amount of scaling is defined by a vector, it can resize different dimensions at different scales. Its
+  result is a <a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a> data type.
+</p>
+<p>
+  This scaling transformation is characterized by a three-dimensional vector. Its coordinates define how much scaling
+  is done in each direction. If all three coordinates are equal, the scaling is uniform (<em>isotropic</em>) and the
+  aspect ratio of the element is preserved (this is a <a href="https://en.wikipedia.org/wiki/Homothetic_transformation">homothetic transformation</a>).
+</p>
+<p>
+  When a coordinate value is outside the [-1, 1] range, the element grows along that dimension; when inside, it
+  shrinks. If it is negative, the result a <a href="https://en.wikipedia.org/wiki/Point_reflection">point reflection</a>
+  in that dimension. A value of 1 has no effect.
+</p>
+<h2>Syntax</h2>
+<p>
+  The <code>scale3d()</code> function is specified with three values, which represent the amount of scaling to be
+  applied in each direction.
+</p>
+<pre class="brush: css">scale3d(sx, sy, sz)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>sx</code></dt>
+  <dd>
+    <p>Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> representing the abscissa of the scaling vector.</p>
+  </dd>
+  <dt><code>sy</code></dt>
+  <dd>
+    <p>Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> representing the ordinate of the scaling vector.</p>
+  </dd>
+  <dt><code>sz</code></dt>
+  <dd>
+    <p>Is a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> representing the z-component of the scaling vector.</p>
+  </dd>
+</dl>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Cartesian coordinates on ℝ^2</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^2</th>
+      <th scope="col">Cartesian coordinates on ℝ^3</th>
+      <th scope="col">Homogeneous coordinates on ℝℙ^3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">
+        This transformation applies to the 3D space and can't be represented on
+        the plane.
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sz</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+      <td>
+        <math>
+          <mrow>
+            <mo>(</mo>
+            <mtable>
+              <mtr>
+                <mtd>
+                  <mi>sx</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sy</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mi>sz</mi>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </math>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="scaled">Scaled&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.scaled {
+  transform: perspective(500px) scale3d(2, 0.7, 0.2) translateZ(100px);
+  background-color: pink;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>Normal&#x3C;/div>
+&#x3C;div class="scaled">Scaled&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div {
+  width: 80px;
+  height: 80px;
+  background-color: skyblue;
+}
+
+.scaled {
+  transform: perspective(500px) scale3d(2, 0.7, 0.2) translateZ(100px);
+  transform-origin: left;
+  background-color: pink;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.transform.html"><code>transform()</code></a></li>
+  <li><a href="./css.types.transform-function.html"><code>&lt;transform-function&gt;()</code></a></li>
+  <li><a href="./css.types.transform-function.scaleZ.html"><code>scaleZ()</code></a></li>
+  <li><a href="./css.types.transform-function.translate3d.html"><code>translate3d()</code></a></li>
+  <li><a href="./css.types.transform-function.rotate3d.html"><code>rotate3d()</code></a></li>
+  <li>Individual transform properties:
+    <ul>
+      <li><a href="./css.properties.translate.html"><code>translate()</code></a></li>
+      <li><a href="./css.properties.scale.html"><code>scale()</code></a></li>
+      <li><a href="./css.properties.rotate.html"><code>rotate()</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 12</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 10</li><li><strong>firefox_android</strong>: 10</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 4</li><li><strong>safari_ios</strong>: 3.2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 3</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#funcdef-scale3d">https://drafts.csswg.org/css-transforms-2/#funcdef-scale3d</a></p></section></aside></body>
+</html>

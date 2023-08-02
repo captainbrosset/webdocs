@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;frequency&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;frequency></h1><main>
+    
+
+<p>The <strong><code>&#x3C;frequency></code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> represents a frequency dimension, such as the pitch of a speaking voice. It is not currently used in any CSS properties.</p>
+<h2>Syntax</h2>
+<p>The <code>&#x3C;frequency></code> data type consists of a <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> followed by one of the units listed below. As with all CSS dimensions, there is no space between the unit literal and the number.</p>
+<h3>Units</h3>
+<dl>
+  <dt><code>Hz</code></dt>
+  <dd>
+    <p>Represents a frequency in hertz. Examples: <code>0Hz</code>, <code>1500Hz</code>, <code>10000Hz</code>.</p>
+  </dd>
+  <dt><code>kHz</code></dt>
+  <dd>
+    <p>Represents a frequency in kilohertz. Examples: <code>0kHz</code>, <code>1.5kHz</code>, <code>10kHz</code>.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> Although the number <code>0</code> is always the same regardless of unit, the unit may not be omitted. In other words, <code>0</code> is invalid and does not represent <code>0Hz</code> or <code>0kHz</code>. Though the units are case-insensitive, it is good practice to use a capital "H" for <code>Hz</code> and <code>kHz</code>, as specified in the <a href="https://en.wikipedia.org/wiki/International_System_of_Units">SI</a>.</p>
+</div>
+<h2>Examples</h2>
+<p>Valid frequency values:</p>
+<pre class="brush: plain example-good">12Hz     Positive integer
+4.3Hz    Non-integer
+14KhZ    The unit is case-insensitive, though non-SI capitalization is not recommended.
++0Hz     Zero, with a leading + and a unit
+-0kHz    Zero, with a leading - and a unit
+</pre>
+<p>Invalid frequency values:</p>
+<pre class="brush: plain example-bad">12.0     This is a &#x3C;number>, not an &#x3C;frequency>, because it is missing a unit.
+7 Hz     No space is allowed between the number and the unit.
+0        Although unitless zero is an allowable &#x3C;length>, it's an invalid &#x3C;frequency>.
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.frequency-percentage.html"><code>&lt;frequency-percentage&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#frequency">https://drafts.csswg.org/css-values/#frequency</a></p></section></aside></body>
+</html>

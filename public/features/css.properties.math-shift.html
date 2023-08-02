@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>math-shift</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties math-shift</h1><main>
+    
+
+<p>The <code>math-shift</code> property indicates whether superscripts inside MathML formulas should be raised by a normal or compact shift.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+math-shift: normal;
+math-shift: compact;
+
+/* Global values */
+math-shift: inherit;
+math-shift: initial;
+math-shift: revert;
+math-shift: revert-layer;
+math-shift: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>normal</code></dt>
+  <dd>
+    <p>The initial value, indicates normal rendering. Superscripts in MathML formulas use the <a href="https://w3c.github.io/mathml-core/#dfn-superscriptshiftup">superscriptShiftUp</a> parameter from the OpenType MATH table.</p>
+  </dd>
+  <dt><code>compact</code></dt>
+  <dd>
+    <p>Indicates compact rendering. Superscripts in MathML formulas use the <a href="https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped">superscriptShiftUpCramped</a> parameter from the OpenType MATH table, which is generally smaller.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>normal</td></tr><tr><th scope="row">Applies to</th><td>All elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>normal | compact</pre></section>
+
+<h3>CSS</h3>
+<pre class="brush: css">math {
+  math-shift: compact;
+}
+</pre>
+<h3>MathML</h3>
+<p>The following MathML displays two versions of "x squared" using a font with an OpenType MATH table. Browser implementing the <code>math-shift</code> property should raise the superscripts using slightly different shifts.</p>
+<pre class="brush: html">&#x3C;math style="font-size: 64pt;">
+  &#x3C;msup style="math-shift: normal">
+    &#x3C;mi>x&#x3C;/mi>
+    &#x3C;mn>2&#x3C;/mn>
+  &#x3C;/msup>
+  &#x3C;msup style="math-shift: compact">
+    &#x3C;mi>x&#x3C;/mi>
+    &#x3C;mn>2&#x3C;/mn>
+  &#x3C;/msup>
+&#x3C;/math>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.math-depth.html"><code>math-depth</code></a></li>
+  <li><a href="./css.properties.font-size.html"><code>font-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 13.0</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: 74</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 21.0</li><li><strong>webview_android</strong>: 109</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://w3c.github.io/mathml-core/#the-math-shift">https://w3c.github.io/mathml-core/#the-math-shift</a></p></section></aside></body>
+</html>

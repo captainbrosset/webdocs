@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>background-clip</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties background-clip</h1><main>
+    
+
+<p>The <strong><code>background-clip</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an element's background extends underneath its border box, padding box, or content box.</p>
+<p>If the element has no <a href="./css.properties.background-image.html"><code>background-image</code></a> or <a href="./css.properties.background-color.html"><code>background-color</code></a>, this property will only have a visual effect when the border has transparent regions or partially opaque regions (due to <a href="./css.properties.border-style.html"><code>border-style</code></a> or <a href="./css.properties.border-image.html"><code>border-image</code></a>); otherwise, the border masks the difference.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Because the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html">root element</a> has a different background painting area, the <code>background-clip</code> property has no effect when specified on it. See "<a href="https://drafts.csswg.org/css-backgrounds-3/#special-backgrounds">The backgrounds of special elements.</a>"</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> For documents whose <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html">root element</a> is an HTML element: if the computed value of <a href="./css.properties.background-image.html"><code>background-image</code></a> on the root element is <code>none</code> and its <a href="./css.properties.background-color.html"><code>background-color</code></a> is <code>transparent</code>, user agents must instead propagate the computed values of the <code>background</code> properties from that element's first HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> child element. The used values of that <code>&#x3C;body></code> element's <code>background</code> properties are their initial values, and the propagated values are treated as if they were specified on the root element. It is recommended that authors of HTML documents specify the canvas background for the <code>&#x3C;body></code> element rather than the HTML element.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+background-clip: border-box;
+background-clip: padding-box;
+background-clip: content-box;
+background-clip: text;
+
+/* Global values */
+background-clip: inherit;
+background-clip: initial;
+background-clip: revert;
+background-clip: revert-layer;
+background-clip: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>border-box</code></dt>
+  <dd>
+    <p>The background extends to the outside edge of the border (but underneath the border in z-ordering).</p>
+  </dd>
+  <dt><code>padding-box</code></dt>
+  <dd>
+    <p>The background extends to the outside edge of the padding. No background is drawn beneath the border.</p>
+  </dd>
+  <dt><code>content-box</code></dt>
+  <dd>
+    <p>The background is painted within (clipped to) the content box.</p>
+  </dd>
+  <dt><code>text</code></dt>
+  <dd>
+    <p>The background is painted within (clipped to) the foreground text.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>When using <code>background-clip: text</code> check that the contrast ratio between the background color and the color of the text placed over it is high enough that people experiencing low vision conditions will be able to read the content of the page.</p>
+<p>If the background image does not load, this could also lead to the text becoming unreadable. Add a fallback <a href="./css.properties.background-color.html"><code>background-color</code></a> to prevent this from happening, and test without the image.</p>
+<p>Consider using feature queries with <a href="./css.at-rules.supports.html"><code>@supports</code></a> to test for support of <code>background-clip: text</code> and provide an accessible alternative where it is not supported.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>border-box</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>repeatable list</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;bg-clip&gt;#</pre></section>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p class="border-box">The background extends behind the border.&#x3C;/p>
+&#x3C;p class="padding-box">
+  The background extends to the inside edge of the border.
+&#x3C;/p>
+&#x3C;p class="content-box">
+  The background extends only to the edge of the content box.
+&#x3C;/p>
+&#x3C;p class="text">The background is clipped to the foreground text.&#x3C;/p>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">p {
+  border: 0.8em darkviolet;
+  border-style: dotted double;
+  margin: 1em 0;
+  padding: 1.4em;
+  background: linear-gradient(60deg, red, yellow, red, yellow, red);
+  font: 900 1.2em sans-serif;
+  text-decoration: underline;
+}
+
+.border-box {
+  background-clip: border-box;
+}
+.padding-box {
+  background-clip: padding-box;
+}
+.content-box {
+  background-clip: content-box;
+}
+
+.text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0.2);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li>The <a href="./css.properties.clip-path.html"><code>clip-path</code></a> property creates a clipping region that defines what part of an <em>entire element</em> should be displayed.</li>
+  <li>Background properties: <a href="./css.properties.background.html"><code>background</code></a>, <a href="./css.properties.background-color.html"><code>background-color</code></a>, <a href="./css.properties.background-image.html"><code>background-image</code></a>, <a href="./css.properties.background-origin.html"><code>background-origin</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">Introduction to the CSS box model</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-backgrounds/#background-clip">https://drafts.csswg.org/css-backgrounds/#background-clip</a></p></section></aside></body>
+</html>

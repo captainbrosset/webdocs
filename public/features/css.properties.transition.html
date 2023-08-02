@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>transition</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties transition</h1><main>
+    
+
+<p>The <strong><code>transition</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand property</a> for <a href="./css.properties.transition-property.html"><code>transition-property</code></a>, <a href="./css.properties.transition-duration.html"><code>transition-duration</code></a>, <a href="./css.properties.transition-timing-function.html"><code>transition-timing-function</code></a>, and <a href="./css.properties.transition-delay.html"><code>transition-delay</code></a>.</p>
+<p>Transitions enable you to define the transition between two states of an element. Different states may be defined using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-classes</a> like <a href="./css.selectors.hover.html"><code>:hover</code></a> or <a href="./css.selectors.active.html"><code>:active</code></a> or dynamically set using JavaScript.</p>
+<h2>Constituent properties</h2>
+<p>This property is a shorthand for the following CSS properties:</p>
+<ul>
+  <li><a href="./css.properties.transition-delay.html"><code>transition-delay</code></a></li>
+  <li><a href="./css.properties.transition-duration.html"><code>transition-duration</code></a></li>
+  <li><a href="./css.properties.transition-property.html"><code>transition-property</code></a></li>
+  <li><a href="./css.properties.transition-timing-function.html"><code>transition-timing-function</code></a></li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Apply to 1 property */
+/* property name | duration */
+transition: margin-right 4s;
+
+/* property name | duration | delay */
+transition: margin-right 4s 1s;
+
+/* property name | duration | easing function */
+transition: margin-right 4s ease-in-out;
+
+/* property name | duration | easing function | delay */
+transition: margin-right 4s ease-in-out 1s;
+
+/* Apply to 2 properties */
+transition:
+  margin-right 4s,
+  color 1s;
+
+/* Apply to all changed properties */
+transition: all 0.5s ease-out;
+
+/* Global values */
+transition: inherit;
+transition: initial;
+transition: revert;
+transition: revert-layer;
+transition: unset;
+</pre>
+<p>The <code>transition</code> property is specified as one or more single-property transitions, separated by commas.</p>
+<p>Each single-property transition describes the transition that should be applied to a single property (or the special values <code>all</code> and <code>none</code>). It includes:</p>
+<ul>
+  <li>zero or one value representing the property to which the transition should apply. This may be any one of:
+    <ul>
+      <li>the keyword <code>none</code></li>
+      <li>the keyword <code>all</code></li>
+      <li>a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident"><code>&lt;custom-ident&gt;</code></a> naming a CSS property.</li>
+    </ul>
+  </li>
+  <li>zero or one <a href="./css.types.easing-function.html"><code>&lt;easing-function&gt;</code></a> value representing the easing function to use</li>
+  <li>zero, one, or two <a href="./css.types.time.html"><code>&lt;time&gt;</code></a> values. The first value that can be parsed as a time is assigned to the <a href="./css.properties.transition-duration.html"><code>transition-duration</code></a>, and the second value that can be parsed as a time is assigned to <a href="./css.properties.transition-delay.html"><code>transition-delay</code></a>.</li>
+</ul>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions#when_property_value_lists_are_of_different_lengths">how things are handled</a> when lists of property values aren't the same length. In short, extra transition descriptions beyond the number of properties actually being animated are ignored.</p>
+
+
+
+<h3>Simple example</h3>
+<p>In this example, when the user hovers over the element, there is a one-second delay before the four-second <code>font-size</code> transition occurs.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;a class="target">Hover over me&#x3C;/a>
+</pre>
+<h4>CSS</h4>
+<p>We include two <a href="./css.types.time.html"><code>time</code></a> values. In the <code>transition</code> shorthand, the first <code>&#x3C;time></code> value is the <code>transition-duration</code>. The second time value is the <code>transition-delay</code>. Both default to <code>0s</code> if omitted.</p>
+<pre class="brush: css">.target {
+  font-size: 14px;
+  transition: font-size 4s 1s;
+}
+
+.target:hover {
+  font-size: 36px;
+}
+</pre>
+<p>There are several more examples of CSS transitions included in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">Using CSS transitions</a> article.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">Using CSS transitions</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/TransitionEvent"><code>TransitionEvent</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transitions/#transition-shorthand-property">https://drafts.csswg.org/css-transitions/#transition-shorthand-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"::-moz-focus-inner"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors "::-moz-focus-inner"</h1><main>
+    
+
+<p>The <strong><code>::-moz-focus-inner</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-element</a> is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions">Mozilla extension</a> that represents an inner focus ring of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element as well as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button">button</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit">submit</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/reset">reset</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color">color</a> types of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> element.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Using <code>::-moz-focus-inner</code> with anything than the buttons that support it doesn't match anything and has no effect.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">::-moz-focus-inner {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;input type="submit" value="Input" /> &#x3C;button type="submit">Button&#x3C;/button>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">button::-moz-focus-inner,
+input[type="color"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  padding-block-start: 0px;
+  padding-inline-end: 2px;
+  padding-block-end: 0px;
+  padding-inline-start: 2px;
+  border: 2px dotted red;
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions">Mozilla CSS extensions</a></li>
+  <li>Related CSS properties:
+    <ul>
+      <li><a href="./css.properties.-moz-user-focus.html"><code>-moz-user-focus</code></a></li>
+    </ul>
+  </li>
+  <li>Related CSS selectors:
+    <ul>
+      <li><a href="./css.selectors.focus.html"><code>:focus</code></a></li>
+      <li><a href="./css.selectors.focus-visible.html"><code>:focus-visible</code></a></li>
+      <li><a href="./css.selectors.focus-within.html"><code>:focus-within</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  </aside></body>
+</html>

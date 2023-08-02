@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hwb()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types color hwb()</h1><main>
+    
+
+<p>The <strong><code>hwb()</code></strong> functional notation expresses a given color according to its hue, whiteness, and blackness. An optional alpha component represents the color's transparency.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">hwb(194 0% 0%) /* #00c3ff */
+hwb(194 0% 0% / .5) /* #00c3ff with 50% opacity */
+</pre>
+<h3>Values</h3>
+<p>Functional notation: <code>hwb(H W B[ / A])</code></p>
+<dl>
+  <dt><code>H</code></dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a>, or the keyword <code>none</code>, which represents the hue angle. More details on this type can be found on the <a href="./css.types.hue.html"><code>&lt;hue&gt;()</code></a> reference.</p>
+  </dd>
+  <dt><code>W</code>, <code>B</code></dt>
+  <dd>
+    <p>Each as a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a> or the keyword <code>none</code>, which represent whiteness and blackness, respectively. They specify the amount of white and black to mix in, from <code>0%</code> (no whiteness or blackness) to <code>100%</code> (full whiteness or blackness).</p>
+    <p>If <code>W + B = 100%</code>, it defines some shade of gray. If <code>W + B > 100%</code>, <code>W</code> and <code>B</code> are effectively normalized as <code>W / (W + B)</code> and <code>B / (W + B)</code>, respectively.</p>
+  </dd>
+  <dt><code>A</code> <span class="badge inline optional">Optional</span></dt>
+  <dd>
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/alpha-value"><code>&lt;alpha-value&gt;()</code></a> or the keyword <code>none</code>, where the number <code>1</code> corresponds to <code>100%</code> (full opacity).</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#missing_color_components">Missing color components</a> for the effect of <code>none</code>.</p>
+</div>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.types.color.html"><code>&lt;color&gt;()</code></a>: For a list of all color notations</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 101</li><li><strong>chrome_android</strong>: 101</li><li><strong>edge</strong>: 101</li><li><strong>firefox</strong>: 96</li><li><strong>firefox_android</strong>: 96</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 22.0</li><li><strong>opera</strong>: 87</li><li><strong>opera_android</strong>: 70</li><li><strong>safari</strong>: 15</li><li><strong>safari_ios</strong>: 15</li><li><strong>samsunginternet_android</strong>: 19.0</li><li><strong>webview_android</strong>: 101</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-color/#the-hwb-notation">https://drafts.csswg.org/css-color/#the-hwb-notation</a></p></section></aside></body>
+</html>

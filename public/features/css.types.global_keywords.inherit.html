@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>inherit</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types global_keywords inherit</h1><main>
+    
+
+<p>The <strong><code>inherit</code></strong> CSS keyword causes the element to take the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed value</a> of the property from its parent element. It can be applied to any CSS property, including the CSS shorthand property <a href="./css.properties.all.html"><code>all</code></a>.</p>
+<p>For <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance#inherited_properties">inherited properties</a>, this reinforces the default behavior, and is only needed to override another rule.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block.</p>
+</div>
+
+<h3>Exclude selected elements from a rule</h3>
+<pre class="brush: css">/* Make second-level headers green */
+h2 {
+  color: green;
+}
+
+/* Leave those in the sidebar alone so they use their parent's color */
+#sidebar h2 {
+  color: inherit;
+}
+</pre>
+<p>In this example, the <code>h2</code> elements inside the sidebar might be different colors. For example, consider one of them that would by the child of a <code>div</code> matched by the rule:</p>
+<pre class="brush: css">div#current {
+  color: blue;
+}
+</pre>
+<p>Then, it would be blue.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance">Inheritance</a></li>
+  <li>Use the <a href="./css.types.global_keywords.initial.html"><code>initial</code></a> keyword to set a property to its initial value.</li>
+  <li>Use the <a href="./css.types.global_keywords.revert.html"><code>revert</code></a> keyword to reset a property to the value established by the user-agent stylesheet (or by user styles, if any exist).</li>
+  <li>Use the <a href="./css.types.global_keywords.revert-layer.html"><code>revert-layer</code></a> keyword to reset a property to the value established in a previous cascade layer.</li>
+  <li>Use the <a href="./css.types.global_keywords.unset.html"><code>unset</code></a> keyword to set a property to its inherited value if it inherits or to its initial value if not.</li>
+  <li>The <a href="./css.properties.all.html"><code>all</code></a> property lets you reset all properties to their initial, inherited, reverted, or unset state at once.</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-cascade/#inherit">https://drafts.csswg.org/css-cascade/#inherit</a></p></section></aside></body>
+</html>

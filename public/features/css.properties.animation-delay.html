@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animation-delay</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties animation-delay</h1><main>
+    
+
+<p>The <strong><code>animation-delay</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies the amount of time to wait from applying the animation to an element before beginning to perform the animation. The animation can start later, immediately from its beginning, or immediately and partway through the animation.</p>
+<p>It is often convenient to use the shorthand property <a href="./css.properties.animation.html"><code>animation</code></a> to set all animation properties at once.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Single animation */
+animation-delay: 3s;
+animation-delay: 0s;
+animation-delay: -1500ms;
+
+/* Multiple animations */
+animation-delay: 2.1s, 480ms;
+
+/* Global values */
+animation-delay: inherit;
+animation-delay: initial;
+animation-delay: revert;
+animation-delay: revert-layer;
+animation-delay: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code><a href="./css.types.time.html"><code>&lt;time&gt;</code></a></code></dt>
+  <dd>
+    <p>The time offset, from the moment at which the animation is applied to the element, at which the animation should begin. This may be specified in either seconds (<code>s</code>) or milliseconds (<code>ms</code>). The unit is required.</p>
+    <p>A positive value indicates that the animation should begin after the specified amount of time has elapsed. A value of <code>0s</code>, which is the default, indicates that the animation should begin as soon as it's applied.</p>
+    <p>A negative value causes the animation to begin immediately, but partway through its cycle. For example, if you specify <code>-1s</code> as the animation delay time, the animation will begin immediately but will start 1 second into the animation sequence. If you specify a negative value for the animation delay, but the starting value is implicit, the starting value is taken from the moment the animation is applied to the element.</p>
+  </dd>
+</dl>
+<div class="notecard note">
+  <p><strong>Note:</strong> When you specify multiple comma-separated values on an <code>animation-*</code> property, they are applied to the animations in the order in which the <a href="./css.properties.animation-name.html"><code>animation-name</code></a>s appear. For situations where the number of animations and <code>animation-*</code> property values do not match, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values">Setting multiple animation property values</a>.</p>
+</div>
+<div class="notecard note">
+  <p><strong>Note:</strong> <code>animation-delay</code> has no effect on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a>.</p>
+</div>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>0s</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>list, each item a duration</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;time&gt;#</pre></section>
+
+<h3>Setting an animation delay</h3>
+<p>This animation has a delay of 2 seconds.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box">&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.box:hover {
+  animation-name: rotate;
+  animation-duration: 0.7s;
+  animation-delay: 2s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<h4>Result</h4>
+<p>Hover over the rectangle to start the animation.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a> for examples.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Using CSS animations</a></li>
+  <li>JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEvent"><code>AnimationEvent</code></a> API</li>
+  <li>Other related animation properties: <a href="./css.properties.animation.html"><code>animation</code></a>, <a href="./css.properties.animation-composition.html"><code>animation-composition</code></a>, <a href="./css.properties.animation-direction.html"><code>animation-direction</code></a>, <a href="./css.properties.animation-duration.html"><code>animation-duration</code></a>, <a href="./css.properties.animation-fill-mode.html"><code>animation-fill-mode</code></a>, <a href="./css.properties.animation-iteration-count.html"><code>animation-iteration-count</code></a>, <a href="./css.properties.animation-name.html"><code>animation-name</code></a>, <a href="./css.properties.animation-play-state.html"><code>animation-play-state</code></a>, <a href="./css.properties.animation-timeline.html"><code>animation-timeline</code></a>, <a href="./css.properties.animation-timing-function.html"><code>animation-timing-function</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 10</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-animations/#animation-delay">https://drafts.csswg.org/css-animations/#animation-delay</a></p></section></aside></body>
+</html>

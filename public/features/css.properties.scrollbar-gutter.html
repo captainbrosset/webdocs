@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scrollbar-gutter</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scrollbar-gutter</h1><main>
+    
+
+<p>The <strong><code>scrollbar-gutter</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property allows authors to reserve space for the scrollbar, preventing unwanted layout changes as the content grows while also avoiding unnecessary visuals when scrolling isn't needed.</p>
+<p>An element's <em>scrollbar gutter</em> is the space between the inner border edge and the outer padding edge, where the browser may display a scrollbar. If no scrollbar is present, the gutter will be painted as an extension of the padding.</p>
+<p>The browser determines whether <em>classic</em> scrollbars or <em>overlay</em> scrollbars are used:</p>
+<ul>
+  <li>Classic scrollbars are always placed in a gutter, consuming space when present.</li>
+  <li>Overlay scrollbars are placed over the content, not in a gutter, and are usually partially transparent.</li>
+</ul>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Initial value */
+scrollbar-gutter: auto;
+
+/* "stable" keyword, with optional modifier */
+scrollbar-gutter: stable;
+scrollbar-gutter: stable both-edges;
+
+/* Global values */
+scrollbar-gutter: inherit;
+scrollbar-gutter: initial;
+scrollbar-gutter: revert;
+scrollbar-gutter: revert-layer;
+scrollbar-gutter: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>auto</code></dt>
+  <dd>
+    <p>The initial value. Classic scrollbars create a gutter when <code>overflow</code> is <code>scroll</code>, or when <code>overflow</code> is <code>auto</code> and the box is overflowing. Overlay scrollbars do not consume space.</p>
+  </dd>
+  <dt><code>stable</code></dt>
+  <dd>
+    <p>When using classic scrollbars, the gutter will be present if <code>overflow</code> is <code>auto</code>, <code>scroll</code>, or <code>hidden</code> even if the box is not overflowing. When using overlay scrollbars, the gutter will not be present.</p>
+  </dd>
+  <dt><code>both-edges</code></dt>
+  <dd>
+    <p>If a gutter would be present on one of the inline start/end edges of the box, another will be present on the opposite edge as well.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll containers</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | stable && both-edges?</pre></section>
+<h2>Examples</h2>
+<p>The examples below show how the different values for the <code>scrollbar-gutter</code> property would affect a scrollable <code>div</code> element (<code>.container</code>) with one or more paragraphs contained within.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> In the images for the examples, the user's system settings are set to classic scrollbars (always shown).</p>
+</div>
+<h3>Example 1</h3>
+<p>Prevent unneeded layout changes as the content growing or shrinking causes the scrollbar to appear/disappear, a space is reserved for it.</p>
+<pre class="brush: css">.container {
+  scrollbar-gutter: stable;
+}
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter/stable-no-scroll.png" alt="A containing div element with a paragraph of text inside and a space to the right where the scrollbar is">
+</p>
+<h3>Example 2</h3>
+<p>Add symmetric spacing to both sides of the box so the content is centered:</p>
+<pre class="brush: css">.container {
+  scrollbar-gutter: stable both-edges;
+}
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter/stable-both-edges.png" alt="A containing div element with a paragraph of text inside, a space to the right where the scrollbar is and a matching empty space to the left">
+</p>
+<h3>Example 3</h3>
+<p>
+  Align the contents of a non-scrolling element and a scrolling one adjacent to it:
+  This example shows two divs side by side. The one on the left has no scroll, but the one on the right does. Both have <code>scrollbar-gutter</code> applied, which also reserves space for the div on the left which doesn't have scrollable content. This is a good technique to use to keep the width of content consistent.
+</p>
+<pre class="brush: css">.container1 {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.container2 {
+  scrollbar-gutter: stable;
+}
+</pre>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter/side-by-side.png" alt="Two adjacent divs containing text, both with space for a scrollbar">
+</p>
+<h3>Overlay scrollbars</h3>
+<p>For reference, this image shows the same div as above, but with the user's system settings set to overlay scrollbars. Note here the scrollbar will only show when the user is scrolling and on top of the content, so no space is reserved for it and the <code>scrollbar-gutter</code> property has no effect.</p>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter/for-ref-no-scroll.png" alt="One div with text, no visible scrollbar">
+</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_overflow">CSS overflow</a> module</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling">CSS scrollbars styling</a> module</li>
+  <li><a href="./css.properties.overflow.html"><code>overflow</code></a></li>
+  <li><a href="./css.properties.scrollbar-width.html"><code>scrollbar-width</code></a></li>
+  <li><a href="./css.properties.scrollbar-color.html"><code>scrollbar-color</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 94</li><li><strong>chrome_android</strong>: 94</li><li><strong>edge</strong>: 94</li><li><strong>firefox</strong>: 97</li><li><strong>firefox_android</strong>: 97</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 18.0</li><li><strong>opera</strong>: 80</li><li><strong>opera_android</strong>: 66</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 17.0</li><li><strong>webview_android</strong>: 94</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-overflow/#scrollbar-gutter-property">https://drafts.csswg.org/css-overflow/#scrollbar-gutter-property</a></p></section></aside></body>
+</html>

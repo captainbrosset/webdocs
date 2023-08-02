@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":first"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":first"</h1><main>
+    
+
+<p>The <strong><code>:first</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a>, used with the <a href="./css.at-rules.page.html"><code>@page</code></a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">at-rule</a>, represents the first page of a printed document. (See <a href="./css.selectors.first-child.html"><code>:first-child</code></a> for general first element of a node.)</p>
+<pre class="brush: css">/* Selects the first page when printing */
+@page :first {
+  margin-left: 50%;
+  margin-top: 50%;
+}
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> You can't change all CSS properties with this pseudo-class. You can only change the margins, <a href="./css.properties.orphans.html"><code>orphans</code></a>, <a href="./css.properties.widows.html"><code>widows</code></a>, and page breaks of the document. Furthermore, you may only use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#absolute_length_units">absolute-length</a> units when defining the margins. All other properties will be ignored.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">:first {
+  /* ... */
+}
+</pre>
+
+<h3>HTML</h3>
+<pre class="brush: html">&#x3C;p>First Page.&#x3C;/p>
+&#x3C;p>Second Page.&#x3C;/p>
+&#x3C;button>Print!&#x3C;/button>
+</pre>
+<h3>CSS</h3>
+<pre class="brush: css">@page :first {
+  margin-left: 50%;
+  margin-top: 50%;
+}
+
+p {
+  page-break-after: always;
+}
+</pre>
+<h3>JavaScript</h3>
+<pre class="brush: js">document.querySelector("button").addEventListener("click", () => {
+  window.print();
+});
+</pre>
+<h3>Result</h3>
+<p>Press the "Print!" button to print the example. The words on the first page should be somewhere around the center, while other pages will have their contents at the default position.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.at-rules.page.html"><code>@page</code></a></li>
+  <li>Other page-related pseudo-classes: <a href="./css.selectors.left.html"><code>:left</code></a>, <a href="./css.selectors.right.html"><code>:right</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.2</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-page/#left-right-first">https://drafts.csswg.org/css-page/#left-right-first</a></p></section></aside></body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>contrast()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types filter-function contrast()</h1><main>
+    
+
+<p>The <strong><code>contrast()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> adjusts the contrast of the input image. Its result is a <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">contrast(amount)
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>amount</code></dt>
+  <dd>
+    <p>The contrast of the result, specified as a <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. A value under <code>100%</code> decreases the contrast, while a value over <code>100%</code> increases it. A value of <code>0</code> or <code>0%</code> will create an image that is completely gray, while a value of <code>1</code> or <code>100%</code> leaves the input unchanged. Negative values are not allowed. The initial value for <a href="/Glossary/interpolation">interpolation</a> is <code>1</code>.</p>
+  </dd>
+</dl>
+<p>The following are pairs of equivalent values:</p>
+<pre class="brush: css">contrast(0) /* Completely gray */
+contrast(0%)
+
+contrast(0.65) /* 65% contrast */
+contrast(65%)
+
+contrast(1)     /* No effect */
+contrast(100%)
+
+contrast(2)  /* Double contrast */
+contrast(200%)
+</pre>
+
+
+<h3>With the backdrop-filter property</h3>
+<p>This example applies a <code>contrast()</code> filter via the <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> CSS property to the paragraph and monospaced text, color shifting to the area behind the <code>&#x3C;p></code> and <code>&#x3C;code></code>.</p>
+<pre class="brush: css">.container {
+  background: url(image.jpg) no-repeat center / contain #339;
+}
+p {
+  backdrop-filter: contrast(0.5);
+}
+code {
+  backdrop-filter: contrast(0.15);
+}
+</pre>
+<pre class="brush: css hidden">.container {
+  padding: 3rem;
+  width: 30rem;
+}
+p {
+  padding: 0.5rem;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;div class="container" style="background-image: url(unity_for_the_people.jpg);">
+  &#x3C;p>
+    Always ensure there is enough contrast between text and all background
+    colors. If you think your text may land on top of a background image,
+    include a &#x3C;code>backdrop-filter&#x3C;/code>. Reducing the contrast of background
+    colors with the &#x3C;code>contrast()&#x3C;/code> filter may improve legibility but
+    does not guarantee accessibility.
+  &#x3C;/p>
+&#x3C;/div>
+</pre>
+<h3>With the filter property</h3>
+<p>This example applies a <code>contrast()</code> filter via the <a href="./css.properties.filter.html"><code>filter()</code></a> CSS property, changing contrast by shifting colors of the entire element, including content, border, background, and shadows.</p>
+<pre class="brush: css">p:first-of-type {
+  filter: contrast(30%);
+}
+p:last-of-type {
+  filter: contrast(300%);
+}
+</pre>
+<pre class="brush: css hidden">p {
+  text-shadow: 2px 2px blue;
+  background-color: magenta;
+  color: palegoldenrod;
+  border: 1em solid rebeccapurple;
+  box-shadow:
+    inset -5px -5px red,
+    5px 5px yellow;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  font-family: sans-serif;
+  width: 85vw;
+}
+</pre>
+<pre class="brush: html hidden">&#x3C;p>This paragraph has reduced contrast.&#x3C;/p>
+&#x3C;p>This paragraph has normal contrast.&#x3C;/p>
+&#x3C;p>This paragraph has increased contrast.&#x3C;/p>
+</pre>
+<h3>With url() and the SVG contrast filter</h3>
+<p>The SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter"><code>&lt;filter&gt;</code></a> element is used to define custom filter effects that can then be referenced by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a>. The <code>&#x3C;filter></code>'s <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feComponentTransfer"><code>&lt;feComponentTransfer&gt;</code></a> primitive enables pixel-level color remapping. Given the following:</p>
+<pre class="brush: svg">  &#x3C;filter id="contrast">
+    &#x3C;feComponentTransfer>
+      &#x3C;feFuncR type="linear" slope="2" intercept="-0.5"/>
+      &#x3C;feFuncG type="linear" slope="2" intercept="-0.5"/>
+      &#x3C;feFuncB type="linear" slope="2" intercept="-0.5"/>
+    &#x3C;/feComponentTransfer>
+  &#x3C;/filter>
+</pre>
+<pre class="brush: css hidden">.svgFilterLive {
+  filter: url(#contrast2);
+}
+</pre>
+<p>These values produce the same results:</p>
+<pre class="brush: css">filter: contrast(200%);
+filter: url(#contrast); /* with embedded SVG */
+filter: url(folder/fileName.svg#contrast); /* external svg filter definition */
+</pre>
+<p>This example shows three images: the image with a <code>contrast()</code> filter function applied, the image with an equivalent <code>url()</code> filter applied, and the original images for comparison:</p>
+<pre class="brush: html hidden">&#x3C;table cellpadding="5">
+  &#x3C;thead>
+    &#x3C;tr>
+      &#x3C;th>&#x3C;code>contrast()&#x3C;/code>&#x3C;/th>
+      &#x3C;th>&#x3C;code>url()&#x3C;/code>&#x3C;/th>
+      &#x3C;th>Original image&#x3C;/th>
+    &#x3C;/tr>
+  &#x3C;/thead>
+  &#x3C;tbody>
+    &#x3C;tr>
+      &#x3C;td>
+        &#x3C;img style="filter: contrast(200%)" src="flag.jpg" alt="Pride flag" />
+      &#x3C;/td>
+      &#x3C;td>
+        &#x3C;img class="svgFilterLive" src="flag.jpg" alt="Pride flag" />
+        &#x3C;svg
+          xmlns="http://www.w3.org/2000/svg"
+          id="svg"
+          viewBox="0 0 240 151"
+          height="0"
+          width="0"
+          style="overflow: visible"
+          color-interpolation-filters="sRGB">
+          &#x3C;filter id="contrast2">
+            &#x3C;feComponentTransfer>
+              &#x3C;feFuncR type="linear" slope="2" intercept="-0.5" />
+              &#x3C;feFuncG type="linear" slope="2" intercept="-0.5" />
+              &#x3C;feFuncB type="linear" slope="2" intercept="-0.5" />
+            &#x3C;/feComponentTransfer>
+          &#x3C;/filter>
+        &#x3C;/svg>
+      &#x3C;/td>
+      &#x3C;td>
+        &#x3C;img src="flag.jpg" alt="Pride flag" />
+      &#x3C;/td>
+    &#x3C;/tr>
+  &#x3C;/tbody>
+&#x3C;/table>
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_filter_effects">CSS filter effects</a> module</li>
+  <li>The other <a href="./css.types.filter-function.html"><code>&lt;filter-function&gt;()</code></a> functions available to be used in values of the <a href="./css.properties.filter.html"><code>filter()</code></a> and <a href="./css.properties.backdrop-filter.html"><code>backdrop-filter()</code></a> properties include:
+    <ul>
+      <li><a href="./css.types.filter-function.blur.html"><code>blur()</code></a></li>
+      <li><a href="./css.types.filter-function.brightness.html"><code>brightness()</code></a></li>
+      <li><a href="./css.types.filter-function.drop-shadow.html"><code>drop-shadow()</code></a></li>
+      <li><a href="./css.types.filter-function.grayscale.html"><code>grayscale()</code></a></li>
+      <li><a href="./css.types.filter-function.hue-rotate.html"><code>hue-rotate()</code></a></li>
+      <li><a href="./css.types.filter-function.invert.html"><code>invert()</code></a></li>
+      <li><a href="./css.types.filter-function.opacity.html"><code>opacity()</code></a></li>
+      <li><a href="./css.types.filter-function.saturate.html"><code>saturate()</code></a></li>
+      <li><a href="./css.types.filter-function.sepia.html"><code>sepia()</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 53</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 35</li><li><strong>firefox_android</strong>: 35</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 6</li><li><strong>safari_ios</strong>: 6</li><li><strong>samsunginternet_android</strong>: 6.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-contrast">https://drafts.fxtf.org/filter-effects/#funcdef-filter-contrast</a></p></section></aside></body>
+</html>

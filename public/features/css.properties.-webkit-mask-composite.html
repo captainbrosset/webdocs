@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>"-webkit-mask-composite"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties "-webkit-mask-composite"</h1><main>
+    
+
+<p>The <strong><code>-webkit-mask-composite</code></strong> property specifies the manner in which multiple mask images applied to the same element are composited with one another. Mask images are composited in the opposite order that they are declared with the <a href="./css.properties.mask-image.html"><code>-webkit-mask-image</code></a> property.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> There is a standardized <a href="./css.properties.mask-composite.html"><code>mask-composite</code></a> property covering parts of this non-standard property using different keywords.</p>
+</div>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+-webkit-mask-composite: clear;
+-webkit-mask-composite: copy;
+-webkit-mask-composite: source-over;
+-webkit-mask-composite: source-in;
+-webkit-mask-composite: source-out;
+-webkit-mask-composite: source-atop;
+-webkit-mask-composite: destination-over;
+-webkit-mask-composite: destination-in;
+-webkit-mask-composite: destination-out;
+-webkit-mask-composite: destination-atop;
+-webkit-mask-composite: xor;
+
+/* Global values */
+-webkit-mask-composite: inherit;
+-webkit-mask-composite: initial;
+-webkit-mask-composite: revert;
+-webkit-mask-composite: revert-layer;
+-webkit-mask-composite: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>clear</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image are cleared.</p>
+  </dd>
+  <dt><code>copy</code></dt>
+  <dd>
+    <p>The source mask image replaces the destination mask image.</p>
+  </dd>
+  <dt><code>source-over</code></dt>
+  <dd>
+    <p>The source mask image is rendered over the destination mask image.</p>
+  </dd>
+  <dt><code>source-in</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image are replaced by the pixels of the source mask image; all other pixels are cleared.</p>
+  </dd>
+  <dt><code>source-out</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image are cleared; all remaining pixels of the source mask image are rendered.</p>
+  </dd>
+  <dt><code>source-atop</code></dt>
+  <dd>
+    <p>The pixels of the destination mask image are rendered. The pixels of the source mask image are rendered only if they overlap a nontransparent portion of the destination mask image. This causes the source mask image to have no effect.</p>
+  </dd>
+  <dt><code>destination-over</code></dt>
+  <dd>
+    <p>The destination mask image is rendered over the source mask image.</p>
+  </dd>
+  <dt><code>destination-in</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image remain the pixels of the destination mask image; all other pixels are cleared.</p>
+  </dd>
+  <dt><code>destination-out</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image are cleared; all remaining pixels of the source mask image are rendered.</p>
+  </dd>
+  <dt><code>destination-atop</code></dt>
+  <dd>
+    <p>The pixels of the source mask image are rendered. The pixels of the destination mask image are rendered only if they overlap a nontransparent portion of the destination mask image. This causes the destination mask image to have no effect.</p>
+  </dd>
+  <dt><code>xor</code></dt>
+  <dd>
+    <p>Overlapping pixels in the source mask image and the destination mask image become fully transparent if they are both fully opaque.</p>
+  </dd>
+</dl>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">-webkit-mask-composite =
+  &#x3C;composite-style>#
+</pre>
+
+<h3>Compositing with XOR</h3>
+<pre class="brush: css">.example {
+  -webkit-mask-image: url(mask1.png), url("mask2.png");
+  -webkit-mask-composite: xor, source-over;
+}
+</pre>
+<h2>Specifications</h2>
+<p>Not part of any standard. This property is specified as <a href="./css.properties.mask-composite.html"><code>mask-composite</code></a> using different values.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.mask-composite.html"><code>mask-composite</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 18</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section></aside></body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hanging-punctuation</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties hanging-punctuation</h1><main>
+    
+
+<p>The <strong><code>hanging-punctuation</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies whether a punctuation mark should hang at the start or end of a line of text. Hanging punctuation may be placed outside the line box.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+hanging-punctuation: none;
+hanging-punctuation: first;
+hanging-punctuation: last;
+hanging-punctuation: force-end;
+hanging-punctuation: allow-end;
+
+/* Two keywords */
+hanging-punctuation: first force-end;
+hanging-punctuation: first allow-end;
+hanging-punctuation: first last;
+hanging-punctuation: last force-end;
+hanging-punctuation: last allow-end;
+
+/* Three keywords */
+hanging-punctuation: first force-end last;
+hanging-punctuation: first allow-end last;
+
+/* Global values */
+hanging-punctuation: inherit;
+hanging-punctuation: initial;
+hanging-punctuation: revert;
+hanging-punctuation: revert-layer;
+hanging-punctuation: unset;
+</pre>
+<p>The <code>hanging-punctuation</code> property may be specified with one, two, or three space-separated values.</p>
+<ul>
+  <li><strong>One-value</strong> syntax uses any one of the keyword values in the list below.</li>
+  <li><strong>Two-value</strong> syntax uses one of the following:
+    <ul>
+      <li><code>first</code> together with any one of <code>last</code>, <code>allow-end</code>, or <code>force-end</code></li>
+      <li><code>last</code> together with any one of <code>first</code>, <code>allow-end</code>, or <code>force-end</code></li>
+    </ul>
+  </li>
+  <li><strong>Three-value</strong> syntax uses one of the following:
+    <ul>
+      <li><code>first</code>, <code>allow-end</code>, and <code>last</code></li>
+      <li><code>first</code>, <code>force-end</code>, and <code>last</code></li>
+    </ul>
+  </li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No character hangs.</p>
+  </dd>
+  <dt><code>first</code></dt>
+  <dd>
+    <p>An opening bracket or quote at the start of the first formatted line of an element hangs. This applies to:</p>
+    <ul>
+      <li>all characters in the Unicode categories <a href="https://unicodeplus.com/category/Ps">Ps</a>, <a href="https://unicodeplus.com/category/Pf">Pf</a>, <a href="https://unicodeplus.com/category/Pi">Pi</a></li>
+      <li>the quote marks <code>U+0027</code> APOSTROPHE (<code>'</code>) and <code>U+0022</code> QUOTATION MARK (<code>"</code>).</li>
+    </ul>
+  </dd>
+  <dt><code>last</code></dt>
+  <dd>
+    <p>A closing bracket or quote at the end of the last formatted line of an element hangs. This applies to:</p>
+    <ul>
+      <li>all characters in the Unicode categories <a href="https://unicodeplus.com/category/Pe">Pe</a>, <a href="https://unicodeplus.com/category/Pf">Pf</a>, <a href="https://unicodeplus.com/category/Pi">Pi</a></li>
+      <li>the quote marks <code>U+0027</code> APOSTROPHE (<code>'</code>) and <code>U+0022</code> QUOTATION MARK (<code>"</code>).</li>
+    </ul>
+  </dd>
+  <dt><code>force-end</code></dt>
+  <dd>
+    <p>A stop or comma at the end of a line hangs.</p>
+  </dd>
+  <dt><code>allow-end</code></dt>
+  <dd>
+    <p>A stop or comma at the end of a line hangs if it does not otherwise fit prior to justification.</p>
+  </dd>
+</dl>
+<p>Stops and commas that are allowed to hang include:</p>
+<ul>
+  <li><code>U+002C</code>, COMMA</li>
+  <li><code>U+002E</code>, FULL STOP</li>
+  <li><code>U+060C</code>, ARABIC COMMA</li>
+  <li><code>U+06D4</code>, ARABIC FULL STOP</li>
+  <li><code>U+3001</code>, IDEOGRAPHIC COMMA</li>
+  <li><code>U+3002</code>, IDEOGRAPHIC FULL STOP</li>
+  <li><code>U+FF0C</code>, FULLWIDTH COMMA</li>
+  <li><code>U+FF0E</code>, FULLWIDTH FULL STOP</li>
+  <li><code>U+FE50</code>, SMALL COMMA</li>
+  <li><code>U+FE51</code>, SMALL IDEOGRAPHIC COMMA</li>
+  <li><code>U+FE52</code>, SMALL FULL STOP</li>
+  <li><code>U+FF61</code>, HALFWIDTH IDEOGRAPHIC FULL STOP</li>
+  <li><code>U+FF64</code>, HALFWIDTH IDEOGRAPHIC COMMA</li>
+</ul>
+<p>User agents may include additional characters.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>specified keyword(s)</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | [ first || [ force-end | allow-end ] || last ]</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+  «For a moment, nothing happened. Then, after a second or so, nothing continued
+  to happen.»
+&#x3C;/p>
+
+&#x3C;p class="hanging">
+  «For a moment, nothing happened. Then, after a second or so, nothing continued
+  to happen.»
+&#x3C;/p>
+
+&#x3C;p class="hanging right">
+  «For a moment, nothing happened. Then, after a second or so, nothing continued
+  to happen.»
+&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p {
+  width: 15em;
+  border: 1px solid #cccccc;
+  font-size: 2rem;
+  font-style: italic;
+  margin: 1em;
+}
+
+p.hanging {
+  hanging-punctuation: first last;
+}
+
+p.right {
+  text-align: right;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.text-indent.html"><code>text-indent</code></a></li>
+  <li><a href="https://css-tricks.com/almanac/properties/h/hanging-punctuation/">CSS Tricks: Hanging punctuation</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: 10</li><li><strong>safari_ios</strong>: 10</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-text/#hanging-punctuation-property">https://drafts.csswg.org/css-text/#hanging-punctuation-property</a></p></section></aside></body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scale</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties scale</h1><main>
+    
+
+<p>The <strong><code>scale</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property allows you to specify scale transforms individually and independently of the <a href="./css.properties.transform.html"><code>transform</code></a> property. This maps better to typical user interface usage, and saves having to remember the exact order of transform functions to specify in the <code>transform</code> value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+scale: none;
+
+/* Single values */
+/* values of more than 1 or 100% make the element grow */
+scale: 2;
+/* values of less than 1 or 100% make the element shrink */
+scale: 50%;
+
+/* Two values */
+scale: 2 0.5;
+
+/* Three values */
+scale: 200% 50% 200%;
+
+/* Global values */
+scale: inherit;
+scale: initial;
+scale: revert;
+scale: revert-layer;
+scale: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt>Single value</dt>
+  <dd>
+    <p>A <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> specifying a scale factor to make the affected element scale by the same factor along both the X and Y axes. Equivalent to a <code>scale()</code> (2D scaling) function with a single value specified.</p>
+  </dd>
+  <dt>Two values</dt>
+  <dd>
+    <p>Two <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values that specify the X and Y axis scaling values (respectively) of a 2D scale. Equivalent to a <code>scale()</code> (2D scaling) function with two values specified.</p>
+  </dd>
+  <dt>Three values</dt>
+  <dd>
+    <p>Three <a href="./css.types.number.html"><code>&lt;number&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values that specify the X, Y, and Z axis scaling values (respectively) of a 3D scale. Equivalent to a <code>scale3d()</code> (3D scaling) function.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>Specifies that no scaling should be applied.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none, or a list of 3 &lt;number&gt;s</td></tr><tr><th scope="row">Animation type</th><td>by computed value, but see below for none</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | [ &lt;number&gt; | &lt;percentage&gt; ]{1,3}</pre></section>
+
+<h3>Scaling an element on hover</h3>
+<p>
+  The following example shows how to scale an element on hover.
+  Two boxes are shown, one with a single <code>scale</code> value which scales the element along both axes.
+  The second box has two <code>scale</code> values which scales the element along the X and Y axes independently.
+</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="box" id="box1">single value&#x3C;/div>
+&#x3C;div class="box" id="box2">two values&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">.box {
+  float: left;
+  margin: 1em;
+  width: 7em;
+  line-height: 7em;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  border: 3px dotted;
+}
+
+#box1:hover {
+  scale: 1.25;
+}
+
+#box2:hover {
+  scale: 1.25 0.75;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.translate.html"><code>translate</code></a></li>
+  <li><a href="./css.properties.rotate.html"><code>rotate</code></a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a></li>
+</ul>
+<p>Note: skew is not an independent transform value</p>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 104</li><li><strong>chrome_android</strong>: 104</li><li><strong>edge</strong>: 104</li><li><strong>firefox</strong>: 72</li><li><strong>firefox_android</strong>: 79</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 23.0</li><li><strong>opera</strong>: 90</li><li><strong>opera_android</strong>: 71</li><li><strong>safari</strong>: 14.1</li><li><strong>safari_ios</strong>: 14.5</li><li><strong>samsunginternet_android</strong>: 20.0</li><li><strong>webview_android</strong>: 104</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms-2/#individual-transforms">https://drafts.csswg.org/css-transforms-2/#individual-transforms</a></p></section></aside></body>
+</html>

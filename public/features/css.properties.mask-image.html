@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-image</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-image</h1><main>
+    
+
+<p>
+  The <strong><code>mask-image</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the image that is used as mask layer for an element.
+  By default this means the alpha channel of the mask image will be multiplied with the alpha channel of the element. This can be controlled with the <a href="./css.properties.mask-mode.html"><code>mask-mode</code></a> property.
+</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+mask-image: none;
+
+/* &#x3C;mask-source> value */
+mask-image: url(masks.svg#mask1);
+
+/* &#x3C;image> values */
+mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+mask-image: image(url(mask.png), skyblue);
+
+/* Multiple values */
+mask-image: image(url(mask.png), skyblue), linear-gradient(rgba(0, 0, 0, 1), transparent);
+
+/* Global values */
+mask-image: inherit;
+mask-image: initial;
+mask-image: revert;
+mask-image: revert-layer;
+mask-image: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>This keyword is interpreted as an opaque white image layer.</p>
+  </dd>
+  <dt><code>&#x3C;mask-source></code></dt>
+  <dd>
+    <p>A <a href="./css.types.url.html"><code>url()</code></a> reference to a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/mask"><code>&lt;mask&gt;</code></a> or to a CSS image.</p>
+  </dd>
+  <dt><a href="./css.types.image.html"><code>&lt;image&gt;</code></a></dt>
+  <dd>
+    <p>An image value used as mask image layer.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>the keyword none, a computed &lt;image&gt;, or a computed &lt;url&gt;</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>&lt;mask-reference&gt;#</pre></section>
+
+<h3>Setting a mask image with a URL</h3><iframe width="100%" height="560" src="https://mdn.github.io/css-examples/masking/mask-image.html"></iframe>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://css-tricks.com/clipping-masking-css/">Clipping and Masking in CSS</a></li>
+  <li><a href="https://web.dev/css-masking/">Apply effects to images with CSS's mask-image property</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: 53</li><li><strong>firefox_android</strong>: 53</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 2</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-image">https://drafts.fxtf.org/css-masking/#the-mask-image</a></p></section></aside></body>
+</html>

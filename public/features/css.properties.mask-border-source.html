@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mask-border-source</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties mask-border-source</h1><main>
+    
+
+<p>The <strong><code>mask-border-source</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the source image used to create an element's <a href="./css.properties.mask-border.html">mask border</a>.</p>
+<p>The <a href="./css.properties.mask-border-slice.html"><code>mask-border-slice</code></a> property is used to divide the source image into regions, which are then dynamically applied to the final mask border.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword value */
+mask-border-source: none;
+
+/* &#x3C;image> values */
+mask-border-source: url(image.jpg);
+mask-border-source: linear-gradient(to top, red, yellow);
+
+/* Global values */
+mask-border-source: inherit;
+mask-border-source: initial;
+mask-border-source: revert;
+mask-border-source: revert-layer;
+mask-border-source: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No mask border is used.</p>
+  </dd>
+  <dt><a href="./css.types.image.html"><code>&lt;image&gt;</code></a></dt>
+  <dd>
+    <p>Image reference to use for the mask border.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>All elements. In SVG, it applies to container elements excluding the defs element, all graphics elements and the use element</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>they keyword none or the computed &lt;image&gt;</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;image&gt;</pre></section>
+
+<h3>Basic usage</h3>
+<p>This property doesn't appear to be supported anywhere yet. When it eventually starts to be supported, it will serve to define the source of the border mask.</p>
+<pre class="brush: css">mask-border-source: url(image.jpg);
+</pre>
+<p>Chromium-based browsers support an outdated version of this property — <code>mask-box-image-source</code> — with a prefix:</p>
+<pre class="brush: css">-webkit-mask-box-image-source: url(image.jpg);
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <a href="./css.properties.mask-border.html"><code>mask-border</code></a> page features a working example (using the out-of-date prefixed border mask properties supported in Chromium), so you can get an idea of the effect.</p>
+</div>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.mask-border.html"><code>mask-border</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode"><code>mask-border-mode</code></a></li>
+  <li><a href="./css.properties.mask-border-outset.html"><code>mask-border-outset</code></a></li>
+  <li><a href="./css.properties.mask-border-repeat.html"><code>mask-border-repeat</code></a></li>
+  <li><a href="./css.properties.mask-border-width.html"><code>mask-border-width</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 3</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.fxtf.org/css-masking/#the-mask-border-source">https://drafts.fxtf.org/css-masking/#the-mask-border-source</a></p></section></aside></body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>var()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties custom-property var()</h1><main>
+    
+
+<p>The <strong><code>var()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> can be used to insert the value of a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">custom property</a> (sometimes called a "CSS variable") instead of any part of a value of another property.</p>
+<p>The <code>var()</code> function cannot be used in property names, selectors or anything else besides property values. (Doing so usually produces invalid syntax, or else a value whose meaning has no connection to the variable.)</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Simple usage */
+var(--custom-prop);
+
+/* With fallback */
+var(--custom-prop,);  /* empty value as fallback */
+var(--custom-prop, initial); /* initial value of the property as fallback */
+var(--custom-prop, #FF0000);
+var(--my-background, linear-gradient(transparent, aqua), pink);
+var(--custom-prop, var(--default-value));
+var(--custom-prop, var(--default-value, red));
+</pre>
+<p>The first argument to the function is the name of the custom property to be substituted. An optional second argument to the function serves as a fallback value. If the custom property referenced by the first argument is invalid, the function uses the second value.</p>
+<p>The syntax of the fallback, like that of custom properties, allows commas. For example, <code>var(--foo, red, blue)</code> defines a fallback of <code>red, blue</code>; that is, anything between the first comma and the end of the function is considered a fallback value.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>&#x3C;custom-property-name></code></dt>
+  <dd>
+    <p>A custom property's name represented by an identifier that starts with two dashes. Custom properties are solely for use by authors and users; CSS will never give them a meaning beyond what is presented here.</p>
+  </dd>
+  <dt><code>&#x3C;declaration-value></code></dt>
+  <dd>
+    <p>The custom property's fallback value, which is used in case the custom property is invalid in the used context. This value may contain any character except some characters with special meaning like newlines, unmatched closing brackets, i.e. <code>)</code>, <code>]</code>, or <code>}</code>, top-level semicolons, or exclamation marks. The fallback value can itself be a custom property using the <code>var()</code> syntax.</p>
+    <div class="notecard note">
+      <p><strong>Note:</strong> <code>var(--a,)</code> is valid, specifying that if the <code>--a</code> custom property is invalid or missing, the <code>var()</code> should be replaced with nothing.</p>
+    </div>
+  </dd>
+</dl>
+
+
+
+<h4>CSS</h4>
+<pre class="brush: css">:root {
+  --main-bg-color: pink;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+</pre>
+<h4>Result</h4>
+<p>Here, the value of the <code>background-color</code> property has been set via the custom property <code>--main-bg-color</code>. So the background color of the HTML body will be pink.</p>
+
+<h4>CSS</h4>
+<pre class="brush: css">body {
+  background-color: var(--main-bg-color);
+}
+
+:root {
+  --main-bg-color: pink;
+}
+</pre>
+<h4>Result</h4>
+<p>In this example, the background color of the HTML body will be pink even though the custom property is set later.</p>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;!doctype html>
+&#x3C;html lang="en-US">
+  &#x3C;head>
+    &#x3C;meta charset="utf-8" />
+    &#x3C;link rel="stylesheet" href="1.css" />
+    &#x3C;link rel="stylesheet" href="2.css" />
+  &#x3C;/head>
+  &#x3C;body>&#x3C;/body>
+&#x3C;/html>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* 1.css */
+body {
+  background-color: var(--main-bg-color);
+}
+</pre>
+<pre class="brush: css">/* 2.css */
+:root {
+  --main-bg-color: pink;
+}
+</pre>
+<h4>Result</h4>
+<p>The background color of the HTML body will be pink in this case even though the custom property is declared in another file.</p>
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="component">
+  &#x3C;h1 class="header">Header&#x3C;/h1>
+  &#x3C;p class="text">Text&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">/* In the component's style: */
+.component .header {
+  /* header-color isn't set, and so remains blue, the fallback value */
+  color: var(--header-color, blue);
+}
+
+.component .text {
+  color: var(--text-color, black);
+}
+
+/* In the larger application's style: */
+.component {
+  --text-color: #080;
+}
+</pre>
+<h4>Result</h4>
+<p>Since <code>--header-color</code> isn't set, the text "Header" will be blue, the fallback value.</p>
+
+<h4>CSS</h4>
+<pre class="brush: css">:root {
+  --backup-bg-color: teal;
+}
+
+body {
+  background-color: var(--main-bg-color, var(--backup-bg-color, white));
+}
+</pre>
+<h4>Result</h4>
+<p>Since <code>--main-bg-color</code> isn't set, the body's <code>background-color</code> will fall back to <code>--backup-bg-color</code>, which is teal.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.custom-property.env.html"><code>env(…)</code></a> – read‑only environment variables controlled by the user‑agent.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">Using CSS variables</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 49</li><li><strong>chrome_android</strong>: 49</li><li><strong>edge</strong>: 15</li><li><strong>firefox</strong>: 31</li><li><strong>firefox_android</strong>: 31</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 36</li><li><strong>opera_android</strong>: 36</li><li><strong>safari</strong>: 9.1</li><li><strong>safari_ios</strong>: 9.3</li><li><strong>samsunginternet_android</strong>: 5.0</li><li><strong>webview_android</strong>: 50</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-variables/#using-variables">https://drafts.csswg.org/css-variables/#using-variables</a></p></section></aside></body>
+</html>

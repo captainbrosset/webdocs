@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":last-child"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":last-child"</h1><main>
+    
+
+<p>The <strong><code>:last-child</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents the last element among a group of sibling elements.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:last-child {
+  /* ... */
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  &#x3C;p>This text isn't selected.&#x3C;/p>
+  &#x3C;p>This text is selected!&#x3C;/p>
+&#x3C;/div>
+
+&#x3C;div>
+  &#x3C;p>This text isn't selected.&#x3C;/p>
+  &#x3C;h2>This text isn't selected: it's not a `p`.&#x3C;/h2>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">p:last-child {
+  color: lime;
+  background-color: black;
+  padding: 5px;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul>
+  &#x3C;li>Item 1&#x3C;/li>
+  &#x3C;li>Item 2&#x3C;/li>
+  &#x3C;li>
+    Item 3
+    &#x3C;ul>
+      &#x3C;li>Item 3.1&#x3C;/li>
+      &#x3C;li>Item 3.2&#x3C;/li>
+      &#x3C;li>Item 3.3&#x3C;/li>
+    &#x3C;/ul>
+  &#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">ul li {
+  color: blue;
+}
+
+ul li:last-child {
+  border: 1px solid red;
+  color: red;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-last-node"><code>:-moz-last-node</code></a> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using."><span class="visually-hidden">Non-standard</span></abbr></li>
+  <li><a href="./css.selectors.last-of-type.html"><code>:last-of-type</code></a></li>
+  <li><a href="./css.selectors.first-child.html"><code>:first-child</code></a></li>
+  <li><a href="./css.selectors.nth-child.html"><code>:nth-child</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 9</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9.5</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/selectors/#the-last-child-pseudo">https://drafts.csswg.org/selectors/#the-last-child-pseudo</a></p></section></aside></body>
+</html>

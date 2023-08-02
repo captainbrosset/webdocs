@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>box-orient</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties box-orient</h1><main>
+    
+
+<div class="notecard warning">
+  <p><strong>Warning:</strong> This is a property of the original CSS Flexible Box Layout Module draft, and has been replaced by a newer standard. See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">flexbox</a> for information about the current standard.</p>
+</div>
+<p>The <strong><code>box-orient</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an element lays out its contents horizontally or vertically.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+box-orient: horizontal;
+box-orient: vertical;
+box-orient: inline-axis;
+box-orient: block-axis;
+
+/* Global values */
+box-orient: inherit;
+box-orient: initial;
+box-orient: unset;
+</pre>
+<p>The <code>box-orient</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>horizontal</code></dt>
+  <dd>
+    <p>The box lays out its contents horizontally.</p>
+  </dd>
+  <dt><code>vertical</code></dt>
+  <dd>
+    <p>The box lays out its contents vertically.</p>
+  </dd>
+  <dt><code>inline-axis</code> (HTML)</dt>
+  <dd>
+    <p>The box displays its children along the inline axis.</p>
+  </dd>
+  <dt><code>block-axis</code> (HTML)</dt>
+  <dd>
+    <p>The box displays its children along the block axis.</p>
+  </dd>
+</dl>
+<p>The inline and block axes are the writing-mode dependent keywords which, in English, map to <code>horizontal</code> and <code>vertical</code> respectively.</p>
+<h2>Description</h2>
+<p>HTML DOM elements lay out their contents along the inline-axis by default. This CSS property will only apply to HTML elements with a CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> value of <code>box</code> or <code>inline-box</code>.</p>
+
+<h2>Formal syntax</h2>
+<pre class="brush: plain">box-orient =
+  horizontal | vertical | inline-axis | block-axis | inherit
+</pre>
+
+<h3>Setting horizontal box orientation</h3>
+<p>Here, the <code>box-orient</code> property will cause the two <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> sections in the example to display in the same line.</p>
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="example">
+  &#x3C;p>I will be to the left of my sibling.&#x3C;/p>
+  &#x3C;p>I will be to the right of my sibling.&#x3C;/p>
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">div.example {
+  display: -moz-box; /* Mozilla */
+  display: -webkit-box; /* WebKit */
+  display: box; /* As specified */
+
+  /* Children should be oriented vertically */
+  -moz-box-orient: horizontal; /* Mozilla */
+  -webkit-box-orient: horizontal; /* WebKit */
+  box-orient: horizontal; /* As specified */
+}
+</pre>
+
+<h2>Specifications</h2>
+<p>Not part of any standard.</p>
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.box-direction.html"><code>box-direction</code></a></li>
+  <li><a href="./css.properties.box-pack.html"><code>box-pack</code></a></li>
+  <li><a href="./css.properties.box-align.html"><code>box-align</code></a></li>
+  <li><a href="./css.properties.flex-direction.html"><code>flex-direction</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Deprecated feature.</li><li>Non-standard feature.</li></ul><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 15</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section></aside></body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>vertical-align</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties vertical-align</h1><main>
+    
+
+<p>The <strong><code>vertical-align</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets vertical alignment of an inline, inline-block or table-cell box.</p>
+<p>The vertical-align property can be used in two contexts:</p>
+<ul>
+  <li>To vertically align an inline-level element's box inside its containing line box. For example, it could be used to <a href="#vertical_alignment_in_a_line_box">vertically position an image in a line of text</a>.</li>
+  <li>To vertically align <a href="#vertical_alignment_in_a_table_cell">the content of a cell in a table</a>.</li>
+</ul>
+<p>Note that <code>vertical-align</code> only applies to inline, inline-block and table-cell elements: you can't use it to vertically align <a href="https://developer.mozilla.org/en-US/docs/Glossary/Block-level_content">block-level elements</a>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+vertical-align: baseline;
+vertical-align: sub;
+vertical-align: super;
+vertical-align: text-top;
+vertical-align: text-bottom;
+vertical-align: middle;
+vertical-align: top;
+vertical-align: bottom;
+
+/* &#x3C;length> values */
+vertical-align: 10em;
+vertical-align: 4px;
+
+/* &#x3C;percentage> values */
+vertical-align: 20%;
+
+/* Global values */
+vertical-align: inherit;
+vertical-align: initial;
+vertical-align: revert;
+vertical-align: revert-layer;
+vertical-align: unset;
+</pre>
+<p>The <code>vertical-align</code> property is specified as one of the values listed below.</p>
+
+<h4>Parent-relative values</h4>
+<p>These values vertically align the element relative to its parent element:</p>
+<dl>
+  <dt><code>baseline</code></dt>
+  <dd>
+    <p>Aligns the baseline of the element with the baseline of its parent. The baseline of some <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced elements</a>, like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a>, is not specified by the HTML specification, meaning that their behavior with this keyword may vary between browsers.</p>
+  </dd>
+  <dt><code>sub</code></dt>
+  <dd>
+    <p>Aligns the baseline of the element with the subscript-baseline of its parent.</p>
+  </dd>
+  <dt><code>super</code></dt>
+  <dd>
+    <p>Aligns the baseline of the element with the superscript-baseline of its parent.</p>
+  </dd>
+  <dt><code>text-top</code></dt>
+  <dd>
+    <p>Aligns the top of the element with the top of the parent element's font.</p>
+  </dd>
+  <dt><code>text-bottom</code></dt>
+  <dd>
+    <p>Aligns the bottom of the element with the bottom of the parent element's font.</p>
+  </dd>
+  <dt><code>middle</code></dt>
+  <dd>
+    <p>Aligns the middle of the element with the baseline plus half the x-height of the parent.</p>
+  </dd>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Aligns the baseline of the element to the given length above the baseline of its parent. A negative value is allowed.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Aligns the baseline of the element to the given percentage above the baseline of its parent, with the value being a percentage of the <a href="./css.properties.line-height.html"><code>line-height</code></a> property. A negative value is allowed.</p>
+  </dd>
+</dl>
+<h4>Line-relative values</h4>
+<p>The following values vertically align the element relative to the entire line:</p>
+<dl>
+  <dt><code>top</code></dt>
+  <dd>
+    <p>Aligns the top of the element and its descendants with the top of the entire line.</p>
+  </dd>
+  <dt><code>bottom</code></dt>
+  <dd>
+    <p>Aligns the bottom of the element and its descendants with the bottom of the entire line.</p>
+  </dd>
+</dl>
+<p>For elements that do not have a baseline, the bottom margin edge is used instead.</p>
+<h3>Values for table cells</h3>
+<dl>
+  <dt><code>baseline</code> (and <code>sub</code>, <code>super</code>, <code>text-top</code>, <code>text-bottom</code>, <code>&#x3C;length></code>, and <code>&#x3C;percentage></code>)</dt>
+  <dd>
+    <p>Aligns the baseline of the cell with the baseline of all other cells in the row that are baseline-aligned.</p>
+  </dd>
+  <dt><code>top</code></dt>
+  <dd>
+    <p>Aligns the top padding edge of the cell with the top of the row.</p>
+  </dd>
+  <dt><code>middle</code></dt>
+  <dd>
+    <p>Centers the padding box of the cell within the row.</p>
+  </dd>
+  <dt><code>bottom</code></dt>
+  <dd>
+    <p>Aligns the bottom padding edge of the cell with the bottom of the row.</p>
+  </dd>
+</dl>
+<p>Negative values are allowed.</p>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>baseline</td></tr><tr><th scope="row">Applies to</th><td>see individual properties</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>see individual properties</td></tr><tr><th scope="row">Animation type</th><td>see individual properties</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ first | last] || &lt;'alignment-baseline'&gt; || &lt;'baseline-shift'&gt;</pre></section>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div>
+  An &#x3C;img src="frame_image.svg" alt="link" width="32" height="32" /> image with
+  a default alignment.
+&#x3C;/div>
+&#x3C;div>
+  An
+  &#x3C;img class="top" src="frame_image.svg" alt="link" width="32" height="32" />
+  image with a text-top alignment.
+&#x3C;/div>
+&#x3C;div>
+  An
+  &#x3C;img class="bottom" src="frame_image.svg" alt="link" width="32" height="32" />
+  image with a text-bottom alignment.
+&#x3C;/div>
+&#x3C;div>
+  An
+  &#x3C;img class="middle" src="frame_image.svg" alt="link" width="32" height="32" />
+  image with a middle alignment.
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">img.top {
+  vertical-align: text-top;
+}
+img.bottom {
+  vertical-align: text-bottom;
+}
+img.middle {
+  vertical-align: middle;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p>
+top:         &#x3C;img style="vertical-align: top" src="star.png" alt="star"/>
+middle:      &#x3C;img style="vertical-align: middle" src="star.png" alt="star"/>
+bottom:      &#x3C;img style="vertical-align: bottom" src="star.png" alt="star"/>
+super:       &#x3C;img style="vertical-align: super" src="star.png" alt="star"/>
+sub:         &#x3C;img style="vertical-align: sub" src="star.png" alt="star"/>
+&#x3C;/p>
+
+&#x3C;p>
+text-top:    &#x3C;img style="vertical-align: text-top" src="star.png" alt="star"/>
+text-bottom: &#x3C;img style="vertical-align: text-bottom" src="star.png" alt="star"/>
+0.2em:       &#x3C;img style="vertical-align: 0.2em" src="star.png" alt="star"/>
+-1em:        &#x3C;img style="vertical-align: -1em" src="star.png" alt="star"/>
+20%:         &#x3C;img style="vertical-align: 20%" src="star.png" alt="star"/>
+-100%:       &#x3C;img style="vertical-align: -100%" src="star.png" alt="star"/>
+&#x3C;/p>
+</pre>
+<pre class="brush: css hidden">#* {
+  box-sizing: border-box;
+}
+
+img {
+  margin-right: 0.5em;
+}
+
+p {
+  height: 3em;
+  padding: 0 0.5em;
+  font-family: monospace;
+  text-decoration: underline overline;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;table>
+  &#x3C;tr>
+    &#x3C;td style="vertical-align: baseline">baseline&#x3C;/td>
+    &#x3C;td style="vertical-align: top">top&#x3C;/td>
+    &#x3C;td style="vertical-align: middle">middle&#x3C;/td>
+    &#x3C;td style="vertical-align: bottom">bottom&#x3C;/td>
+    &#x3C;td>
+      &#x3C;p>
+        There is a theory which states that if ever anyone discovers exactly
+        what the Universe is for and why it is here, it will instantly disappear
+        and be replaced by something even more bizarre and inexplicable.
+      &#x3C;/p>
+      &#x3C;p>
+        There is another theory which states that this has already happened.
+      &#x3C;/p>
+    &#x3C;/td>
+  &#x3C;/tr>
+&#x3C;/table>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+td {
+  padding: 0.5em;
+  font-family: monospace;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox#center_item">Typical use cases of Flexbox, section "Center item"</a></li>
+  <li><a href="./css.properties.line-height.html"><code>line-height</code></a>, <a href="./css.properties.text-align.html"><code>text-align</code></a>, <a href="./css.properties.margin.html"><code>margin</code></a></li>
+  <li><a href="http://phrogz.net/css/vertical-align/index.html">Understanding <code>vertical-align</code>, or "How (Not) To Vertically Center Content"</a></li>
+  <li><a href="https://christopheraue.net/design/vertical-align">Vertical-Align: All You Need To Know</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 4</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: 4.4</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css2/#propdef-vertical-align">https://drafts.csswg.org/css2/#propdef-vertical-align</a></p></section></aside></body>
+</html>

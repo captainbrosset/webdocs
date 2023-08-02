@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fallback</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css at-rules counter-style fallback</h1><main>
+    
+
+<p>The <strong><code>fallback</code></strong> descriptor can be used to specify a counter style to fall back to if the current counter style cannot create a marker representation for a particular counter value.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+fallback: lower-alpha;
+fallback: custom-gangnam-style;
+</pre>
+<h2>Description</h2>
+<p>If the specified fallback style is also unable to construct a representation, then its fallback style will be used. If a valid fallback style is not specified, it defaults to <code>decimal</code>.</p>
+<p>A couple of scenarios where a fallback style will be used are:</p>
+<ul>
+  <li>When the <a href="./css.at-rules.counter-style.range.html"><code>range</code></a> descriptor is specified for a counter style, the fallback style will be used to represent values that fall outside the range.</li>
+  <li>When the <code>fixed</code> <a href="./css.at-rules.counter-style.system.html"><code>system</code></a> is used and there are not enough symbols to cover all the list items, the fallback style will be used for the rest of the list items.</li>
+</ul>
+
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;ul class="list">
+  &#x3C;li>One&#x3C;/li>
+  &#x3C;li>Two&#x3C;/li>
+  &#x3C;li>Three&#x3C;/li>
+  &#x3C;li>Four&#x3C;/li>
+  &#x3C;li>Five&#x3C;/li>
+&#x3C;/ul>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">@counter-style fallback-example {
+  system: fixed;
+  symbols: "\24B6" "\24B7" "\24B8";
+  fallback: upper-alpha;
+}
+
+.list {
+  list-style: fallback-example;
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.properties.list-style.html"><code>list-style</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image</code></a>, <a href="./css.properties.list-style-position.html"><code>list-style-position</code></a></li>
+  <li><a href="./css.properties.list-style-type.symbols.html"><code>symbols()</code></a>: the functional notation creating anonymous counter styles</li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 91</li><li><strong>chrome_android</strong>: 91</li><li><strong>edge</strong>: 91</li><li><strong>firefox</strong>: 33</li><li><strong>firefox_android</strong>: 33</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 16.0</li><li><strong>opera</strong>: 77</li><li><strong>opera_android</strong>: 64</li><li><strong>safari</strong>: 17</li><li><strong>safari_ios</strong>: 17</li><li><strong>samsunginternet_android</strong>: 16.0</li><li><strong>webview_android</strong>: 91</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-counter-styles/#counter-style-fallback">https://drafts.csswg.org/css-counter-styles/#counter-style-fallback</a></p></section></aside></body>
+</html>

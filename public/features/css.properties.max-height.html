@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>max-height</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties max-height</h1><main>
+    
+
+<p>The <strong><code>max-height</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the maximum height of an element. It prevents the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/used_value">used value</a> of the <a href="./css.properties.height.html"><code>height</code></a> property from becoming larger than the value specified for <code>max-height</code>.</p>
+<p><code>max-height</code> overrides <a href="./css.properties.height.html"><code>height</code></a>, but <a href="./css.properties.min-height.html"><code>min-height</code></a> overrides <code>max-height</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* &#x3C;length> value */
+max-height: 3.5em;
+
+/* &#x3C;percentage> value */
+max-height: 75%;
+
+/* Keyword values */
+max-height: none;
+max-height: max-content;
+max-height: min-content;
+max-height: fit-content(20em);
+
+/* Global values */
+max-height: inherit;
+max-height: initial;
+max-height: revert;
+max-height: revert-layer;
+max-height: unset;
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><a href="./css.types.length.html"><code>&lt;length&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>max-height</code> as an absolute value.</p>
+  </dd>
+  <dt><a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a></dt>
+  <dd>
+    <p>Defines the <code>max-height</code> as a percentage of the containing block's height.</p>
+  </dd>
+  <dt><code>none</code></dt>
+  <dd>
+    <p>No limit on the size of the box.</p>
+  </dd>
+  <dt><code>max-content</code></dt>
+  <dd>
+    <p>The intrinsic preferred <code>max-height</code>.</p>
+  </dd>
+  <dt><code>min-content</code></dt>
+  <dd>
+    <p>The intrinsic minimum <code>max-height</code>.</p>
+  </dd>
+  <dt><code>fit-content(<a href="./css.types.length-percentage.html"><code>&lt;length-percentage&gt;</code></a>)</code></dt>
+  <dd>
+    <p>Uses the <code>fit-content</code> formula with the available space replaced by the specified argument, i.e. <code>min(max-content, max(min-content, argument))</code>.</p>
+  </dd>
+</dl>
+<h2>Accessibility concerns</h2>
+<p>Ensure that elements set with a <code>max-height</code> are not truncated and/or do not obscure other content when the page is zoomed to increase text size.</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background">MDN Understanding WCAG, Guideline 1.4 explanations</a></li>
+  <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html">Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0</a></li>
+</ul>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>none</td></tr><tr><th scope="row">Applies to</th><td>all elements that accept width or height</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified, with &lt;length-percentage&gt; values computed</td></tr><tr><th scope="row">Animation type</th><td>by computed value, recursing into fit-content()</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>none | &lt;length-percentage [0,∞]&gt; | min-content | max-content | fit-content(&lt;length-percentage [0,∞]&gt;)</pre></section>
+
+<h3>Setting max-height using percentage and keyword values</h3>
+<pre class="brush: css">table {
+  max-height: 75%;
+}
+
+form {
+  max-height: none;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model">The box model</a>, <a href="./css.properties.box-sizing.html"><code>box-sizing</code></a></li>
+  <li><a href="./css.properties.height.html"><code>height</code></a>, <a href="./css.properties.min-height.html"><code>min-height</code></a></li>
+  <li>The mapped logical properties: <a href="./css.properties.max-inline-size.html"><code>max-inline-size</code></a>, <a href="./css.properties.max-block-size.html"><code>max-block-size</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 18</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 7</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 7</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1.3</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-sizing-4/#width-height-keywords">https://drafts.csswg.org/css-sizing-4/#width-height-keywords</a></p></section></aside></body>
+</html>

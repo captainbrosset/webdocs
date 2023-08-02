@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>":popover-open"</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css selectors ":popover-open"</h1><main>
+    
+
+<p>The <strong><code>:popover-open</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-class</a> represents a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">popover</a> element (i.e. one with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover"><code>popover</code> attribute</a>) that is in the showing state. You can use this to apply style to popover elements only when they are shown.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">:popover-open {
+  /* ... */
+}
+</pre>
+<h2>Examples</h2>
+<p>By default, popovers appear in the middle of the viewport. The default styling is achieved like this in the UA stylesheet:</p>
+<pre class="brush: css">[popover] {
+  position: fixed;
+  inset: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  border: solid;
+  padding: 0.25em;
+  overflow: auto;
+  color: CanvasText;
+  background-color: Canvas;
+}
+</pre>
+<p>To override the default styles and get the popover to appear somewhere else on your viewport, you could need to override the above styles with something like this:</p>
+<pre class="brush: css">:popover-open {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  inset: unset;
+  bottom: 5px;
+  right: 5px;
+  margin: 0;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API">Popover API</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul class="flags"><li>Experimental feature.</li></ul><ul><li><strong>chrome</strong>: 114</li><li><strong>chrome_android</strong>: 114</li><li><strong>edge</strong>: 114</li><li><strong>firefox</strong>: 114</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: preview</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: 114</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-popover-open">https://html.spec.whatwg.org/multipage/semantics-other.html#selector-popover-open</a></p></section></aside></body>
+</html>

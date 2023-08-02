@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>transform-box</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties transform-box</h1><main>
+    
+
+<p>The <strong><code>transform-box</code></strong> CSS property defines the layout box to which the <a href="./css.properties.transform.html"><code>transform</code></a>, individual transform properties <a href="./css.properties.translate.html"><code>translate</code></a>,<a href="./css.properties.scale.html"><code>scale</code></a>, and <a href="./css.properties.rotate.html"><code>rotate</code></a>, and <a href="./css.properties.transform-origin.html"><code>transform-origin</code></a> properties relate.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Keyword values */
+transform-box: content-box;
+transform-box: border-box;
+transform-box: fill-box;
+transform-box: stroke-box;
+transform-box: view-box;
+
+/* Global values */
+transform-box: inherit;
+transform-box: initial;
+transform-box: revert;
+transform-box: revert-layer;
+transform-box: unset;
+</pre>
+<p>The <code>transform-box</code> property is specified as one of the keyword values listed below.</p>
+<h3>Values</h3>
+<dl>
+  <dt><code>content-box</code></dt>
+  <dd>
+    <p>The content box is used as the reference box. The reference box of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> is the border box of its table wrapper box, not its table box.</p>
+  </dd>
+  <dt><code>border-box</code></dt>
+  <dd>
+    <p>The border box is used as the reference box. The reference box of a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a> is the border box of its table wrapper box, not its table box.</p>
+  </dd>
+  <dt><code>fill-box</code></dt>
+  <dd>
+    <p>The object bounding box is used as the reference box. For elements with associated CSS layout box, acts as <code>content-box</code>.</p>
+  </dd>
+  <dt><code>stroke-box</code></dt>
+  <dd>
+    <p>The stroke bounding box is used as the reference box. For elements with associated CSS layout box, acts as <code>border-box</code>.</p>
+  </dd>
+  <dt><code>view-box</code></dt>
+  <dd>
+    <p>The nearest <a href="/Glossary/SVG">SVG</a> viewport is used as the reference box. If a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"><code>viewBox</code></a> attribute is specified for the SVG viewport creating element, the reference box is positioned at the origin of the coordinate system established by the <code>viewBox</code> attribute, and the dimension of the reference box is set to the width and height values of the <code>viewBox</code> attribute. For elements with associated CSS layout box, acts as <code>border-box</code>.</p>
+  </dd>
+</dl>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>view-box</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>content-box | border-box | fill-box | stroke-box | view-box</pre></section>
+
+<h3>SVG transform-origin scoping</h3>
+<p>In this example we have an SVG:</p>
+<pre class="brush: html">&#x3C;svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  &#x3C;g>
+    &#x3C;circle id="center" fill="red" r="1" transform="translate(25 25)" />
+    &#x3C;circle id="boxcenter" fill="blue" r=".5" transform="translate(15 15)" />
+    &#x3C;rect
+      id="box"
+      x="10"
+      y="10"
+      width="10"
+      height="10"
+      rx="1"
+      ry="1"
+      stroke="black"
+      fill="none" />
+  &#x3C;/g>
+&#x3C;/svg>
+</pre>
+<p>In the CSS we have an animation that uses a transform to rotate the rectangle infinitely. <code>transform-box: fill-box</code> is used to make the <code>transform-origin</code> the center of the bounding box, so the rectangle spins in place. Without it, the transform origin is the center of the SVG canvas, and so you get a very different effect.</p>
+<pre class="brush: css">svg {
+  width: 80vh;
+  border: 1px solid #d9d9d9;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#box {
+  transform-origin: 50% 50%; /* anything other than `0 0` to see the effect */
+  transform-box: fill-box;
+  animation: rotateBox 3s linear infinite;
+}
+
+@keyframes rotateBox {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</pre>
+<p>Full credit for this example goes to <a href="https://codepen.io/giaco">Pogany</a>; see <a href="https://codepen.io/giaco/pen/OwowJQ">this codepen</a> for a live version.</p>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a></li>
+  <li><a href="./css.properties.transform.html"><code>transform</code></a>, <a href="./css.properties.transform-origin.html"><code>transform-origin</code></a></li>
+  <li>Individual transform properties:
+    <ul>
+      <li><a href="./css.properties.translate.html"><code>translate</code></a></li>
+      <li><a href="./css.properties.scale.html"><code>scale</code></a></li>
+      <li><a href="./css.properties.rotate.html"><code>rotate</code></a></li>
+    </ul>
+  </li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 64</li><li><strong>chrome_android</strong>: 64</li><li><strong>edge</strong>: 79</li><li><strong>firefox</strong>: 55</li><li><strong>firefox_android</strong>: 55</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 51</li><li><strong>opera_android</strong>: 47</li><li><strong>safari</strong>: 11</li><li><strong>safari_ios</strong>: 11</li><li><strong>samsunginternet_android</strong>: 9.0</li><li><strong>webview_android</strong>: 64</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#transform-box">https://drafts.csswg.org/css-transforms/#transform-box</a></p></section></aside></body>
+</html>

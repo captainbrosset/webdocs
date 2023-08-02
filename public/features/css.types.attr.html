@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attr()</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types attr()</h1><main>
+    
+
+<div class="notecard note">
+  <p><strong>Note:</strong> The <code>attr()</code> function can be used with any CSS property, but support for properties other than <a href="./css.properties.content.html"><code>content()</code></a> is experimental, and support for the type-or-unit parameter is sparse.</p>
+</div>
+<p>The <strong><code>attr()</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">function</a> is used to retrieve the value of an attribute of the selected element and use it in the stylesheet. It can also be used on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-elements</a>, in which case the value of the attribute on the pseudo-element's originating element is returned.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* Simple usage */
+attr(data-count);
+attr(title);
+
+/* With type */
+attr(src url);
+attr(data-count number);
+attr(data-width px);
+
+/* With fallback */
+attr(data-count number, 0);
+attr(src url, "");
+attr(data-width px, inherit);
+attr(data-something, "default");
+</pre>
+<h3>Values</h3>
+<dl>
+  <dt><code>attribute-name</code></dt>
+  <dd>
+    <p>The name of an attribute on the HTML element referenced in the CSS.</p>
+  </dd>
+  <dt><code>&#x3C;type-or-unit></code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>A keyword representing either the type of the attribute's value, or its unit, as in HTML some attributes have implicit units. If the use of <code>&#x3C;type-or-unit></code> as a value for the given attribute is invalid, the <code>attr()</code> expression will be invalid too. If omitted, it defaults to <code>string</code>. The list of valid values are:</p>
+    <dl>
+      <dt><code>string</code></dt>
+      <dd>
+        <p>The attribute value is treated as a CSS <a href="./css.types.string.html"><code>&lt;string&gt;()</code></a>. It is NOT reparsed, and in particular the characters are used as-is instead of CSS escapes being turned into different characters.</p>
+        <p>Default value: an empty string.</p>
+      </dd>
+      <dt><code>color</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>The attribute value is parsed as a hash (3- or 6-value hash) or a keyword. It must be a valid CSS <a href="./css.types.string.html"><code>&lt;string&gt;()</code></a> value. Leading and trailing spaces are stripped.</p>
+        <p>Default value: <code>currentcolor</code>.</p>
+      </dd>
+      <dt><code>url</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a string that is used inside a CSS <code>url()</code> function.
+          Relative URL are resolved relatively to the original document, not relatively to the style sheet.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: the URL <code>about:invalid</code> that points to a non-existent document with a generic error condition.</p>
+      </dd>
+      <dt><code>integer</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.integer.html"><code>&lt;integer&gt;()</code></a>. If it is not valid, that is not an integer or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0</code>, or, if <code>0</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>number</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0</code>, or, if <code>0</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>length</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> dimension, that is including the unit (e.g. <code>12.5em</code>). If it is not valid, that is not a length or out of the range accepted by the CSS property, the default value is used.
+          If the given unit is a relative length, <code>attr()</code> computes it to an absolute length.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0</code>, or, if <code>0</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>em</code>, <code>ex</code>, <code>px</code>, <code>rem</code>, <code>vw</code>, <code>vh</code>, <code>vmin</code>, <code>vmax</code>, <code>mm</code>, <code>cm</code>, <code>in</code>, <code>pt</code>, or <code>pc</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, that is without the unit (e.g. <code>12.5</code>), and interpreted as a <a href="./css.types.length.html"><code>&lt;length&gt;()</code></a> with the specified unit. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          If the given unit is a relative length, <code>attr()</code> computes it to an absolute length.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0</code>, or, if <code>0</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>angle</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> dimension, that is including the unit (e.g. <code>30.5deg</code>). If it is not valid, that is not an angle or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0deg</code>, or, if <code>0deg</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>deg</code>, <code>grad</code>, <code>rad</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, that is without the unit (e.g. <code>12.5</code>), and interpreted as an <a href="./css.types.angle.html"><code>&lt;angle&gt;()</code></a> with the specified unit. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0deg</code>, or, if <code>0deg</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>time</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.time.html"><code>&lt;time&gt;()</code></a> dimension, that is including the unit (e.g. <code>30.5ms</code>). If it is not valid, that is not a time or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0s</code>, or, if <code>0s</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>s</code>, <code>ms</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, that is without the unit (e.g. <code>12.5</code>), and interpreted as an <a href="./css.types.time.html"><code>&lt;time&gt;()</code></a> with the specified unit. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0s</code>, or, if <code>0s</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>frequency</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>The attribute value is parsed as a CSS <a href="./css.types.frequency.html"><code>&lt;frequency&gt;()</code></a> dimension, that is including the unit (e.g. <code>30.5kHz</code>). If it is not valid, that is not a frequency or out of the range accepted by the CSS property, the default value is used.</p>
+        <p>Default value: <code>0Hz</code>, or, if <code>0Hz</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>Hz</code>, <code>kHz</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, that is without the unit (e.g. <code>12.5</code>), and interpreted as a <a href="./css.types.frequency.html"><code>&lt;frequency&gt;()</code></a> with the specified unit. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0Hz</code>, or, if <code>0Hz</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+      <dt><code>%</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+      <dd>
+        <p>
+          The attribute value is parsed as a CSS <a href="./css.types.number.html"><code>&lt;number&gt;()</code></a>, that is without the unit (e.g. <code>12.5</code>), and interpreted as a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;()</code></a>. If it is not valid, that is not a number or out of the range accepted by the CSS property, the default value is used.
+          If the given value is used as a length, <code>attr()</code> computes it to an absolute length.
+          Leading and trailing spaces are stripped.
+        </p>
+        <p>Default value: <code>0%</code>, or, if <code>0%</code> is not a valid value for the property, the property's minimum value.</p>
+      </dd>
+    </dl>
+  </dd>
+  <dt><code>&#x3C;fallback></code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future."><span class="visually-hidden">Experimental</span></abbr></dt>
+  <dd>
+    <p>The value to be used if the associated attribute is missing or contains an invalid value. If not set, CSS will use the default value defined for each <code>&#x3C;type-or-unit></code>.</p>
+  </dd>
+</dl>
+
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;p data-foo="hello">world&#x3C;/p>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css">[data-foo]::before {
+  content: attr(data-foo) " ";
+}
+</pre>
+
+
+<h4>HTML</h4>
+<pre class="brush: html">&#x3C;div class="background" data-background="lime">
+  background expected to be red if your browser does not support advanced usage
+  of attr()
+&#x3C;/div>
+</pre>
+<h4>CSS</h4>
+<pre class="brush: css hidden">.background {
+  height: 100vh;
+}
+</pre>
+<pre class="brush: css">.background {
+  background-color: red;
+}
+
+.background[data-background] {
+  background-color: attr(data-background color, red);
+}
+</pre>
+
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="./css.selectors.attribute.html">Attribute selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*">HTML <code>data-*</code> attributes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/data-*">SVG <code>data-*</code> attributes</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 2</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 8</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 9</li><li><strong>opera_android</strong>: 10.1</li><li><strong>safari</strong>: 3.1</li><li><strong>safari_ios</strong>: 2</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values-5/#attr-notation">https://drafts.csswg.org/css-values-5/#attr-notation</a></p></section></aside></body>
+</html>

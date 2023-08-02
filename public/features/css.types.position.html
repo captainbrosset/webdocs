@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>&lt;position&gt;</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css types &#x3C;position></h1><main>
+    
+
+<p>The <strong><code>&#x3C;position></code></strong> (or <strong><code>&#x3C;bg-position></code></strong>) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">data type</a> denotes a two-dimensional coordinate used to set a location relative to an element box. It is used in the <a href="./css.properties.background-position.html"><code>&lt;background-position&gt;</code></a> and <a href="./css.properties.offset-anchor.html"><code>&lt;offset-anchor&gt;</code></a> properties.</p>
+<div class="notecard note">
+  <p><strong>Note:</strong> The final position described by the <code>&#x3C;position></code> value does not need to be inside the element's box.</p>
+</div>
+<h2>Syntax</h2>
+<p>
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/position_value/position_type.png" alt="Grid showing placement of various values. 0 0 is the top left corner. The four values, right, right center, center left 100%, and top 50% left 100%, are all equivalent, being on the right edge in the middle vertically. The two values, top 75px left 100px and left 100px top 75px, are the same. Bottom left 25% is the same as top 100% left 25%.">
+</p>
+<p>The <code>&#x3C;position></code> data type is specified with one or two keywords, with optional offsets.</p>
+<p>The keyword values are <code>center</code>, <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code>. Each keyword represents either an edge of the element's box or the center line between two edges. Depending on the context, <code>center</code> represents either the center between the left and right edges, or the center between the top and bottom edges.</p>
+<p>If specified, an offset can be either a relative <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> value or an absolute <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> value. Positive values are offset towards the right or the bottom, whichever is appropriate. Negative values are offset in the opposite directions.</p>
+<p>If only a single offset value is specified, it defines the x-coordinate, with the value for the other axis defaulting to <code>center</code>.</p>
+<pre class="brush: css">/* 1-value syntax */
+keyword                  /* Either the horizontal or vertical position; the other axis defaults to center */
+value                    /* The position on the x-axis; the y-axis defaults to 50% */
+
+/* 2-value syntax */
+keyword keyword          /* A keyword for each direction (the order is irrelevant) */
+keyword value            /* A keyword for horizontal position, value for vertical position */
+value keyword            /* A value for horizontal position, keyword for vertical position */
+value value              /* A value for each direction (horizontal then vertical) */
+
+/* 4-value syntax */
+keyword value keyword value /* Each value is an offset from the keyword that precedes it */
+</pre>
+<div class="notecard note">
+  <p><strong>Note:</strong> The <a href="./css.properties.background-position.html"><code>&lt;background-position&gt;</code></a> property also accepts a three-value syntax. This is not allowed in other properties that use <code>&#x3C;position></code>.</p>
+</div>
+<h2>Interpolation</h2>
+<p>When animated, a point's abscissa and ordinate values are interpolated independently. However, because the speed of the interpolation is determined by a single <a href="./css.types.easing-function.html">easing function</a> for both coordinates, the point will move in a straight line.</p>
+
+
+<h3>Valid positions</h3>
+<pre class="brush: plain example-good">center
+left
+center top
+
+right 8.5%
+bottom 12vmin right -6px
+
+10% 20%
+8rem 14px
+</pre>
+<h3>Invalid positions</h3>
+<pre class="brush: plain example-bad">left right
+bottom top
+10px 15px 20px 15px
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS Values and Units</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">CSS Values and Units introduction</a></li>
+  <li><a href="./css.properties.background-position.html"><code>&lt;background-position&gt;</code></a></li>
+  <li><a href="./css.types.image.gradient.radial-gradient.html"><code>radial-gradient()</code></a></li>
+  <li><a href="./css.types.image.gradient.conic-gradient.html"><code>conic-gradient()</code></a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: 1</li><li><strong>chrome_android</strong>: 18</li><li><strong>edge</strong>: 12</li><li><strong>firefox</strong>: 1</li><li><strong>firefox_android</strong>: 4</li><li><strong>ie</strong>: 4</li><li><strong>oculus</strong>: 5.0</li><li><strong>opera</strong>: 3.5</li><li><strong>opera_android</strong>: 14</li><li><strong>safari</strong>: 1</li><li><strong>safari_ios</strong>: 1</li><li><strong>samsunginternet_android</strong>: 1.0</li><li><strong>webview_android</strong>: ≤37</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-values/#position">https://drafts.csswg.org/css-values/#position</a></p></section></aside></body>
+</html>

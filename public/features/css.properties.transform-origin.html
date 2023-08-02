@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>transform-origin</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  
+<h1>css properties transform-origin</h1><main>
+    
+
+<p>The <strong><code>transform-origin</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the origin for an element's transformations.</p>
+<p>The transform origin is the point around which a transformation is applied. For example, the transform origin of the <a href="./css.types.transform-function.rotate.html"><code>rotate()</code></a> function is the center of rotation.</p>
+<p>In effect, this property wraps a pair of translations around the element's other transformations. The first translation moves the transform origin to the true origin at 
+  <math>
+    <mrow>
+      <mo stretchy="false">(</mo>
+      <mn>0</mn>
+      <mo>,</mo>
+      <mn>0</mn>
+      <mo stretchy="false">)</mo>
+    </mrow>
+  </math>. Then the other transformations are applied, and because the transform origin is at 
+  <math>
+    <mrow>
+      <mo stretchy="false">(</mo>
+      <mn>0</mn>
+      <mo>,</mo>
+      <mn>0</mn>
+      <mo stretchy="false">)</mo>
+    </mrow>
+  </math>, those transformations act about the transform origin. Finally, the opposite translation is applied, moving the transform origin back to its original location. Consequently, this definition
+</p>
+<pre class="brush: css">transform-origin: -100% 50%;
+transform: rotate(45deg);
+</pre>
+<p>results in the same transformation as</p>
+<pre class="brush: css">transform-origin: 0 0;
+transform: translate(-100%, 50%) rotate(45deg) translate(100%, -50%);
+</pre>
+<p>Reading from right to left, <code>translate(100%, -50%)</code> is the translation to bring the transform origin to the true origin, <code>rotate(45deg)</code> is the original transformation, and <code>translate(-100%, 50%)</code> is the translation to restore the transform origin to its original location.</p>
+<p>By default, the origin of a transform is <code>center</code>.</p>
+<h2>Syntax</h2>
+<pre class="brush: css">/* One-value syntax */
+transform-origin: 2px;
+transform-origin: bottom;
+
+/* x-offset | y-offset */
+transform-origin: 3cm 2px;
+
+/* x-offset-keyword | y-offset */
+transform-origin: left 2px;
+
+/* x-offset-keyword | y-offset-keyword */
+transform-origin: right top;
+
+/* y-offset-keyword | x-offset-keyword */
+transform-origin: top right;
+
+/* x-offset | y-offset | z-offset */
+transform-origin: 2px 30% 10px;
+
+/* x-offset-keyword | y-offset | z-offset */
+transform-origin: left 5px -3px;
+
+/* x-offset-keyword | y-offset-keyword | z-offset */
+transform-origin: right bottom 2cm;
+
+/* y-offset-keyword | x-offset-keyword | z-offset */
+transform-origin: bottom right 2cm;
+
+/* Global values */
+transform-origin: inherit;
+transform-origin: initial;
+transform-origin: revert;
+transform-origin: revert-layer;
+transform-origin: unset;
+</pre>
+<p>The <code>transform-origin</code> property may be specified using one, two, or three values, where each value represents an offset. Offsets that are not explicitly defined are reset to their corresponding <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value">initial values</a>.</p>
+<p>If a single <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> value is defined, it represents the horizontal offset.</p>
+<p>If two or more values are defined and either no value is a keyword, or the only used keyword is <code>center</code>, then the first value represents the horizontal offset and the second represents the vertical offset.</p>
+<ul>
+  <li>One-value syntax:
+    <ul>
+      <li>The value must be a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>, or one of the keywords <code>left</code>, <code>center</code>, <code>right</code>, <code>top</code>, and <code>bottom</code>.</li>
+    </ul>
+  </li>
+  <li>Two-value syntax:
+    <ul>
+      <li>One value must be a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>, or one of the keywords <code>left</code>, <code>center</code>, and <code>right</code>.</li>
+      <li>The other value must be a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>, a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a>, or one of the keywords <code>top</code>, <code>center</code>, and <code>bottom</code>.</li>
+    </ul>
+  </li>
+  <li>Three-value syntax:
+    <ul>
+      <li>The first two values are the same as for the two-value syntax.</li>
+      <li>The third value must be a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a>. It always represents the Z offset.</li>
+    </ul>
+  </li>
+</ul>
+<h3>Values</h3>
+<dl>
+  <dt><em>x-offset</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> describing how far from the left edge of the box the origin of the transform is set.</p>
+  </dd>
+  <dt><em>offset-keyword</em></dt>
+  <dd>
+    <p>Is one of the <code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>, or <code>center</code> keyword describing the corresponding offset.</p>
+  </dd>
+  <dt><em>y-offset</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> or a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> describing how far from the top edge of the box the origin of the transform is set.</p>
+  </dd>
+  <dt><em>x-offset-keyword</em></dt>
+  <dd>
+    <p>Is one of the <code>left</code>, <code>right</code>, or <code>center</code> keyword describing how far from the left edge of the box the origin of the transform is set.</p>
+  </dd>
+  <dt><em>y-offset-keyword</em></dt>
+  <dd>
+    <p>Is one of the <code>top</code>, <code>bottom</code>, or <code>center</code> keyword describing how far from the top edge of the box the origin of the transform is set.</p>
+  </dd>
+  <dt><em>z-offset</em></dt>
+  <dd>
+    <p>Is a <a href="./css.types.length.html"><code>&lt;length&gt;</code></a> (and never a <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> which would make the statement invalid) describing how far from the user eye the z=0 origin is set.</p>
+  </dd>
+</dl>
+<p>The keywords are convenience shorthands and match the following <a href="./css.types.percentage.html"><code>&lt;percentage&gt;</code></a> values:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>left</code></td>
+      <td><code>0%</code></td>
+    </tr>
+    <tr>
+      <td><code>center</code></td>
+      <td><code>50%</code></td>
+    </tr>
+    <tr>
+      <td><code>right</code></td>
+      <td><code>100%</code></td>
+    </tr>
+    <tr>
+      <td><code>top</code></td>
+      <td><code>0%</code></td>
+    </tr>
+    <tr>
+      <td><code>bottom</code></td>
+      <td><code>100%</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>50% 50%</td></tr><tr><th scope="row">Applies to</th><td>transformable elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>see background-position</td></tr><tr><th scope="row">Animation type</th><td>by computed value</td></tr></tbody></table></section>
+<div class="notecard note">
+  <p><strong>Note:</strong> The initial value of <code>transform-origin</code> is <code>0 0</code> for all SVG elements except for root <code>&#x3C;svg></code> elements and <code>&#x3C;svg></code> elements that are a direct child of a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject">foreignObject</a>, and whose <code>transform-origin</code> is <code>50% 50%</code>, like other CSS elements. See the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform-origin">SVG transform-origin</a> attribute for more information.</p>
+</div>
+<h2>Formal syntax</h2><section class="formal-syntax"><pre>[ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] &lt;length&gt;? | [[ center | left | right ] && [ center | top | bottom ]] &lt;length&gt;?</pre></section>
+
+<h3>A demonstration of various transform values</h3>
+<p>This example shows the effect of choosing different <code>transform-origin</code> values for a variety of transformation functions.</p>
+<pre class="brush: html hidden">&#x3C;div class="container">
+  &#x3C;div class="example">
+    &#x3C;div class="box box1">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: none;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box2">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: rotate(30deg);
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box3">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: rotate(30deg);
+transform-origin: 0 0;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box4">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: rotate(30deg);
+transform-origin: 100% 100%;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box5">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: rotate(30deg);
+transform-origin: -1em -3em;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box6">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: scale(1.7);
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box7">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: scale(1.7);
+transform-origin: 0 0;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box8">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: scale(1.7);
+transform-origin: 100% -30%;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box9">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: skewX(50deg);
+transform-origin: 100% -30%;
+  &#x3C;/pre>
+
+  &#x3C;div class="example">
+    &#x3C;div class="box box10">&#x26;nbsp;&#x3C;/div>
+    &#x3C;div class="box original">&#x26;nbsp;&#x3C;/div>
+  &#x3C;/div>
+
+  &#x3C;pre>
+transform: skewY(50deg);
+transform-origin: 100% -30%;
+  &#x3C;/pre>
+&#x3C;/div>
+</pre>
+<pre class="brush: css hidden">.container {
+  display: grid;
+  grid-template-columns: 200px 100px;
+  gap: 20px;
+}
+
+.example {
+  position: relative;
+  margin: 0 2em 4em 5em;
+}
+
+.box {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  border: solid 1px;
+  background-color: palegreen;
+}
+
+.original {
+  position: absolute;
+  left: 0;
+  opacity: 20%;
+}
+
+.box1 {
+  transform: none;
+}
+
+.box2 {
+  transform: rotate(30deg);
+}
+
+.box3 {
+  transform: rotate(30deg);
+  transform-origin: 0 0;
+}
+
+.box4 {
+  transform: rotate(30deg);
+  transform-origin: 100% 100%;
+}
+
+.box5 {
+  transform: rotate(30deg);
+  transform-origin: -1em -3em;
+}
+
+.box6 {
+  transform: scale(1.7);
+}
+
+.box7 {
+  transform: scale(1.7);
+  transform-origin: 0 0;
+}
+
+.box8 {
+  transform: scale(1.7);
+  transform-origin: 100% -30%;
+}
+
+.box9 {
+  transform: skewX(50deg);
+  transform-origin: 100% -30%;
+}
+
+.box10 {
+  transform: skewY(50deg);
+  transform-origin: 100% -30%;
+}
+</pre>
+
+
+<h2>See also</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms">Using CSS transforms</a></li>
+  <li><a href="https://css-tricks.com/almanac/properties/t/transform-origin/">https://css-tricks.com/almanac/properties/t/transform-origin/</a></li>
+</ul>
+
+  </main><aside>
+  <h2>Browser compatibility</h2><section class="compat-data"><ul><li><strong>chrome</strong>: FIXME: either multiple values, or unsupported</li><li><strong>chrome_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>edge</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox</strong>: FIXME: either multiple values, or unsupported</li><li><strong>firefox_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>ie</strong>: FIXME: either multiple values, or unsupported</li><li><strong>oculus</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera</strong>: FIXME: either multiple values, or unsupported</li><li><strong>opera_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari</strong>: FIXME: either multiple values, or unsupported</li><li><strong>safari_ios</strong>: FIXME: either multiple values, or unsupported</li><li><strong>samsunginternet_android</strong>: FIXME: either multiple values, or unsupported</li><li><strong>webview_android</strong>: FIXME: either multiple values, or unsupported</li></ul></section><h2>Specifications</h2><section class="spec"><p>Specification: <a href="https://drafts.csswg.org/css-transforms/#transform-origin-property">https://drafts.csswg.org/css-transforms/#transform-origin-property</a></p></section></aside></body>
+</html>
