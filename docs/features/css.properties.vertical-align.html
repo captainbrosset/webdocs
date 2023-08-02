@@ -44,7 +44,7 @@ vertical-align: revert-layer;
 vertical-align: unset;
 </pre>
 <p>The <code>vertical-align</code> property is specified as one of the values listed below.</p>
-
+<h3>Values for inline elements</h3>
 <h4>Parent-relative values</h4>
 <p>These values vertically align the element relative to its parent element:</p>
 <dl>
@@ -116,8 +116,8 @@ vertical-align: unset;
 <p>Negative values are allowed.</p>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>baseline</td></tr><tr><th scope="row">Applies to</th><td>see individual properties</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>see individual properties</td></tr><tr><th scope="row">Animation type</th><td>see individual properties</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>[ first | last] || &lt;'alignment-baseline'&gt; || &lt;'baseline-shift'&gt;</pre></section>
-
-
+<h2>Examples</h2>
+<h3>Basic example</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;div>
   An &#x3C;img src="frame_image.svg" alt="link" width="32" height="32" /> image with
@@ -151,7 +151,7 @@ img.middle {
 }
 </pre>
 
-
+<h3>Vertical alignment in a line box</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;p>
 top:         &#x3C;img style="vertical-align: top" src="star.png" alt="star"/>
@@ -189,7 +189,7 @@ p {
 }
 </pre>
 
-
+<h3>Vertical alignment in a table cell</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;table>
   &#x3C;tr>

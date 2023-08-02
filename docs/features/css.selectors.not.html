@@ -30,7 +30,7 @@
   <li>You can negate several selectors at the same time. Example: <code>:not(.foo, .bar)</code> is equivalent to <code>:not(.foo):not(.bar)</code>.</li>
   <li>If any selector passed to the <code>:not()</code> pseudo-class is invalid or not supported by the browser, the whole rule will be invalidated. The effective way to overcome this behavior is to use <a href="./css.selectors.is.html"><code>:is()</code></a> pseudo-class, which accepts a forgiving selector list. For example <code>:not(.foo, :invalid-pseudo-class)</code> will invalidate a whole rule, but <code>:not(:is(.foo, :invalid-pseudo-class))</code> will match any (<em>including <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a></em>) element that isn't <code>.foo</code>.</li>
 </ul>
-
+<h2>Examples</h2>
 <h3>Using :not() with valid selectors</h3>
 <p>This example shows some simple cases of using <code>:not()</code>.</p>
 <h4>HTML</h4>

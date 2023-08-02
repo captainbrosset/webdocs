@@ -50,7 +50,7 @@
 </ul>
 <h2>Examples</h2>
 <p>This example uses a scaling animation for the purpose of demonstrating <code>prefers-reduced-motion</code>. If you enable the setting for reducing motion in the accessibility preferences on your device, the <code>prefers-reduced-motion</code> media query will detect your preference and the CSS within the reduced motion rules, with the same <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a> but coming later in the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#source_order">CSS source order</a>, will take precedence. As a result, the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">animation</a> on the box will tone down to the <code>dissolve</code> animation, which is a more muted animation that is not a vestibular motion trigger.</p>
-
+<h3>Toning down the animation scaling</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;div class="animation">animated box&#x3C;/div>
 </pre>

@@ -42,8 +42,8 @@ var(--custom-prop, var(--default-value, red));
   </dd>
 </dl>
 
-
-
+<h2>Examples</h2>
+<h3>Using a custom property set on :root</h3>
 <h4>CSS</h4>
 <pre class="brush: css">:root {
   --main-bg-color: pink;
@@ -55,7 +55,7 @@ body {
 </pre>
 <h4>Result</h4>
 <p>Here, the value of the <code>background-color</code> property has been set via the custom property <code>--main-bg-color</code>. So the background color of the HTML body will be pink.</p>
-
+<h3>Using a custom property before it is set</h3>
 <h4>CSS</h4>
 <pre class="brush: css">body {
   background-color: var(--main-bg-color);
@@ -67,7 +67,7 @@ body {
 </pre>
 <h4>Result</h4>
 <p>In this example, the background color of the HTML body will be pink even though the custom property is set later.</p>
-
+<h3>Using a custom property set in another file</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;!doctype html>
 &#x3C;html lang="en-US">
@@ -92,7 +92,7 @@ body {
 </pre>
 <h4>Result</h4>
 <p>The background color of the HTML body will be pink in this case even though the custom property is declared in another file.</p>
-
+<h3>Custom properties with fallbacks for use when the property has not been set</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;div class="component">
   &#x3C;h1 class="header">Header&#x3C;/h1>
@@ -117,7 +117,7 @@ body {
 </pre>
 <h4>Result</h4>
 <p>Since <code>--header-color</code> isn't set, the text "Header" will be blue, the fallback value.</p>
-
+<h3>Using a custom property as a fallback</h3>
 <h4>CSS</h4>
 <pre class="brush: css">:root {
   --backup-bg-color: teal;

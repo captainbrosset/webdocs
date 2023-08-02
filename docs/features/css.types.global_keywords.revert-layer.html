@@ -17,7 +17,7 @@
 <h2>Revert-layer vs. revert</h2>
 <p>The <code>revert-layer</code> keyword lets you rollback styles to the ones specified in previous cascade layers. All cascade layers exist in the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Style_origin">author origin</a>. The <a href="./css.types.global_keywords.revert.html"><code>revert</code></a> keyword, in comparison, lets you remove styles applied in the author origin and roll back to styles in user origin or user-agent origin.</p>
 <p>The <code>revert-layer</code> keyword is ideally meant for applying on properties inside a layer. However, if the <code>revert-layer</code> keyword is set on a property outside a layer, the value of the property will roll back to the default value established by the user agent's stylesheet (or by user styles, if any exist). So in this scenario, the <code>revert-layer</code> keyword behaves like the <a href="./css.types.global_keywords.revert.html"><code>revert</code></a> keyword.</p>
-
+<h2>Examples</h2>
 <h3>Default cascade layer behavior</h3>
 <p>In the example below, two cascade layers are defined in the CSS, <code>base</code> and <code>special</code>. By default, rules in the <code>special</code> layer will override competing rules in the <code>base</code> layer because <code>special</code> is listed after <code>base</code> in the <code>@layer</code> declaration statement.</p>
 <h4>HTML</h4>

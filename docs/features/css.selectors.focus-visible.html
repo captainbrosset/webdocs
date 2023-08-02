@@ -23,7 +23,7 @@
 <p>Browsers no longer visibly indicate focus (such as by drawing a "focus ring"), around each element when it has focus. Instead, they use a variety of heuristics to provide focus indicators only when it would be most helpful to the user. For instance, when a button is clicked using a pointing device, the focus is generally not visually indicated, but when a text box needing user input has focus, focus is indicated. While focus styles are always required when users are navigating the page with the keyboard or when focus is managed via scripts, focus styles are not required when the user knows where they are putting focus, such as when they use a pointing device such as a mouse or finger to physically set focus on an element, unless that element continues to need user attention.</p>
 <p>The <code>:focus</code> pseudo-class always matches the currently-focused element. The <code>:focus-visible</code> pseudo-class also matches the focused element, but only if the user needs to be informed where the focus currently is. Because the <code>:focus-visible</code> pseudo-class matches the focused element when needed, using the <code>:focus-visible</code> (instead of the <code>:focus</code> pseudo-class) allows authors to change the appearance of the focus indicator without changing when the focus indicator appears.</p>
 <p>When the <a href="./css.selectors.focus.html"><code>:focus</code></a> pseudo-class is used, it always targets the currently focused element. This means that when a user employs a pointing device, a visible focus ring appears around the focused element, which some consider obtrusive. The <code>:focus-visible</code> pseudo-class respects user agents' selective focus indication behavior while still allowing focus indicator customization.</p>
-
+<h2>Examples</h2>
 <h3>Basic example</h3>
 <p>In this example, the <code>:focus-visible</code> selector uses the UA's behavior to determine when to match. Compare what happens when you click on the different controls with a mouse, versus when you tab through them using a keyboard. Note the difference in behavior from elements styled with <code>:focus</code>.</p>
 <pre class="brush: html">&#x3C;input value="Default styles" />&#x3C;br />
@@ -73,7 +73,7 @@ button {
   }
 }
 </pre>
-
+<h2>Accessibility concerns</h2>
 <h3>Low vision</h3>
 <p>Make sure the visual focus indicator can be seen by people with low vision. This will also benefit anyone use a screen in a brightly lit space (like outside in the sun). <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">WCAG 2.1 SC 1.4.11 Non-Text Contrast</a> requires that the visual focus indicator be at least 3 to 1.</p>
 <ul>

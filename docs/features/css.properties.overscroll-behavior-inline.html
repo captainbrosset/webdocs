@@ -44,7 +44,7 @@ overscroll-behavior-inline: unset;
 </dl>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>scroll container elements</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>contain | none | auto</pre></section>
-
+<h2>Examples</h2>
 <h3>Preventing inline overscrolling</h3>
 <p>In this demo we have two block-level boxes, one inside the other. The outer box has a large <a href="./css.properties.width.html"><code>width</code></a> set on it so the page will scroll horizontally. The inner box has a small width (and <a href="./css.properties.height.html"><code>height</code></a>) set on it so it sits comfortably inside the viewport, but its content is given a large width so it will also scroll horizontally.</p>
 <p>By default, when the inner box is scrolled and a scroll boundary is reached, the whole page will begin to scroll, which is probably not what we want. To avoid this happening in the inline direction, we've set <code>overscroll-behavior-inline: contain</code> on the inner box.</p>

@@ -15,7 +15,7 @@
 <div class="notecard note">
   <p><strong>Note:</strong> In HTML, the language is determined by a combination of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a> attribute, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"><code>&lt;meta&gt;</code></a> element, and possibly by information from the protocol (such as HTTP headers). For other document types there may be other document methods for determining the language.</p>
 </div>
-
+<h2>Syntax</h2>
 <h3>Formal syntax</h3>
 <pre class="brush: css">:lang(&#x3C;language-code> [,&#x3C;language-code> ]*)
   /* ... */
@@ -36,7 +36,7 @@
   When selecting languages, there is implicit wildcard matching, so <code>:lang(de-DE)</code> will match <code>de-DE</code>, <code>de-DE-1996</code>, <code>de-Latn-DE</code>, <code>de-Latf-DE</code>, and <code>de-Latn-DE-1996</code>.
   Explicitly using wildcards must include a full match of a language subtag, so <code>:lang("*-F*")</code> is invalid but <code>:lang("*-Fr")</code> is valid.
 </p>
-
+<h2>Examples</h2>
 <h3>Matching children of a given language</h3>
 <p>In this example, the <code>:lang()</code> pseudo-class is used to match the parents of quote elements (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"><code>&lt;q&gt;</code></a>) using <a href="./css.selectors.child.html">child combinators</a>. Note that this doesn't illustrate the only way to do this, and that the best method to use depends on the type of document. Also note that <a href="/Glossary/Unicode">Unicode</a> values are used to specify some of the special quote characters.</p>
 <h4>HTML</h4>

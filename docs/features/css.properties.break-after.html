@@ -49,7 +49,7 @@ break-after: unset;
   <li>If any of the three concerned values is an <em>avoid break value</em> (<code>avoid</code>, <code>avoid-page</code>, <code>avoid-region</code>, or <code>avoid-column</code>), no such break will be applied at that point.</li>
 </ol>
 <p>Once forced breaks have been applied, soft breaks may be added if needed, but not on element boundaries that resolve in a corresponding <code>avoid</code> value.</p>
-
+<h3>Values</h3>
 <h4>Generic break values</h4>
 <dl>
   <dt><code>auto</code></dt>
@@ -155,7 +155,7 @@ break-after: unset;
 </div>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>block-level boxes, grid items, flex items, table row groups, table rows (but see prose)</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | avoid | always | all | avoid-page | page | left | right | recto | verso | avoid-column | column | avoid-region | region</pre></section>
-
+<h2>Examples</h2>
 <h3>Breaking into neat columns</h3>
 <p>In the following example we have a container that contains an <code>&#x3C;h1></code> spanning all columns (achieved using <code>column-span: all</code>) and a series of <code>&#x3C;h2></code>s and paragraphs laid out in multiple columns using <code>column-width: 200px</code>.</p>
 <p>By default, the subheadings and paragraphs were laid out rather messily because the headings were not in a uniform place. However, we used <code>break-after: column</code> on the <code>&#x3C;p></code> elements to force a column break after each one, meaning that you end up with an <code>&#x3C;h2></code> neatly at the top of each column.</p>

@@ -39,7 +39,7 @@ unicode-range: U+0025-00FF, U+4??; /* multiple values */
 <p>The purpose of this descriptor is to allow the font resources to be segmented so that a browser only needs to download the font resource needed for the text content of a particular page. For example, a site with many localizations could provide separate font resources for English, Greek and Japanese. For users viewing the English version of a page, the font resources for Greek and Japanese fonts wouldn't need to be downloaded, saving bandwidth.</p>
 
 
-
+<h2>Examples</h2>
 <h3>Using a different font for a single character</h3>
 <p>In this example we create a simple HTML containing a single <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element, including an ampersand, that we want to style with a different font. To make it obvious, we will use a sans-serif font, <em>Helvetica</em>, for the text, and a serif font, <em>Times New Roman</em>, for the ampersand.</p>
 <p>In the CSS we are in effect defining a completely separate <a href="./css.at-rules.font-face.html"><code>@font-face</code></a> that only includes a single character in it, meaning that only this character will be styled with this font. We could also have done this by wrapping the ampersand in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span"><code>&lt;span&gt;</code></a> and applying a different font just to that, but that is an extra element and rule set.</p>

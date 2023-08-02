@@ -53,7 +53,7 @@ position: unset;
     <p>This value always creates a new <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context">stacking context</a>. Note that a sticky element "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when <code>overflow</code> is <code>hidden</code>, <code>scroll</code>, <code>auto</code>, or <code>overlay</code>), even if that ancestor isn't the nearest actually scrolling ancestor.</p>
   </dd>
 </dl>
-
+<h2>Description</h2>
 <h3>Types of positioning</h3>
 <ul>
   <li>A <strong>positioned element</strong> is an element whose <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed</a> <code>position</code> value is either <code>relative</code>, <code>absolute</code>, <code>fixed</code>, or <code>sticky</code>. (In other words, it's anything except <code>static</code>.)</li>
@@ -77,7 +77,7 @@ position: unset;
 <p>Scrolling elements containing <code>fixed</code> or <code>sticky</code> content can cause performance and accessibility issues. As a user scrolls, the browser must repaint the sticky or fixed content in a new location. Depending on the content needing to be repainted, the browser performance, and the device's processing speed, the browser may not be able to manage repaints at 60 fps, causing accessibility concerns for people with sensitivities and jank for everyone. One solution is to add <a href="./css.properties.will-change.html"><code>will-change: transform</code></a> to the positioned elements to render the element in its own layer, improving repaint speed and therefore improving performance and accessibility.</p>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>static</td></tr><tr><th scope="row">Applies to</th><td>all elements except table-column-group and table-column</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>static | relative | absolute | sticky | fixed</pre></section>
-
+<h2>Examples</h2>
 <h3>Relative positioning</h3>
 <p>Relatively positioned elements are offset a given amount from their normal position within the document, but without the offset affecting other elements. In the example below, note how the other elements are placed as if "Two" were taking up the space of its normal location.</p>
 <h4>HTML</h4>

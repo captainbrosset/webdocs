@@ -79,7 +79,7 @@ break-inside: unset;
 </table>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements except inline-level boxes, internal ruby boxes, table column boxes, table column group boxes, absolutely-positioned boxes</td></tr><tr><th scope="row">Inherited</th><td>no</td></tr><tr><th scope="row">Computed value</th><td>specified keyword</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | avoid | avoid-page | avoid-column | avoid-region</pre></section>
-
+<h2>Examples</h2>
 <h3>Avoiding breaking inside a figure</h3>
 <p>In the following example we have a container that contains an <code>&#x3C;h1></code> spanning all columns (achieved using <code>column-span: all</code>) and a series of paragraphs laid out in multiple columns using <code>column-width: 200px</code>. We also have a <code>&#x3C;figure></code> containing an image and a caption.</p>
 <p>By default, it is possible for you to get a break between the image and its caption, which is not what we want. To avoid this, we have set <code>break-inside: avoid</code> on the <code>&#x3C;figure></code>, which causes them to always stay together.</p>

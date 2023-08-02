@@ -57,7 +57,7 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
   <a href="./css.properties.background.html"><code>background()</code></a>, <a href="./css.properties.background-image.html"><code>background-image()</code></a>, <a href="./css.properties.border.html"><code>border()</code></a>, <a href="./css.properties.border-image.html"><code>border-image()</code></a>, <a href="./css.properties.border-image-source.html"><code>border-image-source()</code></a>, <a href="./css.properties.content.html"><code>content()</code></a>, <a href="./css.properties.cursor.html"><code>cursor()</code></a>, <a href="./css.properties.filter.html"><code>filter()</code></a>, <a href="./css.properties.list-style.html"><code>list-style()</code></a>, <a href="./css.properties.list-style-image.html"><code>list-style-image()</code></a>, <a href="./css.properties.mask.html"><code>mask()</code></a>, <a href="./css.properties.mask-image.html"><code>mask-image()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path"><code>offset-path()</code></a>,
   <a href="./css.at-rules.font-face.src.html">src</a> as part of a <a href="./css.at-rules.font-face.html">@font-face</a> block, and <a href="./css.at-rules.counter-style.symbols.html">@counter-style/symbol</a>
 </p>
-
+<h2>Syntax</h2>
 <h3>Values</h3>
 <dl>
   <dt><code>&#x3C;string></code></dt>
@@ -87,7 +87,7 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
 <h3>Formal syntax</h3>
 <pre class="brush: css">url( &#x3C;string> &#x3C;url-modifier>* )
 </pre>
-
+<h2>Examples</h2>
 <h3>A url used in the background property</h3>
 <pre class="brush: css">.topbanner {
   background: url("topbanner.png") #00d no-repeat fixed;
@@ -98,7 +98,7 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
   list-style: square url(http://www.example.com/redball.png);
 }
 </pre>
-
+<h3>Usage in the content property</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;ul>
   &#x3C;li>Item 1&#x3C;/li>
@@ -112,7 +112,7 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
 }
 </pre>
 
-
+<h3>Using a data URL</h3>
 <h4>HTML</h4>
 <pre class="brush: html">&#x3C;div class="background">&#x3C;/div>
 </pre>

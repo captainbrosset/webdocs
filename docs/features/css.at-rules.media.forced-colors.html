@@ -25,7 +25,7 @@
     <p>Indicates that forced colors mode is active. The browser provides the color palette to authors through the <a href="./css.types.color.system-color.html">CSS system color</a> keywords and, if appropriate, triggers the appropriate value of <a href="./css.at-rules.media.prefers-color-scheme.html"><code>prefers-color-scheme</code></a> so that authors can adapt the page. The browser selects the value for <code>prefers-color-scheme</code> based on the lightness of the <code>Canvas</code> system color (see the <a href="https://www.w3.org/TR/css-color-adjust-1/#forced">color adjust spec</a> for more details).</p>
   </dd>
 </dl>
-
+<h2>Usage notes</h2>
 <h3>Properties affected by forced-color mode</h3>
 <p>In forced colors mode, the values of the following properties are treated as if they have no author-level values specified. That is, browser-specified values are used instead. The browser-specified values do not affect the style cascade; the values are instead forced by the browser at paint time.</p>
 <p>These browser-specified values are selected from the set of system colors — this ensures a consistent contrast for common UI elements for users that have forced colors enabled.</p>

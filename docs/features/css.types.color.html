@@ -92,7 +92,7 @@ background-color: hsl(0deg 100% 50%);
 <h2>Interpolation</h2>
 <p>Color interpolation happens with <a href="./css.types.image.gradient.html">gradients</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">transitions</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">animations</a>.</p>
 <p>When interpolating <code>&#x3C;color></code> values, they are first converted to a given color space, and then each component of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed values</a> are interpolated linearly, with interpolation's speed being determined by the <a href="./css.types.easing-function.html">easing function</a> in transitions and animations. The interpolation color space defaults to Oklab, but can be overridden through <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method"><code>&lt;color-interpolation-method&gt;</code></a> in some color-related functional notations.</p>
-
+<h3>Interpolation with missing components</h3>
 <h4>Interpolating colors in the same space</h4>
 <p>
   When interpolating colors that are exactly in the interpolation color space, missing components from one color are replaced with existing values of the same components from the other color.
@@ -183,7 +183,7 @@ oklch(63.612% 0.1522 78.748)
 <h2>Accessibility considerations</h2>
 <p>Some people have difficulty distinguishing colors. The <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color">WCAG 2.2</a> recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">color and color contrast</a> for more information.</p>
 
-
+<h2>Examples</h2>
 <h3>Color value tester</h3>
 <p>In this example we provide a <code>&#x3C;div></code> and a text input. Entering a valid color into the input causes the <code>&#x3C;div></code> to adopt that color, allowing you to test our color values.</p>
 <h4>HTML</h4>

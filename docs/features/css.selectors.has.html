@@ -28,7 +28,7 @@ h1:has(+ p) {
 <p>If the <code>:has()</code> pseudo-class itself is not supported in a browser, the entire selector block will fail unless <code>:has()</code> is in a forgiving selector list, such as in <a href="./css.selectors.is.html"><code>:is()</code></a> and <a href="./css.selectors.where.html"><code>:where()</code></a>).</p>
 <p>The <code>:has()</code> pseudo-class cannot be nested within another <code>:has()</code>. This is because many pseudo-elements exist conditionally based on the styling of their ancestors and allowing these to be queried by <code>:has()</code> can introduce cyclic querying.</p>
 <p>Pseudo-elements are also not valid selectors within <code>:has()</code> and pseudo-elements are not valid anchors for <code>:has()</code>.</p>
-
+<h2>Examples</h2>
 <h3>With the sibling combinator</h3>
 <p>The <code>:has()</code> style declaration in the following example adjusts the spacing after <code>&#x3C;h1></code> headings if they are immediately followed by an <code>&#x3C;h2></code> heading.</p>
 <h4>HTML</h4>

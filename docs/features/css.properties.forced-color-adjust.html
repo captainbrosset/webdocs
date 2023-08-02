@@ -39,7 +39,7 @@ forced-color-adjust: unset;
 <p>This property should only be used to makes changes that will support a user's color and contrast requirements. For example, if you become aware that the color optimizations made by the <a href="/Glossary/user_agent">user agent</a> result in a poor experience when in a high contrast or dark mode. Using this property would enable tweaking of the result in that mode to provide a better experience. <strong>It should not be used to prevent user choices being respected</strong>.</p>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements and text</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified</td></tr><tr><th scope="row">Animation type</th><td>not animatable</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>auto | none | preserve-parent-color</pre></section>
-
+<h2>Examples</h2>
 <h3>Preserving colors</h3>
 <p>In the example below the first box will use the color scheme that the user has set. For example in Windows High Contrast mode black scheme it will have a black background and white text. The second box will preserve the site colors set on the <code>.box</code> class.</p>
 <p>By using the <a href="./css.at-rules.media.forced-colors.html"><code>forced-colors</code></a> media feature you could add any other optimizations for forced color mode alongside the <code>forced-color-adjust</code> property.</p>

@@ -359,7 +359,7 @@ cursor: unset;
 </dl>
 <h2>Formal definition</h2><section class="formal-definition"><table><tbody><tr><th scope="row">Initial value</th><td>auto</td></tr><tr><th scope="row">Applies to</th><td>all elements</td></tr><tr><th scope="row">Inherited</th><td>yes</td></tr><tr><th scope="row">Computed value</th><td>as specified, except with any relative URLs converted to absolute</td></tr><tr><th scope="row">Animation type</th><td>discrete</td></tr></tbody></table></section>
 <h2>Formal syntax</h2><section class="formal-syntax"><pre>[ [ &lt;url&gt; | &lt;url-set&gt; ] [&lt;x&gt; &lt;y&gt;]? ]#? [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | grab | grabbing | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out ]</pre></section>
-
+<h2>Usage notes</h2>
 <h3>Icon size limits</h3>
 <p>
   While the specification does not limit the <code>cursor</code> image size, <a href="/Glossary/user_agent">user agents</a> commonly restrict them to avoid potential misuse.
@@ -378,7 +378,7 @@ cursor: unset;
 <p>iPadOS supports pointer devices like trackpads and mouses. By default, the iPad cursor is displayed as a circle, and the only supported value that will change an appearance of the pointer is <code>text</code>.</p>
 <h3>Other notes</h3>
 <p>Cursor changes that intersect toolbar areas are commonly blocked to avoid spoofing.</p>
-
+<h2>Examples</h2>
 <h3>Setting cursor types</h3>
 <pre class="brush: css">.foo {
   cursor: crosshair;

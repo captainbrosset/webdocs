@@ -124,8 +124,12 @@ async function main() {
     // Remove headings for empty sections.
     const headings = dom.querySelectorAll("h2, h3, h4, h5, h6");
     for (const heading of headings) {
-      const section = heading.nextElementSibling;
-      if (!section || section.tagName.startsWith("H")) {
+      const currentLevel = parseInt(heading.tagName[1]);
+      const next = heading.nextElementSibling;
+      const isNextHeading = heading.tagName.startsWith("H");
+      const nextLevel = next ? parseInt(next.tagName[1]) : 0;
+
+      if (!next || (isNextHeading && nextLevel <= currentLevel)) {
         heading.remove();
       }
     }

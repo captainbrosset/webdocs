@@ -34,7 +34,7 @@
 }
 </pre>
 <p>For a discussion of media query syntax, please see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax">Using media queries</a>.</p>
-
+<h2>Description</h2>
 <h3>Media types</h3>
 <p>
   <em>Media types</em> describe the general category of a device.
@@ -286,7 +286,7 @@
 <p>Because media queries provide insights into the capabilities—and by extension, the features and design—of the device the user is working with, there is the potential that they could be abused to construct a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fingerprinting">"fingerprint"</a> which identifies the device, or at least categorizes it to some degree of detail that may be undesirable to users.</p>
 <p>Because of this potential, a browser may opt to fudge the returned values in some manner in order to prevent them from being used to precisely identify a computer. A browser might also offer additional measures in this area; for example, if Firefox's "Resist Fingerprinting" setting is enabled, many media queries report default values rather than values representing the actual device state.</p>
 
-
+<h2>Examples</h2>
 <h3>Testing for print and screen media types</h3>
 <pre class="brush: css">@media print {
   body {
