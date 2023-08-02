@@ -6,8 +6,8 @@ import METADATA from "./tmp/metadata.json" assert { type: "json" };
 
 const MDN_WEBSITE_ROOT = "https://developer.mozilla.org";
 const SRC_DIR = "./tmp/html/";
-const DIST_DIR = "./public/";
-const DIST_FEATURE_DIR = "./public/features/";
+const DIST_DIR = "./docs/";
+const DIST_FEATURE_DIR = "./docs/features/";
 const TEMPLATE_FEATURE = `<!DOCTYPE html>
 <html lang="en">
 <head>
